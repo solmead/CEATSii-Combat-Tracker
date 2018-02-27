@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 
@@ -26,18 +25,13 @@ namespace CombatTracker.Entities.Current
         public virtual List<Actor> Actors { get; set; }
         
         public virtual List<BaseAction> GameActions { get; set; }
-        //public virtual ICollection<GamesPlayer> GamesPlayers { get; set; }
-
         
         public List<string> Colors
         {
             get { return _colors.ToList(); }
         }
-        
-        [NotMapped]
-        public BaseAction NextAction => ActionsSorted().FirstOrDefault();
 
-        [NotMapped]
+        public BaseAction NextAction => ActionsSorted().FirstOrDefault();
         public BaseAction LastAction => ActionsSorted().LastOrDefault();
 
         public List<BaseAction> ActionsSorted()

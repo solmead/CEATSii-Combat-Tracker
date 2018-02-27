@@ -38,9 +38,9 @@ namespace CombatTracker.Domain.Reference.Actions
         }
 
         //[Required]
-        //[ForeignKey("ActionGroup_ID")]
-        //public virtual DbActionGroup ActionGroup { get; set; }
-        
+        [ForeignKey("ActionGroup_ID")]
+        public virtual DbActionGroup ActionGroup { get; set; }
+
         [ForeignKey("NextAction_ID")]
         public virtual DbActionDefinition NextAction { get; set; }
         

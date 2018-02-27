@@ -12,7 +12,7 @@ namespace CombatTracker.Domain
     {
         public DbLevelChart()
         {
-            LevelChartValues = new HashSet<DbLevelChartValue>();
+            Values = new HashSet<DbLevelChartValue>();
         }
 
         public int ID { get; set; }
@@ -21,8 +21,8 @@ namespace CombatTracker.Domain
         [StringLength(1)]
         public string Name { get; set; }
 
-        [InverseProperty("Level_ID")]
-        public virtual ICollection<DbLevelChartValue> LevelChartValues { get; set; }
+        [InverseProperty("Chart")]
+        public virtual ICollection<DbLevelChartValue> Values { get; set; }
 
     }
 }

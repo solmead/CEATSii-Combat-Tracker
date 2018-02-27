@@ -58,12 +58,8 @@ namespace CombatTracker.Domain.Reference.Attacks
         public virtual DbCreature Creature { get; set; }
         [ForeignKey("ThisRoundSuccess_ID")]
         public virtual DbAttack ThisRoundSuccess { get; set; }
-        [InverseProperty("ThisRoundSuccess_ID")]
-        public virtual ICollection<DbAttack> ParentAttacks1 { get; set; }
         [ForeignKey("NextRoundSuccess_ID")]
         public virtual DbAttack NextRoundSuccess { get; set; }
-        [InverseProperty("NextRoundSuccess_ID")]
-        public virtual ICollection<DbAttack> ParentAttacks2 { get; set; }
         [ForeignKey("Size_ID")]
         public virtual DbSizeRating SizeRating { get; set; }
         [ForeignKey("WeaponUsed_ID")]

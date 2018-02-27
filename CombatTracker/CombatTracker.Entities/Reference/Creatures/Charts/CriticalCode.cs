@@ -1,6 +1,5 @@
 
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 using CombatTracker.Entities.Reference.Base;
 using CombatTracker.Entities.Reference.Creatures;
 

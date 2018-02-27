@@ -17,6 +17,8 @@ namespace CombatTracker.Domain
         public int Max { get; set; }
 
         public int Mod { get; set; }
-        
+
+        [ForeignKey("Level_ID")]
+        public virtual DbLevelChart Chart { get; set; }
     }
 }

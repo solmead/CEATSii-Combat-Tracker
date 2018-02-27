@@ -24,7 +24,7 @@ namespace CombatTracker.Entities.Reference.Attacks
             //this.ActorsAttacks = new HashSet<ActorsAttack>();
             //this.ParentAttacks = new HashSet<Attack>();
             //this.ParentAttacks2 = new HashSet<Attack>();
-            this.AttacksAddCrits = new HashSet<AttacksAddCrit>();
+            this.AdditionalCrits = new List<CriticalType>();
         }
     
         public int ID { get; set; }
@@ -45,27 +45,18 @@ namespace CombatTracker.Entities.Reference.Attacks
         //public int? WeaponUsed_ID { get; set; }
     
 
-        public virtual CriticalType CriticalUseInstead { get; set; }
-        public virtual AttackType AttackType { get; set; }
+        public  CriticalType CriticalUseInstead { get; set; }
+        public  AttackType AttackType { get; set; }
         //public virtual Creature Creature { get; set; }
-        public virtual Attack ThisRoundSuccess { get; set; }
+        public  Attack ThisRoundSuccess { get; set; }
         //public virtual ICollection<Attack> ParentAttacks { get; set; }
-        public virtual Attack NextRoundSuccess { get; set; }
-        //public virtual ICollection<Attack> ParentAttacks2 { get; set; }
-        public virtual SizeRating SizeRating { get; set; }
-        public virtual Weapon WeaponUsed { get; set; }
+        public  Attack NextRoundSuccess { get; set; }
+        //public  ICollection<Attack> ParentAttacks2 { get; set; }
+        public  SizeRating SizeRating { get; set; }
+        public  Weapon WeaponUsed { get; set; }
 
-        public virtual ICollection<AttacksAddCrit> AttacksAddCrits { get; set; }
+        public List<CriticalType> AdditionalCrits { get; set; }
 
-
-        //public Attack ParentAttack
-        //{
-        //    get
-        //    {
-        //        var l = ParentAttacks1.Union(ParentAttacks2).ToList();
-        //        return l.FirstOrDefault();
-        //    }
-        //}
 
         public void ModifyOB(int levelDiff)
         {

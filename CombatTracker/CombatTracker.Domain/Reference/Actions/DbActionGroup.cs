@@ -17,7 +17,7 @@ namespace CombatTracker.Domain.Reference.Actions
         [StringLength(500)]
         public string Name { get; set; }
 
-        [InverseProperty("ActionGroup_ID")]
+        [InverseProperty("ActionGroup")]
         public virtual IList<DbActionDefinition> Actions { get; set; }
     }
 }

@@ -1,6 +1,4 @@
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using CombatTracker.Entities.Reference.Attacks;
 using CombatTracker.Entities.Reference.Base;
@@ -19,7 +17,6 @@ namespace CombatTracker.Entities.Reference.Creatures
         }
     
         public int ID { get; set; }
-        [Required]
         public string TypeName { get; set; }
         public int BaseLevel { get; set; }
         //public int LevelMod_ID { get; set; }
@@ -46,25 +43,16 @@ namespace CombatTracker.Entities.Reference.Creatures
     
         //public virtual ICollection<Actor> Actors { get; set; }
         public virtual ICollection<Attack> Attacks { get; set; }
-        [Required]
         public virtual Book Book { get; set; }
-        [Required]
         public virtual ConstitutionBonusChart HitMod { get; set; }
         public virtual CriticalCode Criticals { get; set; }
         public virtual CriticalIgnore CriticalIgnore { get; set; }
-        [Required]
         public virtual IQ IQ { get; set; }
-        [Required]
         public virtual LevelChart LevelMod { get; set; }
-        [Required]
         public virtual Outlook Outlook { get; set; }
-        [Required]
         public virtual Pace MaxPace { get; set; }
-        [Required]
         public virtual SizeRating Size { get; set; }
-        [Required]
         public virtual SpeedChart AQRating { get; set; }
-        [Required]
         public virtual SpeedChart MSRating { get; set; }
 
         

@@ -14,7 +14,7 @@ namespace CombatTracker.Domain
     {
         public DbConstitutionBonusChart()
         {
-            ConstitutionBonusChartValues = new HashSet<DbConstitutionBonusChartValues>();
+            Values = new HashSet<DbConstitutionBonusChartValues>();
         }
 
         public int ID { get; set; }
@@ -26,8 +26,8 @@ namespace CombatTracker.Domain
 
         public int BonusExhaustion { get; set; }
 
-        [InverseProperty("Chart_ID")]
-        public virtual ICollection<DbConstitutionBonusChartValues> ConstitutionBonusChartValues { get; set; }
+        [InverseProperty("Chart")]
+        public virtual ICollection<DbConstitutionBonusChartValues> Values { get; set; }
         
     }
 }

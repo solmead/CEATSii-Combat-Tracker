@@ -20,7 +20,8 @@ namespace CombatTracker.Domain
         //{
 
         //}
-        public TrackerContext(DbContextOptions options):base(options)
+        public TrackerContext(DbContextOptions<TrackerContext> options)
+            : base(options)
         {
 
         }

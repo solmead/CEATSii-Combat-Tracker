@@ -41,10 +41,10 @@ namespace CombatTracker.Domain.Reference.Players
         public double WalkSpeed { get; set; }
         
 
-        [InverseProperty("TiedToID")]
+        [InverseProperty("Character")]
         public virtual ICollection<DbArmor> Armors { get; set; }
         
-        [InverseProperty("TiedToID")]
+        [InverseProperty("Character")]
         public virtual ICollection<DbWeapon> Weapons { get; set; }
     }
 }

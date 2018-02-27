@@ -68,7 +68,7 @@ namespace CombatTracker.Domain.Reference.Creatures
         public string Habitat { get; set; }
         
 
-        [InverseProperty("CreatureOn_ID")]
+        [InverseProperty("Creature")]
         public virtual ICollection<DbAttack> Attacks { get; set; }
         [Required]
         [ForeignKey("Book_ID")]

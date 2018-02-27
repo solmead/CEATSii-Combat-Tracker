@@ -19,7 +19,7 @@ namespace CombatTracker.Domain.Reference
         [StringLength(500)]
         public string Name { get; set; }
         
-        [InverseProperty("Book_ID")]
+        [InverseProperty("Book")]
         public virtual ICollection<DbCreature> Creatures { get; set; }
     }
 }

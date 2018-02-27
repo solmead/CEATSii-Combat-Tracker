@@ -24,10 +24,10 @@ namespace CombatTracker.Domain.Models
 
         public double CurrentTime { get; set; }
         
-        [InverseProperty("Game_ID")]
+        [InverseProperty("Game")]
         public virtual ICollection<DbActor> Actors { get; set; }
 
-        [InverseProperty("Game_ID")]
+        [InverseProperty("Game")]
         public virtual ICollection<DbActorsAction> ActorsActions { get; set; }
         
     }

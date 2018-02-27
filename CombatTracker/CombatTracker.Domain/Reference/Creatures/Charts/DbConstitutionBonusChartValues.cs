@@ -14,6 +14,8 @@ namespace CombatTracker.Domain.Reference.Creatures.Charts
         public int Max { get; set; }
 
         public int Mod { get; set; }
-        
+
+        [ForeignKey("Chart_ID")]
+        public virtual DbConstitutionBonusChart Chart { get; set; }
     }
 }

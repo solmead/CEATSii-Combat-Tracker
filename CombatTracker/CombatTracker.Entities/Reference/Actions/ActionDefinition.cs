@@ -1,8 +1,4 @@
 
-
-
-using System.ComponentModel.DataAnnotations;
-
 namespace CombatTracker.Entities.Reference.Actions
 {
     public partial class ActionDefinition
@@ -14,7 +10,6 @@ namespace CombatTracker.Entities.Reference.Actions
     
         public int ID { get; set; }
         public int? ActionGroup_ID { get; set; }
-        [Required]
         public string Name { get; set; }
         public double BasePercent { get; set; }
         public bool IsAttack { get; set; }
@@ -22,7 +17,6 @@ namespace CombatTracker.Entities.Reference.Actions
         public int? NextAction_ID { get; set; }
         public BaseActionType Type { get; set; }
 
-        [Required]
         public virtual ActionGroup ActionGroup { get; set; }
         
 

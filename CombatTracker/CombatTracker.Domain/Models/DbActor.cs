@@ -90,15 +90,15 @@ namespace CombatTracker.Domain.Models
         [ForeignKey("Game_ID")]
         public virtual DbGame Game { get; set; }
 
-        [InverseProperty("WhoIsActing_ID")]
+        [InverseProperty("Actor")]
         public virtual ICollection<DbActorsAction> Actions { get; set; }
 
 
-        [InverseProperty("Actor_ID")]
+        [InverseProperty("Actor")]
         public virtual ICollection<DbActorsAttack> Attacks { get; set; }
 
 
-        [InverseProperty("Actor_ID")]
+        [InverseProperty("Actor")]
         public virtual ICollection<DbCriticalAffect> CriticalAffects { get; set; }
     }
 }

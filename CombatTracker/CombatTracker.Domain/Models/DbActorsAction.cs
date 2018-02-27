@@ -89,8 +89,6 @@ namespace CombatTracker.Domain.Models
 
         [ForeignKey("Game_ID")]
         public virtual DbGame Game { get; set; }
-
-        //[InverseProperty("")]
-        //public virtual ICollection<DbCriticalAffect> CriticalAffects { get; set; }
+        
     }
 }

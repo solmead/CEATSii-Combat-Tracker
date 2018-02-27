@@ -1,3 +1,4 @@
+using CombatTracker.Domain.Models;
 using CombatTracker.Domain.Reference.Players;
 
 namespace CombatTracker.Domain
@@ -24,6 +25,8 @@ namespace CombatTracker.Domain
         
 
         public int? TiedToID { get; set; }
-        
+        [ForeignKey("TiedToID")]
+        public virtual DbCharacter Character { get; set; }
+
     }
 }
