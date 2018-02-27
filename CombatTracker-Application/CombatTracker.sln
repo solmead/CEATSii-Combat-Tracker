@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.30110.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "CombatTracker", "CombatTracker\CombatTracker.vbproj", "{A4B52982-8F07-47A0-973A-8B27701A4D13}"
 EndProject
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "CombatTrackerData", "C:\Programming\CombatTrackerOnline\CombatTrackerData\CombatTrackerData.vbproj", "{1769FE45-DA0F-49DF-B190-B97237682860}"
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "CombatTrackerData", "CombatTrackerData\CombatTrackerData.vbproj", "{1769FE45-DA0F-49DF-B190-B97237682860}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,5 +24,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {469E2DA8-8F68-4C66-9055-063CE7C246A2}
 	EndGlobalSection
 EndGlobal

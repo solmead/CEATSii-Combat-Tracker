@@ -280,8 +280,8 @@
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\CombatTracker\CombatTrackerData\CombatTrackerData.vbproj">
-      <Project>{1769FE45-DA0F-49DF-B190-B97237682860}</Project>
+    <ProjectReference Include="..\CombatTrackerData\CombatTrackerData.vbproj">
+      <Project>{1769fe45-da0f-49df-b190-b97237682860}</Project>
       <Name>CombatTrackerData</Name>
     </ProjectReference>
   </ItemGroup>
