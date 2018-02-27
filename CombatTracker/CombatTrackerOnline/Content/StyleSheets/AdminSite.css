@@ -1,0 +1,293 @@
+﻿/*----------------------------------------------------------
+The base color for this template is #5c87b2. If you'd like
+to use a different color start by replacing all instances of
+#5c87b2 with your new color.
+----------------------------------------------------------*/
+body
+{
+    background-color: #000000;
+    font-size: .75em;
+    font-family: Verdana, Helvetica, Sans-Serif;
+    margin: 0;
+    padding: 0;
+    color: #ffffff;
+}
+
+a:link
+{
+    color: #034af3;
+    text-decoration: underline;
+}
+a:visited
+{
+    color: #505abc;
+}
+a:hover
+{
+    color: #1d60ff;
+    text-decoration: none;
+}
+a:active
+{
+    color: #12eb87;
+}
+
+p, ul
+{
+    margin-bottom: 20px;
+    line-height: 1.6em;
+}
+
+/* HEADINGS   
+----------------------------------------------------------*/
+h1, h2, h3, h4, h5, h6
+{
+    font-size: 1.5em;
+    color: #000;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1
+{
+    font-size: 2em;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+h2
+{
+    padding: 0 0 10px 0;
+}
+h3
+{
+    font-size: 1.2em;
+}
+h4
+{
+    font-size: 1.1em;
+}
+h5, h6
+{
+    font-size: 1em;
+}
+
+/* this rule styles <h2> tags that are the 
+first child of the left and right table columns */
+.rightColumn > h1, .rightColumn > h2, .leftColumn > h1, .leftColumn > h2
+{
+    margin-top: 0;
+}
+
+.content h1, h2, h3, h4, h5, h6 { text-transform: uppercase; color: #fff; text-shadow: #000 1px 1px; }
+
+.content a { color: #fff; text-decoration: none; border-bottom: 1px dotted #fff; outline: none; }
+
+.content a:hover { color: #fff; border-bottom: 1px solid #fff; }
+
+/* PRIMARY LAYOUT ELEMENTS   
+----------------------------------------------------------*/
+
+/* you can specify a greater or lesser percentage for the 
+page width. Or, you can specify an exact pixel width. */
+.page
+{
+    width: 910px;
+    /*height: 611px;*/
+    margin-left: auto;
+    margin-right: auto;
+    /*margin-top: 7px;*/
+    background-color: #999999;
+    border-left: solid 1px white;
+    border-right: solid 1px white;
+    border-bottom: solid 1px white;
+    position: relative;
+}
+
+.content {background-color: #222225}
+
+
+
+.mainmenu
+{
+	margin: 0; 
+	background: transparent url("../Images/menuback.png") repeat-x 0 0;
+	height:30px;
+	width:100%;
+	/*margin-top:4px;*/
+	/*border-top: 1px solid #777777;*/
+	/*border-bottom: 1px solid #777777;*/
+	overflow:hidden;
+	}
+.mainmenu a {
+	padding-left:4px;
+	padding-right:4px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	text-decoration: none !important;
+	text-shadow: #000 1px 1px;
+	color: #000;
+}
+.mainmenu div 
+{
+	height: 30px;
+	border-right: 1px solid #777777; border-left: none;
+}
+.mainmenu a:hover 
+{ 
+	/*background-position: 0 -70px; */
+	color:#fff;
+}
+#navigation  
+{
+	list-style: none;
+	margin: 0; 
+	background: transparent url("../Images/menuback.png") repeat-x 0 0;
+	height:30px;
+	/*margin-top:4px;*/
+	/*border-top: 1px solid #777777;*/
+	/*border-bottom: 1px solid #777777;*/
+	overflow:hidden;
+	float:left;
+	}
+#navigation li { float: left; border-right: 1px solid #777777; border-left: none;  }
+#navigation li a {
+	display: block;
+	padding-left:4px;
+	padding-right:4px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	text-decoration: none !important;
+	text-shadow: #000 1px 1px;
+	background: #777777 url("../Images/menuback.png") repeat-x 0 0;
+	color: #000;
+}
+
+#navigation li ul 
+{
+	position:absolute;
+	list-style: none;
+	background: black;
+}
+
+#navigation li ul li
+{
+	margin:0px;
+	float:none;
+	padding:2px;
+	border:solid 1px white;
+}
+#navigation li ul li a
+{
+	color:White;
+	background: transparent;
+	height:15px;
+	line-height: 15px;
+}
+#navigation li ul li a:hover
+{
+	background: #222222;
+}
+
+/*
+#navigation li a:last-child { width:70px; }
+*/
+#navigation li a:hover 
+{ 
+	/*background-position: 0 -70px; */
+	color:#fff;
+}
+
+
+
+.upperarea 
+{
+	width:100%; 
+	height:40px; 
+}
+
+.mainarea 
+{
+	width:100%; 
+}
+
+#footerarea
+{
+	width: 700px;
+	height: 28px;
+	position:relative; 
+	border-right:solid 2px white;
+	border-bottom:solid 1px white;
+	border-top:solid 1px white;
+	margin-top:6px;
+	background-color:Black;
+	color:White;
+}
+
+
+
+#pager { list-style: none; margin: 1em 0; }
+
+#pager li { float: left; margin: 0 10px 0 0; }
+
+#pager li a {
+	display: block;
+	padding: 0 3px;
+	border: 1px solid #8b8d92;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	color: #8b8d92;
+}
+
+#pager li a:hover { background: #999; color: #000; }
+
+#pager li a.current { background: #999; color: #000; }
+
+.datatable th { background: #005373; }
+
+.datatable td { vertical-align: top; }
+
+.odd-row {  }
+
+.even-row { background: #333; }
+
+.desctructive {  }
+
+.basetable 
+{
+	margin:0 !Important;
+	padding:0 !Important;
+	width:0px !Important;
+}
+.basetable th
+{
+	padding:0px !Important;
+}
+.basetable td
+{
+	padding:0px !Important;
+}
+
+.AttackLink a:hover
+{
+	color: #FF0000;
+}
+.ActorActionBack
+{
+	background:#fff;
+	width:150px;
+	height:55px;
+	overflow:hidden; 
+    white-space:nowrap;
+}
+.ActorAction
+{
+	background:transparent url("../Images/ActionOverlay.png") no-repeat 0 0;
+	width:134px;
+	height:49px;
+	padding:3px 8px 3px 8px;
+	overflow:hidden; 
+    font-size: .73em;
+    white-space:nowrap;
+    color:Black;
+}

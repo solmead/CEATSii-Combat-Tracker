@@ -1,0 +1,187 @@
+/*----------------------------------------------------------
+The base color for this template is #5c87b2. If you'd like
+to use a different color start by replacing all instances of
+#5c87b2 with your new color.
+----------------------------------------------------------*/
+body
+{
+    font-size: .75em;
+    font-family: Verdana, Helvetica, Sans-Serif;
+    margin: 0;
+    padding: 0;
+    color: #000000;
+    background: #ffffff url("/Content/Images/backgroud.png") repeat-x 0 0;
+}
+
+a:link
+{
+    color: #034af3;
+    text-decoration: underline;
+}
+a:visited
+{
+    color: #505abc;
+}
+a:hover
+{
+    color: #1d60ff;
+    text-decoration: none;
+}
+a:active
+{
+    color: #12eb87;
+}
+
+p, ul
+{
+    margin-bottom: 20px;
+    line-height: 1.6em;
+}
+
+/* HEADINGS   
+----------------------------------------------------------*/
+h1, h2, h3, h4, h5, h6
+{
+    font-size: 1.5em;
+    color: #000;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1
+{
+    font-size: 2em;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+h2
+{
+    padding: 0 0 10px 0;
+}
+h3
+{
+    font-size: 1.2em;
+}
+h4
+{
+    font-size: 1.1em;
+}
+h5, h6
+{
+    font-size: 1em;
+}
+
+/* this rule styles <h2> tags that are the 
+first child of the left and right table columns */
+.rightColumn > h1, .rightColumn > h2, .leftColumn > h1, .leftColumn > h2
+{
+    margin-top: 0;
+}
+
+.content h1, h2, h3, h4, h5, h6 { text-transform: uppercase; color: #fff; text-shadow: #000 1px 1px; }
+
+.content a { color: #fff; text-decoration: none; border-bottom: 1px dotted #fff; outline: none; }
+
+.content a:hover { color: #fff; border-bottom: 1px solid #fff; }
+
+/* PRIMARY LAYOUT ELEMENTS   
+----------------------------------------------------------*/
+
+/* you can specify a greater or lesser percentage for the 
+page width. Or, you can specify an exact pixel width. */
+.page
+{
+    width: 888px;
+    /*height: 611px;*/
+    margin-left: auto;
+    margin-right: auto;
+    /*
+    margin-top: 7px;
+    background-color: #999999;
+    border: solid 1px white;
+	*/
+    position: relative;
+}
+
+#toparea 
+{
+	width: 880px;
+	height: 70px;
+	position: relative;
+	/*
+	border-right:solid 3px white;
+	border-left:solid 3px white;
+	border-bottom:solid 8px white;
+*/
+	overflow:hidden;
+}
+#middlearea 
+{
+	width: 888px;
+	height: 337px;
+	position: relative;
+	/*
+	border:solid 3px white;
+	*/
+	overflow:hidden;
+}
+#bottomarea
+{
+	width: 882px;
+	height: 256px;
+	position: relative;
+	overflow:hidden;
+	margin-top:15px;
+}
+#footerarea
+{
+	width: 882px;
+	height: 30px;
+	position: relative;
+	overflow:hidden;
+	color: #ACACAC;
+}
+#footerarea a 
+{
+	color: #ACACAC;
+	font-size:.9em;
+}
+
+
+
+#pager { list-style: none; margin: 1em 0; }
+
+#pager li { float: left; margin: 0 10px 0 0; }
+
+#pager li a {
+	display: block;
+	padding: 0 3px;
+	border: 1px solid #8b8d92;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	color: #8b8d92;
+}
+
+#pager li a:hover { background: #999; color: #000; }
+
+#pager li a.current { background: #999; color: #000; }
+
+th { background: #005373; }
+
+td { vertical-align: top; }
+
+.odd-row {  }
+
+.even-row { background: #333; }
+
+.desctructive {  }
+
+.liveinnumber 
+{
+	background: transparent url('/Content/Images/DigitalNumbers.png') no-repeat 0 0; 
+	height: 20px; 
+	width: 15px; 
+	margin-top:12px; 
+	margin-left:0px; 
+	float:left;
+	overflow:hidden;
+}
