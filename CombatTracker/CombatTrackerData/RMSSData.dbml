@@ -1,0 +1,444 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="RMSS" Class="RMSSDataDataContext" Serialization="Unidirectional" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=cpowell-8460p\sqlexpress;Initial Catalog=RMSS;Persist Security Info=True;User ID=rmssAdmin" SettingsObjectName="CombatTrackerData.My.MySettings" SettingsPropertyName="MainDBConnString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.ActionGroups" Member="ActionGroups">
+    <Type Name="ActionGroup">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Association Name="ActionGroup_BaseAction" Member="Actions" ThisKey="ID" OtherKey="ActionGroup_ID" Type="BaseAction" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Actions" Member="BaseActions">
+    <Type Name="BaseAction">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ActionGroup_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="BasePercent" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="NextAction_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Type" Type="BaseActionType" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="BaseAction_BaseAction" Member="ParentActions" ThisKey="ID" OtherKey="NextAction_ID" Type="BaseAction" />
+      <Association Name="BaseAction_Action" Member="Actions" ThisKey="ID" OtherKey="BaseAction_ID" Type="Action" />
+      <Association Name="ActionGroup_BaseAction" Member="Group" ThisKey="ActionGroup_ID" OtherKey="ID" Type="ActionGroup" IsForeignKey="true" />
+      <Association Name="BaseAction_BaseAction" Member="NextAction" ThisKey="NextAction_ID" OtherKey="ID" Type="BaseAction" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Attacks" Member="Attacks">
+    <Type Name="Attack">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PercentChance" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="OB" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MaxOB" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Type_ID" Storage="_Type" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Size_ID" Storage="_Size" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Number" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DamageMultiplier" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CriticalLevel" Type="CriticalLevels" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="AdditionalCritsIsOr" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="UseCriticalInstead_ID" Storage="_UseCriticalInstead" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ThisRoundSuccess_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NextRoundSuccess_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatureOn_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="WeaponUsed_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Attack_Attack" Member="ParentAttacks" ThisKey="ID" OtherKey="NextRoundSuccess_ID" Type="Attack" />
+      <Association Name="Attack_Attack1" Member="ParentAttacks2" ThisKey="ID" OtherKey="ThisRoundSuccess_ID" Type="Attack" />
+      <Association Name="Attack_AttacksAddCrit" Member="AdditionalCrits" ThisKey="ID" OtherKey="AttackID" Type="AttacksAddCrit" />
+      <Association Name="Attack_Action" Member="Actions" ThisKey="ID" OtherKey="CurrentAttack_ID" Type="Action" />
+      <Association Name="Attack_ActorsAttack" Member="ActorsAttacks" ThisKey="ID" OtherKey="Attack_ID" Type="ActorsAttack" />
+      <Association Name="Attack_Attack" Member="NextRoundSuccess" ThisKey="NextRoundSuccess_ID" OtherKey="ID" Type="Attack" IsForeignKey="true" />
+      <Association Name="Attack_Attack1" Member="ThisRoundSuccess" ThisKey="ThisRoundSuccess_ID" OtherKey="ID" Type="Attack" IsForeignKey="true" />
+      <Association Name="Weapon_Attack" Member="WeaponUsed" ThisKey="WeaponUsed_ID" OtherKey="ID" Type="Weapon" IsForeignKey="true" />
+      <Association Name="Creature_Attack" Member="Creature" ThisKey="CreatureOn_ID" OtherKey="ID" Type="Creature" IsForeignKey="true" />
+      <Association Name="SizeRating_Attack" Member="SizeRating" ThisKey="Size_ID" OtherKey="ID" Type="SizeRating" IsForeignKey="true" />
+      <Association Name="CriticalType_Attack" Member="CriticalUseInstead" ThisKey="UseCriticalInstead_ID" OtherKey="ID" Type="CriticalType" IsForeignKey="true" />
+      <Association Name="AttackType_Attack" Member="AttackType" ThisKey="Type_ID" OtherKey="ID" Type="AttackType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AttacksAddCrits" Member="AttacksAddCrits">
+    <Type Name="AttacksAddCrit">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="AttackID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Critical_ID" Storage="_Critical" Type="System.Int32" DbType="int" CanBeNull="true" />
+      <Association Name="Attack_AttacksAddCrit" Member="Attack" ThisKey="AttackID" OtherKey="ID" Type="Attack" IsForeignKey="true" />
+      <Association Name="CriticalType_AttacksAddCrit" Member="CriticalType" ThisKey="Critical_ID" OtherKey="ID" Type="CriticalType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Books" Member="Books">
+    <Type Name="Book">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Association Name="Book_Creature" Member="Creatures" ThisKey="ID" OtherKey="Book_ID" Type="Creature" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Characters" Member="Characters">
+    <Type Name="Character">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="[Level]" Member="Level" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="BaseInititive" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HitPoints" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ExhaustionPoints" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PowerPoints" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Type" Type="CharacterType" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="StrengthBonus" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PercentRequiredAdrenalDB" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="WalkSpeed" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Association Name="Character_Weapon" Member="Weapons" ThisKey="ID" OtherKey="TiedToID" Type="Weapon" />
+      <Association Name="Character_Armor" Member="Armors" ThisKey="ID" OtherKey="TiedToID" Type="Armor" />
+      <Association Name="Character_Actor" Member="Actors" ThisKey="ID" OtherKey="BaseCharacter_ID" Type="Actor" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PsychicRefractoryPeriodMod" Member="PsychicRefractoryPeriodCharts">
+    <Type Name="PsychicRefractoryPeriodChart">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RoundNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LevelMin" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LevelMax" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Mod" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Weapons" Member="Weapons">
+    <Type Name="Weapon">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(500)" CanBeNull="false" />
+      <Column Name="MinWeight" Type="System.Int32" DbType="Int" CanBeNull="false" />
+      <Column Name="MaxWeight" Type="System.Int32" DbType="Int" CanBeNull="false" />
+      <Column Name="Weight" Type="System.Int32" DbType="Int" CanBeNull="false" />
+      <Column Name="Bonus" Type="System.Int32" DbType="Int" CanBeNull="false" />
+      <Column Name="Is2Handed" Type="System.Boolean" DbType="Bit" CanBeNull="false" />
+      <Column Name="OB" Type="System.Int32" DbType="Int" CanBeNull="false" />
+      <Column Name="TiedToID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="true" />
+      <Association Name="Weapon_Attack" Member="Attacks" ThisKey="ID" OtherKey="WeaponUsed_ID" Type="Attack" />
+      <Association Name="Character_Weapon" Member="Character" ThisKey="TiedToID" OtherKey="ID" Type="Character" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Armors" Member="Armors">
+    <Type Name="Armor">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Type" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="MovingManeuverMod" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DB" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="BaseArmor_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TiedToID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Armor_Actor" Member="Actors" ThisKey="ID" OtherKey="CurrentArmor_ID" Type="Actor" />
+      <Association Name="Character_Armor" Member="Character" ThisKey="TiedToID" OtherKey="ID" Type="Character" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.aspnet_Users" Member="SystemUsers">
+    <Type Name="SystemUser">
+      <Column Name="UserId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" CanBeNull="false" />
+      <Association Name="SystemUser_Game" Member="Games" ThisKey="UserId" OtherKey="GM_ID" Type="Game" />
+      <Association Name="SystemUser_GamesPlayer" Member="GamesPlayers" ThisKey="UserId" OtherKey="Player_ID" Type="GamesPlayer" />
+      <Association Name="SystemUser_Actor" Member="Actors" ThisKey="UserId" OtherKey="Player_ID" Type="Actor" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Creature_Pace" Member="Paces">
+    <Type Name="Pace">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Abbreviation" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Pace_Creature" Member="Creatures" ThisKey="ID" OtherKey="MaxPace_ID" Type="Creature" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Creature_SpeedChart" Member="SpeedCharts">
+    <Type Name="SpeedChart">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Abbreviation" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="MSBaseDB" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MSFleeEvade" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AQChargeLunge" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AQInitiative" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="SpeedChart_Creature" Member="Creatures" ThisKey="ID" OtherKey="MSRating_ID" Type="Creature" />
+      <Association Name="SpeedChart_Creature1" Member="Creatures1" ThisKey="ID" OtherKey="AQRating_ID" Type="Creature" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Creature_Sizes" Member="SizeRatings">
+    <Type Name="SizeRating">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Abbreviation" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="SizeRating_Attack" Member="Attacks" ThisKey="ID" OtherKey="Size_ID" Type="Attack" />
+      <Association Name="SizeRating_Creature" Member="Creatures" ThisKey="ID" OtherKey="Size_ID" Type="Creature" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Creature_CriticalCodes" Member="CriticalCodes">
+    <Type Name="CriticalCode">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Abbreviation" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="CriticalCode_Creature" Member="Creatures" ThisKey="ID" OtherKey="Criticals_ID" Type="Creature" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Creature_CriticalIgnores" Member="CriticalIgnores">
+    <Type Name="CriticalIgnore">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Abbreviation" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="CriticalIgnore_Creature" Member="Creatures" ThisKey="ID" OtherKey="CriticalsIgnore_ID" Type="Creature" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Creature_LevelChart" Member="LevelCharts">
+    <Type Name="LevelChart">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.Char" DbType="NVarChar(1) NOT NULL" CanBeNull="false" />
+      <Association Name="LevelChart_LevelChartValue" Member="LevelChartValues" ThisKey="ID" OtherKey="Level_ID" Type="LevelChartValue" />
+      <Association Name="LevelChart_Creature" Member="Creatures" ThisKey="ID" OtherKey="LevelMod_ID" Type="Creature" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Creature_LevelChartValues" Member="LevelChartValues">
+    <Type Name="LevelChartValue">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Level_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Min" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Max" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Mod" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="LevelChart_LevelChartValue" Member="LevelChart" ThisKey="Level_ID" OtherKey="ID" Type="LevelChart" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Creature_ConsitutionBonusChart" Member="ConstitutionBonusCharts">
+    <Type Name="ConstitutionBonusChart">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Code" Type="System.Char" DbType="NVarChar(1)" CanBeNull="true" />
+      <Column Name="PerLevelDifference" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="BonusExhaustion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="ConstitutionBonusChart_ConstitutionBonusChartValue" Member="ConstitutionBonusChartValues" ThisKey="ID" OtherKey="Chart_ID" Type="ConstitutionBonusChartValue" />
+      <Association Name="ConstitutionBonusChart_Creature" Member="Creatures" ThisKey="ID" OtherKey="HitMod_ID" Type="Creature" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Creature_ConstitutionBonusChartValues" Member="ConstitutionBonusChartValues">
+    <Type Name="ConstitutionBonusChartValue">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Chart_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Min" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Max" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Mod" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="ConstitutionBonusChart_ConstitutionBonusChartValue" Member="ConstitutionBonusChart" ThisKey="Chart_ID" OtherKey="ID" Type="ConstitutionBonusChart" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Creature_IQs" Member="IQs">
+    <Type Name="IQ">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Abbreviation" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="IQ_Creature" Member="Creatures" ThisKey="ID" OtherKey="IQ_ID" Type="Creature" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Creature_Outlook" Member="Outlooks">
+    <Type Name="Outlook">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="Abbreviation" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Outlook_Creature" Member="Creatures" ThisKey="ID" OtherKey="Outlook_ID" Type="Creature" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Creatures" Member="Creatures">
+    <Type Name="Creature">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TypeName" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="BaseLevel" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LevelMod_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Size_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MSRating_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AQRating_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="BaseMove" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MaxPace_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MMBonus" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MinEncountered" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MaxEncountered" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="BaseHits" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HitMod_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Criticals_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CriticalsIgnore_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AT" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DB" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Outlook_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IQ_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PageNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Book_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Habitat" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Creature_Attack" Member="Attacks" ThisKey="ID" OtherKey="CreatureOn_ID" Type="Attack" />
+      <Association Name="Creature_Actor" Member="Actors" ThisKey="ID" OtherKey="BaseCreature_ID" Type="Actor" />
+      <Association Name="Book_Creature" Member="Book" ThisKey="Book_ID" OtherKey="ID" Type="Book" IsForeignKey="true" />
+      <Association Name="CriticalCode_Creature" Member="Criticals" ThisKey="Criticals_ID" OtherKey="ID" Type="CriticalCode" IsForeignKey="true" />
+      <Association Name="CriticalIgnore_Creature" Member="CriticalIgnore" ThisKey="CriticalsIgnore_ID" OtherKey="ID" Type="CriticalIgnore" IsForeignKey="true" />
+      <Association Name="ConstitutionBonusChart_Creature" Member="HitMod" ThisKey="HitMod_ID" OtherKey="ID" Type="ConstitutionBonusChart" IsForeignKey="true" />
+      <Association Name="IQ_Creature" Member="IQ" ThisKey="IQ_ID" OtherKey="ID" Type="IQ" IsForeignKey="true" />
+      <Association Name="LevelChart_Creature" Member="LevelMod" ThisKey="LevelMod_ID" OtherKey="ID" Type="LevelChart" IsForeignKey="true" />
+      <Association Name="Outlook_Creature" Member="Outlook" ThisKey="Outlook_ID" OtherKey="ID" Type="Outlook" IsForeignKey="true" />
+      <Association Name="Pace_Creature" Member="MaxPace" ThisKey="MaxPace_ID" OtherKey="ID" Type="Pace" IsForeignKey="true" />
+      <Association Name="SizeRating_Creature" Member="Size" ThisKey="Size_ID" OtherKey="ID" Type="SizeRating" IsForeignKey="true" />
+      <Association Name="SpeedChart_Creature" Member="MSRating" ThisKey="MSRating_ID" OtherKey="ID" Type="SpeedChart" IsForeignKey="true" />
+      <Association Name="SpeedChart_Creature1" Member="AQRating" ThisKey="AQRating_ID" OtherKey="ID" Type="SpeedChart" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Attack_CriticalTypes" Member="CriticalTypes">
+    <Type Name="CriticalType">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Abbreviation" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="CriticalType_Attack" Member="Attacks" ThisKey="ID" OtherKey="UseCriticalInstead_ID" Type="Attack" />
+      <Association Name="CriticalType_AttacksAddCrit" Member="AttacksAddCrits" ThisKey="ID" OtherKey="Critical_ID" Type="AttacksAddCrit" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Attack_Types" Member="AttackTypes">
+    <Type Name="AttackType">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Abbreviation" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="HasSize" Type="System.Boolean" CanBeNull="false" />
+      <Column Name="HasDB" Type="System.Boolean" CanBeNull="false" />
+      <Association Name="AttackType_Attack" Member="Attacks" ThisKey="ID" OtherKey="Type_ID" Type="Attack" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Games" Member="Games">
+    <Type Name="Game">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="GM_ID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="CurrentTime" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Association Name="Game_GamesPlayer" Member="GamesPlayers" ThisKey="ID" OtherKey="Game_ID" Type="GamesPlayer" />
+      <Association Name="Game_Actor" Member="Actors" ThisKey="ID" OtherKey="Game_ID" Type="Actor" />
+      <Association Name="Game_Action" Member="GameActions" Storage="_Actions" ThisKey="ID" OtherKey="Game_ID" Type="Action" />
+      <Association Name="SystemUser_Game" Member="GM" ThisKey="GM_ID" OtherKey="UserId" Type="SystemUser" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.GamesPlayers" Member="GamesPlayers">
+    <Type Name="GamesPlayer">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Game_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Player_ID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Association Name="Game_GamesPlayer" Member="Game" ThisKey="Game_ID" OtherKey="ID" Type="Game" IsForeignKey="true" />
+      <Association Name="SystemUser_GamesPlayer" Member="Player" ThisKey="Player_ID" OtherKey="UserId" Type="SystemUser" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Actors" Member="Actors">
+    <Type Name="Actor">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Game_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Player_ID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="BaseCreature_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BaseCharacter_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Type" Type="CharacterType" DbType="NVarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="[Level]" Member="Level" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HitsTotal" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HitsRemaining" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="BaseInititive" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RolledInititive" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ExhaustionTotal" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ExhaustionRemaining" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PowerPointsTotal" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PowerPointsRemaining" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IsConcentrating" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsMoving" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Suprised" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="UsingAdrenalDB" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="PercentRequiredAdrenalDB" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="PercentAction" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="StrengthBonus" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CritNegatives" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CurrentArmor_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NextSpellTime" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="ConstitutionStat" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Movement" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Color" Type="System.String" CanBeNull="false" />
+      <Association Name="Actor_CriticalAffect" Member="CriticalAffects" ThisKey="ID" OtherKey="Actor_ID" Type="CriticalAffect" />
+      <Association Name="Actor_Action" Member="Actions" ThisKey="ID" OtherKey="WhoIsActing_ID" Type="Action" />
+      <Association Name="Actor_ActorsAttack" Member="ActorsAttacks" ThisKey="ID" OtherKey="Actor_ID" Type="ActorsAttack" />
+      <Association Name="Character_Actor" Member="Character" ThisKey="BaseCharacter_ID" OtherKey="ID" Type="Character" IsForeignKey="true" />
+      <Association Name="Creature_Actor" Member="Creature" ThisKey="BaseCreature_ID" OtherKey="ID" Type="Creature" IsForeignKey="true" />
+      <Association Name="Game_Actor" Member="Game" ThisKey="Game_ID" OtherKey="ID" Type="Game" IsForeignKey="true" />
+      <Association Name="SystemUser_Actor" Member="Player" ThisKey="Player_ID" OtherKey="UserId" Type="SystemUser" IsForeignKey="true" />
+      <Association Name="Armor_Actor" Member="CurrentArmor" ThisKey="CurrentArmor_ID" OtherKey="ID" Type="Armor" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CriticalAffects" Member="CriticalAffects">
+    <Type Name="CriticalAffect">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IsStunned" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Parry" Type="ParryType" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ParryNegative" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Negative" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TimeStart" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="TimeEnd" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Actor_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="CriticalAffect_CriticalAction" Member="CriticalActions" ThisKey="ID" OtherKey="Critical_ID" Type="CriticalAction" />
+      <Association Name="Actor_CriticalAffect" Member="Actor" ThisKey="Actor_ID" OtherKey="ID" Type="Actor" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ActorsActions" Member="Actions">
+    <Type Name="Action">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Game_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="WhoIsActing_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="BaseAction_ID" Type="System.Int32" CanBeNull="true" />
+      <Column Name="CurrentAttack_ID" Type="System.Int32" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="StartTime" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="EndTime" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Type" Type="ActorActionType" DbType="NVarChar(50) NOT NULL" CanBeNull="false" IsDiscriminator="true" />
+      <Column Name="BasePercent" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Interrupted" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Note" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="State" Type="ActionProblem" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CurrentModifier" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CriticalGiven" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LeftPercent" Type="System.Double" CanBeNull="false" />
+      <Column Name="ActionType" Type="ActionTypeEnum" DbType="nvarchar(50)" CanBeNull="false" />
+      <Association Name="BaseAction_Action" Member="Base" ThisKey="BaseAction_ID" OtherKey="ID" Type="BaseAction" IsForeignKey="true" />
+      <Association Name="Actor_Action" Member="WhoIsActing" ThisKey="WhoIsActing_ID" OtherKey="ID" Type="Actor" IsForeignKey="true" />
+      <Association Name="Attack_Action" Member="CurrentAttack" ThisKey="CurrentAttack_ID" OtherKey="ID" Type="Attack" IsForeignKey="true" />
+      <Association Name="Game_Action" Member="Game" ThisKey="Game_ID" OtherKey="ID" Type="Game" IsForeignKey="true" />
+      <Type Name="BleedAction" InheritanceCode="Bleed">
+        <Column Name="Bleeder" Type="System.Int32" CanBeNull="false" />
+        <Column Name="Count" Type="System.Int32" CanBeNull="false" />
+      </Type>
+      <Type Name="CriticalAction" InheritanceCode="Critical">
+        <Column Name="Critical_ID" Type="System.Int32" CanBeNull="true" />
+        <Association Name="CriticalAffect_CriticalAction" Member="CriticalAffect" ThisKey="Critical_ID" OtherKey="ID" Type="CriticalAffect" IsForeignKey="true" />
+      </Type>
+      <Type Name="DeathAction" InheritanceCode="Death">
+        <Column Name="Count" Type="System.Int32" CanBeNull="false" />
+      </Type>
+      <Type Name="StandardAction" InheritanceCode="Normal" IsInheritanceDefault="true" />
+      <Type Name="PrepAction" InheritanceCode="Prep">
+        <Column Name="Count" Member="CurrentRound" Type="System.Int32" CanBeNull="false" />
+      </Type>
+      <Type Name="PsychicAction" InheritanceCode="Psychic">
+        <Column Name="Count" Member="CurrentRound" Type="System.Int32" CanBeNull="false" />
+        <Column Name="TotalRounds" Type="System.Int32" CanBeNull="false" />
+        <Column Name="LevelDifference" Type="System.Int32" CanBeNull="false" />
+      </Type>
+      <Type Name="SpellEffectAction" InheritanceCode="SpellEffect">
+        <Column Name="IsHasted" Type="System.Boolean" CanBeNull="false" />
+        <Column Name="IsSlowed" Type="System.Boolean" CanBeNull="false" />
+        <Column Name="HastedPercent" Type="System.Double" CanBeNull="false" />
+      </Type>
+      <Type Name="MovementAction" InheritanceCode="Movement">
+        <Column Name="Count" Type="System.Int32" CanBeNull="false" />
+      </Type>
+      <Type Name="AttackAction" InheritanceCode="Attack" />
+      <Type Name="SpellAction" InheritanceCode="Spell" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ActorsAttacks" Member="ActorsAttacks">
+    <Type Name="ActorsAttack">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Actor_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Attack_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Actor_ActorsAttack" Member="Actor" ThisKey="Actor_ID" OtherKey="ID" Type="Actor" IsForeignKey="true" />
+      <Association Name="Attack_ActorsAttack" Member="Attack" ThisKey="Attack_ID" OtherKey="ID" Type="Attack" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Attack_WeaponTypes" Member="WeaponTypes">
+    <Type Name="WeaponType">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Abbreviation" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+</Database>

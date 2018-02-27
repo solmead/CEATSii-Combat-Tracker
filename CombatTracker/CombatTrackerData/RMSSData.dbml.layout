@@ -1,0 +1,606 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 22.625, 30.5" name="RMSSData">
+  <DataContextMoniker Name="/RMSSDataDataContext" />
+  <nestedChildShapes>
+    <classShape Id="8d352376-debd-4ebe-ac43-d7b8d0704cd8" absoluteBounds="0.75, 8.25, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/RMSSDataDataContext/ActionGroup" />
+      <nestedChildShapes>
+        <elementListCompartment Id="44e7bf70-b21f-4f61-b82b-818629b6cba9" absoluteBounds="0.765, 8.71, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b387a03a-6f04-4cb2-ae2e-2f544eb96859" absoluteBounds="3.5, 8, 2, 1.9631982421875005">
+      <DataClassMoniker Name="/RMSSDataDataContext/BaseAction" />
+      <nestedChildShapes>
+        <elementListCompartment Id="73411325-004b-4ef3-802b-fd3887e5a222" absoluteBounds="3.515, 8.46, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d3a51fc4-5b3a-42df-b1e2-22ff0121093a" absoluteBounds="3.25, 0.5, 2, 3.6939111328124996">
+      <DataClassMoniker Name="/RMSSDataDataContext/Attack" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3ab4e02b-cb83-4e37-adb9-5f38a6675296" absoluteBounds="3.265, 0.96, 1.9700000000000002, 3.1339111328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b0f5556d-2834-4ede-9527-75e7e36073f9" absoluteBounds="6.25, 2.75, 2, 1.3862939453124996">
+      <DataClassMoniker Name="/RMSSDataDataContext/AttacksAddCrit" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c72c421f-b6ab-4c69-a12b-7c08880ada0a" absoluteBounds="6.265, 3.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ac694fea-26da-464e-92dd-a7613e49386d" absoluteBounds="9.5, 5.5, 2, 1.1939925130208327">
+      <DataClassMoniker Name="/RMSSDataDataContext/Book" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f0aada96-2651-42a8-bc56-e44bc080b80d" absoluteBounds="9.515, 5.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="fa18568e-1580-4d29-80c3-9e9aa61aefe9" absoluteBounds="1, 11.25, 2, 2.9247054036458326">
+      <DataClassMoniker Name="/RMSSDataDataContext/Character" />
+      <nestedChildShapes>
+        <elementListCompartment Id="edbd0720-108c-4c06-ae7f-c6a75927a22c" absoluteBounds="1.0149999999999997, 11.71, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="08c8334e-ecd8-4af6-9b7a-9f3dfa16a469" absoluteBounds="11, 0.5, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/RMSSDataDataContext/PsychicRefractoryPeriodChart" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e549a37b-a473-4e50-a9ca-67868a5c02a4" absoluteBounds="11.015, 0.96, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3.80692307692308 : 4.1939111328125); (3.80692307692308 : 4.5689111328125); (4.37461538461539 : 4.5689111328125); (4.37461538461539 : 4.1939111328125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/RMSSDataDataContext/Attack/Attack_Attack" />
+      <nodes>
+        <classShapeMoniker Id="d3a51fc4-5b3a-42df-b1e2-22ff0121093a" />
+        <classShapeMoniker Id="d3a51fc4-5b3a-42df-b1e2-22ff0121093a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.25 : 3.44314697265625); (6.25 : 3.44314697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/RMSSDataDataContext/Attack/Attack_AttacksAddCrit" />
+      <nodes>
+        <classShapeMoniker Id="d3a51fc4-5b3a-42df-b1e2-22ff0121093a" />
+        <classShapeMoniker Id="b0f5556d-2834-4ede-9527-75e7e36073f9" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="e7ef5796-c22e-4d6e-b4da-0309f26ffb05" absoluteBounds="7.75, 11.75, 2, 2.5401025390625005">
+      <DataClassMoniker Name="/RMSSDataDataContext/Weapon" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7f1cdf4f-fe99-4ec7-93a6-d96aa55bba0e" absoluteBounds="7.7650000000000006, 12.21, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3 : 12.7876395670573); (3.26041666666667 : 12.7876395670573 : JumpStart); (3.42708333333333 : 12.7876395670573 : JumpEnd); (7.75 : 12.7876395670573)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/RMSSDataDataContext/Character/Character_Weapon" />
+      <nodes>
+        <classShapeMoniker Id="fa18568e-1580-4d29-80c3-9e9aa61aefe9" />
+        <classShapeMoniker Id="e7ef5796-c22e-4d6e-b4da-0309f26ffb05" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="f349e2af-2ee4-4e81-9261-b90690955ac9" absoluteBounds="7.75, 9.75, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/RMSSDataDataContext/Armor" />
+      <nestedChildShapes>
+        <elementListCompartment Id="16e0ffe3-de59-4010-922c-6be93de1a566" absoluteBounds="7.765, 10.21, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3 : 11.458944905599); (7.75 : 11.458944905599)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/RMSSDataDataContext/Character/Character_Armor" />
+      <nodes>
+        <classShapeMoniker Id="fa18568e-1580-4d29-80c3-9e9aa61aefe9" />
+        <classShapeMoniker Id="f349e2af-2ee4-4e81-9261-b90690955ac9" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(7.75 : 13.5701235530599); (3.34375 : 13.5701235530599); (3.34375 : 4.1939111328125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/RMSSDataDataContext/Weapon/Weapon_Attack" />
+      <nodes>
+        <classShapeMoniker Id="e7ef5796-c22e-4d6e-b4da-0309f26ffb05" />
+        <classShapeMoniker Id="d3a51fc4-5b3a-42df-b1e2-22ff0121093a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 8.84699625651042); (3.26041666666667 : 8.84699625651042 : JumpStart); (3.42708333333333 : 8.84699625651042 : JumpEnd); (3.5 : 8.84699625651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/RMSSDataDataContext/ActionGroup/ActionGroup_BaseAction" />
+      <nodes>
+        <classShapeMoniker Id="8d352376-debd-4ebe-ac43-d7b8d0704cd8" />
+        <classShapeMoniker Id="b387a03a-6f04-4cb2-ae2e-2f544eb96859" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.0560171875 : 9.9631982421875); (4.0560171875 : 10.2131982421875); (4.5 : 10.2131982421875); (4.5 : 9.9631982421875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/RMSSDataDataContext/BaseAction/BaseAction_BaseAction" />
+      <nodes>
+        <classShapeMoniker Id="b387a03a-6f04-4cb2-ae2e-2f544eb96859" />
+        <classShapeMoniker Id="b387a03a-6f04-4cb2-ae2e-2f544eb96859" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.95923076923077 : 0.5); (3.95923076923077 : 0.197916666666667); (4.55461538461539 : 0.197916666666667); (4.55461538461539 : 0.5)]" manuallyRouted="true" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/RMSSDataDataContext/Attack/Attack_Attack1" />
+      <nodes>
+        <classShapeMoniker Id="d3a51fc4-5b3a-42df-b1e2-22ff0121093a" />
+        <classShapeMoniker Id="d3a51fc4-5b3a-42df-b1e2-22ff0121093a" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="72ffc146-72d3-46ae-8dd0-f96cf2121fae" absoluteBounds="5.875, 14.625, 2, 1.5785953776041701">
+      <DataClassMoniker Name="/RMSSDataDataContext/SystemUser" />
+      <nestedChildShapes>
+        <elementListCompartment Id="65a3977f-7682-47fa-aa5c-82d48b0185d5" absoluteBounds="5.89, 15.085, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="936d947d-34a7-4c5f-9808-92e3e5c28a7e" absoluteBounds="16.875, 5.125, 2, 1.3862939453124996">
+      <DataClassMoniker Name="/RMSSDataDataContext/Pace" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b54cdbf2-4b47-49b0-b68f-d88a0ee95c79" absoluteBounds="16.89, 5.585, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6c9743b1-0ce0-43c6-9733-caa3034b2a60" absoluteBounds="17, 6.5, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/RMSSDataDataContext/SpeedChart" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4dcc8f59-1595-47ee-a290-f19ae02dbda4" absoluteBounds="17.015, 6.96, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a63aa559-b2a9-4f8f-8190-7fd053730e66" absoluteBounds="16.875, 3.75, 2, 1.3862939453124996">
+      <DataClassMoniker Name="/RMSSDataDataContext/SizeRating" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ccdfa6d4-7b0c-40ab-b4cf-f990691f21c8" absoluteBounds="16.89, 4.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b0d41bfe-76ec-4d5e-ac99-480623849cd8" absoluteBounds="17, 8.5, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/RMSSDataDataContext/CriticalCode" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fd1094b0-a261-4e50-a574-d38d6ff7b8ae" absoluteBounds="17.015, 8.96, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e5fc3ab3-c4e2-4dfb-b807-d5add7f99c9f" absoluteBounds="17, 9.875, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/RMSSDataDataContext/CriticalIgnore" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3c698e72-9df6-4587-9798-efed38dfd600" absoluteBounds="17.015, 10.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3dd7af1e-70f5-4ce7-9e90-d265866fccf7" absoluteBounds="13.375, 2, 2, 1.1939925130208331">
+      <DataClassMoniker Name="/RMSSDataDataContext/LevelChart" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0b8f980d-182a-434b-8684-b54609b4c7de" absoluteBounds="13.39, 2.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5416fda4-54e9-4710-b66d-6e4495cfa52d" absoluteBounds="16.875, 2.125, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/RMSSDataDataContext/LevelChartValue" />
+      <nestedChildShapes>
+        <elementListCompartment Id="11a0c245-efa5-45dc-b966-51b1eccff279" absoluteBounds="16.89, 2.585, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="052cad7b-0f3a-4055-93ba-6166cc98299f" absoluteBounds="13.375, 0.5, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/RMSSDataDataContext/ConstitutionBonusChart" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e6354b23-fb34-4a6b-9a1c-676633c67d0b" absoluteBounds="13.39, 0.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="106a379c-bb6b-4289-9dee-b1fdf6de7c80" absoluteBounds="16.875, 0.5, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/RMSSDataDataContext/ConstitutionBonusChartValue" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3576e4ce-7de6-4cd8-951a-acec22b04ec6" absoluteBounds="16.89, 0.96, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2acf6cb9-6e4b-4b7d-8899-8b7a1c72368d" absoluteBounds="17.5, 11.625, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/RMSSDataDataContext/IQ" />
+      <nestedChildShapes>
+        <elementListCompartment Id="53452a62-2156-4bdc-86e4-65285941a703" absoluteBounds="17.515, 12.085, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7c9aba56-5f73-4f67-b3bf-4e79aac86ac9" absoluteBounds="17.5, 13, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/RMSSDataDataContext/Outlook" />
+      <nestedChildShapes>
+        <elementListCompartment Id="961d0bc8-2b4b-4b15-b4c7-7d357f3d9717" absoluteBounds="17.515, 13.46, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e74b6c32-2d7a-44a4-893e-e8682b2087c7" absoluteBounds="0.625, 0.5, 2, 5.4246240234375">
+      <DataClassMoniker Name="/RMSSDataDataContext/Creature" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0ad0312d-e63a-405f-a00f-0996e59b077b" absoluteBounds="0.64000000000000012, 0.96, 1.9700000000000002, 4.8646240234375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.625 : 2.34695556640625); (3.25 : 2.34695556640625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/RMSSDataDataContext/Creature/Creature_Attack" />
+      <nodes>
+        <classShapeMoniker Id="e74b6c32-2d7a-44a4-893e-e8682b2087c7" />
+        <classShapeMoniker Id="d3a51fc4-5b3a-42df-b1e2-22ff0121093a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(9.5 : 5.71231201171875); (3.42708333333333 : 5.71231201171875 : JumpStart); (3.26041666666667 : 5.71231201171875 : JumpEnd); (2.625 : 5.71231201171875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/RMSSDataDataContext/Book/Book_Creature" />
+      <nodes>
+        <classShapeMoniker Id="ac694fea-26da-464e-92dd-a7613e49386d" />
+        <classShapeMoniker Id="e74b6c32-2d7a-44a4-893e-e8682b2087c7" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(17 : 9.0937505); (10.0863333333333 : 9.0937505 : JumpStart); (9.91966666666667 : 9.0937505 : JumpEnd); (5.75 : 9.0937505); (5.75 : 7.75); (3.42708333333333 : 7.75 : JumpStart); (3.26041666666667 : 7.75 : JumpEnd); (1.6796895 : 7.75); (1.6796895 : 5.9246240234375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/RMSSDataDataContext/CriticalCode/CriticalCode_Creature" />
+      <nodes>
+        <classShapeMoniker Id="b0d41bfe-76ec-4d5e-ac99-480623849cd8" />
+        <classShapeMoniker Id="e74b6c32-2d7a-44a4-893e-e8682b2087c7" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(17 : 10.5681469726563); (10.25 : 10.5681469726563); (10.25 : 7.5); (3.82453588141025 : 7.5 : JumpStart); (3.65786921474359 : 7.5 : JumpEnd); (3.42708333333333 : 7.5 : JumpStart); (3.26041666666667 : 7.5 : JumpEnd); (2.18359675 : 7.5); (2.18359675 : 5.9246240234375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/RMSSDataDataContext/CriticalIgnore/CriticalIgnore_Creature" />
+      <nodes>
+        <classShapeMoniker Id="e5fc3ab3-c4e2-4dfb-b807-d5add7f99c9f" />
+        <classShapeMoniker Id="e74b6c32-2d7a-44a4-893e-e8682b2087c7" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(13.375 : 0.5); (12.75 : -0.125); (3.25153746153846 : -0.125); (2.625 : 0.501537461538462)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/RMSSDataDataContext/ConstitutionBonusChart/ConstitutionBonusChart_Creature" />
+      <nodes>
+        <classShapeMoniker Id="052cad7b-0f3a-4055-93ba-6166cc98299f" />
+        <classShapeMoniker Id="e74b6c32-2d7a-44a4-893e-e8682b2087c7" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(18.5 : 11.625); (18.5 : 11.433); (10.003 : 11.433); (10.003 : 7.872); (1.17578225 : 7.872); (1.17578225 : 5.9246240234375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/RMSSDataDataContext/IQ/IQ_Creature" />
+      <nodes>
+        <classShapeMoniker Id="2acf6cb9-6e4b-4b7d-8899-8b7a1c72368d" />
+        <classShapeMoniker Id="e74b6c32-2d7a-44a4-893e-e8682b2087c7" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(14.375 : 3.19399251302083); (14.375 : 5.15887512207031); (3.82453588141025 : 5.15887512207031 : JumpStart); (3.65786921474359 : 5.15887512207031 : JumpEnd); (3.42708333333333 : 5.15887512207031 : JumpStart); (3.26041666666667 : 5.15887512207031 : JumpEnd); (2.625 : 5.15887512207031)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/RMSSDataDataContext/LevelChart/LevelChart_Creature" />
+      <nodes>
+        <classShapeMoniker Id="3dd7af1e-70f5-4ce7-9e90-d265866fccf7" />
+        <classShapeMoniker Id="e74b6c32-2d7a-44a4-893e-e8682b2087c7" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(17.5 : 14.3694482421875); (5.64583333333333 : 14.3694482421875 : JumpStart); (5.47916666666667 : 14.3694482421875 : JumpEnd); (2.86458333333333 : 14.3694482421875 : JumpStart); (2.69791666666667 : 14.3694482421875 : JumpEnd); (0.65625 : 14.3694482421875); (0.65625 : 5.9246240234375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/RMSSDataDataContext/Outlook/Outlook_Creature" />
+      <nodes>
+        <classShapeMoniker Id="7c9aba56-5f73-4f67-b3bf-4e79aac86ac9" />
+        <classShapeMoniker Id="e74b6c32-2d7a-44a4-893e-e8682b2087c7" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(16.875 : 5.36068756103516); (4.6194409775641 : 5.36068756103516 : JumpStart); (4.45277431089744 : 5.36068756103516 : JumpEnd); (3.82453588141025 : 5.36068756103516 : JumpStart); (3.65786921474359 : 5.36068756103516 : JumpEnd); (3.42708333333333 : 5.36068756103516 : JumpStart); (3.26041666666667 : 5.36068756103516 : JumpEnd); (2.625 : 5.36068756103516)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/RMSSDataDataContext/Pace/Pace_Creature" />
+      <nodes>
+        <classShapeMoniker Id="936d947d-34a7-4c5f-9808-92e3e5c28a7e" />
+        <classShapeMoniker Id="e74b6c32-2d7a-44a4-893e-e8682b2087c7" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(16.875 : 4.8526025390625); (2.625 : 4.8526025390625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/RMSSDataDataContext/SizeRating/SizeRating_Creature" />
+      <nodes>
+        <classShapeMoniker Id="a63aa559-b2a9-4f8f-8190-7fd053730e66" />
+        <classShapeMoniker Id="e74b6c32-2d7a-44a4-893e-e8682b2087c7" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(17 : 7.06574625651042); (1.25911558333333 : 7.06574625651042 : JumpStart); (1.09244891666667 : 7.06574625651042 : JumpEnd); (0.671875 : 7.06574625651042); (0.671875 : 5.9246240234375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/RMSSDataDataContext/SpeedChart/SpeedChart_Creature" />
+      <nodes>
+        <classShapeMoniker Id="6c9743b1-0ce0-43c6-9733-caa3034b2a60" />
+        <classShapeMoniker Id="e74b6c32-2d7a-44a4-893e-e8682b2087c7" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(17 : 6.87986688476563); (3.82453588141025 : 6.87986688476563 : JumpStart); (3.65786921474359 : 6.87986688476563 : JumpEnd); (3.42708333333333 : 6.87986688476563 : JumpStart); (3.26041666666667 : 6.87986688476563 : JumpEnd); (1.76302283333333 : 6.87986688476563 : JumpStart); (1.59635616666667 : 6.87986688476563 : JumpEnd); (1.25911558333333 : 6.87986688476563 : JumpStart); (1.09244891666667 : 6.87986688476563 : JumpEnd); (0.640625 : 6.87986688476563); (0.640625 : 5.9246240234375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/RMSSDataDataContext/SpeedChart/SpeedChart_Creature1" />
+      <nodes>
+        <classShapeMoniker Id="6c9743b1-0ce0-43c6-9733-caa3034b2a60" />
+        <classShapeMoniker Id="e74b6c32-2d7a-44a4-893e-e8682b2087c7" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(16.875 : 4.6170043359375); (4.93356019230769 : 4.6170043359375); (4.93356019230769 : 4.1939111328125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/RMSSDataDataContext/SizeRating/SizeRating_Attack" />
+      <nodes>
+        <classShapeMoniker Id="a63aa559-b2a9-4f8f-8190-7fd053730e66" />
+        <classShapeMoniker Id="d3a51fc4-5b3a-42df-b1e2-22ff0121093a" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="071e70e0-7cd7-462b-a9c0-ee6fae42145e" absoluteBounds="10.25, 2.625, 2, 1.3862939453124996">
+      <DataClassMoniker Name="/RMSSDataDataContext/CriticalType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8ea44997-cc0c-4218-a7c8-2ba80ed39b19" absoluteBounds="10.265, 3.085, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(10.25 : 3.32859587760417); (8.5 : 3.32859587760417); (8.5 : 4.4439111328125); (5.01689352564102 : 4.4439111328125 : JumpStart); (4.85022685897436 : 4.4439111328125 : JumpEnd); (4.45794871794872 : 4.4439111328125 : JumpStart); (4.29128205128206 : 4.4439111328125 : JumpEnd); (4.13865509615385 : 4.4439111328125); (4.13865509615385 : 4.1939111328125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/RMSSDataDataContext/CriticalType/CriticalType_Attack" />
+      <nodes>
+        <classShapeMoniker Id="071e70e0-7cd7-462b-a9c0-ee6fae42145e" />
+        <classShapeMoniker Id="d3a51fc4-5b3a-42df-b1e2-22ff0121093a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(10.25 : 3.31775024414063); (8.25 : 3.31775024414063)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/RMSSDataDataContext/CriticalType/CriticalType_AttacksAddCrit" />
+      <nodes>
+        <classShapeMoniker Id="071e70e0-7cd7-462b-a9c0-ee6fae42145e" />
+        <classShapeMoniker Id="b0f5556d-2834-4ede-9527-75e7e36073f9" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="a7d57c33-34e2-430a-b4d9-3267073a762b" absoluteBounds="8.375, 0.875, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/RMSSDataDataContext/AttackType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="00c68646-cf54-4065-a741-851521e831df" absoluteBounds="8.39, 1.335, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(8.375 : 1.76044840494792); (5.25 : 1.76044840494792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/RMSSDataDataContext/AttackType/AttackType_Attack" />
+      <nodes>
+        <classShapeMoniker Id="a7d57c33-34e2-430a-b4d9-3267073a762b" />
+        <classShapeMoniker Id="d3a51fc4-5b3a-42df-b1e2-22ff0121093a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(15.375 : 2.61057657877604); (16.875 : 2.61057657877604)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/RMSSDataDataContext/LevelChart/LevelChart_LevelChartValue" />
+      <nodes>
+        <classShapeMoniker Id="3dd7af1e-70f5-4ce7-9e90-d265866fccf7" />
+        <classShapeMoniker Id="5416fda4-54e9-4710-b66d-6e4495cfa52d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(15.375 : 1.21242390950521); (16.875 : 1.21242390950521)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/RMSSDataDataContext/ConstitutionBonusChart/ConstitutionBonusChart_ConstitutionBonusChartValue" />
+      <nodes>
+        <classShapeMoniker Id="052cad7b-0f3a-4055-93ba-6166cc98299f" />
+        <classShapeMoniker Id="106a379c-bb6b-4289-9dee-b1fdf6de7c80" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="b18110b3-1888-44fd-bc6d-e292a7219416" absoluteBounds="0.5, 14.75, 2, 1.5785953776041701">
+      <DataClassMoniker Name="/RMSSDataDataContext/Game" />
+      <nestedChildShapes>
+        <elementListCompartment Id="17596e99-14fa-43e5-b61e-fa977007d613" absoluteBounds="0.51500000000000012, 15.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.875 : 15.34375); (5.83333333333333 : 15.34375 : JumpStart); (5.66666666666667 : 15.34375 : JumpEnd); (5.64583333333333 : 15.34375 : JumpStart); (5.41666666666667 : 15.34375 : JumpEnd); (2.86458333333333 : 15.34375 : JumpStart); (2.69791666666667 : 15.34375 : JumpEnd); (2.5 : 15.34375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/RMSSDataDataContext/SystemUser/SystemUser_Game" />
+      <nodes>
+        <classShapeMoniker Id="72ffc146-72d3-46ae-8dd0-f96cf2121fae" />
+        <classShapeMoniker Id="b18110b3-1888-44fd-bc6d-e292a7219416" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="b0816a50-bf1c-4bdb-9b97-35f05ed97be1" absoluteBounds="3.25, 16, 2, 1.3862939453125023">
+      <DataClassMoniker Name="/RMSSDataDataContext/GamesPlayer" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b191f29c-e7ff-4ec1-b693-da2c9bb33a8e" absoluteBounds="3.265, 16.46, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.5 : 15.3749995); (2.69791666666667 : 15.3749995 : JumpStart); (2.86458333333333 : 15.3749995 : JumpEnd); (4.25 : 15.3749995); (4.25 : 16)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/RMSSDataDataContext/Game/Game_GamesPlayer" />
+      <nodes>
+        <classShapeMoniker Id="b18110b3-1888-44fd-bc6d-e292a7219416" />
+        <classShapeMoniker Id="b0816a50-bf1c-4bdb-9b97-35f05ed97be1" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.875 : 14.953123); (5.5 : 14.953123); (5.5 : 16.6302502441406); (5.25 : 16.6302502441406)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/RMSSDataDataContext/SystemUser/SystemUser_GamesPlayer" />
+      <nodes>
+        <classShapeMoniker Id="72ffc146-72d3-46ae-8dd0-f96cf2121fae" />
+        <classShapeMoniker Id="b0816a50-bf1c-4bdb-9b97-35f05ed97be1" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="fbea8502-961b-456f-a24f-84da4a782f6c" absoluteBounds="2.25, 18, 2, 6.3861311848958344">
+      <DataClassMoniker Name="/RMSSDataDataContext/Actor" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e147d931-5916-4875-aae2-1faace26c18f" absoluteBounds="2.265, 18.46, 1.9700000000000002, 5.826131184895833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.78125 : 13.8252791341146); (2.78125 : 18)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/RMSSDataDataContext/Character/Character_Actor" />
+      <nodes>
+        <classShapeMoniker Id="fa18568e-1580-4d29-80c3-9e9aa61aefe9" />
+        <classShapeMoniker Id="fbea8502-961b-456f-a24f-84da4a782f6c" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.625 : 5.53649978637695); (3.125 : 5.53649978637695); (3.125 : 18)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/RMSSDataDataContext/Creature/Creature_Actor" />
+      <nodes>
+        <classShapeMoniker Id="e74b6c32-2d7a-44a4-893e-e8682b2087c7" />
+        <classShapeMoniker Id="fbea8502-961b-456f-a24f-84da4a782f6c" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.3749995 : 16.1748478190104); (1.3749995 : 20.7667655436198); (2.25 : 20.7667655436198)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/RMSSDataDataContext/Game/Game_Actor" />
+      <nodes>
+        <classShapeMoniker Id="b18110b3-1888-44fd-bc6d-e292a7219416" />
+        <classShapeMoniker Id="fbea8502-961b-456f-a24f-84da4a782f6c" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(6.21875 : 16.0498478190104); (6.21875 : 20.7446233402936); (5.64583333333333 : 20.7446233402936 : JumpStart); (5.47916666666667 : 20.7446233402936 : JumpEnd); (4.25 : 20.7446233402936)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/RMSSDataDataContext/SystemUser/SystemUser_Actor" />
+      <nodes>
+        <classShapeMoniker Id="72ffc146-72d3-46ae-8dd0-f96cf2121fae" />
+        <classShapeMoniker Id="fbea8502-961b-456f-a24f-84da4a782f6c" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="7c3e8b0d-f136-49dc-a884-cb412932d696" absoluteBounds="7.875, 20.375, 2, 2.3478011067708344">
+      <DataClassMoniker Name="/RMSSDataDataContext/CriticalAffect" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ccb59484-2599-4f2a-920b-1bc5576d3330" absoluteBounds="7.8900000000000006, 20.835, 1.9700000000000002, 1.7878011067708333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.25 : 21.6321777411104); (7.875 : 21.6321777411104)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/RMSSDataDataContext/Actor/Actor_CriticalAffect" />
+      <nodes>
+        <classShapeMoniker Id="fbea8502-961b-456f-a24f-84da4a782f6c" />
+        <classShapeMoniker Id="7c3e8b0d-f136-49dc-a884-cb412932d696" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="0bfc8b10-f941-4df5-9f61-37c6ece8e67a" absoluteBounds="7.75, 23.5, 2, 4.0785139973958344">
+      <DataClassMoniker Name="/RMSSDataDataContext/Action" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4930e7c2-f23d-4fb5-abf0-3ad7c1afa49d" absoluteBounds="7.765, 23.96, 1.9700000000000002, 3.518513997395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="697af1f2-28d6-4294-be83-ecb10b810b17" absoluteBounds="2.75, 24.5, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/RMSSDataDataContext/BleedAction" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c3a350f9-34ce-420e-b3f9-0fc2510d4f39" absoluteBounds="2.7650000000000006, 24.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <inheritanceConnector edgePoints="[(7.75 : 25.0969962565104); (5.64583333333333 : 25.0969962565104 : JumpStart); (5.47916666666667 : 25.0969962565104 : JumpEnd); (4.75 : 25.0969962565104)]" fixedFrom="NotFixed" fixedTo="NotFixed" TargetRelationshipDomainClassId="7a7fe09e-e9ef-4b01-9ff3-bde95e827b62">
+      <nodes>
+        <classShapeMoniker Id="0bfc8b10-f941-4df5-9f61-37c6ece8e67a" />
+        <classShapeMoniker Id="697af1f2-28d6-4294-be83-ecb10b810b17" />
+      </nodes>
+    </inheritanceConnector>
+    <classShape Id="d03a4a56-e05b-4b41-a207-da121bc8c07d" absoluteBounds="12.25, 24.125, 2, 1.0016910807291701">
+      <DataClassMoniker Name="/RMSSDataDataContext/CriticalAction" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8a93d96d-f6d3-4307-8b0c-884e2edf80af" absoluteBounds="12.265, 24.585, 1.9700000000000002, 0.44169108072916663" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <inheritanceConnector edgePoints="[(9.75 : 24.6258455403646); (12.25 : 24.6258455403646)]" fixedFrom="Algorithm" fixedTo="Algorithm" TargetRelationshipDomainClassId="7a7fe09e-e9ef-4b01-9ff3-bde95e827b62">
+      <nodes>
+        <classShapeMoniker Id="0bfc8b10-f941-4df5-9f61-37c6ece8e67a" />
+        <classShapeMoniker Id="d03a4a56-e05b-4b41-a207-da121bc8c07d" />
+      </nodes>
+    </inheritanceConnector>
+    <classShape Id="391d63fe-052d-49fc-b28f-ef1b4ed5282c" absoluteBounds="2.75, 26.625, 2, 1.0016910807291701">
+      <DataClassMoniker Name="/RMSSDataDataContext/DeathAction" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8e67e982-0e76-4f99-8e3f-4a26ec907030" absoluteBounds="2.7649999999999997, 27.085, 1.9700000000000002, 0.44169108072916663" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <inheritanceConnector edgePoints="[(7.75 : 27.1017569986979); (4.75 : 27.1017569986979)]" fixedFrom="Algorithm" fixedTo="Algorithm" TargetRelationshipDomainClassId="7a7fe09e-e9ef-4b01-9ff3-bde95e827b62">
+      <nodes>
+        <classShapeMoniker Id="0bfc8b10-f941-4df5-9f61-37c6ece8e67a" />
+        <classShapeMoniker Id="391d63fe-052d-49fc-b28f-ef1b4ed5282c" />
+      </nodes>
+    </inheritanceConnector>
+    <classShape Id="f6e47645-ae87-4871-ba5e-de2e285ad8d7" absoluteBounds="2.75, 27.625, 2, 0.80938964843750227">
+      <DataClassMoniker Name="/RMSSDataDataContext/StandardAction" />
+      <nestedChildShapes>
+        <elementListCompartment Id="af68ef81-5011-45f2-8d9e-06f4ddc3af8f" absoluteBounds="2.75, 27.625, 0.125, 0.2493896484375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <inheritanceConnector edgePoints="[(8.75 : 27.5785139973958); (8.75 : 28.0296948242188); (4.75 : 28.0296948242188)]" fixedFrom="NotFixed" fixedTo="NotFixed" TargetRelationshipDomainClassId="7a7fe09e-e9ef-4b01-9ff3-bde95e827b62">
+      <nodes>
+        <classShapeMoniker Id="0bfc8b10-f941-4df5-9f61-37c6ece8e67a" />
+        <classShapeMoniker Id="f6e47645-ae87-4871-ba5e-de2e285ad8d7" />
+      </nodes>
+    </inheritanceConnector>
+    <classShape Id="37a9366e-46c0-412a-b9ad-c198709bf004" absoluteBounds="2.75, 28.5, 2, 1.0016910807291701">
+      <DataClassMoniker Name="/RMSSDataDataContext/PrepAction" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8c9907a4-981d-4cec-aa90-19b02b32d3ef" absoluteBounds="2.765, 28.96, 1.9700000000000002, 0.44169108072916663" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <inheritanceConnector edgePoints="[(8.75 : 27.5785139973958); (8.75 : 27.8185139973958); (4.99 : 27.8185139973958); (4.99 : 29.0008455403646); (4.75 : 29.0008455403646)]" fixedFrom="NotFixed" fixedTo="NotFixed" TargetRelationshipDomainClassId="7a7fe09e-e9ef-4b01-9ff3-bde95e827b62">
+      <nodes>
+        <classShapeMoniker Id="0bfc8b10-f941-4df5-9f61-37c6ece8e67a" />
+        <classShapeMoniker Id="37a9366e-46c0-412a-b9ad-c198709bf004" />
+      </nodes>
+    </inheritanceConnector>
+    <classShape Id="02559348-f59a-46d7-9cf8-6e55d0a1f576" absoluteBounds="5.25, 28.625, 2, 1.3862939453125023">
+      <DataClassMoniker Name="/RMSSDataDataContext/PsychicAction" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ca693802-046f-461f-b3d7-b13042448930" absoluteBounds="5.265, 29.085, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <inheritanceConnector edgePoints="[(8.75 : 27.5785139973958); (8.75 : 28.25); (6.25 : 28.25); (6.25 : 28.625)]" fixedFrom="NotFixed" fixedTo="NotFixed" TargetRelationshipDomainClassId="7a7fe09e-e9ef-4b01-9ff3-bde95e827b62">
+      <nodes>
+        <classShapeMoniker Id="0bfc8b10-f941-4df5-9f61-37c6ece8e67a" />
+        <classShapeMoniker Id="02559348-f59a-46d7-9cf8-6e55d0a1f576" />
+      </nodes>
+    </inheritanceConnector>
+    <classShape Id="d46d2315-6825-43a0-82d3-aa072848e06d" absoluteBounds="7.625, 28.625, 2, 1.3862939453125023">
+      <DataClassMoniker Name="/RMSSDataDataContext/SpellEffectAction" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a51cd981-dbf3-4099-878c-fc02f75d8678" absoluteBounds="7.64, 29.085, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="52134f2b-5f2c-4d3b-ab5e-eabf81743892" absoluteBounds="10.125, 28.625, 2, 1.0016910807291701">
+      <DataClassMoniker Name="/RMSSDataDataContext/MovementAction" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8f514486-1eb6-4ce5-8640-595ebf7ba91f" absoluteBounds="10.14, 29.085, 1.9700000000000002, 0.44169108072916663" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <inheritanceConnector edgePoints="[(8.75 : 27.5785139973958); (8.75 : 28.25); (8.625 : 28.25); (8.625 : 28.625)]" fixedFrom="NotFixed" fixedTo="NotFixed" TargetRelationshipDomainClassId="7a7fe09e-e9ef-4b01-9ff3-bde95e827b62">
+      <nodes>
+        <classShapeMoniker Id="0bfc8b10-f941-4df5-9f61-37c6ece8e67a" />
+        <classShapeMoniker Id="d46d2315-6825-43a0-82d3-aa072848e06d" />
+      </nodes>
+    </inheritanceConnector>
+    <inheritanceConnector edgePoints="[(8.75 : 27.5785139973958); (8.75 : 28.25); (11.125 : 28.25); (11.125 : 28.625)]" fixedFrom="NotFixed" fixedTo="NotFixed" TargetRelationshipDomainClassId="7a7fe09e-e9ef-4b01-9ff3-bde95e827b62">
+      <nodes>
+        <classShapeMoniker Id="0bfc8b10-f941-4df5-9f61-37c6ece8e67a" />
+        <classShapeMoniker Id="52134f2b-5f2c-4d3b-ab5e-eabf81743892" />
+      </nodes>
+    </inheritanceConnector>
+    <associationConnector edgePoints="[(9.875 : 21.5489005533854); (13.25 : 21.5489005533854); (13.25 : 24.125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/RMSSDataDataContext/CriticalAffect/CriticalAffect_CriticalAction" />
+      <nodes>
+        <classShapeMoniker Id="7c3e8b0d-f136-49dc-a884-cb412932d696" />
+        <classShapeMoniker Id="d03a4a56-e05b-4b41-a207-da121bc8c07d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.8125 : 9.9631982421875); (4.8125 : 15.75); (5.29166666666667 : 15.75 : JumpStart); (5.58333333333333 : 15.75 : JumpEnd); (5.625 : 15.75); (5.625 : 24.2672461282552); (7.75 : 24.2672461282552)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/RMSSDataDataContext/BaseAction/BaseAction_Action" />
+      <nodes>
+        <classShapeMoniker Id="b387a03a-6f04-4cb2-ae2e-2f544eb96859" />
+        <classShapeMoniker Id="0bfc8b10-f941-4df5-9f61-37c6ece8e67a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.25 : 23.8211230641276); (5.47916666666667 : 23.8211230641276 : JumpStart); (5.70833333333333 : 23.8211230641276 : JumpEnd); (7.75 : 23.8211230641276)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/RMSSDataDataContext/Actor/Actor_Action" />
+      <nodes>
+        <classShapeMoniker Id="fbea8502-961b-456f-a24f-84da4a782f6c" />
+        <classShapeMoniker Id="0bfc8b10-f941-4df5-9f61-37c6ece8e67a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.74120254807692 : 4.1939111328125); (3.74120254807692 : 7.9375); (5.5625 : 7.9375); (5.5625 : 25.6739208984375); (7.75 : 25.6739208984375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/RMSSDataDataContext/Attack/Attack_Action" />
+      <nodes>
+        <classShapeMoniker Id="d3a51fc4-5b3a-42df-b1e2-22ff0121093a" />
+        <classShapeMoniker Id="0bfc8b10-f941-4df5-9f61-37c6ece8e67a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.5 : 15.13280875); (2.69791666666667 : 15.13280875 : JumpStart); (2.86458333333333 : 15.13280875 : JumpEnd); (3.04166666666667 : 15.13280875 : JumpStart); (3.23958333333333 : 15.13280875 : JumpEnd); (4.72916666666667 : 15.13280875 : JumpStart); (4.89583333333333 : 15.13280875 : JumpEnd); (5.29166666666667 : 15.13280875 : JumpStart); (5.64583333333333 : 15.13280875 : JumpEnd); (5.75 : 15.13280875); (5.75 : 18.375); (6.13541666666667 : 18.375 : JumpStart); (6.30208333333333 : 18.375 : JumpEnd); (8.875 : 18.375); (8.875 : 20.125); (7.625 : 20.125); (7.625 : 23.25); (8.75 : 23.25); (8.75 : 23.5)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/RMSSDataDataContext/Game/Game_Action" />
+      <nodes>
+        <classShapeMoniker Id="b18110b3-1888-44fd-bc6d-e292a7219416" />
+        <classShapeMoniker Id="0bfc8b10-f941-4df5-9f61-37c6ece8e67a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(7.75 : 10.7003491210938); (5.64583333333333 : 10.7003491210938 : JumpStart); (5.47916666666667 : 10.7003491210938 : JumpEnd); (3.42708333333333 : 10.7003491210938 : JumpStart); (3.26041666666667 : 10.7003491210938 : JumpEnd); (3.15625 : 10.7003491210938); (3.15625 : 18)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/RMSSDataDataContext/Armor/Armor_Actor" />
+      <nodes>
+        <classShapeMoniker Id="f349e2af-2ee4-4e81-9261-b90690955ac9" />
+        <classShapeMoniker Id="fbea8502-961b-456f-a24f-84da4a782f6c" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="92b64a31-5e31-4c9a-8e96-04f0edbc2176" absoluteBounds="6.625, 18.625, 2, 1.3862939453125023">
+      <DataClassMoniker Name="/RMSSDataDataContext/ActorsAttack" />
+      <nestedChildShapes>
+        <elementListCompartment Id="da8f8868-e7e3-40db-bc0e-b51ce3708916" absoluteBounds="6.64, 19.085, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.25 : 19.4596868051758); (5.47916666666667 : 19.4596868051758 : JumpStart); (5.70833333333333 : 19.4596868051758 : JumpEnd); (6.13541666666667 : 19.4596868051758 : JumpStart); (6.30208333333333 : 19.4596868051758 : JumpEnd); (6.625 : 19.4596868051758)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/RMSSDataDataContext/Actor/Actor_ActorsAttack" />
+      <nodes>
+        <classShapeMoniker Id="fbea8502-961b-456f-a24f-84da4a782f6c" />
+        <classShapeMoniker Id="92b64a31-5e31-4c9a-8e96-04f0edbc2176" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.53610764423077 : 4.1939111328125); (4.53610764423077 : 7.625); (6 : 7.625); (6 : 14.125); (5.64583333333333 : 14.125 : JumpStart); (5.47916666666667 : 14.125 : JumpEnd); (5.375 : 14.125); (5.375 : 19.3181469726563); (5.47916666666667 : 19.3181469726563 : JumpStart); (5.64583333333333 : 19.3181469726563 : JumpEnd); (6.13541666666667 : 19.3181469726563 : JumpStart); (6.30208333333333 : 19.3181469726563 : JumpEnd); (6.625 : 19.3181469726563)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/RMSSDataDataContext/Attack/Attack_ActorsAttack" />
+      <nodes>
+        <classShapeMoniker Id="d3a51fc4-5b3a-42df-b1e2-22ff0121093a" />
+        <classShapeMoniker Id="92b64a31-5e31-4c9a-8e96-04f0edbc2176" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="973d5603-f597-47a6-8072-06a4a430f34b" absoluteBounds="2.75, 29.5, 2, 0.80938964843750227">
+      <DataClassMoniker Name="/RMSSDataDataContext/AttackAction" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4dd556ed-0831-4e1d-b365-8f2fce7f641e" absoluteBounds="2.75, 29.5, 0.125, 0.2493896484375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <inheritanceConnector edgePoints="[(8.75 : 27.5785139973958); (8.75 : 27.8185139973958); (4.99 : 27.8185139973958); (4.99 : 29.9046948242188); (4.75 : 29.9046948242188)]" fixedFrom="NotFixed" fixedTo="NotFixed" TargetRelationshipDomainClassId="7a7fe09e-e9ef-4b01-9ff3-bde95e827b62">
+      <nodes>
+        <classShapeMoniker Id="0bfc8b10-f941-4df5-9f61-37c6ece8e67a" />
+        <classShapeMoniker Id="973d5603-f597-47a6-8072-06a4a430f34b" />
+      </nodes>
+    </inheritanceConnector>
+    <classShape Id="edf76222-6ada-4847-81fc-26f19a90338b" absoluteBounds="11.875, 27.125, 2, 0.80938964843750227">
+      <DataClassMoniker Name="/RMSSDataDataContext/SpellAction" />
+      <nestedChildShapes>
+        <elementListCompartment Id="22489702-eb56-491b-9783-7c03a71926f7" absoluteBounds="11.875, 27.125, 0.125, 0.2493896484375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <inheritanceConnector edgePoints="[(9.75 : 27.3517569986979); (11.875 : 27.3517569986979)]" fixedFrom="NotFixed" fixedTo="NotFixed" TargetRelationshipDomainClassId="7a7fe09e-e9ef-4b01-9ff3-bde95e827b62">
+      <nodes>
+        <classShapeMoniker Id="0bfc8b10-f941-4df5-9f61-37c6ece8e67a" />
+        <classShapeMoniker Id="edf76222-6ada-4847-81fc-26f19a90338b" />
+      </nodes>
+    </inheritanceConnector>
+    <classShape Id="369f65e4-cd2f-457f-81ed-72a79cd3a7d7" absoluteBounds="20.375, 1.125, 2, 1.3862939453125">
+      <DataClassMoniker Name="/RMSSDataDataContext/WeaponType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0d599c80-2674-46cc-a41d-414d91260b8c" absoluteBounds="20.39, 1.585, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

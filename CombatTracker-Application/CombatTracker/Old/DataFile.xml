@@ -1,0 +1,583 @@
+<DataFile>
+	<BookList>
+		<Book Name="Rolemaster Standard Rules"/>
+		<Book Name="Creatures and Monsters"/>
+		<Book Name="Elemental Companion"/>
+		<Book Name="Gamemaster Law"/>
+	</BookList>
+	<LevelChart>
+		<Level Code="A">
+			<Roll Min="-2000" Max="0" Mod="-20"/>
+			<Roll Min="01" Max="10" Mod="-1"/>
+			<Roll Min="11" Max="15" Mod="0"/>
+			<Roll Min="16" Max="20" Mod="0"/>
+			<Roll Min="21" Max="25" Mod="0"/>
+			<Roll Min="26" Max="35" Mod="0"/>
+			<Roll Min="36" Max="45" Mod="0"/>
+			<Roll Min="46" Max="55" Mod="0"/>
+			<Roll Min="56" Max="65" Mod="0"/>
+			<Roll Min="66" Max="75" Mod="0"/>
+			<Roll Min="76" Max="80" Mod="0"/>
+			<Roll Min="81" Max="85" Mod="0"/>
+			<Roll Min="86" Max="90" Mod="0"/>
+			<Roll Min="91" Max="100" Mod="1"/>
+			<Roll Min="101" Max="140" Mod="1"/>
+			<Roll Min="141" Max="170" Mod="1"/>
+			<Roll Min="171" Max="190" Mod="1"/>
+			<Roll Min="191" Max="200" Mod="2"/>
+			<Roll Min="201" Max="250" Mod="2"/>
+			<Roll Min="251" Max="300" Mod="3"/>
+			<Roll Min="301" Max="2000" Mod="4"/>
+		</Level>
+		<Level Code="B">
+			<Roll Min="-2000" Max="0" Mod="-20"/>
+			<Roll Min="01" Max="10" Mod="-2"/>
+			<Roll Min="11" Max="15" Mod="-1"/>
+			<Roll Min="16" Max="20" Mod="0"/>
+			<Roll Min="21" Max="25" Mod="0"/>
+			<Roll Min="26" Max="35" Mod="0"/>
+			<Roll Min="36" Max="45" Mod="0"/>
+			<Roll Min="46" Max="55" Mod="0"/>
+			<Roll Min="56" Max="65" Mod="0"/>
+			<Roll Min="66" Max="75" Mod="0"/>
+			<Roll Min="76" Max="80" Mod="0"/>
+			<Roll Min="81" Max="85" Mod="0"/>
+			<Roll Min="86" Max="90" Mod="1"/>
+			<Roll Min="91" Max="100" Mod="1"/>
+			<Roll Min="101" Max="140" Mod="1"/>
+			<Roll Min="141" Max="170" Mod="2"/>
+			<Roll Min="171" Max="190" Mod="2"/>
+			<Roll Min="191" Max="200" Mod="3"/>
+			<Roll Min="201" Max="250" Mod="4"/>
+			<Roll Min="251" Max="300" Mod="5"/>
+			<Roll Min="301" Max="2000" Mod="6"/>
+		</Level>
+		<Level Code="C">
+			<Roll Min="-2000" Max="0" Mod="-20"/>
+			<Roll Min="01" Max="10" Mod="-3"/>
+			<Roll Min="11" Max="15" Mod="-2"/>
+			<Roll Min="16" Max="20" Mod="-1"/>
+			<Roll Min="21" Max="25" Mod="0"/>
+			<Roll Min="26" Max="35" Mod="0"/>
+			<Roll Min="36" Max="45" Mod="0"/>
+			<Roll Min="46" Max="55" Mod="0"/>
+			<Roll Min="56" Max="65" Mod="0"/>
+			<Roll Min="66" Max="75" Mod="0"/>
+			<Roll Min="76" Max="80" Mod="0"/>
+			<Roll Min="81" Max="85" Mod="1"/>
+			<Roll Min="86" Max="90" Mod="1"/>
+			<Roll Min="91" Max="100" Mod="2"/>
+			<Roll Min="101" Max="140" Mod="2"/>
+			<Roll Min="141" Max="170" Mod="3"/>
+			<Roll Min="171" Max="190" Mod="4"/>
+			<Roll Min="191" Max="200" Mod="5"/>
+			<Roll Min="201" Max="250" Mod="6"/>
+			<Roll Min="251" Max="300" Mod="7"/>
+			<Roll Min="301" Max="2000" Mod="8"/>
+		</Level>
+		<Level Code="D">
+			<Roll Min="-2000" Max="0" Mod="-20"/>
+			<Roll Min="01" Max="10" Mod="-4"/>
+			<Roll Min="11" Max="15" Mod="-3"/>
+			<Roll Min="16" Max="20" Mod="-2"/>
+			<Roll Min="21" Max="25" Mod="-1"/>
+			<Roll Min="26" Max="35" Mod="0"/>
+			<Roll Min="36" Max="45" Mod="0"/>
+			<Roll Min="46" Max="55" Mod="0"/>
+			<Roll Min="56" Max="65" Mod="0"/>
+			<Roll Min="66" Max="75" Mod="0"/>
+			<Roll Min="76" Max="80" Mod="1"/>
+			<Roll Min="81" Max="85" Mod="2"/>
+			<Roll Min="86" Max="90" Mod="3"/>
+			<Roll Min="91" Max="100" Mod="4"/>
+			<Roll Min="101" Max="140" Mod="5"/>
+			<Roll Min="141" Max="170" Mod="6"/>
+			<Roll Min="171" Max="190" Mod="7"/>
+			<Roll Min="191" Max="200" Mod="8"/>
+			<Roll Min="201" Max="250" Mod="9"/>
+			<Roll Min="251" Max="300" Mod="10"/>
+			<Roll Min="301" Max="2000" Mod="11"/>
+		</Level>
+		<Level Code="E">
+			<Roll Min="-2000" Max="0" Mod="-20"/>
+			<Roll Min="01" Max="10" Mod="-5"/>
+			<Roll Min="11" Max="15" Mod="-4"/>
+			<Roll Min="16" Max="20" Mod="-3"/>
+			<Roll Min="21" Max="25" Mod="-2"/>
+			<Roll Min="26" Max="35" Mod="-1"/>
+			<Roll Min="36" Max="45" Mod="0"/>
+			<Roll Min="46" Max="55" Mod="0"/>
+			<Roll Min="56" Max="65" Mod="0"/>
+			<Roll Min="66" Max="75" Mod="1"/>
+			<Roll Min="76" Max="80" Mod="2"/>
+			<Roll Min="81" Max="85" Mod="3"/>
+			<Roll Min="86" Max="90" Mod="4"/>
+			<Roll Min="91" Max="100" Mod="5"/>
+			<Roll Min="101" Max="140" Mod="6"/>
+			<Roll Min="141" Max="170" Mod="7"/>
+			<Roll Min="171" Max="190" Mod="8"/>
+			<Roll Min="191" Max="200" Mod="9"/>
+			<Roll Min="201" Max="250" Mod="10"/>
+			<Roll Min="251" Max="300" Mod="11"/>
+			<Roll Min="301" Max="2000" Mod="12"/>
+		</Level>
+		<Level Code="F">
+			<Roll Min="-2000" Max="0" Mod="-20"/>
+			<Roll Min="01" Max="10" Mod="-6"/>
+			<Roll Min="11" Max="15" Mod="-5"/>
+			<Roll Min="16" Max="20" Mod="-4"/>
+			<Roll Min="21" Max="25" Mod="-3"/>
+			<Roll Min="26" Max="35" Mod="-2"/>
+			<Roll Min="36" Max="45" Mod="-1"/>
+			<Roll Min="46" Max="55" Mod="0"/>
+			<Roll Min="56" Max="65" Mod="1"/>
+			<Roll Min="66" Max="75" Mod="2"/>
+			<Roll Min="76" Max="80" Mod="3"/>
+			<Roll Min="81" Max="85" Mod="4"/>
+			<Roll Min="86" Max="90" Mod="5"/>
+			<Roll Min="91" Max="100" Mod="6"/>
+			<Roll Min="101" Max="140" Mod="7"/>
+			<Roll Min="141" Max="170" Mod="8"/>
+			<Roll Min="171" Max="190" Mod="9"/>
+			<Roll Min="191" Max="200" Mod="10"/>
+			<Roll Min="201" Max="250" Mod="11"/>
+			<Roll Min="251" Max="300" Mod="12"/>
+			<Roll Min="301" Max="2000" Mod="13"/>
+		</Level>
+		<Level Code="G">
+			<Roll Min="-2000" Max="0" Mod="-20"/>
+			<Roll Min="01" Max="10" Mod="-10"/>
+			<Roll Min="11" Max="15" Mod="-8"/>
+			<Roll Min="16" Max="20" Mod="-6"/>
+			<Roll Min="21" Max="25" Mod="-4"/>
+			<Roll Min="26" Max="35" Mod="-2"/>
+			<Roll Min="36" Max="45" Mod="-1"/>
+			<Roll Min="46" Max="55" Mod="0"/>
+			<Roll Min="56" Max="65" Mod="1"/>
+			<Roll Min="66" Max="75" Mod="2"/>
+			<Roll Min="76" Max="80" Mod="4"/>
+			<Roll Min="81" Max="85" Mod="6"/>
+			<Roll Min="86" Max="90" Mod="8"/>
+			<Roll Min="91" Max="100" Mod="10"/>
+			<Roll Min="101" Max="140" Mod="11"/>
+			<Roll Min="141" Max="170" Mod="12"/>
+			<Roll Min="171" Max="190" Mod="13"/>
+			<Roll Min="191" Max="200" Mod="14"/>
+			<Roll Min="201" Max="250" Mod="15"/>
+			<Roll Min="251" Max="300" Mod="16"/>
+			<Roll Min="301" Max="2000" Mod="17"/>
+		</Level>
+		<Level Code="H">
+			<Roll Min="-2000" Max="0" Mod="-3"/>
+			<Roll Min="01" Max="10" Mod="-2"/>
+			<Roll Min="11" Max="15" Mod="-2"/>
+			<Roll Min="16" Max="20" Mod="-1"/>
+			<Roll Min="21" Max="25" Mod="-1"/>
+			<Roll Min="26" Max="35" Mod="-1"/>
+			<Roll Min="36" Max="45" Mod="0"/>
+			<Roll Min="46" Max="55" Mod="0"/>
+			<Roll Min="56" Max="65" Mod="0"/>
+			<Roll Min="66" Max="75" Mod="1"/>
+			<Roll Min="76" Max="80" Mod="1"/>
+			<Roll Min="81" Max="85" Mod="1"/>
+			<Roll Min="86" Max="90" Mod="2"/>
+			<Roll Min="91" Max="100" Mod="2"/>
+			<Roll Min="101" Max="140" Mod="3"/>
+			<Roll Min="141" Max="170" Mod="3"/>
+			<Roll Min="171" Max="190" Mod="3"/>
+			<Roll Min="191" Max="200" Mod="3"/>
+			<Roll Min="201" Max="250" Mod="3"/>
+			<Roll Min="251" Max="300" Mod="4"/>
+			<Roll Min="301" Max="2000" Mod="4"/>
+		</Level>
+	</LevelChart>
+	<SpeedChart>
+		<MSBaseDB>
+			<Speed Name="Inching" Num="-25"/>
+			<Speed Name="Creeping" Num="-20"/>
+			<Speed Name="Very_Slow" Num="-10"/>
+			<Speed Name="Slow" Num="0"/>
+			<Speed Name="Medium" Num="10"/>
+			<Speed Name="Moderately_Fast" Num="20"/>
+			<Speed Name="Fast" Num="30"/>
+			<Speed Name="Very_Fast" Num="40"/>
+			<Speed Name="Blindingly_Fast" Num="50"/>
+		</MSBaseDB>
+		<MSFleeEvade>
+			<Speed Name="Inching" Num="0"/>
+			<Speed Name="Creeping" Num="0"/>
+			<Speed Name="Very_Slow" Num="0"/>
+			<Speed Name="Slow" Num="0"/>
+			<Speed Name="Medium" Num="5"/>
+			<Speed Name="Moderately_Fast" Num="10"/>
+			<Speed Name="Fast" Num="15"/>
+			<Speed Name="Very_Fast" Num="20"/>
+			<Speed Name="Blindingly_Fast" Num="25"/>
+		</MSFleeEvade>
+		<AQChargeLunge>
+			<Speed Name="Inching" Num="0"/>
+			<Speed Name="Creeping" Num="0"/>
+			<Speed Name="Very_Slow" Num="0"/>
+			<Speed Name="Slow" Num="0"/>
+			<Speed Name="Medium" Num="-5"/>
+			<Speed Name="Moderately_Fast" Num="-10"/>
+			<Speed Name="Fast" Num="-15"/>
+			<Speed Name="Very_Fast" Num="-20"/>
+			<Speed Name="Blindingly_Fast" Num="-25"/>
+		</AQChargeLunge>
+		<AQInitiative>
+			<Speed Name="Inching" Num="-16"/>
+			<Speed Name="Creeping" Num="-12"/>
+			<Speed Name="Very_Slow" Num="-8"/>
+			<Speed Name="Slow" Num="-4"/>
+			<Speed Name="Medium" Num="0"/>
+			<Speed Name="Moderately_Fast" Num="4"/>
+			<Speed Name="Fast" Num="8"/>
+			<Speed Name="Very_Fast" Num="12"/>
+			<Speed Name="Blindingly_Fast" Num="16"/>
+		</AQInitiative>
+	</SpeedChart>
+	<ConstitutionBonusChart>
+		<Hits Code="A" PerLevelDiff="1" BonusExhaustion="0">
+			<Roll Min="01" Max="01" Mod="-7"/>
+			<Roll Min="02" Max="09" Mod="-5"/>
+			<Roll Min="10" Max="25" Mod="-3"/>
+			<Roll Min="26" Max="30" Mod="-2"/>
+			<Roll Min="31" Max="70" Mod="0"/>
+			<Roll Min="71" Max="75" Mod="2"/>
+			<Roll Min="76" Max="92" Mod="3"/>
+			<Roll Min="93" Max="99" Mod="3"/>
+			<Roll Min="100" Max="100" Mod="7"/>
+		</Hits>
+		<Hits Code="B" PerLevelDiff="2" BonusExhaustion="0">
+			<Roll Min="01" Max="01" Mod="-8"/>
+			<Roll Min="02" Max="04" Mod="-7"/>
+			<Roll Min="05" Max="11" Mod="-5"/>
+			<Roll Min="12" Max="31" Mod="-3"/>
+			<Roll Min="32" Max="35" Mod="-2"/>
+			<Roll Min="36" Max="65" Mod="0"/>
+			<Roll Min="66" Max="69" Mod="2"/>
+			<Roll Min="70" Max="89" Mod="3"/>
+			<Roll Min="90" Max="96" Mod="5"/>
+			<Roll Min="97" Max="99" Mod="7"/>
+			<Roll Min="100" Max="100" Mod="8"/>
+		</Hits>
+		<Hits Code="C" PerLevelDiff="3" BonusExhaustion="0">
+			<Roll Min="01" Max="01" Mod="-10"/>
+			<Roll Min="02" Max="03" Mod="-8"/>
+			<Roll Min="04" Max="08" Mod="-7"/>
+			<Roll Min="09" Max="23" Mod="-5"/>
+			<Roll Min="24" Max="74" Mod="-3"/>
+			<Roll Min="75" Max="79" Mod="-2"/>
+			<Roll Min="80" Max="85" Mod="0"/>
+			<Roll Min="86" Max="89" Mod="2"/>
+			<Roll Min="90" Max="94" Mod="3"/>
+			<Roll Min="95" Max="97" Mod="5"/>
+			<Roll Min="98" Max="99" Mod="7"/>
+			<Roll Min="100" Max="100" Mod="8"/>
+		</Hits>
+		<Hits Code="D" PerLevelDiff="5" BonusExhaustion="0">
+			<Roll Min="01" Max="01" Mod="-10"/>
+			<Roll Min="02" Max="02" Mod="-8"/>
+			<Roll Min="03" Max="04" Mod="-7"/>
+			<Roll Min="05" Max="09" Mod="-5"/>
+			<Roll Min="10" Max="25" Mod="-3"/>
+			<Roll Min="26" Max="30" Mod="-2"/>
+			<Roll Min="31" Max="70" Mod="0"/>
+			<Roll Min="71" Max="75" Mod="2"/>
+			<Roll Min="76" Max="89" Mod="3"/>
+			<Roll Min="90" Max="94" Mod="5"/>
+			<Roll Min="95" Max="97" Mod="7"/>
+			<Roll Min="98" Max="99" Mod="8"/>
+			<Roll Min="100" Max="100" Mod="10"/>
+		</Hits>
+		<Hits Code="E" PerLevelDiff="8" BonusExhaustion="50">
+			<Roll Min="01" Max="01" Mod="-10"/>
+			<Roll Min="02" Max="02" Mod="-8"/>
+			<Roll Min="03" Max="04" Mod="-7"/>
+			<Roll Min="05" Max="09" Mod="-5"/>
+			<Roll Min="10" Max="24" Mod="-3"/>
+			<Roll Min="25" Max="29" Mod="-2"/>
+			<Roll Min="30" Max="69" Mod="0"/>
+			<Roll Min="70" Max="72" Mod="2"/>
+			<Roll Min="73" Max="87" Mod="3"/>
+			<Roll Min="88" Max="92" Mod="5"/>
+			<Roll Min="93" Max="95" Mod="7"/>
+			<Roll Min="96" Max="97" Mod="8"/>
+			<Roll Min="98" Max="98" Mod="10"/>
+			<Roll Min="99" Max="99" Mod="12"/>
+			<Roll Min="100" Max="100" Mod="13"/>
+		</Hits>
+		<Hits Code="F" PerLevelDiff="10" BonusExhaustion="100">
+			<Roll Min="01" Max="01" Mod="-10"/>
+			<Roll Min="02" Max="02" Mod="-8"/>
+			<Roll Min="03" Max="03" Mod="-7"/>
+			<Roll Min="04" Max="05" Mod="-5"/>
+			<Roll Min="06" Max="10" Mod="-3"/>
+			<Roll Min="11" Max="15" Mod="-2"/>
+			<Roll Min="16" Max="19" Mod="0"/>
+			<Roll Min="21" Max="25" Mod="2"/>
+			<Roll Min="26" Max="72" Mod="3"/>
+			<Roll Min="73" Max="87" Mod="5"/>
+			<Roll Min="88" Max="92" Mod="7"/>
+			<Roll Min="93" Max="95" Mod="8"/>
+			<Roll Min="96" Max="97" Mod="10"/>
+			<Roll Min="98" Max="98" Mod="12"/>
+			<Roll Min="99" Max="99" Mod="13"/>
+			<Roll Min="100" Max="100" Mod="17"/>
+		</Hits>
+		<Hits Code="G" PerLevelDiff="12" BonusExhaustion="150">
+			<Roll Min="01" Max="01" Mod="-10"/>
+			<Roll Min="02" Max="02" Mod="-8"/>
+			<Roll Min="03" Max="03" Mod="-7"/>
+			<Roll Min="04" Max="04" Mod="-5"/>
+			<Roll Min="05" Max="06" Mod="-3"/>
+			<Roll Min="07" Max="11" Mod="-2"/>
+			<Roll Min="12" Max="16" Mod="0"/>
+			<Roll Min="17" Max="31" Mod="2"/>
+			<Roll Min="32" Max="36" Mod="3"/>
+			<Roll Min="37" Max="71" Mod="5"/>
+			<Roll Min="72" Max="86" Mod="7"/>
+			<Roll Min="87" Max="91" Mod="8"/>
+			<Roll Min="92" Max="94" Mod="10"/>
+			<Roll Min="95" Max="96" Mod="12"/>
+			<Roll Min="97" Max="98" Mod="13"/>
+			<Roll Min="99" Max="99" Mod="17"/>
+			<Roll Min="100" Max="100" Mod="22"/>
+		</Hits>
+		<Hits Code="H" PerLevelDiff="15" BonusExhaustion="200">
+			<Roll Min="01" Max="01" Mod="-10"/>
+			<Roll Min="02" Max="02" Mod="-8"/>
+			<Roll Min="03" Max="03" Mod="-7"/>
+			<Roll Min="04" Max="04" Mod="-5"/>
+			<Roll Min="05" Max="05" Mod="-3"/>
+			<Roll Min="06" Max="07" Mod="-2"/>
+			<Roll Min="08" Max="12" Mod="0"/>
+			<Roll Min="13" Max="17" Mod="2"/>
+			<Roll Min="18" Max="32" Mod="3"/>
+			<Roll Min="33" Max="37" Mod="5"/>
+			<Roll Min="38" Max="72" Mod="7"/>
+			<Roll Min="73" Max="88" Mod="8"/>
+			<Roll Min="89" Max="93" Mod="10"/>
+			<Roll Min="94" Max="96" Mod="12"/>
+			<Roll Min="97" Max="98" Mod="13"/>
+			<Roll Min="99" Max="99" Mod="17"/>
+			<Roll Min="100" Max="100" Mod="22"/>
+		</Hits>
+	</ConstitutionBonusChart>
+	<RefractoryPeriodModificationChart>
+		<Level Min="9" Max="50">
+			<Round Num="1" Mod="0"/>
+		</Level>
+		<Level Min="6" Max="8">
+			<Round Num="1" Mod="0"/>
+		</Level>
+		<Level Min="5" Max="5">
+			<Round Num="1" Mod="-10"/>
+			<Round Num="2" Mod="0"/>
+		</Level>
+		<Level Min="4" Max="4">
+			<Round Num="1" Mod="-20"/>
+			<Round Num="2" Mod="0"/>
+		</Level>
+		<Level Min="3" Max="3">
+			<Round Num="1" Mod="-30"/>
+			<Round Num="2" Mod="0"/>
+		</Level>
+		<Level Min="2" Max="2">
+			<Round Num="1" Mod="-35"/>
+			<Round Num="2" Mod="-10"/>
+			<Round Num="3" Mod="0"/>
+		</Level>
+		<Level Min="1" Max="1">
+			<Round Num="1" Mod="-45"/>
+			<Round Num="2" Mod="-20"/>
+			<Round Num="3" Mod="0"/>
+		</Level>
+		<Level Min="0" Max="0">
+			<Round Num="1" Mod="-55"/>
+			<Round Num="2" Mod="-30"/>
+			<Round Num="3" Mod="0"/>
+		</Level>
+		<Level Min="-1" Max="-1">
+			<Round Num="1" Mod="-85"/>
+			<Round Num="2" Mod="-60"/>
+			<Round Num="3" Mod="-30"/>
+			<Round Num="4" Mod="-25"/>
+			<Round Num="5" Mod="-20"/>
+			<Round Num="6" Mod="-15"/>
+			<Round Num="7" Mod="-10"/>
+			<Round Num="8" Mod="-5"/>
+			<Round Num="9" Mod="0"/>
+		</Level>
+		<Level Min="-2" Max="-2">
+			<Round Num="1" Mod="-90"/>
+			<Round Num="2" Mod="-65"/>
+			<Round Num="3" Mod="-35"/>
+			<Round Num="4" Mod="-30"/>
+			<Round Num="5" Mod="-25"/>
+			<Round Num="6" Mod="-20"/>
+			<Round Num="7" Mod="-15"/>
+			<Round Num="8" Mod="-10"/>
+			<Round Num="9" Mod="-5"/>
+			<Round Num="10" Mod="0"/>
+		</Level>
+		<Level Min="-3" Max="-3">
+			<Round Num="1" Mod="-95"/>
+			<Round Num="2" Mod="-70"/>
+			<Round Num="3" Mod="-40"/>
+			<Round Num="4" Mod="-35"/>
+			<Round Num="5" Mod="-30"/>
+			<Round Num="6" Mod="-25"/>
+			<Round Num="7" Mod="-20"/>
+			<Round Num="8" Mod="-15"/>
+			<Round Num="9" Mod="-10"/>
+			<Round Num="10" Mod="-5"/>
+		</Level>
+		<Level Min="-4" Max="-4">
+			<Round Num="1" Mod="-100"/>
+			<Round Num="2" Mod="-75"/>
+			<Round Num="3" Mod="-45"/>
+			<Round Num="4" Mod="-40"/>
+			<Round Num="5" Mod="-35"/>
+			<Round Num="6" Mod="-30"/>
+			<Round Num="7" Mod="-25"/>
+			<Round Num="8" Mod="-20"/>
+			<Round Num="9" Mod="-15"/>
+			<Round Num="10" Mod="-10"/>
+		</Level>
+		<Level Min="-5" Max="-5">
+			<Round Num="1" Mod="-105"/>
+			<Round Num="2" Mod="-80"/>
+			<Round Num="3" Mod="-50"/>
+			<Round Num="4" Mod="-45"/>
+			<Round Num="5" Mod="-40"/>
+			<Round Num="6" Mod="-35"/>
+			<Round Num="7" Mod="-30"/>
+			<Round Num="8" Mod="-25"/>
+			<Round Num="9" Mod="-20"/>
+			<Round Num="10" Mod="-15"/>
+		</Level>
+		<Level Min="-7" Max="-6">
+			<Round Num="1" Mod="-125"/>
+			<Round Num="2" Mod="-100"/>
+			<Round Num="3" Mod="-70"/>
+			<Round Num="4" Mod="-65"/>
+			<Round Num="5" Mod="-60"/>
+			<Round Num="6" Mod="-55"/>
+			<Round Num="7" Mod="-50"/>
+			<Round Num="8" Mod="-45"/>
+			<Round Num="9" Mod="-40"/>
+			<Round Num="10" Mod="-35"/>
+		</Level>
+		<Level Min="-10" Max="-8">
+			<Round Num="1" Mod="-150"/>
+			<Round Num="2" Mod="-125"/>
+			<Round Num="3" Mod="-95"/>
+			<Round Num="4" Mod="-90"/>
+			<Round Num="5" Mod="-85"/>
+			<Round Num="6" Mod="-80"/>
+			<Round Num="7" Mod="-75"/>
+			<Round Num="8" Mod="-70"/>
+			<Round Num="9" Mod="-65"/>
+			<Round Num="10" Mod="-60"/>
+		</Level>
+		<Level Min="-15" Max="-11">
+			<Round Num="1" Mod="-175"/>
+			<Round Num="2" Mod="-150"/>
+			<Round Num="3" Mod="-120"/>
+			<Round Num="4" Mod="-115"/>
+			<Round Num="5" Mod="-110"/>
+			<Round Num="6" Mod="-105"/>
+			<Round Num="7" Mod="-100"/>
+			<Round Num="8" Mod="-95"/>
+			<Round Num="9" Mod="-90"/>
+			<Round Num="10" Mod="-85"/>
+		</Level>
+		<Level Min="-20" Max="-16">
+			<Round Num="1" Mod="-225"/>
+			<Round Num="2" Mod="-200"/>
+			<Round Num="3" Mod="-170"/>
+			<Round Num="4" Mod="-165"/>
+			<Round Num="5" Mod="-160"/>
+			<Round Num="6" Mod="-155"/>
+			<Round Num="7" Mod="-150"/>
+			<Round Num="8" Mod="-145"/>
+			<Round Num="9" Mod="-140"/>
+			<Round Num="10" Mod="-135"/>
+		</Level>
+		<Level Min="-50" Max="-21">
+			<Round Num="1" Mod="-275"/>
+			<Round Num="2" Mod="-250"/>
+			<Round Num="3" Mod="-220"/>
+			<Round Num="4" Mod="-215"/>
+			<Round Num="5" Mod="-210"/>
+			<Round Num="6" Mod="-205"/>
+			<Round Num="7" Mod="-200"/>
+			<Round Num="8" Mod="-195"/>
+			<Round Num="9" Mod="-190"/>
+			<Round Num="10" Mod="-185"/>
+		</Level>
+	</RefractoryPeriodModificationChart>
+	<Actions>
+		<Group Name="Manoeuvre">
+			<Action Name="Awareness / Adrenal / Static Maneouvre" Percent=".1" IsAttack="False"/>
+			<Action Name="Rapid maneouvre (-40)" Percent=".3" IsAttack="False"/>
+			<Action Name="Half maneouvre (-20)" Percent=".5" IsAttack="False"/>
+			<Action Name="Full maneouvre (0)" Percent=".7" IsAttack="False"/>
+			<Action Name="Draw a weapon" Percent=".2" IsAttack="False"/>
+			<Action Name="Drop a weapon" Percent=".0001" IsAttack="False"/>
+			<Action Name="Quickdraw a weapon" Percent=".0001" IsAttack="False"/>
+			<Action Name="Rapid mount / dismount" Percent=".2" IsAttack="False"/>
+			<Action Name="Normal mount / dismount" Percent=".5" IsAttack="False"/>
+			<Action Name="Stand from seated" Percent=".1" IsAttack="False"/>
+			<Action Name="Stand from kneeling / crouched" Percent=".2" IsAttack="False"/>
+			<Action Name="Moving to crouched from prone" Percent=".3" IsAttack="False"/>
+			<Action Name="Standing from prone" Percent=".5" IsAttack="False"/>
+			<Action Name="Rapid drop to ground" Percent=".1" IsAttack="False"/>
+			<Action Name="Careful drop to ground" Percent=".2" IsAttack="False"/>
+			<Action Name="Picking something up from ground" Percent=".3" IsAttack="False"/>
+		</Group>
+		<Group Name="Melee">
+			<Action Name="Disengage" Percent=".25" IsAttack="False"/>
+			<Action Name="Full melee attack" Percent="1" IsAttack="True"/>
+			<Action Name="Press and melee attack" Percent="1" IsAttack="True"/>
+			<Action Name="React and melee attack" Percent="1" IsAttack="True"/>
+		</Group>
+		<Group Name="Missle">
+			<Action Name="Loading sling" Percent="0.5" IsAttack="False" NextAction="Missile attack"/>
+			<Action Name="Loading short bow" Percent="0.5" IsAttack="False" NextAction="Missile attack"/>
+			<Action Name="Loading composite bow" Percent=".6" IsAttack="False" NextAction="Missile attack"/>
+			<Action Name="Loading long bow" Percent=".7" IsAttack="False" NextAction="Missile attack"/>
+			<Action Name="Loading light crossbow" Percent="1.6" IsAttack="False" NextAction="Missile attack"/>
+			<Action Name="Loading heavy crossbow" Percent="2.2" IsAttack="False" NextAction="Missile attack"/>
+			<Action Name="Thrown weapon attack" Percent=".2" IsAttack="True"/>
+			<Action Name="Missile attack" Percent="0.6" IsAttack="True" NextAction="Loading long bow"/>
+			<Action Name="Restring short bow" Percent="2" IsAttack="False"/>
+			<Action Name="Restring composite / long bow" Percent="3" IsAttack="False"/>
+		</Group>
+		<Group Name="Movement">
+			<Action Name="10%" Percent="0.1" IsAttack="False"/>
+			<Action Name="20%" Percent="0.2" IsAttack="False"/>
+			<Action Name="30%" Percent="0.3" IsAttack="False"/>
+			<Action Name="40%" Percent="0.4" IsAttack="False"/>
+			<Action Name="50%" Percent="0.5" IsAttack="False"/>
+			<Action Name="60%" Percent="0.6" IsAttack="False"/>
+			<Action Name="70%" Percent="0.7" IsAttack="False"/>
+			<Action Name="80%" Percent="0.8" IsAttack="False"/>
+			<Action Name="90%" Percent="0.9" IsAttack="False"/>
+			<Action Name="100%" Percent="1" IsAttack="False"/>
+		</Group>
+		<Group Name="Spell">
+			<Action Name="Preparing a spell" Percent="0.9" IsAttack="False"/>
+			<Action Name="Casting an instantaneous spell" Percent="0.1" IsAttack="False" IsSpell="True"/>
+			<Action Name="Casting a non-instantaneous spell" Percent="0.75" IsAttack="False" IsSpell="True"/>
+			<Action Name="Use item for instantaneous spell" Percent="0.1" IsAttack="False" />
+			<Action Name="Use item for non-instantaneous spell" Percent="0.75" IsAttack="False" />
+			<Action Name="Use item" Percent="0.01" IsAttack="False" NextAction="Recovery from item use"/>
+			<Action Name="Recovery from item use" Percent="0.09" IsAttack="False"/>
+			<Action Name="Delay to deliberate phase" Percent="0.25" IsAttack="False"/>
+			<Action Name="Cast next round as 50% action" Percent="0.75" IsAttack="False"/>
+		</Group>
+	</Actions>
+</DataFile>
