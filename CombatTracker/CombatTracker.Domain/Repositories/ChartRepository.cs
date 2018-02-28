@@ -1,74 +1,132 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 using CombatTracker.Entities.Reference;
 using CombatTracker.Entities.Reference.Attacks.Charts;
 using CombatTracker.Entities.Reference.Creatures.Charts;
 using CombatTracker.Entities.Reference.Magic;
 using CombatTracker.Entities.Repositories;
+using Utilities.Caching;
 
 namespace CombatTracker.Domain.Repositories
 {
     public class ChartRepository :IChartRepository
     {
+
+        private TrackerContext db;
+
+        public ChartRepository(TrackerContext context)
+        {
+            db = context;
+        }
+
+
         public List<ConstitutionBonusChart> GetConstitutionBonusCharts()
         {
-            throw new NotImplementedException();
+            return Cache.GetItem<List<ConstitutionBonusChart>>(CacheArea.Global, "ConstitutionBonusCharts", () =>
+            {
+                return (from cbc in db.Creature_ConsitutionBonusChart
+                    select new ConstitutionBonusChart()
+                    {
+                        ID = cbc.ID,
+                        Code = cbc.Code,
+                        BonusExhaustion = cbc.BonusExhaustion,
+                        PerLevelDifference = cbc.PerLevelDifference,
+                        ConstitutionBonusChartValues = (from v in cbc.Values
+                            select new ConstitutionBonusChartValues()
+                            {
+                                ID = v.ID,
+                                Min = v.Min,
+                                Max = v.Max,
+                                Mod = v.Mod
+                            }).ToList()
+                    }).ToList();
+            }, "charts");
         }
 
         public ConstitutionBonusChart GetConstitutionBonusChart(int id)
         {
-            throw new NotImplementedException();
+            return (from c in GetConstitutionBonusCharts() where c.ID == id select c).FirstOrDefault();
         }
 
         public ConstitutionBonusChart GetConstitutionBonusChart(string name)
         {
-            throw new NotImplementedException();
+            return (from c in GetConstitutionBonusCharts() where c.Code == name select c).FirstOrDefault();
         }
 
         public List<CriticalCode> GetCriticalCodes()
         {
-            throw new NotImplementedException();
+            return Cache.GetItem<List<CriticalCode>>(CacheArea.Global, "CriticalCodes", () =>
+            {
+                return (from cbc in db.Creature_CriticalCodes
+                    select new CriticalCode()
+                    {
+                        ID = cbc.ID,
+                        Name = cbc.Name,
+                        Abbreviation = cbc.Abbreviation
+                    }).ToList();
+            }, "charts");
         }
 
         public CriticalCode GetCriticalCode(int id)
         {
-            throw new NotImplementedException();
+            return (from c in GetCriticalCodes() where c.ID == id select c).FirstOrDefault();
         }
 
         public CriticalCode GetCriticalCode(string name)
         {
-            throw new NotImplementedException();
+            return (from c in GetCriticalCodes() where c.Name == name select c).FirstOrDefault();
         }
 
         public List<CriticalIgnore> GetCriticalIgnores()
         {
-            throw new NotImplementedException();
+
+            return Cache.GetItem<List<CriticalIgnore>>(CacheArea.Global, "CriticalIgnores", () =>
+            {
+                return (from cbc in db.Creature_CriticalIgnores
+                    select new CriticalIgnore()
+                    {
+                        ID = cbc.ID,
+                        Name = cbc.Name,
+                        Abbreviation = cbc.Abbreviation
+                    }).ToList();
+            }, "charts");
         }
 
         public CriticalIgnore GetCriticalIgnore(int id)
         {
-            throw new NotImplementedException();
+            return (from c in GetCriticalIgnores() where c.ID == id select c).FirstOrDefault();
         }
 
         public CriticalIgnore GetCriticalIgnore(string name)
         {
-            throw new NotImplementedException();
+            return (from c in GetCriticalIgnores() where c.Name == name select c).FirstOrDefault();
         }
 
         public List<IQ> GetIQs()
         {
-            throw new NotImplementedException();
+
+            return Cache.GetItem<List<IQ>>(CacheArea.Global, "IQs", () =>
+            {
+                return (from cbc in db.Creature_IQs
+                    select new IQ()
+                    {
+                        ID = cbc.ID,
+                        Name = cbc.Name,
+                        Abbreviation = cbc.Abbreviation
+                    }).ToList();
+            }, "charts");
         }
 
         public IQ GetIQ(int id)
         {
-            throw new NotImplementedException();
+            return (from c in GetIQs() where c.ID == id select c).FirstOrDefault();
         }
 
         public IQ GetIQ(string name)
         {
-            throw new NotImplementedException();
+            return (from c in GetIQs() where c.Name == name select c).FirstOrDefault();
         }
 
         public List<LevelChart> GetLevelCharts()

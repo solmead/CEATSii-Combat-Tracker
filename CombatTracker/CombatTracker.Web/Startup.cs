@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CombatTracker.Domain;
+using CombatTracker.Domain.Repositories;
+using CombatTracker.Entities.Repositories;
+using CombatTracker.Web.Factories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.Webpack;
@@ -28,6 +31,8 @@ namespace CombatTracker.Web
             services.AddDbContext<TrackerContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
+            services.RegisterServices();
+            
             services.AddMvc();
         }
 
@@ -61,11 +66,7 @@ namespace CombatTracker.Web
             });
 
             //app.CacheInit();
-
-            //using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
-            //{
-            //    serviceScope.ServiceProvider.GetService<TrackerContext>().Database.Migrate();
-            //}
+            
         }
     }
 }
