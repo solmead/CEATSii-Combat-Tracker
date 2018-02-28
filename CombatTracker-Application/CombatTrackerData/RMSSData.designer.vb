@@ -86,12 +86,12 @@ Partial Public Class RMSSDataDataContext
     End Sub
   Partial Private Sub DeleteArmor(instance As Armor)
     End Sub
-  Partial Private Sub InsertSystemUser(instance As SystemUser)
-    End Sub
-  Partial Private Sub UpdateSystemUser(instance As SystemUser)
-    End Sub
-  Partial Private Sub DeleteSystemUser(instance As SystemUser)
-    End Sub
+  'Partial Private Sub InsertSystemUser(instance As SystemUser)
+  '  End Sub
+  'Partial Private Sub UpdateSystemUser(instance As SystemUser)
+  '  End Sub
+  'Partial Private Sub DeleteSystemUser(instance As SystemUser)
+  '  End Sub
   Partial Private Sub InsertPace(instance As Pace)
     End Sub
   Partial Private Sub UpdatePace(instance As Pace)
@@ -299,11 +299,11 @@ Partial Public Class RMSSDataDataContext
 		End Get
 	End Property
 	
-	Public ReadOnly Property SystemUsers() As System.Data.Linq.Table(Of SystemUser)
-		Get
-			Return Me.GetTable(Of SystemUser)
-		End Get
-	End Property
+	'Public ReadOnly Property SystemUsers() As System.Data.Linq.Table(Of SystemUser)
+	'	Get
+	'		Return Me.GetTable(Of SystemUser)
+	'	End Get
+	'End Property
 	
 	Public ReadOnly Property Paces() As System.Data.Linq.Table(Of Pace)
 		Get
@@ -2953,7 +2953,7 @@ Partial Public Class Armor
 	
 	Private _DB As Integer
 	
-	Private _BaseArmor_ID As System.Nullable(Of Integer)
+	'Private _BaseArmor_ID As System.Nullable(Of Integer)
 	
 	Private _TiedToID As System.Nullable(Of Integer)
 	
@@ -3094,22 +3094,22 @@ Partial Public Class Armor
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_BaseArmor_ID", DbType:="Int"),  _
-	 Global.System.Runtime.Serialization.DataMemberAttribute(Order:=6)>  _
-	Public Property BaseArmor_ID() As System.Nullable(Of Integer)
-		Get
-			Return Me._BaseArmor_ID
-		End Get
-		Set
-			If (Me._BaseArmor_ID.Equals(value) = false) Then
-				Me.OnBaseArmor_IDChanging(value)
-				Me.SendPropertyChanging
-				Me._BaseArmor_ID = value
-				Me.SendPropertyChanged("BaseArmor_ID")
-				Me.OnBaseArmor_IDChanged
-			End If
-		End Set
-	End Property
+	'<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_BaseArmor_ID", DbType:="Int"),  _
+	' Global.System.Runtime.Serialization.DataMemberAttribute(Order:=6)>  _
+	'Public Property BaseArmor_ID() As System.Nullable(Of Integer)
+	'	Get
+	'		Return Me._BaseArmor_ID
+	'	End Get
+	'	Set
+	'		If (Me._BaseArmor_ID.Equals(value) = false) Then
+	'			Me.OnBaseArmor_IDChanging(value)
+	'			Me.SendPropertyChanging
+	'			Me._BaseArmor_ID = value
+	'			Me.SendPropertyChanged("BaseArmor_ID")
+	'			Me.OnBaseArmor_IDChanged
+	'		End If
+	'	End Set
+	'End Property
 	
 	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_TiedToID", DbType:="Int"),  _
 	 Global.System.Runtime.Serialization.DataMemberAttribute(Order:=7)>  _
@@ -3227,246 +3227,246 @@ Partial Public Class Armor
 	End Sub
 End Class
 
-<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.aspnet_Users"),  _
- Global.System.Runtime.Serialization.DataContractAttribute()>  _
-Partial Public Class SystemUser
-	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
+'<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.aspnet_Users"),  _
+' Global.System.Runtime.Serialization.DataContractAttribute()>  _
+'Partial Public Class SystemUser
+'	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
 	
-	Private Shared emptyChangingEventArgs As PropertyChangingEventArgs = New PropertyChangingEventArgs(String.Empty)
+'	Private Shared emptyChangingEventArgs As PropertyChangingEventArgs = New PropertyChangingEventArgs(String.Empty)
 	
-	Private _UserId As System.Guid
+'	Private _UserId As System.Guid
 	
-	Private _FirstName As String
+'	Private _FirstName As String
 	
-	Private _LastName As String
+'	Private _LastName As String
 	
-	Private _UserName As String
+'	Private _UserName As String
 	
-	Private _Games As EntitySet(Of Game)
+'	Private _Games As EntitySet(Of Game)
 	
-	Private _GamesPlayers As EntitySet(Of GamesPlayer)
+'	Private _GamesPlayers As EntitySet(Of GamesPlayer)
 	
-	Private _Actors As EntitySet(Of Actor)
+'	Private _Actors As EntitySet(Of Actor)
 	
-	Private serializing As Boolean
+'	Private serializing As Boolean
 	
-    #Region "Extensibility Method Definitions"
-    Partial Private Sub OnLoaded()
-    End Sub
-    Partial Private Sub OnValidate(action As System.Data.Linq.ChangeAction)
-    End Sub
-    Partial Private Sub OnCreated()
-    End Sub
-    Partial Private Sub OnUserIdChanging(value As System.Guid)
-    End Sub
-    Partial Private Sub OnUserIdChanged()
-    End Sub
-    Partial Private Sub OnFirstNameChanging(value As String)
-    End Sub
-    Partial Private Sub OnFirstNameChanged()
-    End Sub
-    Partial Private Sub OnLastNameChanging(value As String)
-    End Sub
-    Partial Private Sub OnLastNameChanged()
-    End Sub
-    Partial Private Sub OnUserNameChanging(value As String)
-    End Sub
-    Partial Private Sub OnUserNameChanged()
-    End Sub
-    #End Region
+'    #Region "Extensibility Method Definitions"
+'    Partial Private Sub OnLoaded()
+'    End Sub
+'    Partial Private Sub OnValidate(action As System.Data.Linq.ChangeAction)
+'    End Sub
+'    Partial Private Sub OnCreated()
+'    End Sub
+'    Partial Private Sub OnUserIdChanging(value As System.Guid)
+'    End Sub
+'    Partial Private Sub OnUserIdChanged()
+'    End Sub
+'    Partial Private Sub OnFirstNameChanging(value As String)
+'    End Sub
+'    Partial Private Sub OnFirstNameChanged()
+'    End Sub
+'    Partial Private Sub OnLastNameChanging(value As String)
+'    End Sub
+'    Partial Private Sub OnLastNameChanged()
+'    End Sub
+'    Partial Private Sub OnUserNameChanging(value As String)
+'    End Sub
+'    Partial Private Sub OnUserNameChanged()
+'    End Sub
+'    #End Region
 	
-	Public Sub New()
-		MyBase.New
-		Me.Initialize
-	End Sub
+'	Public Sub New()
+'		MyBase.New
+'		Me.Initialize
+'	End Sub
 	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_UserId", DbType:="UniqueIdentifier NOT NULL", IsPrimaryKey:=true),  _
-	 Global.System.Runtime.Serialization.DataMemberAttribute(Order:=1)>  _
-	Public Property UserId() As System.Guid
-		Get
-			Return Me._UserId
-		End Get
-		Set
-			If ((Me._UserId = value)  _
-						= false) Then
-				Me.OnUserIdChanging(value)
-				Me.SendPropertyChanging
-				Me._UserId = value
-				Me.SendPropertyChanged("UserId")
-				Me.OnUserIdChanged
-			End If
-		End Set
-	End Property
+'	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_UserId", DbType:="UniqueIdentifier NOT NULL", IsPrimaryKey:=true),  _
+'	 Global.System.Runtime.Serialization.DataMemberAttribute(Order:=1)>  _
+'	Public Property UserId() As System.Guid
+'		Get
+'			Return Me._UserId
+'		End Get
+'		Set
+'			If ((Me._UserId = value)  _
+'						= false) Then
+'				Me.OnUserIdChanging(value)
+'				Me.SendPropertyChanging
+'				Me._UserId = value
+'				Me.SendPropertyChanged("UserId")
+'				Me.OnUserIdChanged
+'			End If
+'		End Set
+'	End Property
 	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_FirstName", CanBeNull:=false),  _
-	 Global.System.Runtime.Serialization.DataMemberAttribute(Order:=2)>  _
-	Public Property FirstName() As String
-		Get
-			Return Me._FirstName
-		End Get
-		Set
-			If (String.Equals(Me._FirstName, value) = false) Then
-				Me.OnFirstNameChanging(value)
-				Me.SendPropertyChanging
-				Me._FirstName = value
-				Me.SendPropertyChanged("FirstName")
-				Me.OnFirstNameChanged
-			End If
-		End Set
-	End Property
+'	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_FirstName", CanBeNull:=false),  _
+'	 Global.System.Runtime.Serialization.DataMemberAttribute(Order:=2)>  _
+'	Public Property FirstName() As String
+'		Get
+'			Return Me._FirstName
+'		End Get
+'		Set
+'			If (String.Equals(Me._FirstName, value) = false) Then
+'				Me.OnFirstNameChanging(value)
+'				Me.SendPropertyChanging
+'				Me._FirstName = value
+'				Me.SendPropertyChanged("FirstName")
+'				Me.OnFirstNameChanged
+'			End If
+'		End Set
+'	End Property
 	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_LastName", CanBeNull:=false),  _
-	 Global.System.Runtime.Serialization.DataMemberAttribute(Order:=3)>  _
-	Public Property LastName() As String
-		Get
-			Return Me._LastName
-		End Get
-		Set
-			If (String.Equals(Me._LastName, value) = false) Then
-				Me.OnLastNameChanging(value)
-				Me.SendPropertyChanging
-				Me._LastName = value
-				Me.SendPropertyChanged("LastName")
-				Me.OnLastNameChanged
-			End If
-		End Set
-	End Property
+'	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_LastName", CanBeNull:=false),  _
+'	 Global.System.Runtime.Serialization.DataMemberAttribute(Order:=3)>  _
+'	Public Property LastName() As String
+'		Get
+'			Return Me._LastName
+'		End Get
+'		Set
+'			If (String.Equals(Me._LastName, value) = false) Then
+'				Me.OnLastNameChanging(value)
+'				Me.SendPropertyChanging
+'				Me._LastName = value
+'				Me.SendPropertyChanged("LastName")
+'				Me.OnLastNameChanged
+'			End If
+'		End Set
+'	End Property
 	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_UserName", CanBeNull:=false),  _
-	 Global.System.Runtime.Serialization.DataMemberAttribute(Order:=4)>  _
-	Public Property UserName() As String
-		Get
-			Return Me._UserName
-		End Get
-		Set
-			If (String.Equals(Me._UserName, value) = false) Then
-				Me.OnUserNameChanging(value)
-				Me.SendPropertyChanging
-				Me._UserName = value
-				Me.SendPropertyChanged("UserName")
-				Me.OnUserNameChanged
-			End If
-		End Set
-	End Property
+'	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_UserName", CanBeNull:=false),  _
+'	 Global.System.Runtime.Serialization.DataMemberAttribute(Order:=4)>  _
+'	Public Property UserName() As String
+'		Get
+'			Return Me._UserName
+'		End Get
+'		Set
+'			If (String.Equals(Me._UserName, value) = false) Then
+'				Me.OnUserNameChanging(value)
+'				Me.SendPropertyChanging
+'				Me._UserName = value
+'				Me.SendPropertyChanged("UserName")
+'				Me.OnUserNameChanged
+'			End If
+'		End Set
+'	End Property
 	
-	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="SystemUser_Game", Storage:="_Games", ThisKey:="UserId", OtherKey:="GM_ID"),  _
-	 Global.System.Runtime.Serialization.DataMemberAttribute(Order:=5, EmitDefaultValue:=false)>  _
-	Public Property Games() As EntitySet(Of Game)
-		Get
-			If (Me.serializing  _
-						AndAlso (Me._Games.HasLoadedOrAssignedValues = false)) Then
-				Return Nothing
-			End If
-			Return Me._Games
-		End Get
-		Set
-			Me._Games.Assign(value)
-		End Set
-	End Property
+'	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="SystemUser_Game", Storage:="_Games", ThisKey:="UserId", OtherKey:="GM_ID"),  _
+'	 Global.System.Runtime.Serialization.DataMemberAttribute(Order:=5, EmitDefaultValue:=false)>  _
+'	Public Property Games() As EntitySet(Of Game)
+'		Get
+'			If (Me.serializing  _
+'						AndAlso (Me._Games.HasLoadedOrAssignedValues = false)) Then
+'				Return Nothing
+'			End If
+'			Return Me._Games
+'		End Get
+'		Set
+'			Me._Games.Assign(value)
+'		End Set
+'	End Property
 	
-	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="SystemUser_GamesPlayer", Storage:="_GamesPlayers", ThisKey:="UserId", OtherKey:="Player_ID"),  _
-	 Global.System.Runtime.Serialization.DataMemberAttribute(Order:=6, EmitDefaultValue:=false)>  _
-	Public Property GamesPlayers() As EntitySet(Of GamesPlayer)
-		Get
-			If (Me.serializing  _
-						AndAlso (Me._GamesPlayers.HasLoadedOrAssignedValues = false)) Then
-				Return Nothing
-			End If
-			Return Me._GamesPlayers
-		End Get
-		Set
-			Me._GamesPlayers.Assign(value)
-		End Set
-	End Property
+'	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="SystemUser_GamesPlayer", Storage:="_GamesPlayers", ThisKey:="UserId", OtherKey:="Player_ID"),  _
+'	 Global.System.Runtime.Serialization.DataMemberAttribute(Order:=6, EmitDefaultValue:=false)>  _
+'	Public Property GamesPlayers() As EntitySet(Of GamesPlayer)
+'		Get
+'			If (Me.serializing  _
+'						AndAlso (Me._GamesPlayers.HasLoadedOrAssignedValues = false)) Then
+'				Return Nothing
+'			End If
+'			Return Me._GamesPlayers
+'		End Get
+'		Set
+'			Me._GamesPlayers.Assign(value)
+'		End Set
+'	End Property
 	
-	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="SystemUser_Actor", Storage:="_Actors", ThisKey:="UserId", OtherKey:="Player_ID"),  _
-	 Global.System.Runtime.Serialization.DataMemberAttribute(Order:=7, EmitDefaultValue:=false)>  _
-	Public Property Actors() As EntitySet(Of Actor)
-		Get
-			If (Me.serializing  _
-						AndAlso (Me._Actors.HasLoadedOrAssignedValues = false)) Then
-				Return Nothing
-			End If
-			Return Me._Actors
-		End Get
-		Set
-			Me._Actors.Assign(value)
-		End Set
-	End Property
+'	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="SystemUser_Actor", Storage:="_Actors", ThisKey:="UserId", OtherKey:="Player_ID"),  _
+'	 Global.System.Runtime.Serialization.DataMemberAttribute(Order:=7, EmitDefaultValue:=false)>  _
+'	Public Property Actors() As EntitySet(Of Actor)
+'		Get
+'			If (Me.serializing  _
+'						AndAlso (Me._Actors.HasLoadedOrAssignedValues = false)) Then
+'				Return Nothing
+'			End If
+'			Return Me._Actors
+'		End Get
+'		Set
+'			Me._Actors.Assign(value)
+'		End Set
+'	End Property
 	
-	Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
+'	Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
 	
-	Public Event PropertyChanged As PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
+'	Public Event PropertyChanged As PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
 	
-	Protected Overridable Sub SendPropertyChanging()
-		If ((Me.PropertyChangingEvent Is Nothing)  _
-					= false) Then
-			RaiseEvent PropertyChanging(Me, emptyChangingEventArgs)
-		End If
-	End Sub
+'	Protected Overridable Sub SendPropertyChanging()
+'		If ((Me.PropertyChangingEvent Is Nothing)  _
+'					= false) Then
+'			RaiseEvent PropertyChanging(Me, emptyChangingEventArgs)
+'		End If
+'	End Sub
 	
-	Protected Overridable Sub SendPropertyChanged(ByVal propertyName As [String])
-		If ((Me.PropertyChangedEvent Is Nothing)  _
-					= false) Then
-			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
-		End If
-	End Sub
+'	Protected Overridable Sub SendPropertyChanged(ByVal propertyName As [String])
+'		If ((Me.PropertyChangedEvent Is Nothing)  _
+'					= false) Then
+'			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
+'		End If
+'	End Sub
 	
-	Private Sub attach_Games(ByVal entity As Game)
-		Me.SendPropertyChanging
-		entity.GM = Me
-	End Sub
+'	Private Sub attach_Games(ByVal entity As Game)
+'		Me.SendPropertyChanging
+'		entity.GM = Me
+'	End Sub
 	
-	Private Sub detach_Games(ByVal entity As Game)
-		Me.SendPropertyChanging
-		entity.GM = Nothing
-	End Sub
+'	Private Sub detach_Games(ByVal entity As Game)
+'		Me.SendPropertyChanging
+'		entity.GM = Nothing
+'	End Sub
 	
-	Private Sub attach_GamesPlayers(ByVal entity As GamesPlayer)
-		Me.SendPropertyChanging
-		entity.Player = Me
-	End Sub
+'	Private Sub attach_GamesPlayers(ByVal entity As GamesPlayer)
+'		Me.SendPropertyChanging
+'		entity.Player = Me
+'	End Sub
 	
-	Private Sub detach_GamesPlayers(ByVal entity As GamesPlayer)
-		Me.SendPropertyChanging
-		entity.Player = Nothing
-	End Sub
+'	Private Sub detach_GamesPlayers(ByVal entity As GamesPlayer)
+'		Me.SendPropertyChanging
+'		entity.Player = Nothing
+'	End Sub
 	
-	Private Sub attach_Actors(ByVal entity As Actor)
-		Me.SendPropertyChanging
-		entity.Player = Me
-	End Sub
+'	Private Sub attach_Actors(ByVal entity As Actor)
+'		Me.SendPropertyChanging
+'		entity.Player = Me
+'	End Sub
 	
-	Private Sub detach_Actors(ByVal entity As Actor)
-		Me.SendPropertyChanging
-		entity.Player = Nothing
-	End Sub
+'	Private Sub detach_Actors(ByVal entity As Actor)
+'		Me.SendPropertyChanging
+'		entity.Player = Nothing
+'	End Sub
 	
-	Private Sub Initialize()
-		Me._Games = New EntitySet(Of Game)(AddressOf Me.attach_Games, AddressOf Me.detach_Games)
-		Me._GamesPlayers = New EntitySet(Of GamesPlayer)(AddressOf Me.attach_GamesPlayers, AddressOf Me.detach_GamesPlayers)
-		Me._Actors = New EntitySet(Of Actor)(AddressOf Me.attach_Actors, AddressOf Me.detach_Actors)
-		OnCreated
-	End Sub
+'	Private Sub Initialize()
+'		Me._Games = New EntitySet(Of Game)(AddressOf Me.attach_Games, AddressOf Me.detach_Games)
+'		Me._GamesPlayers = New EntitySet(Of GamesPlayer)(AddressOf Me.attach_GamesPlayers, AddressOf Me.detach_GamesPlayers)
+'		Me._Actors = New EntitySet(Of Actor)(AddressOf Me.attach_Actors, AddressOf Me.detach_Actors)
+'		OnCreated
+'	End Sub
 	
-	<Global.System.Runtime.Serialization.OnDeserializingAttribute(),  _
-	 Global.System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)>  _
-	Public Sub OnDeserializing(ByVal context As StreamingContext)
-		Me.Initialize
-	End Sub
+'	<Global.System.Runtime.Serialization.OnDeserializingAttribute(),  _
+'	 Global.System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)>  _
+'	Public Sub OnDeserializing(ByVal context As StreamingContext)
+'		Me.Initialize
+'	End Sub
 	
-	<Global.System.Runtime.Serialization.OnSerializingAttribute(),  _
-	 Global.System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)>  _
-	Public Sub OnSerializing(ByVal context As StreamingContext)
-		Me.serializing = true
-	End Sub
+'	<Global.System.Runtime.Serialization.OnSerializingAttribute(),  _
+'	 Global.System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)>  _
+'	Public Sub OnSerializing(ByVal context As StreamingContext)
+'		Me.serializing = true
+'	End Sub
 	
-	<Global.System.Runtime.Serialization.OnSerializedAttribute(),  _
-	 Global.System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)>  _
-	Public Sub OnSerialized(ByVal context As StreamingContext)
-		Me.serializing = false
-	End Sub
-End Class
+'	<Global.System.Runtime.Serialization.OnSerializedAttribute(),  _
+'	 Global.System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)>  _
+'	Public Sub OnSerialized(ByVal context As StreamingContext)
+'		Me.serializing = false
+'	End Sub
+'End Class
 
 <Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.Creature_Pace"),  _
  Global.System.Runtime.Serialization.DataContractAttribute()>  _
@@ -7033,7 +7033,7 @@ Partial Public Class Game
 	
 	Private _Actions As EntitySet(Of Action)
 	
-	Private _GM As EntityRef(Of SystemUser)
+	'Private _GM As EntityRef(Of SystemUser)
 	
 	Private serializing As Boolean
 	
@@ -7102,25 +7102,25 @@ Partial Public Class Game
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_GM_ID", DbType:="UniqueIdentifier"),  _
-	 Global.System.Runtime.Serialization.DataMemberAttribute(Order:=3)>  _
-	Public Property GM_ID() As System.Nullable(Of System.Guid)
-		Get
-			Return Me._GM_ID
-		End Get
-		Set
-			If (Me._GM_ID.Equals(value) = false) Then
-				If Me._GM.HasLoadedOrAssignedValue Then
-					Throw New System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException()
-				End If
-				Me.OnGM_IDChanging(value)
-				Me.SendPropertyChanging
-				Me._GM_ID = value
-				Me.SendPropertyChanged("GM_ID")
-				Me.OnGM_IDChanged
-			End If
-		End Set
-	End Property
+	'<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_GM_ID", DbType:="UniqueIdentifier"),  _
+	' Global.System.Runtime.Serialization.DataMemberAttribute(Order:=3)>  _
+	'Public Property GM_ID() As System.Nullable(Of System.Guid)
+	'	Get
+	'		Return Me._GM_ID
+	'	End Get
+	'	Set
+	'		If (Me._GM_ID.Equals(value) = false) Then
+	'			If Me._GM.HasLoadedOrAssignedValue Then
+	'				Throw New System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException()
+	'			End If
+	'			Me.OnGM_IDChanging(value)
+	'			Me.SendPropertyChanging
+	'			Me._GM_ID = value
+	'			Me.SendPropertyChanged("GM_ID")
+	'			Me.OnGM_IDChanged
+	'		End If
+	'	End Set
+	'End Property
 	
 	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_CurrentTime", DbType:="Float NOT NULL"),  _
 	 Global.System.Runtime.Serialization.DataMemberAttribute(Order:=4)>  _
@@ -7185,33 +7185,33 @@ Partial Public Class Game
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="SystemUser_Game", Storage:="_GM", ThisKey:="GM_ID", OtherKey:="UserId", IsForeignKey:=true)>  _
-	Public Property GM() As SystemUser
-		Get
-			Return Me._GM.Entity
-		End Get
-		Set
-			Dim previousValue As SystemUser = Me._GM.Entity
-			If ((Object.Equals(previousValue, value) = false)  _
-						OrElse (Me._GM.HasLoadedOrAssignedValue = false)) Then
-				Me.SendPropertyChanging
-				If ((previousValue Is Nothing)  _
-							= false) Then
-					Me._GM.Entity = Nothing
-					previousValue.Games.Remove(Me)
-				End If
-				Me._GM.Entity = value
-				If ((value Is Nothing)  _
-							= false) Then
-					value.Games.Add(Me)
-					Me._GM_ID = value.UserId
-				Else
-					Me._GM_ID = CType(Nothing, Nullable(Of System.Guid))
-				End If
-				Me.SendPropertyChanged("GM")
-			End If
-		End Set
-	End Property
+	'<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="SystemUser_Game", Storage:="_GM", ThisKey:="GM_ID", OtherKey:="UserId", IsForeignKey:=true)>  _
+	'Public Property GM() As SystemUser
+	'	Get
+	'		Return Me._GM.Entity
+	'	End Get
+	'	Set
+	'		Dim previousValue As SystemUser = Me._GM.Entity
+	'		If ((Object.Equals(previousValue, value) = false)  _
+	'					OrElse (Me._GM.HasLoadedOrAssignedValue = false)) Then
+	'			Me.SendPropertyChanging
+	'			If ((previousValue Is Nothing)  _
+	'						= false) Then
+	'				Me._GM.Entity = Nothing
+	'				previousValue.Games.Remove(Me)
+	'			End If
+	'			Me._GM.Entity = value
+	'			If ((value Is Nothing)  _
+	'						= false) Then
+	'				value.Games.Add(Me)
+	'				Me._GM_ID = value.UserId
+	'			Else
+	'				Me._GM_ID = CType(Nothing, Nullable(Of System.Guid))
+	'			End If
+	'			Me.SendPropertyChanged("GM")
+	'		End If
+	'	End Set
+	'End Property
 	
 	Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
 	
@@ -7265,7 +7265,7 @@ Partial Public Class Game
 		Me._GamesPlayers = New EntitySet(Of GamesPlayer)(AddressOf Me.attach_GamesPlayers, AddressOf Me.detach_GamesPlayers)
 		Me._Actors = New EntitySet(Of Actor)(AddressOf Me.attach_Actors, AddressOf Me.detach_Actors)
 		Me._Actions = New EntitySet(Of Action)(AddressOf Me.attach_Actions, AddressOf Me.detach_Actions)
-		Me._GM = CType(Nothing, EntityRef(Of SystemUser))
+		'Me._GM = CType(Nothing, EntityRef(Of SystemUser))
 		OnCreated
 	End Sub
 	
@@ -7303,7 +7303,7 @@ Partial Public Class GamesPlayer
 	
 	Private _Game As EntityRef(Of Game)
 	
-	Private _Player As EntityRef(Of SystemUser)
+	'Private _Player As EntityRef(Of SystemUser)
 	
     #Region "Extensibility Method Definitions"
     Partial Private Sub OnLoaded()
@@ -7370,26 +7370,26 @@ Partial Public Class GamesPlayer
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Player_ID", DbType:="UniqueIdentifier NOT NULL"),  _
-	 Global.System.Runtime.Serialization.DataMemberAttribute(Order:=3)>  _
-	Public Property Player_ID() As System.Guid
-		Get
-			Return Me._Player_ID
-		End Get
-		Set
-			If ((Me._Player_ID = value)  _
-						= false) Then
-				If Me._Player.HasLoadedOrAssignedValue Then
-					Throw New System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException()
-				End If
-				Me.OnPlayer_IDChanging(value)
-				Me.SendPropertyChanging
-				Me._Player_ID = value
-				Me.SendPropertyChanged("Player_ID")
-				Me.OnPlayer_IDChanged
-			End If
-		End Set
-	End Property
+	'<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Player_ID", DbType:="UniqueIdentifier NOT NULL"),  _
+	' Global.System.Runtime.Serialization.DataMemberAttribute(Order:=3)>  _
+	'Public Property Player_ID() As System.Guid
+	'	Get
+	'		Return Me._Player_ID
+	'	End Get
+	'	Set
+	'		If ((Me._Player_ID = value)  _
+	'					= false) Then
+	'			If Me._Player.HasLoadedOrAssignedValue Then
+	'				Throw New System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException()
+	'			End If
+	'			Me.OnPlayer_IDChanging(value)
+	'			Me.SendPropertyChanging
+	'			Me._Player_ID = value
+	'			Me.SendPropertyChanged("Player_ID")
+	'			Me.OnPlayer_IDChanged
+	'		End If
+	'	End Set
+	'End Property
 	
 	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="Game_GamesPlayer", Storage:="_Game", ThisKey:="Game_ID", OtherKey:="ID", IsForeignKey:=true)>  _
 	Public Property Game() As Game
@@ -7419,33 +7419,33 @@ Partial Public Class GamesPlayer
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="SystemUser_GamesPlayer", Storage:="_Player", ThisKey:="Player_ID", OtherKey:="UserId", IsForeignKey:=true)>  _
-	Public Property Player() As SystemUser
-		Get
-			Return Me._Player.Entity
-		End Get
-		Set
-			Dim previousValue As SystemUser = Me._Player.Entity
-			If ((Object.Equals(previousValue, value) = false)  _
-						OrElse (Me._Player.HasLoadedOrAssignedValue = false)) Then
-				Me.SendPropertyChanging
-				If ((previousValue Is Nothing)  _
-							= false) Then
-					Me._Player.Entity = Nothing
-					previousValue.GamesPlayers.Remove(Me)
-				End If
-				Me._Player.Entity = value
-				If ((value Is Nothing)  _
-							= false) Then
-					value.GamesPlayers.Add(Me)
-					Me._Player_ID = value.UserId
-				Else
-					Me._Player_ID = CType(Nothing, System.Guid)
-				End If
-				Me.SendPropertyChanged("Player")
-			End If
-		End Set
-	End Property
+	'<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="SystemUser_GamesPlayer", Storage:="_Player", ThisKey:="Player_ID", OtherKey:="UserId", IsForeignKey:=true)>  _
+	'Public Property Player() As SystemUser
+	'	Get
+	'		Return Me._Player.Entity
+	'	End Get
+	'	Set
+	'		Dim previousValue As SystemUser = Me._Player.Entity
+	'		If ((Object.Equals(previousValue, value) = false)  _
+	'					OrElse (Me._Player.HasLoadedOrAssignedValue = false)) Then
+	'			Me.SendPropertyChanging
+	'			If ((previousValue Is Nothing)  _
+	'						= false) Then
+	'				Me._Player.Entity = Nothing
+	'				previousValue.GamesPlayers.Remove(Me)
+	'			End If
+	'			Me._Player.Entity = value
+	'			If ((value Is Nothing)  _
+	'						= false) Then
+	'				value.GamesPlayers.Add(Me)
+	'				Me._Player_ID = value.UserId
+	'			Else
+	'				Me._Player_ID = CType(Nothing, System.Guid)
+	'			End If
+	'			Me.SendPropertyChanged("Player")
+	'		End If
+	'	End Set
+	'End Property
 	
 	Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
 	
@@ -7467,7 +7467,7 @@ Partial Public Class GamesPlayer
 	
 	Private Sub Initialize()
 		Me._Game = CType(Nothing, EntityRef(Of Game))
-		Me._Player = CType(Nothing, EntityRef(Of SystemUser))
+		'Me._Player = CType(Nothing, EntityRef(Of SystemUser))
 		OnCreated
 	End Sub
 	
@@ -7555,7 +7555,7 @@ Partial Public Class Actor
 	
 	Private _Game As EntityRef(Of Game)
 	
-	Private _Player As EntityRef(Of SystemUser)
+	'Private _Player As EntityRef(Of SystemUser)
 	
 	Private _CurrentArmor As EntityRef(Of Armor)
 	
@@ -7730,25 +7730,25 @@ Partial Public Class Actor
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Player_ID", DbType:="UniqueIdentifier"),  _
-	 Global.System.Runtime.Serialization.DataMemberAttribute(Order:=3)>  _
-	Public Property Player_ID() As System.Nullable(Of System.Guid)
-		Get
-			Return Me._Player_ID
-		End Get
-		Set
-			If (Me._Player_ID.Equals(value) = false) Then
-				If Me._Player.HasLoadedOrAssignedValue Then
-					Throw New System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException()
-				End If
-				Me.OnPlayer_IDChanging(value)
-				Me.SendPropertyChanging
-				Me._Player_ID = value
-				Me.SendPropertyChanged("Player_ID")
-				Me.OnPlayer_IDChanged
-			End If
-		End Set
-	End Property
+	'<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Player_ID", DbType:="UniqueIdentifier"),  _
+	' Global.System.Runtime.Serialization.DataMemberAttribute(Order:=3)>  _
+	'Public Property Player_ID() As System.Nullable(Of System.Guid)
+	'	Get
+	'		Return Me._Player_ID
+	'	End Get
+	'	Set
+	'		If (Me._Player_ID.Equals(value) = false) Then
+	'			If Me._Player.HasLoadedOrAssignedValue Then
+	'				Throw New System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException()
+	'			End If
+	'			Me.OnPlayer_IDChanging(value)
+	'			Me.SendPropertyChanging
+	'			Me._Player_ID = value
+	'			Me.SendPropertyChanged("Player_ID")
+	'			Me.OnPlayer_IDChanged
+	'		End If
+	'	End Set
+	'End Property
 	
 	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_BaseCreature_ID", DbType:="Int"),  _
 	 Global.System.Runtime.Serialization.DataMemberAttribute(Order:=4)>  _
@@ -8350,33 +8350,33 @@ Partial Public Class Actor
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="SystemUser_Actor", Storage:="_Player", ThisKey:="Player_ID", OtherKey:="UserId", IsForeignKey:=true)>  _
-	Public Property Player() As SystemUser
-		Get
-			Return Me._Player.Entity
-		End Get
-		Set
-			Dim previousValue As SystemUser = Me._Player.Entity
-			If ((Object.Equals(previousValue, value) = false)  _
-						OrElse (Me._Player.HasLoadedOrAssignedValue = false)) Then
-				Me.SendPropertyChanging
-				If ((previousValue Is Nothing)  _
-							= false) Then
-					Me._Player.Entity = Nothing
-					previousValue.Actors.Remove(Me)
-				End If
-				Me._Player.Entity = value
-				If ((value Is Nothing)  _
-							= false) Then
-					value.Actors.Add(Me)
-					Me._Player_ID = value.UserId
-				Else
-					Me._Player_ID = CType(Nothing, Nullable(Of System.Guid))
-				End If
-				Me.SendPropertyChanged("Player")
-			End If
-		End Set
-	End Property
+	'<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="SystemUser_Actor", Storage:="_Player", ThisKey:="Player_ID", OtherKey:="UserId", IsForeignKey:=true)>  _
+	'Public Property Player() As SystemUser
+	'	Get
+	'		Return Me._Player.Entity
+	'	End Get
+	'	Set
+	'		Dim previousValue As SystemUser = Me._Player.Entity
+	'		If ((Object.Equals(previousValue, value) = false)  _
+	'					OrElse (Me._Player.HasLoadedOrAssignedValue = false)) Then
+	'			Me.SendPropertyChanging
+	'			If ((previousValue Is Nothing)  _
+	'						= false) Then
+	'				Me._Player.Entity = Nothing
+	'				previousValue.Actors.Remove(Me)
+	'			End If
+	'			Me._Player.Entity = value
+	'			If ((value Is Nothing)  _
+	'						= false) Then
+	'				value.Actors.Add(Me)
+	'				Me._Player_ID = value.UserId
+	'			Else
+	'				Me._Player_ID = CType(Nothing, Nullable(Of System.Guid))
+	'			End If
+	'			Me.SendPropertyChanged("Player")
+	'		End If
+	'	End Set
+	'End Property
 	
 	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="Armor_Actor", Storage:="_CurrentArmor", ThisKey:="CurrentArmor_ID", OtherKey:="ID", IsForeignKey:=true)>  _
 	Public Property CurrentArmor() As Armor
@@ -8461,7 +8461,7 @@ Partial Public Class Actor
 		Me._Character = CType(Nothing, EntityRef(Of Character))
 		Me._Creature = CType(Nothing, EntityRef(Of Creature))
 		Me._Game = CType(Nothing, EntityRef(Of Game))
-		Me._Player = CType(Nothing, EntityRef(Of SystemUser))
+		'Me._Player = CType(Nothing, EntityRef(Of SystemUser))
 		Me._CurrentArmor = CType(Nothing, EntityRef(Of Armor))
 		OnCreated
 	End Sub

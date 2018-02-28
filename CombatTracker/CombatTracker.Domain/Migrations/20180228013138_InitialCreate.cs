@@ -424,67 +424,67 @@ namespace CombatTracker.Domain.Migrations
                         column: x => x.AQRating_ID,
                         principalTable: "Creature_SpeedChart",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Creatures_Books_Book_ID",
                         column: x => x.Book_ID,
                         principalTable: "Books",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Creatures_Creature_CriticalIgnores_CriticalsIgnore_ID",
                         column: x => x.CriticalsIgnore_ID,
                         principalTable: "Creature_CriticalIgnores",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Creatures_Creature_CriticalCodes_Criticals_ID",
                         column: x => x.Criticals_ID,
                         principalTable: "Creature_CriticalCodes",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Creatures_Creature_ConsitutionBonusChart_HitMod_ID",
                         column: x => x.HitMod_ID,
                         principalTable: "Creature_ConsitutionBonusChart",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Creatures_Creature_IQs_IQ_ID",
                         column: x => x.IQ_ID,
                         principalTable: "Creature_IQs",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Creatures_Creature_LevelChart_LevelMod_ID",
                         column: x => x.LevelMod_ID,
                         principalTable: "Creature_LevelChart",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Creatures_Creature_SpeedChart_MSRating_ID",
                         column: x => x.MSRating_ID,
                         principalTable: "Creature_SpeedChart",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Creatures_Creature_Pace_MaxPace_ID",
                         column: x => x.MaxPace_ID,
                         principalTable: "Creature_Pace",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Creatures_Creature_Outlook_Outlook_ID",
                         column: x => x.Outlook_ID,
                         principalTable: "Creature_Outlook",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Creatures_Creature_Sizes_Size_ID",
                         column: x => x.Size_ID,
                         principalTable: "Creature_Sizes",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -564,7 +564,7 @@ namespace CombatTracker.Domain.Migrations
                     Size_ID = table.Column<int>(nullable: true),
                     ThisRoundSuccess_ID = table.Column<int>(nullable: true),
                     Type_ID = table.Column<int>(nullable: false),
-                    UseCriticalInstead_ID = table.Column<int>(nullable: false),
+                    UseCriticalInstead_ID = table.Column<int>(nullable: true),
                     WeaponUsed_ID = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
@@ -599,13 +599,13 @@ namespace CombatTracker.Domain.Migrations
                         column: x => x.Type_ID,
                         principalTable: "Attack_Types",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Attacks_Attack_CriticalTypes_UseCriticalInstead_ID",
                         column: x => x.UseCriticalInstead_ID,
                         principalTable: "Attack_CriticalTypes",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Attacks_Weapons_WeaponUsed_ID",
                         column: x => x.WeaponUsed_ID,
@@ -636,7 +636,7 @@ namespace CombatTracker.Domain.Migrations
                         column: x => x.Actor_ID,
                         principalTable: "Actors",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -656,13 +656,13 @@ namespace CombatTracker.Domain.Migrations
                         column: x => x.Actor_ID,
                         principalTable: "Actors",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_ActorsAttacks_Attacks_Attack_ID",
                         column: x => x.Attack_ID,
                         principalTable: "Attacks",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -682,7 +682,7 @@ namespace CombatTracker.Domain.Migrations
                         column: x => x.AttackID,
                         principalTable: "Attacks",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_AttacksAddCrits_Attack_CriticalTypes_Critical_ID",
                         column: x => x.Critical_ID,
@@ -697,29 +697,29 @@ namespace CombatTracker.Domain.Migrations
                 {
                     ID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    ActionType = table.Column<string>(maxLength: 50, nullable: false),
+                    ActionType = table.Column<string>(maxLength: 50, nullable: false, defaultValue: "Current"),
                     BaseAction_ID = table.Column<int>(nullable: true),
-                    BasePercent = table.Column<double>(nullable: false),
-                    Bleeder = table.Column<int>(nullable: false),
-                    Count = table.Column<int>(nullable: false),
-                    CriticalGiven = table.Column<bool>(nullable: false),
+                    BasePercent = table.Column<double>(nullable: false, defaultValue:1),
+                    Bleeder = table.Column<int>(nullable: false, defaultValue: 0),
+                    Count = table.Column<int>(nullable: false, defaultValue: 0),
+                    CriticalGiven = table.Column<bool>(nullable: false, defaultValue: 0),
                     Critical_ID = table.Column<int>(nullable: true),
                     CurrentAttack_ID = table.Column<int>(nullable: true),
-                    CurrentModifier = table.Column<int>(nullable: false),
-                    EndTime = table.Column<double>(nullable: false),
-                    Game_ID = table.Column<int>(nullable: false),
-                    HastedPercent = table.Column<double>(nullable: false),
-                    Interrupted = table.Column<bool>(nullable: false),
-                    IsHasted = table.Column<bool>(nullable: false),
-                    IsSlowed = table.Column<bool>(nullable: false),
-                    LeftPercent = table.Column<double>(nullable: false),
-                    LevelDifference = table.Column<int>(nullable: false),
-                    Name = table.Column<string>(maxLength: 50, nullable: false),
-                    Note = table.Column<string>(maxLength: 250, nullable: false),
-                    StartTime = table.Column<double>(nullable: false),
-                    State = table.Column<string>(maxLength: 50, nullable: false),
-                    TotalRounds = table.Column<int>(nullable: false),
-                    Type = table.Column<string>(maxLength: 50, nullable: false),
+                    CurrentModifier = table.Column<int>(nullable: false, defaultValue: 0),
+                    EndTime = table.Column<double>(nullable: false, defaultValue: 0),
+                    Game_ID = table.Column<int>(nullable: false, defaultValue: 0),
+                    HastedPercent = table.Column<double>(nullable: false, defaultValue: 0),
+                    Interrupted = table.Column<bool>(nullable: false, defaultValue: 0),
+                    IsHasted = table.Column<bool>(nullable: false, defaultValue: 0),
+                    IsSlowed = table.Column<bool>(nullable: false, defaultValue: 0),
+                    LeftPercent = table.Column<double>(nullable: false, defaultValue: 0),
+                    LevelDifference = table.Column<int>(nullable: false, defaultValue: 0),
+                    Name = table.Column<string>(maxLength: 50, nullable: false, defaultValue: ""),
+                    Note = table.Column<string>(maxLength: 250, nullable: false, defaultValue: ""),
+                    StartTime = table.Column<double>(nullable: false, defaultValue: 0),
+                    State = table.Column<string>(maxLength: 50, nullable: false, defaultValue: "IsOK"),
+                    TotalRounds = table.Column<int>(nullable: false, defaultValue: 0),
+                    Type = table.Column<string>(maxLength: 50, nullable: false, defaultValue: ""),
                     WhoIsActing_ID = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
@@ -748,7 +748,7 @@ namespace CombatTracker.Domain.Migrations
                         column: x => x.Game_ID,
                         principalTable: "Games",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_ActorsActions_Actors_WhoIsActing_ID",
                         column: x => x.WhoIsActing_ID,

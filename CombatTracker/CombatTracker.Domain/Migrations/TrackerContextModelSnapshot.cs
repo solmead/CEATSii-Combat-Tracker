@@ -616,8 +616,7 @@ namespace CombatTracker.Domain.Migrations
 
                     b.Property<int>("Type_ID");
 
-                    b.Property<int?>("UseCriticalInstead_ID")
-                        .IsRequired();
+                    b.Property<int?>("UseCriticalInstead_ID");
 
                     b.Property<int?>("WeaponUsed_ID");
 
@@ -949,8 +948,7 @@ namespace CombatTracker.Domain.Migrations
 
                     b.HasOne("CombatTracker.Domain.Reference.Attacks.Charts.DbCriticalType", "CriticalUseInstead")
                         .WithMany()
-                        .HasForeignKey("UseCriticalInstead_ID")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("UseCriticalInstead_ID");
 
                     b.HasOne("CombatTracker.Domain.DbWeapon", "WeaponUsed")
                         .WithMany()

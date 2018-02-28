@@ -47,8 +47,7 @@ namespace CombatTracker.Domain.Reference.Attacks
         public int? CreatureOn_ID { get; set; }
 
         public int? WeaponUsed_ID { get; set; }
-
-        [Required]
+        
         [ForeignKey("UseCriticalInstead_ID")]
         public virtual DbCriticalType CriticalUseInstead { get; set; }
         [Required]

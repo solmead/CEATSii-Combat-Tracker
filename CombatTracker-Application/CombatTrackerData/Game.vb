@@ -70,17 +70,17 @@ Partial Class Game
         Return List
     End Function
 
-    Public ReadOnly Property Players(ByVal DB As RMSSDataDataContext) As IQueryable(Of SystemUser)
-        Get
-            Return From GU In DB.GamesPlayers Where GU.Game Is Me Order By GU.Player.UserName Select GU.Player
-        End Get
-    End Property
+    'Public ReadOnly Property Players(ByVal DB As RMSSDataDataContext) As IQueryable(Of SystemUser)
+    '    Get
+    '        Return From GU In DB.GamesPlayers Where GU.Game Is Me Order By GU.Player.UserName Select GU.Player
+    '    End Get
+    'End Property
 
-    Public ReadOnly Property Players() As IQueryable(Of SystemUser)
-        Get
-            Return (From GU In GamesPlayers Order By GU.Player.UserName Select GU.Player).AsQueryable
-        End Get
-    End Property
+    'Public ReadOnly Property Players() As IQueryable(Of SystemUser)
+    '    Get
+    '        Return (From GU In GamesPlayers Order By GU.Player.UserName Select GU.Player).AsQueryable
+    '    End Get
+    'End Property
 
 
 
