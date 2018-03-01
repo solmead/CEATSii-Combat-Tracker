@@ -31,18 +31,25 @@ namespace CombatTracker.Entities.Reference.Attacks
         public double PercentChance { get; set; }
         public int OB { get; set; }
         public int MaxOB { get; set; }
-        //public int Type_ID { get; set; }
-        //public int? Size_ID { get; set; }
         public int Number { get; set; }
         public int DamageMultiplier { get; set; }
         public CriticalLevels CriticalLevel { get; set; }
+        public string CriticalLevelString
+        {
+            get => CriticalLevel.ToString();
+            set => CriticalLevel = (CriticalLevels)Enum.Parse(typeof(CriticalLevels), value);
+        }
         public bool AdditionalCritsIsOr { get; set; }
-        //public int? UseCriticalInstead_ID { get; set; }
-        //public int? ThisRoundSuccess_ID { get; set; }
-        //public int? NextRoundSuccess_ID { get; set; }
-        //public int? ParentAttack_ID { get; set; }
-        //public int? CreatureOn_ID { get; set; }
-        //public int? WeaponUsed_ID { get; set; }
+
+
+        public int AttackType_ID { get; set; }
+        public int? SizeRating_ID { get; set; }
+        public int? UseCriticalInstead_ID { get; set; }
+        public int? ThisRoundSuccess_ID { get; set; }
+        public int? NextRoundSuccess_ID { get; set; }
+        public int? ParentAttack_ID { get; set; }
+        public int? CreatureOn_ID { get; set; }
+        public int? WeaponUsed_ID { get; set; }
     
 
         public  CriticalType CriticalUseInstead { get; set; }

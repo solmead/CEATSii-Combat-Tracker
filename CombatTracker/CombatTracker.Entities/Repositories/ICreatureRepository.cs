@@ -16,11 +16,6 @@ namespace CombatTracker.Entities.Repositories
         void DeleteCreature(Creature character);
         void DeleteCreature(int id);
 
-        List<Attack> GetAttacks(int creatureId);
-        Attack GetAttack(int id);
-        Attack SaveAttack(Attack attack);
-        void DeleteAttack(Attack attack);
-        void DeleteAttack(int id);
         
     }
 }

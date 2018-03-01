@@ -15,13 +15,13 @@ namespace CombatTracker.Web.Factories
         public static IServiceCollection RegisterServices(
             this IServiceCollection services)
         {
+            services.AddTransient<ICombatRepository, CombatRepository>();
             services.AddTransient<ICharacterRepository, CharacterRepository>();
             services.AddTransient<IChartRepository, ChartRepository>();
             services.AddTransient<ICreatureRepository, CreatureRepository>();
             services.AddTransient<IGameRepository, GameRepository>();
             services.AddTransient<IGameService, GameServices>();
 
-            // Add all other services here.
             return services;
         }
 

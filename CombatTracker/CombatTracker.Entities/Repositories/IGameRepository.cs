@@ -31,8 +31,6 @@ namespace CombatTracker.Entities.Repositories
         void DeleteCriticalEffect(CriticalEffect criticalEffect);
         void DeleteCriticalEffect(int id);
 
-        List<Attack> GetAttacks(int actorId);
-        Attack SaveAttack(Actor actor, Attack attack);
 
 
         List<BaseAction> GetActionsOnActor(int actorId);

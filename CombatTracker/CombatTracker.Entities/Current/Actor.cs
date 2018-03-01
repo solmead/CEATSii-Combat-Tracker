@@ -58,8 +58,8 @@ namespace CombatTracker.Entities.Current
         public Game Game { get; set; }
 
         //public IEnumerable<BaseAction> Actions { get; set; }
-        public IEnumerable<Attack> Attacks { get; set; }
-        public IEnumerable<CriticalEffect> CriticalEffects { get; set; }
+        public List<Attack> Attacks { get; set; }
+        public List<CriticalEffect> CriticalEffects { get; set; }
 
 
         public int Inititive => BaseInititive + RolledInititive - 11;

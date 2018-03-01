@@ -18,17 +18,6 @@ namespace CombatTracker.Entities.Repositories
         void DeleteCharacter(Character character);
         void DeleteCharacter(int id);
 
-        List<Armor> GetArmors(int characterId);
-        Armor GetArmor(int id);
-        Armor SaveArmor(Armor armor);
-        void DeleteArmor(Armor armor);
-        void DeleteArmor(int id);
-
-        List<Weapon> GetWeapons(int characterId);
-        Weapon GetWeapon(int id);
-        Weapon SaveWeapon(Weapon weapon);
-        void DeleteWeapon(Weapon weapon);
-        void DeleteWeapon(int id);
 
 
 

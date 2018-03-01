@@ -12,7 +12,7 @@ namespace CombatTracker.Domain.Reference.Attacks
     {
         public DbAttack()
         {
-           
+            AdditionalCrits = new List<DbAttacksAddCrit>();
         }
 
         public int ID { get; set; }
@@ -63,6 +63,9 @@ namespace CombatTracker.Domain.Reference.Attacks
         public virtual DbSizeRating SizeRating { get; set; }
         [ForeignKey("WeaponUsed_ID")]
         public virtual DbWeapon WeaponUsed { get; set; }
+
+        [InverseProperty("Attack")]
+        public virtual List<DbAttacksAddCrit> AdditionalCrits { get; set; }
 
     }
 }
