@@ -1,4 +1,4 @@
-
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using CombatTracker.Entities.Reference.Attacks;
@@ -33,6 +33,10 @@ namespace CombatTracker.Entities.Reference
         public virtual ICollection<Weapon> Weapons { get; set; }
 
         public int RolledInititive { get; set; }
+        public string TypeString {
+            get => Type.ToString();
+            set => Type = (CharacterType)Enum.Parse(typeof(CharacterType), value);
+        }
 
         public override string ToString()
         {
