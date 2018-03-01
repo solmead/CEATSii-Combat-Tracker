@@ -9,6 +9,7 @@ namespace CombatTracker.Entities.Reference
         public string Description { get; set; }
         public int MovingManeuverMod { get; set; }
         public int DB { get; set; }
+        public int? CharacterId { get; set; }
 
 
 

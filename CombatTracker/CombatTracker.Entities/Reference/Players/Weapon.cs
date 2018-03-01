@@ -11,6 +11,7 @@ namespace CombatTracker.Entities.Reference
         public int Bonus { get; set; }
         public bool Is2Handed { get; set; }
         public int OB { get; set; }
+        public int? CharacterId { get; set; }
 
 
 

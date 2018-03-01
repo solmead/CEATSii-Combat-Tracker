@@ -131,142 +131,248 @@ namespace CombatTracker.Domain.Repositories
 
         public List<LevelChart> GetLevelCharts()
         {
-            throw new NotImplementedException();
+            return Cache.GetItem<List<LevelChart>>(CacheArea.Global, "LevelCharts", () =>
+            {
+                return (from cbc in db.Creature_LevelChart
+                    select new LevelChart()
+                    {
+                        ID = cbc.ID,
+                        Name = cbc.Name,
+                        LevelChartValues = (from v in cbc.Values
+                                            select new LevelChartValue()
+                                            {
+                                                ID = v.ID,
+                                                Min = v.Min,
+                                                Max = v.Max,
+                                                Mod = v.Mod
+                                            }).ToList()
+                    }).ToList();
+            }, "charts");
         }
 
         public LevelChart GetLevelChart(int id)
         {
-            throw new NotImplementedException();
+            return (from c in GetLevelCharts() where c.ID == id select c).FirstOrDefault();
         }
 
         public LevelChart GetLevelChart(string name)
         {
-            throw new NotImplementedException();
+            return (from c in GetLevelCharts() where c.Name == name select c).FirstOrDefault();
         }
 
         public List<Outlook> GetOutlooks()
         {
-            throw new NotImplementedException();
+
+            return Cache.GetItem<List<Outlook>>(CacheArea.Global, "Outlooks", () =>
+            {
+                return (from cbc in db.Creature_Outlook
+                        select new Outlook()
+                    {
+                        ID = cbc.ID,
+                        Name = cbc.Name,
+                        Abbreviation = cbc.Abbreviation
+                    }).ToList();
+            }, "charts");
         }
 
         public Outlook GetOutlook(int id)
         {
-            throw new NotImplementedException();
+            return (from c in GetOutlooks() where c.ID == id select c).FirstOrDefault();
         }
 
         public Outlook GetOutlook(string name)
         {
-            throw new NotImplementedException();
+            return (from c in GetOutlooks() where c.Name == name select c).FirstOrDefault();
         }
 
         public List<Pace> GetPaces()
         {
-            throw new NotImplementedException();
+            return Cache.GetItem<List<Pace>>(CacheArea.Global, "Paces", () =>
+            {
+                return (from cbc in db.Creature_Pace
+                        select new Pace()
+                    {
+                        ID = cbc.ID,
+                        Name = cbc.Name,
+                        Abbreviation = cbc.Abbreviation
+                    }).ToList();
+            }, "charts");
         }
 
         public Pace GetPace(int id)
         {
-            throw new NotImplementedException();
+            return (from c in GetPaces() where c.ID == id select c).FirstOrDefault();
         }
 
         public Pace GetPace(string name)
         {
-            throw new NotImplementedException();
+            return (from c in GetPaces() where c.Name == name select c).FirstOrDefault();
         }
 
         public List<SizeRating> GetSizeRatings()
         {
-            throw new NotImplementedException();
+            return Cache.GetItem<List<SizeRating>>(CacheArea.Global, "SizeRatings", () =>
+            {
+                return (from cbc in db.Creature_Sizes
+                    select new SizeRating()
+                    {
+                        ID = cbc.ID,
+                        Name = cbc.Name,
+                        Abbreviation = cbc.Abbreviation
+                    }).ToList();
+            }, "charts");
         }
 
         public SizeRating GetSizeRating(int id)
         {
-            throw new NotImplementedException();
+            return (from c in GetSizeRatings() where c.ID == id select c).FirstOrDefault();
         }
 
         public SizeRating GetSizeRating(string name)
         {
-            throw new NotImplementedException();
+            return (from c in GetSizeRatings() where c.Name == name select c).FirstOrDefault();
         }
 
         public List<SpeedChart> GetSpeedCharts()
         {
-            throw new NotImplementedException();
+            return Cache.GetItem<List<SpeedChart>>(CacheArea.Global, "SpeedCharts", () =>
+            {
+                return (from cbc in db.Creature_SpeedChart
+                    select new SpeedChart()
+                    {
+                        ID = cbc.ID,
+                        Name = cbc.Name,
+                        Abbreviation = cbc.Abbreviation,
+                        AQChargeLunge = cbc.AQChargeLunge,
+                        AQInitiative = cbc.AQInitiative,
+                        MSBaseDB = cbc.MSBaseDB,
+                        MSFleeEvade = cbc.MSFleeEvade
+                    }).ToList();
+            }, "charts");
         }
 
         public SpeedChart GetSpeedChart(int id)
         {
-            throw new NotImplementedException();
+            return (from c in GetSpeedCharts() where c.ID == id select c).FirstOrDefault();
         }
 
         public SpeedChart GetSpeedChart(string name)
         {
-            throw new NotImplementedException();
+            return (from c in GetSpeedCharts() where c.Name == name select c).FirstOrDefault();
         }
 
         public List<AttackType> GetAttackTypes()
         {
-            throw new NotImplementedException();
+
+            return Cache.GetItem<List<AttackType>>(CacheArea.Global, "AttackTypes", () =>
+            {
+                return (from cbc in db.Attack_Types
+                    select new AttackType()
+                    {
+                        ID = cbc.ID,
+                        Name = cbc.Name,
+                        Abbreviation = cbc.Abbreviation,
+                        HasDB = cbc.HasDB,
+                        HasSize = cbc.HasSize
+                    }).ToList();
+            }, "charts");
         }
 
         public AttackType GetAttackType(int id)
         {
-            throw new NotImplementedException();
+            return (from c in GetAttackTypes() where c.ID == id select c).FirstOrDefault();
         }
 
         public AttackType GetAttackType(string name)
         {
-            throw new NotImplementedException();
+            return (from c in GetAttackTypes() where c.Name == name select c).FirstOrDefault();
         }
 
         public List<CriticalType> GetCriticalTypes()
         {
-            throw new NotImplementedException();
+            return Cache.GetItem<List<CriticalType>>(CacheArea.Global, "CriticalTypes", () =>
+            {
+                return (from cbc in db.Attack_CriticalTypes
+                    select new CriticalType()
+                    {
+                        ID = cbc.ID,
+                        Name = cbc.Name,
+                        Abbreviation = cbc.Abbreviation
+                    }).ToList();
+            }, "charts");
         }
 
         public CriticalType GetCriticalType(int id)
         {
-            throw new NotImplementedException();
+            return (from c in GetCriticalTypes() where c.ID == id select c).FirstOrDefault();
         }
 
         public CriticalType GetCriticalType(string name)
         {
-            throw new NotImplementedException();
+            return (from c in GetCriticalTypes() where c.Name == name select c).FirstOrDefault();
         }
 
         public List<WeaponType> GetWeaponTypes()
         {
-            throw new NotImplementedException();
+            return Cache.GetItem<List<WeaponType>>(CacheArea.Global, "WeaponTypes", () =>
+            {
+                return (from cbc in db.Attack_CriticalTypes
+                    select new WeaponType()
+                    {
+                        ID = cbc.ID,
+                        Name = cbc.Name,
+                        Abbreviation = cbc.Abbreviation
+                    }).ToList();
+            }, "charts");
         }
 
         public WeaponType GetWeaponType(int id)
         {
-            throw new NotImplementedException();
+            return (from c in GetWeaponTypes() where c.ID == id select c).FirstOrDefault();
         }
 
         public WeaponType GetWeaponType(string name)
         {
-            throw new NotImplementedException();
+            return (from c in GetWeaponTypes() where c.Name == name select c).FirstOrDefault();
         }
 
         public List<Book> GetBooks()
         {
-            throw new NotImplementedException();
+            return Cache.GetItem<List<Book>>(CacheArea.Global, "Books", () =>
+            {
+                return (from cbc in db.Books
+                    select new Book()
+                    {
+                        ID = cbc.ID,
+                        Name = cbc.Name
+                    }).ToList();
+            }, "charts");
         }
 
         public Book GetBook(int id)
         {
-            throw new NotImplementedException();
+            return (from c in GetBooks() where c.ID == id select c).FirstOrDefault();
         }
 
         public Book GetBook(string name)
         {
-            throw new NotImplementedException();
+            return (from c in GetBooks() where c.Name == name select c).FirstOrDefault();
         }
 
         public List<PsychicRefractoryPeriodEntry> GetPsychicRefractoryPeriodEntries()
         {
-            throw new NotImplementedException();
+            return Cache.GetItem<List<PsychicRefractoryPeriodEntry>>(CacheArea.Global, "PsychicRefractoryPeriodEntrys", () =>
+            {
+                return (from cbc in db.PsychicRefractoryPeriodMods
+                    select new PsychicRefractoryPeriodEntry()
+                    {
+                        ID = cbc.ID,
+                        LevelMin = cbc.LevelMin,
+                        LevelMax = cbc.LevelMax,
+                        Mod = cbc.Mod,
+                        RoundNumber = cbc.RoundNumber
+                    }).ToList();
+            }, "charts");
         }
     }
 }

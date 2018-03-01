@@ -6,21 +6,14 @@ using CombatTracker.Entities.Repositories;
 
 namespace CombatTracker.Domain.Repositories
 {
-    public class CharacterRepository:ICharacterRepository
+    public class CharacterRepository : ICharacterRepository
     {
-        public List<Game> GetGames()
-        {
-            throw new System.NotImplementedException();
-        }
 
-        public Game GetGame(int id)
-        {
-            throw new System.NotImplementedException();
-        }
+        private TrackerContext db;
 
-        public Game GetGame(string name)
+        public CharacterRepository(TrackerContext context)
         {
-            throw new System.NotImplementedException();
+            db = context;
         }
 
         public List<Character> GetCharacters()
@@ -38,12 +31,67 @@ namespace CombatTracker.Domain.Repositories
             throw new System.NotImplementedException();
         }
 
-        public Character Save(Character character)
+        public Character SaveCharacter(Character character)
         {
             throw new System.NotImplementedException();
         }
 
-        public void Delete(Character character)
+        public void DeleteCharacter(Character character)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void DeleteCharacter(int id)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public List<Armor> GetArmors(int characterId)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Armor GetArmor(int id)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Armor SaveArmor(Armor armor)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void DeleteArmor(Armor armor)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void DeleteArmor(int id)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public List<Weapon> GetWeapons(int characterId)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Weapon GetWeapon(int id)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Weapon SaveWeapon(Weapon weapon)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void DeleteWeapon(Weapon weapon)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void DeleteWeapon(int id)
         {
             throw new System.NotImplementedException();
         }

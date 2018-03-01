@@ -41,5 +41,9 @@ namespace CombatTracker.Entities.Service
 
 
 
+        void SetCurrentAction(Actor actor, BaseAction action);
+        void SetProposedAction(Actor actor, BaseAction action);
+        void SetFutureAction(Actor actor, BaseAction action);
+
     }
 }

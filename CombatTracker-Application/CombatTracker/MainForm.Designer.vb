@@ -32,7 +32,7 @@ Partial Class MainForm
         Me.Splitter2 = New System.Windows.Forms.Splitter
         Me.Panel3 = New System.Windows.Forms.Panel
         Me.Panel2 = New System.Windows.Forms.Panel
-        Me.DisplayAttack1 = New CombatTracker.DisplayAttack(DB)
+        Me.DisplayAttack1 = New CombatTracker.DisplayAttack
         Me.Button5 = New System.Windows.Forms.Button
         Me.ListBox5 = New System.Windows.Forms.ListBox
         Me.ListBox4 = New System.Windows.Forms.ListBox

@@ -147,5 +147,20 @@ namespace CombatTracker.Services.Services
         {
             throw new NotImplementedException();
         }
+
+        public void SetCurrentAction(Actor actor, BaseAction action)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetProposedAction(Actor actor, BaseAction action)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetFutureAction(Actor actor, BaseAction action)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

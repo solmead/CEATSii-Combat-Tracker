@@ -31,8 +31,8 @@ namespace CombatTracker.Entities.Reference.Attacks
         public double PercentChance { get; set; }
         public int OB { get; set; }
         public int MaxOB { get; set; }
-        public int Type_ID { get; set; }
-        public int? Size_ID { get; set; }
+        //public int Type_ID { get; set; }
+        //public int? Size_ID { get; set; }
         public int Number { get; set; }
         public int DamageMultiplier { get; set; }
         public CriticalLevels CriticalLevel { get; set; }

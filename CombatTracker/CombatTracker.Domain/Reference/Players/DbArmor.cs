@@ -22,10 +22,11 @@ namespace CombatTracker.Domain
         public int MovingManeuverMod { get; set; }
 
         public int DB { get; set; }
-        
 
-        public int? TiedToID { get; set; }
-        [ForeignKey("TiedToID")]
+
+        [Column("TiedToID")]
+        public int? CharacterId { get; set; }
+        [ForeignKey("CharacterId")]
         public virtual DbCharacter Character { get; set; }
 
     }

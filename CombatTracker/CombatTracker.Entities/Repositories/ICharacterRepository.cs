@@ -10,16 +10,25 @@ namespace CombatTracker.Entities.Repositories
     {
 
 
-        List<Game> GetGames();
-        Game GetGame(int id);
-        Game GetGame(string name);
 
         List<Character> GetCharacters();
         Character GetCharacter(int id);
         Character GetCharacter(string name);
-        Character Save(Character character);
-        void Delete(Character character);
+        Character SaveCharacter(Character character);
+        void DeleteCharacter(Character character);
+        void DeleteCharacter(int id);
 
+        List<Armor> GetArmors(int characterId);
+        Armor GetArmor(int id);
+        Armor SaveArmor(Armor armor);
+        void DeleteArmor(Armor armor);
+        void DeleteArmor(int id);
+
+        List<Weapon> GetWeapons(int characterId);
+        Weapon GetWeapon(int id);
+        Weapon SaveWeapon(Weapon weapon);
+        void DeleteWeapon(Weapon weapon);
+        void DeleteWeapon(int id);
 
 
 

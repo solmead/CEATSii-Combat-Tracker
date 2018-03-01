@@ -38,6 +38,8 @@ Public Class MainForm
         'GI.Actions.Clear()
         'GI.Chars.Clear()
 
+        DisplayAttack1.DB = DB
+
         Call displayChars()
         Call DisplayActions()
         For Each GA In DB.ActionGroups

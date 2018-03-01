@@ -14,7 +14,7 @@ namespace CombatTracker.Entities.Current
     {
         public Actor()
         {
-            this.Actions = new List<BaseAction>();
+            //this.Actions = new List<BaseAction>();
             this.Attacks = new List<Attack>();
             this.CriticalEffects = new List<CriticalEffect>();
             PercentRequiredAdrenalDB = 0.4;
@@ -46,14 +46,20 @@ namespace CombatTracker.Entities.Current
         public int ConstitutionStat { get; set; }
         public double Movement { get; set; }
         public string Color { get; set; }
-        
+
+
+        public int Game_ID { get; set; }
+        //public int? BaseCreature_ID { get; set; }
+        //public int? BaseCharacter_ID { get; set; }
+
         public  Character Character { get; set; }
         public  Armor CurrentArmor { get; set; }
         public  Creature Creature { get; set; }
+        public Game Game { get; set; }
 
-        public  List<BaseAction> Actions { get; set; }
-        public List<Attack> Attacks { get; set; }
-        public List<CriticalEffect> CriticalEffects { get; set; }
+        //public IEnumerable<BaseAction> Actions { get; set; }
+        public IEnumerable<Attack> Attacks { get; set; }
+        public IEnumerable<CriticalEffect> CriticalEffects { get; set; }
 
 
         public int Inititive => BaseInititive + RolledInititive - 11;
@@ -61,18 +67,7 @@ namespace CombatTracker.Entities.Current
         
         public IActable Base
         {
-            get
-            {
-                if (Character != null)
-                {
-                    return Character;
-                }
-                if (Creature != null)
-                {
-                    return Creature;
-                }
-                return null;
-            }
+            get => (Character as IActable) ?? Creature;
             set
             {
                 if (value is Character)
@@ -92,44 +87,12 @@ namespace CombatTracker.Entities.Current
             return Name;
         }
         
-        public BaseAction CurrentAction
-        {
-            get => (from a in Actions where a.ActionType == ActionTypeEnum.Current select a).FirstOrDefault();
-        }
+        public BaseAction CurrentAction => (from a in Game.GameActions where a.WhoIsActing.ID==ID && a.ActionType == ActionTypeEnum.Current select a).FirstOrDefault();
 
-        
-        public BaseAction ProposedAction
-        {
-            get => (from a in Actions where a.ActionType == ActionTypeEnum.Proposed select a).FirstOrDefault();
-            set
-            {
-                if (value != null)
-                {
-                    value.ActionType = ActionTypeEnum.Proposed;
-                    value.WhoIsActing = this;
-                    if (!Actions.Contains(value))
-                    {
-                        Actions.Add(value);
-                    }
-                }
-            }
-        }
-        public BaseAction FutureAction
-        {
-            get => (from a in Actions where a.ActionType == ActionTypeEnum.Next select a).FirstOrDefault();
-            set
-            {
-                if (value != null)
-                {
-                    value.ActionType = ActionTypeEnum.Next;
-                    value.WhoIsActing = this;
-                    if (!Actions.Contains(value))
-                    {
-                        Actions.Add(value);
-                    }
-                }
-            }
-        }
+        public BaseAction ProposedAction => (from a in Game.GameActions where a.WhoIsActing.ID == ID && a.ActionType == ActionTypeEnum.Proposed select a).FirstOrDefault();
+
+        public BaseAction FutureAction => (from a in Game.GameActions where a.WhoIsActing.ID == ID && a.ActionType == ActionTypeEnum.Next select a).FirstOrDefault();
+
 
         public int StunRounds => (from CR in CriticalEffects where CR.IsStunned select CR).Count();
 
