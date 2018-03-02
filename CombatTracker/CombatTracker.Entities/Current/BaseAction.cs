@@ -42,6 +42,17 @@ namespace CombatTracker.Entities.Current
         public ActionDefinition Base { get; set; }
         public Actor WhoIsActing { get; set; }
         public Attack CurrentAttack { get; set; }
+
+
+        public int Game_ID { get; set; }
+
+        public int WhoIsActing_ID { get; set; }
+
+        public int? BaseAction_ID { get; set; }
+
+        public int? CurrentAttack_ID { get; set; }
+
+
         
         public String Color
         {

@@ -25,6 +25,11 @@ namespace CombatTracker.Entities.Current
         public int ID { get; set; }
         public string Name { get; set; }
         public CharacterType Type { get; set; }
+        public string TypeString
+        {
+            get => Type.ToString();
+            set => Type = (CharacterType)Enum.Parse(typeof(CharacterType), value);
+        }
         public int Level { get; set; }
         public int HitsTotal { get; set; }
         public int HitsRemaining { get; set; }
@@ -49,12 +54,13 @@ namespace CombatTracker.Entities.Current
 
 
         public int Game_ID { get; set; }
-        //public int? BaseCreature_ID { get; set; }
-        //public int? BaseCharacter_ID { get; set; }
+        public int? BaseCreature_ID { get; set; }
+        public int? BaseCharacter_ID { get; set; }
+        public int? CurrentArmor_ID { get; set; }
 
-        public  Character Character { get; set; }
+        //public  Character Character { get; set; }
         public  Armor CurrentArmor { get; set; }
-        public  Creature Creature { get; set; }
+        //public  Creature Creature { get; set; }
         public Game Game { get; set; }
 
         //public IEnumerable<BaseAction> Actions { get; set; }
@@ -65,21 +71,7 @@ namespace CombatTracker.Entities.Current
         public int Inititive => BaseInititive + RolledInititive - 11;
 
         
-        public IActable Base
-        {
-            get => (Character as IActable) ?? Creature;
-            set
-            {
-                if (value is Character)
-                {
-                    Character = value as Character;
-                }
-                if (value is Creature)
-                {
-                    Creature = value as Creature;
-                }
-            }
-        }
+        public IActable Base { get; set; }
 
 
         public override string ToString()

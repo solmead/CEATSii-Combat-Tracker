@@ -19,27 +19,29 @@ namespace CombatTracker.Entities.Reference.Creatures
         public int ID { get; set; }
         public string TypeName { get; set; }
         public int BaseLevel { get; set; }
-        //public int LevelMod_ID { get; set; }
         public int Size_ID { get; set; }
-        //public int MSRating_ID { get; set; }
-        //public int AQRating_ID { get; set; }
         public int BaseMove { get; set; }
-        //public int MaxPace_ID { get; set; }
         public int MMBonus { get; set; }
         public int MinEncountered { get; set; }
         public int MaxEncountered { get; set; }
         public int BaseHits { get; set; }
-        //public int HitMod_ID { get; set; }
-        //public int Criticals_ID { get; set; }
-        //public int CriticalsIgnore_ID { get; set; }
         public int AT { get; set; }
         public int DB { get; set; }
-        //public int Outlook_ID { get; set; }
-        //public int IQ_ID { get; set; }
         public int PageNumber { get; set; }
-        //public int Book_ID { get; set; }
         public string Description { get; set; }
         public string Habitat { get; set; }
+
+
+        public int LevelMod_ID { get; set; }
+        public int MSRating_ID { get; set; }
+        public int AQRating_ID { get; set; }
+        public int MaxPace_ID { get; set; }
+        public int HitMod_ID { get; set; }
+        public int Criticals_ID { get; set; }
+        public int CriticalsIgnore_ID { get; set; }
+        public int Outlook_ID { get; set; }
+        public int IQ_ID { get; set; }
+        public int Book_ID { get; set; }
     
         //public virtual ICollection<Actor> Actors { get; set; }
         public virtual ICollection<Attack> Attacks { get; set; }
