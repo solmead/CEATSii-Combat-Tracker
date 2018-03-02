@@ -8,7 +8,11 @@ namespace CombatTracker.Entities.Current
 {
     public class BaseAction
     {
-        public BaseAction(double startTime, ActionDefinition baseAction = null)
+        public BaseAction()
+        {
+            
+        }
+        public BaseAction(double startTime, ActionDefinition actionDef = null)
         {
             BasePercent = 0.001;
             Name = "";
@@ -17,10 +21,10 @@ namespace CombatTracker.Entities.Current
             Note = "";
             State = ActionProblem.IsOK;
             CurrentModifier = 0;
-            if (baseAction != null)
+            if (actionDef != null)
             {
-                Name = baseAction.Name;
-                BasePercent = baseAction.BasePercent;
+                Name = actionDef.Name;
+                BasePercent = actionDef.BasePercent;
             }
         }
 
@@ -30,14 +34,29 @@ namespace CombatTracker.Entities.Current
         public double StartTime { get; set; }
         public double EndTime { get; set; }
         public ActorActionType Type { get; set; }
+        public string TypeString
+        {
+            get => Type.ToString();
+            set => Type = (ActorActionType)Enum.Parse(typeof(ActorActionType), value);
+        }
         public double BasePercent { get; set; }
         public bool Interrupted { get; set; }
         public string Note { get; set; }
         public ActionProblem State { get; set; }
+        public string StateString
+        {
+            get => State.ToString();
+            set => State = (ActionProblem)Enum.Parse(typeof(ActionProblem), value);
+        }
         public int CurrentModifier { get; set; }
         public bool CriticalGiven { get; set; }
         public double LeftPercent { get; set; }
         public ActionTypeEnum ActionType { get; set; }
+        public string ActionTypeString
+        {
+            get => ActionType.ToString();
+            set => ActionType = (ActionTypeEnum)Enum.Parse(typeof(ActionTypeEnum), value);
+        }
         
         public ActionDefinition Base { get; set; }
         public Actor WhoIsActing { get; set; }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using CombatTracker.Entities.Reference;
+using CombatTracker.Entities.Reference.Actions;
 using CombatTracker.Entities.Reference.Attacks.Charts;
 using CombatTracker.Entities.Reference.Creatures.Charts;
 using CombatTracker.Entities.Reference.Magic;
@@ -10,6 +11,16 @@ namespace CombatTracker.Entities.Repositories
 {
     public interface IChartRepository
     {
+
+        List<ActionGroup> GetActionGroups();
+        ActionGroup GetActionGroup(int id);
+        ActionGroup GetActionGroup(string name);
+
+
+        List<ActionDefinition> GetActions(int groupId);
+        ActionDefinition GetAction(int id);
+        ActionDefinition GetAction(string name);
+
 
         List<ConstitutionBonusChart> GetConstitutionBonusCharts();
         ConstitutionBonusChart GetConstitutionBonusChart(int id);

@@ -1,4 +1,6 @@
 
+using System;
+
 namespace CombatTracker.Entities.Reference.Actions
 {
     public partial class ActionDefinition
@@ -16,6 +18,12 @@ namespace CombatTracker.Entities.Reference.Actions
         public bool IsSpell { get; set; }
         public int? NextAction_ID { get; set; }
         public BaseActionType Type { get; set; }
+
+        public string TypeString
+        {
+            get => Type.ToString();
+            set => Type = (BaseActionType)Enum.Parse(typeof(BaseActionType), value);
+        }
 
         public virtual ActionGroup ActionGroup { get; set; }
         

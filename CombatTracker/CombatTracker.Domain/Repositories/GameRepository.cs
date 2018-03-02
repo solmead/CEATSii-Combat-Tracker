@@ -18,17 +18,20 @@ namespace CombatTracker.Domain.Repositories
         private readonly ICreatureRepository _creatureRepository;
         private readonly ICharacterRepository _characterRepository;
         private readonly ICombatRepository _combatRepository;
+        private readonly IChartRepository _chartRepository;
 
 
         public GameRepository(TrackerContext context,
                               ICreatureRepository creatureRepository,
                               ICharacterRepository characterRepository,
-                              ICombatRepository combatRepository)
+                              ICombatRepository combatRepository,
+                              IChartRepository chartRepository)
         {
             db = context;
             _creatureRepository = creatureRepository;
             _characterRepository = characterRepository;
             _combatRepository = combatRepository;
+            _chartRepository = chartRepository;
 
         }
 
@@ -352,7 +355,33 @@ namespace CombatTracker.Domain.Repositories
 
         public CriticalEffect SaveCriticalEffect(CriticalEffect criticalEffect)
         {
-            throw new NotImplementedException();
+
+            var item = (from c in db.CriticalAffects where c.ID == criticalEffect.ID select c).FirstOrDefault();
+            if (item == null)
+            {
+                item = new DbCriticalAffect();
+                db.CriticalAffects.Add(item);
+            }
+            item.IsStunned = criticalEffect.IsStunned;
+            item.Negative = criticalEffect.Negative;
+            item.Parry = criticalEffect.ParryString;
+            item.ParryNegative = criticalEffect.ParryNegative;
+            item.TimeEnd = criticalEffect.TimeEnd;
+            item.TimeStart = criticalEffect.TimeStart;
+            item.Actor_ID = criticalEffect.Actor_ID;
+
+
+            db.SaveChanges();
+            criticalEffect.ID = item.ID;
+            Cache.SetItem<CriticalEffect>(CacheArea.Global, "CriticalEffect_" + criticalEffect.ID, criticalEffect);
+
+            var items = GetCriticalEffects(criticalEffect.Actor_ID);
+            if (!items.Contains(criticalEffect))
+            {
+                items.Add(criticalEffect);
+            }
+
+            return GetCriticalEffect(criticalEffect.ID);
         }
 
         public void DeleteCriticalEffect(CriticalEffect criticalEffect)
@@ -393,7 +422,45 @@ namespace CombatTracker.Domain.Repositories
 
         public List<BaseAction> GetActionsInGame(int gameId)
         {
-            throw new NotImplementedException();
+            return Cache.GetItem<List<BaseAction>>(CacheArea.Global, "ActionsInGame_" + gameId, () =>
+            {
+                var list = (from a in db.ActorsActions
+                            select new BaseAction()
+                            {
+                                ID = a.ID,
+                                Name = a.Name,
+                                BaseAction_ID = a.BaseAction_ID,
+                                BasePercent = a.BasePercent,
+                                CriticalGiven = a.CriticalGiven,
+                                CurrentAttack_ID = a.CurrentAttack_ID,
+                                CurrentModifier = a.CurrentModifier,
+                                EndTime = a.EndTime,
+                                Game_ID = a.Game_ID,
+                                Interrupted = a.Interrupted,
+                                LeftPercent = a.LeftPercent,
+                                Note = a.Note,
+                                StartTime = a.StartTime,
+                                WhoIsActing_ID = a.WhoIsActing_ID,
+                                TypeString = a.Type,
+                                StateString = a.State,
+                                ActionTypeString = a.ActionType
+                            }).ToList();
+
+                list.ForEach((g) =>
+                {
+                    if (g.BaseAction_ID.HasValue)
+                    {
+                        g.Base = _chartRepository.GetAction(g.BaseAction_ID.Value);
+                    }
+                    if (g.CurrentAttack_ID.HasValue) {
+                        g.CurrentAttack = _combatRepository.GetAttack(g.CurrentAttack_ID.Value);
+                    }
+                    g.WhoIsActing = GetActor(g.WhoIsActing_ID);
+
+                    Cache.SetItem<BaseAction>(CacheArea.Global, "Action_" + g.ID, g);
+                });
+                return list;
+            }, "game");
         }
 
         public List<BaseAction> GetActionsInGame(Game game)
@@ -410,7 +477,43 @@ namespace CombatTracker.Domain.Repositories
 
         public BaseAction SaveAction(BaseAction action)
         {
-            throw new NotImplementedException();
+
+            var item = (from c in db.ActorsActions where c.ID == action.ID select c).FirstOrDefault();
+            if (item == null)
+            {
+                item = new DbActorsAction();
+                db.ActorsActions.Add(item);
+            }
+
+
+            item.Name = action.Name;
+            item.BaseAction_ID = action.BaseAction_ID;
+            item.BasePercent = action.BasePercent;
+            item.CriticalGiven = action.CriticalGiven;
+            item.CurrentAttack_ID = action.CurrentAttack_ID;
+            item.CurrentModifier = action.CurrentModifier;
+            item.EndTime = action.EndTime;
+            item.Game_ID = action.Game_ID;
+            item.Interrupted = action.Interrupted;
+            item.LeftPercent = action.LeftPercent;
+            item.Note = action.Note;
+            item.StartTime = action.StartTime;
+            item.WhoIsActing_ID = action.WhoIsActing_ID;
+            item.Type = action.TypeString;
+            item.State = action.StateString;
+            item.ActionType = action.ActionTypeString;
+
+
+            db.SaveChanges();
+            action.ID = item.ID;
+
+            var items = GetActionsInGame(action.Game_ID);
+            if (!items.Contains(action))
+            {
+                items.Add(action);
+            }
+
+            return GetAction(action.ID);
         }
 
         public void DeleteAction(BaseAction action)

@@ -8,6 +8,8 @@ using CombatTracker.Entities.Reference.Creatures.Charts;
 using CombatTracker.Entities.Reference.Magic;
 using CombatTracker.Entities.Repositories;
 using Utilities.Caching;
+using CombatTracker.Entities;
+using CombatTracker.Entities.Reference.Actions;
 
 namespace CombatTracker.Domain.Repositories
 {
@@ -373,6 +375,76 @@ namespace CombatTracker.Domain.Repositories
                         RoundNumber = cbc.RoundNumber
                     }).ToList();
             }, "charts");
+        }
+
+        public List<ActionGroup> GetActionGroups()
+        {
+            return Cache.GetItem<List<ActionGroup>>(CacheArea.Global, "ActionGroups", () =>
+            {
+                var list = (from cbc in db.ActionGroups
+                            select new ActionGroup()
+                            {
+                                ID = cbc.ID,
+                                Name = cbc.Name,
+                                Actions = (from a in cbc.Actions
+                                           select new ActionDefinition()
+                                           {
+                                               ActionGroup_ID = a.ActionGroup_ID,
+                                               NextAction_ID = a.NextAction_ID,
+                                               BasePercent = a.BasePercent,
+                                               IsAttack = a.IsAttack,
+                                               IsSpell = a.IsSpell,
+                                               ID = a.ID,
+                                               Name = a.Name,
+                                               TypeString = a.Type
+                                           }).ToList()
+                            }).ToList();
+
+                list.ForEach((ag) =>
+                {
+                    foreach(var act in ag.Actions) {
+                        act.ActionGroup = ag;
+
+                        if (act.NextAction_ID.HasValue) {
+                            act.NextAction = (from agp in list 
+                                              from a in agp.Actions
+                                              where a.ID == act.NextAction_ID.Value
+                                              select a).FirstOrDefault();
+
+                        }
+
+                    }
+                });
+
+                return list;
+            }, "charts");
+        }
+
+        public ActionGroup GetActionGroup(int id)
+        {
+            return GetActionGroups().FirstOrDefault((ag) => ag.ID == id);
+        }
+
+        public ActionGroup GetActionGroup(string name)
+        {
+            return GetActionGroups().FirstOrDefault((ag) => ag.Name == name);
+        }
+
+        public List<ActionDefinition> GetActions(int groupId)
+        {
+            return GetActionGroups().FirstOrDefault((ag) => ag.ID == groupId)?.Actions.ToList();
+        }
+
+        public ActionDefinition GetAction(int id)
+        {
+            var actList = (from ag in GetActionGroups() from a in ag.Actions select a);
+            return actList.FirstOrDefault((ac) => ac.ID == id);
+        }
+
+        public ActionDefinition GetAction(string name)
+        {
+            var actList = (from ag in GetActionGroups() from a in ag.Actions select a);
+            return actList.FirstOrDefault((ac) => ac.Name == name);
         }
     }
 }
