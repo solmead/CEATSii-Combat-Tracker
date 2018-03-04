@@ -15,21 +15,21 @@ namespace CombatTracker.Entities.Current
             //this.GamesPlayers = new HashSet<GamesPlayer>();
         }
 
-        private string[] _colors = { "255,0,0", "0,255,0", "0,0,255", "0,255,255", "128,128,128", "255,128,0", "0,128,255", "128,255,0", "128,0,255", "255,0,128", "0,255,128"};
+        //private string[] _colors = { "255,0,0", "0,255,0", "0,0,255", "0,255,255", "128,128,128", "255,128,0", "0,128,255", "128,255,0", "128,0,255", "255,0,128", "0,255,128"};
 
         public int ID { get; set; }
         public string Name { get; set; }
-        public Guid? GM_ID { get; set; }
+        //public Guid? GM_ID { get; set; }
         public double CurrentTime { get; set; }
         
         public virtual List<Actor> Actors { get; set; }
         
         public virtual List<BaseAction> GameActions { get; set; }
         
-        public List<string> Colors
-        {
-            get { return _colors.ToList(); }
-        }
+        //public List<string> Colors
+        //{
+        //    get { return _colors.ToList(); }
+        //}
 
         public BaseAction NextAction => ActionsSorted().FirstOrDefault();
         public BaseAction LastAction => ActionsSorted().LastOrDefault();

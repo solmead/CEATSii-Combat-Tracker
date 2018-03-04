@@ -7,9 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CombatTracker.Entities", "C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CombatTracker.Domain", "CombatTracker.Domain\CombatTracker.Domain.csproj", "{712E4AD6-4D37-490F-AC75-7F6A7A10F1F4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CombatTracker.Services", "CombatTracker.Services\CombatTracker.Services.csproj", "{51457E52-4657-41DB-86F4-FB1AE91E2225}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CombatTracker.Services", "CombatTracker.Services\CombatTracker.Services.csproj", "{51457E52-4657-41DB-86F4-FB1AE91E2225}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CombatTracker.Web", "CombatTracker.Web\CombatTracker.Web.csproj", "{B55E88D2-81E8-483C-A9E8-164BA036DB6C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CombatTracker.Web", "CombatTracker.Web\CombatTracker.Web.csproj", "{B55E88D2-81E8-483C-A9E8-164BA036DB6C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
