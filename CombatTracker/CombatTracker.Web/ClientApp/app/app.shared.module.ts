@@ -11,6 +11,8 @@ import { CombatComponent } from './components/combat/combat.component';
 import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
 import { CounterComponent } from './components/counter/counter.component';
 
+import { ModelModule } from './entities/apis/model.module';
+
 @NgModule({
     declarations: [
         AppComponent,
@@ -23,6 +25,7 @@ import { CounterComponent } from './components/counter/counter.component';
         CommonModule,
         HttpModule,
         FormsModule,
+        ModelModule,
         RouterModule.forRoot([
             { path: '', redirectTo: 'home', pathMatch: 'full' },
             { path: 'home', component: HomeComponent },

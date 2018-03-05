@@ -1,9 +1,8 @@
 
 using System;
 using System.Collections.Generic;
-using CombatTracker.Entities.Reference.Actions;
 
-namespace CombatTracker.Entities
+namespace CombatTracker.Entities.Reference.Actions
 {
     public partial class ActionGroup
     {
