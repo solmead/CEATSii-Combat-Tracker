@@ -1,7 +1,7 @@
 ﻿import { Component, Inject } from '@angular/core';
 import { Http } from '@angular/http';
-import { GameController } from '../../entities/apis/GamesController';
-import { Game } from '../../entities/current/Game';
+import { GameService } from '../../entities/apis/Games.service';
+import { Game } from '../../entities/classes/Game';
 
 @Component({
     selector: 'combat',
@@ -10,18 +10,11 @@ import { Game } from '../../entities/current/Game';
 })
 export class CombatComponent {
 
-    private _games: Array<Game>;
+    public games: Array<Game>;
 
-    constructor(private gameRepo: GameController) {
-        gameRepo.getGames();
+    constructor(private gameRepo: GameService) {
+        gameRepo.getGames((data)=>this.games=data);
     }
+    
 
-    get games(): Array<Game> {
-        return _games;
-    }
-    //constructor(http: Http, @Inject('BASE_URL') baseUrl: string) {
-    //    /*http.get(baseUrl + 'api/SampleData/WeatherForecasts').subscribe(result => {
-    //        this.forecasts = result.json() as WeatherForecast[];
-    //    }, error => console.error(error));*/
-    //}
 }

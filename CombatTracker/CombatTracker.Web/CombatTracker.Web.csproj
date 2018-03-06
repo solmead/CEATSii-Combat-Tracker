@@ -27,7 +27,7 @@
 
   <ItemGroup>
     <None Remove="ClientApp\app\entities\apis\model.module.ts" />
-    <None Remove="ClientApp\app\entities\reference\EnumDefinitions.ts" />
+    <None Remove="ClientApp\app\entities\classes\IActable.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -42,104 +42,101 @@
 
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\app\entities\apis\model.module.ts" />
-    <TypeScriptCompile Include="ClientApp\app\entities\reference\EnumDefinitions.ts" />
+    <TypeScriptCompile Include="ClientApp\app\entities\classes\IActable.ts" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="ClientApp\app\entities\apis\GamesController.ts">
+    <None Update="ClientApp\app\entities\apis\Games.service.ts">
       <CustomToolNamespace>Controllers\GamesController.cs</CustomToolNamespace>
     </None>
-    <None Update="ClientApp\app\entities\apis\HomeController.ts">
-      <CustomToolNamespace>Controllers\HomeController.cs</CustomToolNamespace>
-    </None>
-    <None Update="ClientApp\app\entities\apis\SampleDataController.ts">
-      <CustomToolNamespace>Controllers\SampleDataController.cs</CustomToolNamespace>
-    </None>
-    <None Update="ClientApp\app\entities\current\Actor.ts">
-      <CustomToolNamespace>..\CombatTracker.Entities\Current\Actor.cs</CustomToolNamespace>
-    </None>
-    <None Update="ClientApp\app\entities\current\BaseAction.ts">
-      <CustomToolNamespace>..\CombatTracker.Entities\Current\BaseAction.cs</CustomToolNamespace>
-    </None>
-    <None Update="ClientApp\app\entities\current\CriticalEffect.ts">
-      <CustomToolNamespace>..\CombatTracker.Entities\Current\CriticalEffect.cs</CustomToolNamespace>
-    </None>
-    <None Update="ClientApp\app\entities\current\Game.ts">
-      <CustomToolNamespace>..\CombatTracker.Entities\Current\Game.cs</CustomToolNamespace>
-    </None>
-    <None Update="ClientApp\app\entities\reference\ActionDefinition.ts">
+    <None Update="ClientApp\app\entities\classes\ActionDefinition.ts">
       <CustomToolNamespace>..\CombatTracker.Entities\Reference\Actions\ActionDefinition.cs</CustomToolNamespace>
     </None>
-    <None Update="ClientApp\app\entities\reference\ActionGroup.ts">
+    <None Update="ClientApp\app\entities\classes\ActionGroup.ts">
       <CustomToolNamespace>..\CombatTracker.Entities\Reference\Actions\ActionGroup.cs</CustomToolNamespace>
     </None>
-    <None Update="ClientApp\app\entities\reference\Armor.ts">
+    <None Update="ClientApp\app\entities\classes\Actor.ts">
+      <CustomToolNamespace>..\CombatTracker.Entities\Current\Actor.cs</CustomToolNamespace>
+    </None>
+    <None Update="ClientApp\app\entities\classes\Armor.ts">
       <CustomToolNamespace>..\CombatTracker.Entities\Reference\Players\Armor.cs</CustomToolNamespace>
     </None>
-    <None Update="ClientApp\app\entities\reference\Attack.ts">
+    <None Update="ClientApp\app\entities\classes\Attack.ts">
       <CustomToolNamespace>..\CombatTracker.Entities\Reference\Attacks\Attack.cs</CustomToolNamespace>
     </None>
-    <None Update="ClientApp\app\entities\reference\AttackType.ts">
+    <None Update="ClientApp\app\entities\classes\AttackType.ts">
       <CustomToolNamespace>..\CombatTracker.Entities\Reference\Attacks\Charts\AttackType.cs</CustomToolNamespace>
     </None>
-    <None Update="ClientApp\app\entities\reference\Book.ts">
+    <None Update="ClientApp\app\entities\classes\BaseAction.ts">
+      <CustomToolNamespace>..\CombatTracker.Entities\Current\BaseAction.cs</CustomToolNamespace>
+    </None>
+    <None Update="ClientApp\app\entities\classes\Book.ts">
       <CustomToolNamespace>..\CombatTracker.Entities\Reference\Book.cs</CustomToolNamespace>
     </None>
-    <None Update="ClientApp\app\entities\reference\Character.ts">
+    <None Update="ClientApp\app\entities\classes\Character.ts">
       <CustomToolNamespace>..\CombatTracker.Entities\Reference\Players\Character.cs</CustomToolNamespace>
     </None>
-    <None Update="ClientApp\app\entities\reference\ConstitutionBonusChart.ts">
+    <None Update="ClientApp\app\entities\classes\ConstitutionBonusChart.ts">
       <CustomToolNamespace>..\CombatTracker.Entities\Reference\Creatures\Charts\ConstitutionBonusChart.cs</CustomToolNamespace>
     </None>
-    <None Update="ClientApp\app\entities\reference\ConstitutionBonusChartValues.ts">
+    <None Update="ClientApp\app\entities\classes\ConstitutionBonusChartValues.ts">
       <CustomToolNamespace>..\CombatTracker.Entities\Reference\Creatures\Charts\ConstitutionBonusChartValues.cs</CustomToolNamespace>
     </None>
-    <None Update="ClientApp\app\entities\reference\Creature.ts">
+    <None Update="ClientApp\app\entities\classes\Creature.ts">
       <CustomToolNamespace>..\CombatTracker.Entities\Reference\Creatures\Creature.cs</CustomToolNamespace>
     </None>
-    <None Update="ClientApp\app\entities\reference\CriticalCode.ts">
+    <None Update="ClientApp\app\entities\classes\CriticalCode.ts">
       <CustomToolNamespace>..\CombatTracker.Entities\Reference\Creatures\Charts\CriticalCode.cs</CustomToolNamespace>
     </None>
-    <None Update="ClientApp\app\entities\reference\CriticalIgnore.ts">
+    <None Update="ClientApp\app\entities\classes\CriticalEffect.ts">
+      <CustomToolNamespace>..\CombatTracker.Entities\Current\CriticalEffect.cs</CustomToolNamespace>
+    </None>
+    <None Update="ClientApp\app\entities\classes\CriticalIgnore.ts">
       <CustomToolNamespace>..\CombatTracker.Entities\Reference\Creatures\Charts\CriticalIgnore.cs</CustomToolNamespace>
     </None>
-    <None Update="ClientApp\app\entities\reference\CriticalType.ts">
+    <None Update="ClientApp\app\entities\classes\CriticalType.ts">
       <CustomToolNamespace>..\CombatTracker.Entities\Reference\Attacks\Charts\CriticalType.cs</CustomToolNamespace>
     </None>
-    <None Update="ClientApp\app\entities\reference\Dice.ts">
+    <None Update="ClientApp\app\entities\classes\Dice.ts">
       <CustomToolNamespace>..\CombatTracker.Entities\Reference\Dice.cs</CustomToolNamespace>
     </None>
-    <None Update="ClientApp\app\entities\reference\IQ.ts">
+    <None Update="ClientApp\app\entities\classes\EnumDefinitions.ts">
+      <CustomToolNamespace>..\CombatTracker.Entities\Reference\EnumDefinitions.cs</CustomToolNamespace>
+    </None>
+    <None Update="ClientApp\app\entities\classes\Game.ts">
+      <CustomToolNamespace>..\CombatTracker.Entities\Current\Game.cs</CustomToolNamespace>
+    </None>
+    <None Update="ClientApp\app\entities\classes\IQ.ts">
       <CustomToolNamespace>..\CombatTracker.Entities\Reference\Creatures\Charts\IQ.cs</CustomToolNamespace>
     </None>
-    <None Update="ClientApp\app\entities\reference\LevelChart.ts">
+    <None Update="ClientApp\app\entities\classes\LevelChart.ts">
       <CustomToolNamespace>..\CombatTracker.Entities\Reference\Creatures\Charts\LevelChart.cs</CustomToolNamespace>
     </None>
-    <None Update="ClientApp\app\entities\reference\LevelChartValue.ts">
+    <None Update="ClientApp\app\entities\classes\LevelChartValue.ts">
       <CustomToolNamespace>..\CombatTracker.Entities\Reference\Creatures\Charts\LevelChartValue.cs</CustomToolNamespace>
     </None>
-    <None Update="ClientApp\app\entities\reference\Outlook.ts">
+    <None Update="ClientApp\app\entities\classes\Outlook.ts">
       <CustomToolNamespace>..\CombatTracker.Entities\Reference\Creatures\Charts\Outlook.cs</CustomToolNamespace>
     </None>
-    <None Update="ClientApp\app\entities\reference\Pace.ts">
+    <None Update="ClientApp\app\entities\classes\Pace.ts">
       <CustomToolNamespace>..\CombatTracker.Entities\Reference\Creatures\Charts\Pace.cs</CustomToolNamespace>
     </None>
-    <None Update="ClientApp\app\entities\reference\PsychicRefractoryPeriodEntry.ts">
+    <None Update="ClientApp\app\entities\classes\PsychicRefractoryPeriodEntry.ts">
       <CustomToolNamespace>..\CombatTracker.Entities\Reference\Magic\PsychicRefractoryPeriodEntry.cs</CustomToolNamespace>
     </None>
-    <None Update="ClientApp\app\entities\reference\ReferenceEntry.ts">
+    <None Update="ClientApp\app\entities\classes\ReferenceEntry.ts">
       <CustomToolNamespace>..\CombatTracker.Entities\Reference\Base\ReferenceEntry.cs</CustomToolNamespace>
     </None>
-    <None Update="ClientApp\app\entities\reference\SizeRating.ts">
+    <None Update="ClientApp\app\entities\classes\SizeRating.ts">
       <CustomToolNamespace>..\CombatTracker.Entities\Reference\Creatures\Charts\SizeRating.cs</CustomToolNamespace>
     </None>
-    <None Update="ClientApp\app\entities\reference\SpeedChart.ts">
+    <None Update="ClientApp\app\entities\classes\SpeedChart.ts">
       <CustomToolNamespace>..\CombatTracker.Entities\Reference\Creatures\Charts\SpeedChart.cs</CustomToolNamespace>
     </None>
-    <None Update="ClientApp\app\entities\reference\Weapon.ts">
+    <None Update="ClientApp\app\entities\classes\Weapon.ts">
       <CustomToolNamespace>..\CombatTracker.Entities\Reference\Players\Weapon.cs</CustomToolNamespace>
     </None>
-    <None Update="ClientApp\app\entities\reference\WeaponType.ts">
+    <None Update="ClientApp\app\entities\classes\WeaponType.ts">
       <CustomToolNamespace>..\CombatTracker.Entities\Reference\Attacks\Charts\WeaponType.cs</CustomToolNamespace>
     </None>
   </ItemGroup>

@@ -22,16 +22,20 @@ namespace CombatTracker.Web.Controllers
         }
 
         // GET: /<controller>/
+        [HttpGet("[action]")]
         public List<Game> GetGames()
         {
             return _gameRepository.GetGames();
         }
+
+        [HttpGet("[action]")]
         public Game GetGame(int id)
         {
             return _gameRepository.GetGame(id);
         }
 
-        public Game SaveGame(Game game)
+        [HttpPost("[action]")]
+        public Game SaveGame([FromBody] Game game)
         {
             return _gameRepository.SaveGame(game);
         }

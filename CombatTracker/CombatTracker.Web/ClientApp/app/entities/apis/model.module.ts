@@ -1,7 +1,7 @@
 ﻿import { NgModule } from "@angular/core";
-import { GameController } from "./GamesController";
+import { GameService } from "./Games.service";
 
 @NgModule({
-    providers: [GameController]
+    providers: [GameService]
 })
 export class ModelModule { }

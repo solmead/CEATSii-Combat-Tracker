@@ -1,2 +1,20 @@
-﻿body {
-}
+﻿<h1>Games list</h1>
+
+<p>This component demonstrates fetching data from the server.</p>
+
+<p *ngIf="!games"><em>Loading...</em></p>
+
+<table class='table' *ngIf="games">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Current Time</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let game of games">
+            <td>{{ game.name }}</td>
+            <td>{{ game.currentTime }}</td>
+        </tr>
+    </tbody>
+</table>

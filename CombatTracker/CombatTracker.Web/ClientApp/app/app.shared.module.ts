@@ -8,8 +8,6 @@ import { AppComponent } from './components/app/app.component';
 import { NavMenuComponent } from './components/navmenu/navmenu.component';
 import { HomeComponent } from './components/home/home.component';
 import { CombatComponent } from './components/combat/combat.component';
-import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
-import { CounterComponent } from './components/counter/counter.component';
 
 import { ModelModule } from './entities/apis/model.module';
 
@@ -17,8 +15,6 @@ import { ModelModule } from './entities/apis/model.module';
     declarations: [
         AppComponent,
         NavMenuComponent,
-        CounterComponent,
-        FetchDataComponent,
         HomeComponent
     ],
     imports: [
@@ -30,7 +26,6 @@ import { ModelModule } from './entities/apis/model.module';
             { path: '', redirectTo: 'home', pathMatch: 'full' },
             { path: 'home', component: HomeComponent },
             { path: 'combat', component: CombatComponent },
-            //{ path: 'fetch-data', component: FetchDataComponent },
             { path: '**', redirectTo: 'home' }
         ])
     ]
