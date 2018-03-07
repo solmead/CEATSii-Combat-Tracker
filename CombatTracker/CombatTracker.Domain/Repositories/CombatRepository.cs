@@ -230,7 +230,7 @@ namespace CombatTracker.Domain.Repositories
                     attack.AttackType = _chartRepository.GetAttackType(attack.AttackType_ID);
                     var ids = (from aa in db.AttacksAddCrits
                                where aa.AttackID == attack.ID
-                               select aa.Critical_ID);
+                               select aa.Critical_ID).ToList();
                     attack.AdditionalCrits = (from id in ids select _chartRepository.GetCriticalType(id)).ToList();
 
                     if (attack.WeaponUsed_ID.HasValue)

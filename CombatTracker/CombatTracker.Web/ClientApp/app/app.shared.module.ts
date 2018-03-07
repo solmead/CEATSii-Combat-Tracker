@@ -9,7 +9,6 @@ import { NavMenuComponent } from './components/navmenu/navmenu.component';
 import { HomeComponent } from './components/home/home.component';
 import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
 import { CounterComponent } from './components/counter/counter.component';
-
 import { CombatComponent } from './components/combat/combat.component';
 
 import { ModelModule } from './entities/apis/model.module';
@@ -20,7 +19,8 @@ import { ModelModule } from './entities/apis/model.module';
         NavMenuComponent,
         CounterComponent,
         FetchDataComponent,
-        HomeComponent
+        HomeComponent,
+        CombatComponent
     ],
     imports: [
         CommonModule,

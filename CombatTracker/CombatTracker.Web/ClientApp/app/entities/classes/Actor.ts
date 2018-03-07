@@ -2,13 +2,11 @@
 
 
 
+
     import * as Enums from '../classes/EnumDefinitions'
     import { Armor } from '../classes/Armor';
-import { Game } from '../classes/Game';
 import { Attack } from '../classes/Attack';
 import { CriticalEffect } from '../classes/CriticalEffect';
-import { IActable } from '../classes/IActable';
-import { BaseAction } from '../classes/BaseAction';
 import CharacterType = Enums.EnumDefinitions.CharacterType;
     export interface Actor {
         id: number;
@@ -41,14 +39,9 @@ import CharacterType = Enums.EnumDefinitions.CharacterType;
         baseCharacter_ID?: number;
         currentArmor_ID?: number;
         currentArmor: Armor;
-        game: Game;
         attacks: Attack[];
         criticalEffects: CriticalEffect[];
         inititive: number;
-        base: IActable;
-        currentAction: BaseAction;
-        proposedAction: BaseAction;
-        futureAction: BaseAction;
         stunRounds: number;
         parryRounds: number;
         negativeRounds: number;

@@ -2,6 +2,7 @@
 
 
 
+
     import * as Enums from '../classes/EnumDefinitions'
     import { ConstitutionBonusChartValues } from '../classes/ConstitutionBonusChartValues';
     export interface ConstitutionBonusChart {

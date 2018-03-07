@@ -12,6 +12,7 @@
     <PackageReference Include="Microsoft.DotNet.Watcher.Tools" Version="2.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.0.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.0.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.2" />
     <PackageReference Include="Utilities.Caching.AspNetCore" Version="6.0.0" />
   </ItemGroup>
 
@@ -46,8 +47,23 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="ClientApp\app\entities\apis\Actions.service.ts">
+      <CustomToolNamespace>Controllers\ActionsController.cs</CustomToolNamespace>
+    </None>
+    <None Update="ClientApp\app\entities\apis\Actors.service.ts">
+      <CustomToolNamespace>Controllers\ActorsController.cs</CustomToolNamespace>
+    </None>
+    <None Update="ClientApp\app\entities\apis\CriticalEffects.service.ts">
+      <CustomToolNamespace>Controllers\CriticalEffectsController.cs</CustomToolNamespace>
+    </None>
     <None Update="ClientApp\app\entities\apis\Games.service.ts">
       <CustomToolNamespace>Controllers\GamesController.cs</CustomToolNamespace>
+    </None>
+    <None Update="ClientApp\app\entities\apis\Reference.service.ts">
+      <CustomToolNamespace>Controllers\ReferenceController.cs</CustomToolNamespace>
+    </None>
+    <None Update="ClientApp\app\entities\apis\SampleData.service.ts">
+      <CustomToolNamespace>Controllers\SampleDataController.cs</CustomToolNamespace>
     </None>
     <None Update="ClientApp\app\entities\classes\ActionDefinition.ts">
       <CustomToolNamespace>..\CombatTracker.Entities\Reference\Actions\ActionDefinition.cs</CustomToolNamespace>
@@ -138,6 +154,9 @@
     </None>
     <None Update="ClientApp\app\entities\classes\WeaponType.ts">
       <CustomToolNamespace>..\CombatTracker.Entities\Reference\Attacks\Charts\WeaponType.cs</CustomToolNamespace>
+    </None>
+    <None Update="ClientApp\app\entities\classes\WeatherForecast.ts">
+      <CustomToolNamespace>Factories\WeatherForecast.cs</CustomToolNamespace>
     </None>
   </ItemGroup>
   <Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('wwwroot\dist') ">

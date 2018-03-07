@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CombatTracker.Entities.Current;
+using CombatTracker.Entities.Reference.Attacks.Charts;
 using CombatTracker.Entities.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,6 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CombatTracker.Web.Controllers
 {
+    [Produces("application/json")]
     [Route("api/[controller]")]
     public class GameController : Controller
     {
@@ -20,7 +22,7 @@ namespace CombatTracker.Web.Controllers
         {
             _gameRepository = gameRepository;
         }
-
+        
         // GET: /<controller>/
         [HttpGet("[action]")]
         public List<Game> GetGames()
@@ -40,5 +42,10 @@ namespace CombatTracker.Web.Controllers
             return _gameRepository.SaveGame(game);
         }
 
+        [HttpDelete("[action]")]
+        public void DeleteGame(int id)
+        {
+            _gameRepository.DeleteGame(id);
+        }
     }
 }

@@ -13,7 +13,7 @@ export class CombatComponent {
     public games: Array<Game>;
 
     constructor(private gameRepo: GameService) {
-        gameRepo.getGames((data)=>this.games=data);
+        gameRepo.getGames().subscribe((response: Array<Game>) => this.games = response);
     }
     
 

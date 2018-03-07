@@ -61,7 +61,7 @@ namespace CombatTracker.Entities.Current
         //public  Character Character { get; set; }
         public  Armor CurrentArmor { get; set; }
         //public  Creature Creature { get; set; }
-        public Game Game { get; set; }
+        //public Game Game { get; set; }
 
         //public IEnumerable<BaseAction> Actions { get; set; }
         public List<Attack> Attacks { get; set; }
@@ -71,7 +71,7 @@ namespace CombatTracker.Entities.Current
         public int Inititive => BaseInititive + RolledInititive - 11;
 
         
-        public IActable Base { get; set; }
+        //public IActable Base { get; set; }
 
 
         public override string ToString()
@@ -79,11 +79,11 @@ namespace CombatTracker.Entities.Current
             return Name;
         }
         
-        public BaseAction CurrentAction => (from a in Game.GameActions where a.WhoIsActing.ID==ID && a.ActionType == ActionTypeEnum.Current select a).FirstOrDefault();
+        //public BaseAction CurrentAction => (from a in Game.GameActions where a.WhoIsActing.ID==ID && a.ActionType == ActionTypeEnum.Current select a).FirstOrDefault();
 
-        public BaseAction ProposedAction => (from a in Game.GameActions where a.WhoIsActing.ID == ID && a.ActionType == ActionTypeEnum.Proposed select a).FirstOrDefault();
+        //public BaseAction ProposedAction => (from a in Game.GameActions where a.WhoIsActing.ID == ID && a.ActionType == ActionTypeEnum.Proposed select a).FirstOrDefault();
 
-        public BaseAction FutureAction => (from a in Game.GameActions where a.WhoIsActing.ID == ID && a.ActionType == ActionTypeEnum.Next select a).FirstOrDefault();
+        //public BaseAction FutureAction => (from a in Game.GameActions where a.WhoIsActing.ID == ID && a.ActionType == ActionTypeEnum.Next select a).FirstOrDefault();
 
 
         public int StunRounds => (from CR in CriticalEffects where CR.IsStunned select CR).Count();

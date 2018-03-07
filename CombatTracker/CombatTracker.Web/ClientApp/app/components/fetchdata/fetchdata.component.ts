@@ -1,23 +1,17 @@
 import { Component, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { SampleDataService } from '../../entities/apis/SampleData.service';
+import { WeatherForecast } from '../../entities/classes/WeatherForecast';
 
 @Component({
     selector: 'fetchdata',
     templateUrl: './fetchdata.component.html'
 })
 export class FetchDataComponent {
-    public forecasts: WeatherForecast[];
+    public forecasts: WeatherForecast[] = new Array<WeatherForecast>();
 
-    constructor(httpClient: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-        httpClient.get<WeatherForecast[]>(baseUrl + 'api/SampleData/WeatherForecasts').subscribe(result => {
-            this.forecasts = result;
-        }, error => console.error(error));
+    constructor(private sampleRepo: SampleDataService) {
+        sampleRepo.weatherForecasts().subscribe((response: Array<WeatherForecast>) => this.forecasts = response);
     }
 }
 
-interface WeatherForecast {
-    dateFormatted: string;
-    temperatureC: number;
-    temperatureF: number;
-    summary: string;
-}

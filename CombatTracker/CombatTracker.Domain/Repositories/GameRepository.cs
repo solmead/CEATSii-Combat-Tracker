@@ -47,9 +47,12 @@ namespace CombatTracker.Domain.Repositories
                                 CurrentTime = a.CurrentTime,
                                 Name = a.Name
                             }).ToList();
+
+
                 list.ForEach((g)=>{
-                    g.Actors = GetActors(g.ID);
-                    g.GameActions = GetActionsInGame(g.ID);
+                    //g.Actors = GetActors(g.ID);
+
+                    //g.GameActions = GetActionsInGame(g.ID);
                     Cache.SetItem<Game>(CacheArea.Global, "Games_" + g.ID, g);
                 });
                 return list;
@@ -68,8 +71,8 @@ namespace CombatTracker.Domain.Repositories
                                 CurrentTime = a.CurrentTime,
                                 Name = a.Name
                             }).FirstOrDefault();
-                    g.Actors = GetActors(g.ID);
-                    g.GameActions = GetActionsInGame(g.ID);
+                    //g.Actors = GetActors(g.ID);
+                    //g.GameActions = GetActionsInGame(g.ID);
                 return g;
             }, "game");
         }
@@ -177,14 +180,14 @@ namespace CombatTracker.Domain.Repositories
 
                 list.ForEach((act) =>
                 {
-                    if (act.BaseCreature_ID.HasValue)
-                    {
-                        act.Base = _creatureRepository.GetCreature(act.BaseCreature_ID.Value);
-                    }
-                    if (act.BaseCharacter_ID.HasValue)
-                    {
-                        act.Base = _characterRepository.GetCharacter(act.BaseCharacter_ID.Value);
-                    }
+                    //if (act.BaseCreature_ID.HasValue)
+                    //{
+                    //    act.Base = _creatureRepository.GetCreature(act.BaseCreature_ID.Value);
+                    //}
+                    //if (act.BaseCharacter_ID.HasValue)
+                    //{
+                    //    act.Base = _characterRepository.GetCharacter(act.BaseCharacter_ID.Value);
+                    //}
 
                     if (act.CurrentArmor_ID.HasValue)
                     {
@@ -209,14 +212,14 @@ namespace CombatTracker.Domain.Repositories
 
 
 
-                if (act.BaseCreature_ID.HasValue)
-                {
-                    act.Base = _creatureRepository.GetCreature(act.BaseCreature_ID.Value);
-                }
-                if (act.BaseCharacter_ID.HasValue)
-                {
-                    act.Base = _characterRepository.GetCharacter(act.BaseCharacter_ID.Value);
-                }
+                //if (act.BaseCreature_ID.HasValue)
+                //{
+                //    act.Base = _creatureRepository.GetCreature(act.BaseCreature_ID.Value);
+                //}
+                //if (act.BaseCharacter_ID.HasValue)
+                //{
+                //    act.Base = _characterRepository.GetCharacter(act.BaseCharacter_ID.Value);
+                //}
                 if (act.CurrentArmor_ID.HasValue)
                 {
                     act.CurrentArmor = _combatRepository.GetArmor(act.CurrentArmor_ID.Value);
