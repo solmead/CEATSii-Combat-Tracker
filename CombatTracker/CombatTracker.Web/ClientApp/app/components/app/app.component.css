@@ -1,6 +1,51 @@
+
+
+
+.body-content {
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    background: white;
+    display: inline-block;
+    vertical-align: top;
+    margin: 5px 5px 5px 0;
+    padding: 10px;
+    position: absolute;
+    top: 0;
+    left: 25%;
+    bottom: 0;
+    width: 75%;
+    overflow: auto;
+}
+
+.menu-column {
+    padding: 0;
+    display: inline-block;
+    vertical-align: top;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 25%;
+}
+.apparea {
+    background: #222 !important;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+
+
 @media (max-width: 767px) {
     /* On small screens, the nav menu spans the full width of the screen. Leave a space for it. */
     .body-content {
         padding-top: 50px;
+        border: 1px solid #aaa;
+        border-radius: 5px;
+    }
+
+    .menu-column {
+        padding:0;
     }
 }

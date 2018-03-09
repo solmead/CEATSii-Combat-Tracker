@@ -7,13 +7,13 @@
         {
             var FinalFileName = file.Name.Replace("Controller", "");
             FinalFileName = FinalFileName.Replace(".cs", "");
-            return $"{FinalFileName}.service.ts";
+            return $"{FinalFileName}.repository.ts";
         };
     }
 
 
 	// Change ApiController to Service
-    string ServiceName(Class c) => c.Name.Replace("Controller", "Service");
+    string ServiceName(Class c) => c.Name.Replace("Controller", "Repository");
     
 	string AsyncName(Method m) => m.name + "Async";
 	string ObserveName(Method m) => m.name + "Observe";
@@ -251,7 +251,14 @@ export class $ServiceName {
 	//}
 
 	public $AsyncName = ($Parameters[$name: $Type][, ]) : Promise<$ReturnType> => {
-		return this.$name($Parameters[$name][, ]).first().toPromise();
+        
+        return new Promise<$ReturnType>((resolve, reject) => {
+            this.$name($Parameters[$name][, ])
+            .subscribe((res) => {
+                    resolve(res);
+                });
+
+        });
 	}  
 
 	public $name = ($Parameters[$name: $Type][, ]) : Observable<$ReturnType> => {

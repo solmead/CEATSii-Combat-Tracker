@@ -9,9 +9,13 @@ import { NavMenuComponent } from './components/navmenu/navmenu.component';
 import { HomeComponent } from './components/home/home.component';
 import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
 import { CounterComponent } from './components/counter/counter.component';
-import { CombatComponent } from './components/combat/combat.component';
+import { CharacterComponent } from './components/character/character.component';
+import { CharacterListComponent } from './components/character/character-list.component';
+import { CharacterDetailComponent } from './components/character/character-detail.component';
 
-import { ModelModule } from './entities/apis/model.module';
+
+import { RepositoriesModule } from './entities/apis/repositories.module';
+import { DataViewsModule } from "./entities/dataviews/dataviews.module";
 
 @NgModule({
     declarations: [
@@ -20,19 +24,22 @@ import { ModelModule } from './entities/apis/model.module';
         CounterComponent,
         FetchDataComponent,
         HomeComponent,
-        CombatComponent
+        CharacterListComponent,
+        CharacterDetailComponent,
+        CharacterComponent
     ],
     imports: [
         CommonModule,
         HttpClientModule,
         FormsModule,
-        ModelModule,
+        RepositoriesModule,
+        DataViewsModule,
         RouterModule.forRoot([
             { path: '', redirectTo: 'home', pathMatch: 'full' },
             { path: 'home', component: HomeComponent },
             { path: 'counter', component: CounterComponent },
             { path: 'fetch-data', component: FetchDataComponent },
-            { path: 'combat', component: CombatComponent },
+            { path: 'character', component: CharacterComponent },
             { path: '**', redirectTo: 'home' }
         ])
     ]

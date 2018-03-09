@@ -18,73 +18,101 @@ import "rxjs/add/operator/toPromise";
     import { Game } from '../classes/Game';
 
 @Injectable()
-export class GameService {
+export class GamesRepository {
 
     constructor(private _httpClient: HttpClient) { }        
     
-    // get: api/Game/getGames   
+    // get: api/Games/getGames   
 
 	//public getGames = (, callback: (data: Game[])=>void) : void => {
 	//	this.getGamesObserve().subscribe(response => callback(response));
 	//}
 
 	public getGamesAsync = () : Promise<Game[]> => {
-		return this.getGames().first().toPromise();
+        
+        return new Promise<Game[]>((resolve, reject) => {
+            this.getGames()
+            .subscribe((res) => {
+                    resolve(res);
+                });
+
+        });
 	}  
 
 	public getGames = () : Observable<Game[]> => {
-        var _Url = `api/Game/getGames`;
+        var _Url = `api/Games/getGames`;
             return this._httpClient.get<Game[]>(_Url)
                 .catch(this.handleError);
 	};
 
     
-    // get: api/Game/getGame?id=${id}   
+    // get: api/Games/getGame?id=${id}   
 
 	//public getGame = (id: number, callback: (data: Game)=>void) : void => {
 	//	this.getGameObserve(id).subscribe(response => callback(response));
 	//}
 
 	public getGameAsync = (id: number) : Promise<Game> => {
-		return this.getGame(id).first().toPromise();
+        
+        return new Promise<Game>((resolve, reject) => {
+            this.getGame(id)
+            .subscribe((res) => {
+                    resolve(res);
+                });
+
+        });
 	}  
 
 	public getGame = (id: number) : Observable<Game> => {
-        var _Url = `api/Game/getGame?id=${id}`;
+        var _Url = `api/Games/getGame?id=${id}`;
             return this._httpClient.get<Game>(_Url)
                 .catch(this.handleError);
 	};
 
     
-    // post: api/Game/saveGame   
+    // post: api/Games/saveGame   
 
 	//public saveGame = (game: Game, callback: (data: Game)=>void) : void => {
 	//	this.saveGameObserve(game).subscribe(response => callback(response));
 	//}
 
 	public saveGameAsync = (game: Game) : Promise<Game> => {
-		return this.saveGame(game).first().toPromise();
+        
+        return new Promise<Game>((resolve, reject) => {
+            this.saveGame(game)
+            .subscribe((res) => {
+                    resolve(res);
+                });
+
+        });
 	}  
 
 	public saveGame = (game: Game) : Observable<Game> => {
-        var _Url = `api/Game/saveGame`;
+        var _Url = `api/Games/saveGame`;
             return this._httpClient.post(_Url, game)
                 .catch(this.handleError);
 	};
 
     
-    // delete: api/Game/deleteGame?id=${id}   
+    // delete: api/Games/deleteGame?id=${id}   
 
 	//public deleteGame = (id: number, callback: (data: void)=>void) : void => {
 	//	this.deleteGameObserve(id).subscribe(response => callback(response));
 	//}
 
 	public deleteGameAsync = (id: number) : Promise<void> => {
-		return this.deleteGame(id).first().toPromise();
+        
+        return new Promise<void>((resolve, reject) => {
+            this.deleteGame(id)
+            .subscribe((res) => {
+                    resolve(res);
+                });
+
+        });
 	}  
 
 	public deleteGame = (id: number) : Observable<void> => {
-        var _Url = `api/Game/deleteGame?id=${id}`;
+        var _Url = `api/Games/deleteGame?id=${id}`;
             return this._httpClient.delete(_Url)
                 .catch(this.handleError);
 	};

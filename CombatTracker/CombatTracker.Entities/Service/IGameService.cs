@@ -25,8 +25,7 @@ namespace CombatTracker.Entities.Service
 
         void TriggerActorDeath(Actor actor, double referenceTime);
         void ChangeActorInit(Actor actor, double referenceTime);
-
-        void ChangeCurrentAction(Actor actor, BaseAction newAction);
+        
 
         void SetActionTime(Actor actor, BaseAction action, double referenceTime);
         double GetTimeRequired(Actor actor, double baseTime, int modifier, bool isAttack, Attack currentAttack);
@@ -38,8 +37,7 @@ namespace CombatTracker.Entities.Service
 
         void AddCriticalToActor(Actor actor, CriticalEffect crit, int rounds);
         void AddRoundsCriticalAffectsToActor(Actor actor, CriticalEffect cAffect, int rounds, double referenceTime);
-
-
+        
 
         void SetCurrentAction(Actor actor, BaseAction action);
         void SetProposedAction(Actor actor, BaseAction action);

@@ -18,7 +18,7 @@ import "rxjs/add/operator/toPromise";
     import { CriticalEffect } from '../classes/CriticalEffect';
 
 @Injectable()
-export class CriticalEffectsService {
+export class CriticalEffectsRepository {
 
     constructor(private _httpClient: HttpClient) { }        
     
@@ -29,7 +29,14 @@ export class CriticalEffectsService {
 	//}
 
 	public getCriticalEffectsAsync = (actorId: number) : Promise<CriticalEffect[]> => {
-		return this.getCriticalEffects(actorId).first().toPromise();
+        
+        return new Promise<CriticalEffect[]>((resolve, reject) => {
+            this.getCriticalEffects(actorId)
+            .subscribe((res) => {
+                    resolve(res);
+                });
+
+        });
 	}  
 
 	public getCriticalEffects = (actorId: number) : Observable<CriticalEffect[]> => {
@@ -46,7 +53,14 @@ export class CriticalEffectsService {
 	//}
 
 	public getCriticalEffectAsync = (id: number) : Promise<CriticalEffect> => {
-		return this.getCriticalEffect(id).first().toPromise();
+        
+        return new Promise<CriticalEffect>((resolve, reject) => {
+            this.getCriticalEffect(id)
+            .subscribe((res) => {
+                    resolve(res);
+                });
+
+        });
 	}  
 
 	public getCriticalEffect = (id: number) : Observable<CriticalEffect> => {
@@ -63,7 +77,14 @@ export class CriticalEffectsService {
 	//}
 
 	public saveCriticalEffectAsync = (criticalEffect: CriticalEffect) : Promise<CriticalEffect> => {
-		return this.saveCriticalEffect(criticalEffect).first().toPromise();
+        
+        return new Promise<CriticalEffect>((resolve, reject) => {
+            this.saveCriticalEffect(criticalEffect)
+            .subscribe((res) => {
+                    resolve(res);
+                });
+
+        });
 	}  
 
 	public saveCriticalEffect = (criticalEffect: CriticalEffect) : Observable<CriticalEffect> => {
@@ -80,7 +101,14 @@ export class CriticalEffectsService {
 	//}
 
 	public deleteCriticalEffectAsync = (id: number) : Promise<void> => {
-		return this.deleteCriticalEffect(id).first().toPromise();
+        
+        return new Promise<void>((resolve, reject) => {
+            this.deleteCriticalEffect(id)
+            .subscribe((res) => {
+                    resolve(res);
+                });
+
+        });
 	}  
 
 	public deleteCriticalEffect = (id: number) : Observable<void> => {

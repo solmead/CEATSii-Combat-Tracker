@@ -18,7 +18,7 @@ import "rxjs/add/operator/toPromise";
     import { WeatherForecast } from '../classes/WeatherForecast';
 
 @Injectable()
-export class SampleDataService {
+export class SampleDataRepository {
 
     constructor(private _httpClient: HttpClient) { }        
     
@@ -29,7 +29,14 @@ export class SampleDataService {
 	//}
 
 	public weatherForecastsAsync = () : Promise<WeatherForecast[]> => {
-		return this.weatherForecasts().first().toPromise();
+        
+        return new Promise<WeatherForecast[]>((resolve, reject) => {
+            this.weatherForecasts()
+            .subscribe((res) => {
+                    resolve(res);
+                });
+
+        });
 	}  
 
 	public weatherForecasts = () : Observable<WeatherForecast[]> => {

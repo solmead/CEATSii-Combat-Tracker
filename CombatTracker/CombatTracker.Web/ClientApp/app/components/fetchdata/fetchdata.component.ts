@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { SampleDataService } from '../../entities/apis/SampleData.service';
+import { SampleDataRepository } from '../../entities/apis/SampleData.repository';
 import { WeatherForecast } from '../../entities/classes/WeatherForecast';
 
 @Component({
@@ -10,7 +10,7 @@ import { WeatherForecast } from '../../entities/classes/WeatherForecast';
 export class FetchDataComponent {
     public forecasts: WeatherForecast[] = new Array<WeatherForecast>();
 
-    constructor(private sampleRepo: SampleDataService) {
+    constructor(private sampleRepo: SampleDataRepository) {
         sampleRepo.weatherForecasts().subscribe((response: Array<WeatherForecast>) => this.forecasts = response);
     }
 }

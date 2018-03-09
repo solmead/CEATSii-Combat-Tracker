@@ -35,6 +35,7 @@ namespace CombatTracker.Domain.Repositories
             return Cache.GetItem<List<Creature>>(CacheArea.Global, "Creatures", () =>
             {
                 var chars = (from cbc in db.Creatures
+                             orderby cbc.TypeName
                              select new Creature()
                              {
                                  ID = cbc.ID,

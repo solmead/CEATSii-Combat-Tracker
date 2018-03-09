@@ -13,12 +13,12 @@ namespace CombatTracker.Web.Controllers
 {
     [Produces("application/json")]
     [Route("api/[controller]")]
-    public class GameController : Controller
+    public class GamesController : Controller
     {
 
         public readonly IGameRepository _gameRepository;
 
-        public GameController(IGameRepository gameRepository)
+        public GamesController(IGameRepository gameRepository)
         {
             _gameRepository = gameRepository;
         }

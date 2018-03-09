@@ -33,7 +33,7 @@ import { Book } from '../classes/Book';
 import { PsychicRefractoryPeriodEntry } from '../classes/PsychicRefractoryPeriodEntry';
 
 @Injectable()
-export class ReferenceService {
+export class ReferenceRepository {
 
     constructor(private _httpClient: HttpClient) { }        
     
@@ -44,7 +44,14 @@ export class ReferenceService {
 	//}
 
 	public getActionGroupsAsync = () : Promise<ActionGroup[]> => {
-		return this.getActionGroups().first().toPromise();
+        
+        return new Promise<ActionGroup[]>((resolve, reject) => {
+            this.getActionGroups()
+            .subscribe((res) => {
+                    resolve(res);
+                });
+
+        });
 	}  
 
 	public getActionGroups = () : Observable<ActionGroup[]> => {
@@ -61,7 +68,14 @@ export class ReferenceService {
 	//}
 
 	public getActionsAsync = (groupId: number) : Promise<ActionDefinition[]> => {
-		return this.getActions(groupId).first().toPromise();
+        
+        return new Promise<ActionDefinition[]>((resolve, reject) => {
+            this.getActions(groupId)
+            .subscribe((res) => {
+                    resolve(res);
+                });
+
+        });
 	}  
 
 	public getActions = (groupId: number) : Observable<ActionDefinition[]> => {
@@ -78,7 +92,14 @@ export class ReferenceService {
 	//}
 
 	public getConstitutionBonusChartsAsync = () : Promise<ConstitutionBonusChart[]> => {
-		return this.getConstitutionBonusCharts().first().toPromise();
+        
+        return new Promise<ConstitutionBonusChart[]>((resolve, reject) => {
+            this.getConstitutionBonusCharts()
+            .subscribe((res) => {
+                    resolve(res);
+                });
+
+        });
 	}  
 
 	public getConstitutionBonusCharts = () : Observable<ConstitutionBonusChart[]> => {
@@ -95,7 +116,14 @@ export class ReferenceService {
 	//}
 
 	public getCriticalCodesAsync = () : Promise<CriticalCode[]> => {
-		return this.getCriticalCodes().first().toPromise();
+        
+        return new Promise<CriticalCode[]>((resolve, reject) => {
+            this.getCriticalCodes()
+            .subscribe((res) => {
+                    resolve(res);
+                });
+
+        });
 	}  
 
 	public getCriticalCodes = () : Observable<CriticalCode[]> => {
@@ -112,7 +140,14 @@ export class ReferenceService {
 	//}
 
 	public getCriticalIgnoresAsync = () : Promise<CriticalIgnore[]> => {
-		return this.getCriticalIgnores().first().toPromise();
+        
+        return new Promise<CriticalIgnore[]>((resolve, reject) => {
+            this.getCriticalIgnores()
+            .subscribe((res) => {
+                    resolve(res);
+                });
+
+        });
 	}  
 
 	public getCriticalIgnores = () : Observable<CriticalIgnore[]> => {
@@ -129,7 +164,14 @@ export class ReferenceService {
 	//}
 
 	public getIQsAsync = () : Promise<IQ[]> => {
-		return this.getIQs().first().toPromise();
+        
+        return new Promise<IQ[]>((resolve, reject) => {
+            this.getIQs()
+            .subscribe((res) => {
+                    resolve(res);
+                });
+
+        });
 	}  
 
 	public getIQs = () : Observable<IQ[]> => {
@@ -146,7 +188,14 @@ export class ReferenceService {
 	//}
 
 	public getLevelChartsAsync = () : Promise<LevelChart[]> => {
-		return this.getLevelCharts().first().toPromise();
+        
+        return new Promise<LevelChart[]>((resolve, reject) => {
+            this.getLevelCharts()
+            .subscribe((res) => {
+                    resolve(res);
+                });
+
+        });
 	}  
 
 	public getLevelCharts = () : Observable<LevelChart[]> => {
@@ -163,7 +212,14 @@ export class ReferenceService {
 	//}
 
 	public getOutlooksAsync = () : Promise<Outlook[]> => {
-		return this.getOutlooks().first().toPromise();
+        
+        return new Promise<Outlook[]>((resolve, reject) => {
+            this.getOutlooks()
+            .subscribe((res) => {
+                    resolve(res);
+                });
+
+        });
 	}  
 
 	public getOutlooks = () : Observable<Outlook[]> => {
@@ -180,7 +236,14 @@ export class ReferenceService {
 	//}
 
 	public getPacesAsync = () : Promise<Pace[]> => {
-		return this.getPaces().first().toPromise();
+        
+        return new Promise<Pace[]>((resolve, reject) => {
+            this.getPaces()
+            .subscribe((res) => {
+                    resolve(res);
+                });
+
+        });
 	}  
 
 	public getPaces = () : Observable<Pace[]> => {
@@ -197,7 +260,14 @@ export class ReferenceService {
 	//}
 
 	public getSizeRatingsAsync = () : Promise<SizeRating[]> => {
-		return this.getSizeRatings().first().toPromise();
+        
+        return new Promise<SizeRating[]>((resolve, reject) => {
+            this.getSizeRatings()
+            .subscribe((res) => {
+                    resolve(res);
+                });
+
+        });
 	}  
 
 	public getSizeRatings = () : Observable<SizeRating[]> => {
@@ -214,7 +284,14 @@ export class ReferenceService {
 	//}
 
 	public getSpeedChartsAsync = () : Promise<SpeedChart[]> => {
-		return this.getSpeedCharts().first().toPromise();
+        
+        return new Promise<SpeedChart[]>((resolve, reject) => {
+            this.getSpeedCharts()
+            .subscribe((res) => {
+                    resolve(res);
+                });
+
+        });
 	}  
 
 	public getSpeedCharts = () : Observable<SpeedChart[]> => {
@@ -231,7 +308,14 @@ export class ReferenceService {
 	//}
 
 	public getAttackTypesAsync = () : Promise<AttackType[]> => {
-		return this.getAttackTypes().first().toPromise();
+        
+        return new Promise<AttackType[]>((resolve, reject) => {
+            this.getAttackTypes()
+            .subscribe((res) => {
+                    resolve(res);
+                });
+
+        });
 	}  
 
 	public getAttackTypes = () : Observable<AttackType[]> => {
@@ -248,7 +332,14 @@ export class ReferenceService {
 	//}
 
 	public getCriticalTypesAsync = () : Promise<CriticalType[]> => {
-		return this.getCriticalTypes().first().toPromise();
+        
+        return new Promise<CriticalType[]>((resolve, reject) => {
+            this.getCriticalTypes()
+            .subscribe((res) => {
+                    resolve(res);
+                });
+
+        });
 	}  
 
 	public getCriticalTypes = () : Observable<CriticalType[]> => {
@@ -265,7 +356,14 @@ export class ReferenceService {
 	//}
 
 	public getWeaponTypesAsync = () : Promise<WeaponType[]> => {
-		return this.getWeaponTypes().first().toPromise();
+        
+        return new Promise<WeaponType[]>((resolve, reject) => {
+            this.getWeaponTypes()
+            .subscribe((res) => {
+                    resolve(res);
+                });
+
+        });
 	}  
 
 	public getWeaponTypes = () : Observable<WeaponType[]> => {
@@ -282,7 +380,14 @@ export class ReferenceService {
 	//}
 
 	public getBooksAsync = () : Promise<Book[]> => {
-		return this.getBooks().first().toPromise();
+        
+        return new Promise<Book[]>((resolve, reject) => {
+            this.getBooks()
+            .subscribe((res) => {
+                    resolve(res);
+                });
+
+        });
 	}  
 
 	public getBooks = () : Observable<Book[]> => {
@@ -299,7 +404,14 @@ export class ReferenceService {
 	//}
 
 	public getPsychicRefractoryPeriodEntriesAsync = () : Promise<PsychicRefractoryPeriodEntry[]> => {
-		return this.getPsychicRefractoryPeriodEntries().first().toPromise();
+        
+        return new Promise<PsychicRefractoryPeriodEntry[]>((resolve, reject) => {
+            this.getPsychicRefractoryPeriodEntries()
+            .subscribe((res) => {
+                    resolve(res);
+                });
+
+        });
 	}  
 
 	public getPsychicRefractoryPeriodEntries = () : Observable<PsychicRefractoryPeriodEntry[]> => {

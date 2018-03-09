@@ -18,7 +18,7 @@ import "rxjs/add/operator/toPromise";
     import { Actor } from '../classes/Actor';
 
 @Injectable()
-export class ActorsService {
+export class ActorsRepository {
 
     constructor(private _httpClient: HttpClient) { }        
     
@@ -29,7 +29,14 @@ export class ActorsService {
 	//}
 
 	public getActorsAsync = (gameId: number) : Promise<Actor[]> => {
-		return this.getActors(gameId).first().toPromise();
+        
+        return new Promise<Actor[]>((resolve, reject) => {
+            this.getActors(gameId)
+            .subscribe((res) => {
+                    resolve(res);
+                });
+
+        });
 	}  
 
 	public getActors = (gameId: number) : Observable<Actor[]> => {
@@ -46,7 +53,14 @@ export class ActorsService {
 	//}
 
 	public getActorAsync = (id: number) : Promise<Actor> => {
-		return this.getActor(id).first().toPromise();
+        
+        return new Promise<Actor>((resolve, reject) => {
+            this.getActor(id)
+            .subscribe((res) => {
+                    resolve(res);
+                });
+
+        });
 	}  
 
 	public getActor = (id: number) : Observable<Actor> => {
@@ -63,7 +77,14 @@ export class ActorsService {
 	//}
 
 	public saveActorAsync = (actor: Actor) : Promise<Actor> => {
-		return this.saveActor(actor).first().toPromise();
+        
+        return new Promise<Actor>((resolve, reject) => {
+            this.saveActor(actor)
+            .subscribe((res) => {
+                    resolve(res);
+                });
+
+        });
 	}  
 
 	public saveActor = (actor: Actor) : Observable<Actor> => {
@@ -80,7 +101,14 @@ export class ActorsService {
 	//}
 
 	public deleteActorAsync = (id: number) : Promise<void> => {
-		return this.deleteActor(id).first().toPromise();
+        
+        return new Promise<void>((resolve, reject) => {
+            this.deleteActor(id)
+            .subscribe((res) => {
+                    resolve(res);
+                });
+
+        });
 	}  
 
 	public deleteActor = (id: number) : Observable<void> => {

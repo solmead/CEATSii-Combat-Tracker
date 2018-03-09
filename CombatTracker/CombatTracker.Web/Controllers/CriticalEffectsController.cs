@@ -34,7 +34,7 @@ namespace CombatTracker.Web.Controllers
             return _gameRepository.GetCriticalEffect(id);
         }
         [HttpPost("[action]")]
-        public CriticalEffect SaveCriticalEffect(CriticalEffect criticalEffect)
+        public CriticalEffect SaveCriticalEffect([FromBody] CriticalEffect criticalEffect)
         {
             return _gameRepository.SaveCriticalEffect(criticalEffect);
         }

@@ -18,7 +18,7 @@ import "rxjs/add/operator/toPromise";
     import { BaseAction } from '../classes/BaseAction';
 
 @Injectable()
-export class ActionsService {
+export class ActionsRepository {
 
     constructor(private _httpClient: HttpClient) { }        
     
@@ -29,7 +29,14 @@ export class ActionsService {
 	//}
 
 	public getActionsOnActorAsync = (actorId: number) : Promise<BaseAction[]> => {
-		return this.getActionsOnActor(actorId).first().toPromise();
+        
+        return new Promise<BaseAction[]>((resolve, reject) => {
+            this.getActionsOnActor(actorId)
+            .subscribe((res) => {
+                    resolve(res);
+                });
+
+        });
 	}  
 
 	public getActionsOnActor = (actorId: number) : Observable<BaseAction[]> => {
@@ -46,7 +53,14 @@ export class ActionsService {
 	//}
 
 	public getActionsInGameAsync = (gameId: number) : Promise<BaseAction[]> => {
-		return this.getActionsInGame(gameId).first().toPromise();
+        
+        return new Promise<BaseAction[]>((resolve, reject) => {
+            this.getActionsInGame(gameId)
+            .subscribe((res) => {
+                    resolve(res);
+                });
+
+        });
 	}  
 
 	public getActionsInGame = (gameId: number) : Observable<BaseAction[]> => {
@@ -63,7 +77,14 @@ export class ActionsService {
 	//}
 
 	public getActionAsync = (id: number) : Promise<BaseAction> => {
-		return this.getAction(id).first().toPromise();
+        
+        return new Promise<BaseAction>((resolve, reject) => {
+            this.getAction(id)
+            .subscribe((res) => {
+                    resolve(res);
+                });
+
+        });
 	}  
 
 	public getAction = (id: number) : Observable<BaseAction> => {
@@ -80,7 +101,14 @@ export class ActionsService {
 	//}
 
 	public saveActionAsync = (action: BaseAction) : Promise<BaseAction> => {
-		return this.saveAction(action).first().toPromise();
+        
+        return new Promise<BaseAction>((resolve, reject) => {
+            this.saveAction(action)
+            .subscribe((res) => {
+                    resolve(res);
+                });
+
+        });
 	}  
 
 	public saveAction = (action: BaseAction) : Observable<BaseAction> => {
@@ -97,7 +125,14 @@ export class ActionsService {
 	//}
 
 	public deleteActionAsync = (id: number) : Promise<void> => {
-		return this.deleteAction(id).first().toPromise();
+        
+        return new Promise<void>((resolve, reject) => {
+            this.deleteAction(id)
+            .subscribe((res) => {
+                    resolve(res);
+                });
+
+        });
 	}  
 
 	public deleteAction = (id: number) : Observable<void> => {

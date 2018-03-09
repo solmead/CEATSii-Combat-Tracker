@@ -27,8 +27,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="ClientApp\app\entities\apis\model.module.ts" />
+    <None Remove="ClientApp\app\entities\apis\repositories.module.ts" />
     <None Remove="ClientApp\app\entities\classes\IActable.ts" />
+    <None Remove="ClientApp\app\entities\dataviews\CharactersView.dataview.ts" />
+    <None Remove="ClientApp\app\entities\dataviews\dataviews.module.ts" />
+    <None Remove="ClientApp\app\entities\dataviews\GameView.dataview.ts" />
+    <None Remove="ClientApp\app\entities\services\Games.service.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -38,31 +42,43 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ClientApp\app\components\combat\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <TypeScriptCompile Include="ClientApp\app\entities\apis\model.module.ts" />
+    <TypeScriptCompile Include="ClientApp\app\entities\apis\repositories.module.ts" />
     <TypeScriptCompile Include="ClientApp\app\entities\classes\IActable.ts" />
+    <TypeScriptCompile Include="ClientApp\app\entities\dataviews\dataviews.module.ts" />
+    <TypeScriptCompile Include="ClientApp\app\entities\dataviews\CharactersView.dataview.ts" />
+    <TypeScriptCompile Include="ClientApp\app\entities\dataviews\GameView.dataview.ts" />
+    <TypeScriptCompile Include="ClientApp\app\entities\services\Games.service.ts" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="ClientApp\app\entities\apis\Actions.service.ts">
+    <None Update="ClientApp\app\entities\apis\Actions.repository.ts">
       <CustomToolNamespace>Controllers\ActionsController.cs</CustomToolNamespace>
     </None>
-    <None Update="ClientApp\app\entities\apis\Actors.service.ts">
+    <None Update="ClientApp\app\entities\apis\Activity.repository.ts">
+      <CustomToolNamespace>Controllers\ActivityController.cs</CustomToolNamespace>
+    </None>
+    <None Update="ClientApp\app\entities\apis\Actors.repository.ts">
       <CustomToolNamespace>Controllers\ActorsController.cs</CustomToolNamespace>
     </None>
-    <None Update="ClientApp\app\entities\apis\CriticalEffects.service.ts">
+    <None Update="ClientApp\app\entities\apis\Characters.repository.ts">
+      <CustomToolNamespace>Controllers\CharactersController.cs</CustomToolNamespace>
+    </None>
+    <None Update="ClientApp\app\entities\apis\Combat.repository.ts">
+      <CustomToolNamespace>Controllers\CombatController.cs</CustomToolNamespace>
+    </None>
+    <None Update="ClientApp\app\entities\apis\Creatures.repository.ts">
+      <CustomToolNamespace>Controllers\CreaturesController.cs</CustomToolNamespace>
+    </None>
+    <None Update="ClientApp\app\entities\apis\CriticalEffects.repository.ts">
       <CustomToolNamespace>Controllers\CriticalEffectsController.cs</CustomToolNamespace>
     </None>
-    <None Update="ClientApp\app\entities\apis\Games.service.ts">
+    <None Update="ClientApp\app\entities\apis\Games.repository.ts">
       <CustomToolNamespace>Controllers\GamesController.cs</CustomToolNamespace>
     </None>
-    <None Update="ClientApp\app\entities\apis\Reference.service.ts">
+    <None Update="ClientApp\app\entities\apis\Reference.repository.ts">
       <CustomToolNamespace>Controllers\ReferenceController.cs</CustomToolNamespace>
     </None>
-    <None Update="ClientApp\app\entities\apis\SampleData.service.ts">
+    <None Update="ClientApp\app\entities\apis\SampleData.repository.ts">
       <CustomToolNamespace>Controllers\SampleDataController.cs</CustomToolNamespace>
     </None>
     <None Update="ClientApp\app\entities\classes\ActionDefinition.ts">

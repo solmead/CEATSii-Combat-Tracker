@@ -7,16 +7,17 @@
                 <span class='icon-bar'></span>
                 <span class='icon-bar'></span>
             </button>
-            <a class='navbar-brand' [routerLink]="['/home']">WebApplication4</a>
+            <a class='navbar-brand' [routerLink]="['/home']">CEATSii</a>
         </div>
         <div class='clearfix'></div>
         <div class='navbar-collapse collapse'>
             <ul class='nav navbar-nav'>
                 <li [routerLinkActive]="['link-active']">
-                    <a [routerLink]="['/home']">
-                        <span class='glyphicon glyphicon-home'></span> Home
+                    <a [routerLink]="['/character']">
+                        <span class='glyphicon glyphicon-th-list'></span> Characters
                     </a>
                 </li>
+
                 <li [routerLinkActive]="['link-active']">
                     <a [routerLink]="['/counter']">
                         <span class='glyphicon glyphicon-education'></span> Counter
@@ -25,11 +26,6 @@
                 <li [routerLinkActive]="['link-active']">
                     <a [routerLink]="['/fetch-data']">
                         <span class='glyphicon glyphicon-th-list'></span> Fetch data
-                    </a>
-                </li>
-                <li [routerLinkActive]="['link-active']">
-                    <a [routerLink]="['/combat']">
-                        <span class='glyphicon glyphicon-th-list'></span> Combat
                     </a>
                 </li>
             </ul>
