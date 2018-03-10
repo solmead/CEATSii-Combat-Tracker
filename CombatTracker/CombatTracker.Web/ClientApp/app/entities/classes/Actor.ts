@@ -8,7 +8,7 @@
 import { Attack } from '../classes/Attack';
 import { CriticalEffect } from '../classes/CriticalEffect';
 import CharacterType = Enums.EnumDefinitions.CharacterType;
-    export interface Actor {
+    export class Actor {
         id: number;
         name: string;
         type: CharacterType;
@@ -47,4 +47,7 @@ import CharacterType = Enums.EnumDefinitions.CharacterType;
         negativeRounds: number;
         currentCrits: CriticalEffect;
         negatives: number;
+
+        constructor() {
+        }
     }

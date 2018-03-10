@@ -1,17 +1,21 @@
 ﻿<p *ngIf="!characters"><em>Loading...</em></p>
-<table *ngIf="characters" class="table table-striped">
-    <tr><th>Name</th><th>Level</th><th>Base Inititive</th><th>Type</th><th>Speed</th><th></th></tr>
-    <tr *ngFor="let character of characters">
-        <td>{{character?.name}}</td>
-        <td>{{character?.level}}</td>
-        <td>{{character?.baseInititive}}</td>
-        <td>{{character?.typeString}}</td>
-        <td>{{character?.walkSpeed}}</td>
-        <td>
-            <button class="btn btn-primary btn-sm"
-                    (click)="selectCharacter(character)">
-                Details
-            </button>
-        </td>
-    </tr>
-</table>
+<div class="charList" style="max-height: 100%; overflow-y:auto;">
+    <div style="float:right;">
+        <button class="btn btn-primary btn-sm" (click)="newCharacter()"><span class="glyphicon glyphicon-plus"></span> New</button>
+    </div>
+    <h2 style="display:inline-block; margin-top:0;">Characters</h2>
+    <table *ngIf="characters" class="table table-striped">
+        <tr><th>Name</th><th></th></tr>
+        <tr *ngFor="let character of characters">
+            <td style="white-space:nowrap;">
+                <a (click)="selectCharacter(character)">({{character?.typeString}}) {{character?.name}}</a> ({{character?.level}})
+            </td>
+            <td>
+                <button class="btn btn-primary btn-sm"
+                        (click)="selectEncounter(character)">
+                    Encounter
+                </button>
+            </td>
+        </tr>
+    </table>
+</div>

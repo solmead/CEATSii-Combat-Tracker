@@ -5,7 +5,7 @@
 
     import * as Enums from '../classes/EnumDefinitions'
     
-    export interface SpeedChart {
+    export class SpeedChart {
         id: number;
         name: string;
         abbreviation: string;
@@ -13,4 +13,7 @@
         msFleeEvade: number;
         aqChargeLunge: number;
         aqInitiative: number;
+
+        constructor() {
+        }
     }

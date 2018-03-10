@@ -5,10 +5,13 @@
 
     import * as Enums from '../classes/EnumDefinitions'
     
-    export interface PsychicRefractoryPeriodEntry {
+    export class PsychicRefractoryPeriodEntry {
         id: number;
         roundNumber: number;
         levelMin: number;
         levelMax: number;
         mod: number;
+
+        constructor() {
+        }
     }

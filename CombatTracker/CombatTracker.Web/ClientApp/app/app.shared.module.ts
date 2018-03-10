@@ -7,11 +7,14 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './components/app/app.component';
 import { NavMenuComponent } from './components/navmenu/navmenu.component';
 import { HomeComponent } from './components/home/home.component';
-import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
-import { CounterComponent } from './components/counter/counter.component';
+//import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
+//import { CounterComponent } from './components/counter/counter.component';
+import { GameComponent } from './components/game/game.component';
+import { GameListComponent } from './components/game/game-list.component';
+import { GameEditComponent } from './components/game/game-edit.component';
 import { CharacterComponent } from './components/character/character.component';
 import { CharacterListComponent } from './components/character/character-list.component';
-import { CharacterDetailComponent } from './components/character/character-detail.component';
+import { CharacterEditComponent } from './components/character/character-edit.component';
 
 
 import { RepositoriesModule } from './entities/apis/repositories.module';
@@ -21,11 +24,12 @@ import { DataViewsModule } from "./entities/dataviews/dataviews.module";
     declarations: [
         AppComponent,
         NavMenuComponent,
-        CounterComponent,
-        FetchDataComponent,
+        GameComponent,
+        GameListComponent,
+        GameEditComponent,
         HomeComponent,
         CharacterListComponent,
-        CharacterDetailComponent,
+        CharacterEditComponent,
         CharacterComponent
     ],
     imports: [
@@ -37,8 +41,7 @@ import { DataViewsModule } from "./entities/dataviews/dataviews.module";
         RouterModule.forRoot([
             { path: '', redirectTo: 'home', pathMatch: 'full' },
             { path: 'home', component: HomeComponent },
-            { path: 'counter', component: CounterComponent },
-            { path: 'fetch-data', component: FetchDataComponent },
+            { path: 'games', component: GameComponent },
             { path: 'character', component: CharacterComponent },
             { path: '**', redirectTo: 'home' }
         ])

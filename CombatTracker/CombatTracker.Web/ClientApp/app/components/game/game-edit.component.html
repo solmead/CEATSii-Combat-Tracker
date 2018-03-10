@@ -1,0 +1,38 @@
+﻿<div  *ngIf="game">
+    <fieldset>
+        <legend>Game: {{game?.name}}</legend>
+        <form #gameForm="ngForm">
+            <div class="form-group">
+                <label>Name</label>
+                <input #name="ngModel" name="name" class="form-control"
+                       [(ngModel)]="game.name" required />
+                <div *ngIf="name.invalid" class="text-danger">
+                    Please enter a name
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Name</label>
+                <input #currentTime="ngModel" name="currentTime" class="form-control"
+                       [(ngModel)]="game.currentTime" />
+            </div>
+            <div class="text-center pt-2">
+                <button class="btn btn-outline-primary" (click)="closeEdit()">
+                    Back
+                </button>
+
+                <button class="btn btn-danger" [disabled]="gameForm.invalid"
+                        (click)="saveGame()">
+                    Save
+                </button>
+
+                <button class="btn btn-primary btn-sm"
+                        (click)="selectEncounter()">
+                    Start
+                </button>
+            </div>
+        </form>
+    </fieldset>
+
+
+
+</div>

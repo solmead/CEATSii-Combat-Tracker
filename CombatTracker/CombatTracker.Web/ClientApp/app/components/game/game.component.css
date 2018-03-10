@@ -1,16 +1,16 @@
 ﻿
-.characterWrapper {
-}
 
-.characterArea {
-}
+.gameWrapper {
 
-.characterList {
+}
+.gameArea {
+
+}
+.gameList {
     display: table-cell;
     width: 20%;
 }
-
-.characterEdit {
+.gameEdit {
     display: table-cell;
     width: 80%;
 }

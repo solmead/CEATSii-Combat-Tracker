@@ -5,7 +5,7 @@
 
     import * as Enums from '../classes/EnumDefinitions'
     
-    export interface Weapon {
+    export class Weapon {
         id: number;
         name: string;
         minWeight: number;
@@ -15,4 +15,7 @@
         is2Handed: boolean;
         ob: number;
         characterId?: number;
+
+        constructor() {
+        }
     }

@@ -15,6 +15,7 @@ export class CharactersView {
     }
 
     public refresh = async () => {
+        this.selected = null;
         this.characters = await this.charRepo.getCharactersAsync();
 
     }

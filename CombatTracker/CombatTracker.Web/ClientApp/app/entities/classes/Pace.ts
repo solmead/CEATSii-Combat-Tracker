@@ -5,8 +5,11 @@
 
     import * as Enums from '../classes/EnumDefinitions'
     
-    export interface Pace {
+    export class Pace {
         id: number;
         name: string;
         abbreviation: string;
+
+        constructor() {
+        }
     }

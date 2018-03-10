@@ -6,7 +6,7 @@
     import * as Enums from '../classes/EnumDefinitions'
     import { ActionGroup } from '../classes/ActionGroup';
 import BaseActionType = Enums.EnumDefinitions.BaseActionType;
-    export interface ActionDefinition {
+    export class ActionDefinition {
         id: number;
         actionGroup_ID?: number;
         name: string;
@@ -18,4 +18,7 @@ import BaseActionType = Enums.EnumDefinitions.BaseActionType;
         typeString: string;
         actionGroup: ActionGroup;
         nextAction: ActionDefinition;
+
+        constructor() {
+        }
     }

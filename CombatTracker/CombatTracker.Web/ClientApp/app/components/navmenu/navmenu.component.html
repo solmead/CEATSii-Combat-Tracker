@@ -12,22 +12,46 @@
         <div class='clearfix'></div>
         <div class='navbar-collapse collapse'>
             <ul class='nav navbar-nav'>
+                <li *ngIf="!game" [routerLinkActive]="['link-active']">
+                    <a [routerLink]="['/games']">
+                        <span class='glyphicon glyphicon-th-list'></span> Games
+                    </a>
+                </li>
+                <li *ngIf="game" [routerLinkActive]="['link-active']">
+                    <a [routerLink]="['/games']">
+                        <span class='glyphicon glyphicon-th-list'></span> {{ game?.name }}
+                    </a>
+                    <ul >
+                        <li *ngFor="let actor of actors" [class.link-active]="actor == selectedActor">
+
+                            <a (click)="selectActor(actor)">
+                                <span class='glyphicon glyphicon-th-list'></span> {{ actor?.name }}
+                            </a>
+
+                        </li>
+                    </ul>
+                </li>
                 <li [routerLinkActive]="['link-active']">
                     <a [routerLink]="['/character']">
                         <span class='glyphicon glyphicon-th-list'></span> Characters
                     </a>
                 </li>
+                <li [routerLinkActive]="['link-active']">
+                    <a [routerLink]="['/creature']">
+                        <span class='glyphicon glyphicon-th-list'></span> Creatures
+                    </a>
+                </li>
 
-                <li [routerLinkActive]="['link-active']">
-                    <a [routerLink]="['/counter']">
-                        <span class='glyphicon glyphicon-education'></span> Counter
-                    </a>
-                </li>
-                <li [routerLinkActive]="['link-active']">
-                    <a [routerLink]="['/fetch-data']">
-                        <span class='glyphicon glyphicon-th-list'></span> Fetch data
-                    </a>
-                </li>
+                <!--<li [routerLinkActive]="['link-active']">
+        <a [routerLink]="['/counter']">
+            <span class='glyphicon glyphicon-education'></span> Counter
+        </a>
+    </li>
+    <li [routerLinkActive]="['link-active']">
+        <a [routerLink]="['/fetch-data']">
+            <span class='glyphicon glyphicon-th-list'></span> Fetch data
+        </a>
+    </li>-->
             </ul>
         </div>
     </div>

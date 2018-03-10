@@ -7,7 +7,7 @@
     import { Armor } from '../classes/Armor';
 import { Weapon } from '../classes/Weapon';
 import CharacterType = Enums.EnumDefinitions.CharacterType;
-    export interface Character {
+    export class Character {
         id: number;
         name: string;
         level: number;
@@ -23,4 +23,7 @@ import CharacterType = Enums.EnumDefinitions.CharacterType;
         weapons: Weapon[];
         rolledInititive: number;
         typeString: string;
+
+        constructor() {
+        }
     }

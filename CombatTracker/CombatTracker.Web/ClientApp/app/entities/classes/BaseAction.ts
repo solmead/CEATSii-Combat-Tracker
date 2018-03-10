@@ -10,7 +10,7 @@ import { Attack } from '../classes/Attack';
 import ActorActionType = Enums.EnumDefinitions.ActorActionType;
 import ActionProblem = Enums.EnumDefinitions.ActionProblem;
 import ActionTypeEnum = Enums.EnumDefinitions.ActionTypeEnum;
-    export interface BaseAction {
+    export class BaseAction {
         id: number;
         name: string;
         startTime: number;
@@ -35,4 +35,7 @@ import ActionTypeEnum = Enums.EnumDefinitions.ActionTypeEnum;
         baseAction_ID?: number;
         currentAttack_ID?: number;
         color: string;
+
+        constructor() {
+        }
     }

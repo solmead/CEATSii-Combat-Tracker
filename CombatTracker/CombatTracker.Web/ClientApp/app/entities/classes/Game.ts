@@ -5,8 +5,11 @@
 
     import * as Enums from '../classes/EnumDefinitions'
     
-    export interface Game {
+    export class Game {
         id: number;
         name: string;
         currentTime: number;
+
+        constructor() {
+        }
     }

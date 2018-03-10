@@ -5,10 +5,13 @@
 
     import * as Enums from '../classes/EnumDefinitions'
     
-    export interface AttackType {
+    export class AttackType {
         id: number;
         name: string;
         abbreviation: string;
         hasSize: boolean;
         hasDB: boolean;
+
+        constructor() {
+        }
     }

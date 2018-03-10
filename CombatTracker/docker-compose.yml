@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  combattracker.web:
+    image: combattrackerweb
+    build:
+      context: .
+      dockerfile: CombatTracker.Web/Dockerfile

@@ -1,0 +1,15 @@
+﻿.gameList {
+    font-size: 12px;
+}
+
+    .gameList a {
+        cursor: pointer;
+    }
+
+    .gameList button {
+        padding: 0 5px;
+    }
+
+.gameList td {
+    padding: 2px;
+}

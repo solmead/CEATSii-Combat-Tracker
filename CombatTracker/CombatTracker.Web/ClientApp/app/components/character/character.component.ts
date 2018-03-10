@@ -12,7 +12,7 @@ import { Character } from '../../entities/classes/Character';
 export class CharacterComponent {
 
     /** character ctor */
-    constructor(public charView: CharactersView, private charRepo: CharactersRepository)
+    constructor()
     {
         
     }

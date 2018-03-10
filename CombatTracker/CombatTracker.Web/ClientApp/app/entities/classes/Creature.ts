@@ -15,7 +15,7 @@ import { Outlook } from '../classes/Outlook';
 import { Pace } from '../classes/Pace';
 import { SizeRating } from '../classes/SizeRating';
 import { SpeedChart } from '../classes/SpeedChart';
-    export interface Creature {
+    export class Creature {
         id: number;
         typeName: string;
         baseLevel: number;
@@ -52,4 +52,7 @@ import { SpeedChart } from '../classes/SpeedChart';
         size: SizeRating;
         aqRating: SpeedChart;
         msRating: SpeedChart;
+
+        constructor() {
+        }
     }

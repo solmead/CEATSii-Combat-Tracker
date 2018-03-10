@@ -11,10 +11,12 @@ import { Character } from '../../entities/classes/Character';
 /** CharacterList component*/
 export class CharacterListComponent {
     /** CharacterList ctor */
-    constructor(public charView: CharactersView, private charRepo: CharactersRepository) {
+    constructor(public charView: CharactersView) {
         
     }
-
+    newCharacter() {
+        this.charView.selected = new Character();
+    }
     selectCharacter(char: Character) {
         this.charView.selected = char;
     }

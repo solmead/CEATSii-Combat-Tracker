@@ -9,7 +9,7 @@ import { AttackType } from '../classes/AttackType';
 import { SizeRating } from '../classes/SizeRating';
 import { Weapon } from '../classes/Weapon';
 import CriticalLevels = Enums.EnumDefinitions.CriticalLevels;
-    export interface Attack {
+    export class Attack {
         id: number;
         percentChance: number;
         ob: number;
@@ -34,4 +34,7 @@ import CriticalLevels = Enums.EnumDefinitions.CriticalLevels;
         sizeRating: SizeRating;
         weaponUsed: Weapon;
         additionalCrits: CriticalType[];
+
+        constructor() {
+        }
     }

@@ -1,9 +1,11 @@
 ﻿import { NgModule } from "@angular/core";
-import { GameView } from "./GameView.dataview";
+import { GamesView } from "./GamesView.dataview";
+import { EncounterView } from "./EncounterView.dataview";
 import { CharactersView } from "./CharactersView.dataview";
 
 @NgModule({
-    providers: [GameView,
+    providers: [GamesView,
+        EncounterView,
         CharactersView]
 })
 export class DataViewsModule { }

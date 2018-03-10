@@ -5,8 +5,11 @@
 
     import * as Enums from '../classes/EnumDefinitions'
     
-    export interface CriticalCode {
+    export class CriticalCode {
         id: number;
         name: string;
         abbreviation: string;
+
+        constructor() {
+        }
     }

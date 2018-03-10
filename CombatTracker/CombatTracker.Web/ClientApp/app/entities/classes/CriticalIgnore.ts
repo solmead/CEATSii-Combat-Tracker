@@ -5,8 +5,11 @@
 
     import * as Enums from '../classes/EnumDefinitions'
     
-    export interface CriticalIgnore {
+    export class CriticalIgnore {
         id: number;
         name: string;
         abbreviation: string;
+
+        constructor() {
+        }
     }

@@ -5,5 +5,8 @@
 
     import * as Enums from '../classes/EnumDefinitions'
     
-    export interface Dice {
+    export class Dice {
+
+        constructor() {
+        }
     }

@@ -1,0 +1,25 @@
+﻿<div *ngIf="character">
+    <fieldset>
+        <legend>{{character?.name}}</legend>
+        <form #charForm="ngForm">
+            <div class="form-group">
+                <label>Name</label>
+                <input #name="ngModel" name="name" class="form-control"
+                       [(ngModel)]="character.name" required />
+                <div *ngIf="name.invalid" class="text-danger">
+                    Please enter a name
+                </div>
+            </div>
+            <div class="text-center pt-2">
+                <button class="btn btn-outline-primary" (click)="closeEdit()">
+                    Back
+                </button>
+
+                <button class="btn btn-danger" [disabled]="charForm.invalid"
+                        (click)="saveCharacter()">
+                    Save
+                </button>
+
+            </div>
+        </form>
+    </fieldset>

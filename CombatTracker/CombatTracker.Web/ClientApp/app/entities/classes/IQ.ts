@@ -5,8 +5,11 @@
 
     import * as Enums from '../classes/EnumDefinitions'
     
-    export interface IQ {
+    export class IQ {
         id: number;
         name: string;
         abbreviation: string;
+
+        constructor() {
+        }
     }

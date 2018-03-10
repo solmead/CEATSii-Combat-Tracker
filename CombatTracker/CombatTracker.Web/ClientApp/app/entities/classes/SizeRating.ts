@@ -5,8 +5,11 @@
 
     import * as Enums from '../classes/EnumDefinitions'
     
-    export interface SizeRating {
+    export class SizeRating {
         id: number;
         name: string;
         abbreviation: string;
+
+        constructor() {
+        }
     }

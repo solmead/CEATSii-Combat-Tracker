@@ -5,7 +5,10 @@
 
     import * as Enums from '../classes/EnumDefinitions'
     
-    export interface Book {
+    export class Book {
         id: number;
         name: string;
+
+        constructor() {
+        }
     }
