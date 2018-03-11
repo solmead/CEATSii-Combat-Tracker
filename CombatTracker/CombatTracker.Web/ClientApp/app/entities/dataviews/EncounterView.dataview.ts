@@ -57,6 +57,10 @@ export class EncounterView {
 
             this.actors = await this.actorRepo.getActorsAsync(this.currentGame.id);
             this.actions = await this.actionRepo.getActionsInGameAsync(this.currentGame.id);
+            if (this.selectedActor == null) {
+
+                this.selectedAction = this.actions[0];
+            }
         }
         
     }
