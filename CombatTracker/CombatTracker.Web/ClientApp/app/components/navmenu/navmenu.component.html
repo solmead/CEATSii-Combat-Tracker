@@ -17,13 +17,13 @@
         <div class='navbar-collapse collapse'>
             <ul class='nav navbar-nav'>
                 <li *ngIf="game" [routerLinkActive]="['link-active']">
-                    <a [routerLink]="['/games']">
+                    <a [routerLink]="['/encounter', game.id]">
                         <span class='glyphicon glyphicon-th-list'></span> {{ game?.name }}
                     </a>
                     <ul>
-                        <li *ngFor="let actor of actors" [class.link-active]="actor == selectedActor">
-                            <a (click)="selectActor(actor)">
-                                <span class='glyphicon glyphicon-user'></span> {{ actor?.name }}
+                        <li *ngFor="let actor of actors" [routerLinkActive]="['link-active']">
+                            <a [routerLink]="['/actor', actor.id]">
+                                <span class='glyphicon glyphicon-user'></span> {{ actor.name }}
                             </a>
                         </li>
                     </ul>

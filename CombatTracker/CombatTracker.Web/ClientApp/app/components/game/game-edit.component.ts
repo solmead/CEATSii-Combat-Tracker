@@ -1,4 +1,5 @@
 ﻿import { Component } from '@angular/core';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { GamesView } from "../../entities/dataviews/GamesView.dataview";
 import { Game } from '../../entities/classes/Game';
 import { GamesRepository } from '../../entities/apis/Games.repository';
@@ -16,7 +17,8 @@ import GameType = Enums.EnumDefinitions.GameType;
 /** GameEdit component*/
 export class GameEditComponent {
     /** GameEdit ctor */
-    constructor(public gameView: GamesView,
+    constructor(private router: Router,
+        public gameView: GamesView,
         private gamesRepo: GamesRepository,
         public encounterView: EncounterView) {
 
@@ -50,6 +52,6 @@ export class GameEditComponent {
     }
     selectEncounter() {
         this.encounterView.currentGame = this.game;
-
+        this.router.navigate(['/encounter', this.game.id]);
     }
 }

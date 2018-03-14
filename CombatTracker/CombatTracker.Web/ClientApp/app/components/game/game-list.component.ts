@@ -21,10 +21,10 @@ export class GameListComponent {
     selectGame = async (gameId: number) => {
         this.gameView.selectGame(gameId);
     }
-    selectEncounter = async (gameId: number) => {
-        this.encounterView.selectGame(gameId);
-        //redirect to encounter view
-    }
+    //selectEncounter = async (gameId: number) => {
+    //    this.encounterView.selectGame(gameId);
+    //    //redirect to encounter view
+    //}
 
     get games(): Array<Game> {
         return this.gameView.games;

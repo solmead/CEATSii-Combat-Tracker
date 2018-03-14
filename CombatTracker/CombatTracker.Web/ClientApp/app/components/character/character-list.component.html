@@ -1,11 +1,14 @@
 ﻿<p *ngIf="!characters"><em>Loading...</em></p>
 <div class="charList" style="max-height: 100%; overflow-y:auto;">
-    <div style="float:right;">
-        <button class="btn btn-primary btn-sm" (click)="newCharacter()"><span class="glyphicon glyphicon-plus"></span> New</button>
-    </div>
+    
     <h2 style="display:inline-block; margin-top:0;">Characters</h2>
     <table *ngIf="characters" class="table table-striped">
-        <tr><th>Name</th><th></th></tr>
+        <tr><th style="vertical-align: middle;">
+            <div style="float:right;">
+                <button class="btn btn-primary btn-sm" (click)="newCharacter()">
+                <span class="glyphicon glyphicon-plus"></span> New</button>
+            </div>
+            Name</th></tr>
         <tr *ngFor="let character of characters">
             <td style="white-space:nowrap;">
                 <a (click)="selectCharacter(character.id)">({{character?.typeString}}) {{character?.name}}</a> ({{character?.level}})

@@ -55,6 +55,11 @@ export class EncounterView {
 
         this._selectedActor = actor;
     }
+    public selectActor(actorId: number) {
+        this.selectedActor =  this.actors.find((a) => a.id == actorId);
+    }
+
+
     get currentGame(): Game {
         return this._currentGame;
     }

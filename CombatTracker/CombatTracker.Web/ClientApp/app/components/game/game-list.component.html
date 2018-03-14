@@ -1,22 +1,25 @@
 ﻿<p *ngIf="!games"><em>Loading...</em></p>
 <div  class="gameList" style="max-height: 100%; overflow-y:auto;">
-    <div style="float:right;">
-        <button class="btn btn-primary btn-sm" (click)="newGame()"><span class="glyphicon glyphicon-plus"></span> New</button>
-    </div>
+    
     <h2 style="display:inline-block; margin-top:0;">Games</h2>
     <table *ngIf="games" class="table table-striped">
         <thead>
-            <tr><th>Name</th><th></th></tr>
+            <tr><th style="vertical-align: middle;">
+                    <div style="float:right;">
+                        <button class="btn btn-primary btn-sm" (click)="newGame()"><span class="glyphicon glyphicon-plus"></span> New</button>
+                    </div>
+                Name
+                </th><!--<th></th>--></tr>
         </thead>
         <tbody>
             <tr *ngFor="let game of games">
                 <td style="white-space:nowrap;"><a (click)="selectGame(game.id)">{{game?.name}}</a> ({{game?.currentTime.toFixed(2)}})</td>
-                <td>
+                <!--<td>
                     <button class="btn btn-primary btn-sm"
                             (click)="selectEncounter(game.id)">
                         Start
                     </button>
-                </td>
+                </td>-->
             </tr>
         </tbody>
     </table>

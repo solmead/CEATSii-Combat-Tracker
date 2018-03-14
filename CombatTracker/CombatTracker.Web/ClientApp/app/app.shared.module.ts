@@ -13,6 +13,9 @@ import { GameComponent } from './components/game/game.component';
 import { GameListComponent } from './components/game/game-list.component';
 import { GameEditComponent } from './components/game/game-edit.component';
 import { CharacterComponent } from './components/character/character.component';
+import { CreatureComponent } from './components/creature/creature.component';
+import { ActorComponent } from './components/actor/actor.component';
+import { EncounterComponent } from './components/encounter/encounter.component';
 import { CharacterListComponent } from './components/character/character-list.component';
 import { CharacterEditComponent } from './components/character/character-edit.component';
 
@@ -30,7 +33,10 @@ import { DataViewsModule } from "./entities/dataviews/dataviews.module";
         HomeComponent,
         CharacterListComponent,
         CharacterEditComponent,
-        CharacterComponent
+        CharacterComponent,
+        CreatureComponent,
+        ActorComponent,
+        EncounterComponent
     ],
     imports: [
         CommonModule,
@@ -43,6 +49,9 @@ import { DataViewsModule } from "./entities/dataviews/dataviews.module";
             { path: 'home', component: HomeComponent },
             { path: 'games', component: GameComponent },
             { path: 'character', component: CharacterComponent },
+            { path: 'creature', component: CreatureComponent },
+            { path: 'encounter/:id', component: EncounterComponent },
+            { path: 'actor/:id', component: ActorComponent },
             { path: '**', redirectTo: 'home' }
         ])
     ]
