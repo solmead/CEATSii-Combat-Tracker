@@ -25,15 +25,16 @@ export class GameEditComponent {
 
     get game(): Game {
         var _game = this.gameView.selected;
-        if (_game != null && _game.id == 0) {
-            _game.gameType = this.gameView.gameSystem;
+        if (_game != null && !_game.id && this.gameView.systemSettings!=null) {
+            _game.gameType = this.gameView.systemSettings.gameSystem;
+            _game.gameTypeString = this.gameView.systemSettings.gameSystemString;
         }
 
         return _game;
     }
     saveGame = async () => {
-        if (this.game.id == 0) {
-            this.game.gameType = this.gameView.gameSystem;
+        if (!this.game.id && this.gameView.systemSettings != null) {
+            this.game.gameType = this.gameView.systemSettings.gameSystem;
         }
         var g = await this.gamesRepo.saveGameAsync(this.game);
         if (!this.game.id) {

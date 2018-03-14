@@ -2,6 +2,7 @@
 import * as Enums from '../classes/EnumDefinitions'
 import { CharactersRepository } from '../../entities/apis/Characters.repository';
 import { Character } from '../classes/Character';
+import { MySettings } from '../classes/MySettings';
 import { SettingsView } from './SettingsView.dataview';
 import GameType = Enums.EnumDefinitions.GameType;
 
@@ -14,18 +15,20 @@ export class CharactersView {
 
     constructor(private charRepo: CharactersRepository,
         private settings: SettingsView) {
-        this.refresh();
+        this.settings.settingsUpdated.subscribe((settings) => {
+            this.refresh();
+        });
     }
 
-    get gameSystem(): GameType {
-        return this.settings.settings.gameSystem;
+    get systemSettings(): MySettings {
+        return this.settings.settings;
     }
-    set gameSystem(value: GameType) {
-        this.settings.settings.gameSystem = value;
+    public setGameType(value: GameType) {
+        this.settings.setGameType(value);
     }
     public refresh = async () => {
         this.selected = null;
-        this.characters = await this.charRepo.getCharactersAsync();
+        this.characters = await this.charRepo.getCharactersAsync(this.systemSettings.gameSystem);
 
     }
 

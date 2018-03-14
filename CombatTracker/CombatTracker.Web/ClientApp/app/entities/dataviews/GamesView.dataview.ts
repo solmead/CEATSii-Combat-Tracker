@@ -3,6 +3,7 @@ import * as Enums from '../classes/EnumDefinitions'
 import { GamesRepository } from '../../entities/apis/Games.repository';
 import { Game } from '../classes/Game';
 import { SettingsView } from './SettingsView.dataview';
+import { MySettings } from '../classes/MySettings';
 import GameType = Enums.EnumDefinitions.GameType;
 
 @Injectable()
@@ -14,24 +15,21 @@ export class GamesView {
 
     constructor(private gameRepo: GamesRepository,
         private settings: SettingsView) {
-        this.refresh();
+        this.settings.settingsUpdated.subscribe((settings) => {
+            this.refresh();
+        });
     }
-    get gameSystem(): GameType {
-        if (this.settings.settings == null) {
-            return GameType.RMSS;
-        }
-        return this.settings.settings.gameSystem;
+
+    get systemSettings(): MySettings {
+        return this.settings.settings;
     }
-    set gameSystem(value: GameType) {
-        if (this.settings.settings == null) {
-            return;
-        }
-        this.settings.settings.gameSystem = value;
+    public setGameType(value: GameType) {
+        this.settings.setGameType(value);
     }
 
     public refresh = async () => {
         this.selected = null;
-        this.games = await this.gameRepo.getGamesAsync();
+        this.games = await this.gameRepo.getGamesAsync(this.systemSettings.gameSystem);
     }
 
     public selectGame = async (gameId: number) => {

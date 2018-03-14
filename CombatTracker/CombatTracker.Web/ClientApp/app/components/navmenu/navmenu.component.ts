@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { EncounterView } from "../../entities/dataviews/EncounterView.dataview";
 import { Actor } from '../../entities/classes/Actor';
 import { Game } from '../../entities/classes/Game';
+import { MySettings } from '../../entities/classes/MySettings';
 import * as Enums from '../../entities/classes/EnumDefinitions'
 import GameType = Enums.EnumDefinitions.GameType;
 import { EnumEx } from "../../entities/EnumEx";
@@ -22,14 +23,21 @@ export class NavMenuComponent {
         return lst;
     }
 
-    get gameSystem(): string {
-        return GameType[this.gameView.gameSystem];
+    onChange(newValue: GameType) {
+        this.gameView.setGameType(newValue);
     }
 
-    set gameSystem(gType: string) {
-        var gt = <GameType><any>GameType[<any>gType];
-        this.gameView.gameSystem = gt;
+    get systemSettings(): MySettings {
+        return this.gameView.systemSettings;
     }
+    public setGameType(value: GameType) {
+        this.gameView.setGameType(value);
+    }
+
+    //set gameSystem(gType: string) {
+    //    var gt = <GameType><any>GameType[<any>gType];
+    //    this.gameView.gameSystem = gt;
+    //}
 
 
     get selectedActor(): Actor {

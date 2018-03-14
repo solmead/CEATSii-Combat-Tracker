@@ -59,6 +59,8 @@ namespace CombatTracker.Domain.Reference.Creatures
 
         public int Book_ID { get; set; }
 
+        public string GameType { get; set; }
+
         [Required]
         [StringLength(255)]
         public string Description { get; set; }

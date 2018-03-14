@@ -26,7 +26,7 @@ namespace CombatTracker.Domain.Models
         public double CurrentTime { get; set; }
 
 
-        public GameType GameType { get; set; }
+        public string GameType { get; set; }
 
 
         [InverseProperty("Game")]

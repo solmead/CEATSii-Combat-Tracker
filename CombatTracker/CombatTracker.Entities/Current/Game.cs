@@ -24,6 +24,11 @@ namespace CombatTracker.Entities.Current
         public double CurrentTime { get; set; }
         
         public GameType GameType { get; set; }
+        public string GameTypeString
+        {
+            get => GameType.ToString();
+            set => GameType = (GameType)Enum.Parse(typeof(GameType), value);
+        }
 
         public double BaseRoundTime
         {

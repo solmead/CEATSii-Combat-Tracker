@@ -23,9 +23,13 @@ namespace CombatTracker.Web.Controllers
 
 
         [HttpGet("[action]")]
-        public List<Character> GetCharacters()
+        public List<Character> GetCharacters(GameType gameType = GameType.RMSS)
         {
-            return _characterRepository.GetCharacters();
+            
+            var list = _characterRepository.GetCharacters();
+
+            list = (from i in list where i.GameType == gameType select i).ToList();
+            return list;
         }
         [HttpGet("[action]")]
         public Character GetCharacter(int id)

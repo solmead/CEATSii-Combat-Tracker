@@ -10,6 +10,7 @@
         name: string;
         currentTime: number;
         gameType: GameType;
+        gameTypeString: string;
         baseRoundTime: number;
         sizeOfSquare: number;
 

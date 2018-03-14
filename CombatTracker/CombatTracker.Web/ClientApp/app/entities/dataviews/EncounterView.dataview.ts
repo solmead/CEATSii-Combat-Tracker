@@ -8,6 +8,7 @@ import { ActorsRepository } from '../../entities/apis/Actors.repository';
 import { ActionsRepository } from '../../entities/apis/Actions.repository';
 import { EnumDefinitions } from '../classes/EnumDefinitions';
 import { SettingsView } from './SettingsView.dataview';
+import { MySettings } from '../classes/MySettings';
 import GameType = Enums.EnumDefinitions.GameType;
 
 @Injectable()
@@ -29,11 +30,12 @@ export class EncounterView {
         private settings: SettingsView) {
         this.refresh();
     }
-    get gameSystem(): GameType {
-        return this.settings.settings.gameSystem;
+
+    get systemSettings(): MySettings {
+        return this.settings.settings;
     }
-    set gameSystem(value: GameType) {
-        this.settings.settings.gameSystem = value;
+    public setGameType(value: GameType) {
+        this.settings.setGameType(value);
     }
 
     get selectedAction(): BaseAction {

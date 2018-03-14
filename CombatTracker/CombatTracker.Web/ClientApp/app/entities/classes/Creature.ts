@@ -15,6 +15,7 @@ import { Outlook } from '../classes/Outlook';
 import { Pace } from '../classes/Pace';
 import { SizeRating } from '../classes/SizeRating';
 import { SpeedChart } from '../classes/SpeedChart';
+import GameType = Enums.EnumDefinitions.GameType;
     export class Creature {
         id: number;
         typeName: string;
@@ -40,6 +41,8 @@ import { SpeedChart } from '../classes/SpeedChart';
         outlook_ID: number;
         iQ_ID: number;
         book_ID: number;
+        gameType: GameType;
+        gameTypeString: string;
         attacks: Attack[];
         book: Book;
         hitMod: ConstitutionBonusChart;

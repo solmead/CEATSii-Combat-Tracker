@@ -24,19 +24,26 @@ namespace CombatTracker.Entities.Reference
         public int ExhaustionPoints { get; set; }
         public int PowerPoints { get; set; }
         public CharacterType Type { get; set; }
+        public string TypeString
+        {
+            get => Type.ToString();
+            set => Type = (CharacterType)Enum.Parse(typeof(CharacterType), value);
+        }
         public int StrengthBonus { get; set; }
         public double PercentRequiredAdrenalDB { get; set; }
         public double WalkSpeed { get; set; }
-    
+        public GameType GameType { get; set; }
+        public string GameTypeString
+        {
+            get => GameType.ToString();
+            set => GameType = (GameType)Enum.Parse(typeof(GameType), value);
+        }
+
         //public virtual ICollection<Actor> Actors { get; set; }
         public virtual ICollection<Armor> Armors { get; set; }
         public virtual ICollection<Weapon> Weapons { get; set; }
 
         public int RolledInititive { get; set; }
-        public string TypeString {
-            get => Type.ToString();
-            set => Type = (CharacterType)Enum.Parse(typeof(CharacterType), value);
-        }
 
         public override string ToString()
         {

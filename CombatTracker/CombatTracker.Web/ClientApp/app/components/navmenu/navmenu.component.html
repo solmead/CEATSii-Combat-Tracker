@@ -9,31 +9,29 @@
             </button>
             <a class='navbar-brand' [routerLink]="['/home']">CEATSii </a>
             <select name="gameSystem" class="form-control"
-                    [(ngModel)]="gameSystem">
+                    [(ngModel)]="systemSettings.gameSystem" (ngModelChange)="onChange($event)">
                 <option *ngFor="let gtype of gameTypes" [value]="gtype.value">{{gtype.name}}</option>
             </select>
         </div>
         <div class='clearfix'></div>
         <div class='navbar-collapse collapse'>
             <ul class='nav navbar-nav'>
-                <li *ngIf="!game" [routerLinkActive]="['link-active']">
-                    <a [routerLink]="['/games']">
-                        <span class='glyphicon glyphicon-th-list'></span> Games
-                    </a>
-                </li>
                 <li *ngIf="game" [routerLinkActive]="['link-active']">
                     <a [routerLink]="['/games']">
                         <span class='glyphicon glyphicon-th-list'></span> {{ game?.name }}
                     </a>
-                    <ul >
+                    <ul>
                         <li *ngFor="let actor of actors" [class.link-active]="actor == selectedActor">
-
                             <a (click)="selectActor(actor)">
                                 <span class='glyphicon glyphicon-user'></span> {{ actor?.name }}
                             </a>
-
                         </li>
                     </ul>
+                </li>
+                <li [routerLinkActive]="['link-active']">
+                    <a [routerLink]="['/games']">
+                        <span class='glyphicon glyphicon-th-list'></span> Games
+                    </a>
                 </li>
                 <li [routerLinkActive]="['link-active']">
                     <a [routerLink]="['/character']">

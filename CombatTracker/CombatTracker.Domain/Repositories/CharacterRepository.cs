@@ -40,7 +40,8 @@ namespace CombatTracker.Domain.Repositories
                             PowerPoints = cbc.PowerPoints,
                             StrengthBonus = cbc.StrengthBonus,
                             TypeString = cbc.Type,
-                            WalkSpeed = cbc.WalkSpeed
+                            WalkSpeed = cbc.WalkSpeed,
+                            GameTypeString = cbc.GameType
                         }).ToList();
 
                 chars.ForEach((c)=>{
@@ -79,6 +80,7 @@ namespace CombatTracker.Domain.Repositories
             car.StrengthBonus = character.StrengthBonus;
             car.Type = character.TypeString;
             car.WalkSpeed = character.WalkSpeed;
+            car.GameType = character.GameTypeString;
 
             db.SaveChanges();
             character.ID = car.ID;

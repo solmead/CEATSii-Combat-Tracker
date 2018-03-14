@@ -39,7 +39,9 @@ namespace CombatTracker.Domain.Reference.Players
         public double PercentRequiredAdrenalDB { get; set; }
 
         public double WalkSpeed { get; set; }
-        
+
+        public string GameType { get; set; }
+
 
         [InverseProperty("Character")]
         public virtual ICollection<DbArmor> Armors { get; set; }

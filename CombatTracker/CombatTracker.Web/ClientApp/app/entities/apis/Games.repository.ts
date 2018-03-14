@@ -16,22 +16,23 @@ import "rxjs/add/operator/toPromise";
 
     import * as Enums from '../classes/EnumDefinitions'
     import { Game } from '../classes/Game';
+import GameType = Enums.EnumDefinitions.GameType;
 
 @Injectable()
 export class GamesRepository {
 
     constructor(private _httpClient: HttpClient) { }        
     
-    // get: api/Games/getGames   
+    // get: api/Games/getGames?gameType=${gameType}   
 
-	//public getGames = (, callback: (data: Game[])=>void) : void => {
-	//	this.getGamesObserve().subscribe(response => callback(response));
+	//public getGames = (gameType: GameType, callback: (data: Game[])=>void) : void => {
+	//	this.getGamesObserve(gameType).subscribe(response => callback(response));
 	//}
 
-	public getGamesAsync = () : Promise<Game[]> => {
+	public getGamesAsync = (gameType: GameType) : Promise<Game[]> => {
         
         return new Promise<Game[]>((resolve, reject) => {
-            this.getGames()
+            this.getGames(gameType)
             .subscribe((res) => {
                     resolve(res);
                 });
@@ -39,8 +40,8 @@ export class GamesRepository {
         });
 	}  
 
-	public getGames = () : Observable<Game[]> => {
-        var _Url = `api/Games/getGames`;
+	public getGames = (gameType: GameType) : Observable<Game[]> => {
+        var _Url = `api/Games/getGames?gameType=${gameType}`;
             return this._httpClient.get<Game[]>(_Url)
                 .catch(this.handleError);
 	};

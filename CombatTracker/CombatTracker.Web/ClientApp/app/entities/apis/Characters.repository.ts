@@ -16,22 +16,23 @@ import "rxjs/add/operator/toPromise";
 
     import * as Enums from '../classes/EnumDefinitions'
     import { Character } from '../classes/Character';
+import GameType = Enums.EnumDefinitions.GameType;
 
 @Injectable()
 export class CharactersRepository {
 
     constructor(private _httpClient: HttpClient) { }        
     
-    // get: api/Characters/getCharacters   
+    // get: api/Characters/getCharacters?gameType=${gameType}   
 
-	//public getCharacters = (, callback: (data: Character[])=>void) : void => {
-	//	this.getCharactersObserve().subscribe(response => callback(response));
+	//public getCharacters = (gameType: GameType, callback: (data: Character[])=>void) : void => {
+	//	this.getCharactersObserve(gameType).subscribe(response => callback(response));
 	//}
 
-	public getCharactersAsync = () : Promise<Character[]> => {
+	public getCharactersAsync = (gameType: GameType) : Promise<Character[]> => {
         
         return new Promise<Character[]>((resolve, reject) => {
-            this.getCharacters()
+            this.getCharacters(gameType)
             .subscribe((res) => {
                     resolve(res);
                 });
@@ -39,8 +40,8 @@ export class CharactersRepository {
         });
 	}  
 
-	public getCharacters = () : Observable<Character[]> => {
-        var _Url = `api/Characters/getCharacters`;
+	public getCharacters = (gameType: GameType) : Observable<Character[]> => {
+        var _Url = `api/Characters/getCharacters?gameType=${gameType}`;
             return this._httpClient.get<Character[]>(_Url)
                 .catch(this.handleError);
 	};

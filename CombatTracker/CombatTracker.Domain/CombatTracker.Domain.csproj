@@ -9,10 +9,10 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.0.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.0.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.0.2" />
-    <PackageReference Include="Utilities.Caching" Version="6.0.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Libraries\UtilityLibraries\UtilityLibraries\Utilities.Caching\Utilities.Caching.csproj" />
     <ProjectReference Include="..\CombatTracker.Entities\CombatTracker.Entities.csproj" />
   </ItemGroup>
 

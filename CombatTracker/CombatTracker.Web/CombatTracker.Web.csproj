@@ -40,6 +40,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\Libraries\UtilityLibraries\UtilityLibraries\Utilities.Cache\Utilities.Caching.AspNetCore.csproj" />
+    <ProjectReference Include="..\..\..\..\Libraries\UtilityLibraries\UtilityLibraries\Utilities.Caching\Utilities.Caching.csproj" />
     <ProjectReference Include="..\CombatTracker.Domain\CombatTracker.Domain.csproj" />
     <ProjectReference Include="..\CombatTracker.Entities\CombatTracker.Entities.csproj" />
     <ProjectReference Include="..\CombatTracker.Services\CombatTracker.Services.csproj" />

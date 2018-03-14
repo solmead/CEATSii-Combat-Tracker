@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CombatTracker.Entities.Current;
+using CombatTracker.Entities.Reference;
 using CombatTracker.Entities.Reference.Attacks.Charts;
 using CombatTracker.Entities.Repositories;
 using Microsoft.AspNetCore.Mvc;
@@ -25,9 +26,13 @@ namespace CombatTracker.Web.Controllers
         
         // GET: /<controller>/
         [HttpGet("[action]")]
-        public List<Game> GetGames()
+        public List<Game> GetGames(GameType gameType = GameType.RMSS)
         {
-            return _gameRepository.GetGames();
+            var list = _gameRepository.GetGames();
+
+            list = (from i in list where i.GameType == gameType select i).ToList();
+            return list;
+
         }
 
         [HttpGet("[action]")]

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CombatTracker.Entities.Reference;
 using CombatTracker.Entities.Reference.Creatures;
 using CombatTracker.Entities.Repositories;
 using Microsoft.AspNetCore.Http;
@@ -22,9 +23,12 @@ namespace CombatTracker.Web.Controllers
 
 
         [HttpGet("[action]")]
-        public List<Creature> GetCreatures()
+        public List<Creature> GetCreatures(GameType gameType = GameType.RMSS)
         {
-            return _creatureRepository.GetCreatures();
+            var list = _creatureRepository.GetCreatures();
+
+            list = (from i in list where i.GameType == gameType select i).ToList();
+            return list;
         }
 
         [HttpGet("[action]")]

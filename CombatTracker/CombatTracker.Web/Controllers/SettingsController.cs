@@ -14,7 +14,7 @@ namespace CombatTracker.Web.Controllers
     public class SettingsController : Controller
     {
 
-        public static MySettings settings2
+        public static MySettings settings
         {
             get
             {
@@ -25,20 +25,13 @@ namespace CombatTracker.Web.Controllers
                 Cache.SetItem<MySettings>(CacheArea.Session, "MySettings", value);
             }
         }
-        public static MySettings settings
-        {
-            get
-            {
-                return new MySettings();
-            }
-        }
 
         [HttpGet("[action]")]
         public MySettings GetSetting()
         {
             try
             {
-                return settings2;
+                return settings;
             }
             catch (Exception ex)
             {
@@ -50,7 +43,7 @@ namespace CombatTracker.Web.Controllers
         [HttpPost("[action]")]
         public void SetGameType(GameType gameType)
         {
-            settings2.GameSystem = gameType;
+            settings.GameSystem = gameType;
         }
 
 

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using CombatTracker.Entities.Reference.Attacks;
@@ -42,7 +43,13 @@ namespace CombatTracker.Entities.Reference.Creatures
         public int Outlook_ID { get; set; }
         public int IQ_ID { get; set; }
         public int Book_ID { get; set; }
-    
+        public GameType GameType { get; set; }
+        public string GameTypeString
+        {
+            get => GameType.ToString();
+            set => GameType = (GameType)Enum.Parse(typeof(GameType), value);
+        }
+
         //public virtual ICollection<Actor> Actors { get; set; }
         public virtual ICollection<Attack> Attacks { get; set; }
         public virtual Book Book { get; set; }
