@@ -10,10 +10,10 @@
         </thead>
         <tbody>
             <tr *ngFor="let game of games">
-                <td style="white-space:nowrap;"><a (click)="selectGame(game)">{{game?.name}}</a> ({{game?.currentTime.toFixed(2)}})</td>
+                <td style="white-space:nowrap;"><a (click)="selectGame(game.id)">{{game?.name}}</a> ({{game?.currentTime.toFixed(2)}})</td>
                 <td>
                     <button class="btn btn-primary btn-sm"
-                            (click)="selectEncounter(game)">
+                            (click)="selectEncounter(game.id)">
                         Start
                     </button>
                 </td>

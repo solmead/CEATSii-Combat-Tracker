@@ -10,6 +10,74 @@
                     Please enter a name
                 </div>
             </div>
+            <div class="form-group col-sm-2">
+                <label>Level</label>
+                <input #level="ngModel" name="level" class="form-control"
+                       [(ngModel)]="character.level" required />
+                <div *ngIf="level.invalid" class="text-danger">
+                    Please enter a level
+                </div>
+            </div>
+            <div class="form-group  col-sm-2">
+                <label>Base Inititive</label>
+                <input #baseInititive="ngModel" name="baseInititive" class="form-control"
+                       [(ngModel)]="character.baseInititive" required />
+                <div *ngIf="baseInititive.invalid" class="text-danger">
+                    Please enter a base inititive
+                </div>
+            </div>
+            <div class="form-group  col-sm-2">
+                <label>Walk Speed</label>
+                <input #walkSpeed="ngModel" name="walkSpeed" class="form-control"
+                       [(ngModel)]="character.walkSpeed" required />
+                <div *ngIf="walkSpeed.invalid" class="text-danger">
+                    Please enter a Walk Speed
+                </div>
+            </div>
+            <div class="form-group  col-sm-2">
+                <label>Strength Bonus</label>
+                <input #strengthBonus="ngModel" name="strengthBonus" class="form-control"
+                       [(ngModel)]="character.strengthBonus" required />
+                <div *ngIf="strengthBonus.invalid" class="text-danger">
+                    Please enter a Strength Bonus
+                </div>
+            </div>
+            <div class="form-group  col-sm-2">
+                <label>Hit Points</label>
+                <input #hitPoints="ngModel" name="hitPoints" class="form-control"
+                       [(ngModel)]="character.hitPoints" required />
+                <div *ngIf="hitPoints.invalid" class="text-danger">
+                    Please enter Hit Points
+                </div>
+            </div>
+            <br/>
+            <div class="form-group  col-sm-2">
+                <label style="white-space: nowrap;">Exhaustion Points</label>
+                <input #exhaustionPoints="ngModel" name="exhaustionPoints" class="form-control"
+                       [(ngModel)]="character.exhaustionPoints" required />
+                <div *ngIf="exhaustionPoints.invalid" class="text-danger">
+                    Please enter Exhaustion Points
+                </div>
+            </div>
+            <div class="form-group  col-sm-2">
+                <label style="white-space: nowrap;">Power Points</label>
+                <input #powerPoints="ngModel" name="powerPoints" class="form-control"
+                       [(ngModel)]="character.powerPoints" required />
+                <div *ngIf="powerPoints.invalid" class="text-danger">
+                    Please enter Power Points
+                </div>
+            </div>
+            <br/>
+            <div class="form-group  col-sm-2">
+                <label>Percent Required Adrenal DB</label>
+                <input #percentRequiredAdrenalDB="ngModel" name="percentRequiredAdrenalDB" class="form-control"
+                       [(ngModel)]="character.percentRequiredAdrenalDB" />
+            </div>
+            <!--
+    type: CharacterType;
+    armors: Armor[];
+    weapons: Weapon[];
+    rolledInititive: number;-->
             <div class="text-center pt-2">
                 <button class="btn btn-outline-primary" (click)="closeEdit()">
                     Back
@@ -18,6 +86,11 @@
                 <button class="btn btn-danger" [disabled]="charForm.invalid"
                         (click)="saveCharacter()">
                     Save
+                </button>
+
+                <button class="btn btn-primary btn-sm"
+                        (click)="addToEncounter()">
+                    Add To Encounter
                 </button>
 
             </div>

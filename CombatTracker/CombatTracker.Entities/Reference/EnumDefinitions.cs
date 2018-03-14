@@ -5,6 +5,13 @@ using System.Text;
 
 namespace CombatTracker.Entities.Reference
 {
+    public enum GameType
+    {
+        RMSS,
+        DnD5e
+    }
+
+
     public enum CriticalLevels
     {
         Same,

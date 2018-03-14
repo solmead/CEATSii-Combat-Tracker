@@ -7,7 +7,11 @@
                 <span class='icon-bar'></span>
                 <span class='icon-bar'></span>
             </button>
-            <a class='navbar-brand' [routerLink]="['/home']">CEATSii</a>
+            <a class='navbar-brand' [routerLink]="['/home']">CEATSii </a>
+            <select name="gameSystem" class="form-control"
+                    [(ngModel)]="gameSystem">
+                <option *ngFor="let gtype of gameTypes" [value]="gtype.value">{{gtype.name}}</option>
+            </select>
         </div>
         <div class='clearfix'></div>
         <div class='navbar-collapse collapse'>

@@ -1,6 +1,6 @@
 ﻿import { Component } from '@angular/core';
 import { CharactersView } from "../../entities/dataviews/CharactersView.dataview";
-import { CharactersRepository } from '../../entities/apis/Characters.repository';
+import { EncounterView } from "../../entities/dataviews/EncounterView.dataview";
 import { Character } from '../../entities/classes/Character';
 
 @Component({
@@ -11,15 +11,22 @@ import { Character } from '../../entities/classes/Character';
 /** CharacterList component*/
 export class CharacterListComponent {
     /** CharacterList ctor */
-    constructor(public charView: CharactersView) {
+    constructor(public charView: CharactersView,
+        public encounterView: EncounterView) {
         
     }
     newCharacter() {
         this.charView.selected = new Character();
     }
-    selectCharacter(char: Character) {
-        this.charView.selected = char;
+    selectCharacter = async (charId: number) => {
+        this.charView.selectCharacter(charId);
     }
+    //addToEncounter = async (charId: number) => {
+
+
+
+    //    this.encounterView.refresh();
+    //}
 
     get characters(): Array<Character> {
         return this.charView.characters;

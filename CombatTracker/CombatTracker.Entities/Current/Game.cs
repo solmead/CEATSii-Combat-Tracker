@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CombatTracker.Entities.Reference;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,10 +23,39 @@ namespace CombatTracker.Entities.Current
         //public Guid? GM_ID { get; set; }
         public double CurrentTime { get; set; }
         
+        public GameType GameType { get; set; }
+
+        public double BaseRoundTime
+        {
+            get {
+                if (GameType == GameType.RMSS)
+                {
+                    return 10;
+                } else
+                {
+                    return 6;
+                }
+            }
+        }
+        public double SizeOfSquare
+        {
+            get {
+                if (GameType == GameType.RMSS)
+                {
+                    return 10;
+                }
+                else
+                {
+                    return 5;
+                }
+            }
+        }
+
+
         //public virtual List<Actor> Actors { get; set; }
-        
+
         //public virtual List<BaseAction> GameActions { get; set; }
-        
+
 
         //public List<string> Colors
         //{

@@ -3,6 +3,10 @@ import { GamesView } from "../../entities/dataviews/GamesView.dataview";
 import { Game } from '../../entities/classes/Game';
 import { GamesRepository } from '../../entities/apis/Games.repository';
 import { EncounterView } from "../../entities/dataviews/EncounterView.dataview";
+import { EnumEx } from "../../entities/EnumEx";
+import * as Enums from '../../entities/classes/EnumDefinitions'
+import GameType = Enums.EnumDefinitions.GameType;
+
 
 @Component({
     selector: 'app-game-edit',
@@ -17,16 +21,27 @@ export class GameEditComponent {
         public encounterView: EncounterView) {
 
     }
+
+
     get game(): Game {
-        return this.gameView.selected;
+        var _game = this.gameView.selected;
+        if (_game != null && _game.id == 0) {
+            _game.gameType = this.gameView.gameSystem;
+        }
+
+        return _game;
     }
     saveGame = async () => {
+        if (this.game.id == 0) {
+            this.game.gameType = this.gameView.gameSystem;
+        }
         var g = await this.gamesRepo.saveGameAsync(this.game);
         if (!this.game.id) {
             this.game.id = g.id;
 
         }
         await this.gameView.refresh();
+        await this.encounterView.refresh();
 
     }
     closeEdit() {

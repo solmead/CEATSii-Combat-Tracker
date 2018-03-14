@@ -7,6 +7,8 @@ import { GamesRepository } from '../../entities/apis/Games.repository';
 import { ActorsRepository } from '../../entities/apis/Actors.repository';
 import { ActionsRepository } from '../../entities/apis/Actions.repository';
 import { EnumDefinitions } from '../classes/EnumDefinitions';
+import { SettingsView } from './SettingsView.dataview';
+import GameType = Enums.EnumDefinitions.GameType;
 
 @Injectable()
 export class EncounterView {
@@ -23,8 +25,15 @@ export class EncounterView {
 
     constructor(private gameRepo: GamesRepository,
         private actorRepo: ActorsRepository,
-        private actionRepo: ActionsRepository) {
+        private actionRepo: ActionsRepository,
+        private settings: SettingsView) {
         this.refresh();
+    }
+    get gameSystem(): GameType {
+        return this.settings.settings.gameSystem;
+    }
+    set gameSystem(value: GameType) {
+        this.settings.settings.gameSystem = value;
     }
 
     get selectedAction(): BaseAction {
@@ -52,8 +61,13 @@ export class EncounterView {
         this.refresh();
     }
 
+    public selectGame = async (gameId: number) => {
+        this.currentGame = await this.gameRepo.getGameAsync(gameId);
+    }
+
     public refresh = async () => {
-        if (this.currentGame!= null) {
+        if (this.currentGame != null) {
+            this._currentGame = await this.gameRepo.getGameAsync(this._currentGame.id);
 
             this.actors = await this.actorRepo.getActorsAsync(this.currentGame.id);
             this.actions = await this.actionRepo.getActionsInGameAsync(this.currentGame.id);

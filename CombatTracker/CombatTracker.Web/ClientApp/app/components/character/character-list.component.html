@@ -8,14 +8,14 @@
         <tr><th>Name</th><th></th></tr>
         <tr *ngFor="let character of characters">
             <td style="white-space:nowrap;">
-                <a (click)="selectCharacter(character)">({{character?.typeString}}) {{character?.name}}</a> ({{character?.level}})
+                <a (click)="selectCharacter(character.id)">({{character?.typeString}}) {{character?.name}}</a> ({{character?.level}})
             </td>
-            <td>
+            <!--<td>
                 <button class="btn btn-primary btn-sm"
-                        (click)="selectEncounter(character)">
-                    Encounter
+                        (click)="addToEncounter(character.id)">
+                    Add To Encounter
                 </button>
-            </td>
+            </td>-->
         </tr>
     </table>
 </div>

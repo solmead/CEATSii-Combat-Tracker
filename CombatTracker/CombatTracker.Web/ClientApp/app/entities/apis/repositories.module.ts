@@ -8,6 +8,7 @@ import { CharactersRepository } from "./Characters.repository";
 import { CreaturesRepository } from "./Creatures.repository";
 import { CombatRepository } from "./Combat.repository";
 import { SampleDataRepository } from "./SampleData.repository";
+import { SettingsRepository } from "./Settings.repository";
 
 @NgModule({
     providers: [ActionsRepository,
@@ -18,6 +19,7 @@ import { SampleDataRepository } from "./SampleData.repository";
         CharactersRepository,
         CreaturesRepository,
         CombatRepository,
-        SampleDataRepository]
+        SampleDataRepository,
+        SettingsRepository]
 })
 export class RepositoriesModule { }

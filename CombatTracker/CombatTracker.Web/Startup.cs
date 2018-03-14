@@ -65,7 +65,7 @@ namespace CombatTracker.Web
                     defaults: new { controller = "Home", action = "Index" });
             });
 
-            //app.CacheInit();
+            app.CacheInit();
             
         }
     }

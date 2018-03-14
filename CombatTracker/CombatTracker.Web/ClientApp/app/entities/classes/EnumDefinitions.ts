@@ -1,7 +1,13 @@
 ﻿
 
+
     export module EnumDefinitions {
 
+            export enum GameType {
+                RMSS = 0,
+                DnD5e = 1
+            }
+    
             export enum CriticalLevels {
                 Same = 0,
                 A = 1,

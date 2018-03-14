@@ -4,6 +4,7 @@
 
 }
 
+
     export module EnumDefinitions {
 $Enums(CombatTracker.Entities.Reference*)[
             export enum $Name {

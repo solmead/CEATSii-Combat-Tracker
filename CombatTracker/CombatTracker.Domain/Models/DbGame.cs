@@ -1,3 +1,4 @@
+using CombatTracker.Entities.Reference;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -23,7 +24,11 @@ namespace CombatTracker.Domain.Models
         public Guid? GM_ID { get; set; }
 
         public double CurrentTime { get; set; }
-        
+
+
+        public GameType GameType { get; set; }
+
+
         [InverseProperty("Game")]
         public virtual ICollection<DbActor> Actors { get; set; }
 

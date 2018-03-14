@@ -18,12 +18,12 @@ export class GameListComponent {
     newGame() {
         this.gameView.selected = new Game();
     }
-    selectGame(game: Game) {
-        this.gameView.selected = game;
+    selectGame = async (gameId: number) => {
+        this.gameView.selectGame(gameId);
     }
-    selectEncounter(game: Game) {
-        this.encounterView.currentGame = game;
-
+    selectEncounter = async (gameId: number) => {
+        this.encounterView.selectGame(gameId);
+        //redirect to encounter view
     }
 
     get games(): Array<Game> {

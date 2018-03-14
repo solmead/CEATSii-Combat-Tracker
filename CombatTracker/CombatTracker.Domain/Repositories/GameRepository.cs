@@ -45,7 +45,8 @@ namespace CombatTracker.Domain.Repositories
                             {
                                 ID = a.ID,
                                 CurrentTime = a.CurrentTime,
-                                Name = a.Name
+                                Name = a.Name,
+                                GameType = a.GameType
                             }).ToList();
 
 
@@ -69,7 +70,8 @@ namespace CombatTracker.Domain.Repositories
                             {
                                 ID = a.ID,
                                 CurrentTime = a.CurrentTime,
-                                Name = a.Name
+                                Name = a.Name,
+                                GameType = a.GameType
                             }).FirstOrDefault();
                     //g.Actors = GetActors(g.ID);
                     //g.GameActions = GetActionsInGame(g.ID);
@@ -93,6 +95,7 @@ namespace CombatTracker.Domain.Repositories
             }
             item.CurrentTime = game.CurrentTime;
             item.Name = game.Name;
+            item.GameType = game.GameType;
 
             db.SaveChanges();
             game.ID = item.ID;

@@ -1,6 +1,7 @@
 ﻿import { Component } from '@angular/core';
-import { CharactersView } from "../../entities/dataviews/CharactersView.dataview";
+import { CharactersView } from "../../entities/dataviews/CharactersView.dataview"; 
 import { CharactersRepository } from '../../entities/apis/Characters.repository';
+import { EncounterView } from "../../entities/dataviews/EncounterView.dataview";
 import { Character } from '../../entities/classes/Character';
 
 @Component({
@@ -11,7 +12,9 @@ import { Character } from '../../entities/classes/Character';
 /** characterDetail component*/
 export class CharacterEditComponent {
     /** characterDetail ctor */
-    constructor(public charView: CharactersView, private charRepo: CharactersRepository)
+    constructor(public charView: CharactersView,
+        public encounterView: EncounterView,
+        private charRepo: CharactersRepository)
     {
 
     }

@@ -9,12 +9,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.5" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.6" />
     <PackageReference Include="Microsoft.DotNet.Watcher.Tools" Version="2.0.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.0.1" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.0.1" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.2" />
-    <PackageReference Include="Utilities.Caching.AspNetCore" Version="6.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.0.2" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.3" />
   </ItemGroup>
 
   <ItemGroup>
@@ -34,10 +33,13 @@
     <None Remove="ClientApp\app\entities\dataviews\dataviews.module.ts" />
     <None Remove="ClientApp\app\entities\dataviews\EncounterView.dataview.ts" />
     <None Remove="ClientApp\app\entities\dataviews\GamesView.dataview.ts" />
+    <None Remove="ClientApp\app\entities\dataviews\SettingsView.dataview.ts" />
+    <None Remove="ClientApp\app\entities\EnumEx.ts" />
     <None Remove="ClientApp\app\entities\services\Games.service.ts" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Libraries\UtilityLibraries\UtilityLibraries\Utilities.Cache\Utilities.Caching.AspNetCore.csproj" />
     <ProjectReference Include="..\CombatTracker.Domain\CombatTracker.Domain.csproj" />
     <ProjectReference Include="..\CombatTracker.Entities\CombatTracker.Entities.csproj" />
     <ProjectReference Include="..\CombatTracker.Services\CombatTracker.Services.csproj" />
@@ -50,6 +52,8 @@
     <TypeScriptCompile Include="ClientApp\app\entities\dataviews\dataviews.module.ts" />
     <TypeScriptCompile Include="ClientApp\app\entities\dataviews\GamesView.dataview.ts" />
     <TypeScriptCompile Include="ClientApp\app\entities\dataviews\EncounterView.dataview.ts" />
+    <TypeScriptCompile Include="ClientApp\app\entities\dataviews\SettingsView.dataview.ts" />
+    <TypeScriptCompile Include="ClientApp\app\entities\EnumEx.ts" />
     <TypeScriptCompile Include="ClientApp\app\entities\services\Games.service.ts" />
   </ItemGroup>
 
@@ -83,6 +87,9 @@
     </None>
     <None Update="ClientApp\app\entities\apis\SampleData.repository.ts">
       <CustomToolNamespace>Controllers\SampleDataController.cs</CustomToolNamespace>
+    </None>
+    <None Update="ClientApp\app\entities\apis\Settings.repository.ts">
+      <CustomToolNamespace>Controllers\SettingsController.cs</CustomToolNamespace>
     </None>
     <None Update="ClientApp\app\entities\classes\ActionDefinition.ts">
       <CustomToolNamespace>..\CombatTracker.Entities\Reference\Actions\ActionDefinition.cs</CustomToolNamespace>
@@ -150,6 +157,9 @@
     <None Update="ClientApp\app\entities\classes\LevelChartValue.ts">
       <CustomToolNamespace>..\CombatTracker.Entities\Reference\Creatures\Charts\LevelChartValue.cs</CustomToolNamespace>
     </None>
+    <None Update="ClientApp\app\entities\classes\MySettings.ts">
+      <CustomToolNamespace>..\CombatTracker.Entities\Reference\MySettings.cs</CustomToolNamespace>
+    </None>
     <None Update="ClientApp\app\entities\classes\Outlook.ts">
       <CustomToolNamespace>..\CombatTracker.Entities\Reference\Creatures\Charts\Outlook.cs</CustomToolNamespace>
     </None>
@@ -167,6 +177,9 @@
     </None>
     <None Update="ClientApp\app\entities\classes\SpeedChart.ts">
       <CustomToolNamespace>..\CombatTracker.Entities\Reference\Creatures\Charts\SpeedChart.cs</CustomToolNamespace>
+    </None>
+    <None Update="ClientApp\app\entities\classes\System.ts">
+      <CustomToolNamespace>..\CombatTracker.Entities\Reference\System.cs</CustomToolNamespace>
     </None>
     <None Update="ClientApp\app\entities\classes\Weapon.ts">
       <CustomToolNamespace>..\CombatTracker.Entities\Reference\Players\Weapon.cs</CustomToolNamespace>
