@@ -39,7 +39,7 @@ namespace CombatTracker.Domain.Repositories
                             MovingManeuverMod = a.MovingManeuverMod,
                             Type = a.Type
                         }).ToList();
-            }, "combatItems");
+            }, "characters");
 
         }
 
@@ -127,7 +127,7 @@ namespace CombatTracker.Domain.Repositories
                             OB = w.OB,
                             Weight = w.Weight
                         }).ToList();
-            }, "combatItems");
+            }, "characters");
 
         }
         public List<Weapon> GetWeapons(int characterId)

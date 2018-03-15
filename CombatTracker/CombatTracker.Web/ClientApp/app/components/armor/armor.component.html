@@ -1,0 +1,27 @@
+﻿<div class="wrapper">
+    <div class="area">
+        <div class="list">
+            <p *ngIf="!armors"><em>Loading...</em></p>
+            <div class="mainList">
+                <h3 style="display:block; margin-top:0;">
+                    <div style="float:right;">
+                        <button class="btn btn-primary btn-sm" (click)="newArmor()">
+                            <span class="glyphicon glyphicon-plus"></span> New
+                        </button>
+                    </div>
+                    Armors
+                </h3>
+                <select class="form-control" name="selectedArmor" size="5" [(ngModel)]="selectedArmorId">
+                    <option *ngFor="let armor of armors" value={{armor?.type}}>
+                        ({{armor?.type}}) {{armor?.description}}
+                    </option>
+                </select>
+
+            </div>
+        </div>
+        <div class="edit">
+            <!--(onSave)="onArmorSaved($event)"-->
+            <app-armor-edit [armor]="selectedArmor"></app-armor-edit>
+        </div>
+    </div>
+</div>

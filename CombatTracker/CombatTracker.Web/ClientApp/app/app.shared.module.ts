@@ -14,6 +14,10 @@ import { GameListComponent } from './components/game/game-list.component';
 import { GameEditComponent } from './components/game/game-edit.component';
 import { CharacterComponent } from './components/character/character.component';
 import { CreatureComponent } from './components/creature/creature.component';
+import { ArmorComponent } from './components/armor/armor.component';
+import { ArmorEditComponent } from './components/armor/armor-edit.component';
+import { WeaponComponent } from './components/weapon/weapon.component';
+import { WeaponEditComponent } from './components/weapon/weapon-edit.component';
 import { ActorComponent } from './components/actor/actor.component';
 import { EncounterComponent } from './components/encounter/encounter.component';
 import { CharacterListComponent } from './components/character/character-list.component';
@@ -36,7 +40,11 @@ import { DataViewsModule } from "./entities/dataviews/dataviews.module";
         CharacterComponent,
         CreatureComponent,
         ActorComponent,
-        EncounterComponent
+        EncounterComponent,
+        ArmorComponent,
+        ArmorEditComponent,
+        WeaponComponent,
+        WeaponEditComponent
     ],
     imports: [
         CommonModule,
