@@ -11,13 +11,16 @@ import { CombatRepository } from '../../entities/apis/Combat.repository';
 export class ArmorEditComponent {
 
     @Input() armor: Armor;
-    //@Output() onSave = new EventEmitter<Armor>();
+    @Output() onDelete = new EventEmitter<Armor>();
 
     /** ArmorEdit ctor */
     constructor(private combatRepo: CombatRepository) {
 
     }
 
+    delete() {
+        this.onDelete.emit(this.armor);
+    }
 
     //save = async () => {
     //    var arm = await this.combatRepo.saveArmorAsync(this.armor);

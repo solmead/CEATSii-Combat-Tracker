@@ -21,7 +21,7 @@
         </div>
         <div class="edit">
             <!--(onSave)="onArmorSaved($event)"-->
-            <app-armor-edit [armor]="selectedArmor"></app-armor-edit>
+            <app-armor-edit [armor]="selectedArmor" (onDelete)="onArmorDeleted($event)"></app-armor-edit>
         </div>
     </div>
 </div>

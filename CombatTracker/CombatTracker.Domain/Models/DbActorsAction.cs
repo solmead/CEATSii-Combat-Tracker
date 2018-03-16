@@ -70,6 +70,8 @@ namespace CombatTracker.Domain.Models
         public double HastedPercent { get; set; }
 
         public double LeftPercent { get; set; }
+        public bool Reoccuring { get; set; }
+        public bool CharacterAction { get; set; }
 
         [Required]
         [StringLength(50)]

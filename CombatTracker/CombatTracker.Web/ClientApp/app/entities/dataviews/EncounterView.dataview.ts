@@ -3,13 +3,15 @@ import * as Enums from '../classes/EnumDefinitions'
 import { Game } from '../classes/Game';
 import { Actor } from '../classes/Actor';
 import { BaseAction } from '../classes/BaseAction';
-import { GamesRepository } from '../../entities/apis/Games.repository';
-import { ActorsRepository } from '../../entities/apis/Actors.repository';
-import { ActionsRepository } from '../../entities/apis/Actions.repository';
+import { GamesRepository } from '../apis/Games.repository';
+import { ActorsRepository } from '../apis/Actors.repository';
+import { ActionsRepository } from '../apis/Actions.repository';
 import { EnumDefinitions } from '../classes/EnumDefinitions';
 import { SettingsView } from './SettingsView.dataview';
 import { MySettings } from '../classes/MySettings';
 import GameType = Enums.EnumDefinitions.GameType;
+import { Character } from '../classes/Character';
+import { EncounterRepository } from '../apis/Encounter.repository';
 
 @Injectable()
 export class EncounterView {
@@ -27,6 +29,7 @@ export class EncounterView {
     constructor(private gameRepo: GamesRepository,
         private actorRepo: ActorsRepository,
         private actionRepo: ActionsRepository,
+        private encounterRepo: EncounterRepository,
         private settings: SettingsView) {
         this.refresh();
     }
@@ -64,17 +67,18 @@ export class EncounterView {
         return this._currentGame;
     }
     set currentGame(game: Game) {
-        this._currentGame = game;
-        this.refresh();
+        this.selectGame(game.id);
     }
 
     public selectGame = async (gameId: number) => {
-        this.currentGame = await this.gameRepo.getGameAsync(gameId);
+        await this.encounterRepo.setCurrentGameAsync(gameId);
+        await this.refresh();
     }
 
     public refresh = async () => {
+        this._currentGame = await this.encounterRepo.getCurrentGameAsync();
         if (this.currentGame != null) {
-            this._currentGame = await this.gameRepo.getGameAsync(this._currentGame.id);
+            //this._currentGame = await this.gameRepo.getGameAsync(this._currentGame.id);
 
             this.actors = await this.actorRepo.getActorsAsync(this.currentGame.id);
             this.actions = await this.actionRepo.getActionsInGameAsync(this.currentGame.id);
@@ -85,4 +89,12 @@ export class EncounterView {
         }
         
     }
+
+    public addCharacterToEncounter = async (character: Character, rolledInit?:number) => {
+        await this.encounterRepo.createActorFromCharacterAsync(character.id, rolledInit);
+
+        await this.refresh();
+
+    }
+
 }

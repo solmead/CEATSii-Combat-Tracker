@@ -2,53 +2,60 @@
     <fieldset>
         <legend>Weapon</legend>
         <!--<form #weaponForm="ngForm" class="form-horizontal">-->
-            <div class="form-group full-row">
-                <label for="type" class="control-label">Weapon Name</label>
-                <div class="control-area">
-                    <input #name="ngModel" name="name" type="text" class="form-control"
-                           [(ngModel)]="weapon.name" required />
-                    <div *ngIf="name.invalid" class="text-danger">
-                        Please enter a type
-                    </div>
+        <div class="form-group full-row">
+            <label for="type" class="control-label">Weapon Name</label>
+            <div class="control-area">
+                <input #name="ngModel" name="name" type="text" class="form-control"
+                       [(ngModel)]="weapon.name" required />
+                <div *ngIf="name.invalid" class="text-danger">
+                    Please enter a name
                 </div>
             </div>
-            <div class="form-group half-row" style=" " >
-                <label for="bonus" class="control-label">Bonus</label>
-                <div class="control-area control-area-number">
-                    <input name="db" class="form-control"
-                           [(ngModel)]="weapon.bonus" />
-                </div>
+        </div>
+        <div class="form-group half-row" style=" ">
+            <label for="bonus" class="control-label">Bonus</label>
+            <div class="control-area control-area-number">
+                <input name="db" class="form-control"
+                       [(ngModel)]="weapon.bonus" />
             </div>
-            <div class="form-group half-row" style="">
-                <label for="ob" class="control-label">OB</label>
-                <div class="control-area control-area-number">
-                    <input name="ob" class="form-control"
-                           [(ngModel)]="weapon.ob" />
-                </div>
+        </div>
+        <div class="form-group half-row" style="">
+            <label *ngIf="isRolemaster" for="ob" class="control-label">OB</label>
+            <label *ngIf="!isRolemaster" for="ob" class="control-label">ATK Bonus</label>
+            <div class="control-area control-area-number">
+                <input name="ob" class="form-control"
+                       [(ngModel)]="weapon.ob" />
             </div>
-            <div></div>
-            <div class="form-group half-row" style="">
-                <label for="weight" class="control-label">Weight</label>
-                <div class="control-area control-area-number">
-                    <input name="weight" class="form-control"
-                           [(ngModel)]="weapon.weight" />
-                </div>
+        </div>
+        <div></div>
+        <div class="form-group half-row" style="">
+            <label for="weight" class="control-label">Weight</label>
+            <div class="control-area control-area-number">
+                <input name="weight" class="form-control"
+                       [(ngModel)]="weapon.weight" />
             </div>
-            <div class="form-group half-row" style="">
-                <label for="is2Handed" class="control-label" style="width: 100%;">
-                    <input type="checkbox" name="is2Handed" class="form-control"
-                           [(ngModel)]="weapon.is2Handed" style="width: auto; display: inline-block;" />
-                    Is 2 Handed
-                </label>
-            </div>
-            <!--<div class="text-center pt-2">
+        </div>
+        <div class="form-group half-row" style="">
+            <label for="is2Handed" class="control-label" style="width: 100%;">
+                <input type="checkbox" name="is2Handed" class="form-control"
+                       [(ngModel)]="weapon.is2Handed" style="width: auto; display: inline-block;" />
+                Is 2 Handed
+            </label>
+        </div>
+        <div class="text-center pt-2">
+            <button class="btn btn-danger btn-sm pull-right"
+                    (click)="delete()">
+                Remove
+            </button>
+        </div>
+        <!--<div class="text-center pt-2">
 
-                <button class="btn btn-danger btn-sm pull-right" [disabled]="weaponForm.invalid"
-                        (click)="save()">
-                    Save
-                </button>
+        <button class="btn btn-danger btn-sm pull-right" [disabled]="weaponForm.invalid"
+                (click)="save()">
+            Save
+        </button>
 
-            </div>-->
+    </div>-->
         <!--</form>-->
     </fieldset>
 </div>

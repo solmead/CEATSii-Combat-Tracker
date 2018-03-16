@@ -9,6 +9,7 @@ using CombatTracker.Entities.Reference;
 using CombatTracker.Entities.Repositories;
 using Utilities.Caching;
 using CombatTracker.Domain.Reference.Creatures;
+using Microsoft.EntityFrameworkCore;
 
 namespace CombatTracker.Domain.Repositories
 {
@@ -96,7 +97,9 @@ namespace CombatTracker.Domain.Repositories
 
         public Creature SaveCreature(Creature creature)
         {
-            var car = (from c in db.Creatures where c.ID == creature.ID select c).FirstOrDefault();
+
+            var q = (from c in db.Creatures select c).Include(b => b.Attacks);
+            var car = (from c in q where c.ID == creature.ID select c).FirstOrDefault();
             if (car == null)
             {
                 car = new DbCreature();

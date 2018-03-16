@@ -62,9 +62,6 @@
     <None Update="ClientApp\app\entities\apis\Actions.repository.ts">
       <CustomToolNamespace>Controllers\ActionsController.cs</CustomToolNamespace>
     </None>
-    <None Update="ClientApp\app\entities\apis\Activity.repository.ts">
-      <CustomToolNamespace>Controllers\ActivityController.cs</CustomToolNamespace>
-    </None>
     <None Update="ClientApp\app\entities\apis\Actors.repository.ts">
       <CustomToolNamespace>Controllers\ActorsController.cs</CustomToolNamespace>
     </None>
@@ -79,6 +76,9 @@
     </None>
     <None Update="ClientApp\app\entities\apis\CriticalEffects.repository.ts">
       <CustomToolNamespace>Controllers\CriticalEffectsController.cs</CustomToolNamespace>
+    </None>
+    <None Update="ClientApp\app\entities\apis\Encounter.repository.ts">
+      <CustomToolNamespace>Controllers\EncounterController.cs</CustomToolNamespace>
     </None>
     <None Update="ClientApp\app\entities\apis\Games.repository.ts">
       <CustomToolNamespace>Controllers\GamesController.cs</CustomToolNamespace>

@@ -9,6 +9,7 @@ import { CreaturesRepository } from "./Creatures.repository";
 import { CombatRepository } from "./Combat.repository";
 import { SampleDataRepository } from "./SampleData.repository";
 import { SettingsRepository } from "./Settings.repository";
+import { EncounterRepository } from "./Encounter.repository";
 
 @NgModule({
     providers: [ActionsRepository,
@@ -20,6 +21,7 @@ import { SettingsRepository } from "./Settings.repository";
         CreaturesRepository,
         CombatRepository,
         SampleDataRepository,
-        SettingsRepository]
+        SettingsRepository,
+        EncounterRepository]
 })
 export class RepositoriesModule { }

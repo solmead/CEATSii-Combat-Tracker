@@ -1,4 +1,4 @@
-﻿import { Component, OnInit, Input } from '@angular/core';
+﻿import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Weapon } from '../../entities/classes/Weapon';
 
 @Component({
@@ -11,6 +11,7 @@ export class WeaponComponent {
     /** Weapon ctor */
     @Input() weapons: Array<Weapon>;
     @Input() charId: number;
+    @Output() onDelete = new EventEmitter<Weapon>();
 
     public selectedWeapon: Weapon;
     private cnt:number = 1;
@@ -40,12 +41,9 @@ export class WeaponComponent {
         this.cnt = this.cnt + 1;
     }
 
-    //onWeaponSaved(weapon: Weapon) {
-    //    //var weapon = this.weapons.find((a) => a.id == weapon.id);
-    //    //if (weapon == null) {
-    //    //    this.weapons.push(weapon);
-    //    //}
-    //}
+    onWeaponDeleted(weapon: Weapon) {
+        this.onDelete.emit(weapon); 
+    }
 
     selectWeapon(weapon: Weapon) {
         this.selectedWeapon = weapon;

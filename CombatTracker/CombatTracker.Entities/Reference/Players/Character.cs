@@ -79,16 +79,16 @@ namespace CombatTracker.Entities.Reference
             }
         }
 
-        public int GetHitsTotal(int roll, int characterLevel)
+        public int GetHitsTotal(int? roll = null, int? characterLevel = null)
         {
             return HitPoints;
         }
 
-        public int GetExaustionTotal(int roll)
+        public int GetExaustionTotal(int? roll = null)
         {
             return ExhaustionPoints;
         }
-        public int GetPowerPointsTotal(int roll)
+        public int GetPowerPointsTotal(int? roll = null)
         {
             return PowerPoints;
         }
@@ -125,7 +125,10 @@ namespace CombatTracker.Entities.Reference
                                }).ToList();
         }
 
-
+        public double GetWalkSpeed()
+        {
+            return WalkSpeed;
+        }
     }
     
 }

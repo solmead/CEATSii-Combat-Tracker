@@ -88,16 +88,19 @@ namespace CombatTracker.Entities.Reference.Creatures
             var roll = Dice.RollAddOnes10High(2);
             return roll;
         }
-        public int GetHitsTotal(int roll, int characterLevel)
+        public int GetHitsTotal(int? roll = null, int? characterLevel = null)
         {
-            return BaseHits + HitMod.LookupStamina(roll) + (characterLevel - BaseLevel) * HitMod.PerLevelDifference;
+            roll = roll ?? Dice.RollD100();
+            characterLevel = characterLevel ?? GetLevel();
+            return BaseHits + HitMod.LookupStamina(roll.Value) + (characterLevel.Value - BaseLevel) * HitMod.PerLevelDifference;
         }
-        public int GetExaustionTotal(int roll)
+        public int GetExaustionTotal(int? roll = null)
         {
-            return HitMod.LookupStamina(roll)*3 + 40 + HitMod.BonusExhaustion;
+            roll = roll ?? Dice.RollD100();
+            return HitMod.LookupStamina(roll.Value)*3 + 40 + HitMod.BonusExhaustion;
         }
 
-        public int GetPowerPointsTotal(int roll)
+        public int GetPowerPointsTotal(int? roll = null)
         {
             return 0;
         }
@@ -129,8 +132,12 @@ namespace CombatTracker.Entities.Reference.Creatures
         public List<Attack> GetAttacks()
         {
             return Attacks.ToList();
-        } 
+        }
 
+        public double GetWalkSpeed()
+        {
+            return BaseMove;
+        }
 
     }
     

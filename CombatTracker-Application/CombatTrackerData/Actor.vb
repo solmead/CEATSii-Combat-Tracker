@@ -298,7 +298,7 @@
         If Me.Suprised Then
             Init -= 30
         End If
-        Init += 3 * Me.CurrentArmor.MovingManeuverMod / 10
+        Init += 3 * (Me.CurrentArmor.MovingManeuverMod) / 10
         If IsAttack AndAlso CurrentAttack IsNot Nothing AndAlso CurrentAttack.WeaponUsed IsNot Nothing Then
             Init += 3 * CurrentAttack.WeaponUsed.Bonus / 5
             If Not CurrentAttack.WeaponUsed.Is2Handed Then

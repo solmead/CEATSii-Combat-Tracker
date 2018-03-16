@@ -20,7 +20,7 @@
         </div>
         <div class="edit">
             <!--(onSave)="onWeaponSaved($event)"-->
-            <app-weapon-edit [weapon]="selectedWeapon"></app-weapon-edit>
+            <app-weapon-edit [weapon]="selectedWeapon" (onDelete)="onWeaponDeleted($event)"></app-weapon-edit>
         </div>
     </div>
 </div>

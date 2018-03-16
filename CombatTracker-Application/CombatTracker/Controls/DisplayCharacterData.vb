@@ -60,8 +60,8 @@ Public Class DisplayCharacterData
             Hits.Text = Ch.HitsRemaining & "/" & Ch.HitsTotal
             Exhaustion.Text = Ch.ExhaustionRemaining & "/" & Ch.ExhaustionTotal
             PowerPoints.Text = Ch.PowerPointsRemaining & "/" & Ch.PowerPointsTotal
-            ArmorType.Text = Ch.CurrentArmor.Type
-            DB.Text = Ch.CurrentArmor.DB
+            ArmorType.Text = Ch.CurrentArmor?.Type.ToString()
+            DB.Text = Ch.CurrentArmor?.DB.ToString()
             Modifiers.Text = (Ch.Negatives + Ac.CurrentModifier) & "/" & (Ch.SpellNegatives + Ac.CurrentModifier)
             If Ch.Creature IsNot Nothing Then
                 CriticalType.Text = Ch.Creature.Criticals.ToString

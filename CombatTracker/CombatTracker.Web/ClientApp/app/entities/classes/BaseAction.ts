@@ -27,6 +27,8 @@ import ActionTypeEnum = Enums.EnumDefinitions.ActionTypeEnum;
         leftPercent: number;
         actionType: ActionTypeEnum;
         actionTypeString: string;
+        reoccuring: boolean;
+        characterAction: boolean;
         base: ActionDefinition;
         whoIsActing: Actor;
         currentAttack: Attack;

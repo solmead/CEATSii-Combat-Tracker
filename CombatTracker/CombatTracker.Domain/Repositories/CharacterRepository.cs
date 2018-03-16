@@ -7,6 +7,7 @@ using CombatTracker.Entities.Reference;
 using CombatTracker.Entities.Repositories;
 using Utilities.Caching;
 using CombatTracker.Domain.Reference.Players;
+using Microsoft.EntityFrameworkCore;
 
 namespace CombatTracker.Domain.Repositories
 {
@@ -65,7 +66,8 @@ namespace CombatTracker.Domain.Repositories
 
         public Character SaveCharacter(Character character)
         {
-            var car = (from c in db.Characters where c.ID == character.ID select c).FirstOrDefault();
+            var q = (from c in db.Characters select c).Include(b => b.Armors).Include(b => b.Weapons);
+            var car = (from c in q where c.ID == character.ID select c).FirstOrDefault();
             if (car==null) {
                 car = new DbCharacter();
                 db.Characters.Add(car);

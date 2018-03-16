@@ -47,7 +47,9 @@
                 Current = 1,
                 Proposed = 2,
                 Next = 3,
-                Effect = 4
+                Effect = 4,
+                Interrupted = 5,
+                Completed = 6
             }
     
             export enum BaseActionType {

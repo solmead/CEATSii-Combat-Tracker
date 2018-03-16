@@ -9,20 +9,27 @@ using CombatTracker.Entities.Reference.Attacks;
 using CombatTracker.Entities.Reference.Base;
 using CombatTracker.Entities.Repositories;
 using CombatTracker.Entities.Service;
+using Utilities.Caching;
 
 namespace CombatTracker.Services.Services
 {
     public class GameServices : IGameService
     {
         private readonly IChartRepository _chartRepository;
+        private readonly IGameRepository _gameRepository;
 
-        public GameServices(IChartRepository chartRepository)
+        public GameServices(IChartRepository chartRepository,
+            IGameRepository gameRepository)
         {
             _chartRepository = chartRepository;
+            _gameRepository = gameRepository;
         }
 
 
-        public Game CurrentGame { get; }
+        public Game CurrentGame {
+            get => Cache.GetItem<Game>(CacheArea.Session, "CurrentGame", () => new Game());
+            set => Cache.SetItem<Game>(CacheArea.Session, "CurrentGame", value);
+        }
 
         public int LookupRefractoryNegative(int levelDifference, int roundNumber)
         {
@@ -78,54 +85,133 @@ namespace CombatTracker.Services.Services
             return rnd;
         }
 
-        public Actor CreateActorFrom(IActable person)
+        public Actor CreateActorFrom(IActable person, int? rolledInit = null)
+        {
+            var actor = new Actor()
+            {
+                Game_ID = CurrentGame.ID,
+                Name = person.GetName(),
+                Color = "",
+                Level = person.GetLevel(),
+                BaseInititive = person.GetBaseInititive(),
+                HitsTotal = person.GetHitsTotal(),
+                ExhaustionTotal = person.GetExaustionTotal(),
+                PowerPointsTotal = person.GetPowerPointsTotal(),
+                Type = person.GetActorType(),
+                StrengthBonus = person.GetStrengthBonus(),
+                PercentRequiredAdrenalDB = person.GetPercentRequiredAdrenalDB(),
+                Movement = person.GetWalkSpeed(),
+                RolledInititive = rolledInit ?? Dice.RollAddOnes10High(2)
+            };
+            actor.HitsRemaining = actor.HitsTotal;
+            actor.ExhaustionRemaining = actor.ExhaustionTotal;
+            actor.PowerPointsRemaining = actor.PowerPointsTotal;
+
+            //Attacks
+            //Armor
+            
+
+            actor = _gameRepository.SaveActor(actor);
+
+            var action = new BaseAction()
+            {
+                Name = "Wait",
+                WhoIsActing_ID = actor.ID,
+                Game_ID = actor.Game_ID,
+                Type = ActorActionType.Normal,
+                CharacterAction = true
+            };
+            SetActionTime(actor, action);
+            _gameRepository.SaveAction(action);
+
+            SetCurrentAction(actor, action);
+
+            return actor;
+        }
+
+        public BaseAction GetStandardAction(ActionDefinition action, BaseAction prevAction, Actor whom)
         {
             throw new NotImplementedException();
         }
 
-        public BaseAction GetStandardAction(ActionDefinition action, BaseAction prevAction, Actor whom, double referenceTime)
+        public BaseAction GetSpecialAction(ActorActionType action, Actor whom)
         {
             throw new NotImplementedException();
         }
 
-        public BaseAction GetSpecialAction(ActorActionType action, Actor whom, double referenceTime)
+        public void TriggerActorDeath(Actor actor)
         {
             throw new NotImplementedException();
         }
 
-        public void TriggerActorDeath(Actor actor, double referenceTime)
+        public void ChangeActorInit(Actor actor)
         {
             throw new NotImplementedException();
         }
-
-        public void ChangeActorInit(Actor actor, double referenceTime)
+        
+        public void SetActionTime(Actor actor, BaseAction action, double? referenceTime = null)
         {
-            throw new NotImplementedException();
-        }
-
-        public void ChangeCurrentAction(Actor actor, BaseAction newAction)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void SetActionTime(Actor actor, BaseAction action, double referenceTime)
-        {
-            throw new NotImplementedException();
+            referenceTime = referenceTime ?? CurrentGame.CurrentTime;
+            action.StartTime = referenceTime.Value;
+            action.EndTime = referenceTime.Value + GetTimeRequired(actor, action.BasePercent * CurrentGame.BaseRoundTime, action.CurrentModifier, action.Type == ActorActionType.Attack, action.CurrentAttack);
         }
 
         public double GetTimeRequired(Actor actor, double baseTime, int modifier, bool isAttack, Attack currentAttack)
         {
-            throw new NotImplementedException();
+            var init = 0.0;
+            init = actor.Inititive;
+
+            if (actor.HitsRemaining < actor.HitsTotal / 2) {
+                init -= 8;
+            }
+            if (actor.IsConcentrating) {
+                init -= 30;
+            }
+            if (actor.Suprised) {
+                init -= 30;
+            }
+            init += 3 * (actor.CurrentArmor?.MovingManeuverMod ?? 0) / 10;
+            if (isAttack && currentAttack != null && currentAttack.WeaponUsed != null) {
+                init += 3 * currentAttack.WeaponUsed.Bonus / 5;
+                if (!(currentAttack.WeaponUsed?.Is2Handed ?? false)) {
+                    init += actor.StrengthBonus - currentAttack.WeaponUsed.Weight;
+                } else {
+                    init += actor.StrengthBonus - currentAttack.WeaponUsed.Weight / 2;
+                }
+            }
+
+            if (actor.UsingAdrenalDB) {
+                init += (100 + init) * (1 / ((100 + (actor.PercentRequiredAdrenalDB * 100)) / 100) - 1);
+            }
+            init += (100 + init) * (1 / ((100 + modifier) / 100) - 1);
+            baseTime = baseTime / (actor.PercentAction / 100);
+            return baseTime * (100 / (100 + (init)));
+
         }
 
         public double GetTimeRequiredNonEncumbered(Actor actor, double baseTime)
         {
-            throw new NotImplementedException();
+            var init = 0.0;
+            init = actor.Inititive;
+            if (actor.HitsRemaining < actor.HitsTotal / 2) {
+                init -= 8;
+            }
+            var BInit = init;
+            if (actor.UsingAdrenalDB) {
+                init = (100 + BInit) * (1 / (1 + actor.PercentRequiredAdrenalDB / 100) - 1) + init;
+            }
+            baseTime = baseTime / (actor.PercentAction / 100);
+            //'If Me.UnderHaste Then
+            //'    BaseTime = BaseTime / 2
+            //'End If
+            return baseTime * (100 / (100 + (init)));
         }
 
         public double GetTimeRequiredForSpells(Actor actor, double baseTime)
         {
-            throw new NotImplementedException();
+            var init = 0.0;
+            init = actor.Inititive;
+            return baseTime * (100 / (100 + (init)));
         }
 
         public void RemoveCriticalsFromActor(Actor actor, int count)
@@ -143,24 +229,105 @@ namespace CombatTracker.Services.Services
             throw new NotImplementedException();
         }
 
-        public void AddRoundsCriticalAffectsToActor(Actor actor, CriticalEffect cAffect, int rounds, double referenceTime)
+        public void AddRoundsCriticalAffectsToActor(Actor actor, CriticalEffect cAffect, int rounds)
         {
             throw new NotImplementedException();
         }
 
         public void SetCurrentAction(Actor actor, BaseAction action)
         {
-            throw new NotImplementedException();
+
+            var CurAction = GetCurrentAction(actor);
+            if (CurAction != null && ((CurAction.EndTime >= CurrentGame.CurrentTime)
+                            && CurAction != action)) { 
+                CurAction.Interrupted = true;
+                CurAction.EndTime = CurrentGame.CurrentTime;
+                CurAction.ActionType = ActionTypeEnum.Interrupted;
+                //_gameRepository.SaveAction(CurAction);
+                _gameRepository.DeleteAction(CurAction);
+            }
+            else
+            {
+                // Debug.WriteLine("Time not elapsed")
+            }
+
+            CurAction = action;
+            CurAction.ActionType = ActionTypeEnum.Current;
+            CurAction.WhoIsActing_ID = actor.ID;
+            CurAction.WhoIsActing = actor;
+            if ((CurAction.EndTime == 0))
+            {
+                CurAction.EndTime = (CurrentGame.CurrentTime + GetTimeRequired(actor, (CurAction.BasePercent * CurrentGame.BaseRoundTime), CurAction.CurrentModifier, CurAction.Type == ActorActionType.Attack, CurAction.CurrentAttack));
+            }
+
+            _gameRepository.SaveAction(CurAction);
+
+            // ActionsHistory.Add(CurAction)
+            var future = GetFutureAction(actor);
+            if (future != null)
+            {
+                _gameRepository.DeleteAction(future);
+            }
+
+            BaseAction NAct = null;
+            if (CurAction.Base != null && CurAction.Base.NextAction !=null) {
+                NAct = GetStandardAction(CurAction.Base.NextAction, CurAction, actor);
+            }
+
+            if (((NAct == null) && CurAction.Base != null))
+            {
+                NAct = GetStandardAction(CurAction.Base, CurAction, actor);
+            }
+
+            if (NAct != null)
+            {
+                NAct.Game_ID = CurrentGame.ID;
+                SetActionTime(actor, NAct, CurAction.EndTime);
+
+                SetFutureAction(actor, NAct);
+            }
+            
         }
 
         public void SetProposedAction(Actor actor, BaseAction action)
         {
-            throw new NotImplementedException();
+            action.ActionType = ActionTypeEnum.Proposed;
+            action.WhoIsActing_ID = actor.ID;
+            action.WhoIsActing = actor;
+            action.ID = _gameRepository.SaveAction(action).ID;
         }
 
         public void SetFutureAction(Actor actor, BaseAction action)
         {
-            throw new NotImplementedException();
+            action.ActionType = ActionTypeEnum.Next;
+            action.WhoIsActing_ID = actor.ID;
+            action.WhoIsActing = actor;
+            action.ID = _gameRepository.SaveAction(action).ID;
+
+        }
+
+        public BaseAction GetCurrentAction(Actor actor)
+        {
+            var actions = _gameRepository.GetActionsOnActor(actor);
+            return (from act in actions
+                    where act.ActionType == ActionTypeEnum.Current
+                    select act).FirstOrDefault();
+        }
+
+        public BaseAction GetProposedAction(Actor actor)
+        {
+            var actions = _gameRepository.GetActionsOnActor(actor);
+            return (from act in actions
+                    where act.ActionType == ActionTypeEnum.Proposed
+                    select act).FirstOrDefault();
+        }
+
+        public BaseAction GetFutureAction(Actor actor)
+        {
+            var actions = _gameRepository.GetActionsOnActor(actor);
+            return (from act in actions
+                    where act.ActionType == ActionTypeEnum.Next
+                    select act).FirstOrDefault();
         }
     }
 }

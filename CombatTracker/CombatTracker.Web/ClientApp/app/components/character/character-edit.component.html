@@ -86,12 +86,12 @@
             </div>
             <div class="row">
                 <div class="form-group  col-sm-6">
-                    <app-weapon [weapons]="character.weapons" [charId]="character.id"></app-weapon>
+                    <app-weapon [weapons]="character.weapons" [charId]="character.id" (onDelete)="onWeaponDeleted($event)"></app-weapon>
                 </div>
             </div>
             <div class="row">
                 <div *ngIf="isRolemaster" class="form-group  col-sm-6">
-                    <app-armor [armors]="character.armors" [charId]="character.id"></app-armor>
+                    <app-armor [armors]="character.armors" [charId]="character.id" (onDelete)="onArmorDeleted($event)"></app-armor>
                 </div>
             </div>
             <!--
@@ -109,7 +109,7 @@
                     Save
                 </button>
 
-                <button class="btn btn-primary pull-right"
+                <button *ngIf="encounterView.currentGame!=null" class="btn btn-primary pull-right"
                         (click)="addToEncounter()">
                     Add To Encounter
                 </button>

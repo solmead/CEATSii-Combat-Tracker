@@ -57,7 +57,9 @@ namespace CombatTracker.Entities.Reference
         Current,
         Proposed,
         Next,
-        Effect
+        Effect,
+        Interrupted,
+        Completed
     }
 
     public enum BaseActionType

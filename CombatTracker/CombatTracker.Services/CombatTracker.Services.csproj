@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Libraries\UtilityLibraries\UtilityLibraries\Utilities.Caching\Utilities.Caching.csproj" />
     <ProjectReference Include="..\CombatTracker.Entities\CombatTracker.Entities.csproj" />
   </ItemGroup>
 

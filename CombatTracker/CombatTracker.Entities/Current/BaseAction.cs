@@ -10,7 +10,14 @@ namespace CombatTracker.Entities.Current
     {
         public BaseAction()
         {
-            
+            BasePercent = 0.001;
+            Name = "";
+            StartTime = 0;
+            EndTime = 0;
+            Note = "";
+            State = ActionProblem.IsOK;
+            CurrentModifier = 0;
+            Reoccuring = false;
         }
         public BaseAction(double startTime, ActionDefinition actionDef = null)
         {
@@ -21,6 +28,7 @@ namespace CombatTracker.Entities.Current
             Note = "";
             State = ActionProblem.IsOK;
             CurrentModifier = 0;
+            Reoccuring = false;
             if (actionDef != null)
             {
                 Name = actionDef.Name;
@@ -57,7 +65,10 @@ namespace CombatTracker.Entities.Current
             get => ActionType.ToString();
             set => ActionType = (ActionTypeEnum)Enum.Parse(typeof(ActionTypeEnum), value);
         }
-        
+        public bool Reoccuring { get; set; }
+        public bool CharacterAction { get; set; }
+
+
         public ActionDefinition Base { get; set; }
         public Actor WhoIsActing { get; set; }
         public Attack CurrentAttack { get; set; }

@@ -449,7 +449,9 @@ namespace CombatTracker.Domain.Repositories
                                 WhoIsActing_ID = a.WhoIsActing_ID,
                                 TypeString = a.Type,
                                 StateString = a.State,
-                                ActionTypeString = a.ActionType
+                                ActionTypeString = a.ActionType,
+                                Reoccuring = a.Reoccuring,
+                                CharacterAction  =a.CharacterAction
                             }).ToList();
 
                 list.ForEach((g) =>
@@ -462,6 +464,59 @@ namespace CombatTracker.Domain.Repositories
                         g.CurrentAttack = _combatRepository.GetAttack(g.CurrentAttack_ID.Value);
                     }
                     g.WhoIsActing = GetActor(g.WhoIsActing_ID);
+
+                    
+                    if (g.Type== Entities.Reference.ActorActionType.Attack)
+                    {
+                        g.CharacterAction = true;
+                        g.Reoccuring = false;
+                    }
+                    if (g.Type == Entities.Reference.ActorActionType.Bleed)
+                    {
+                        g.CharacterAction = true;
+                        g.Reoccuring = false;
+                    }
+                    if (g.Type == Entities.Reference.ActorActionType.Critical)
+                    {
+                        g.CharacterAction = false;
+                        g.Reoccuring = false;
+                    }
+                    if (g.Type == Entities.Reference.ActorActionType.Death)
+                    {
+                        g.CharacterAction = true;
+                        g.Reoccuring = g.WhoIsActing.HitsRemaining<0;
+                    }
+                    if (g.Type == Entities.Reference.ActorActionType.Movement)
+                    {
+                        g.CharacterAction = true;
+                        g.Reoccuring = false;
+                    }
+                    if (g.Type == Entities.Reference.ActorActionType.Prep)
+                    {
+                        g.CharacterAction = true;
+                        g.Reoccuring = false;
+                    }
+                    if (g.Type == Entities.Reference.ActorActionType.Psychic)
+                    {
+                        g.CharacterAction = false;
+                        g.Reoccuring = false;
+                    }
+                    if (g.Type == Entities.Reference.ActorActionType.Spell)
+                    {
+                        g.CharacterAction = true;
+                        g.Reoccuring = false;
+                    }
+                    if (g.Type == Entities.Reference.ActorActionType.SpellEffect)
+                    {
+                        g.CharacterAction = false;
+                        g.Reoccuring = false;
+                    }
+                    if (g.Type == Entities.Reference.ActorActionType.Normal)
+                    {
+                        g.CharacterAction = true;
+                        g.Reoccuring = false;
+                    }
+
 
                     Cache.SetItem<BaseAction>(CacheArea.Global, "Action_" + g.ID, g);
                 });
@@ -508,7 +563,8 @@ namespace CombatTracker.Domain.Repositories
             item.Type = action.TypeString;
             item.State = action.StateString;
             item.ActionType = action.ActionTypeString;
-
+            item.Reoccuring = action.Reoccuring;
+            item.CharacterAction = action.CharacterAction;
 
             db.SaveChanges();
             action.ID = item.ID;
