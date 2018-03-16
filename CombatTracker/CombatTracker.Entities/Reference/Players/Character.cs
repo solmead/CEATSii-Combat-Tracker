@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using CombatTracker.Entities.Reference.Attacks;
+using CombatTracker.Entities.Reference.Attacks.Charts;
 using CombatTracker.Entities.Reference.Base;
 
 namespace CombatTracker.Entities.Reference

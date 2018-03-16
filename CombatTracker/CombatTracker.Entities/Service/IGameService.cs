@@ -19,12 +19,11 @@ namespace CombatTracker.Entities.Service
         Actor CreateActorFrom(IActable person, int? rolledInit = null);
 
 
-        BaseAction GetStandardAction(ActionDefinition action, BaseAction prevAction, Actor whom);
-        BaseAction GetSpecialAction(ActorActionType action, Actor whom);
 
 
         void TriggerActorDeath(Actor actor);
-        void ChangeActorInit(Actor actor);
+
+        void OnActorInitChanged(Actor actor);
         
 
         void SetActionTime(Actor actor, BaseAction action, double? referenceTime = null);

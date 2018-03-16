@@ -17,12 +17,18 @@ namespace CombatTracker.Services.Services
     {
         private readonly IChartRepository _chartRepository;
         private readonly IGameRepository _gameRepository;
+        private readonly ICombatRepository _combatRepository;
+        private readonly IActionServices _actionServices;
 
         public GameServices(IChartRepository chartRepository,
-            IGameRepository gameRepository)
+            IGameRepository gameRepository,
+            ICombatRepository combatRepository,
+            IActionServices actionServices)
         {
             _chartRepository = chartRepository;
             _gameRepository = gameRepository;
+            _combatRepository = combatRepository;
+            _actionServices = actionServices;
         }
 
 
@@ -106,12 +112,38 @@ namespace CombatTracker.Services.Services
             actor.HitsRemaining = actor.HitsTotal;
             actor.ExhaustionRemaining = actor.ExhaustionTotal;
             actor.PowerPointsRemaining = actor.PowerPointsTotal;
-
-            //Attacks
-            //Armor
-            
+            var armor = person.GetArmor();
+            if (armor==null)
+            {
+                armor = new Armor()
+                {
+                    Type = 1
+                };
+                armor = _combatRepository.SaveArmor(armor);
+            }
+            actor.CurrentArmor = armor;
+            actor.CurrentArmor_ID = armor?.ID;
 
             actor = _gameRepository.SaveActor(actor);
+
+            var attacks = person.GetAttacks();
+            foreach(var att in attacks)
+            {
+                if (att.AttackType_ID == 0)
+                {
+                    var at = _chartRepository.GetAttackType("Weapon");
+                    att.AttackType_ID = at.ID;
+                    att.AttackType = at;
+                }
+                if (att.ID ==0)
+                {
+                    var att2 = _combatRepository.SaveAttack(att);
+                    att.ID = att2.ID;
+                }
+                _combatRepository.SaveAttack(actor, att);
+            }
+            
+
 
             var action = new BaseAction()
             {
@@ -129,24 +161,40 @@ namespace CombatTracker.Services.Services
             return actor;
         }
 
-        public BaseAction GetStandardAction(ActionDefinition action, BaseAction prevAction, Actor whom)
-        {
-            throw new NotImplementedException();
-        }
-
-        public BaseAction GetSpecialAction(ActorActionType action, Actor whom)
-        {
-            throw new NotImplementedException();
-        }
+        
 
         public void TriggerActorDeath(Actor actor)
         {
-            throw new NotImplementedException();
+            var act = _actionServices.GetSpecialAction(ActorActionType.Death, actor);
+            SetActionTime(actor, act);
+            SetCurrentAction(actor, act);
         }
 
-        public void ChangeActorInit(Actor actor)
+        public void OnActorInitChanged(Actor actor)
         {
-            throw new NotImplementedException();
+            var currentTime = CurrentGame.CurrentTime;
+            var curAct = GetCurrentAction(actor);
+            var perRemain = 0.0;
+            perRemain = 1 - curAct.PercentageCompleted(currentTime);
+            curAct.EndTime = currentTime + perRemain * GetTimeRequired(actor, curAct.BasePercent * CurrentGame.BaseRoundTime, curAct.CurrentModifier, curAct.Type == ActorActionType.Attack, curAct.CurrentAttack);
+
+            _gameRepository.SaveAction(curAct);
+
+            var futAct = GetFutureAction(actor);
+            if (futAct != null)
+            {
+                SetActionTime(actor, futAct, curAct.EndTime);
+
+                _gameRepository.SaveAction(futAct);
+            }
+            var proAct = GetProposedAction(actor);
+            if (proAct != null)
+            {
+                SetActionTime(actor, proAct, currentTime);
+
+                _gameRepository.SaveAction(proAct);
+            }
+            
         }
         
         public void SetActionTime(Actor actor, BaseAction action, double? referenceTime = null)
@@ -221,12 +269,19 @@ namespace CombatTracker.Services.Services
 
         public void RemoveCriticalFromActor(Actor actor)
         {
-            throw new NotImplementedException();
+            RemoveCriticalsFromActor(actor, 1);
         }
 
         public void AddCriticalToActor(Actor actor, CriticalEffect crit, int rounds)
         {
-            throw new NotImplementedException();
+            var anyExistingCrits = actor.CriticalEffects.Any();
+            AddRoundsCriticalAffectsToActor(actor, crit, rounds);
+            if (!anyExistingCrits)
+            {
+                var act = _actionServices.GetSpecialAction(ActorActionType.Critical, actor);
+                act.Game_ID = CurrentGame.ID;
+                _gameRepository.SaveAction(act);
+            }
         }
 
         public void AddRoundsCriticalAffectsToActor(Actor actor, CriticalEffect cAffect, int rounds)
@@ -255,6 +310,8 @@ namespace CombatTracker.Services.Services
             CurAction.ActionType = ActionTypeEnum.Current;
             CurAction.WhoIsActing_ID = actor.ID;
             CurAction.WhoIsActing = actor;
+            CurAction.Game_ID = CurrentGame.ID;
+
             if ((CurAction.EndTime == 0))
             {
                 CurAction.EndTime = (CurrentGame.CurrentTime + GetTimeRequired(actor, (CurAction.BasePercent * CurrentGame.BaseRoundTime), CurAction.CurrentModifier, CurAction.Type == ActorActionType.Attack, CurAction.CurrentAttack));
@@ -271,12 +328,12 @@ namespace CombatTracker.Services.Services
 
             BaseAction NAct = null;
             if (CurAction.Base != null && CurAction.Base.NextAction !=null) {
-                NAct = GetStandardAction(CurAction.Base.NextAction, CurAction, actor);
+                NAct = _actionServices.GetStandardAction(CurAction.Base.NextAction, CurAction, actor);
             }
 
             if (((NAct == null) && CurAction.Base != null))
             {
-                NAct = GetStandardAction(CurAction.Base, CurAction, actor);
+                NAct = _actionServices.GetStandardAction(CurAction.Base, CurAction, actor);
             }
 
             if (NAct != null)
