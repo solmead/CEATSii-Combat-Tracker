@@ -428,7 +428,7 @@ namespace CombatTracker.Domain.Repositories
 
         public List<BaseAction> GetActionsInGame(int gameId)
         {
-            return Cache.GetItem<List<BaseAction>>(CacheArea.Global, "ActionsInGame_" + gameId, () =>
+            var aList = Cache.GetItem<List<BaseAction>>(CacheArea.Global, "ActionsInGame_" + gameId, () =>
             {
                 var list = (from a in db.ActorsActions
                             select new BaseAction()
@@ -451,7 +451,15 @@ namespace CombatTracker.Domain.Repositories
                                 StateString = a.State,
                                 ActionTypeString = a.ActionType,
                                 Reoccuring = a.Reoccuring,
-                                CharacterAction  =a.CharacterAction
+                                CharacterAction  =a.CharacterAction,
+                                Bleeder = a.Bleeder,
+                                Count = a.Count,
+                                TotalRounds = a.TotalRounds,
+                                LevelDifference = a.LevelDifference,
+                                IsHasted = a.IsHasted,
+                                IsSlowed = a.IsSlowed,
+                                HastedPercent = a.HastedPercent,
+                                Critical_ID = a.Critical_ID
                             }).ToList();
 
                 list.ForEach((g) =>
@@ -465,6 +473,10 @@ namespace CombatTracker.Domain.Repositories
                     }
                     g.WhoIsActing = GetActor(g.WhoIsActing_ID);
 
+                    if (g.Critical_ID.HasValue)
+                    {
+                        
+                    }
                     
                     if (g.Type== Entities.Reference.ActorActionType.Attack)
                     {
@@ -520,8 +532,12 @@ namespace CombatTracker.Domain.Repositories
 
                     Cache.SetItem<BaseAction>(CacheArea.Global, "Action_" + g.ID, g);
                 });
+                list = (from ac in list orderby ac.EndTime select ac).ToList();
                 return list;
             }, "game");
+
+            aList.Sort((x, y) => x.EndTime.CompareTo(y.EndTime));
+            return aList;
         }
 
         public List<BaseAction> GetActionsInGame(Game game)
@@ -565,6 +581,15 @@ namespace CombatTracker.Domain.Repositories
             item.ActionType = action.ActionTypeString;
             item.Reoccuring = action.Reoccuring;
             item.CharacterAction = action.CharacterAction;
+            item.Bleeder = action.Bleeder;
+            item.Count = action.Count;
+            item.TotalRounds = action.TotalRounds;
+            item.LevelDifference = action.LevelDifference;
+            item.IsHasted = action.IsHasted;
+            item.IsSlowed = action.IsSlowed;
+            item.HastedPercent = action.HastedPercent;
+            item.Critical_ID = action.Critical_ID;
+
 
             db.SaveChanges();
             action.ID = item.ID;
@@ -580,6 +605,14 @@ namespace CombatTracker.Domain.Repositories
 
         public void DeleteAction(BaseAction action)
         {
+
+            var items = GetActionsInGame(action.Game_ID);
+            var act = GetAction(action.ID);
+            if (items.Contains(act))
+            {
+                items.Remove(act);
+            }
+
             var item = (from c in db.ActorsActions where c.ID == action.ID select c).FirstOrDefault();
             if (item != null)
             {

@@ -9,12 +9,14 @@ namespace CombatTracker.Entities.Service
 {
     public interface IActionServices
     {
-        BaseAction GetStandardAction(ActionDefinition action, BaseAction prevAction, Actor whom);
-        BaseAction GetSpecialAction(ActorActionType action, Actor whom);
+        BaseAction GetStandardAction(ActionDefinition action, BaseAction prevAction, Actor whom, Game game);
+        BaseAction GetSpecialAction(ActorActionType action, Actor whom, Game game, int count=0);
 
 
-        BaseAction ProcessAction(BaseAction action, Actor whom, Game game);
+        MoveNextResult ProcessAction(BaseAction action, Actor whom, IGameService gameService);
         BaseAction RefreshData(BaseAction action, Actor whom, Game game);
+
+        BaseAction EndEffect(BaseAction action, Actor whom);
 
     }
 }

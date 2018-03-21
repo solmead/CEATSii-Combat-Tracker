@@ -58,6 +58,18 @@ namespace CombatTracker.Entities.Current
         }
         public int CurrentModifier { get; set; }
         public bool CriticalGiven { get; set; }
+        public int Bleeder { get; set; }
+
+        public int Count { get; set; }
+        public int TotalRounds { get; set; }
+        public int LevelDifference { get; set; }
+
+        public bool IsHasted { get; set; }
+
+        public bool IsSlowed { get; set; }
+
+        public double HastedPercent { get; set; }
+
         public double LeftPercent { get; set; }
         public ActionTypeEnum ActionType { get; set; }
         public string ActionTypeString
@@ -81,9 +93,10 @@ namespace CombatTracker.Entities.Current
         public int? BaseAction_ID { get; set; }
 
         public int? CurrentAttack_ID { get; set; }
+        public int? Critical_ID { get; set; }
 
 
-        
+
         public String Color
         {
             get
@@ -115,6 +128,11 @@ namespace CombatTracker.Entities.Current
 
         public double PercentageCompleted(double currentTime)
         {
+            if (currentTime<StartTime)
+            {
+                return 0;
+            }
+
             return (currentTime - StartTime) / (EndTime - StartTime);
         }
 

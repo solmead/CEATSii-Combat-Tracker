@@ -24,6 +24,13 @@ import ActionTypeEnum = Enums.EnumDefinitions.ActionTypeEnum;
         stateString: string;
         currentModifier: number;
         criticalGiven: boolean;
+        bleeder: number;
+        count: number;
+        totalRounds: number;
+        levelDifference: number;
+        isHasted: boolean;
+        isSlowed: boolean;
+        hastedPercent: number;
         leftPercent: number;
         actionType: ActionTypeEnum;
         actionTypeString: string;
@@ -36,6 +43,7 @@ import ActionTypeEnum = Enums.EnumDefinitions.ActionTypeEnum;
         whoIsActing_ID: number;
         baseAction_ID?: number;
         currentAttack_ID?: number;
+        critical_ID?: number;
         color: string;
 
         constructor() {

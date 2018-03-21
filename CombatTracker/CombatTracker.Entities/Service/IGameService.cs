@@ -13,29 +13,43 @@ namespace CombatTracker.Entities.Service
     {
         Game CurrentGame { get; set; }
 
-        int LookupRefractoryNegative(int levelDifference, int roundNumber);
-        int LookupRefractoryRoundsToZero(int levelDifference);
+        //int LookupRefractoryNegative(int levelDifference, int roundNumber);
+        //int LookupRefractoryRoundsToZero(int levelDifference);
 
         Actor CreateActorFrom(IActable person, int? rolledInit = null);
 
 
+        void SetModifierOnAction(BaseAction action, int modifier);
+        void SetAttackOnAction(BaseAction action, int attackId);
+
+        BaseAction ProposeActionUnconscious(Actor actor);
+        BaseAction ProposeAction(ActionDefinition action, Actor whom, int modifier = 0, int? attackId = null);
+        BaseAction ProposeActionContinue(BaseAction previousAction, Actor whom);
+        BaseAction AddBleedEffect(Actor whom, int bleedRate);
+        BaseAction AddCriticalEffect(Actor whom, CriticalEffect crit, int rounds);
+        BaseAction AddPsychicEffect(Actor whom, int psychicLevel);
+        BaseAction AddSpellEffect(Actor effectedActor, Actor caster, string spellName, int rounds = 1, int hastePercent = 0);
+        void RemoveEffect(BaseAction action);
+        void RemoveFirstCriticalEffect(Actor whom);
+        void RemoveAllCriticalEffects(Actor whom);
+        BaseAction DoProposedAction(Actor whom);
+
+        void RecalculateActionsTime(Actor actor);
 
 
-        void TriggerActorDeath(Actor actor);
+        MoveNextResult MoveToNextAction();
 
-        void OnActorInitChanged(Actor actor);
-        
 
-        void SetActionTime(Actor actor, BaseAction action, double? referenceTime = null);
-        double GetTimeRequired(Actor actor, double baseTime, int modifier, bool isAttack, Attack currentAttack);
-        double GetTimeRequiredNonEncumbered(Actor actor, double baseTime);
-        double GetTimeRequiredForSpells(Actor actor, double baseTime);
+        //void SetActionTime(Actor actor, BaseAction action, double? referenceTime = null);
+        //double GetTimeRequired(Actor actor, double baseTime, int modifier, bool isAttack, Attack currentAttack);
+        //double GetTimeRequiredNonEncumbered(Actor actor, double baseTime);
+        //double GetTimeRequiredForSpells(Actor actor, double baseTime);
 
-        void RemoveCriticalsFromActor(Actor actor, int count);
-        void RemoveCriticalFromActor(Actor actor);
+        //void RemoveCriticalsFromActor(Actor actor, int count);
+        //void RemoveCriticalFromActor(Actor actor);
 
-        void AddCriticalToActor(Actor actor, CriticalEffect crit, int rounds);
-        void AddRoundsCriticalAffectsToActor(Actor actor, CriticalEffect cAffect, int rounds);
+        //void AddCriticalToActor(Actor actor, CriticalEffect crit, int rounds);
+        //void AddRoundsCriticalAffectsToActor(Actor actor, CriticalEffect cAffect, int rounds);
         
 
         void SetCurrentAction(Actor actor, BaseAction action);

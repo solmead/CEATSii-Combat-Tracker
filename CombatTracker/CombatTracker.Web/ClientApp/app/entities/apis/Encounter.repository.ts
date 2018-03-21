@@ -17,6 +17,9 @@ import "rxjs/add/operator/toPromise";
     import * as Enums from '../classes/EnumDefinitions'
     import { Game } from '../classes/Game';
 import { Actor } from '../classes/Actor';
+import { MoveNextResult } from '../classes/MoveNextResult';
+import { BaseAction } from '../classes/BaseAction';
+import { CriticalEffect } from '../classes/CriticalEffect';
 
 @Injectable()
 export class EncounterRepository {
@@ -115,6 +118,342 @@ export class EncounterRepository {
 	public createActorFromCharacter = (characterId: number, rolledInit: number) : Observable<Actor> => {
         var _Url = `api/Encounter/createActorFromCharacter?characterId=${characterId}&rolledInit=${rolledInit}`;
             return this._httpClient.post(_Url, characterId)
+                .catch(this.handleError);
+	};
+
+    
+    // post: api/Encounter/moveToNext?processAction=${processAction}   
+
+	//public moveToNext = (processAction: boolean, callback: (data: MoveNextResult)=>void) : void => {
+	//	this.moveToNextObserve(processAction).subscribe(response => callback(response));
+	//}
+
+	public moveToNextAsync = (processAction: boolean) : Promise<MoveNextResult> => {
+        
+        return new Promise<MoveNextResult>((resolve, reject) => {
+            this.moveToNext(processAction)
+            .subscribe((res) => {
+                    resolve(res);
+                });
+
+        });
+	}  
+
+	public moveToNext = (processAction: boolean) : Observable<MoveNextResult> => {
+        var _Url = `api/Encounter/moveToNext?processAction=${processAction}`;
+            return this._httpClient.post(_Url, processAction)
+                .catch(this.handleError);
+	};
+
+    
+    // post: api/Encounter/proposeActionUnconscious?actorId=${actorId}   
+
+	//public proposeActionUnconscious = (actorId: number, callback: (data: BaseAction)=>void) : void => {
+	//	this.proposeActionUnconsciousObserve(actorId).subscribe(response => callback(response));
+	//}
+
+	public proposeActionUnconsciousAsync = (actorId: number) : Promise<BaseAction> => {
+        
+        return new Promise<BaseAction>((resolve, reject) => {
+            this.proposeActionUnconscious(actorId)
+            .subscribe((res) => {
+                    resolve(res);
+                });
+
+        });
+	}  
+
+	public proposeActionUnconscious = (actorId: number) : Observable<BaseAction> => {
+        var _Url = `api/Encounter/proposeActionUnconscious?actorId=${actorId}`;
+            return this._httpClient.post(_Url, actorId)
+                .catch(this.handleError);
+	};
+
+    
+    // post: api/Encounter/proposeAction?actionDefId=${actionDefId}&whomId=${whomId}   
+
+	//public proposeAction = (actionDefId: number, whomId: number, callback: (data: BaseAction)=>void) : void => {
+	//	this.proposeActionObserve(actionDefId, whomId).subscribe(response => callback(response));
+	//}
+
+	public proposeActionAsync = (actionDefId: number, whomId: number) : Promise<BaseAction> => {
+        
+        return new Promise<BaseAction>((resolve, reject) => {
+            this.proposeAction(actionDefId, whomId)
+            .subscribe((res) => {
+                    resolve(res);
+                });
+
+        });
+	}  
+
+	public proposeAction = (actionDefId: number, whomId: number) : Observable<BaseAction> => {
+        var _Url = `api/Encounter/proposeAction?actionDefId=${actionDefId}&whomId=${whomId}`;
+            return this._httpClient.post(_Url, actionDefId)
+                .catch(this.handleError);
+	};
+
+    
+    // post: api/Encounter/proposeActionContinue?previousActionId=${previousActionId}&whomId=${whomId}   
+
+	//public proposeActionContinue = (previousActionId: number, whomId: number, callback: (data: BaseAction)=>void) : void => {
+	//	this.proposeActionContinueObserve(previousActionId, whomId).subscribe(response => callback(response));
+	//}
+
+	public proposeActionContinueAsync = (previousActionId: number, whomId: number) : Promise<BaseAction> => {
+        
+        return new Promise<BaseAction>((resolve, reject) => {
+            this.proposeActionContinue(previousActionId, whomId)
+            .subscribe((res) => {
+                    resolve(res);
+                });
+
+        });
+	}  
+
+	public proposeActionContinue = (previousActionId: number, whomId: number) : Observable<BaseAction> => {
+        var _Url = `api/Encounter/proposeActionContinue?previousActionId=${previousActionId}&whomId=${whomId}`;
+            return this._httpClient.post(_Url, previousActionId)
+                .catch(this.handleError);
+	};
+
+    
+    // post: api/Encounter/addBleedEffect?whomId=${whomId}&bleedRate=${bleedRate}   
+
+	//public addBleedEffect = (whomId: number, bleedRate: number, callback: (data: BaseAction)=>void) : void => {
+	//	this.addBleedEffectObserve(whomId, bleedRate).subscribe(response => callback(response));
+	//}
+
+	public addBleedEffectAsync = (whomId: number, bleedRate: number) : Promise<BaseAction> => {
+        
+        return new Promise<BaseAction>((resolve, reject) => {
+            this.addBleedEffect(whomId, bleedRate)
+            .subscribe((res) => {
+                    resolve(res);
+                });
+
+        });
+	}  
+
+	public addBleedEffect = (whomId: number, bleedRate: number) : Observable<BaseAction> => {
+        var _Url = `api/Encounter/addBleedEffect?whomId=${whomId}&bleedRate=${bleedRate}`;
+            return this._httpClient.post(_Url, whomId)
+                .catch(this.handleError);
+	};
+
+    
+    // post: api/Encounter/addCriticalEffect?whomId=${whomId}&rounds=${rounds}   
+
+	//public addCriticalEffect = (whomId: number, crit: CriticalEffect, rounds: number, callback: (data: BaseAction)=>void) : void => {
+	//	this.addCriticalEffectObserve(whomId, crit, rounds).subscribe(response => callback(response));
+	//}
+
+	public addCriticalEffectAsync = (whomId: number, crit: CriticalEffect, rounds: number) : Promise<BaseAction> => {
+        
+        return new Promise<BaseAction>((resolve, reject) => {
+            this.addCriticalEffect(whomId, crit, rounds)
+            .subscribe((res) => {
+                    resolve(res);
+                });
+
+        });
+	}  
+
+	public addCriticalEffect = (whomId: number, crit: CriticalEffect, rounds: number) : Observable<BaseAction> => {
+        var _Url = `api/Encounter/addCriticalEffect?whomId=${whomId}&rounds=${rounds}`;
+            return this._httpClient.post(_Url, whomId)
+                .catch(this.handleError);
+	};
+
+    
+    // post: api/Encounter/addPsychicEffect?whomId=${whomId}&psychicLevel=${psychicLevel}   
+
+	//public addPsychicEffect = (whomId: number, psychicLevel: number, callback: (data: BaseAction)=>void) : void => {
+	//	this.addPsychicEffectObserve(whomId, psychicLevel).subscribe(response => callback(response));
+	//}
+
+	public addPsychicEffectAsync = (whomId: number, psychicLevel: number) : Promise<BaseAction> => {
+        
+        return new Promise<BaseAction>((resolve, reject) => {
+            this.addPsychicEffect(whomId, psychicLevel)
+            .subscribe((res) => {
+                    resolve(res);
+                });
+
+        });
+	}  
+
+	public addPsychicEffect = (whomId: number, psychicLevel: number) : Observable<BaseAction> => {
+        var _Url = `api/Encounter/addPsychicEffect?whomId=${whomId}&psychicLevel=${psychicLevel}`;
+            return this._httpClient.post(_Url, whomId)
+                .catch(this.handleError);
+	};
+
+    
+    // post: api/Encounter/addSpellEffect?effectedActorId=${effectedActorId}&casterId=${casterId}&spellName=${encodeURIComponent(spellName)}&rounds=${rounds}&hastePercent=${hastePercent}   
+
+	//public addSpellEffect = (effectedActorId: number, casterId: number, spellName: string, rounds: number, hastePercent: number, callback: (data: BaseAction)=>void) : void => {
+	//	this.addSpellEffectObserve(effectedActorId, casterId, spellName, rounds, hastePercent).subscribe(response => callback(response));
+	//}
+
+	public addSpellEffectAsync = (effectedActorId: number, casterId: number, spellName: string, rounds: number, hastePercent: number) : Promise<BaseAction> => {
+        
+        return new Promise<BaseAction>((resolve, reject) => {
+            this.addSpellEffect(effectedActorId, casterId, spellName, rounds, hastePercent)
+            .subscribe((res) => {
+                    resolve(res);
+                });
+
+        });
+	}  
+
+	public addSpellEffect = (effectedActorId: number, casterId: number, spellName: string, rounds: number, hastePercent: number) : Observable<BaseAction> => {
+        var _Url = `api/Encounter/addSpellEffect?effectedActorId=${effectedActorId}&casterId=${casterId}&spellName=${encodeURIComponent(spellName)}&rounds=${rounds}&hastePercent=${hastePercent}`;
+            return this._httpClient.post(_Url, effectedActorId)
+                .catch(this.handleError);
+	};
+
+    
+    // post: api/Encounter/removeEffect?actionId=${actionId}   
+
+	//public removeEffect = (actionId: number, callback: (data: void)=>void) : void => {
+	//	this.removeEffectObserve(actionId).subscribe(response => callback(response));
+	//}
+
+	public removeEffectAsync = (actionId: number) : Promise<void> => {
+        
+        return new Promise<void>((resolve, reject) => {
+            this.removeEffect(actionId)
+            .subscribe((res) => {
+                    resolve(res);
+                });
+
+        });
+	}  
+
+	public removeEffect = (actionId: number) : Observable<void> => {
+        var _Url = `api/Encounter/removeEffect?actionId=${actionId}`;
+            return this._httpClient.post(_Url, actionId)
+                .catch(this.handleError);
+	};
+
+    
+    // post: api/Encounter/removeFirstCriticalEffect?whomId=${whomId}   
+
+	//public removeFirstCriticalEffect = (whomId: number, callback: (data: void)=>void) : void => {
+	//	this.removeFirstCriticalEffectObserve(whomId).subscribe(response => callback(response));
+	//}
+
+	public removeFirstCriticalEffectAsync = (whomId: number) : Promise<void> => {
+        
+        return new Promise<void>((resolve, reject) => {
+            this.removeFirstCriticalEffect(whomId)
+            .subscribe((res) => {
+                    resolve(res);
+                });
+
+        });
+	}  
+
+	public removeFirstCriticalEffect = (whomId: number) : Observable<void> => {
+        var _Url = `api/Encounter/removeFirstCriticalEffect?whomId=${whomId}`;
+            return this._httpClient.post(_Url, whomId)
+                .catch(this.handleError);
+	};
+
+    
+    // post: api/Encounter/removeAllCriticalEffects?whomId=${whomId}   
+
+	//public removeAllCriticalEffects = (whomId: number, callback: (data: void)=>void) : void => {
+	//	this.removeAllCriticalEffectsObserve(whomId).subscribe(response => callback(response));
+	//}
+
+	public removeAllCriticalEffectsAsync = (whomId: number) : Promise<void> => {
+        
+        return new Promise<void>((resolve, reject) => {
+            this.removeAllCriticalEffects(whomId)
+            .subscribe((res) => {
+                    resolve(res);
+                });
+
+        });
+	}  
+
+	public removeAllCriticalEffects = (whomId: number) : Observable<void> => {
+        var _Url = `api/Encounter/removeAllCriticalEffects?whomId=${whomId}`;
+            return this._httpClient.post(_Url, whomId)
+                .catch(this.handleError);
+	};
+
+    
+    // post: api/Encounter/doProposedAction?whomId=${whomId}   
+
+	//public doProposedAction = (whomId: number, callback: (data: void)=>void) : void => {
+	//	this.doProposedActionObserve(whomId).subscribe(response => callback(response));
+	//}
+
+	public doProposedActionAsync = (whomId: number) : Promise<void> => {
+        
+        return new Promise<void>((resolve, reject) => {
+            this.doProposedAction(whomId)
+            .subscribe((res) => {
+                    resolve(res);
+                });
+
+        });
+	}  
+
+	public doProposedAction = (whomId: number) : Observable<void> => {
+        var _Url = `api/Encounter/doProposedAction?whomId=${whomId}`;
+            return this._httpClient.post(_Url, whomId)
+                .catch(this.handleError);
+	};
+
+    
+    // post: api/Encounter/setModifierOnAction?actionId=${actionId}&modifier=${modifier}   
+
+	//public setModifierOnAction = (actionId: number, modifier: number, callback: (data: void)=>void) : void => {
+	//	this.setModifierOnActionObserve(actionId, modifier).subscribe(response => callback(response));
+	//}
+
+	public setModifierOnActionAsync = (actionId: number, modifier: number) : Promise<void> => {
+        
+        return new Promise<void>((resolve, reject) => {
+            this.setModifierOnAction(actionId, modifier)
+            .subscribe((res) => {
+                    resolve(res);
+                });
+
+        });
+	}  
+
+	public setModifierOnAction = (actionId: number, modifier: number) : Observable<void> => {
+        var _Url = `api/Encounter/setModifierOnAction?actionId=${actionId}&modifier=${modifier}`;
+            return this._httpClient.post(_Url, actionId)
+                .catch(this.handleError);
+	};
+
+    
+    // post: api/Encounter/setAttackOnAction?actionId=${actionId}&attackId=${attackId}   
+
+	//public setAttackOnAction = (actionId: number, attackId: number, callback: (data: void)=>void) : void => {
+	//	this.setAttackOnActionObserve(actionId, attackId).subscribe(response => callback(response));
+	//}
+
+	public setAttackOnActionAsync = (actionId: number, attackId: number) : Promise<void> => {
+        
+        return new Promise<void>((resolve, reject) => {
+            this.setAttackOnAction(actionId, attackId)
+            .subscribe((res) => {
+                    resolve(res);
+                });
+
+        });
+	}  
+
+	public setAttackOnAction = (actionId: number, attackId: number) : Observable<void> => {
+        var _Url = `api/Encounter/setAttackOnAction?actionId=${actionId}&attackId=${attackId}`;
+            return this._httpClient.post(_Url, actionId)
                 .catch(this.handleError);
 	};
 

@@ -9,4 +9,8 @@
     <ProjectReference Include="..\CombatTracker.Entities\CombatTracker.Entities.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Models\" />
+  </ItemGroup>
+
 </Project>

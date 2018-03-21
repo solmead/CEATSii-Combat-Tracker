@@ -3,6 +3,12 @@
 
     export module EnumDefinitions {
 
+            export enum ResponseEnum {
+                ChooseNextAction = 0,
+                DisplayMessage = 1,
+                AutoAdvance = 2
+            }
+    
             export enum GameType {
                 RMSS = 0,
                 DnD5e = 1

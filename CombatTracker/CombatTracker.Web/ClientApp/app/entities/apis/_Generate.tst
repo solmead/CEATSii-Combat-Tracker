@@ -3,6 +3,7 @@
     using Typewriter.Extensions.Types;
     Template(Settings settings)
     {
+        settings.IncludeCurrentProject();
         settings.OutputFilenameFactory = file => 
         {
             var FinalFileName = file.Name.Replace("Controller", "");

@@ -158,6 +158,9 @@
     <None Update="ClientApp\app\entities\classes\LevelChartValue.ts">
       <CustomToolNamespace>..\CombatTracker.Entities\Reference\Creatures\Charts\LevelChartValue.cs</CustomToolNamespace>
     </None>
+    <None Update="ClientApp\app\entities\classes\MoveNextResult.ts">
+      <CustomToolNamespace>..\CombatTracker.Entities\Current\MoveNextResult.cs</CustomToolNamespace>
+    </None>
     <None Update="ClientApp\app\entities\classes\MySettings.ts">
       <CustomToolNamespace>..\CombatTracker.Entities\Reference\MySettings.cs</CustomToolNamespace>
     </None>

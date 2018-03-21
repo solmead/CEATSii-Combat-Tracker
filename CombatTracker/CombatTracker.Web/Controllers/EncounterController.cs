@@ -54,6 +54,7 @@ namespace CombatTracker.Web.Controllers
 
             return actor;
         }
+
         [HttpPost("[action]")]
         public Actor CreateActorFromCharacter(int characterId, int? rolledInit = null)
         {
@@ -64,6 +65,88 @@ namespace CombatTracker.Web.Controllers
             return actor;
         }
 
+        [HttpPost("[action]")]
+        public MoveNextResult MoveToNext(bool processAction = false)
+        {
+            return _gameService.MoveToNextAction();
+        }
 
+        [HttpPost("[action]")]
+        public BaseAction ProposeActionUnconscious(int actorId)
+        {
+            return null;
+        }
+
+        [HttpPost("[action]")]
+        public BaseAction ProposeAction(int actionDefId, int whomId)
+        {
+            return null;
+        }
+
+        [HttpPost("[action]")]
+        public BaseAction ProposeActionContinue(int previousActionId, int whomId)
+        {
+            return null;
+        }
+
+        [HttpPost("[action]")]
+        public BaseAction AddBleedEffect(int whomId, int bleedRate)
+        {
+            return null;
+        }
+
+        [HttpPost("[action]")]
+        public BaseAction AddCriticalEffect(int whomId, [FromBody] CriticalEffect crit, int rounds)
+        {
+            return null;
+        }
+
+        [HttpPost("[action]")]
+        public BaseAction AddPsychicEffect(int whomId, int psychicLevel)
+        {
+            return null;
+        }
+
+        [HttpPost("[action]")]
+        public BaseAction AddSpellEffect(int effectedActorId, int casterId, string spellName, int rounds, int hastePercent)
+        {
+            return null;
+        }
+
+        [HttpPost("[action]")]
+        public void RemoveEffect(int actionId)
+        {
+
+        }
+
+        [HttpPost("[action]")]
+        public void RemoveFirstCriticalEffect(int whomId)
+        {
+
+        }
+
+        [HttpPost("[action]")]
+        public void RemoveAllCriticalEffects(int whomId)
+        {
+
+        }
+
+        [HttpPost("[action]")]
+        public void DoProposedAction(int whomId)
+        {
+
+        }
+
+        [HttpPost("[action]")]
+        public void SetModifierOnAction(int actionId, int modifier)
+        {
+
+        }
+
+        [HttpPost("[action]")]
+        public void SetAttackOnAction(int actionId, int attackId)
+        {
+
+        }
     }
 }

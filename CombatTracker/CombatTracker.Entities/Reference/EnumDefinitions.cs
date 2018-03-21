@@ -5,6 +5,13 @@ using System.Text;
 
 namespace CombatTracker.Entities.Reference
 {
+    public enum ResponseEnum
+    {
+        ChooseNextAction,
+        DisplayMessage,
+        AutoAdvance
+    }
+
     public enum GameType
     {
         RMSS,
