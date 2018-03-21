@@ -30,8 +30,9 @@ namespace CombatTracker.Entities.Service
         BaseAction AddPsychicEffect(Actor whom, int psychicLevel);
         BaseAction AddSpellEffect(Actor effectedActor, Actor caster, string spellName, int rounds = 1, int hastePercent = 0);
         void RemoveEffect(BaseAction action);
-        void RemoveFirstCriticalEffect(Actor whom);
-        void RemoveAllCriticalEffects(Actor whom);
+        //void RemoveFirstCriticalEffect(Actor whom);
+        //void RemoveAllCriticalEffects(Actor whom);
+        void RemoveCriticalsFromActor(Actor whom, int count);
         BaseAction DoProposedAction(Actor whom);
 
         void RecalculateActionsTime(Actor actor);

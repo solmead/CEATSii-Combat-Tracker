@@ -14,7 +14,7 @@ namespace CombatTracker.Services.Services.Types
         {
             var sa = new BaseAction();
             sa.Name = "";
-            sa.BasePercent = 0.0001;
+            sa.BasePercent = 0.01;
             sa.WhoIsActing = whom;
             sa.WhoIsActing_ID = whom.ID;
             sa.Type = ActorActionType.Normal;

@@ -192,6 +192,8 @@ namespace CombatTracker.Domain.Repositories
                     //    act.Base = _characterRepository.GetCharacter(act.BaseCharacter_ID.Value);
                     //}
 
+                    act.CriticalEffects = new Stack<CriticalEffect>(GetCriticalEffects(act.ID));
+
                     if (act.CurrentArmor_ID.HasValue)
                     {
                         act.CurrentArmor = _combatRepository.GetArmor(act.CurrentArmor_ID.Value);

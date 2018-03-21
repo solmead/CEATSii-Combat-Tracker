@@ -90,22 +90,10 @@ namespace CombatTracker.Services.Services
                 }
                 _combatRepository.SaveAttack(actor, att);
             }
+
+            var act = ProposeActionWait(actor);
+            act = DoProposedAction(actor);
             
-
-
-            var action = new BaseAction()
-            {
-                Name = "Wait",
-                WhoIsActing_ID = actor.ID,
-                Game_ID = actor.Game_ID,
-                Type = ActorActionType.Normal,
-                CharacterAction = true
-            };
-            TimeCalc.SetActionTime(actor, action, CurrentGame);
-            _gameRepository.SaveAction(action);
-
-            SetCurrentAction(actor, action);
-
             return actor;
         }
 
@@ -136,8 +124,29 @@ namespace CombatTracker.Services.Services
 
             if ((CurAction.EndTime == 0))
             {
-                CurAction.EndTime = (CurrentGame.CurrentTime + TimeCalc.GetTimeRequired(actor, (CurAction.BasePercent * CurrentGame.BaseRoundTime), CurAction.CurrentModifier, CurAction.Type == ActorActionType.Attack, CurAction.CurrentAttack));
+                TimeCalc.SetActionTime(actor, CurAction, CurrentGame);
+                //CurAction.EndTime = (CurrentGame.CurrentTime + TimeCalc.GetTimeRequired(actor, (CurAction.BasePercent * CurrentGame.BaseRoundTime), CurAction.CurrentModifier, CurAction.Type == ActorActionType.Attack, CurAction.CurrentAttack));
             }
+
+            if (CurAction.Type == ActorActionType.Spell && CurAction.EndTime<actor.NextSpellTime)
+            {
+                var found = false;
+                for (int m = CurAction.CurrentModifier+10; m<=30;m+=10)
+                {
+                    CurAction.CurrentModifier = m;
+                    TimeCalc.SetActionTime(actor, CurAction, CurrentGame);
+                    if (CurAction.EndTime >= actor.NextSpellTime)
+                    {
+                        found = true;
+                        m = 40;
+                    }
+                }
+                if (!found)
+                {
+                    CurAction.EndTime = actor.NextSpellTime;
+                }
+            }
+
 
             _gameRepository.SaveAction(CurAction);
 
@@ -177,6 +186,35 @@ namespace CombatTracker.Services.Services
                 _gameRepository.DeleteAction(CurAction);
             }
 
+            
+
+            if (action.Type == ActorActionType.Spell && action.EndTime < actor.NextSpellTime)
+            {
+                action.Note = "Spell cannot go off till " + actor.NextSpellTime.ToString("0.00");
+                action.State = ActionProblem.IsWarning;
+            } else
+            {
+                action.Note = "";
+            }
+
+            if (action.Type == ActorActionType.Spell && action.EndTime < actor.NextSpellTime)
+            {
+                var found = false;
+                for (int m = action.CurrentModifier + 10; m <= 30; m += 10)
+                {
+                    action.CurrentModifier = m;
+                    TimeCalc.SetActionTime(actor, action, CurrentGame);
+                    if (action.EndTime >= actor.NextSpellTime)
+                    {
+                        found = true;
+                        m = 40;
+                    }
+                }
+                if (!found)
+                {
+                    action.EndTime = actor.NextSpellTime;
+                }
+            }
 
 
             action.ActionType = ActionTypeEnum.Proposed;
@@ -187,12 +225,36 @@ namespace CombatTracker.Services.Services
 
         public void SetFutureAction(Actor actor, BaseAction action)
         {
+            var prevAction = GetCurrentAction(actor);
 
             var CurAction = GetFutureAction(actor);
             if (CurAction != null && CurAction != action)
             {
                 _gameRepository.DeleteAction(CurAction);
             }
+
+
+            var nextSpelltime = prevAction.EndTime + TimeCalc.GetTimeRequiredForSpells(actor, CurrentGame.BaseRoundTime);
+            if (action.Type == ActorActionType.Spell && prevAction.Type == ActorActionType.Spell && action.EndTime < nextSpelltime)
+            {
+                var found = false;
+                for (int m = action.CurrentModifier + 10; m <= 30; m += 10)
+                {
+                    action.CurrentModifier = m;
+                    TimeCalc.SetActionTime(actor, action, CurrentGame, prevAction.EndTime);
+                    if (action.EndTime >= nextSpelltime)
+                    {
+                        found = true;
+                        m = 40;
+                    }
+                }
+                if (!found)
+                {
+                    action.EndTime = nextSpelltime;
+                }
+            }
+
+
 
             action.ActionType = ActionTypeEnum.Next;
             action.WhoIsActing_ID = actor.ID;
@@ -225,6 +287,14 @@ namespace CombatTracker.Services.Services
                     select act).FirstOrDefault();
         }
 
+        public BaseAction ProposeActionWait(Actor actor)
+        {
+            var act = _actionServices.GetSpecialAction(ActorActionType.Normal, actor, CurrentGame);
+            act.Name = "Wait";
+            TimeCalc.SetActionTime(actor, act, CurrentGame);
+            SetProposedAction(actor, act);
+            return act;
+        }
         public BaseAction ProposeActionUnconscious(Actor actor)
         {
 
@@ -252,6 +322,7 @@ namespace CombatTracker.Services.Services
         {
             BaseAction act = null;
             var action = _chartRepository.GetAction(previousAction.BaseAction_ID ?? 0);
+
             if (action != null)
             {
                  act = _actionServices.GetStandardAction(action, previousAction, whom, CurrentGame);
@@ -259,6 +330,14 @@ namespace CombatTracker.Services.Services
             {
                 act = _actionServices.GetSpecialAction(previousAction.Type, whom, CurrentGame);
             }
+
+            act.CurrentModifier = previousAction.CurrentModifier;
+            if (previousAction.CurrentAttack_ID != null)
+            {
+                act.CurrentAttack = previousAction.CurrentAttack;
+                act.CurrentAttack_ID = previousAction.CurrentAttack_ID;
+            }
+
             TimeCalc.SetActionTime(whom, act, CurrentGame);
             SetProposedAction(whom, act);
             return act;
@@ -279,7 +358,133 @@ namespace CombatTracker.Services.Services
 
         public BaseAction AddCriticalEffect(Actor whom, CriticalEffect crit, int rounds)
         {
-            throw new NotImplementedException();
+            var anyExistingCrits = whom.CriticalEffects.Any();
+            AddRoundsCriticalAffectsToActor(whom, crit, rounds);
+            if (!anyExistingCrits)
+            {
+                var act = _actionServices.GetSpecialAction(ActorActionType.Critical, whom, CurrentGame);
+                act.Game_ID = CurrentGame.ID;
+                _gameRepository.SaveAction(act);
+            } 
+
+            var action = (from ac in _gameRepository.GetActionsOnActor(whom)
+                       where ac.Type == ActorActionType.Critical
+                       select ac).FirstOrDefault();
+            _actionServices.RefreshData(action, whom, CurrentGame);
+            _gameRepository.SaveAction(action);
+
+
+            return action;
+        }
+
+        public void AddRoundsCriticalAffectsToActor(Actor actor, CriticalEffect cAffect, int rounds)
+        {
+            //CriticalEffect ca;
+            int RS = 0;
+            int RNP = 0;
+            int RMP = 0;
+            int RNeg = 0;
+            bool flag = false;
+            if ((cAffect.Parry == ParryType.No_Parry))
+            {
+                RNP = rounds;
+            }
+
+            if ((cAffect.Parry == ParryType.Must_Parry))
+            {
+                RMP = rounds;
+            }
+
+            if (cAffect.IsStunned)
+            {
+                RS = rounds;
+            }
+
+            if ((cAffect.Negative != 0))
+            {
+                RNeg = rounds;
+            }
+
+            foreach (var ca in actor.CriticalEffects.ToList())
+            {
+                if (((ca.TimeStart == 0) || ((ca.TimeStart == CurrentGame.CurrentTime)
+                            || (((ca.TimeEnd - ca.TimeStart) * 0.5) >= (CurrentGame.CurrentTime - ca.TimeStart)))))
+                {
+                    if ((!ca.IsStunned && (RS > 0)))
+                    {
+                        ca.IsStunned = true;
+                        RS--;
+                    }
+
+                    if (((ca.Parry == ParryType.Fine) && (RMP > 0)))
+                    {
+                        ca.Parry = ParryType.Must_Parry;
+                        ca.ParryNegative = cAffect.ParryNegative;
+                        RMP--;
+                    }
+                    else if (((ca.Parry == ParryType.No_Parry) && (RMP > 0)))
+                    {
+                        RMP--;
+                    }
+
+                    if (((ca.Parry != ParryType.No_Parry) && (RNP > 0)))
+                    {
+                        ca.Parry = ParryType.No_Parry;
+                        ca.ParryNegative = 0;
+                        RNP--;
+                    }
+
+                    if ((RNeg > 0))
+                    {
+                        ca.Negative = (ca.Negative + cAffect.Negative);
+                        RNeg--;
+                    }
+
+                    _gameRepository.SaveCriticalEffect(ca);
+                }
+
+            }
+
+            while (((RS > 0) || ((RMP > 0) || ((RNP > 0) || (RNeg > 0)))))
+            {
+                var ca = new CriticalEffect();
+                ca.Actor_ID = actor.ID;
+                if ((RS > 0))
+                {
+                    ca.IsStunned = true;
+                    RS--;
+                }
+
+                if ((RMP > 0))
+                {
+                    ca.Parry = ParryType.Must_Parry;
+                    ca.ParryNegative = cAffect.ParryNegative;
+                    RMP--;
+                }
+
+                if ((RNP > 0))
+                {
+                    ca.Parry = ParryType.No_Parry;
+                    ca.ParryNegative = 0;
+                    RNP--;
+                }
+
+                if ((RNeg > 0))
+                {
+                    ca.Negative = (ca.Negative + cAffect.Negative);
+                    RNeg--;
+                }
+
+                _gameRepository.SaveCriticalEffect(ca);
+                actor.CriticalEffects.Push(ca);
+            }
+
+            var ca2 = actor.CriticalEffects.First();
+            if ((ca2.TimeStart == 0))
+            {
+                ca2.TimeStart = CurrentGame.CurrentTime;
+                ca2.TimeEnd = TimeCalc.GetTimeRequiredNonEncumbered(actor, CurrentGame.BaseRoundTime) + CurrentGame.CurrentTime;
+            }
         }
 
         public BaseAction AddPsychicEffect(Actor whom, int psychicLevel)
@@ -293,7 +498,32 @@ namespace CombatTracker.Services.Services
 
         public BaseAction AddSpellEffect(Actor effectedActor, Actor caster, string spellName, int rounds = 1, int hastePercent = 0)
         {
-            throw new NotImplementedException();
+            var act = _actionServices.GetSpecialAction(ActorActionType.SpellEffect, effectedActor, CurrentGame);
+            act.Name = spellName;
+            act.HastedPercent = hastePercent;
+            act.IsHasted = hastePercent > 0;
+            act.IsSlowed = hastePercent < 0;
+            TimeCalc.SetActionTime(caster, act, CurrentGame);
+            act.BasePercent = rounds;
+            act.EndTime = TimeCalc.GetTimeRequiredForSpells(caster, CurrentGame.BaseRoundTime * rounds) + CurrentGame.CurrentTime;
+
+            act.Name = "Spell: " + act.Name + " cast";
+            if (effectedActor != null)
+            {
+                act.Note = "on " + effectedActor.Name;
+            }
+
+            _gameRepository.SaveAction(act);
+            if (act.IsHasted || act.IsSlowed)
+            {
+                effectedActor.PercentAction *= (act.HastedPercent / 100);
+            }
+            _gameRepository.SaveActor(effectedActor);
+            if (act.IsHasted || act.IsSlowed)
+            {
+                RecalculateActionsTime(effectedActor);
+            }
+            return act;
         }
 
         public void RemoveEffect(BaseAction action)
@@ -301,15 +531,35 @@ namespace CombatTracker.Services.Services
             throw new NotImplementedException();
         }
 
-        public void RemoveFirstCriticalEffect(Actor whom)
+        public void RemoveCriticalsFromActor(Actor whom, int count)
         {
-            throw new NotImplementedException();
-        }
+            var action = (from act in _gameRepository.GetActionsOnActor(whom)
+                          where act.Type == ActorActionType.Critical
+                          select act).FirstOrDefault();
+            if (action != null)
+            {
+                _gameRepository.DeleteAction(action);
+            }
 
-        public void RemoveAllCriticalEffects(Actor whom)
-        {
-            throw new NotImplementedException();
+            for(int a=1;a<=count;a++)
+            {
+                if (whom.CriticalEffects.Any())
+                {
+                    var ce = whom.CriticalEffects.Pop();
+                    _gameRepository.DeleteCriticalEffect(ce);
+                }
+            }
+
+
+            if (whom.CriticalEffects.Any())
+            {
+                var act = _actionServices.GetSpecialAction(ActorActionType.Critical, whom, CurrentGame);
+                act.Game_ID = CurrentGame.ID;
+                _gameRepository.SaveAction(act);
+            }
+            
         }
+        
 
         public BaseAction DoProposedAction(Actor whom)
         {

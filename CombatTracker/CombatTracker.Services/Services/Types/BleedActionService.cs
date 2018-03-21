@@ -49,7 +49,7 @@ namespace CombatTracker.Services.Services.Types
             return new MoveNextResult()
             {
                 Response = ResponseEnum.DisplayMessage,
-                Message = "Bleed at " + action.Bleeder
+                Message = whom.Name + " Bleed at " + action.Bleeder
             };
         }
 

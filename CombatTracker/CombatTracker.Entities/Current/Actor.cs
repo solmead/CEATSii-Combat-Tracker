@@ -16,7 +16,7 @@ namespace CombatTracker.Entities.Current
         {
             //this.Actions = new List<BaseAction>();
             this.Attacks = new List<Attack>();
-            this.CriticalEffects = new List<CriticalEffect>();
+            this.CriticalEffects = new Stack<CriticalEffect>();
             PercentRequiredAdrenalDB = 0.4;
             PercentAction = 100;
             ConstitutionStat = 90;
@@ -65,7 +65,7 @@ namespace CombatTracker.Entities.Current
 
         //public IEnumerable<BaseAction> Actions { get; set; }
         public List<Attack> Attacks { get; set; }
-        public List<CriticalEffect> CriticalEffects { get; set; }
+        public Stack<CriticalEffect> CriticalEffects { get; set; }
 
 
         public int Inititive => BaseInititive + RolledInititive - 11;

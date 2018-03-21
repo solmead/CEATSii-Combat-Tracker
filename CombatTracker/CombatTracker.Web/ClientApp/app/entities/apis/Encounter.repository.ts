@@ -122,16 +122,16 @@ export class EncounterRepository {
 	};
 
     
-    // post: api/Encounter/moveToNext?processAction=${processAction}   
+    // post: api/Encounter/moveToNext?none=${none}   
 
-	//public moveToNext = (processAction: boolean, callback: (data: MoveNextResult)=>void) : void => {
-	//	this.moveToNextObserve(processAction).subscribe(response => callback(response));
+	//public moveToNext = (none: boolean, callback: (data: MoveNextResult)=>void) : void => {
+	//	this.moveToNextObserve(none).subscribe(response => callback(response));
 	//}
 
-	public moveToNextAsync = (processAction: boolean) : Promise<MoveNextResult> => {
+	public moveToNextAsync = (none: boolean) : Promise<MoveNextResult> => {
         
         return new Promise<MoveNextResult>((resolve, reject) => {
-            this.moveToNext(processAction)
+            this.moveToNext(none)
             .subscribe((res) => {
                     resolve(res);
                 });
@@ -139,9 +139,9 @@ export class EncounterRepository {
         });
 	}  
 
-	public moveToNext = (processAction: boolean) : Observable<MoveNextResult> => {
-        var _Url = `api/Encounter/moveToNext?processAction=${processAction}`;
-            return this._httpClient.post(_Url, processAction)
+	public moveToNext = (none: boolean) : Observable<MoveNextResult> => {
+        var _Url = `api/Encounter/moveToNext?none=${none}`;
+            return this._httpClient.post(_Url, none)
                 .catch(this.handleError);
 	};
 
@@ -170,16 +170,16 @@ export class EncounterRepository {
 	};
 
     
-    // post: api/Encounter/proposeAction?actionDefId=${actionDefId}&whomId=${whomId}   
+    // post: api/Encounter/proposeAction?actionDefId=${actionDefId}&whomId=${whomId}&modifier=${modifier}&attackId=${attackId}   
 
-	//public proposeAction = (actionDefId: number, whomId: number, callback: (data: BaseAction)=>void) : void => {
-	//	this.proposeActionObserve(actionDefId, whomId).subscribe(response => callback(response));
+	//public proposeAction = (actionDefId: number, whomId: number, modifier: number, attackId: number, callback: (data: BaseAction)=>void) : void => {
+	//	this.proposeActionObserve(actionDefId, whomId, modifier, attackId).subscribe(response => callback(response));
 	//}
 
-	public proposeActionAsync = (actionDefId: number, whomId: number) : Promise<BaseAction> => {
+	public proposeActionAsync = (actionDefId: number, whomId: number, modifier: number, attackId: number) : Promise<BaseAction> => {
         
         return new Promise<BaseAction>((resolve, reject) => {
-            this.proposeAction(actionDefId, whomId)
+            this.proposeAction(actionDefId, whomId, modifier, attackId)
             .subscribe((res) => {
                     resolve(res);
                 });
@@ -187,8 +187,8 @@ export class EncounterRepository {
         });
 	}  
 
-	public proposeAction = (actionDefId: number, whomId: number) : Observable<BaseAction> => {
-        var _Url = `api/Encounter/proposeAction?actionDefId=${actionDefId}&whomId=${whomId}`;
+	public proposeAction = (actionDefId: number, whomId: number, modifier: number, attackId: number) : Observable<BaseAction> => {
+        var _Url = `api/Encounter/proposeAction?actionDefId=${actionDefId}&whomId=${whomId}&modifier=${modifier}&attackId=${attackId}`;
             return this._httpClient.post(_Url, actionDefId)
                 .catch(this.handleError);
 	};
@@ -338,16 +338,16 @@ export class EncounterRepository {
 	};
 
     
-    // post: api/Encounter/removeFirstCriticalEffect?whomId=${whomId}   
+    // post: api/Encounter/removeCriticalsFromActor?whomId=${whomId}&count=${count}   
 
-	//public removeFirstCriticalEffect = (whomId: number, callback: (data: void)=>void) : void => {
-	//	this.removeFirstCriticalEffectObserve(whomId).subscribe(response => callback(response));
+	//public removeCriticalsFromActor = (whomId: number, count: number, callback: (data: void)=>void) : void => {
+	//	this.removeCriticalsFromActorObserve(whomId, count).subscribe(response => callback(response));
 	//}
 
-	public removeFirstCriticalEffectAsync = (whomId: number) : Promise<void> => {
+	public removeCriticalsFromActorAsync = (whomId: number, count: number) : Promise<void> => {
         
         return new Promise<void>((resolve, reject) => {
-            this.removeFirstCriticalEffect(whomId)
+            this.removeCriticalsFromActor(whomId, count)
             .subscribe((res) => {
                     resolve(res);
                 });
@@ -355,32 +355,8 @@ export class EncounterRepository {
         });
 	}  
 
-	public removeFirstCriticalEffect = (whomId: number) : Observable<void> => {
-        var _Url = `api/Encounter/removeFirstCriticalEffect?whomId=${whomId}`;
-            return this._httpClient.post(_Url, whomId)
-                .catch(this.handleError);
-	};
-
-    
-    // post: api/Encounter/removeAllCriticalEffects?whomId=${whomId}   
-
-	//public removeAllCriticalEffects = (whomId: number, callback: (data: void)=>void) : void => {
-	//	this.removeAllCriticalEffectsObserve(whomId).subscribe(response => callback(response));
-	//}
-
-	public removeAllCriticalEffectsAsync = (whomId: number) : Promise<void> => {
-        
-        return new Promise<void>((resolve, reject) => {
-            this.removeAllCriticalEffects(whomId)
-            .subscribe((res) => {
-                    resolve(res);
-                });
-
-        });
-	}  
-
-	public removeAllCriticalEffects = (whomId: number) : Observable<void> => {
-        var _Url = `api/Encounter/removeAllCriticalEffects?whomId=${whomId}`;
+	public removeCriticalsFromActor = (whomId: number, count: number) : Observable<void> => {
+        var _Url = `api/Encounter/removeCriticalsFromActor?whomId=${whomId}&count=${count}`;
             return this._httpClient.post(_Url, whomId)
                 .catch(this.handleError);
 	};

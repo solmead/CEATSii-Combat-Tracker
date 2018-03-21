@@ -12,7 +12,18 @@ namespace CombatTracker.Services.Services.Types
     {
         public BaseAction GetSpecialAction(ActorActionType action, Actor whom, Game game, int count = 0)
         {
-            throw new NotImplementedException();
+            var sa = new BaseAction();
+            sa.Name = null;
+            sa.Note = null;
+            sa.BasePercent = 1;
+            sa.WhoIsActing = whom;
+            sa.WhoIsActing_ID = whom.ID;
+            sa.Type = ActorActionType.SpellEffect;
+            sa.ActionType = ActionTypeEnum.Effect;
+            sa.State = ActionProblem.IsOK;
+            sa.CharacterAction = false;
+
+            return sa;
         }
 
         public BaseAction GetStandardAction(ActionDefinition action, BaseAction prevAction, Actor whom, Game game)
@@ -33,7 +44,7 @@ namespace CombatTracker.Services.Services.Types
 
         public BaseAction RefreshData(BaseAction action, Actor whom, Game game)
         {
-            throw new NotImplementedException();
+            return action;
         }
 
         public BaseAction EndEffect(BaseAction action, Actor whom)
