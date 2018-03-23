@@ -21,6 +21,7 @@ namespace CombatTracker.Web.Factories
             services.AddTransient<ICreatureRepository, CreatureRepository>();
             services.AddTransient<IGameRepository, GameRepository>();
             services.AddTransient<IGameService, GameServices>();
+            services.AddTransient<IActionServices, ActionServices>();
 
             return services;
         }

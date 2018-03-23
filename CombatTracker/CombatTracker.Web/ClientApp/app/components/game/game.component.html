@@ -1,11 +1,32 @@
 ﻿
-<div class="gameWrapper">
-    <div class="gameArea">
-        <div class="gameList">
-            <app-game-list></app-game-list>
+<div class="wrapper">
+    <div class="area">
+        <div class="list">
+            <p *ngIf="!games"><em>Loading...</em></p>
+            <div class="mainList">
+                <h3 style="display:block; margin-top:0;">
+                    <div style="float:right;">
+                        <button class="btn btn-primary btn-sm" (click)="newGame()">
+                            <span class="glyphicon glyphicon-plus"></span> New
+                        </button>
+                    </div>
+                    Games
+                </h3>
+                <table *ngIf="games" class="table table-striped">
+                    <tr>
+                        <th style="vertical-align: middle;">
+                            Name
+                        </th>
+                    </tr>
+                    <tr *ngFor="let game of games">
+                        <td style="white-space:nowrap;"><a (click)="selectGame(game.id)">{{game?.name}}</a> ({{game?.currentTime.toFixed(2)}})</td>
+                    </tr>
+                </table>
+            </div>
         </div>
-        <div class="gameEdit">
-            <app-game-edit></app-game-edit>
+        <div class="edit">
+            <!--(onSave)="onArmorSaved($event)"-->
+            <app-game-edit [game]="selectedGame" (onDelete)="onGameDeleted($event)" (onSave)="onGameSave($event)"></app-game-edit>
         </div>
     </div>
 </div>

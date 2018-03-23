@@ -1,11 +1,9 @@
-﻿import { Component } from '@angular/core';
+﻿import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { GamesView } from "../../entities/dataviews/GamesView.dataview";
-import { Game } from '../../entities/classes/Game';
-import { GamesRepository } from '../../entities/apis/Games.repository';
-import { EncounterView } from "../../entities/dataviews/EncounterView.dataview";
-import { EnumEx } from "../../entities/EnumEx";
-import * as Enums from '../../entities/classes/EnumDefinitions'
+import { Game } from '../../entities/Game';
+import { GamesRepository } from '../../repositories/Games.repository';
+import { EncounterService } from "../../services/Encounter.service";
+import * as Enums from '../../entities/EnumDefinitions'
 import GameType = Enums.EnumDefinitions.GameType;
 
 
@@ -16,42 +14,36 @@ import GameType = Enums.EnumDefinitions.GameType;
 })
 /** GameEdit component*/
 export class GameEditComponent {
-    /** GameEdit ctor */
+
+
+    @Input() game: Game;
+    @Output() onDelete = new EventEmitter<Game>();
+    @Output() onSave = new EventEmitter<Game>();
+
     constructor(private router: Router,
-        public gameView: GamesView,
         private gamesRepo: GamesRepository,
-        public encounterView: EncounterView) {
+        public encounterService: EncounterService) {
 
     }
-
-
-    get game(): Game {
-        var _game = this.gameView.selected;
-        if (_game != null && !_game.id && this.gameView.systemSettings!=null) {
-            _game.gameType = this.gameView.systemSettings.gameSystem;
-            _game.gameTypeString = this.gameView.systemSettings.gameSystemString;
-        }
-
-        return _game;
-    }
+    
     saveGame = async () => {
-        if (!this.game.id && this.gameView.systemSettings != null) {
-            this.game.gameType = this.gameView.systemSettings.gameSystem;
+        if (!this.game.id && this.encounterService.systemSettings != null) {
+            this.game.gameType = this.encounterService.systemSettings.gameSystem;
         }
         var g = await this.gamesRepo.saveGameAsync(this.game);
         if (!this.game.id) {
             this.game.id = g.id;
 
         }
-        await this.gameView.refresh();
-        await this.encounterView.refresh();
+        await this.encounterService.refresh();
 
+        this.onSave.emit(this.game);
     }
     closeEdit() {
-        this.gameView.refresh();
+        //this.gameView.refresh();
     }
     selectEncounter() {
-        this.encounterView.currentGame = this.game;
+        this.encounterService.currentGame = this.game;
         this.router.navigate(['/encounter', this.game.id]);
     }
 }

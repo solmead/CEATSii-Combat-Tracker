@@ -28,12 +28,16 @@ namespace CombatTracker.Services.Services.Types
 
         public BaseAction GetStandardAction(ActionDefinition action, BaseAction prevAction, Actor whom, Game game)
         {
-            throw new NotImplementedException();
+            return null;
         }
 
         public MoveNextResult ProcessAction(BaseAction action, Actor whom, IGameService gameService)
         {
-
+            if (action.IsHasted || action.IsSlowed)
+            {
+                whom.PercentAction /= (action.HastedPercent / 100);
+                gameService.RecalculateActionsTime(whom);
+            }
 
             return new MoveNextResult()
             {

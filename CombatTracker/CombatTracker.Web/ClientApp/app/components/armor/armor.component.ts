@@ -1,5 +1,5 @@
 ﻿import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Armor } from '../../entities/classes/Armor';
+import { Armor } from '../../entities/Armor';
 
 @Component({
     selector: 'app-armor',
@@ -9,7 +9,7 @@ import { Armor } from '../../entities/classes/Armor';
 /** Armor component*/
 export class ArmorComponent {
 
-    @Input() armors: Array<Armor>;
+    @Input() armors: Array<Armor> = new Array<Armor>();
     @Input() charId: number;
     @Output() onDelete = new EventEmitter<Armor>();
 

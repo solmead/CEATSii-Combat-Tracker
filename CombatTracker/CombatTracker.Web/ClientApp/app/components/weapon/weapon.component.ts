@@ -1,5 +1,5 @@
 ﻿import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Weapon } from '../../entities/classes/Weapon';
+import { Weapon } from '../../entities/Weapon';
 
 @Component({
     selector: 'app-weapon',

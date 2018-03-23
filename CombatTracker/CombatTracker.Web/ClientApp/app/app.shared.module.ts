@@ -7,10 +7,7 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './components/app/app.component';
 import { NavMenuComponent } from './components/navmenu/navmenu.component';
 import { HomeComponent } from './components/home/home.component';
-//import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
-//import { CounterComponent } from './components/counter/counter.component';
 import { GameComponent } from './components/game/game.component';
-import { GameListComponent } from './components/game/game-list.component';
 import { GameEditComponent } from './components/game/game-edit.component';
 import { CharacterComponent } from './components/character/character.component';
 import { CreatureComponent } from './components/creature/creature.component';
@@ -20,22 +17,24 @@ import { WeaponComponent } from './components/weapon/weapon.component';
 import { WeaponEditComponent } from './components/weapon/weapon-edit.component';
 import { ActorComponent } from './components/actor/actor.component';
 import { EncounterComponent } from './components/encounter/encounter.component';
-import { CharacterListComponent } from './components/character/character-list.component';
 import { CharacterEditComponent } from './components/character/character-edit.component';
+import { ModalComponent } from './elements/modal/modal.component';
+import { ModalService } from './elements/modal/modal.service';
 
 
-import { RepositoriesModule } from './entities/apis/repositories.module';
-import { DataViewsModule } from "./entities/dataviews/dataviews.module";
+import { RepositoriesModule } from './repositories/repositories.module';
+import { ServicesModule } from "./services/services.module";
 
 @NgModule({
+    providers: [
+        ModalService
+    ],
     declarations: [
         AppComponent,
         NavMenuComponent,
         GameComponent,
-        GameListComponent,
         GameEditComponent,
         HomeComponent,
-        CharacterListComponent,
         CharacterEditComponent,
         CharacterComponent,
         CreatureComponent,
@@ -44,14 +43,15 @@ import { DataViewsModule } from "./entities/dataviews/dataviews.module";
         ArmorComponent,
         ArmorEditComponent,
         WeaponComponent,
-        WeaponEditComponent
+        WeaponEditComponent,
+        ModalComponent
     ],
     imports: [
         CommonModule,
         HttpClientModule,
         FormsModule,
         RepositoriesModule,
-        DataViewsModule,
+        ServicesModule,
         RouterModule.forRoot([
             { path: '', redirectTo: 'home', pathMatch: 'full' },
             { path: 'home', component: HomeComponent },

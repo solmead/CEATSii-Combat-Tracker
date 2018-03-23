@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { EncounterView } from "../../entities/dataviews/EncounterView.dataview";
-import { Actor } from '../../entities/classes/Actor';
-import { Game } from '../../entities/classes/Game';
-import { MySettings } from '../../entities/classes/MySettings';
-import * as Enums from '../../entities/classes/EnumDefinitions'
+import { EncounterService } from "../../services/Encounter.service";
+import { Actor } from '../../entities/Actor';
+import { Game } from '../../entities/Game';
+import { MySettings } from '../../entities/MySettings';
+import * as Enums from '../../entities/EnumDefinitions'
 import GameType = Enums.EnumDefinitions.GameType;
 import { EnumEx } from "../../entities/EnumEx";
 
@@ -14,7 +14,7 @@ import { EnumEx } from "../../entities/EnumEx";
 })
 export class NavMenuComponent {
     
-    constructor(public gameView: EncounterView) {
+    constructor(public gameView: EncounterService) {
 
     }
 

@@ -251,7 +251,7 @@ Public Class MainForm
         'Car.CurModifier = CM
         DB.SubmitChanges()
         Call Me.DisplayActions()
-        Button1.Focus()
+        btnSetAction.Focus()
     End Sub
     Private Sub PulseEvent()
         'GI.Actions = (From a In GI.Actions Order By a.EndTime Select a).ToList
@@ -326,7 +326,7 @@ Public Class MainForm
         ListBox1.SelectedItem = FutAct.WhoIsActing
         Dim Act As BaseAction
 
-        
+
         If FutAct.Base IsNot Nothing Then
             ListBox2.SelectedItem = FutAct.Base.Group
         Else
@@ -348,7 +348,7 @@ Public Class MainForm
         Call Me.DisplayActions()
     End Sub
 
-    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSetAction.Click
         Dim Car As Actor = ListBox1.SelectedItem
         If Car Is Nothing Then Exit Sub
         If Car.ProposedAction IsNot Nothing Then
@@ -383,7 +383,7 @@ Public Class MainForm
         DB.SubmitChanges()
     End Sub
 
-    Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
+    Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAddDamage.Click
         ListBox3.SelectedIndex = -1
         Dim DF As New DamageForm(DB, GI, ListBox1.SelectedItem)
         DF.ShowDialog()
@@ -399,11 +399,11 @@ Public Class MainForm
         DB.SubmitChanges()
     End Sub
 
-    Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
+    Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnRollOpen.Click
         MsgBox(RollD100OpenEnded)
     End Sub
 
-    Private Sub Button4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button4.Click
+    Private Sub Button4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnRollNormal.Click
         MsgBox(RollD100)
     End Sub
 
@@ -421,7 +421,7 @@ Public Class MainForm
         DB.SubmitChanges()
     End Sub
 
-    Private Sub Remove_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Remove.Click
+    Private Sub Remove_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnRemoveCurrent.Click
         If selectedCData.WhoAmI.WhoIsActing.CurrentAction Is selectedCData.WhoAmI Then
             Dim Ch As Actor = ListBox1.SelectedItem
             If Ch Is Nothing Then Exit Sub
@@ -450,7 +450,7 @@ Public Class MainForm
 
     End Sub
 
-    Private Sub Reset_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Reset.Click
+    Private Sub Reset_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnReset.Click
         GI.Delete(DB)
         GI = New Game
         GI.Name = "Test"
@@ -498,13 +498,17 @@ Public Class MainForm
         DB.SubmitChanges()
     End Sub
 
-    Private Sub Button5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button5.Click
+    Private Sub Button5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnStunnedManuver.Click
         Dim Ch As Actor = ListBox1.SelectedItem
         If Ch Is Nothing Then Exit Sub
         Dim DSM As New DlgStunnedManeuvering(DB, Ch, GI)
         DSM.ShowDialog()
         DisplayActions()
         DB.SubmitChanges()
+    End Sub
+
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+
     End Sub
 
     'Private Sub Button6_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
@@ -554,7 +558,7 @@ Public Class MainForm
     '    Next
     'End Sub
 
-    
+
 End Class
 'Public Class ActionSorter
 '    Implements IComparer(Of Action)

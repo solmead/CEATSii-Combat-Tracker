@@ -1,11 +1,11 @@
-﻿import { Component } from '@angular/core';
-import { CharactersView } from "../../entities/dataviews/CharactersView.dataview"; 
-import { CharactersRepository } from '../../entities/apis/Characters.repository';
-import { EncounterView } from "../../entities/dataviews/EncounterView.dataview";
-import { Character } from '../../entities/classes/Character';
-import { Armor } from '../../entities/classes/Armor';
-import { Weapon } from '../../entities/classes/Weapon';
-import * as Enums from '../../entities/classes/EnumDefinitions'
+﻿import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { ModalService } from '../../elements/modal/model.service';
+import { CharactersRepository } from '../../repositories/Characters.repository';
+import { EncounterService } from "../../services/Encounter.service";
+import { Character } from '../../entities/Character';
+import { Armor } from '../../entities/Armor';
+import { Weapon } from '../../entities/Weapon';
+import * as Enums from '../../entities/EnumDefinitions'
 import GameType = Enums.EnumDefinitions.GameType;
 
 @Component({
@@ -15,16 +15,25 @@ import GameType = Enums.EnumDefinitions.GameType;
 })
 /** characterDetail component*/
 export class CharacterEditComponent {
-    /** characterDetail ctor */
-    constructor(public charView: CharactersView,
-        public encounterView: EncounterView,
-        private charRepo: CharactersRepository)
+
+    @Input() character: Character;
+    @Output() onDelete = new EventEmitter<Character>();
+    @Output() onSave = new EventEmitter<Character>();
+
+
+    constructor(public encounterService: EncounterService,
+        private charRepo: CharactersRepository,
+        private modalService: ModalService)
     {
         
     }
 
     get isRolemaster(): boolean {
-        return this.charView.systemSettings.gameSystem == GameType.RMSS;
+        return this.encounterService.systemSettings.gameSystem == GameType.RMSS;
+    }
+
+    get hasCurrentGame(): boolean {
+        return (this.encounterService.currentGame != null);
     }
 
     onWeaponDeleted(weapon: Weapon) {
@@ -41,25 +50,30 @@ export class CharacterEditComponent {
     }
 
     addToEncounter() {
-        this.encounterView.addCharacterToEncounter(this.character);
+        this.modalService.open('custom-modal-2');
+
+        //this.encounterService.addCharacterToEncounter(this.character);
     }
 
     saveCharacter = async () => {
-        this.character.gameType = this.charView.systemSettings.gameSystem;
+        this.character.gameType = this.encounterService.systemSettings.gameSystem;
         var g = await this.charRepo.saveCharacterAsync(this.character);
         if (!this.character.id) {
             this.character.id = g.id;
-
         }
 
-        await this.charView.refresh();
+        this.onSave.emit(this.character);
 
     }
     closeEdit() {
-        this.charView.refresh();
+        //this.charView.refresh();
     }
 
-    get character(): Character {
-        return this.charView.selected;
+    openModal(id: string) {
+        this.modalService.open(id);
+    }
+
+    closeModal(id: string) {
+        this.modalService.close(id);
     }
 }

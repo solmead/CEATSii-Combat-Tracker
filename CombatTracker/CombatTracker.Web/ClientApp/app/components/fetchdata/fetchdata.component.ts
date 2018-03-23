@@ -1,7 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { SampleDataRepository } from '../../entities/apis/SampleData.repository';
-import { WeatherForecast } from '../../entities/classes/WeatherForecast';
+import { SampleDataRepository } from '../../repositories/SampleData.repository';
+import { WeatherForecast } from '../../entities/WeatherForecast';
 
 @Component({
     selector: 'fetchdata',

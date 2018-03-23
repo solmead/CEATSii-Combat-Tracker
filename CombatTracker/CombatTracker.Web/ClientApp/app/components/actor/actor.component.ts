@@ -1,7 +1,7 @@
 ﻿import { Component } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import 'rxjs/add/operator/switchMap';
-import { EncounterView } from "../../entities/dataviews/EncounterView.dataview";
+import { EncounterService } from "../../services/Encounter.service";
 
 @Component({
     selector: 'app-actor',
@@ -14,7 +14,7 @@ export class ActorComponent {
     constructor(
         private route: ActivatedRoute,
         private router: Router,
-        public encounterView: EncounterView) {
+        public encounterService: EncounterService) {
 
     }
 
@@ -24,7 +24,7 @@ export class ActorComponent {
             .switchMap((params: ParamMap) => params.get('id'))
             .subscribe((idS) => {
                 var id = parseInt(idS);
-                this.encounterView.selectActor(id);
+                this.encounterService.selectActor(id);
             });
 
     }

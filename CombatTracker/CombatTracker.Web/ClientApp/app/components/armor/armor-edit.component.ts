@@ -1,6 +1,6 @@
 ﻿import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Armor } from '../../entities/classes/Armor';
-import { CombatRepository } from '../../entities/apis/Combat.repository';
+import { Armor } from '../../entities/Armor';
+import { CombatRepository } from '../../repositories/Combat.repository';
 
 @Component({
     selector: 'app-armor-edit',

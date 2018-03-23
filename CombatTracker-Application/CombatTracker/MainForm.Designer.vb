@@ -19,34 +19,34 @@ Partial Class MainForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.Panel1 = New System.Windows.Forms.Panel
-        Me.Splitter1 = New System.Windows.Forms.Splitter
-        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip
-        Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
-        Me.EditToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
-        Me.CreatureEditingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
-        Me.PreBuiltCharacterToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
-        Me.ToolStripContainer1 = New System.Windows.Forms.ToolStripContainer
-        Me.ListBox1 = New System.Windows.Forms.ListBox
-        Me.CharacterDisplay = New System.Windows.Forms.Panel
-        Me.Splitter2 = New System.Windows.Forms.Splitter
-        Me.Panel3 = New System.Windows.Forms.Panel
-        Me.Panel2 = New System.Windows.Forms.Panel
-        Me.DisplayAttack1 = New CombatTracker.DisplayAttack
-        Me.Button5 = New System.Windows.Forms.Button
-        Me.ListBox5 = New System.Windows.Forms.ListBox
-        Me.ListBox4 = New System.Windows.Forms.ListBox
-        Me.Reset = New System.Windows.Forms.Button
-        Me.Remove = New System.Windows.Forms.Button
-        Me.Button4 = New System.Windows.Forms.Button
-        Me.Button3 = New System.Windows.Forms.Button
-        Me.btnCast = New System.Windows.Forms.Button
-        Me.Button2 = New System.Windows.Forms.Button
-        Me.Label1 = New System.Windows.Forms.Label
-        Me.Button1 = New System.Windows.Forms.Button
-        Me.ListBox3 = New System.Windows.Forms.ListBox
-        Me.ListBox2 = New System.Windows.Forms.ListBox
-        Me.Button6 = New System.Windows.Forms.Button
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Splitter1 = New System.Windows.Forms.Splitter()
+        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EditToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CreatureEditingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PreBuiltCharacterToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripContainer1 = New System.Windows.Forms.ToolStripContainer()
+        Me.ListBox1 = New System.Windows.Forms.ListBox()
+        Me.CharacterDisplay = New System.Windows.Forms.Panel()
+        Me.Splitter2 = New System.Windows.Forms.Splitter()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Button6 = New System.Windows.Forms.Button()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.btnStunnedManuver = New System.Windows.Forms.Button()
+        Me.ListBox5 = New System.Windows.Forms.ListBox()
+        Me.ListBox4 = New System.Windows.Forms.ListBox()
+        Me.btnReset = New System.Windows.Forms.Button()
+        Me.btnRemoveCurrent = New System.Windows.Forms.Button()
+        Me.btnRollNormal = New System.Windows.Forms.Button()
+        Me.btnRollOpen = New System.Windows.Forms.Button()
+        Me.btnCast = New System.Windows.Forms.Button()
+        Me.btnAddDamage = New System.Windows.Forms.Button()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.btnSetAction = New System.Windows.Forms.Button()
+        Me.ListBox3 = New System.Windows.Forms.ListBox()
+        Me.ListBox2 = New System.Windows.Forms.ListBox()
+        Me.DisplayAttack1 = New CombatTracker.DisplayAttack()
         Me.MenuStrip1.SuspendLayout()
         Me.ToolStripContainer1.TopToolStripPanel.SuspendLayout()
         Me.ToolStripContainer1.SuspendLayout()
@@ -86,26 +86,26 @@ Partial Class MainForm
         'FileToolStripMenuItem
         '
         Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
-        Me.FileToolStripMenuItem.Size = New System.Drawing.Size(35, 20)
+        Me.FileToolStripMenuItem.Size = New System.Drawing.Size(37, 20)
         Me.FileToolStripMenuItem.Text = "File"
         '
         'EditToolStripMenuItem
         '
         Me.EditToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CreatureEditingToolStripMenuItem, Me.PreBuiltCharacterToolStripMenuItem})
         Me.EditToolStripMenuItem.Name = "EditToolStripMenuItem"
-        Me.EditToolStripMenuItem.Size = New System.Drawing.Size(37, 20)
+        Me.EditToolStripMenuItem.Size = New System.Drawing.Size(39, 20)
         Me.EditToolStripMenuItem.Text = "Edit"
         '
         'CreatureEditingToolStripMenuItem
         '
         Me.CreatureEditingToolStripMenuItem.Name = "CreatureEditingToolStripMenuItem"
-        Me.CreatureEditingToolStripMenuItem.Size = New System.Drawing.Size(176, 22)
+        Me.CreatureEditingToolStripMenuItem.Size = New System.Drawing.Size(174, 22)
         Me.CreatureEditingToolStripMenuItem.Text = "Creature Editing"
         '
         'PreBuiltCharacterToolStripMenuItem
         '
         Me.PreBuiltCharacterToolStripMenuItem.Name = "PreBuiltCharacterToolStripMenuItem"
-        Me.PreBuiltCharacterToolStripMenuItem.Size = New System.Drawing.Size(176, 22)
+        Me.PreBuiltCharacterToolStripMenuItem.Size = New System.Drawing.Size(174, 22)
         Me.PreBuiltCharacterToolStripMenuItem.Text = "Pre-Built Character"
         '
         'ToolStripContainer1
@@ -156,17 +156,17 @@ Partial Class MainForm
         '
         Me.Panel3.Controls.Add(Me.Button6)
         Me.Panel3.Controls.Add(Me.Panel2)
-        Me.Panel3.Controls.Add(Me.Button5)
+        Me.Panel3.Controls.Add(Me.btnStunnedManuver)
         Me.Panel3.Controls.Add(Me.ListBox5)
         Me.Panel3.Controls.Add(Me.ListBox4)
-        Me.Panel3.Controls.Add(Me.Reset)
-        Me.Panel3.Controls.Add(Me.Remove)
-        Me.Panel3.Controls.Add(Me.Button4)
-        Me.Panel3.Controls.Add(Me.Button3)
+        Me.Panel3.Controls.Add(Me.btnReset)
+        Me.Panel3.Controls.Add(Me.btnRemoveCurrent)
+        Me.Panel3.Controls.Add(Me.btnRollNormal)
+        Me.Panel3.Controls.Add(Me.btnRollOpen)
         Me.Panel3.Controls.Add(Me.btnCast)
-        Me.Panel3.Controls.Add(Me.Button2)
+        Me.Panel3.Controls.Add(Me.btnAddDamage)
         Me.Panel3.Controls.Add(Me.Label1)
-        Me.Panel3.Controls.Add(Me.Button1)
+        Me.Panel3.Controls.Add(Me.btnSetAction)
         Me.Panel3.Controls.Add(Me.ListBox3)
         Me.Panel3.Controls.Add(Me.ListBox2)
         Me.Panel3.Controls.Add(Me.ListBox1)
@@ -176,11 +176,20 @@ Partial Class MainForm
         Me.Panel3.Size = New System.Drawing.Size(861, 597)
         Me.Panel3.TabIndex = 10
         '
+        'Button6
+        '
+        Me.Button6.Location = New System.Drawing.Point(575, 19)
+        Me.Button6.Name = "Button6"
+        Me.Button6.Size = New System.Drawing.Size(52, 19)
+        Me.Button6.TabIndex = 21
+        Me.Button6.Text = "Button6"
+        Me.Button6.UseVisualStyleBackColor = True
+        '
         'Panel2
         '
         Me.Panel2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Panel2.AutoScroll = True
         Me.Panel2.Controls.Add(Me.DisplayAttack1)
         Me.Panel2.Location = New System.Drawing.Point(12, 211)
@@ -189,24 +198,15 @@ Partial Class MainForm
         Me.Panel2.TabIndex = 20
         Me.Panel2.Visible = False
         '
-        'DisplayAttack1
+        'btnStunnedManuver
         '
-        Me.DisplayAttack1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.DisplayAttack1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DisplayAttack1.Location = New System.Drawing.Point(0, 0)
-        Me.DisplayAttack1.Name = "DisplayAttack1"
-        Me.DisplayAttack1.Size = New System.Drawing.Size(734, 380)
-        Me.DisplayAttack1.TabIndex = 21
-        '
-        'Button5
-        '
-        Me.Button5.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button5.Location = New System.Drawing.Point(752, 227)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(106, 36)
-        Me.Button5.TabIndex = 19
-        Me.Button5.Text = "Stunned Maneuvering"
-        Me.Button5.UseVisualStyleBackColor = True
+        Me.btnStunnedManuver.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnStunnedManuver.Location = New System.Drawing.Point(752, 227)
+        Me.btnStunnedManuver.Name = "btnStunnedManuver"
+        Me.btnStunnedManuver.Size = New System.Drawing.Size(106, 36)
+        Me.btnStunnedManuver.TabIndex = 19
+        Me.btnStunnedManuver.Text = "Stunned Maneuvering"
+        Me.btnStunnedManuver.UseVisualStyleBackColor = True
         '
         'ListBox5
         '
@@ -226,45 +226,45 @@ Partial Class MainForm
         Me.ListBox4.Size = New System.Drawing.Size(31, 108)
         Me.ListBox4.TabIndex = 17
         '
-        'Reset
+        'btnReset
         '
-        Me.Reset.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Reset.Location = New System.Drawing.Point(750, 56)
-        Me.Reset.Name = "Reset"
-        Me.Reset.Size = New System.Drawing.Size(106, 36)
-        Me.Reset.TabIndex = 16
-        Me.Reset.Text = "Reset"
-        Me.Reset.UseVisualStyleBackColor = True
+        Me.btnReset.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnReset.Location = New System.Drawing.Point(750, 56)
+        Me.btnReset.Name = "btnReset"
+        Me.btnReset.Size = New System.Drawing.Size(106, 36)
+        Me.btnReset.TabIndex = 16
+        Me.btnReset.Text = "Reset"
+        Me.btnReset.UseVisualStyleBackColor = True
         '
-        'Remove
+        'btnRemoveCurrent
         '
-        Me.Remove.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Remove.Location = New System.Drawing.Point(750, 98)
-        Me.Remove.Name = "Remove"
-        Me.Remove.Size = New System.Drawing.Size(106, 36)
-        Me.Remove.TabIndex = 15
-        Me.Remove.Text = "Remove Current"
-        Me.Remove.UseVisualStyleBackColor = True
+        Me.btnRemoveCurrent.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnRemoveCurrent.Location = New System.Drawing.Point(750, 98)
+        Me.btnRemoveCurrent.Name = "btnRemoveCurrent"
+        Me.btnRemoveCurrent.Size = New System.Drawing.Size(106, 36)
+        Me.btnRemoveCurrent.TabIndex = 15
+        Me.btnRemoveCurrent.Text = "Remove Current"
+        Me.btnRemoveCurrent.UseVisualStyleBackColor = True
         '
-        'Button4
+        'btnRollNormal
         '
-        Me.Button4.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button4.Location = New System.Drawing.Point(750, 403)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(104, 36)
-        Me.Button4.TabIndex = 14
-        Me.Button4.Text = "Roll D100"
-        Me.Button4.UseVisualStyleBackColor = True
+        Me.btnRollNormal.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnRollNormal.Location = New System.Drawing.Point(750, 403)
+        Me.btnRollNormal.Name = "btnRollNormal"
+        Me.btnRollNormal.Size = New System.Drawing.Size(104, 36)
+        Me.btnRollNormal.TabIndex = 14
+        Me.btnRollNormal.Text = "Roll D100"
+        Me.btnRollNormal.UseVisualStyleBackColor = True
         '
-        'Button3
+        'btnRollOpen
         '
-        Me.Button3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button3.Location = New System.Drawing.Point(751, 361)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(104, 36)
-        Me.Button3.TabIndex = 13
-        Me.Button3.Text = "Roll D100 Open"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.btnRollOpen.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnRollOpen.Location = New System.Drawing.Point(751, 361)
+        Me.btnRollOpen.Name = "btnRollOpen"
+        Me.btnRollOpen.Size = New System.Drawing.Size(104, 36)
+        Me.btnRollOpen.TabIndex = 13
+        Me.btnRollOpen.Text = "Roll D100 Open"
+        Me.btnRollOpen.UseVisualStyleBackColor = True
         '
         'btnCast
         '
@@ -276,15 +276,15 @@ Partial Class MainForm
         Me.btnCast.Text = "Cast Spell/Psychic"
         Me.btnCast.UseVisualStyleBackColor = True
         '
-        'Button2
+        'btnAddDamage
         '
-        Me.Button2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button2.Location = New System.Drawing.Point(751, 143)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(106, 36)
-        Me.Button2.TabIndex = 11
-        Me.Button2.Text = "Add Damage"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.btnAddDamage.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnAddDamage.Location = New System.Drawing.Point(751, 143)
+        Me.btnAddDamage.Name = "btnAddDamage"
+        Me.btnAddDamage.Size = New System.Drawing.Size(106, 36)
+        Me.btnAddDamage.TabIndex = 11
+        Me.btnAddDamage.Text = "Add Damage"
+        Me.btnAddDamage.UseVisualStyleBackColor = True
         '
         'Label1
         '
@@ -298,15 +298,15 @@ Partial Class MainForm
         Me.Label1.TabIndex = 10
         Me.Label1.Text = "889.99"
         '
-        'Button1
+        'btnSetAction
         '
-        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button1.Location = New System.Drawing.Point(746, 6)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(112, 46)
-        Me.Button1.TabIndex = 9
-        Me.Button1.Text = "Set Action"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnSetAction.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnSetAction.Location = New System.Drawing.Point(746, 6)
+        Me.btnSetAction.Name = "btnSetAction"
+        Me.btnSetAction.Size = New System.Drawing.Size(112, 46)
+        Me.btnSetAction.TabIndex = 9
+        Me.btnSetAction.Text = "Set Action"
+        Me.btnSetAction.UseVisualStyleBackColor = True
         '
         'ListBox3
         '
@@ -324,14 +324,14 @@ Partial Class MainForm
         Me.ListBox2.Size = New System.Drawing.Size(92, 199)
         Me.ListBox2.TabIndex = 7
         '
-        'Button6
+        'DisplayAttack1
         '
-        Me.Button6.Location = New System.Drawing.Point(575, 19)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(52, 19)
-        Me.Button6.TabIndex = 21
-        Me.Button6.Text = "Button6"
-        Me.Button6.UseVisualStyleBackColor = True
+        Me.DisplayAttack1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.DisplayAttack1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DisplayAttack1.Location = New System.Drawing.Point(0, 0)
+        Me.DisplayAttack1.Name = "DisplayAttack1"
+        Me.DisplayAttack1.Size = New System.Drawing.Size(734, 380)
+        Me.DisplayAttack1.TabIndex = 21
         '
         'MainForm
         '
@@ -372,18 +372,18 @@ Partial Class MainForm
     Friend WithEvents Panel3 As System.Windows.Forms.Panel
     Friend WithEvents ListBox3 As System.Windows.Forms.ListBox
     Friend WithEvents ListBox2 As System.Windows.Forms.ListBox
-    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents btnSetAction As System.Windows.Forms.Button
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents Button2 As System.Windows.Forms.Button
+    Friend WithEvents btnAddDamage As System.Windows.Forms.Button
     Friend WithEvents btnCast As System.Windows.Forms.Button
-    Friend WithEvents Button4 As System.Windows.Forms.Button
-    Friend WithEvents Button3 As System.Windows.Forms.Button
+    Friend WithEvents btnRollNormal As System.Windows.Forms.Button
+    Friend WithEvents btnRollOpen As System.Windows.Forms.Button
     Friend WithEvents PreBuiltCharacterToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents Remove As System.Windows.Forms.Button
-    Friend WithEvents Reset As System.Windows.Forms.Button
+    Friend WithEvents btnRemoveCurrent As System.Windows.Forms.Button
+    Friend WithEvents btnReset As System.Windows.Forms.Button
     Friend WithEvents ListBox4 As System.Windows.Forms.ListBox
     Friend WithEvents ListBox5 As System.Windows.Forms.ListBox
-    Friend WithEvents Button5 As System.Windows.Forms.Button
+    Friend WithEvents btnStunnedManuver As System.Windows.Forms.Button
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
     Friend WithEvents DisplayAttack1 As CombatTracker.DisplayAttack
     Friend WithEvents Button6 As System.Windows.Forms.Button

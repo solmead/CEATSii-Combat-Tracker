@@ -94,11 +94,6 @@
                     <app-armor [armors]="character.armors" [charId]="character.id" (onDelete)="onArmorDeleted($event)"></app-armor>
                 </div>
             </div>
-            <!--
-    type: CharacterType;
-    armors: Armor[];
-    weapons: Weapon[];
-    rolledInititive: number;-->
             <div class="text-center pt-2">
                 <button class="btn btn-outline-primary pull-left" (click)="closeEdit()">
                     Back
@@ -109,7 +104,7 @@
                     Save
                 </button>
 
-                <button *ngIf="encounterView.currentGame!=null" class="btn btn-primary pull-right"
+                <button *ngIf="hasCurrentGame" class="btn btn-primary pull-right"
                         (click)="addToEncounter()">
                     Add To Encounter
                 </button>
@@ -117,3 +112,13 @@
             </div>
         </form>
     </fieldset>
+
+    <modal id="custom-modal-2">
+        <div class="modal">
+            <div class="modal-body">
+                <h1 style="height:1000px">A Tall Custom Modal!</h1>
+                <button (click)="closeModal('custom-modal-2');">Close</button>
+            </div>
+        </div>
+        <div class="modal-background"></div>
+    </modal>

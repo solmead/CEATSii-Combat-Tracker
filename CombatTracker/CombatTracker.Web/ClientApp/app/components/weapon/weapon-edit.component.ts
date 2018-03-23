@@ -1,8 +1,8 @@
 ﻿import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Weapon } from '../../entities/classes/Weapon';
-import { CombatRepository } from '../../entities/apis/Combat.repository';
-import { CharactersView } from "../../entities/dataviews/CharactersView.dataview";
-import * as Enums from '../../entities/classes/EnumDefinitions'
+import { Weapon } from '../../entities/Weapon';
+import { CombatRepository } from '../../repositories/Combat.repository';
+import { EncounterService } from "../../services/Encounter.service";
+import * as Enums from '../../entities/EnumDefinitions'
 import GameType = Enums.EnumDefinitions.GameType;
 
 @Component({
@@ -18,12 +18,12 @@ export class WeaponEditComponent {
 
     /** ArmorEdit ctor */
     constructor(private combatRepo: CombatRepository,
-        private charView: CharactersView) {
+        private encounterService: EncounterService) {
 
     }
 
     get isRolemaster(): boolean {
-        return this.charView.systemSettings.gameSystem == GameType.RMSS;
+        return this.encounterService.systemSettings.gameSystem == GameType.RMSS;
     }
 
     delete() {
