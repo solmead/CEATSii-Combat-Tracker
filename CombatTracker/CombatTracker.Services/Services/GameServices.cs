@@ -220,6 +220,8 @@ namespace CombatTracker.Services.Services
             action.ActionType = ActionTypeEnum.Proposed;
             action.WhoIsActing_ID = actor.ID;
             action.WhoIsActing = actor;
+            action.Game_ID = CurrentGame.ID;
+
             action.ID = _gameRepository.SaveAction(action).ID;
         }
 
@@ -259,6 +261,7 @@ namespace CombatTracker.Services.Services
             action.ActionType = ActionTypeEnum.Next;
             action.WhoIsActing_ID = actor.ID;
             action.WhoIsActing = actor;
+            action.Game_ID = CurrentGame.ID;
             action.ID = _gameRepository.SaveAction(action).ID;
 
         }

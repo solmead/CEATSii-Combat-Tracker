@@ -29,6 +29,7 @@
   <ItemGroup>
     <None Remove="ClientApp\app\elements\modal\modal.service.ts" />
     <None Remove="ClientApp\app\services\Encounter.service.ts" />
+    <None Remove="ClientApp\app\services\References.service.ts" />
     <None Remove="ClientApp\app\services\services.module.ts" />
     <None Remove="ClientApp\app\services\Settings.service.ts" />
     <None Remove="ClientApp\app\repositories\repositories.module.ts" />
@@ -49,6 +50,7 @@
     <TypeScriptCompile Include="ClientApp\app\elements\modal\modal.service.ts" />
     <TypeScriptCompile Include="ClientApp\app\repositories\repositories.module.ts" />
     <TypeScriptCompile Include="ClientApp\app\entities\IActable.ts" />
+    <TypeScriptCompile Include="ClientApp\app\services\References.service.ts" />
     <TypeScriptCompile Include="ClientApp\app\services\services.module.ts" />
     <TypeScriptCompile Include="ClientApp\app\services\Encounter.service.ts" />
     <TypeScriptCompile Include="ClientApp\app\services\Settings.service.ts" />

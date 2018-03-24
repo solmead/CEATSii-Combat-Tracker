@@ -1,5 +1,5 @@
 ﻿import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { ModalService } from '../../elements/modal/model.service';
+import { ModalService } from '../../elements/modal/modal.service';
 import { CharactersRepository } from '../../repositories/Characters.repository';
 import { EncounterService } from "../../services/Encounter.service";
 import { Character } from '../../entities/Character';
@@ -7,6 +7,7 @@ import { Armor } from '../../entities/Armor';
 import { Weapon } from '../../entities/Weapon';
 import * as Enums from '../../entities/EnumDefinitions'
 import GameType = Enums.EnumDefinitions.GameType;
+import CharacterType = Enums.EnumDefinitions.CharacterType;
 
 @Component({
     selector: 'app-character-edit',
@@ -20,6 +21,7 @@ export class CharacterEditComponent {
     @Output() onDelete = new EventEmitter<Character>();
     @Output() onSave = new EventEmitter<Character>();
 
+    public rolledInit: number;
 
     constructor(public encounterService: EncounterService,
         private charRepo: CharactersRepository,
@@ -50,11 +52,12 @@ export class CharacterEditComponent {
     }
 
     addToEncounter() {
-        this.modalService.open('custom-modal-2');
-
-        //this.encounterService.addCharacterToEncounter(this.character);
+        if (this.character.type == CharacterType.PC) {
+            this.modalService.open('custom-modal-2');
+        } else {
+            this.encounterService.addCharacterToEncounter(this.character);
+        }
     }
-
     saveCharacter = async () => {
         this.character.gameType = this.encounterService.systemSettings.gameSystem;
         var g = await this.charRepo.saveCharacterAsync(this.character);
@@ -75,5 +78,6 @@ export class CharacterEditComponent {
 
     closeModal(id: string) {
         this.modalService.close(id);
+        this.encounterService.addCharacterToEncounter(this.character, this.rolledInit);
     }
 }

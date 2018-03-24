@@ -3,6 +3,7 @@ using System.Text;
 using CombatTracker.Entities.Reference;
 using CombatTracker.Entities.Reference.Actions;
 using CombatTracker.Entities.Reference.Attacks;
+using Newtonsoft.Json;
 
 namespace CombatTracker.Entities.Current
 {
@@ -79,7 +80,6 @@ namespace CombatTracker.Entities.Current
         }
         public bool Reoccuring { get; set; }
         public bool CharacterAction { get; set; }
-
 
         public ActionDefinition Base { get; set; }
         public Actor WhoIsActing { get; set; }

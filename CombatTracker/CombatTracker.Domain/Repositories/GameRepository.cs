@@ -433,6 +433,7 @@ namespace CombatTracker.Domain.Repositories
             var aList = Cache.GetItem<List<BaseAction>>(CacheArea.Global, "ActionsInGame_" + gameId, () =>
             {
                 var list = (from a in db.ActorsActions
+                            where a.Game_ID==gameId
                             select new BaseAction()
                             {
                                 ID = a.ID,
@@ -480,61 +481,61 @@ namespace CombatTracker.Domain.Repositories
                         
                     }
                     
-                    if (g.Type== Entities.Reference.ActorActionType.Attack)
-                    {
-                        g.CharacterAction = true;
-                        g.Reoccuring = false;
-                    }
-                    if (g.Type == Entities.Reference.ActorActionType.Bleed)
-                    {
-                        g.CharacterAction = true;
-                        g.Reoccuring = false;
-                    }
-                    if (g.Type == Entities.Reference.ActorActionType.Critical)
-                    {
-                        g.CharacterAction = false;
-                        g.Reoccuring = false;
-                    }
-                    if (g.Type == Entities.Reference.ActorActionType.Death)
-                    {
-                        g.CharacterAction = true;
-                        g.Reoccuring = g.WhoIsActing.HitsRemaining<0;
-                    }
-                    if (g.Type == Entities.Reference.ActorActionType.Movement)
-                    {
-                        g.CharacterAction = true;
-                        g.Reoccuring = false;
-                    }
-                    if (g.Type == Entities.Reference.ActorActionType.Prep)
-                    {
-                        g.CharacterAction = true;
-                        g.Reoccuring = false;
-                    }
-                    if (g.Type == Entities.Reference.ActorActionType.Psychic)
-                    {
-                        g.CharacterAction = false;
-                        g.Reoccuring = false;
-                    }
-                    if (g.Type == Entities.Reference.ActorActionType.Spell)
-                    {
-                        g.CharacterAction = true;
-                        g.Reoccuring = false;
-                    }
-                    if (g.Type == Entities.Reference.ActorActionType.SpellEffect)
-                    {
-                        g.CharacterAction = false;
-                        g.Reoccuring = false;
-                    }
-                    if (g.Type == Entities.Reference.ActorActionType.Normal)
-                    {
-                        g.CharacterAction = true;
-                        g.Reoccuring = false;
-                    }
+                    //if (g.Type== Entities.Reference.ActorActionType.Attack)
+                    //{
+                    //    g.CharacterAction = true;
+                    //    g.Reoccuring = false;
+                    //}
+                    //if (g.Type == Entities.Reference.ActorActionType.Bleed)
+                    //{
+                    //    g.CharacterAction = true;
+                    //    g.Reoccuring = false;
+                    //}
+                    //if (g.Type == Entities.Reference.ActorActionType.Critical)
+                    //{
+                    //    g.CharacterAction = false;
+                    //    g.Reoccuring = false;
+                    //}
+                    //if (g.Type == Entities.Reference.ActorActionType.Death)
+                    //{
+                    //    g.CharacterAction = true;
+                    //    g.Reoccuring = g.WhoIsActing.HitsRemaining<0;
+                    //}
+                    //if (g.Type == Entities.Reference.ActorActionType.Movement)
+                    //{
+                    //    g.CharacterAction = true;
+                    //    g.Reoccuring = false;
+                    //}
+                    //if (g.Type == Entities.Reference.ActorActionType.Prep)
+                    //{
+                    //    g.CharacterAction = true;
+                    //    g.Reoccuring = false;
+                    //}
+                    //if (g.Type == Entities.Reference.ActorActionType.Psychic)
+                    //{
+                    //    g.CharacterAction = false;
+                    //    g.Reoccuring = false;
+                    //}
+                    //if (g.Type == Entities.Reference.ActorActionType.Spell)
+                    //{
+                    //    g.CharacterAction = true;
+                    //    g.Reoccuring = false;
+                    //}
+                    //if (g.Type == Entities.Reference.ActorActionType.SpellEffect)
+                    //{
+                    //    g.CharacterAction = false;
+                    //    g.Reoccuring = false;
+                    //}
+                    //if (g.Type == Entities.Reference.ActorActionType.Normal)
+                    //{
+                    //    g.CharacterAction = true;
+                    //    g.Reoccuring = false;
+                    //}
 
 
                     Cache.SetItem<BaseAction>(CacheArea.Global, "Action_" + g.ID, g);
                 });
-                list = (from ac in list orderby ac.EndTime select ac).ToList();
+                //list = (from ac in list orderby ac.EndTime select ac).ToList();
                 return list;
             }, "game");
 

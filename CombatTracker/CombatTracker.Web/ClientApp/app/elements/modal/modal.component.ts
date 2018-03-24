@@ -1,6 +1,6 @@
 ﻿import { Component, ElementRef, Input, OnInit, OnDestroy } from '@angular/core';
-
-import { ModalService } from './model.service';
+import * as $ from 'jquery';
+import { ModalService } from './modal.service';
 
 @Component({
     moduleId: module.id.toString(),
@@ -11,6 +11,7 @@ import { ModalService } from './model.service';
 export class ModalComponent implements OnInit, OnDestroy {
     @Input() id: string;
     private element: JQuery;
+    //private dialog: JQuery;
 
     constructor(private modalService: ModalService, private el: ElementRef) {
         this.element = $(el.nativeElement);
@@ -24,6 +25,17 @@ export class ModalComponent implements OnInit, OnDestroy {
             console.error('modal must have an id');
             return;
         }
+
+        //this.dialog = this.element.dialog({
+        //    autoOpen: false,
+        //    height: 400,
+        //    width: 350,
+        //    modal: true,
+        //    close: function () {
+
+        //    }
+        //});
+
 
         // move element to bottom of page (just before </body>) so it can be displayed above everything else
         this.element.appendTo('body');
@@ -48,12 +60,14 @@ export class ModalComponent implements OnInit, OnDestroy {
 
     // open modal
     open(): void {
+        //this.dialog.dialog("open");
         this.element.show();
         $('body').addClass('modal-open');
     }
 
     // close modal
     close(): void {
+        //this.dialog.dialog("close");
         this.element.hide();
         $('body').removeClass('modal-open');
     }

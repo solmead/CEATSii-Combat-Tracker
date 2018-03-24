@@ -30,7 +30,9 @@ namespace CombatTracker.Web.Controllers
         [HttpGet("[action]")]
         public List<BaseAction> GetActionsInGame(int gameId)
         {
-            return _gameRepository.GetActionsInGame(gameId);
+            var lst = _gameRepository.GetActionsInGame(gameId);
+            var s = Newtonsoft.Json.JsonConvert.SerializeObject(lst);
+            return lst;
         }
         [HttpGet("[action]")]
         public BaseAction GetAction(int id)

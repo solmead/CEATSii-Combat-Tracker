@@ -80,7 +80,7 @@ namespace CombatTracker.Domain.Repositories
                     c.Outlook = _chartRepository.GetOutlook(c.Outlook_ID);
                     c.Size = _chartRepository.GetSizeRating(c.Size_ID);
                 });
-
+                chars = chars.OrderBy((c) => c.TypeName).ToList();
                 return chars;
             }, "creatures");
         }

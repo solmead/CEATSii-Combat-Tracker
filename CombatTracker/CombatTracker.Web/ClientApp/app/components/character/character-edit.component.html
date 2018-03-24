@@ -112,13 +112,15 @@
             </div>
         </form>
     </fieldset>
-
-    <modal id="custom-modal-2">
-        <div class="modal">
-            <div class="modal-body">
-                <h1 style="height:1000px">A Tall Custom Modal!</h1>
-                <button (click)="closeModal('custom-modal-2');">Close</button>
-            </div>
+</div>
+<modal id="custom-modal-2">
+    <div class="modal">
+        <div class="modal-body">
+            <h1>Roll Init - 2d10</h1>
+            <input name="rolledInit" class="form-control"
+                    [(ngModel)]="rolledInit" required />
+            <button (click)="closeModal('custom-modal-2');">Add To Encounter</button>
         </div>
-        <div class="modal-background"></div>
-    </modal>
+    </div>
+    <div class="modal-background"></div>
+</modal>

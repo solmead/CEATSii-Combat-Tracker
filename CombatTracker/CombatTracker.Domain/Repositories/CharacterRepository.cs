@@ -50,6 +50,7 @@ namespace CombatTracker.Domain.Repositories
                     c.Weapons = _combatRepository.GetWeapons(c.ID);
                 });
 
+                chars = chars.OrderBy((c) => c.Name).ToList();
                 return chars;
             }, "characters");
         }

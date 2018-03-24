@@ -1,4 +1,5 @@
 
+using Newtonsoft.Json;
 using System;
 
 namespace CombatTracker.Entities.Reference.Actions
@@ -24,10 +25,10 @@ namespace CombatTracker.Entities.Reference.Actions
             get => Type.ToString();
             set => Type = (BaseActionType)Enum.Parse(typeof(BaseActionType), value);
         }
-
+        [JsonIgnore]
         public virtual ActionGroup ActionGroup { get; set; }
-        
 
+        [JsonIgnore]
         public virtual ActionDefinition NextAction { get; set; }
         
         public override string ToString()

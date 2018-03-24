@@ -11,6 +11,7 @@ import { SettingsService } from './Settings.service';
 import { MySettings } from '../entities/MySettings';
 import GameType = Enums.EnumDefinitions.GameType;
 import { Character } from '../entities/Character';
+import { Creature } from '../entities/Creature';
 import { EncounterRepository } from '../repositories/Encounter.repository';
 
 @Injectable()
@@ -77,6 +78,9 @@ export class EncounterService {
 
     public refresh = async () => {
         this._currentGame = await this.encounterRepo.getCurrentGameAsync();
+        if (this._currentGame.id == 0) {
+            this._currentGame = null;
+        }
         if (this.currentGame != null) {
             //this._currentGame = await this.gameRepo.getGameAsync(this._currentGame.id);
 
@@ -90,6 +94,12 @@ export class EncounterService {
         
     }
 
+    public addCreatureToEncounter = async (creature: Creature) => {
+        await this.encounterRepo.createActorFromCreatureAsync(creature.id);
+
+        await this.refresh();
+
+    }
     public addCharacterToEncounter = async (character: Character, rolledInit?:number) => {
         await this.encounterRepo.createActorFromCharacterAsync(character.id, rolledInit);
 
