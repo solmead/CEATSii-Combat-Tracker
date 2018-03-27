@@ -25,7 +25,7 @@ Partial Class EditCreature
         Me.Panel1 = New System.Windows.Forms.Panel
         Me.Button2 = New System.Windows.Forms.Button
         Me.Button3 = New System.Windows.Forms.Button
-        Me.CD = New CombatTracker.DisplayCreature(db)
+        Me.CD = New CombatTracker.DisplayCreature(DB)
         Me.Button4 = New System.Windows.Forms.Button
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()

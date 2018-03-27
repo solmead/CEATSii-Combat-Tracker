@@ -3,6 +3,14 @@ Public Class DisplayCreature
 
     Public Monster As Creature
     Public Event NameChange()
+    Public Sub New()
+
+        ' This call is required by the designer.
+        InitializeComponent()
+
+        ' Add any initialization after the InitializeComponent() call.
+
+    End Sub
     Public Sub New(ByVal MyDB As RMSSDataDataContext, ByVal MyCreature As Creature)
         rDB = MyDB
         Me.InitializeComponent()
