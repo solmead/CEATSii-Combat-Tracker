@@ -12,10 +12,17 @@
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <div class="form-group col-sm-6">
+                    <label>Description</label>
+                    <textarea name="description" class="form-control"
+                           [(ngModel)]="creature.description" ></textarea>
+                </div>
+            </div>
 
             <div class="row">
-                <div class="form-group col-sm-2">
-                    <div class="col-sm-6" style="padding:0;">
+                <div class="form-group col-sm-3">
+                    <div class="col-sm-4" style="padding:0;">
                         <label>Base Level</label>
                         <input #level="ngModel" name="baseLevel" class="form-control"
                                [(ngModel)]="creature.baseLevel" required />
@@ -23,7 +30,7 @@
                             Please enter a level
                         </div>
                     </div>
-                    <div class="col-sm-6" style="padding:0;">
+                    <div class="col-sm-5" style="padding:0;">
                         <label>&nbsp;</label>
                         <select class="form-control" name="selectedLevel" [(ngModel)]="creature.levelMod_ID">
                             <option *ngFor="let level of referencesService.LevelCharts" value={{level?.id}}>
@@ -33,32 +40,28 @@
                     </div>
                 </div>
 
-                <div class="form-group col-sm-2">
-                    <div class="col-sm-12" style="padding:0;">
-                        <label>Size</label>
-                        <select class="form-control" name="selectedSize" [(ngModel)]="creature.size_ID">
-                            <option *ngFor="let item of referencesService.SizeRatings" value={{item?.id}}>
-                                {{item?.name}}
-                            </option>
-                        </select>
-                    </div>
+                <div class="form-group col-sm-3">
+                    <label>Size</label>
+                    <select class="form-control" name="selectedSize" [(ngModel)]="creature.size_ID">
+                        <option *ngFor="let item of referencesService.SizeRatings" value={{item?.id}}>
+                            {{item?.abbreviation}} ({{item?.name}})
+                        </option>
+                    </select>
                 </div>
-                <div class="form-group col-sm-2">
-                    <div class="col-sm-12" style="padding:0;">
+                <div class="form-group col-sm-3">
+                    <div class="col-sm-6" style="padding:0;">
                         <label>Movement Speed</label>
                         <select class="form-control" name="selectedMS" [(ngModel)]="creature.msRating_ID">
                             <option *ngFor="let item of referencesService.SpeedCharts" value={{item?.id}}>
-                                {{item?.name}}
+                                {{item?.abbreviation}} ({{item?.name}})
                             </option>
                         </select>
                     </div>
-                </div>
-                <div class="form-group col-sm-2">
-                    <div class="col-sm-12" style="padding:0;">
+                    <div class="col-sm-6" style="padding:0;">
                         <label>Attack Quickness</label>
                         <select class="form-control" name="selectedAQ" [(ngModel)]="creature.aqRating_ID">
                             <option *ngFor="let item of referencesService.SpeedCharts" value={{item?.id}}>
-                                {{item?.name}} - ({{item?.AQInitiative}})
+                                {{item?.abbreviation}} ({{item?.name}})
                             </option>
                         </select>
                     </div>
@@ -66,19 +69,21 @@
             </div>
 
             <div class="row">
-                <div class="form-group col-sm-1">
-                    <label>Base Move</label>
-                    <input #move="ngModel" name="baseMove" class="form-control"
-                           [(ngModel)]="creature.baseMove" required />
-                    <div *ngIf="move.invalid" class="text-danger">
-                        Please enter a distance
+                <div class="form-group col-sm-3">
+                    <div class="col-sm-4" style="padding:0;">
+                        <label>Base Move</label>
+                        <input #move="ngModel" name="baseMove" class="form-control"
+                               [(ngModel)]="creature.baseMove" required />
+                        <div *ngIf="move.invalid" class="text-danger">
+                            Please enter a distance
+                        </div>
                     </div>
                 </div>
-                <div class="form-group col-sm-2">
+                <div class="form-group col-sm-3">
                     <label>Max Pace</label>
                     <select class="form-control" name="selectedPace" [(ngModel)]="creature.maxPace_ID">
                         <option *ngFor="let item of referencesService.Paces" value={{item?.id}}>
-                            {{item?.name}}
+                            {{item?.abbreviation}} ({{item?.name}})
                         </option>
                     </select>
                 </div>
@@ -88,48 +93,104 @@
                            [(ngModel)]="creature.mmBonus" required />
                 </div>
             </div>
+
+            <div class="row">
+                <div class="form-group col-sm-3">
+                    <div class="col-sm-4" style="padding:0;">
+                        <label>Base Hits</label>
+                        <input #hits="ngModel" name="baseHits" class="form-control"
+                               [(ngModel)]="creature.baseHits" required />
+                        <div *ngIf="hits.invalid" class="text-danger">
+                            Please enter hit points
+                        </div>
+                    </div>
+                    <div class="col-sm-5" style="padding:0;">
+                        <label>&nbsp;</label>
+                        <select class="form-control" name="selectedHitMod" [(ngModel)]="creature.hitMod_ID">
+                            <option *ngFor="let item of referencesService.ConstitutionBonusCharts" value={{item?.id}}>
+                                {{item?.code}}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group col-sm-3">
+                    <div  class="col-sm-6" >
+                        <label>Criticals</label>
+                        <select class="form-control" name="selectedCritical" [(ngModel)]="creature.criticals_ID">
+                            <option *ngFor="let item of referencesService.CriticalCodes" value={{item?.id}}>
+                                {{item?.abbreviation}} ({{item?.name}})
+                            </option>
+                        </select>
+                    </div>
+
+                    <div  class="col-sm-6" >
+                        <label>Criticals Ignored</label>
+                        <select class="form-control" name="selectedCriticalIgnore" [(ngModel)]="creature.criticalsIgnore_ID">
+                            <option *ngFor="let item of referencesService.CriticalIgnores" value={{item?.id}}>
+                                {{item?.abbreviation}} ({{item?.name}})
+                            </option>
+                        </select>
+                    </div>
+                </div>
+
+
+                    <div class="form-group col-sm-3">
+                        <div class="col-sm-6" >
+                            <label>AT</label>
+                            <input name="at" class="form-control"
+                                   [(ngModel)]="creature.at" required />
+                        </div>
+                        <div class="col-sm-6" >
+                            <label>DB</label>
+                            <input name="at" class="form-control"
+                                   [(ngModel)]="creature.db" required />
+                        </div>
+                    </div>
+                </div>
+
                 <!--
-        <div class="row">
-            <div class="form-group  col-sm-2">
-                <label>Hit<br />Points</label>
-                <input #hitPoints="ngModel" name="hitPoints" class="form-control"
-                       [(ngModel)]="character.hitPoints" required />
-                <div *ngIf="hitPoints.invalid" class="text-danger">
-                    Please enter Hit Points
-                </div>
-            </div>
-            <div *ngIf="isRolemaster" class="form-group  col-sm-2">
-                <label style="white-space: nowrap;">Power<br />Points</label>
-                <input #powerPoints="ngModel" name="powerPoints" class="form-control"
-                       [(ngModel)]="character.powerPoints" required />
-                <div *ngIf="powerPoints.invalid" class="text-danger">
-                    Please enter Power Points
-                </div>
-            </div>
-            <div *ngIf="isRolemaster" class="form-group  col-sm-2">
-                <label style="white-space: nowrap;">Exhaustion<br />Points</label>
-                <input #exhaustionPoints="ngModel" name="exhaustionPoints" class="form-control"
-                       [(ngModel)]="character.exhaustionPoints" required />
-                <div *ngIf="exhaustionPoints.invalid" class="text-danger">
-                    Please enter Exhaustion Points
-                </div>
-            </div>
-            <div *ngIf="isRolemaster" class="form-group  col-sm-2">
-                <label>Percent Required<br />Adrenal DB</label>
-                <input #percentRequiredAdrenalDB="ngModel" name="percentRequiredAdrenalDB" class="form-control"
-                       [(ngModel)]="character.percentRequiredAdrenalDB" />
-            </div>
-        </div>-->
-                <!--<div class="row">
-            <div class="form-group  col-sm-6">
-                <app-weapon [weapons]="character.weapons" [charId]="character.id" (onDelete)="onWeaponDeleted($event)"></app-weapon>
+    <div class="row">
+        <div class="form-group  col-sm-2">
+            <label>Hit<br />Points</label>
+            <input #hitPoints="ngModel" name="hitPoints" class="form-control"
+                   [(ngModel)]="character.hitPoints" required />
+            <div *ngIf="hitPoints.invalid" class="text-danger">
+                Please enter Hit Points
             </div>
         </div>
-        <div class="row">
-            <div *ngIf="isRolemaster" class="form-group  col-sm-6">
-                <app-armor [armors]="character.armors" [charId]="character.id" (onDelete)="onArmorDeleted($event)"></app-armor>
+        <div *ngIf="isRolemaster" class="form-group  col-sm-2">
+            <label style="white-space: nowrap;">Power<br />Points</label>
+            <input #powerPoints="ngModel" name="powerPoints" class="form-control"
+                   [(ngModel)]="character.powerPoints" required />
+            <div *ngIf="powerPoints.invalid" class="text-danger">
+                Please enter Power Points
             </div>
-        </div>-->
+        </div>
+        <div *ngIf="isRolemaster" class="form-group  col-sm-2">
+            <label style="white-space: nowrap;">Exhaustion<br />Points</label>
+            <input #exhaustionPoints="ngModel" name="exhaustionPoints" class="form-control"
+                   [(ngModel)]="character.exhaustionPoints" required />
+            <div *ngIf="exhaustionPoints.invalid" class="text-danger">
+                Please enter Exhaustion Points
+            </div>
+        </div>
+        <div *ngIf="isRolemaster" class="form-group  col-sm-2">
+            <label>Percent Required<br />Adrenal DB</label>
+            <input #percentRequiredAdrenalDB="ngModel" name="percentRequiredAdrenalDB" class="form-control"
+                   [(ngModel)]="character.percentRequiredAdrenalDB" />
+        </div>
+    </div>-->
+                <!--<div class="row">
+        <div class="form-group  col-sm-6">
+            <app-weapon [weapons]="character.weapons" [charId]="character.id" (onDelete)="onWeaponDeleted($event)"></app-weapon>
+        </div>
+    </div>
+    <div class="row">
+        <div *ngIf="isRolemaster" class="form-group  col-sm-6">
+            <app-armor [armors]="character.armors" [charId]="character.id" (onDelete)="onArmorDeleted($event)"></app-armor>
+        </div>
+    </div>-->
                 <div class="text-center pt-2">
                     <button class="btn btn-outline-primary pull-left" (click)="closeEdit()">
                         Back
@@ -146,6 +207,6 @@
                     </button>
 
                 </div>
-        </form>
+</form>
     </fieldset>
 </div>

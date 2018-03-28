@@ -55,14 +55,14 @@ import { ServicesModule } from "./services/services.module";
         RepositoriesModule,
         ServicesModule,
         RouterModule.forRoot([
-            { path: '', redirectTo: 'home', pathMatch: 'full' },
+            { path: '', redirectTo: 'games', pathMatch: 'full' },
             { path: 'home', component: HomeComponent },
             { path: 'games', component: GameComponent },
             { path: 'character', component: CharacterComponent },
             { path: 'creature', component: CreatureComponent },
             { path: 'encounter/:id', component: EncounterComponent },
             { path: 'actor/:id', component: ActorComponent },
-            { path: '**', redirectTo: 'home' }
+            { path: '**', redirectTo: 'games' }
         ])
     ]
 })

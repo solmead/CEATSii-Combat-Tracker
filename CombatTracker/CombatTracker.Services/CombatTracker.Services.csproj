@@ -5,12 +5,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\Libraries\UtilityLibraries\UtilityLibraries\Utilities.Caching\Utilities.Caching.csproj" />
     <ProjectReference Include="..\CombatTracker.Entities\CombatTracker.Entities.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Models\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Utilities.Caching" Version="6.1.0" />
   </ItemGroup>
 
 </Project>
