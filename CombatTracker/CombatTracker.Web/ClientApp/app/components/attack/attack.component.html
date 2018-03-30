@@ -1,0 +1,26 @@
+﻿<div class="wrapper">
+    <div class="area">
+        <div class="list">
+            <p *ngIf="!attacks"><em>Loading...</em></p>
+            <div class="mainList">
+                <h3 style="display:block; margin-top:0;">
+                    <div style="float:right;">
+                        <button class="btn btn-primary btn-sm" (click)="newAttack()">
+                            <span class="glyphicon glyphicon-plus"></span> New
+                        </button>
+                    </div>
+                    Attacks
+                </h3>
+                <select class="form-control" name="selectedAttack" size="5" [(ngModel)]="selectedAttackId">
+                    <option *ngFor="let attack of attacks" value={{attack?.id}}>
+                        {{attack?.name}}
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="edit">
+            <!--(onSave)="onWeaponSaved($event)"-->
+            <app-attack-edit [attack]="selectedAttack" (onDelete)="onAttackDeleted($event)"></app-attack-edit>
+        </div>
+    </div>
+</div>

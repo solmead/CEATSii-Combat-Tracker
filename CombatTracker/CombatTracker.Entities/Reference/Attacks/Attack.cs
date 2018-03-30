@@ -65,6 +65,20 @@ namespace CombatTracker.Entities.Reference.Attacks
         public List<CriticalType> AdditionalCrits { get; set; }
 
 
+        public string Name
+        {
+            get
+            {
+                if (AttackType?.Name == "Weapon")
+                {
+                    return OB + " " + WeaponUsed?.Name;
+                } else
+                {
+                    return OB + " " + SizeRating?.Name + " " + AttackType?.Name;
+                }
+            }
+        }
+
         public void ModifyOB(int levelDiff)
         {
             OB = OB + levelDiff*5;

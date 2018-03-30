@@ -16,7 +16,7 @@
                 <div class="form-group col-sm-6">
                     <label>Description</label>
                     <textarea name="description" class="form-control"
-                           [(ngModel)]="creature.description" ></textarea>
+                              [(ngModel)]="creature.description"></textarea>
                 </div>
             </div>
 
@@ -115,7 +115,7 @@
                 </div>
 
                 <div class="form-group col-sm-3">
-                    <div  class="col-sm-6" >
+                    <div class="col-sm-6" style="padding:0;">
                         <label>Criticals</label>
                         <select class="form-control" name="selectedCritical" [(ngModel)]="creature.criticals_ID">
                             <option *ngFor="let item of referencesService.CriticalCodes" value={{item?.id}}>
@@ -124,7 +124,7 @@
                         </select>
                     </div>
 
-                    <div  class="col-sm-6" >
+                    <div class="col-sm-6" style="padding:0;">
                         <label>Criticals Ignored</label>
                         <select class="form-control" name="selectedCriticalIgnore" [(ngModel)]="creature.criticalsIgnore_ID">
                             <option *ngFor="let item of referencesService.CriticalIgnores" value={{item?.id}}>
@@ -135,21 +135,41 @@
                 </div>
 
 
-                    <div class="form-group col-sm-3">
-                        <div class="col-sm-6" >
-                            <label>AT</label>
-                            <input name="at" class="form-control"
-                                   [(ngModel)]="creature.at" required />
-                        </div>
-                        <div class="col-sm-6" >
-                            <label>DB</label>
-                            <input name="at" class="form-control"
-                                   [(ngModel)]="creature.db" required />
-                        </div>
+                <div class="form-group col-sm-3">
+                    <div class="col-sm-5" style="padding:0;">
+                        <label>AT</label>
+                        <input name="at" class="form-control"
+                               [(ngModel)]="creature.at" required />
+                    </div>
+                    <div class="col-sm-5" style="padding:0;">
+                        <label>DB</label>
+                        <input name="at" class="form-control"
+                               [(ngModel)]="creature.db" required />
                     </div>
                 </div>
+            </div>
 
-                <!--
+            <div class="row">
+                <div class="form-group col-sm-3">
+                    <label>Numbers Encountered</label>
+                    <div class="col-sm-6" style="padding:0;">
+                        <label>Min</label>
+                        <input name="baseMin" class="form-control"
+                               [(ngModel)]="creature.minEncountered" />
+                    </div>
+                    <div class="col-sm-6" style="padding:0;">
+                        <label>Max</label>
+                        <input name="baseMax" class="form-control"
+                               [(ngModel)]="creature.maxEncountered" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group  col-sm-12">
+                    <app-attack [attacks]="creature.attacks" [creatureId]="creature.id" (onDelete)="onAttackDeleted($event)"></app-attack>
+                </div>
+            </div>
+            <!--
     <div class="row">
         <div class="form-group  col-sm-2">
             <label>Hit<br />Points</label>
@@ -181,7 +201,7 @@
                    [(ngModel)]="character.percentRequiredAdrenalDB" />
         </div>
     </div>-->
-                <!--<div class="row">
+            <!--<div class="row">
         <div class="form-group  col-sm-6">
             <app-weapon [weapons]="character.weapons" [charId]="character.id" (onDelete)="onWeaponDeleted($event)"></app-weapon>
         </div>
@@ -191,22 +211,22 @@
             <app-armor [armors]="character.armors" [charId]="character.id" (onDelete)="onArmorDeleted($event)"></app-armor>
         </div>
     </div>-->
-                <div class="text-center pt-2">
-                    <button class="btn btn-outline-primary pull-left" (click)="closeEdit()">
-                        Back
-                    </button>
+            <div class="text-center pt-2">
+                <button class="btn btn-outline-primary pull-left" (click)="closeEdit()">
+                    Back
+                </button>
 
-                    <button class="btn btn-danger" [disabled]="charForm.invalid"
-                            (click)="saveCharacter()">
-                        Save
-                    </button>
+                <button class="btn btn-danger" [disabled]="charForm.invalid"
+                        (click)="saveCharacter()">
+                    Save
+                </button>
 
-                    <button *ngIf="hasCurrentGame" class="btn btn-primary pull-right"
-                            (click)="addToEncounter()">
-                        Add To Encounter
-                    </button>
+                <button *ngIf="hasCurrentGame" class="btn btn-primary pull-right"
+                        (click)="addToEncounter()">
+                    Add To Encounter
+                </button>
 
-                </div>
-</form>
+            </div>
+        </form>
     </fieldset>
 </div>

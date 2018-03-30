@@ -6,6 +6,7 @@ import { ReferencesService } from "../../services/References.service";
 import { Creature } from '../../entities/Creature';
 import { Armor } from '../../entities/Armor';
 import { Weapon } from '../../entities/Weapon';
+import { Attack } from '../../entities/Attack';
 import * as Enums from '../../entities/EnumDefinitions'
 import GameType = Enums.EnumDefinitions.GameType;
 
@@ -38,6 +39,12 @@ export class CreatureEditComponent {
         return (this.encounterService.currentGame != null);
     }
 
+    onAttackDeleted(attack: Attack) {
+        const index: number = this.creature.attacks.indexOf(attack);
+        if (index !== -1) {
+            this.creature.attacks.splice(index, 1);
+        }
+    }
 
 
     addToEncounter() {

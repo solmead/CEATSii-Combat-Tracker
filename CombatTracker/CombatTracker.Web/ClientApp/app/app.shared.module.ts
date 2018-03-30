@@ -15,6 +15,8 @@ import { CreatureComponent } from './components/creature/creature.component';
 import { CreatureEditComponent } from './components/creature/creature-edit.component';
 import { ArmorComponent } from './components/armor/armor.component';
 import { ArmorEditComponent } from './components/armor/armor-edit.component';
+import { AttackComponent } from './components/attack/attack.component';
+import { AttackEditComponent } from './components/attack/attack-edit.component';
 import { WeaponComponent } from './components/weapon/weapon.component';
 import { WeaponEditComponent } from './components/weapon/weapon-edit.component';
 import { ActorComponent } from './components/actor/actor.component';
@@ -46,7 +48,9 @@ import { ServicesModule } from "./services/services.module";
         ArmorEditComponent,
         WeaponComponent,
         WeaponEditComponent,
-        ModalComponent
+        ModalComponent,
+        AttackComponent,
+        AttackEditComponent
     ],
     imports: [
         CommonModule,

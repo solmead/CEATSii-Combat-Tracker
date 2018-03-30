@@ -1,0 +1,106 @@
+﻿<div *ngIf="attack" class="edit-area">
+    <fieldset>
+        <legend>Attack</legend>
+        <div class="row">
+            <div class="form-group col-sm-3" style="padding-right:0;">
+                <div class="col-sm-12" style="padding:0">
+                    <label>OB</label>
+                    <input name="attackOB" class="form-control"
+                           [(ngModel)]="attack.ob" />
+                </div>
+                <!--<div class="col-sm-12" style="padding:0">
+                    <label>Max</label>
+                    <input name="attackmaxOB" class="form-control"
+                           [(ngModel)]="attack.maxOB" />
+                </div>-->
+                <div class="col-sm-12" style="padding:0">
+                    <label>%</label>
+                    <input name="attackpercentChance" class="form-control"
+                           [(ngModel)]="attack.percentChance" />
+                </div>
+            </div>
+
+            <div class="form-group col-sm-4" style="padding:0;">
+                <label>Attack Type</label>
+                <select class="form-control" name="selectedAttackType" [(ngModel)]="attack.attackType_ID">
+                    <option *ngFor="let item of referencesService.AttackTypes" value={{item?.id}}>
+                        {{item?.name}}
+                    </option>
+                </select>
+            </div>
+            <div *ngIf="attack.attackType_ID!=12" class="form-group col-sm-4" style="padding:0;">
+                <label>Size</label>
+                <select class="form-control" name="selectedSize" [(ngModel)]="attack.sizeRating_ID">
+                    <option *ngFor="let item of referencesService.SizeRatings" value={{item?.id}}>
+                        {{item?.name}}
+                    </option>
+                </select>
+            </div>
+            <div *ngIf="attack.attackType_ID==12" class="form-group col-sm-4" style="padding:0;">
+                <label>Weapon Type</label>
+                <select class="form-control" name="selectedWeaponType" [(ngModel)]="weaponTypeId">
+                    <option *ngFor="let item of referencesService.WeaponTypes" value={{item?.id}}>
+                        {{item?.name}}
+                    </option>
+                </select>
+            </div>
+        </div>
+
+            <!--<form #weaponForm="ngForm" class="form-horizontal">-->
+            <!--<div class="form-group full-row">
+        <label for="type" class="control-label">Weapon Name</label>
+        <div class="control-area">
+            <input #name="ngModel" name="name" type="text" class="form-control"
+                   [(ngModel)]="weapon.name" required />
+            <div *ngIf="name.invalid" class="text-danger">
+                Please enter a name
+            </div>
+        </div>
+    </div>
+    <div class="form-group half-row" style=" ">
+        <label for="bonus" class="control-label">Bonus</label>
+        <div class="control-area control-area-number">
+            <input name="db" class="form-control"
+                   [(ngModel)]="weapon.bonus" />
+        </div>
+    </div>
+    <div class="form-group half-row" style="">
+        <label *ngIf="isRolemaster" for="ob" class="control-label">OB</label>
+        <label *ngIf="!isRolemaster" for="ob" class="control-label">ATK Bonus</label>
+        <div class="control-area control-area-number">
+            <input name="ob" class="form-control"
+                   [(ngModel)]="weapon.ob" />
+        </div>
+    </div>
+    <div></div>
+    <div class="form-group half-row" style="">
+        <label for="weight" class="control-label">Weight</label>
+        <div class="control-area control-area-number">
+            <input name="weight" class="form-control"
+                   [(ngModel)]="weapon.weight" />
+        </div>
+    </div>
+    <div class="form-group half-row" style="">
+        <label for="is2Handed" class="control-label" style="width: 100%;">
+            <input type="checkbox" name="is2Handed" class="form-control"
+                   [(ngModel)]="weapon.is2Handed" style="width: auto; display: inline-block;" />
+            Is 2 Handed
+        </label>
+    </div>-->
+            <div class="text-center pt-2">
+                <button class="btn btn-danger btn-sm pull-right"
+                        (click)="delete()">
+                    Remove
+                </button>
+            </div>
+            <!--<div class="text-center pt-2">
+
+        <button class="btn btn-danger btn-sm pull-right" [disabled]="weaponForm.invalid"
+                (click)="save()">
+            Save
+        </button>
+
+    </div>-->
+            <!--</form>-->
+</fieldset>
+</div>

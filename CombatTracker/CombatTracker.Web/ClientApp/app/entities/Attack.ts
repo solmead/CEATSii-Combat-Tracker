@@ -34,6 +34,7 @@ import CriticalLevels = Enums.EnumDefinitions.CriticalLevels;
         sizeRating: SizeRating;
         weaponUsed: Weapon;
         additionalCrits: CriticalType[];
+        name: string;
 
         constructor() {
         }

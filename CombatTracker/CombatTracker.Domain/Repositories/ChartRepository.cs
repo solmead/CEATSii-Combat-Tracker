@@ -318,7 +318,7 @@ namespace CombatTracker.Domain.Repositories
         {
             return Cache.GetItem<List<WeaponType>>(CacheArea.Global, "WeaponTypes", () =>
             {
-                return (from cbc in db.Attack_CriticalTypes
+                return (from cbc in db.Attack_WeaponTypes
                     select new WeaponType()
                     {
                         ID = cbc.ID,
