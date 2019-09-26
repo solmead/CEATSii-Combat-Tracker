@@ -15,6 +15,8 @@ namespace CombatTracker.Web.Factories
         public static IServiceCollection RegisterServices(
             this IServiceCollection services)
         {
+            
+
             services.AddTransient<ICombatRepository, CombatRepository>();
             services.AddTransient<ICharacterRepository, CharacterRepository>();
             services.AddTransient<IChartRepository, ChartRepository>();

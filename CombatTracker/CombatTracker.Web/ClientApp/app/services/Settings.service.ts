@@ -1,5 +1,6 @@
 ﻿import { Injectable } from '@angular/core';
-import { Observable, Subscriber } from "rxjs/Rx";
+import { Observable, Subscriber } from "rxjs";
+import { map, catchError } from "rxjs/operators";
 import { SettingsRepository } from '../repositories/Settings.repository';
 import { MySettings } from '../entities/MySettings';
 import * as Enums from '../entities/EnumDefinitions'

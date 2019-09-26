@@ -1,6 +1,7 @@
 ﻿import { Component } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import 'rxjs/add/operator/switchMap';
+import { Observable } from "rxjs";
+import { switchMap } from "rxjs/operators";
 import { EncounterService } from "../../services/Encounter.service";
 
 @Component({
@@ -19,13 +20,8 @@ export class ActorComponent {
     }
 
     ngOnInit() {
-
-        this.route.paramMap
-            .switchMap((params: ParamMap) => params.get('id'))
-            .subscribe((idS) => {
-                var id = parseInt(idS);
-                this.encounterService.selectActor(id);
-            });
+        const id = +this.route.snapshot.paramMap.get('id');
+        this.encounterService.selectActor(id);
 
     }
 }

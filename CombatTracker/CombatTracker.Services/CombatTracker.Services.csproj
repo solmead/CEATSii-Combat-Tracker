@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Utilities.Caching" Version="6.1.0" />
+    <PackageReference Include="Utilities.Caching" Version="6.4.0" />
   </ItemGroup>
 
 </Project>

@@ -1,5 +1,4 @@
 ﻿
-import { without, find } from 'lodash';
 
 export class ModalService {
     private modals: any[] = [];
@@ -11,19 +10,18 @@ export class ModalService {
 
     remove(id: string) {
         // remove modal from array of active modals
-        let modalToRemove = find(this.modals, { id: id });
-        this.modals = without(this.modals, modalToRemove);
+        this.modals = this.modals.filter(x => x.id == id);
     }
 
     open(id: string) {
         // open modal specified by id
-        let modal: any = find(this.modals, { id: id });
+        let modal: any = this.modals.find(x => x.id == id);
         modal.open();
     }
 
     close(id: string) {
         // close modal specified by id
-        let modal: any = find(this.modals, { id: id });
+        let modal: any = this.modals.find(x => x.id == id);
         modal.close();
     }
 }

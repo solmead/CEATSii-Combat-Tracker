@@ -13,6 +13,7 @@
     }
 
 
+
 	// Change ApiController to Service
     string ServiceName(Class c) => c.Name.Replace("Controller", "Repository");
     
@@ -41,20 +42,23 @@
     // Format the method based on the return type
     string MethodFormat(Method objMethod)
     {
-        if(objMethod.HttpMethod() == "get"){
-            return  $"<{objMethod.Type.Name}>(_Url)";
-        } 
+        try {
+            if(objMethod.HttpMethod() == "get"){
+                return  $"<{objMethod.Type.Name}>(_Url)";
+            } 
         
-        if(objMethod.HttpMethod() == "post"){
-            return  $"(_Url, {objMethod.Parameters[0].name})";
+            if(objMethod.HttpMethod() == "post"){
+                return  $"<{objMethod.Type.Name}>(_Url, {objMethod.Parameters.FirstOrDefault()?.name})";
+            }
+            if(objMethod.HttpMethod() == "put"){
+                return  $"<{objMethod.Type.Name}>(_Url, {objMethod.Parameters.FirstOrDefault()?.name})";
+            }
+            if(objMethod.HttpMethod() == "delete"){
+                return  $"<{objMethod.Type.Name}>(_Url)";
+            }
+        } catch (Exception ex) {
+            return $"(_Url, null \n // " + ex.ToString().Replace("\n"," ").Replace("\r"," ") + "\n)";
         }
-        if(objMethod.HttpMethod() == "put"){
-            return  $"(_Url, {objMethod.Parameters[1].name})";
-        }
-        if(objMethod.HttpMethod() == "delete"){
-            return  $"(_Url)";
-        }
-        
         return  $"";
     }
 
@@ -220,7 +224,15 @@
         return string.Join("\n", ImportsOutput.ToArray());
     }
 
+
+    string handleReturn(string ret) {
+        if (!ret.Contains("<")) {
+            return "<any>" + ret;
+        }
+        return ret;
+    }
 }
+
 ${
 //The do not modify block below is intended for the outputed typescript files... }
 //*************************DO NOT MODIFY**************************
@@ -231,11 +243,8 @@ ${
 //*************************DO NOT MODIFY**************************
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http'; 
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/do';
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/operator/map';
-import "rxjs/add/operator/toPromise";
+import {Observable} from "rxjs";
+import { map, catchError } from "rxjs/operators";
 $Classes(*Controller)[
     import * as Enums from '../entities/EnumDefinitions'
     $ImportsListMethods
@@ -265,7 +274,7 @@ export class $ServiceName {
 	public $name = ($Parameters[$name: $Type][, ]) : Observable<$ReturnType> => {
         var _Url = `$Url`;
             return this._httpClient.$HttpMethod$MethodFormat
-                .catch(this.handleError);
+                .pipe(catchError(this.handleError));
 	};
 
     ]
