@@ -8,7 +8,7 @@
 //
 //*************************DO NOT MODIFY**************************
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http'; 
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import {Observable} from "rxjs";
 import { map, catchError } from "rxjs/operators";
 
@@ -22,16 +22,16 @@ import { CriticalEffect } from '../entities/CriticalEffect';
 @Injectable()
 export class EncounterRepository {
 
-    constructor(private _httpClient: HttpClient) { }        
+    constructor(private _httpClient: HttpClient) { }
     
-    // get: api/Encounter/getCurrentGame   
+    // get: api/Encounter/getCurrentGame
 
 	//public getCurrentGame = (, callback: (data: Game)=>void) : void => {
 	//	this.getCurrentGameObserve().subscribe(response => callback(response));
 	//}
 
 	public getCurrentGameAsync = () : Promise<Game> => {
-        
+
         return new Promise<Game>((resolve, reject) => {
             this.getCurrentGame()
             .subscribe((res) => {
@@ -39,7 +39,7 @@ export class EncounterRepository {
                 });
 
         });
-	}  
+	}
 
 	public getCurrentGame = () : Observable<Game> => {
         var _Url = `api/Encounter/getCurrentGame`;
@@ -48,14 +48,14 @@ export class EncounterRepository {
 	};
 
     
-    // post: api/Encounter/setCurrentGame?gameId=${gameId}   
+    // post: api/Encounter/setCurrentGame?gameId=${gameId}
 
 	//public setCurrentGame = (gameId: number, callback: (data: Game)=>void) : void => {
 	//	this.setCurrentGameObserve(gameId).subscribe(response => callback(response));
 	//}
 
 	public setCurrentGameAsync = (gameId: number) : Promise<Game> => {
-        
+
         return new Promise<Game>((resolve, reject) => {
             this.setCurrentGame(gameId)
             .subscribe((res) => {
@@ -63,7 +63,7 @@ export class EncounterRepository {
                 });
 
         });
-	}  
+	}
 
 	public setCurrentGame = (gameId: number) : Observable<Game> => {
         var _Url = `api/Encounter/setCurrentGame?gameId=${gameId}`;
@@ -72,14 +72,14 @@ export class EncounterRepository {
 	};
 
     
-    // post: api/Encounter/createActorFromCreature?creatureId=${creatureId}   
+    // post: api/Encounter/createActorFromCreature?creatureId=${creatureId}
 
 	//public createActorFromCreature = (creatureId: number, callback: (data: Actor)=>void) : void => {
 	//	this.createActorFromCreatureObserve(creatureId).subscribe(response => callback(response));
 	//}
 
 	public createActorFromCreatureAsync = (creatureId: number) : Promise<Actor> => {
-        
+
         return new Promise<Actor>((resolve, reject) => {
             this.createActorFromCreature(creatureId)
             .subscribe((res) => {
@@ -87,7 +87,7 @@ export class EncounterRepository {
                 });
 
         });
-	}  
+	}
 
 	public createActorFromCreature = (creatureId: number) : Observable<Actor> => {
         var _Url = `api/Encounter/createActorFromCreature?creatureId=${creatureId}`;
@@ -96,14 +96,14 @@ export class EncounterRepository {
 	};
 
     
-    // post: api/Encounter/createActorFromCharacter?characterId=${characterId}&rolledInit=${rolledInit}   
+    // post: api/Encounter/createActorFromCharacter?characterId=${characterId}&rolledInit=${rolledInit}
 
 	//public createActorFromCharacter = (characterId: number, rolledInit: number, callback: (data: Actor)=>void) : void => {
 	//	this.createActorFromCharacterObserve(characterId, rolledInit).subscribe(response => callback(response));
 	//}
 
 	public createActorFromCharacterAsync = (characterId: number, rolledInit: number) : Promise<Actor> => {
-        
+
         return new Promise<Actor>((resolve, reject) => {
             this.createActorFromCharacter(characterId, rolledInit)
             .subscribe((res) => {
@@ -111,7 +111,7 @@ export class EncounterRepository {
                 });
 
         });
-	}  
+	}
 
 	public createActorFromCharacter = (characterId: number, rolledInit: number) : Observable<Actor> => {
         var _Url = `api/Encounter/createActorFromCharacter?characterId=${characterId}&rolledInit=${rolledInit}`;
@@ -120,14 +120,14 @@ export class EncounterRepository {
 	};
 
     
-    // post: api/Encounter/moveToNext?none=${none}   
+    // post: api/Encounter/moveToNext?none=${none}
 
 	//public moveToNext = (none: boolean, callback: (data: MoveNextResult)=>void) : void => {
 	//	this.moveToNextObserve(none).subscribe(response => callback(response));
 	//}
 
 	public moveToNextAsync = (none: boolean) : Promise<MoveNextResult> => {
-        
+
         return new Promise<MoveNextResult>((resolve, reject) => {
             this.moveToNext(none)
             .subscribe((res) => {
@@ -135,7 +135,7 @@ export class EncounterRepository {
                 });
 
         });
-	}  
+	}
 
 	public moveToNext = (none: boolean) : Observable<MoveNextResult> => {
         var _Url = `api/Encounter/moveToNext?none=${none}`;
@@ -144,14 +144,14 @@ export class EncounterRepository {
 	};
 
     
-    // post: api/Encounter/proposeActionUnconscious?actorId=${actorId}   
+    // post: api/Encounter/proposeActionUnconscious?actorId=${actorId}
 
 	//public proposeActionUnconscious = (actorId: number, callback: (data: BaseAction)=>void) : void => {
 	//	this.proposeActionUnconsciousObserve(actorId).subscribe(response => callback(response));
 	//}
 
 	public proposeActionUnconsciousAsync = (actorId: number) : Promise<BaseAction> => {
-        
+
         return new Promise<BaseAction>((resolve, reject) => {
             this.proposeActionUnconscious(actorId)
             .subscribe((res) => {
@@ -159,7 +159,7 @@ export class EncounterRepository {
                 });
 
         });
-	}  
+	}
 
 	public proposeActionUnconscious = (actorId: number) : Observable<BaseAction> => {
         var _Url = `api/Encounter/proposeActionUnconscious?actorId=${actorId}`;
@@ -168,14 +168,14 @@ export class EncounterRepository {
 	};
 
     
-    // post: api/Encounter/proposeAction?actionDefId=${actionDefId}&whomId=${whomId}&modifier=${modifier}&attackId=${attackId}   
+    // post: api/Encounter/proposeAction?actionDefId=${actionDefId}&whomId=${whomId}&modifier=${modifier}&attackId=${attackId}
 
 	//public proposeAction = (actionDefId: number, whomId: number, modifier: number, attackId: number, callback: (data: BaseAction)=>void) : void => {
 	//	this.proposeActionObserve(actionDefId, whomId, modifier, attackId).subscribe(response => callback(response));
 	//}
 
 	public proposeActionAsync = (actionDefId: number, whomId: number, modifier: number, attackId: number) : Promise<BaseAction> => {
-        
+
         return new Promise<BaseAction>((resolve, reject) => {
             this.proposeAction(actionDefId, whomId, modifier, attackId)
             .subscribe((res) => {
@@ -183,7 +183,7 @@ export class EncounterRepository {
                 });
 
         });
-	}  
+	}
 
 	public proposeAction = (actionDefId: number, whomId: number, modifier: number, attackId: number) : Observable<BaseAction> => {
         var _Url = `api/Encounter/proposeAction?actionDefId=${actionDefId}&whomId=${whomId}&modifier=${modifier}&attackId=${attackId}`;
@@ -192,14 +192,14 @@ export class EncounterRepository {
 	};
 
     
-    // post: api/Encounter/proposeActionContinue?previousActionId=${previousActionId}&whomId=${whomId}   
+    // post: api/Encounter/proposeActionContinue?previousActionId=${previousActionId}&whomId=${whomId}
 
 	//public proposeActionContinue = (previousActionId: number, whomId: number, callback: (data: BaseAction)=>void) : void => {
 	//	this.proposeActionContinueObserve(previousActionId, whomId).subscribe(response => callback(response));
 	//}
 
 	public proposeActionContinueAsync = (previousActionId: number, whomId: number) : Promise<BaseAction> => {
-        
+
         return new Promise<BaseAction>((resolve, reject) => {
             this.proposeActionContinue(previousActionId, whomId)
             .subscribe((res) => {
@@ -207,7 +207,7 @@ export class EncounterRepository {
                 });
 
         });
-	}  
+	}
 
 	public proposeActionContinue = (previousActionId: number, whomId: number) : Observable<BaseAction> => {
         var _Url = `api/Encounter/proposeActionContinue?previousActionId=${previousActionId}&whomId=${whomId}`;
@@ -216,14 +216,14 @@ export class EncounterRepository {
 	};
 
     
-    // post: api/Encounter/addBleedEffect?whomId=${whomId}&bleedRate=${bleedRate}   
+    // post: api/Encounter/addBleedEffect?whomId=${whomId}&bleedRate=${bleedRate}
 
 	//public addBleedEffect = (whomId: number, bleedRate: number, callback: (data: BaseAction)=>void) : void => {
 	//	this.addBleedEffectObserve(whomId, bleedRate).subscribe(response => callback(response));
 	//}
 
 	public addBleedEffectAsync = (whomId: number, bleedRate: number) : Promise<BaseAction> => {
-        
+
         return new Promise<BaseAction>((resolve, reject) => {
             this.addBleedEffect(whomId, bleedRate)
             .subscribe((res) => {
@@ -231,7 +231,7 @@ export class EncounterRepository {
                 });
 
         });
-	}  
+	}
 
 	public addBleedEffect = (whomId: number, bleedRate: number) : Observable<BaseAction> => {
         var _Url = `api/Encounter/addBleedEffect?whomId=${whomId}&bleedRate=${bleedRate}`;
@@ -240,14 +240,14 @@ export class EncounterRepository {
 	};
 
     
-    // post: api/Encounter/addCriticalEffect?whomId=${whomId}&rounds=${rounds}   
+    // post: api/Encounter/addCriticalEffect?whomId=${whomId}&rounds=${rounds}
 
 	//public addCriticalEffect = (whomId: number, crit: CriticalEffect, rounds: number, callback: (data: BaseAction)=>void) : void => {
 	//	this.addCriticalEffectObserve(whomId, crit, rounds).subscribe(response => callback(response));
 	//}
 
 	public addCriticalEffectAsync = (whomId: number, crit: CriticalEffect, rounds: number) : Promise<BaseAction> => {
-        
+
         return new Promise<BaseAction>((resolve, reject) => {
             this.addCriticalEffect(whomId, crit, rounds)
             .subscribe((res) => {
@@ -255,7 +255,7 @@ export class EncounterRepository {
                 });
 
         });
-	}  
+	}
 
 	public addCriticalEffect = (whomId: number, crit: CriticalEffect, rounds: number) : Observable<BaseAction> => {
         var _Url = `api/Encounter/addCriticalEffect?whomId=${whomId}&rounds=${rounds}`;
@@ -264,14 +264,14 @@ export class EncounterRepository {
 	};
 
     
-    // post: api/Encounter/addPsychicEffect?whomId=${whomId}&psychicLevel=${psychicLevel}   
+    // post: api/Encounter/addPsychicEffect?whomId=${whomId}&psychicLevel=${psychicLevel}
 
 	//public addPsychicEffect = (whomId: number, psychicLevel: number, callback: (data: BaseAction)=>void) : void => {
 	//	this.addPsychicEffectObserve(whomId, psychicLevel).subscribe(response => callback(response));
 	//}
 
 	public addPsychicEffectAsync = (whomId: number, psychicLevel: number) : Promise<BaseAction> => {
-        
+
         return new Promise<BaseAction>((resolve, reject) => {
             this.addPsychicEffect(whomId, psychicLevel)
             .subscribe((res) => {
@@ -279,7 +279,7 @@ export class EncounterRepository {
                 });
 
         });
-	}  
+	}
 
 	public addPsychicEffect = (whomId: number, psychicLevel: number) : Observable<BaseAction> => {
         var _Url = `api/Encounter/addPsychicEffect?whomId=${whomId}&psychicLevel=${psychicLevel}`;
@@ -288,14 +288,14 @@ export class EncounterRepository {
 	};
 
     
-    // post: api/Encounter/addSpellEffect?effectedActorId=${effectedActorId}&casterId=${casterId}&spellName=${encodeURIComponent(spellName)}&rounds=${rounds}&hastePercent=${hastePercent}   
+    // post: api/Encounter/addSpellEffect?effectedActorId=${effectedActorId}&casterId=${casterId}&spellName=${encodeURIComponent(spellName)}&rounds=${rounds}&hastePercent=${hastePercent}
 
 	//public addSpellEffect = (effectedActorId: number, casterId: number, spellName: string, rounds: number, hastePercent: number, callback: (data: BaseAction)=>void) : void => {
 	//	this.addSpellEffectObserve(effectedActorId, casterId, spellName, rounds, hastePercent).subscribe(response => callback(response));
 	//}
 
 	public addSpellEffectAsync = (effectedActorId: number, casterId: number, spellName: string, rounds: number, hastePercent: number) : Promise<BaseAction> => {
-        
+
         return new Promise<BaseAction>((resolve, reject) => {
             this.addSpellEffect(effectedActorId, casterId, spellName, rounds, hastePercent)
             .subscribe((res) => {
@@ -303,7 +303,7 @@ export class EncounterRepository {
                 });
 
         });
-	}  
+	}
 
 	public addSpellEffect = (effectedActorId: number, casterId: number, spellName: string, rounds: number, hastePercent: number) : Observable<BaseAction> => {
         var _Url = `api/Encounter/addSpellEffect?effectedActorId=${effectedActorId}&casterId=${casterId}&spellName=${encodeURIComponent(spellName)}&rounds=${rounds}&hastePercent=${hastePercent}`;
@@ -312,14 +312,14 @@ export class EncounterRepository {
 	};
 
     
-    // post: api/Encounter/removeEffect?actionId=${actionId}   
+    // post: api/Encounter/removeEffect?actionId=${actionId}
 
 	//public removeEffect = (actionId: number, callback: (data: void)=>void) : void => {
 	//	this.removeEffectObserve(actionId).subscribe(response => callback(response));
 	//}
 
 	public removeEffectAsync = (actionId: number) : Promise<void> => {
-        
+
         return new Promise<void>((resolve, reject) => {
             this.removeEffect(actionId)
             .subscribe((res) => {
@@ -327,7 +327,7 @@ export class EncounterRepository {
                 });
 
         });
-	}  
+	}
 
 	public removeEffect = (actionId: number) : Observable<void> => {
         var _Url = `api/Encounter/removeEffect?actionId=${actionId}`;
@@ -336,14 +336,14 @@ export class EncounterRepository {
 	};
 
     
-    // post: api/Encounter/removeCriticalsFromActor?whomId=${whomId}&count=${count}   
+    // post: api/Encounter/removeCriticalsFromActor?whomId=${whomId}&count=${count}
 
 	//public removeCriticalsFromActor = (whomId: number, count: number, callback: (data: void)=>void) : void => {
 	//	this.removeCriticalsFromActorObserve(whomId, count).subscribe(response => callback(response));
 	//}
 
 	public removeCriticalsFromActorAsync = (whomId: number, count: number) : Promise<void> => {
-        
+
         return new Promise<void>((resolve, reject) => {
             this.removeCriticalsFromActor(whomId, count)
             .subscribe((res) => {
@@ -351,7 +351,7 @@ export class EncounterRepository {
                 });
 
         });
-	}  
+	}
 
 	public removeCriticalsFromActor = (whomId: number, count: number) : Observable<void> => {
         var _Url = `api/Encounter/removeCriticalsFromActor?whomId=${whomId}&count=${count}`;
@@ -360,14 +360,14 @@ export class EncounterRepository {
 	};
 
     
-    // post: api/Encounter/doProposedAction?whomId=${whomId}   
+    // post: api/Encounter/doProposedAction?whomId=${whomId}
 
 	//public doProposedAction = (whomId: number, callback: (data: void)=>void) : void => {
 	//	this.doProposedActionObserve(whomId).subscribe(response => callback(response));
 	//}
 
 	public doProposedActionAsync = (whomId: number) : Promise<void> => {
-        
+
         return new Promise<void>((resolve, reject) => {
             this.doProposedAction(whomId)
             .subscribe((res) => {
@@ -375,7 +375,7 @@ export class EncounterRepository {
                 });
 
         });
-	}  
+	}
 
 	public doProposedAction = (whomId: number) : Observable<void> => {
         var _Url = `api/Encounter/doProposedAction?whomId=${whomId}`;
@@ -384,14 +384,14 @@ export class EncounterRepository {
 	};
 
     
-    // post: api/Encounter/setModifierOnAction?actionId=${actionId}&modifier=${modifier}   
+    // post: api/Encounter/setModifierOnAction?actionId=${actionId}&modifier=${modifier}
 
 	//public setModifierOnAction = (actionId: number, modifier: number, callback: (data: void)=>void) : void => {
 	//	this.setModifierOnActionObserve(actionId, modifier).subscribe(response => callback(response));
 	//}
 
 	public setModifierOnActionAsync = (actionId: number, modifier: number) : Promise<void> => {
-        
+
         return new Promise<void>((resolve, reject) => {
             this.setModifierOnAction(actionId, modifier)
             .subscribe((res) => {
@@ -399,7 +399,7 @@ export class EncounterRepository {
                 });
 
         });
-	}  
+	}
 
 	public setModifierOnAction = (actionId: number, modifier: number) : Observable<void> => {
         var _Url = `api/Encounter/setModifierOnAction?actionId=${actionId}&modifier=${modifier}`;
@@ -408,14 +408,14 @@ export class EncounterRepository {
 	};
 
     
-    // post: api/Encounter/setAttackOnAction?actionId=${actionId}&attackId=${attackId}   
+    // post: api/Encounter/setAttackOnAction?actionId=${actionId}&attackId=${attackId}
 
 	//public setAttackOnAction = (actionId: number, attackId: number, callback: (data: void)=>void) : void => {
 	//	this.setAttackOnActionObserve(actionId, attackId).subscribe(response => callback(response));
 	//}
 
 	public setAttackOnActionAsync = (actionId: number, attackId: number) : Promise<void> => {
-        
+
         return new Promise<void>((resolve, reject) => {
             this.setAttackOnAction(actionId, attackId)
             .subscribe((res) => {
@@ -423,7 +423,7 @@ export class EncounterRepository {
                 });
 
         });
-	}  
+	}
 
 	public setAttackOnAction = (actionId: number, attackId: number) : Observable<void> => {
         var _Url = `api/Encounter/setAttackOnAction?actionId=${actionId}&attackId=${attackId}`;
@@ -444,4 +444,4 @@ export class EncounterRepository {
 }
 
 
-	
+

@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './components/app/app.component';
+
+
 import { NavMenuComponent } from './components/navmenu/navmenu.component';
 import { HomeComponent } from './components/home/home.component';
 import { GameComponent } from './components/game/game.component';
@@ -22,11 +25,26 @@ import { WeaponEditComponent } from './components/weapon/weapon-edit.component';
 import { ActorComponent } from './components/actor/actor.component';
 import { EncounterComponent } from './components/encounter/encounter.component';
 import { ModalComponent } from './elements/modal/modal.component';
+
+
 import { ModalService } from './elements/modal/modal.service';
-
-
 import { RepositoriesModule } from './repositories/repositories.module';
 import { ServicesModule } from "./services/services.module";
+
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+
+const appRoutes: Routes = [
+            { path: '', redirectTo: 'games', pathMatch: 'full' },
+            { path: 'home', component: HomeComponent },
+            { path: 'games', component: GameComponent },
+            { path: 'character', component: CharacterComponent },
+            { path: 'creature', component: CreatureComponent },
+            { path: 'encounter/:id', component: EncounterComponent },
+            { path: 'actor/:id', component: ActorComponent },
+            { path: '**', redirectTo: 'games' }
+];
+
 
 @NgModule({
     providers: [
@@ -53,21 +71,17 @@ import { ServicesModule } from "./services/services.module";
         AttackEditComponent
     ],
     imports: [
+        NgbModule,
         CommonModule,
         HttpClientModule,
         FormsModule,
         RepositoriesModule,
         ServicesModule,
-        RouterModule.forRoot([
-            { path: '', redirectTo: 'games', pathMatch: 'full' },
-            { path: 'home', component: HomeComponent },
-            { path: 'games', component: GameComponent },
-            { path: 'character', component: CharacterComponent },
-            { path: 'creature', component: CreatureComponent },
-            { path: 'encounter/:id', component: EncounterComponent },
-            { path: 'actor/:id', component: ActorComponent },
-            { path: '**', redirectTo: 'games' }
-        ])
+        BrowserModule,
+        RouterModule.forRoot(
+            appRoutes,
+            { enableTracing: true } // <-- debugging purposes only
+        )
     ]
 })
 export class AppModuleShared {

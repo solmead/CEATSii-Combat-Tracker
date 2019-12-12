@@ -1,17 +1,25 @@
-﻿import { Component, ElementRef, Input, OnInit, OnDestroy } from '@angular/core';
+﻿import { Component, ElementRef, Input, OnInit, OnDestroy, Output, EventEmitter } from '@angular/core';
 import * as $ from 'jquery';
 import { ModalService } from './modal.service';
 
 @Component({
-    moduleId: module.id.toString(),
     selector: 'modal',
-    template: '<ng-content></ng-content>'
+    templateUrl: './modal.component.html',
+    styleUrls: ['./modal.component.css']
 })
 
 export class ModalComponent implements OnInit, OnDestroy {
     @Input() id: string;
+    @Input() title: string;
+    @Input() width: string;
+
+    @Output() openEvent = new EventEmitter();
+    @Output() closedEvent = new EventEmitter();
+
     private element: JQuery;
     //private dialog: JQuery;
+
+    
 
     constructor(private modalService: ModalService, private el: ElementRef) {
         this.element = $(el.nativeElement);
@@ -25,30 +33,8 @@ export class ModalComponent implements OnInit, OnDestroy {
             console.error('modal must have an id');
             return;
         }
-
-        //this.dialog = this.element.dialog({
-        //    autoOpen: false,
-        //    height: 400,
-        //    width: 350,
-        //    modal: true,
-        //    close: function () {
-
-        //    }
-        //});
-
-
-        // move element to bottom of page (just before </body>) so it can be displayed above everything else
+        
         this.element.appendTo('body');
-
-        // close modal on background click
-        this.element.on('click', function (e: any) {
-            var target = $(e.target);
-            if (!target.closest('.modal-body').length) {
-                modal.close();
-            }
-        });
-
-        // add self (this modal instance) to the modal service so it's accessible from controllers
         this.modalService.add(this);
     }
 
@@ -62,7 +48,9 @@ export class ModalComponent implements OnInit, OnDestroy {
     open(): void {
         //this.dialog.dialog("open");
         this.element.show();
+        this.element.children().show();
         $('body').addClass('modal-open');
+        this.openEvent.emit();
     }
 
     // close modal
@@ -70,5 +58,7 @@ export class ModalComponent implements OnInit, OnDestroy {
         //this.dialog.dialog("close");
         this.element.hide();
         $('body').removeClass('modal-open');
+        this.closedEvent.emit();
     }
+    
 }

@@ -1,1 +1,16 @@
-﻿<div style="border: 1px solid red">Modal Component</div>
+﻿<div class="modal">
+    <div class="modal-content" [style.width]="width">
+        <div class="modal-header">
+            <h3 style="display: inline-block; margin-right: 60px;"><span [innerHTML]="title"></span></h3>
+            <div style="float: right;">
+                <button class="btn btn-default" (click)="close();" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove-sign"></span> Close</button></div>
+        </div>
+        <div class="modal-body">
+            <ng-content></ng-content>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-default" (click)="close();" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove-sign"></span> Close</button>
+        </div>
+    </div>
+    <div class="modal-background"></div>
+</div>

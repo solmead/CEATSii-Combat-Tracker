@@ -8,7 +8,7 @@
 //
 //*************************DO NOT MODIFY**************************
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http'; 
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import {Observable} from "rxjs";
 import { map, catchError } from "rxjs/operators";
 
@@ -18,16 +18,16 @@ import { map, catchError } from "rxjs/operators";
 @Injectable()
 export class SampleDataRepository {
 
-    constructor(private _httpClient: HttpClient) { }        
+    constructor(private _httpClient: HttpClient) { }
     
-    // get: api/SampleData/weatherForecasts   
+    // get: api/SampleData/weatherForecasts
 
 	//public weatherForecasts = (, callback: (data: WeatherForecast[])=>void) : void => {
 	//	this.weatherForecastsObserve().subscribe(response => callback(response));
 	//}
 
 	public weatherForecastsAsync = () : Promise<WeatherForecast[]> => {
-        
+
         return new Promise<WeatherForecast[]>((resolve, reject) => {
             this.weatherForecasts()
             .subscribe((res) => {
@@ -35,7 +35,7 @@ export class SampleDataRepository {
                 });
 
         });
-	}  
+	}
 
 	public weatherForecasts = () : Observable<WeatherForecast[]> => {
         var _Url = `api/SampleData/weatherForecasts`;
@@ -56,4 +56,4 @@ export class SampleDataRepository {
 }
 
 
-	
+

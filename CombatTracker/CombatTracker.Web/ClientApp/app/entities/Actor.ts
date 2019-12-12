@@ -51,3 +51,5 @@ import CharacterType = Enums.EnumDefinitions.CharacterType;
         constructor() {
         }
     }
+
+

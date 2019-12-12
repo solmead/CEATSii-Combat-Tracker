@@ -8,7 +8,7 @@
 //
 //*************************DO NOT MODIFY**************************
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http'; 
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import {Observable} from "rxjs";
 import { map, catchError } from "rxjs/operators";
 
@@ -18,16 +18,16 @@ import { map, catchError } from "rxjs/operators";
 @Injectable()
 export class ActorsRepository {
 
-    constructor(private _httpClient: HttpClient) { }        
+    constructor(private _httpClient: HttpClient) { }
     
-    // get: api/Actors/getActors?gameId=${gameId}   
+    // get: api/Actors/getActors?gameId=${gameId}
 
 	//public getActors = (gameId: number, callback: (data: Actor[])=>void) : void => {
 	//	this.getActorsObserve(gameId).subscribe(response => callback(response));
 	//}
 
 	public getActorsAsync = (gameId: number) : Promise<Actor[]> => {
-        
+
         return new Promise<Actor[]>((resolve, reject) => {
             this.getActors(gameId)
             .subscribe((res) => {
@@ -35,7 +35,7 @@ export class ActorsRepository {
                 });
 
         });
-	}  
+	}
 
 	public getActors = (gameId: number) : Observable<Actor[]> => {
         var _Url = `api/Actors/getActors?gameId=${gameId}`;
@@ -44,14 +44,14 @@ export class ActorsRepository {
 	};
 
     
-    // get: api/Actors/getActor?id=${id}   
+    // get: api/Actors/getActor?id=${id}
 
 	//public getActor = (id: number, callback: (data: Actor)=>void) : void => {
 	//	this.getActorObserve(id).subscribe(response => callback(response));
 	//}
 
 	public getActorAsync = (id: number) : Promise<Actor> => {
-        
+
         return new Promise<Actor>((resolve, reject) => {
             this.getActor(id)
             .subscribe((res) => {
@@ -59,7 +59,7 @@ export class ActorsRepository {
                 });
 
         });
-	}  
+	}
 
 	public getActor = (id: number) : Observable<Actor> => {
         var _Url = `api/Actors/getActor?id=${id}`;
@@ -68,14 +68,14 @@ export class ActorsRepository {
 	};
 
     
-    // post: api/Actors/saveActor   
+    // post: api/Actors/saveActor
 
 	//public saveActor = (actor: Actor, callback: (data: Actor)=>void) : void => {
 	//	this.saveActorObserve(actor).subscribe(response => callback(response));
 	//}
 
 	public saveActorAsync = (actor: Actor) : Promise<Actor> => {
-        
+
         return new Promise<Actor>((resolve, reject) => {
             this.saveActor(actor)
             .subscribe((res) => {
@@ -83,7 +83,7 @@ export class ActorsRepository {
                 });
 
         });
-	}  
+	}
 
 	public saveActor = (actor: Actor) : Observable<Actor> => {
         var _Url = `api/Actors/saveActor`;
@@ -92,14 +92,14 @@ export class ActorsRepository {
 	};
 
     
-    // delete: api/Actors/deleteActor?id=${id}   
+    // delete: api/Actors/deleteActor?id=${id}
 
 	//public deleteActor = (id: number, callback: (data: void)=>void) : void => {
 	//	this.deleteActorObserve(id).subscribe(response => callback(response));
 	//}
 
 	public deleteActorAsync = (id: number) : Promise<void> => {
-        
+
         return new Promise<void>((resolve, reject) => {
             this.deleteActor(id)
             .subscribe((res) => {
@@ -107,7 +107,7 @@ export class ActorsRepository {
                 });
 
         });
-	}  
+	}
 
 	public deleteActor = (id: number) : Observable<void> => {
         var _Url = `api/Actors/deleteActor?id=${id}`;
@@ -128,4 +128,4 @@ export class ActorsRepository {
 }
 
 
-	
+

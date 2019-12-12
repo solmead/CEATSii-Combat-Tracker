@@ -8,27 +8,27 @@
 //
 //*************************DO NOT MODIFY**************************
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http'; 
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import {Observable} from "rxjs";
 import { map, catchError } from "rxjs/operators";
 
     import * as Enums from '../entities/EnumDefinitions'
     import { Character } from '../entities/Character';
-import { GameType } from '../entities/GameType';
+import GameType = Enums.EnumDefinitions.GameType;
 
 @Injectable()
 export class CharactersRepository {
 
-    constructor(private _httpClient: HttpClient) { }        
+    constructor(private _httpClient: HttpClient) { }
     
-    // get: api/Characters/getCharacters   
+    // get: api/Characters/getCharacters?gameType=${gameType}
 
 	//public getCharacters = (gameType: GameType, callback: (data: Character[])=>void) : void => {
 	//	this.getCharactersObserve(gameType).subscribe(response => callback(response));
 	//}
 
 	public getCharactersAsync = (gameType: GameType) : Promise<Character[]> => {
-        
+
         return new Promise<Character[]>((resolve, reject) => {
             this.getCharacters(gameType)
             .subscribe((res) => {
@@ -36,23 +36,23 @@ export class CharactersRepository {
                 });
 
         });
-	}  
+	}
 
 	public getCharacters = (gameType: GameType) : Observable<Character[]> => {
-        var _Url = `api/Characters/getCharacters`;
+        var _Url = `api/Characters/getCharacters?gameType=${gameType}`;
             return this._httpClient.get<Character[]>(_Url)
                 .pipe(catchError(this.handleError));
 	};
 
     
-    // get: api/Characters/getCharacter?id=${id}   
+    // get: api/Characters/getCharacter?id=${id}
 
 	//public getCharacter = (id: number, callback: (data: Character)=>void) : void => {
 	//	this.getCharacterObserve(id).subscribe(response => callback(response));
 	//}
 
 	public getCharacterAsync = (id: number) : Promise<Character> => {
-        
+
         return new Promise<Character>((resolve, reject) => {
             this.getCharacter(id)
             .subscribe((res) => {
@@ -60,7 +60,7 @@ export class CharactersRepository {
                 });
 
         });
-	}  
+	}
 
 	public getCharacter = (id: number) : Observable<Character> => {
         var _Url = `api/Characters/getCharacter?id=${id}`;
@@ -69,14 +69,14 @@ export class CharactersRepository {
 	};
 
     
-    // post: api/Characters/saveCharacter   
+    // post: api/Characters/saveCharacter
 
 	//public saveCharacter = (character: Character, callback: (data: Character)=>void) : void => {
 	//	this.saveCharacterObserve(character).subscribe(response => callback(response));
 	//}
 
 	public saveCharacterAsync = (character: Character) : Promise<Character> => {
-        
+
         return new Promise<Character>((resolve, reject) => {
             this.saveCharacter(character)
             .subscribe((res) => {
@@ -84,7 +84,7 @@ export class CharactersRepository {
                 });
 
         });
-	}  
+	}
 
 	public saveCharacter = (character: Character) : Observable<Character> => {
         var _Url = `api/Characters/saveCharacter`;
@@ -93,14 +93,14 @@ export class CharactersRepository {
 	};
 
     
-    // delete: api/Characters/deleteCharacter?id=${id}   
+    // delete: api/Characters/deleteCharacter?id=${id}
 
 	//public deleteCharacter = (id: number, callback: (data: void)=>void) : void => {
 	//	this.deleteCharacterObserve(id).subscribe(response => callback(response));
 	//}
 
 	public deleteCharacterAsync = (id: number) : Promise<void> => {
-        
+
         return new Promise<void>((resolve, reject) => {
             this.deleteCharacter(id)
             .subscribe((res) => {
@@ -108,7 +108,7 @@ export class CharactersRepository {
                 });
 
         });
-	}  
+	}
 
 	public deleteCharacter = (id: number) : Observable<void> => {
         var _Url = `api/Characters/deleteCharacter?id=${id}`;
@@ -129,4 +129,4 @@ export class CharactersRepository {
 }
 
 
-	
+

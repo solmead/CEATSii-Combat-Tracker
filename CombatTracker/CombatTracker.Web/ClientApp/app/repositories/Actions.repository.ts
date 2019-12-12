@@ -8,7 +8,7 @@
 //
 //*************************DO NOT MODIFY**************************
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http'; 
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import {Observable} from "rxjs";
 import { map, catchError } from "rxjs/operators";
 
@@ -18,16 +18,16 @@ import { map, catchError } from "rxjs/operators";
 @Injectable()
 export class ActionsRepository {
 
-    constructor(private _httpClient: HttpClient) { }        
+    constructor(private _httpClient: HttpClient) { }
     
-    // get: api/Actions/getActionsOnActor?actorId=${actorId}   
+    // get: api/Actions/getActionsOnActor?actorId=${actorId}
 
 	//public getActionsOnActor = (actorId: number, callback: (data: BaseAction[])=>void) : void => {
 	//	this.getActionsOnActorObserve(actorId).subscribe(response => callback(response));
 	//}
 
 	public getActionsOnActorAsync = (actorId: number) : Promise<BaseAction[]> => {
-        
+
         return new Promise<BaseAction[]>((resolve, reject) => {
             this.getActionsOnActor(actorId)
             .subscribe((res) => {
@@ -35,7 +35,7 @@ export class ActionsRepository {
                 });
 
         });
-	}  
+	}
 
 	public getActionsOnActor = (actorId: number) : Observable<BaseAction[]> => {
         var _Url = `api/Actions/getActionsOnActor?actorId=${actorId}`;
@@ -44,14 +44,14 @@ export class ActionsRepository {
 	};
 
     
-    // get: api/Actions/getActionsInGame?gameId=${gameId}   
+    // get: api/Actions/getActionsInGame?gameId=${gameId}
 
 	//public getActionsInGame = (gameId: number, callback: (data: BaseAction[])=>void) : void => {
 	//	this.getActionsInGameObserve(gameId).subscribe(response => callback(response));
 	//}
 
 	public getActionsInGameAsync = (gameId: number) : Promise<BaseAction[]> => {
-        
+
         return new Promise<BaseAction[]>((resolve, reject) => {
             this.getActionsInGame(gameId)
             .subscribe((res) => {
@@ -59,7 +59,7 @@ export class ActionsRepository {
                 });
 
         });
-	}  
+	}
 
 	public getActionsInGame = (gameId: number) : Observable<BaseAction[]> => {
         var _Url = `api/Actions/getActionsInGame?gameId=${gameId}`;
@@ -68,14 +68,14 @@ export class ActionsRepository {
 	};
 
     
-    // get: api/Actions/getAction?id=${id}   
+    // get: api/Actions/getAction?id=${id}
 
 	//public getAction = (id: number, callback: (data: BaseAction)=>void) : void => {
 	//	this.getActionObserve(id).subscribe(response => callback(response));
 	//}
 
 	public getActionAsync = (id: number) : Promise<BaseAction> => {
-        
+
         return new Promise<BaseAction>((resolve, reject) => {
             this.getAction(id)
             .subscribe((res) => {
@@ -83,7 +83,7 @@ export class ActionsRepository {
                 });
 
         });
-	}  
+	}
 
 	public getAction = (id: number) : Observable<BaseAction> => {
         var _Url = `api/Actions/getAction?id=${id}`;
@@ -92,14 +92,14 @@ export class ActionsRepository {
 	};
 
     
-    // post: api/Actions/[action]   
+    // post: api/Actions/[action]
 
 	//public saveAction = (action: BaseAction, callback: (data: BaseAction)=>void) : void => {
 	//	this.saveActionObserve(action).subscribe(response => callback(response));
 	//}
 
 	public saveActionAsync = (action: BaseAction) : Promise<BaseAction> => {
-        
+
         return new Promise<BaseAction>((resolve, reject) => {
             this.saveAction(action)
             .subscribe((res) => {
@@ -107,7 +107,7 @@ export class ActionsRepository {
                 });
 
         });
-	}  
+	}
 
 	public saveAction = (action: BaseAction) : Observable<BaseAction> => {
         var _Url = `api/Actions/[action]`;
@@ -116,14 +116,14 @@ export class ActionsRepository {
 	};
 
     
-    // delete: api/Actions/deleteAction?id=${id}   
+    // delete: api/Actions/deleteAction?id=${id}
 
 	//public deleteAction = (id: number, callback: (data: void)=>void) : void => {
 	//	this.deleteActionObserve(id).subscribe(response => callback(response));
 	//}
 
 	public deleteActionAsync = (id: number) : Promise<void> => {
-        
+
         return new Promise<void>((resolve, reject) => {
             this.deleteAction(id)
             .subscribe((res) => {
@@ -131,7 +131,7 @@ export class ActionsRepository {
                 });
 
         });
-	}  
+	}
 
 	public deleteAction = (id: number) : Observable<void> => {
         var _Url = `api/Actions/deleteAction?id=${id}`;
@@ -152,4 +152,4 @@ export class ActionsRepository {
 }
 
 
-	
+

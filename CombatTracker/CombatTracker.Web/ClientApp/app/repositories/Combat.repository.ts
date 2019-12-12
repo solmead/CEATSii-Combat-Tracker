@@ -8,7 +8,7 @@
 //
 //*************************DO NOT MODIFY**************************
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http'; 
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import {Observable} from "rxjs";
 import { map, catchError } from "rxjs/operators";
 
@@ -20,16 +20,16 @@ import { Weapon } from '../entities/Weapon';
 @Injectable()
 export class CombatRepository {
 
-    constructor(private _httpClient: HttpClient) { }        
+    constructor(private _httpClient: HttpClient) { }
     
-    // delete: api/Combat/deleteArmor?id=${id}   
+    // delete: api/Combat/deleteArmor?id=${id}
 
 	//public deleteArmor = (id: number, callback: (data: void)=>void) : void => {
 	//	this.deleteArmorObserve(id).subscribe(response => callback(response));
 	//}
 
 	public deleteArmorAsync = (id: number) : Promise<void> => {
-        
+
         return new Promise<void>((resolve, reject) => {
             this.deleteArmor(id)
             .subscribe((res) => {
@@ -37,7 +37,7 @@ export class CombatRepository {
                 });
 
         });
-	}  
+	}
 
 	public deleteArmor = (id: number) : Observable<void> => {
         var _Url = `api/Combat/deleteArmor?id=${id}`;
@@ -46,14 +46,14 @@ export class CombatRepository {
 	};
 
     
-    // delete: api/Combat/deleteAttack?id=${id}   
+    // delete: api/Combat/deleteAttack?id=${id}
 
 	//public deleteAttack = (id: number, callback: (data: void)=>void) : void => {
 	//	this.deleteAttackObserve(id).subscribe(response => callback(response));
 	//}
 
 	public deleteAttackAsync = (id: number) : Promise<void> => {
-        
+
         return new Promise<void>((resolve, reject) => {
             this.deleteAttack(id)
             .subscribe((res) => {
@@ -61,7 +61,7 @@ export class CombatRepository {
                 });
 
         });
-	}  
+	}
 
 	public deleteAttack = (id: number) : Observable<void> => {
         var _Url = `api/Combat/deleteAttack?id=${id}`;
@@ -70,14 +70,14 @@ export class CombatRepository {
 	};
 
     
-    // delete: api/Combat/deleteWeapon?id=${id}   
+    // delete: api/Combat/deleteWeapon?id=${id}
 
 	//public deleteWeapon = (id: number, callback: (data: void)=>void) : void => {
 	//	this.deleteWeaponObserve(id).subscribe(response => callback(response));
 	//}
 
 	public deleteWeaponAsync = (id: number) : Promise<void> => {
-        
+
         return new Promise<void>((resolve, reject) => {
             this.deleteWeapon(id)
             .subscribe((res) => {
@@ -85,7 +85,7 @@ export class CombatRepository {
                 });
 
         });
-	}  
+	}
 
 	public deleteWeapon = (id: number) : Observable<void> => {
         var _Url = `api/Combat/deleteWeapon?id=${id}`;
@@ -94,14 +94,14 @@ export class CombatRepository {
 	};
 
     
-    // get: api/Combat/getArmor?id=${id}   
+    // get: api/Combat/getArmor?id=${id}
 
 	//public getArmor = (id: number, callback: (data: Armor)=>void) : void => {
 	//	this.getArmorObserve(id).subscribe(response => callback(response));
 	//}
 
 	public getArmorAsync = (id: number) : Promise<Armor> => {
-        
+
         return new Promise<Armor>((resolve, reject) => {
             this.getArmor(id)
             .subscribe((res) => {
@@ -109,7 +109,7 @@ export class CombatRepository {
                 });
 
         });
-	}  
+	}
 
 	public getArmor = (id: number) : Observable<Armor> => {
         var _Url = `api/Combat/getArmor?id=${id}`;
@@ -118,14 +118,14 @@ export class CombatRepository {
 	};
 
     
-    // get: api/Combat/getArmors   
+    // get: api/Combat/getArmors
 
 	//public getArmors = (, callback: (data: Armor[])=>void) : void => {
 	//	this.getArmorsObserve().subscribe(response => callback(response));
 	//}
 
 	public getArmorsAsync = () : Promise<Armor[]> => {
-        
+
         return new Promise<Armor[]>((resolve, reject) => {
             this.getArmors()
             .subscribe((res) => {
@@ -133,7 +133,7 @@ export class CombatRepository {
                 });
 
         });
-	}  
+	}
 
 	public getArmors = () : Observable<Armor[]> => {
         var _Url = `api/Combat/getArmors`;
@@ -142,14 +142,14 @@ export class CombatRepository {
 	};
 
     
-    // get: api/Combat/getArmorsOnCharacter?characterId=${characterId}   
+    // get: api/Combat/getArmorsOnCharacter?characterId=${characterId}
 
 	//public getArmorsOnCharacter = (characterId: number, callback: (data: Armor[])=>void) : void => {
 	//	this.getArmorsOnCharacterObserve(characterId).subscribe(response => callback(response));
 	//}
 
 	public getArmorsOnCharacterAsync = (characterId: number) : Promise<Armor[]> => {
-        
+
         return new Promise<Armor[]>((resolve, reject) => {
             this.getArmorsOnCharacter(characterId)
             .subscribe((res) => {
@@ -157,7 +157,7 @@ export class CombatRepository {
                 });
 
         });
-	}  
+	}
 
 	public getArmorsOnCharacter = (characterId: number) : Observable<Armor[]> => {
         var _Url = `api/Combat/getArmorsOnCharacter?characterId=${characterId}`;
@@ -166,14 +166,14 @@ export class CombatRepository {
 	};
 
     
-    // get: api/Combat/getAttack?id=${id}   
+    // get: api/Combat/getAttack?id=${id}
 
 	//public getAttack = (id: number, callback: (data: Attack)=>void) : void => {
 	//	this.getAttackObserve(id).subscribe(response => callback(response));
 	//}
 
 	public getAttackAsync = (id: number) : Promise<Attack> => {
-        
+
         return new Promise<Attack>((resolve, reject) => {
             this.getAttack(id)
             .subscribe((res) => {
@@ -181,7 +181,7 @@ export class CombatRepository {
                 });
 
         });
-	}  
+	}
 
 	public getAttack = (id: number) : Observable<Attack> => {
         var _Url = `api/Combat/getAttack?id=${id}`;
@@ -190,14 +190,14 @@ export class CombatRepository {
 	};
 
     
-    // get: api/Combat/getAttacks   
+    // get: api/Combat/getAttacks
 
 	//public getAttacks = (, callback: (data: Attack[])=>void) : void => {
 	//	this.getAttacksObserve().subscribe(response => callback(response));
 	//}
 
 	public getAttacksAsync = () : Promise<Attack[]> => {
-        
+
         return new Promise<Attack[]>((resolve, reject) => {
             this.getAttacks()
             .subscribe((res) => {
@@ -205,7 +205,7 @@ export class CombatRepository {
                 });
 
         });
-	}  
+	}
 
 	public getAttacks = () : Observable<Attack[]> => {
         var _Url = `api/Combat/getAttacks`;
@@ -214,14 +214,14 @@ export class CombatRepository {
 	};
 
     
-    // get: api/Combat/getAttacksOnActor?actorId=${actorId}   
+    // get: api/Combat/getAttacksOnActor?actorId=${actorId}
 
 	//public getAttacksOnActor = (actorId: number, callback: (data: Attack[])=>void) : void => {
 	//	this.getAttacksOnActorObserve(actorId).subscribe(response => callback(response));
 	//}
 
 	public getAttacksOnActorAsync = (actorId: number) : Promise<Attack[]> => {
-        
+
         return new Promise<Attack[]>((resolve, reject) => {
             this.getAttacksOnActor(actorId)
             .subscribe((res) => {
@@ -229,7 +229,7 @@ export class CombatRepository {
                 });
 
         });
-	}  
+	}
 
 	public getAttacksOnActor = (actorId: number) : Observable<Attack[]> => {
         var _Url = `api/Combat/getAttacksOnActor?actorId=${actorId}`;
@@ -238,14 +238,14 @@ export class CombatRepository {
 	};
 
     
-    // get: api/Combat/getAttacksOnCreature?creatureId=${creatureId}   
+    // get: api/Combat/getAttacksOnCreature?creatureId=${creatureId}
 
 	//public getAttacksOnCreature = (creatureId: number, callback: (data: Attack[])=>void) : void => {
 	//	this.getAttacksOnCreatureObserve(creatureId).subscribe(response => callback(response));
 	//}
 
 	public getAttacksOnCreatureAsync = (creatureId: number) : Promise<Attack[]> => {
-        
+
         return new Promise<Attack[]>((resolve, reject) => {
             this.getAttacksOnCreature(creatureId)
             .subscribe((res) => {
@@ -253,7 +253,7 @@ export class CombatRepository {
                 });
 
         });
-	}  
+	}
 
 	public getAttacksOnCreature = (creatureId: number) : Observable<Attack[]> => {
         var _Url = `api/Combat/getAttacksOnCreature?creatureId=${creatureId}`;
@@ -262,14 +262,14 @@ export class CombatRepository {
 	};
 
     
-    // get: api/Combat/getWeapon?id=${id}   
+    // get: api/Combat/getWeapon?id=${id}
 
 	//public getWeapon = (id: number, callback: (data: Weapon)=>void) : void => {
 	//	this.getWeaponObserve(id).subscribe(response => callback(response));
 	//}
 
 	public getWeaponAsync = (id: number) : Promise<Weapon> => {
-        
+
         return new Promise<Weapon>((resolve, reject) => {
             this.getWeapon(id)
             .subscribe((res) => {
@@ -277,7 +277,7 @@ export class CombatRepository {
                 });
 
         });
-	}  
+	}
 
 	public getWeapon = (id: number) : Observable<Weapon> => {
         var _Url = `api/Combat/getWeapon?id=${id}`;
@@ -286,14 +286,14 @@ export class CombatRepository {
 	};
 
     
-    // get: api/Combat/getWeapons   
+    // get: api/Combat/getWeapons
 
 	//public getWeapons = (, callback: (data: Weapon[])=>void) : void => {
 	//	this.getWeaponsObserve().subscribe(response => callback(response));
 	//}
 
 	public getWeaponsAsync = () : Promise<Weapon[]> => {
-        
+
         return new Promise<Weapon[]>((resolve, reject) => {
             this.getWeapons()
             .subscribe((res) => {
@@ -301,7 +301,7 @@ export class CombatRepository {
                 });
 
         });
-	}  
+	}
 
 	public getWeapons = () : Observable<Weapon[]> => {
         var _Url = `api/Combat/getWeapons`;
@@ -310,14 +310,14 @@ export class CombatRepository {
 	};
 
     
-    // get: api/Combat/getWeaponsOnCharacter?characterId=${characterId}   
+    // get: api/Combat/getWeaponsOnCharacter?characterId=${characterId}
 
 	//public getWeaponsOnCharacter = (characterId: number, callback: (data: Weapon[])=>void) : void => {
 	//	this.getWeaponsOnCharacterObserve(characterId).subscribe(response => callback(response));
 	//}
 
 	public getWeaponsOnCharacterAsync = (characterId: number) : Promise<Weapon[]> => {
-        
+
         return new Promise<Weapon[]>((resolve, reject) => {
             this.getWeaponsOnCharacter(characterId)
             .subscribe((res) => {
@@ -325,7 +325,7 @@ export class CombatRepository {
                 });
 
         });
-	}  
+	}
 
 	public getWeaponsOnCharacter = (characterId: number) : Observable<Weapon[]> => {
         var _Url = `api/Combat/getWeaponsOnCharacter?characterId=${characterId}`;
@@ -334,14 +334,14 @@ export class CombatRepository {
 	};
 
     
-    // post: api/Combat/saveArmor   
+    // post: api/Combat/saveArmor
 
 	//public saveArmor = (armor: Armor, callback: (data: Armor)=>void) : void => {
 	//	this.saveArmorObserve(armor).subscribe(response => callback(response));
 	//}
 
 	public saveArmorAsync = (armor: Armor) : Promise<Armor> => {
-        
+
         return new Promise<Armor>((resolve, reject) => {
             this.saveArmor(armor)
             .subscribe((res) => {
@@ -349,7 +349,7 @@ export class CombatRepository {
                 });
 
         });
-	}  
+	}
 
 	public saveArmor = (armor: Armor) : Observable<Armor> => {
         var _Url = `api/Combat/saveArmor`;
@@ -358,14 +358,14 @@ export class CombatRepository {
 	};
 
     
-    // post: api/Combat/saveAttack   
+    // post: api/Combat/saveAttack
 
 	//public saveAttack = (attack: Attack, callback: (data: Attack)=>void) : void => {
 	//	this.saveAttackObserve(attack).subscribe(response => callback(response));
 	//}
 
 	public saveAttackAsync = (attack: Attack) : Promise<Attack> => {
-        
+
         return new Promise<Attack>((resolve, reject) => {
             this.saveAttack(attack)
             .subscribe((res) => {
@@ -373,7 +373,7 @@ export class CombatRepository {
                 });
 
         });
-	}  
+	}
 
 	public saveAttack = (attack: Attack) : Observable<Attack> => {
         var _Url = `api/Combat/saveAttack`;
@@ -382,14 +382,14 @@ export class CombatRepository {
 	};
 
     
-    // post: api/Combat/saveAttackOnActor?actorId=${actorId}   
+    // post: api/Combat/saveAttackOnActor?actorId=${actorId}
 
 	//public saveAttackOnActor = (actorId: number, attack: Attack, callback: (data: Attack)=>void) : void => {
 	//	this.saveAttackOnActorObserve(actorId, attack).subscribe(response => callback(response));
 	//}
 
 	public saveAttackOnActorAsync = (actorId: number, attack: Attack) : Promise<Attack> => {
-        
+
         return new Promise<Attack>((resolve, reject) => {
             this.saveAttackOnActor(actorId, attack)
             .subscribe((res) => {
@@ -397,7 +397,7 @@ export class CombatRepository {
                 });
 
         });
-	}  
+	}
 
 	public saveAttackOnActor = (actorId: number, attack: Attack) : Observable<Attack> => {
         var _Url = `api/Combat/saveAttackOnActor?actorId=${actorId}`;
@@ -406,14 +406,14 @@ export class CombatRepository {
 	};
 
     
-    // post: api/Combat/saveWeapon   
+    // post: api/Combat/saveWeapon
 
 	//public saveWeapon = (weapon: Weapon, callback: (data: Weapon)=>void) : void => {
 	//	this.saveWeaponObserve(weapon).subscribe(response => callback(response));
 	//}
 
 	public saveWeaponAsync = (weapon: Weapon) : Promise<Weapon> => {
-        
+
         return new Promise<Weapon>((resolve, reject) => {
             this.saveWeapon(weapon)
             .subscribe((res) => {
@@ -421,7 +421,7 @@ export class CombatRepository {
                 });
 
         });
-	}  
+	}
 
 	public saveWeapon = (weapon: Weapon) : Observable<Weapon> => {
         var _Url = `api/Combat/saveWeapon`;
@@ -442,4 +442,4 @@ export class CombatRepository {
 }
 
 
-	
+
