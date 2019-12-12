@@ -1,0 +1,52 @@
+﻿<div *ngIf="armor" class="edit-area">
+    <fieldset>
+        <legend>Armor</legend>
+        <!--<form #armorForm="ngForm" class="form-horizontal">-->
+        <div class="form-group full-row">
+            <label for="type" class="control-label">Armor Type</label>
+            <div class="control-area control-area-number">
+                <input #name="ngModel" name="type" type="text" class="form-control"
+                       [(ngModel)]="armor.type" required style="width: 40px;" />
+                <div *ngIf="name.invalid" class="text-danger">
+                    Please enter a type
+                </div>
+            </div>
+        </div>
+            <div class="form-group full-row" style="">
+                <label for="description" class="control-label">Description</label>
+                <div class="control-area">
+                    <input name="description" class="form-control"
+                           [(ngModel)]="armor.description" />
+                </div>
+            </div>
+            <div class="form-group half-row" style="">
+                <label for="db" class="control-label">DB</label>
+                <div class="control-area control-area-number">
+                    <input name="db" class="form-control"
+                           [(ngModel)]="armor.db" />
+                </div>
+            </div>
+            <div class="form-group half-row" style="">
+                <label for="movingManeuverMod" class="control-label">Moving Maneuver</label>
+                <div class="control-area control-area-number">
+                    <input name="movingManeuverMod" class="form-control"
+                           [(ngModel)]="armor.movingManeuverMod" />
+                </div>
+            </div>
+        <div class="text-center pt-2">
+            <button class="btn btn-danger btn-sm pull-right" 
+                    (click)="delete()">
+                Remove
+            </button>
+        </div>
+                <!--<div class="text-center pt-2">
+
+                    <button class="btn btn-danger btn-sm pull-right" [disabled]="armorForm.invalid"
+                            (click)="save()">
+                        Save
+                    </button>
+
+                </div>-->
+<!--</form>-->
+    </fieldset>
+</div>

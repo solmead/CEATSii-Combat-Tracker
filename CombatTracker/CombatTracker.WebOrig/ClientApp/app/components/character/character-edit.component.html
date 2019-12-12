@@ -1,0 +1,126 @@
+﻿<div *ngIf="character">
+    <fieldset>
+        <legend>{{character?.name}}</legend>
+        <form #charForm="ngForm">
+            <div class="row">
+                <div class="form-group col-sm-6">
+                    <label>Name</label>
+                    <input #name="ngModel" name="name" class="form-control"
+                           [(ngModel)]="character.name" required />
+                    <div *ngIf="name.invalid" class="text-danger">
+                        Please enter a name
+                    </div>
+                </div>
+                <div class="form-group col-sm-6" style="vertical-align:bottom;">
+                    <div class="btn-group">
+                        <label><input type="radio" value="PC" name="chartype" [(ngModel)]="character.typeString"> PC</label>
+                        <label><input type="radio" value="NPC" name="chartype" [(ngModel)]="character.typeString"> NPC</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-sm-2">
+                    <label>Level</label>
+                    <input #level="ngModel" name="level" class="form-control"
+                           [(ngModel)]="character.level" required />
+                    <div *ngIf="level.invalid" class="text-danger">
+                        Please enter a level
+                    </div>
+                </div>
+                <div class="form-group  col-sm-2">
+                    <label>Base Inititive</label>
+                    <input #baseInititive="ngModel" name="baseInititive" class="form-control"
+                           [(ngModel)]="character.baseInititive" required />
+                    <div *ngIf="baseInititive.invalid" class="text-danger">
+                        Please enter a base inititive
+                    </div>
+                </div>
+                <div class="form-group  col-sm-2">
+                    <label>Walk Speed</label>
+                    <input #walkSpeed="ngModel" name="walkSpeed" class="form-control"
+                           [(ngModel)]="character.walkSpeed" required />
+                    <div *ngIf="walkSpeed.invalid" class="text-danger">
+                        Please enter a Walk Speed
+                    </div>
+                </div>
+                <div class="form-group  col-sm-2">
+                    <label>Strength Bonus</label>
+                    <input #strengthBonus="ngModel" name="strengthBonus" class="form-control"
+                           [(ngModel)]="character.strengthBonus" required />
+                    <div *ngIf="strengthBonus.invalid" class="text-danger">
+                        Please enter a Strength Bonus
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group  col-sm-2">
+                    <label>Hit<br />Points</label>
+                    <input #hitPoints="ngModel" name="hitPoints" class="form-control"
+                           [(ngModel)]="character.hitPoints" required />
+                    <div *ngIf="hitPoints.invalid" class="text-danger">
+                        Please enter Hit Points
+                    </div>
+                </div>
+                <div *ngIf="isRolemaster" class="form-group  col-sm-2">
+                    <label style="white-space: nowrap;">Power<br />Points</label>
+                    <input #powerPoints="ngModel" name="powerPoints" class="form-control"
+                           [(ngModel)]="character.powerPoints" required />
+                    <div *ngIf="powerPoints.invalid" class="text-danger">
+                        Please enter Power Points
+                    </div>
+                </div>
+                <div *ngIf="isRolemaster" class="form-group  col-sm-2">
+                    <label style="white-space: nowrap;">Exhaustion<br />Points</label>
+                    <input #exhaustionPoints="ngModel" name="exhaustionPoints" class="form-control"
+                           [(ngModel)]="character.exhaustionPoints" required />
+                    <div *ngIf="exhaustionPoints.invalid" class="text-danger">
+                        Please enter Exhaustion Points
+                    </div>
+                </div>
+                <div *ngIf="isRolemaster" class="form-group  col-sm-2">
+                    <label>Percent Required<br />Adrenal DB</label>
+                    <input #percentRequiredAdrenalDB="ngModel" name="percentRequiredAdrenalDB" class="form-control"
+                           [(ngModel)]="character.percentRequiredAdrenalDB" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group  col-sm-6">
+                    <app-weapon [weapons]="character.weapons" [charId]="character.id" (onDelete)="onWeaponDeleted($event)"></app-weapon>
+                </div>
+            </div>
+            <div class="row">
+                <div *ngIf="isRolemaster" class="form-group  col-sm-6">
+                    <app-armor [armors]="character.armors" [charId]="character.id" (onDelete)="onArmorDeleted($event)"></app-armor>
+                </div>
+            </div>
+            <div class="text-center pt-2">
+                <button class="btn btn-outline-primary pull-left" (click)="closeEdit()">
+                    Back
+                </button>
+
+                <button class="btn btn-danger" [disabled]="charForm.invalid"
+                        (click)="saveCharacter()">
+                    Save
+                </button>
+
+                <button *ngIf="hasCurrentGame" class="btn btn-primary pull-right"
+                        (click)="addToEncounter()">
+                    Add To Encounter
+                </button>
+
+            </div>
+        </form>
+    </fieldset>
+</div>
+<modal id="custom-modal-2">
+    <div class="modal">
+        <div class="modal-body">
+            <h1>Roll Init - 2d10</h1>
+            <input name="rolledInit" class="form-control"
+                    [(ngModel)]="rolledInit" required />
+            <button (click)="closeModal('custom-modal-2');">Add To Encounter</button>
+        </div>
+    </div>
+    <div class="modal-background"></div>
+</modal>

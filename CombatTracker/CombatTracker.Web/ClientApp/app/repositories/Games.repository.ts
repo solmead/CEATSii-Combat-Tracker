@@ -14,14 +14,14 @@ import { map, catchError } from "rxjs/operators";
 
     import * as Enums from '../entities/EnumDefinitions'
     import { Game } from '../entities/Game';
-import GameType = Enums.EnumDefinitions.GameType;
+import { GameType } from '../entities/GameType';
 
 @Injectable()
 export class GamesRepository {
 
     constructor(private _httpClient: HttpClient) { }        
     
-    // get: api/Games/getGames?gameType=${gameType}   
+    // get: api/Games/getGames   
 
 	//public getGames = (gameType: GameType, callback: (data: Game[])=>void) : void => {
 	//	this.getGamesObserve(gameType).subscribe(response => callback(response));
@@ -39,7 +39,7 @@ export class GamesRepository {
 	}  
 
 	public getGames = (gameType: GameType) : Observable<Game[]> => {
-        var _Url = `api/Games/getGames?gameType=${gameType}`;
+        var _Url = `api/Games/getGames`;
             return this._httpClient.get<Game[]>(_Url)
                 .pipe(catchError(this.handleError));
 	};

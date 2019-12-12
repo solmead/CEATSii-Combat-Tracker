@@ -14,7 +14,7 @@ import { map, catchError } from "rxjs/operators";
 
     import * as Enums from '../entities/EnumDefinitions'
     import { MySettings } from '../entities/MySettings';
-import GameType = Enums.EnumDefinitions.GameType;
+import { GameType } from '../entities/GameType';
 
 @Injectable()
 export class SettingsRepository {
@@ -45,7 +45,7 @@ export class SettingsRepository {
 	};
 
     
-    // post: api/Settings/setGameType?gameType=${gameType}   
+    // post: api/Settings/setGameType   
 
 	//public setGameType = (gameType: GameType, callback: (data: void)=>void) : void => {
 	//	this.setGameTypeObserve(gameType).subscribe(response => callback(response));
@@ -63,7 +63,7 @@ export class SettingsRepository {
 	}  
 
 	public setGameType = (gameType: GameType) : Observable<void> => {
-        var _Url = `api/Settings/setGameType?gameType=${gameType}`;
+        var _Url = `api/Settings/setGameType`;
             return this._httpClient.post<void>(_Url, gameType)
                 .pipe(catchError(this.handleError));
 	};

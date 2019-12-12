@@ -1,0 +1,33 @@
+﻿.wrapper {
+}
+
+.area {
+}
+
+.list {
+    display: table-cell;
+    width: 20%;
+}
+
+.edit {
+    display: table-cell;
+    width: 80%;
+}
+
+.mainList {
+    font-size: 12px;
+    max-height: 100%;
+    /*width: 120px;*/
+}
+
+    .mainList a {
+        cursor: pointer;
+    }
+
+    .mainList button {
+        padding: 0 5px;
+    }
+
+    .mainList td {
+        padding: 2px;
+    }

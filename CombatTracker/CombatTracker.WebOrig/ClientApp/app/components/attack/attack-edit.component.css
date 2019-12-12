@@ -1,0 +1,39 @@
+﻿.edit-area {
+    width: 220px;
+}
+
+.full-row {
+    display: block;
+    width: 100%;
+}
+
+.half-row {
+    display: table-cell;
+    width: 50%;
+}
+
+.control-label {
+    width: 45px;
+    display: inline-block;
+    text-align: right;
+    padding-right: 5px;
+}
+
+.full-row .control-label {
+    width: 89px;
+    width: 76px;
+}
+
+.control-area {
+    width: 45px;
+    display: inline-block;
+}
+
+.full-row .control-area {
+    width: 85px;
+    width: 108px;
+}
+
+.control-area-number {
+    width: 40px;
+}

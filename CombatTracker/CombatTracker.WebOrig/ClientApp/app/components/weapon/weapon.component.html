@@ -1,0 +1,26 @@
+﻿<div class="wrapper">
+    <div class="area">
+        <div class="list">
+            <p *ngIf="!weapons"><em>Loading...</em></p>
+            <div class="mainList">
+                <h3 style="display:block; margin-top:0;">
+                    <div style="float:right;">
+                        <button class="btn btn-primary btn-sm" (click)="newWeapon()">
+                            <span class="glyphicon glyphicon-plus"></span> New
+                        </button>
+                    </div>
+                    Weapons
+                </h3>
+                <select class="form-control" name="selectedWeapon" size="5" [(ngModel)]="selectedWeaponId">
+                    <option *ngFor="let weapon of weapons" value={{weapon?.name}}>
+                        {{weapon?.name}}
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="edit">
+            <!--(onSave)="onWeaponSaved($event)"-->
+            <app-weapon-edit [weapon]="selectedWeapon" (onDelete)="onWeaponDeleted($event)"></app-weapon-edit>
+        </div>
+    </div>
+</div>
