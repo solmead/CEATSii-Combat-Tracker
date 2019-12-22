@@ -1,14 +1,10 @@
 ﻿[
   {
-    "outputFile": "wwwroot/dist/AppLook.css",
-    "inputFile": "wwwroot/dist/AppLook.less"
+    "outputFile": "Content/Site.css",
+    "inputFile": "Content/Site.less"
   },
   {
-    "outputFile": "ClientApp/app/elements/modal/modal.css",
-    "inputFile": "ClientApp/app/elements/modal/modal.less"
-  },
-  {
-    "outputFile": "ClientApp/app/elements/modal/model.css",
-    "inputFile": "ClientApp/app/elements/modal/model.less"
+    "outputFile": "ClientApp/app/elements/modal/modal.component.css",
+    "inputFile": "ClientApp/app/elements/modal/modal.component.less"
   }
 ]

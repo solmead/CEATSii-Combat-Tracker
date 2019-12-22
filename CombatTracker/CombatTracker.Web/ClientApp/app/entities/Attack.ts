@@ -39,3 +39,5 @@ import CriticalLevels = Enums.EnumDefinitions.CriticalLevels;
         constructor() {
         }
     }
+
+

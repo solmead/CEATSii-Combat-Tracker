@@ -8,7 +8,7 @@
 //
 //*************************DO NOT MODIFY**************************
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http'; 
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import {Observable} from "rxjs";
 import { map, catchError } from "rxjs/operators";
 
@@ -19,16 +19,16 @@ import GameType = Enums.EnumDefinitions.GameType;
 @Injectable()
 export class CreaturesRepository {
 
-    constructor(private _httpClient: HttpClient) { }        
+    constructor(private _httpClient: HttpClient) { }
     
-    // get: api/Creature/getCreatures?gameType=${gameType}   
+    // get: api/Creature/getCreatures?gameType=${gameType}
 
 	//public getCreatures = (gameType: GameType, callback: (data: Creature[])=>void) : void => {
 	//	this.getCreaturesObserve(gameType).subscribe(response => callback(response));
 	//}
 
 	public getCreaturesAsync = (gameType: GameType) : Promise<Creature[]> => {
-        
+
         return new Promise<Creature[]>((resolve, reject) => {
             this.getCreatures(gameType)
             .subscribe((res) => {
@@ -36,7 +36,7 @@ export class CreaturesRepository {
                 });
 
         });
-	}  
+	}
 
 	public getCreatures = (gameType: GameType) : Observable<Creature[]> => {
         var _Url = `api/Creature/getCreatures?gameType=${gameType}`;
@@ -45,14 +45,14 @@ export class CreaturesRepository {
 	};
 
     
-    // get: api/Creature/getCreature?id=${id}   
+    // get: api/Creature/getCreature?id=${id}
 
 	//public getCreature = (id: number, callback: (data: Creature)=>void) : void => {
 	//	this.getCreatureObserve(id).subscribe(response => callback(response));
 	//}
 
 	public getCreatureAsync = (id: number) : Promise<Creature> => {
-        
+
         return new Promise<Creature>((resolve, reject) => {
             this.getCreature(id)
             .subscribe((res) => {
@@ -60,7 +60,7 @@ export class CreaturesRepository {
                 });
 
         });
-	}  
+	}
 
 	public getCreature = (id: number) : Observable<Creature> => {
         var _Url = `api/Creature/getCreature?id=${id}`;
@@ -69,14 +69,14 @@ export class CreaturesRepository {
 	};
 
     
-    // post: api/Creature/saveCreature   
+    // post: api/Creature/saveCreature
 
 	//public saveCreature = (creature: Creature, callback: (data: Creature)=>void) : void => {
 	//	this.saveCreatureObserve(creature).subscribe(response => callback(response));
 	//}
 
 	public saveCreatureAsync = (creature: Creature) : Promise<Creature> => {
-        
+
         return new Promise<Creature>((resolve, reject) => {
             this.saveCreature(creature)
             .subscribe((res) => {
@@ -84,7 +84,7 @@ export class CreaturesRepository {
                 });
 
         });
-	}  
+	}
 
 	public saveCreature = (creature: Creature) : Observable<Creature> => {
         var _Url = `api/Creature/saveCreature`;
@@ -93,14 +93,14 @@ export class CreaturesRepository {
 	};
 
     
-    // delete: api/Creature/deleteCreature?id=${id}   
+    // delete: api/Creature/deleteCreature?id=${id}
 
 	//public deleteCreature = (id: number, callback: (data: void)=>void) : void => {
 	//	this.deleteCreatureObserve(id).subscribe(response => callback(response));
 	//}
 
 	public deleteCreatureAsync = (id: number) : Promise<void> => {
-        
+
         return new Promise<void>((resolve, reject) => {
             this.deleteCreature(id)
             .subscribe((res) => {
@@ -108,7 +108,7 @@ export class CreaturesRepository {
                 });
 
         });
-	}  
+	}
 
 	public deleteCreature = (id: number) : Observable<void> => {
         var _Url = `api/Creature/deleteCreature?id=${id}`;
@@ -129,4 +129,4 @@ export class CreaturesRepository {
 }
 
 
-	
+

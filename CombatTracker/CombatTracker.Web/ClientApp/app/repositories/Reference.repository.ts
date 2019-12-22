@@ -8,7 +8,7 @@
 //
 //*************************DO NOT MODIFY**************************
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http'; 
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import {Observable} from "rxjs";
 import { map, catchError } from "rxjs/operators";
 
@@ -33,16 +33,16 @@ import { PsychicRefractoryPeriodEntry } from '../entities/PsychicRefractoryPerio
 @Injectable()
 export class ReferenceRepository {
 
-    constructor(private _httpClient: HttpClient) { }        
+    constructor(private _httpClient: HttpClient) { }
     
-    // get: api/Reference/getActionGroups   
+    // get: api/Reference/getActionGroups
 
 	//public getActionGroups = (, callback: (data: ActionGroup[])=>void) : void => {
 	//	this.getActionGroupsObserve().subscribe(response => callback(response));
 	//}
 
 	public getActionGroupsAsync = () : Promise<ActionGroup[]> => {
-        
+
         return new Promise<ActionGroup[]>((resolve, reject) => {
             this.getActionGroups()
             .subscribe((res) => {
@@ -50,7 +50,7 @@ export class ReferenceRepository {
                 });
 
         });
-	}  
+	}
 
 	public getActionGroups = () : Observable<ActionGroup[]> => {
         var _Url = `api/Reference/getActionGroups`;
@@ -59,14 +59,14 @@ export class ReferenceRepository {
 	};
 
     
-    // get: api/Reference/getActions?groupId=${groupId}   
+    // get: api/Reference/getActions?groupId=${groupId}
 
 	//public getActions = (groupId: number, callback: (data: ActionDefinition[])=>void) : void => {
 	//	this.getActionsObserve(groupId).subscribe(response => callback(response));
 	//}
 
 	public getActionsAsync = (groupId: number) : Promise<ActionDefinition[]> => {
-        
+
         return new Promise<ActionDefinition[]>((resolve, reject) => {
             this.getActions(groupId)
             .subscribe((res) => {
@@ -74,7 +74,7 @@ export class ReferenceRepository {
                 });
 
         });
-	}  
+	}
 
 	public getActions = (groupId: number) : Observable<ActionDefinition[]> => {
         var _Url = `api/Reference/getActions?groupId=${groupId}`;
@@ -83,14 +83,14 @@ export class ReferenceRepository {
 	};
 
     
-    // get: api/Reference/getConstitutionBonusCharts   
+    // get: api/Reference/getConstitutionBonusCharts
 
 	//public getConstitutionBonusCharts = (, callback: (data: ConstitutionBonusChart[])=>void) : void => {
 	//	this.getConstitutionBonusChartsObserve().subscribe(response => callback(response));
 	//}
 
 	public getConstitutionBonusChartsAsync = () : Promise<ConstitutionBonusChart[]> => {
-        
+
         return new Promise<ConstitutionBonusChart[]>((resolve, reject) => {
             this.getConstitutionBonusCharts()
             .subscribe((res) => {
@@ -98,7 +98,7 @@ export class ReferenceRepository {
                 });
 
         });
-	}  
+	}
 
 	public getConstitutionBonusCharts = () : Observable<ConstitutionBonusChart[]> => {
         var _Url = `api/Reference/getConstitutionBonusCharts`;
@@ -107,14 +107,14 @@ export class ReferenceRepository {
 	};
 
     
-    // get: api/Reference/getCriticalCodes   
+    // get: api/Reference/getCriticalCodes
 
 	//public getCriticalCodes = (, callback: (data: CriticalCode[])=>void) : void => {
 	//	this.getCriticalCodesObserve().subscribe(response => callback(response));
 	//}
 
 	public getCriticalCodesAsync = () : Promise<CriticalCode[]> => {
-        
+
         return new Promise<CriticalCode[]>((resolve, reject) => {
             this.getCriticalCodes()
             .subscribe((res) => {
@@ -122,7 +122,7 @@ export class ReferenceRepository {
                 });
 
         });
-	}  
+	}
 
 	public getCriticalCodes = () : Observable<CriticalCode[]> => {
         var _Url = `api/Reference/getCriticalCodes`;
@@ -131,14 +131,14 @@ export class ReferenceRepository {
 	};
 
     
-    // get: api/Reference/getCriticalIgnores   
+    // get: api/Reference/getCriticalIgnores
 
 	//public getCriticalIgnores = (, callback: (data: CriticalIgnore[])=>void) : void => {
 	//	this.getCriticalIgnoresObserve().subscribe(response => callback(response));
 	//}
 
 	public getCriticalIgnoresAsync = () : Promise<CriticalIgnore[]> => {
-        
+
         return new Promise<CriticalIgnore[]>((resolve, reject) => {
             this.getCriticalIgnores()
             .subscribe((res) => {
@@ -146,7 +146,7 @@ export class ReferenceRepository {
                 });
 
         });
-	}  
+	}
 
 	public getCriticalIgnores = () : Observable<CriticalIgnore[]> => {
         var _Url = `api/Reference/getCriticalIgnores`;
@@ -155,14 +155,14 @@ export class ReferenceRepository {
 	};
 
     
-    // get: api/Reference/getIQs   
+    // get: api/Reference/getIQs
 
 	//public getIQs = (, callback: (data: IQ[])=>void) : void => {
 	//	this.getIQsObserve().subscribe(response => callback(response));
 	//}
 
 	public getIQsAsync = () : Promise<IQ[]> => {
-        
+
         return new Promise<IQ[]>((resolve, reject) => {
             this.getIQs()
             .subscribe((res) => {
@@ -170,7 +170,7 @@ export class ReferenceRepository {
                 });
 
         });
-	}  
+	}
 
 	public getIQs = () : Observable<IQ[]> => {
         var _Url = `api/Reference/getIQs`;
@@ -179,14 +179,14 @@ export class ReferenceRepository {
 	};
 
     
-    // get: api/Reference/getLevelCharts   
+    // get: api/Reference/getLevelCharts
 
 	//public getLevelCharts = (, callback: (data: LevelChart[])=>void) : void => {
 	//	this.getLevelChartsObserve().subscribe(response => callback(response));
 	//}
 
 	public getLevelChartsAsync = () : Promise<LevelChart[]> => {
-        
+
         return new Promise<LevelChart[]>((resolve, reject) => {
             this.getLevelCharts()
             .subscribe((res) => {
@@ -194,7 +194,7 @@ export class ReferenceRepository {
                 });
 
         });
-	}  
+	}
 
 	public getLevelCharts = () : Observable<LevelChart[]> => {
         var _Url = `api/Reference/getLevelCharts`;
@@ -203,14 +203,14 @@ export class ReferenceRepository {
 	};
 
     
-    // get: api/Reference/getOutlooks   
+    // get: api/Reference/getOutlooks
 
 	//public getOutlooks = (, callback: (data: Outlook[])=>void) : void => {
 	//	this.getOutlooksObserve().subscribe(response => callback(response));
 	//}
 
 	public getOutlooksAsync = () : Promise<Outlook[]> => {
-        
+
         return new Promise<Outlook[]>((resolve, reject) => {
             this.getOutlooks()
             .subscribe((res) => {
@@ -218,7 +218,7 @@ export class ReferenceRepository {
                 });
 
         });
-	}  
+	}
 
 	public getOutlooks = () : Observable<Outlook[]> => {
         var _Url = `api/Reference/getOutlooks`;
@@ -227,14 +227,14 @@ export class ReferenceRepository {
 	};
 
     
-    // get: api/Reference/getPaces   
+    // get: api/Reference/getPaces
 
 	//public getPaces = (, callback: (data: Pace[])=>void) : void => {
 	//	this.getPacesObserve().subscribe(response => callback(response));
 	//}
 
 	public getPacesAsync = () : Promise<Pace[]> => {
-        
+
         return new Promise<Pace[]>((resolve, reject) => {
             this.getPaces()
             .subscribe((res) => {
@@ -242,7 +242,7 @@ export class ReferenceRepository {
                 });
 
         });
-	}  
+	}
 
 	public getPaces = () : Observable<Pace[]> => {
         var _Url = `api/Reference/getPaces`;
@@ -251,14 +251,14 @@ export class ReferenceRepository {
 	};
 
     
-    // get: api/Reference/getSizeRatings   
+    // get: api/Reference/getSizeRatings
 
 	//public getSizeRatings = (, callback: (data: SizeRating[])=>void) : void => {
 	//	this.getSizeRatingsObserve().subscribe(response => callback(response));
 	//}
 
 	public getSizeRatingsAsync = () : Promise<SizeRating[]> => {
-        
+
         return new Promise<SizeRating[]>((resolve, reject) => {
             this.getSizeRatings()
             .subscribe((res) => {
@@ -266,7 +266,7 @@ export class ReferenceRepository {
                 });
 
         });
-	}  
+	}
 
 	public getSizeRatings = () : Observable<SizeRating[]> => {
         var _Url = `api/Reference/getSizeRatings`;
@@ -275,14 +275,14 @@ export class ReferenceRepository {
 	};
 
     
-    // get: api/Reference/getSpeedCharts   
+    // get: api/Reference/getSpeedCharts
 
 	//public getSpeedCharts = (, callback: (data: SpeedChart[])=>void) : void => {
 	//	this.getSpeedChartsObserve().subscribe(response => callback(response));
 	//}
 
 	public getSpeedChartsAsync = () : Promise<SpeedChart[]> => {
-        
+
         return new Promise<SpeedChart[]>((resolve, reject) => {
             this.getSpeedCharts()
             .subscribe((res) => {
@@ -290,7 +290,7 @@ export class ReferenceRepository {
                 });
 
         });
-	}  
+	}
 
 	public getSpeedCharts = () : Observable<SpeedChart[]> => {
         var _Url = `api/Reference/getSpeedCharts`;
@@ -299,14 +299,14 @@ export class ReferenceRepository {
 	};
 
     
-    // get: api/Reference/getAttackTypes   
+    // get: api/Reference/getAttackTypes
 
 	//public getAttackTypes = (, callback: (data: AttackType[])=>void) : void => {
 	//	this.getAttackTypesObserve().subscribe(response => callback(response));
 	//}
 
 	public getAttackTypesAsync = () : Promise<AttackType[]> => {
-        
+
         return new Promise<AttackType[]>((resolve, reject) => {
             this.getAttackTypes()
             .subscribe((res) => {
@@ -314,7 +314,7 @@ export class ReferenceRepository {
                 });
 
         });
-	}  
+	}
 
 	public getAttackTypes = () : Observable<AttackType[]> => {
         var _Url = `api/Reference/getAttackTypes`;
@@ -323,14 +323,14 @@ export class ReferenceRepository {
 	};
 
     
-    // get: api/Reference/getCriticalTypes   
+    // get: api/Reference/getCriticalTypes
 
 	//public getCriticalTypes = (, callback: (data: CriticalType[])=>void) : void => {
 	//	this.getCriticalTypesObserve().subscribe(response => callback(response));
 	//}
 
 	public getCriticalTypesAsync = () : Promise<CriticalType[]> => {
-        
+
         return new Promise<CriticalType[]>((resolve, reject) => {
             this.getCriticalTypes()
             .subscribe((res) => {
@@ -338,7 +338,7 @@ export class ReferenceRepository {
                 });
 
         });
-	}  
+	}
 
 	public getCriticalTypes = () : Observable<CriticalType[]> => {
         var _Url = `api/Reference/getCriticalTypes`;
@@ -347,14 +347,14 @@ export class ReferenceRepository {
 	};
 
     
-    // get: api/Reference/getWeaponTypes   
+    // get: api/Reference/getWeaponTypes
 
 	//public getWeaponTypes = (, callback: (data: WeaponType[])=>void) : void => {
 	//	this.getWeaponTypesObserve().subscribe(response => callback(response));
 	//}
 
 	public getWeaponTypesAsync = () : Promise<WeaponType[]> => {
-        
+
         return new Promise<WeaponType[]>((resolve, reject) => {
             this.getWeaponTypes()
             .subscribe((res) => {
@@ -362,7 +362,7 @@ export class ReferenceRepository {
                 });
 
         });
-	}  
+	}
 
 	public getWeaponTypes = () : Observable<WeaponType[]> => {
         var _Url = `api/Reference/getWeaponTypes`;
@@ -371,14 +371,14 @@ export class ReferenceRepository {
 	};
 
     
-    // get: api/Reference/getBooks   
+    // get: api/Reference/getBooks
 
 	//public getBooks = (, callback: (data: Book[])=>void) : void => {
 	//	this.getBooksObserve().subscribe(response => callback(response));
 	//}
 
 	public getBooksAsync = () : Promise<Book[]> => {
-        
+
         return new Promise<Book[]>((resolve, reject) => {
             this.getBooks()
             .subscribe((res) => {
@@ -386,7 +386,7 @@ export class ReferenceRepository {
                 });
 
         });
-	}  
+	}
 
 	public getBooks = () : Observable<Book[]> => {
         var _Url = `api/Reference/getBooks`;
@@ -395,14 +395,14 @@ export class ReferenceRepository {
 	};
 
     
-    // get: api/Reference/getPsychicRefractoryPeriodEntries   
+    // get: api/Reference/getPsychicRefractoryPeriodEntries
 
 	//public getPsychicRefractoryPeriodEntries = (, callback: (data: PsychicRefractoryPeriodEntry[])=>void) : void => {
 	//	this.getPsychicRefractoryPeriodEntriesObserve().subscribe(response => callback(response));
 	//}
 
 	public getPsychicRefractoryPeriodEntriesAsync = () : Promise<PsychicRefractoryPeriodEntry[]> => {
-        
+
         return new Promise<PsychicRefractoryPeriodEntry[]>((resolve, reject) => {
             this.getPsychicRefractoryPeriodEntries()
             .subscribe((res) => {
@@ -410,7 +410,7 @@ export class ReferenceRepository {
                 });
 
         });
-	}  
+	}
 
 	public getPsychicRefractoryPeriodEntries = () : Observable<PsychicRefractoryPeriodEntry[]> => {
         var _Url = `api/Reference/getPsychicRefractoryPeriodEntries`;
@@ -431,4 +431,4 @@ export class ReferenceRepository {
 }
 
 
-	
+

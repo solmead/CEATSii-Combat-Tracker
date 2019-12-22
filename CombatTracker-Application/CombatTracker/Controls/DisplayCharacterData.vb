@@ -177,9 +177,10 @@ Public Class DisplayCharacterData
         End If
 
         Dim Cols() As String = Split(Ac.Color, ",")
-        Dim col = Color.FromArgb(255 * Val(Cols(3)), Val(Cols(0)), Val(Cols(1)), Val(Cols(2)))
-        ChangeBackColor(Me, col)
-
+        If (Cols.Count >= 4) Then
+            Dim col = Color.FromArgb(255 * Val(Cols(3)), Val(Cols(0)), Val(Cols(1)), Val(Cols(2)))
+            ChangeBackColor(Me, col)
+        End If
         Me.Refresh()
 
 

@@ -8,7 +8,7 @@
 //
 //*************************DO NOT MODIFY**************************
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http'; 
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import {Observable} from "rxjs";
 import { map, catchError } from "rxjs/operators";
 
@@ -19,16 +19,16 @@ import GameType = Enums.EnumDefinitions.GameType;
 @Injectable()
 export class SettingsRepository {
 
-    constructor(private _httpClient: HttpClient) { }        
+    constructor(private _httpClient: HttpClient) { }
     
-    // get: api/Settings/getSetting   
+    // get: api/Settings/getSetting
 
 	//public getSetting = (, callback: (data: MySettings)=>void) : void => {
 	//	this.getSettingObserve().subscribe(response => callback(response));
 	//}
 
 	public getSettingAsync = () : Promise<MySettings> => {
-        
+
         return new Promise<MySettings>((resolve, reject) => {
             this.getSetting()
             .subscribe((res) => {
@@ -36,7 +36,7 @@ export class SettingsRepository {
                 });
 
         });
-	}  
+	}
 
 	public getSetting = () : Observable<MySettings> => {
         var _Url = `api/Settings/getSetting`;
@@ -45,14 +45,14 @@ export class SettingsRepository {
 	};
 
     
-    // post: api/Settings/setGameType?gameType=${gameType}   
+    // post: api/Settings/setGameType?gameType=${gameType}
 
 	//public setGameType = (gameType: GameType, callback: (data: void)=>void) : void => {
 	//	this.setGameTypeObserve(gameType).subscribe(response => callback(response));
 	//}
 
 	public setGameTypeAsync = (gameType: GameType) : Promise<void> => {
-        
+
         return new Promise<void>((resolve, reject) => {
             this.setGameType(gameType)
             .subscribe((res) => {
@@ -60,7 +60,7 @@ export class SettingsRepository {
                 });
 
         });
-	}  
+	}
 
 	public setGameType = (gameType: GameType) : Observable<void> => {
         var _Url = `api/Settings/setGameType?gameType=${gameType}`;
@@ -81,4 +81,4 @@ export class SettingsRepository {
 }
 
 
-	
+

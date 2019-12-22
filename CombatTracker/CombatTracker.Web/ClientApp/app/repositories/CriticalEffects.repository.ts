@@ -8,7 +8,7 @@
 //
 //*************************DO NOT MODIFY**************************
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http'; 
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import {Observable} from "rxjs";
 import { map, catchError } from "rxjs/operators";
 
@@ -18,16 +18,16 @@ import { map, catchError } from "rxjs/operators";
 @Injectable()
 export class CriticalEffectsRepository {
 
-    constructor(private _httpClient: HttpClient) { }        
+    constructor(private _httpClient: HttpClient) { }
     
-    // get: api/CriticalEffects/getCriticalEffects?actorId=${actorId}   
+    // get: api/CriticalEffects/getCriticalEffects?actorId=${actorId}
 
 	//public getCriticalEffects = (actorId: number, callback: (data: CriticalEffect[])=>void) : void => {
 	//	this.getCriticalEffectsObserve(actorId).subscribe(response => callback(response));
 	//}
 
 	public getCriticalEffectsAsync = (actorId: number) : Promise<CriticalEffect[]> => {
-        
+
         return new Promise<CriticalEffect[]>((resolve, reject) => {
             this.getCriticalEffects(actorId)
             .subscribe((res) => {
@@ -35,7 +35,7 @@ export class CriticalEffectsRepository {
                 });
 
         });
-	}  
+	}
 
 	public getCriticalEffects = (actorId: number) : Observable<CriticalEffect[]> => {
         var _Url = `api/CriticalEffects/getCriticalEffects?actorId=${actorId}`;
@@ -44,14 +44,14 @@ export class CriticalEffectsRepository {
 	};
 
     
-    // get: api/CriticalEffects/getCriticalEffect?id=${id}   
+    // get: api/CriticalEffects/getCriticalEffect?id=${id}
 
 	//public getCriticalEffect = (id: number, callback: (data: CriticalEffect)=>void) : void => {
 	//	this.getCriticalEffectObserve(id).subscribe(response => callback(response));
 	//}
 
 	public getCriticalEffectAsync = (id: number) : Promise<CriticalEffect> => {
-        
+
         return new Promise<CriticalEffect>((resolve, reject) => {
             this.getCriticalEffect(id)
             .subscribe((res) => {
@@ -59,7 +59,7 @@ export class CriticalEffectsRepository {
                 });
 
         });
-	}  
+	}
 
 	public getCriticalEffect = (id: number) : Observable<CriticalEffect> => {
         var _Url = `api/CriticalEffects/getCriticalEffect?id=${id}`;
@@ -68,14 +68,14 @@ export class CriticalEffectsRepository {
 	};
 
     
-    // post: api/CriticalEffects/saveCriticalEffect   
+    // post: api/CriticalEffects/saveCriticalEffect
 
 	//public saveCriticalEffect = (criticalEffect: CriticalEffect, callback: (data: CriticalEffect)=>void) : void => {
 	//	this.saveCriticalEffectObserve(criticalEffect).subscribe(response => callback(response));
 	//}
 
 	public saveCriticalEffectAsync = (criticalEffect: CriticalEffect) : Promise<CriticalEffect> => {
-        
+
         return new Promise<CriticalEffect>((resolve, reject) => {
             this.saveCriticalEffect(criticalEffect)
             .subscribe((res) => {
@@ -83,7 +83,7 @@ export class CriticalEffectsRepository {
                 });
 
         });
-	}  
+	}
 
 	public saveCriticalEffect = (criticalEffect: CriticalEffect) : Observable<CriticalEffect> => {
         var _Url = `api/CriticalEffects/saveCriticalEffect`;
@@ -92,14 +92,14 @@ export class CriticalEffectsRepository {
 	};
 
     
-    // delete: api/CriticalEffects/deleteCriticalEffect?id=${id}   
+    // delete: api/CriticalEffects/deleteCriticalEffect?id=${id}
 
 	//public deleteCriticalEffect = (id: number, callback: (data: void)=>void) : void => {
 	//	this.deleteCriticalEffectObserve(id).subscribe(response => callback(response));
 	//}
 
 	public deleteCriticalEffectAsync = (id: number) : Promise<void> => {
-        
+
         return new Promise<void>((resolve, reject) => {
             this.deleteCriticalEffect(id)
             .subscribe((res) => {
@@ -107,7 +107,7 @@ export class CriticalEffectsRepository {
                 });
 
         });
-	}  
+	}
 
 	public deleteCriticalEffect = (id: number) : Observable<void> => {
         var _Url = `api/CriticalEffects/deleteCriticalEffect?id=${id}`;
@@ -128,4 +128,4 @@ export class CriticalEffectsRepository {
 }
 
 
-	
+

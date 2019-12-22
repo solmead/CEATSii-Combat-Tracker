@@ -8,7 +8,7 @@
 //
 //*************************DO NOT MODIFY**************************
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http'; 
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import {Observable} from "rxjs";
 import { map, catchError } from "rxjs/operators";
 
@@ -19,16 +19,16 @@ import GameType = Enums.EnumDefinitions.GameType;
 @Injectable()
 export class GamesRepository {
 
-    constructor(private _httpClient: HttpClient) { }        
+    constructor(private _httpClient: HttpClient) { }
     
-    // get: api/Games/getGames?gameType=${gameType}   
+    // get: api/Games/getGames?gameType=${gameType}
 
 	//public getGames = (gameType: GameType, callback: (data: Game[])=>void) : void => {
 	//	this.getGamesObserve(gameType).subscribe(response => callback(response));
 	//}
 
 	public getGamesAsync = (gameType: GameType) : Promise<Game[]> => {
-        
+
         return new Promise<Game[]>((resolve, reject) => {
             this.getGames(gameType)
             .subscribe((res) => {
@@ -36,7 +36,7 @@ export class GamesRepository {
                 });
 
         });
-	}  
+	}
 
 	public getGames = (gameType: GameType) : Observable<Game[]> => {
         var _Url = `api/Games/getGames?gameType=${gameType}`;
@@ -45,14 +45,14 @@ export class GamesRepository {
 	};
 
     
-    // get: api/Games/getGame?id=${id}   
+    // get: api/Games/getGame?id=${id}
 
 	//public getGame = (id: number, callback: (data: Game)=>void) : void => {
 	//	this.getGameObserve(id).subscribe(response => callback(response));
 	//}
 
 	public getGameAsync = (id: number) : Promise<Game> => {
-        
+
         return new Promise<Game>((resolve, reject) => {
             this.getGame(id)
             .subscribe((res) => {
@@ -60,7 +60,7 @@ export class GamesRepository {
                 });
 
         });
-	}  
+	}
 
 	public getGame = (id: number) : Observable<Game> => {
         var _Url = `api/Games/getGame?id=${id}`;
@@ -69,14 +69,14 @@ export class GamesRepository {
 	};
 
     
-    // post: api/Games/saveGame   
+    // post: api/Games/saveGame
 
 	//public saveGame = (game: Game, callback: (data: Game)=>void) : void => {
 	//	this.saveGameObserve(game).subscribe(response => callback(response));
 	//}
 
 	public saveGameAsync = (game: Game) : Promise<Game> => {
-        
+
         return new Promise<Game>((resolve, reject) => {
             this.saveGame(game)
             .subscribe((res) => {
@@ -84,7 +84,7 @@ export class GamesRepository {
                 });
 
         });
-	}  
+	}
 
 	public saveGame = (game: Game) : Observable<Game> => {
         var _Url = `api/Games/saveGame`;
@@ -93,14 +93,14 @@ export class GamesRepository {
 	};
 
     
-    // delete: api/Games/deleteGame?id=${id}   
+    // delete: api/Games/deleteGame?id=${id}
 
 	//public deleteGame = (id: number, callback: (data: void)=>void) : void => {
 	//	this.deleteGameObserve(id).subscribe(response => callback(response));
 	//}
 
 	public deleteGameAsync = (id: number) : Promise<void> => {
-        
+
         return new Promise<void>((resolve, reject) => {
             this.deleteGame(id)
             .subscribe((res) => {
@@ -108,7 +108,7 @@ export class GamesRepository {
                 });
 
         });
-	}  
+	}
 
 	public deleteGame = (id: number) : Observable<void> => {
         var _Url = `api/Games/deleteGame?id=${id}`;
@@ -129,4 +129,4 @@ export class GamesRepository {
 }
 
 
-	
+
