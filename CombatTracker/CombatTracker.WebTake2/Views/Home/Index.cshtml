@@ -1,0 +1,28 @@
+@{
+    ViewBag.Title = "Grants";
+    Layout = "~/Views/Shared/_LayoutApp.cshtml";
+}
+@section SiteHead
+{
+
+    <baseApi href="@Url.Content("~/")"></baseApi>
+
+    <base href="~/Dashboard/" />
+}
+
+<app class="h-100">Loading...</app>
+
+@section scripts {
+
+    <script src="~/dist/runtime-es2015.js" type="module"></script>
+    <script src="~/dist/polyfills-es2015.js" type="module"></script>
+    <script src="~/dist/runtime-es5.js" nomodule></script>
+    <script src="~/dist/polyfills-es5.js" nomodule></script>
+    <script src="~/dist/styles-es2015.js" type="module"></script>
+    <script src="~/dist/styles-es5.js" nomodule></script>
+    <script src="~/dist/scripts.js"></script>
+    <script src="~/dist/vendor-es2015.js" type="module"></script>
+    <script src="~/dist/main-es2015.js" type="module"></script>
+    <script src="~/dist/vendor-es5.js" nomodule></script>
+    <script src="~/dist/main-es5.js" nomodule></script>
+}

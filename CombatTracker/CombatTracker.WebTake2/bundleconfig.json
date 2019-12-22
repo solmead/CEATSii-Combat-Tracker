@@ -1,0 +1,15 @@
+[
+  {
+    "outputFileName": "wwwroot/css/maincss.min.css",
+    "inputFiles": [
+      "wwwroot/css/site.css"
+    ],
+    // Optionally specify minification options
+    "minify": {
+      "enabled": false,
+      "renameLocals": false
+    },
+    // Optionally generate .map file
+    "sourceMap": false
+  }
+]

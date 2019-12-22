@@ -63,7 +63,8 @@ namespace CombatTracker.Domain.Repositories
                                  PageNumber = cbc.PageNumber,
                                  Size_ID = cbc.Size_ID,
                                  TypeName = cbc.TypeName,
-                                 GameTypeString = cbc.GameType
+                                 GameTypeString = cbc.GameType,
+                                 OwnerID = cbc.OwnerID
                              }).ToList();
 
                 chars.ForEach((c) => {
@@ -129,6 +130,7 @@ namespace CombatTracker.Domain.Repositories
             car.Size_ID = creature.Size_ID;
             car.TypeName = creature.TypeName;
             car.GameType = creature.GameTypeString;
+            car.OwnerID = creature.OwnerID;
 
             db.SaveChanges();
             creature.ID = car.ID;

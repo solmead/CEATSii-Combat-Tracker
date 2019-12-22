@@ -10,21 +10,27 @@ using CombatTracker.Domain.Reference.Creatures.Charts;
 using CombatTracker.Domain.Reference.Magic;
 using CombatTracker.Domain.Reference.Players;
 using Microsoft.EntityFrameworkCore;
+using IdentityServer4.EntityFramework.Options;
+using Microsoft.AspNetCore.ApiAuthorization.IdentityServer;
+using Microsoft.Extensions.Options;
+using CombatTracker.Entities.Security;
 
 namespace CombatTracker.Domain
 {
 
-    public partial class TrackerContext : DbContext
+    public partial class TrackerContext : ApiAuthorizationDbContext<ApplicationUser>
     {
-        //public TrackerContext() :base()
+        public TrackerContext(
+            DbContextOptions options,
+            IOptions<OperationalStoreOptions> operationalStoreOptions) : base(options, operationalStoreOptions)
+        {
+        }
+
+        //public TrackerContext(DbContextOptions<TrackerContext> options)
+        //    : base(options)
         //{
 
         //}
-        public TrackerContext(DbContextOptions<TrackerContext> options)
-            : base(options)
-        {
-
-        }
 
         public virtual DbSet<DbActionGroup> ActionGroups { get; set; }
         public virtual DbSet<DbActionDefinition> Actions { get; set; }
@@ -59,6 +65,8 @@ namespace CombatTracker.Domain
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
             //modelBuilder.Entity<ActionGroup>()
             //    .HasMany(e => e.Actions)
             //    .WithOptional(e => e.ActionGroup)

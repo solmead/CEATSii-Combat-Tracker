@@ -4,11 +4,12 @@ using System.Linq;
 using CombatTracker.Entities.Reference.Attacks;
 using CombatTracker.Entities.Reference.Base;
 using CombatTracker.Entities.Reference.Creatures.Charts;
+using CombatTracker.Entities.Security;
 
 namespace CombatTracker.Entities.Reference.Creatures
 {
-    
-    
+
+
     public partial class Creature  :IActable
     {
         public Creature()
@@ -16,7 +17,7 @@ namespace CombatTracker.Entities.Reference.Creatures
             //this.Actors = new List<Actor>();
             this.Attacks = new List<Attack>();
         }
-    
+
         public int ID { get; set; }
         public string TypeName { get; set; }
         public int BaseLevel { get; set; }
@@ -50,6 +51,9 @@ namespace CombatTracker.Entities.Reference.Creatures
             set => GameType = (GameType)Enum.Parse(typeof(GameType), value);
         }
 
+        public string OwnerID { get; set; }
+
+
         //public virtual ICollection<Actor> Actors { get; set; }
         public virtual ICollection<Attack> Attacks { get; set; }
         public virtual Book Book { get; set; }
@@ -64,7 +68,7 @@ namespace CombatTracker.Entities.Reference.Creatures
         public virtual SpeedChart AQRating { get; set; }
         public virtual SpeedChart MSRating { get; set; }
 
-        
+
         public override string ToString()
         {
             return TypeName;
@@ -140,5 +144,5 @@ namespace CombatTracker.Entities.Reference.Creatures
         }
 
     }
-    
+
 }
