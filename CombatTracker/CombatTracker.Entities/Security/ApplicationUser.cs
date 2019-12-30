@@ -7,5 +7,15 @@ namespace CombatTracker.Entities.Security
 {
     public class ApplicationUser : IdentityUser
     {
+
+
+        public override string Id { get => base.Id; set => base.Id = value; }
+        public override string Email { get => base.Email; set => base.Email = value; }
+        public override string PhoneNumber { get => base.PhoneNumber; set => base.PhoneNumber = value; }
+        public override string UserName { get => base.UserName; set => base.UserName = value; }
+
+        public override string SecurityStamp { get => base.SecurityStamp; set => base.SecurityStamp = value; }
+
+
     }
 }

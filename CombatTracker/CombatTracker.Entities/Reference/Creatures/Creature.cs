@@ -52,6 +52,7 @@ namespace CombatTracker.Entities.Reference.Creatures
         }
 
         public string OwnerID { get; set; }
+        public CreatureStatus Status { get; set; }
 
 
         //public virtual ICollection<Actor> Actors { get; set; }

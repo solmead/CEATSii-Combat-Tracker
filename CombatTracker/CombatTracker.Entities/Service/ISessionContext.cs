@@ -9,8 +9,8 @@ namespace CombatTracker.Entities.Service
 {
     public interface ISessionContext
     {
-        Task<User> GetCurrentUserAsync();
-        User CurrentUser { get; }
-        //void SetCurrentUser(IdentityUser user);
+        Task<ApplicationUser> GetCurrentUserAsync();
+        ApplicationUser CurrentUser { get; }
+        void SetCurrentUser(ApplicationUser user);
     }
 }

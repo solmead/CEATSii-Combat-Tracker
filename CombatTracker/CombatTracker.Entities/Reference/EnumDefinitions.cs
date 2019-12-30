@@ -86,5 +86,12 @@ namespace CombatTracker.Entities.Reference
         No_Parry
     }
 
+
+    public enum CreatureStatus
+    {
+        Personal,
+        Proposed,
+        InCompendium
+    }
     
 }

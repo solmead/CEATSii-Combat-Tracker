@@ -22,14 +22,22 @@ namespace CombatTracker.Authorization
             }
 
             // If not asking for approval/reject, return.
-            if (requirement.Name != Constants.OperationNames.Approve.ToString() &&
-                requirement.Name != Constants.OperationNames.Reject.ToString())
-            {
-                return Task.CompletedTask;
-            }
+            //if (requirement.Name != Constants.OperationNames.Approve.ToString() &&
+            //    requirement.Name != Constants.OperationNames.Reject.ToString())
+            //{
+            //    return Task.CompletedTask;
+            //}
+
+            var validRole = context.User.IsInRole(Constants.SecurityRoles.Compendium.ToString());
+
+
+            var cudAccess = (resource.Status != Entities.Reference.CreatureStatus.Personal);
+
+            //var rAccess = (resource.Status == Entities.Reference.CreatureStatus.InCompendium) && requirement.Name == Constants.OperationNames.Read.ToString();
+
 
             // Managers can approve or reject.
-            if (context.User.IsInRole(Constants.SecurityRoles.Compendium.ToString()))
+            if (validRole && cudAccess)
             {
                 context.Succeed(requirement);
             }

@@ -7,12 +7,12 @@ namespace CombatTracker.Entities.Reference
 {
     public class MySettings
     {
-        public GameType GameSystem { get; set; }
-        public string GameSystemString
-        {
-            get => GameSystem.ToString();
-            set => GameSystem = (GameType)Enum.Parse(typeof(GameType), value);
-        }
+        //public GameType GameSystem { get; set; }
+        //public string GameSystemString
+        //{
+        //    get => GameSystem.ToString();
+        //    set => GameSystem = (GameType)Enum.Parse(typeof(GameType), value);
+        //}
 
     }
 }

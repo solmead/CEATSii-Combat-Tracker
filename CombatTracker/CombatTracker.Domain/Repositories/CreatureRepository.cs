@@ -20,7 +20,7 @@ namespace CombatTracker.Domain.Repositories
         private readonly ICombatRepository _combatRepository;
         private readonly IChartRepository _chartRepository;
 
-        public CreatureRepository(TrackerContext context, 
+        public CreatureRepository(TrackerContext context,
                                   ICombatRepository combatRepository,
                                   IChartRepository chartRepository)
         {
@@ -64,7 +64,8 @@ namespace CombatTracker.Domain.Repositories
                                  Size_ID = cbc.Size_ID,
                                  TypeName = cbc.TypeName,
                                  GameTypeString = cbc.GameType,
-                                 OwnerID = cbc.OwnerID
+                                 OwnerID = cbc.OwnerID,
+                                 Status = cbc.Status
                              }).ToList();
 
                 chars.ForEach((c) => {
@@ -131,6 +132,7 @@ namespace CombatTracker.Domain.Repositories
             car.TypeName = creature.TypeName;
             car.GameType = creature.GameTypeString;
             car.OwnerID = creature.OwnerID;
+            car.Status = creature.Status;
 
             db.SaveChanges();
             creature.ID = car.ID;

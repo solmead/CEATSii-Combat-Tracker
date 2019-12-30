@@ -961,6 +961,9 @@ namespace CombatTracker.Domain.Migrations
                     b.Property<int>("Size_ID")
                         .HasColumnType("int");
 
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
                     b.Property<string>("TypeName")
                         .IsRequired()
                         .HasColumnType("nvarchar(500)")

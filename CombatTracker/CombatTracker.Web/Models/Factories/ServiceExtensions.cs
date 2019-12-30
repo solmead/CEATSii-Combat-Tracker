@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CombatTracker.Authorization.Services;
 using CombatTracker.Domain.Repositories;
 using CombatTracker.Entities.Repositories;
 using CombatTracker.Entities.Service;
 using CombatTracker.Services.Services;
-using CombatTracker.Web.Models.Services;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace CombatTracker.Web.Factories
@@ -26,6 +26,7 @@ namespace CombatTracker.Web.Factories
             services.AddTransient<IGameRepository, GameRepository>();
             services.AddTransient<IGameService, GameServices>();
             services.AddTransient<IActionServices, ActionServices>();
+            services.AddTransient<IUserService, UserService>();
             services.AddTransient<ISessionContext, SessionContext>();
 
             return services;

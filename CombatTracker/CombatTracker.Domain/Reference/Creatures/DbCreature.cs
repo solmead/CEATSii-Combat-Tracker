@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using CombatTracker.Domain.Reference.Attacks;
+using CombatTracker.Entities.Reference;
 using CombatTracker.Entities.Security;
 
 namespace CombatTracker.Domain.Reference.Creatures
@@ -72,6 +73,7 @@ namespace CombatTracker.Domain.Reference.Creatures
         public string Habitat { get; set; }
 
 
+        public CreatureStatus Status { get; set; }
         public string OwnerID { get; set; }
         [ForeignKey("OwnerID")]
         public virtual ApplicationUser Owner { get; set; }

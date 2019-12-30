@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using CombatTracker.Entities.Service;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CombatTracker.Web.Controllers
@@ -14,11 +15,13 @@ namespace CombatTracker.Web.Controllers
         {
 
         }
+        [AllowAnonymous]
         public IActionResult Index()
         {
             return View();
         }
 
+        [AllowAnonymous]
         public IActionResult Error()
         {
             ViewData["RequestId"] = Activity.Current?.Id ?? HttpContext.TraceIdentifier;
