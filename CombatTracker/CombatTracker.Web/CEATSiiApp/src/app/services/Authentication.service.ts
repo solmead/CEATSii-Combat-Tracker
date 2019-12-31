@@ -16,7 +16,7 @@ export class AuthenticationService {
     this.currentUserSubject = new BehaviorSubject<ApplicationUser>(JSON.parse(localStorage.getItem('currentUser')));
     this.currentUser = this.currentUserSubject.asObservable();
 
-    debugger;
+    //debugger;
     this.refreshUser();
   }
 

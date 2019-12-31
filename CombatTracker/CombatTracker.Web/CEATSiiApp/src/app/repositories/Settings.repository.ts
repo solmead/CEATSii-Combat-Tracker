@@ -21,15 +21,6 @@ export class SettingsRepository {
 
     constructor(private _httpClient: HttpClient) { }
     
-    // Utility
-    private handleError(error: HttpErrorResponse) {
-        console.error(error);
-        let customError: string = "";
-        if (error.error) {
-            customError = error.status === 400 ? error.error : error.statusText
-        }
-        return throwError(customError || 'Server error');
-    }
 }
 
 

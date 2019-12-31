@@ -40,8 +40,7 @@ export class CriticalEffectsRepository {
 
 	public getCriticalEffects = (actorId: number) : Observable<CriticalEffect[]> => {
         var _Url = `api/CriticalEffects/getCriticalEffects?actorId=${actorId}`;
-            return this._httpClient.get<CriticalEffect[]>(_Url)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.get<CriticalEffect[]>(_Url);
 	};
 
     
@@ -64,8 +63,7 @@ export class CriticalEffectsRepository {
 
 	public getCriticalEffect = (id: number) : Observable<CriticalEffect> => {
         var _Url = `api/CriticalEffects/getCriticalEffect?id=${id}`;
-            return this._httpClient.get<CriticalEffect>(_Url)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.get<CriticalEffect>(_Url);
 	};
 
     
@@ -88,8 +86,7 @@ export class CriticalEffectsRepository {
 
 	public saveCriticalEffect = (criticalEffect: CriticalEffect) : Observable<CriticalEffect> => {
         var _Url = `api/CriticalEffects/saveCriticalEffect`;
-            return this._httpClient.post<CriticalEffect>(_Url, criticalEffect)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.post<CriticalEffect>(_Url, criticalEffect);
 	};
 
     
@@ -112,20 +109,10 @@ export class CriticalEffectsRepository {
 
 	public deleteCriticalEffect = (id: number) : Observable<void> => {
         var _Url = `api/CriticalEffects/deleteCriticalEffect?id=${id}`;
-            return this._httpClient.delete<void>(_Url)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.delete<void>(_Url);
 	};
 
     
-    // Utility
-    private handleError(error: HttpErrorResponse) {
-        console.error(error);
-        let customError: string = "";
-        if (error.error) {
-            customError = error.status === 400 ? error.error : error.statusText
-        }
-        return throwError(customError || 'Server error');
-    }
 }
 
 

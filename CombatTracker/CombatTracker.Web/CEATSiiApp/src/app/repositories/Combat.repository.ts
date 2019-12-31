@@ -42,8 +42,7 @@ export class CombatRepository {
 
 	public deleteArmor = (id: number) : Observable<void> => {
         var _Url = `api/Combat/deleteArmor?id=${id}`;
-            return this._httpClient.delete<void>(_Url)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.delete<void>(_Url);
 	};
 
     
@@ -66,8 +65,7 @@ export class CombatRepository {
 
 	public deleteAttack = (id: number) : Observable<void> => {
         var _Url = `api/Combat/deleteAttack?id=${id}`;
-            return this._httpClient.delete<void>(_Url)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.delete<void>(_Url);
 	};
 
     
@@ -90,8 +88,7 @@ export class CombatRepository {
 
 	public deleteWeapon = (id: number) : Observable<void> => {
         var _Url = `api/Combat/deleteWeapon?id=${id}`;
-            return this._httpClient.delete<void>(_Url)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.delete<void>(_Url);
 	};
 
     
@@ -114,8 +111,7 @@ export class CombatRepository {
 
 	public getArmor = (id: number) : Observable<Armor> => {
         var _Url = `api/Combat/getArmor?id=${id}`;
-            return this._httpClient.get<Armor>(_Url)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.get<Armor>(_Url);
 	};
 
     
@@ -138,8 +134,7 @@ export class CombatRepository {
 
 	public getArmors = () : Observable<Armor[]> => {
         var _Url = `api/Combat/getArmors`;
-            return this._httpClient.get<Armor[]>(_Url)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.get<Armor[]>(_Url);
 	};
 
     
@@ -162,8 +157,7 @@ export class CombatRepository {
 
 	public getArmorsOnCharacter = (characterId: number) : Observable<Armor[]> => {
         var _Url = `api/Combat/getArmorsOnCharacter?characterId=${characterId}`;
-            return this._httpClient.get<Armor[]>(_Url)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.get<Armor[]>(_Url);
 	};
 
     
@@ -186,8 +180,7 @@ export class CombatRepository {
 
 	public getAttack = (id: number) : Observable<Attack> => {
         var _Url = `api/Combat/getAttack?id=${id}`;
-            return this._httpClient.get<Attack>(_Url)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.get<Attack>(_Url);
 	};
 
     
@@ -210,8 +203,7 @@ export class CombatRepository {
 
 	public getAttacks = () : Observable<Attack[]> => {
         var _Url = `api/Combat/getAttacks`;
-            return this._httpClient.get<Attack[]>(_Url)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.get<Attack[]>(_Url);
 	};
 
     
@@ -234,8 +226,7 @@ export class CombatRepository {
 
 	public getAttacksOnActor = (actorId: number) : Observable<Attack[]> => {
         var _Url = `api/Combat/getAttacksOnActor?actorId=${actorId}`;
-            return this._httpClient.get<Attack[]>(_Url)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.get<Attack[]>(_Url);
 	};
 
     
@@ -258,8 +249,7 @@ export class CombatRepository {
 
 	public getAttacksOnCreature = (creatureId: number) : Observable<Attack[]> => {
         var _Url = `api/Combat/getAttacksOnCreature?creatureId=${creatureId}`;
-            return this._httpClient.get<Attack[]>(_Url)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.get<Attack[]>(_Url);
 	};
 
     
@@ -282,8 +272,7 @@ export class CombatRepository {
 
 	public getWeapon = (id: number) : Observable<Weapon> => {
         var _Url = `api/Combat/getWeapon?id=${id}`;
-            return this._httpClient.get<Weapon>(_Url)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.get<Weapon>(_Url);
 	};
 
     
@@ -306,8 +295,7 @@ export class CombatRepository {
 
 	public getWeapons = () : Observable<Weapon[]> => {
         var _Url = `api/Combat/getWeapons`;
-            return this._httpClient.get<Weapon[]>(_Url)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.get<Weapon[]>(_Url);
 	};
 
     
@@ -330,8 +318,7 @@ export class CombatRepository {
 
 	public getWeaponsOnCharacter = (characterId: number) : Observable<Weapon[]> => {
         var _Url = `api/Combat/getWeaponsOnCharacter?characterId=${characterId}`;
-            return this._httpClient.get<Weapon[]>(_Url)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.get<Weapon[]>(_Url);
 	};
 
     
@@ -354,8 +341,7 @@ export class CombatRepository {
 
 	public saveArmor = (armor: Armor) : Observable<Armor> => {
         var _Url = `api/Combat/saveArmor`;
-            return this._httpClient.post<Armor>(_Url, armor)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.post<Armor>(_Url, armor);
 	};
 
     
@@ -378,8 +364,7 @@ export class CombatRepository {
 
 	public saveAttack = (attack: Attack) : Observable<Attack> => {
         var _Url = `api/Combat/saveAttack`;
-            return this._httpClient.post<Attack>(_Url, attack)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.post<Attack>(_Url, attack);
 	};
 
     
@@ -402,8 +387,7 @@ export class CombatRepository {
 
 	public saveAttackOnActor = (actorId: number, attack: Attack) : Observable<Attack> => {
         var _Url = `api/Combat/saveAttackOnActor?actorId=${actorId}`;
-            return this._httpClient.post<Attack>(_Url, actorId)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.post<Attack>(_Url, actorId);
 	};
 
     
@@ -426,20 +410,10 @@ export class CombatRepository {
 
 	public saveWeapon = (weapon: Weapon) : Observable<Weapon> => {
         var _Url = `api/Combat/saveWeapon`;
-            return this._httpClient.post<Weapon>(_Url, weapon)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.post<Weapon>(_Url, weapon);
 	};
 
     
-    // Utility
-    private handleError(error: HttpErrorResponse) {
-        console.error(error);
-        let customError: string = "";
-        if (error.error) {
-            customError = error.status === 400 ? error.error : error.statusText
-        }
-        return throwError(customError || 'Server error');
-    }
 }
 
 

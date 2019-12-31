@@ -34,8 +34,10 @@ namespace CombatTracker.Authorization.Services
             var result = await _signInManager.PasswordSignInAsync(username, password, false, lockoutOnFailure: false);
             if (result.Succeeded)
             {
-                _sessionContext.SetCurrentUser(null);
-                return await _sessionContext.GetCurrentUserAsync();
+                var usr = await _usermanager.FindByNameAsync(username);
+                _sessionContext.SetCurrentUser(usr);
+                //var us = await _sessionContext.GetCurrentUserAsync();
+                return usr;
             }
             if (result.RequiresTwoFactor)
             {

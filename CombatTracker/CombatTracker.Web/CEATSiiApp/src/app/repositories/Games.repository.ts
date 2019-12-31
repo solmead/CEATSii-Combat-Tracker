@@ -41,8 +41,7 @@ export class GamesRepository {
 
 	public getGames = (gameType: GameType) : Observable<Game[]> => {
         var _Url = `api/Games/getGames?gameType=${gameType}`;
-            return this._httpClient.get<Game[]>(_Url)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.get<Game[]>(_Url);
 	};
 
     
@@ -65,8 +64,7 @@ export class GamesRepository {
 
 	public getGame = (id: number) : Observable<Game> => {
         var _Url = `api/Games/getGame?id=${id}`;
-            return this._httpClient.get<Game>(_Url)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.get<Game>(_Url);
 	};
 
     
@@ -89,8 +87,7 @@ export class GamesRepository {
 
 	public saveGame = (game: Game) : Observable<Game> => {
         var _Url = `api/Games/saveGame`;
-            return this._httpClient.post<Game>(_Url, game)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.post<Game>(_Url, game);
 	};
 
     
@@ -113,20 +110,10 @@ export class GamesRepository {
 
 	public deleteGame = (id: number) : Observable<void> => {
         var _Url = `api/Games/deleteGame?id=${id}`;
-            return this._httpClient.delete<void>(_Url)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.delete<void>(_Url);
 	};
 
     
-    // Utility
-    private handleError(error: HttpErrorResponse) {
-        console.error(error);
-        let customError: string = "";
-        if (error.error) {
-            customError = error.status === 400 ? error.error : error.statusText
-        }
-        return throwError(customError || 'Server error');
-    }
 }
 
 

@@ -12,7 +12,8 @@ export class AccountNavMenuComponent {
   currentUser: ApplicationUser;
   /** account-nav-menu ctor */
   constructor(private authenticationService: AuthenticationService) {
-
     this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
   }
+
+
 }

@@ -32,7 +32,7 @@ webpackEmptyAsyncContext.id = "./$$_lazy_route_resource lazy recursive";
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\r\n\r\n<header class=\"\" style=\"height: 10%!important;\">\r\n  <nav class=\"navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow h-100 \">\r\n    <div class=\"container\">\r\n      <a class=\"navbar-brand\" asp-area=\"\" asp-controller=\"Home\" asp-action=\"Index\">CombatTracker.Web</a>\r\n      <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\".navbar-collapse\" aria-controls=\"navbarSupportedContent\"\r\n              aria-expanded=\"false\" aria-label=\"Toggle navigation\">\r\n        <span class=\"navbar-toggler-icon\"></span>\r\n      </button>\r\n      <div class=\"navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse\">\r\n        <account-nav-menu></account-nav-menu>\r\n        \r\n        <main-nav-menu></main-nav-menu>\r\n          \r\n      </div>\r\n    </div>\r\n  </nav>\r\n</header>\r\n\r\n<div class=\"mainbody h-100\">\r\n  <main role=\"main\" class=\"clear h-100\" style=\"\">\r\n\r\n    <div class=\"h-100\" style=\"position:relative;\">\r\n      <div class='apparea'>\r\n        <div class='menu-column'>\r\n          <div class=\"displayInfo\"></div>\r\n          <side-nav-menu></side-nav-menu>\r\n        </div>\r\n        <div class='body-content'>\r\n          <router-outlet></router-outlet>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </main>\r\n\r\n\r\n\r\n\r\n  <footer class=\"border-top footer text-muted\" style=\"height: 10%!important;\">\r\n    <div class=\"container h-100\">\r\n      &copy; 2019 - CombatTracker.Web - <a asp-area=\"\" asp-controller=\"Home\" asp-action=\"Privacy\">Privacy</a>\r\n    </div>\r\n  </footer>\r\n</div>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("\r\n\r\n<header class=\"\" style=\"height: 10%!important;\">\r\n  <nav class=\"navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow h-100 \">\r\n    <div class=\"container\">\r\n      <a class=\"navbar-brand\" asp-area=\"\" asp-controller=\"Home\" asp-action=\"Index\">CombatTracker.Web</a>\r\n      <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\".navbar-collapse\" aria-controls=\"navbarSupportedContent\"\r\n              aria-expanded=\"false\" aria-label=\"Toggle navigation\">\r\n        <span class=\"navbar-toggler-icon\"></span>\r\n      </button>\r\n      <div class=\"navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse\">\r\n        <account-nav-menu class=\"navbar-nav\"></account-nav-menu>\r\n\r\n        <main-nav-menu class=\"navbar-nav flex-grow-1\"></main-nav-menu>\r\n\r\n      </div>\r\n    </div>\r\n  </nav>\r\n</header>\r\n\r\n<div class=\"mainbody h-100\">\r\n  <main role=\"main\" class=\"clear h-100\" style=\"\">\r\n\r\n    <div class=\"h-100\" style=\"position:relative;\">\r\n      <div class='apparea'>\r\n        <div class='menu-column'>\r\n          <div class=\"displayInfo\"></div>\r\n          <side-nav-menu></side-nav-menu>\r\n        </div>\r\n        <div class='body-content'>\r\n          <router-outlet></router-outlet>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </main>\r\n\r\n\r\n\r\n\r\n  <footer class=\"border-top footer text-muted\" style=\"height: 10%!important;\">\r\n    <div class=\"container h-100\">\r\n      &copy; 2019 - CombatTracker.Web - <a asp-area=\"\" asp-controller=\"Home\" asp-action=\"Privacy\">Privacy</a>\r\n    </div>\r\n  </footer>\r\n</div>\r\n");
 
 /***/ }),
 
@@ -253,7 +253,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ul class=\"navbar-nav\">\r\n  <li class=\"nav-item\" *ngIf=\"currentuser!=null\">\r\n    <a class=\"nav-link text-dark\" [routerLink]=\"['/profile']\" title=\"Manage\">Hello {{currentUser.userName}}</a>\r\n  </li>\r\n  <li class=\"nav-item\" *ngIf=\"currentuser!=null\">\r\n    <a (click)=\"logout()\"> class=\"nav-link btn btn-link text-dark\">Logout</a>\r\n  </li>\r\n\r\n  <li class=\"nav-item\" *ngIf=\"currentuser==null\">\r\n    <a class=\"nav-link text-dark\" [routerLink]=\"['/register']\">Register</a>\r\n  </li>\r\n  <li class=\"nav-item\" *ngIf=\"currentuser==null\">\r\n    <a class=\"nav-link text-dark\" [routerLink]=\"['/login']\">Login</a>\r\n  </li>\r\n</ul>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<ul class=\"navbar-nav\">\r\n  <li class=\"nav-item\" *ngIf=\"currentUser\">\r\n    <a class=\"nav-link text-dark\" [routerLink]=\"['/profile']\" title=\"Manage\">Hello {{currentUser.userName}}</a>\r\n  </li>\r\n  <li class=\"nav-item\" *ngIf=\"currentUser\">\r\n    <a (click)=\"logout()\"> class=\"nav-link btn btn-link text-dark\">Logout</a>\r\n  </li>\r\n\r\n  <li class=\"nav-item\" *ngIf=\"!currentUser\">\r\n    <a class=\"nav-link text-dark\" [routerLink]=\"['/register']\">Register</a>\r\n  </li>\r\n  <li class=\"nav-item\" *ngIf=\"!currentUser\">\r\n    <a class=\"nav-link text-dark\" [routerLink]=\"['/login']\">Login</a>\r\n  </li>\r\n</ul>\r\n");
 
 /***/ }),
 
@@ -663,15 +663,16 @@ let ErrorInterceptor = class ErrorInterceptor {
         this.authenticationService = authenticationService;
     }
     intercept(request, next) {
-        return next.handle(request).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(err => {
-            if (err.status === 401) {
-                // auto logout if 401 response returned from api
-                this.authenticationService.logout();
-                location.reload(true);
-            }
-            const error = err.error.message || err.statusText;
-            return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["throwError"])(error);
-        }));
+        return next.handle(request).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(this.handleError));
+    }
+    handleError(error) {
+        debugger;
+        console.error(error);
+        let customError = "";
+        if (error.error) {
+            customError = error.status === 400 ? error.error : error.statusText;
+        }
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["throwError"])(customError || 'Server error');
     }
 };
 ErrorInterceptor.ctorParameters = () => [
@@ -739,7 +740,7 @@ let JwtInterceptor = class JwtInterceptor {
     }
     intercept(request, next) {
         // add authorization header with jwt token if available
-        debugger;
+        //debugger;
         let currentUser = this.authenticationService.currentUserValue;
         if (currentUser && currentUser.securityStamp) {
             request = request.clone({
@@ -3115,8 +3116,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
 
 //*************************DO NOT MODIFY**************************
 //
@@ -3124,8 +3123,6 @@ __webpack_require__.r(__webpack_exports__);
 //PLEASE VISIT http://frhagn.github.io/Typewriter/ TO LEARN MORE ABOUT THIS VISUAL STUDIO EXTENSION
 //
 //*************************DO NOT MODIFY**************************
-
-
 
 
 let ActionsRepository = class ActionsRepository {
@@ -3145,8 +3142,7 @@ let ActionsRepository = class ActionsRepository {
         };
         this.getActionsOnActor = (actorId) => {
             var _Url = `api/Actions/getActionsOnActor?actorId=${actorId}`;
-            return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.get(_Url);
         };
         // get: api/Actions/getActionsInGame?gameId=${gameId}
         //public getActionsInGame = (gameId: number, callback: (data: BaseAction[])=>void) : void => {
@@ -3162,8 +3158,7 @@ let ActionsRepository = class ActionsRepository {
         };
         this.getActionsInGame = (gameId) => {
             var _Url = `api/Actions/getActionsInGame?gameId=${gameId}`;
-            return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.get(_Url);
         };
         // get: api/Actions/getAction?id=${id}
         //public getAction = (id: number, callback: (data: BaseAction)=>void) : void => {
@@ -3179,8 +3174,7 @@ let ActionsRepository = class ActionsRepository {
         };
         this.getAction = (id) => {
             var _Url = `api/Actions/getAction?id=${id}`;
-            return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.get(_Url);
         };
         // post: api/Actions/[action]
         //public saveAction = (action: BaseAction, callback: (data: BaseAction)=>void) : void => {
@@ -3196,8 +3190,7 @@ let ActionsRepository = class ActionsRepository {
         };
         this.saveAction = (action) => {
             var _Url = `api/Actions/[action]`;
-            return this._httpClient.post(_Url, action)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.post(_Url, action);
         };
         // delete: api/Actions/deleteAction?id=${id}
         //public deleteAction = (id: number, callback: (data: void)=>void) : void => {
@@ -3213,18 +3206,8 @@ let ActionsRepository = class ActionsRepository {
         };
         this.deleteAction = (id) => {
             var _Url = `api/Actions/deleteAction?id=${id}`;
-            return this._httpClient.delete(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.delete(_Url);
         };
-    }
-    // Utility
-    handleError(error) {
-        console.error(error);
-        let customError = "";
-        if (error.error) {
-            customError = error.status === 400 ? error.error : error.statusText;
-        }
-        return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["throwError"])(customError || 'Server error');
     }
 };
 ActionsRepository.ctorParameters = () => [
@@ -3252,8 +3235,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
 
 //*************************DO NOT MODIFY**************************
 //
@@ -3261,8 +3242,6 @@ __webpack_require__.r(__webpack_exports__);
 //PLEASE VISIT http://frhagn.github.io/Typewriter/ TO LEARN MORE ABOUT THIS VISUAL STUDIO EXTENSION
 //
 //*************************DO NOT MODIFY**************************
-
-
 
 
 let ActorsRepository = class ActorsRepository {
@@ -3282,8 +3261,7 @@ let ActorsRepository = class ActorsRepository {
         };
         this.getActors = (gameId) => {
             var _Url = `api/Actors/getActors?gameId=${gameId}`;
-            return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.get(_Url);
         };
         // get: api/Actors/getActor?id=${id}
         //public getActor = (id: number, callback: (data: Actor)=>void) : void => {
@@ -3299,8 +3277,7 @@ let ActorsRepository = class ActorsRepository {
         };
         this.getActor = (id) => {
             var _Url = `api/Actors/getActor?id=${id}`;
-            return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.get(_Url);
         };
         // post: api/Actors/saveActor
         //public saveActor = (actor: Actor, callback: (data: Actor)=>void) : void => {
@@ -3316,8 +3293,7 @@ let ActorsRepository = class ActorsRepository {
         };
         this.saveActor = (actor) => {
             var _Url = `api/Actors/saveActor`;
-            return this._httpClient.post(_Url, actor)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.post(_Url, actor);
         };
         // delete: api/Actors/deleteActor?id=${id}
         //public deleteActor = (id: number, callback: (data: void)=>void) : void => {
@@ -3333,18 +3309,8 @@ let ActorsRepository = class ActorsRepository {
         };
         this.deleteActor = (id) => {
             var _Url = `api/Actors/deleteActor?id=${id}`;
-            return this._httpClient.delete(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.delete(_Url);
         };
-    }
-    // Utility
-    handleError(error) {
-        console.error(error);
-        let customError = "";
-        if (error.error) {
-            customError = error.status === 400 ? error.error : error.statusText;
-        }
-        return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["throwError"])(customError || 'Server error');
     }
 };
 ActorsRepository.ctorParameters = () => [
@@ -3372,8 +3338,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
 
 //*************************DO NOT MODIFY**************************
 //
@@ -3381,8 +3345,6 @@ __webpack_require__.r(__webpack_exports__);
 //PLEASE VISIT http://frhagn.github.io/Typewriter/ TO LEARN MORE ABOUT THIS VISUAL STUDIO EXTENSION
 //
 //*************************DO NOT MODIFY**************************
-
-
 
 
 let CharactersRepository = class CharactersRepository {
@@ -3402,8 +3364,7 @@ let CharactersRepository = class CharactersRepository {
         };
         this.getCharacters = (gameType) => {
             var _Url = `api/Characters/getCharacters?gameType=${gameType}`;
-            return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.get(_Url);
         };
         // get: api/Characters/getCharacter?id=${id}
         //public getCharacter = (id: number, callback: (data: Character)=>void) : void => {
@@ -3419,8 +3380,7 @@ let CharactersRepository = class CharactersRepository {
         };
         this.getCharacter = (id) => {
             var _Url = `api/Characters/getCharacter?id=${id}`;
-            return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.get(_Url);
         };
         // post: api/Characters/saveCharacter
         //public saveCharacter = (character: Character, callback: (data: Character)=>void) : void => {
@@ -3436,8 +3396,7 @@ let CharactersRepository = class CharactersRepository {
         };
         this.saveCharacter = (character) => {
             var _Url = `api/Characters/saveCharacter`;
-            return this._httpClient.post(_Url, character)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.post(_Url, character);
         };
         // delete: api/Characters/deleteCharacter?id=${id}
         //public deleteCharacter = (id: number, callback: (data: void)=>void) : void => {
@@ -3453,18 +3412,8 @@ let CharactersRepository = class CharactersRepository {
         };
         this.deleteCharacter = (id) => {
             var _Url = `api/Characters/deleteCharacter?id=${id}`;
-            return this._httpClient.delete(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.delete(_Url);
         };
-    }
-    // Utility
-    handleError(error) {
-        console.error(error);
-        let customError = "";
-        if (error.error) {
-            customError = error.status === 400 ? error.error : error.statusText;
-        }
-        return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["throwError"])(customError || 'Server error');
     }
 };
 CharactersRepository.ctorParameters = () => [
@@ -3492,8 +3441,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
 
 //*************************DO NOT MODIFY**************************
 //
@@ -3501,8 +3448,6 @@ __webpack_require__.r(__webpack_exports__);
 //PLEASE VISIT http://frhagn.github.io/Typewriter/ TO LEARN MORE ABOUT THIS VISUAL STUDIO EXTENSION
 //
 //*************************DO NOT MODIFY**************************
-
-
 
 
 let CombatRepository = class CombatRepository {
@@ -3522,8 +3467,7 @@ let CombatRepository = class CombatRepository {
         };
         this.deleteArmor = (id) => {
             var _Url = `api/Combat/deleteArmor?id=${id}`;
-            return this._httpClient.delete(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.delete(_Url);
         };
         // delete: api/Combat/deleteAttack?id=${id}
         //public deleteAttack = (id: number, callback: (data: void)=>void) : void => {
@@ -3539,8 +3483,7 @@ let CombatRepository = class CombatRepository {
         };
         this.deleteAttack = (id) => {
             var _Url = `api/Combat/deleteAttack?id=${id}`;
-            return this._httpClient.delete(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.delete(_Url);
         };
         // delete: api/Combat/deleteWeapon?id=${id}
         //public deleteWeapon = (id: number, callback: (data: void)=>void) : void => {
@@ -3556,8 +3499,7 @@ let CombatRepository = class CombatRepository {
         };
         this.deleteWeapon = (id) => {
             var _Url = `api/Combat/deleteWeapon?id=${id}`;
-            return this._httpClient.delete(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.delete(_Url);
         };
         // get: api/Combat/getArmor?id=${id}
         //public getArmor = (id: number, callback: (data: Armor)=>void) : void => {
@@ -3573,8 +3515,7 @@ let CombatRepository = class CombatRepository {
         };
         this.getArmor = (id) => {
             var _Url = `api/Combat/getArmor?id=${id}`;
-            return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.get(_Url);
         };
         // get: api/Combat/getArmors
         //public getArmors = (, callback: (data: Armor[])=>void) : void => {
@@ -3590,8 +3531,7 @@ let CombatRepository = class CombatRepository {
         };
         this.getArmors = () => {
             var _Url = `api/Combat/getArmors`;
-            return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.get(_Url);
         };
         // get: api/Combat/getArmorsOnCharacter?characterId=${characterId}
         //public getArmorsOnCharacter = (characterId: number, callback: (data: Armor[])=>void) : void => {
@@ -3607,8 +3547,7 @@ let CombatRepository = class CombatRepository {
         };
         this.getArmorsOnCharacter = (characterId) => {
             var _Url = `api/Combat/getArmorsOnCharacter?characterId=${characterId}`;
-            return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.get(_Url);
         };
         // get: api/Combat/getAttack?id=${id}
         //public getAttack = (id: number, callback: (data: Attack)=>void) : void => {
@@ -3624,8 +3563,7 @@ let CombatRepository = class CombatRepository {
         };
         this.getAttack = (id) => {
             var _Url = `api/Combat/getAttack?id=${id}`;
-            return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.get(_Url);
         };
         // get: api/Combat/getAttacks
         //public getAttacks = (, callback: (data: Attack[])=>void) : void => {
@@ -3641,8 +3579,7 @@ let CombatRepository = class CombatRepository {
         };
         this.getAttacks = () => {
             var _Url = `api/Combat/getAttacks`;
-            return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.get(_Url);
         };
         // get: api/Combat/getAttacksOnActor?actorId=${actorId}
         //public getAttacksOnActor = (actorId: number, callback: (data: Attack[])=>void) : void => {
@@ -3658,8 +3595,7 @@ let CombatRepository = class CombatRepository {
         };
         this.getAttacksOnActor = (actorId) => {
             var _Url = `api/Combat/getAttacksOnActor?actorId=${actorId}`;
-            return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.get(_Url);
         };
         // get: api/Combat/getAttacksOnCreature?creatureId=${creatureId}
         //public getAttacksOnCreature = (creatureId: number, callback: (data: Attack[])=>void) : void => {
@@ -3675,8 +3611,7 @@ let CombatRepository = class CombatRepository {
         };
         this.getAttacksOnCreature = (creatureId) => {
             var _Url = `api/Combat/getAttacksOnCreature?creatureId=${creatureId}`;
-            return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.get(_Url);
         };
         // get: api/Combat/getWeapon?id=${id}
         //public getWeapon = (id: number, callback: (data: Weapon)=>void) : void => {
@@ -3692,8 +3627,7 @@ let CombatRepository = class CombatRepository {
         };
         this.getWeapon = (id) => {
             var _Url = `api/Combat/getWeapon?id=${id}`;
-            return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.get(_Url);
         };
         // get: api/Combat/getWeapons
         //public getWeapons = (, callback: (data: Weapon[])=>void) : void => {
@@ -3709,8 +3643,7 @@ let CombatRepository = class CombatRepository {
         };
         this.getWeapons = () => {
             var _Url = `api/Combat/getWeapons`;
-            return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.get(_Url);
         };
         // get: api/Combat/getWeaponsOnCharacter?characterId=${characterId}
         //public getWeaponsOnCharacter = (characterId: number, callback: (data: Weapon[])=>void) : void => {
@@ -3726,8 +3659,7 @@ let CombatRepository = class CombatRepository {
         };
         this.getWeaponsOnCharacter = (characterId) => {
             var _Url = `api/Combat/getWeaponsOnCharacter?characterId=${characterId}`;
-            return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.get(_Url);
         };
         // post: api/Combat/saveArmor
         //public saveArmor = (armor: Armor, callback: (data: Armor)=>void) : void => {
@@ -3743,8 +3675,7 @@ let CombatRepository = class CombatRepository {
         };
         this.saveArmor = (armor) => {
             var _Url = `api/Combat/saveArmor`;
-            return this._httpClient.post(_Url, armor)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.post(_Url, armor);
         };
         // post: api/Combat/saveAttack
         //public saveAttack = (attack: Attack, callback: (data: Attack)=>void) : void => {
@@ -3760,8 +3691,7 @@ let CombatRepository = class CombatRepository {
         };
         this.saveAttack = (attack) => {
             var _Url = `api/Combat/saveAttack`;
-            return this._httpClient.post(_Url, attack)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.post(_Url, attack);
         };
         // post: api/Combat/saveAttackOnActor?actorId=${actorId}
         //public saveAttackOnActor = (actorId: number, attack: Attack, callback: (data: Attack)=>void) : void => {
@@ -3777,8 +3707,7 @@ let CombatRepository = class CombatRepository {
         };
         this.saveAttackOnActor = (actorId, attack) => {
             var _Url = `api/Combat/saveAttackOnActor?actorId=${actorId}`;
-            return this._httpClient.post(_Url, actorId)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.post(_Url, actorId);
         };
         // post: api/Combat/saveWeapon
         //public saveWeapon = (weapon: Weapon, callback: (data: Weapon)=>void) : void => {
@@ -3794,18 +3723,8 @@ let CombatRepository = class CombatRepository {
         };
         this.saveWeapon = (weapon) => {
             var _Url = `api/Combat/saveWeapon`;
-            return this._httpClient.post(_Url, weapon)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.post(_Url, weapon);
         };
-    }
-    // Utility
-    handleError(error) {
-        console.error(error);
-        let customError = "";
-        if (error.error) {
-            customError = error.status === 400 ? error.error : error.statusText;
-        }
-        return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["throwError"])(customError || 'Server error');
     }
 };
 CombatRepository.ctorParameters = () => [
@@ -3833,8 +3752,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
 
 //*************************DO NOT MODIFY**************************
 //
@@ -3842,8 +3759,6 @@ __webpack_require__.r(__webpack_exports__);
 //PLEASE VISIT http://frhagn.github.io/Typewriter/ TO LEARN MORE ABOUT THIS VISUAL STUDIO EXTENSION
 //
 //*************************DO NOT MODIFY**************************
-
-
 
 
 let CreaturesRepository = class CreaturesRepository {
@@ -3863,8 +3778,7 @@ let CreaturesRepository = class CreaturesRepository {
         };
         this.getCreatures = (gameType) => {
             var _Url = `api/Creature/getCreatures?gameType=${gameType}`;
-            return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.get(_Url);
         };
         // get: api/Creature/getCreature?id=${id}
         //public getCreature = (id: number, callback: (data: Creature)=>void) : void => {
@@ -3880,8 +3794,7 @@ let CreaturesRepository = class CreaturesRepository {
         };
         this.getCreature = (id) => {
             var _Url = `api/Creature/getCreature?id=${id}`;
-            return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.get(_Url);
         };
         // post: api/Creature/saveCreature
         //public saveCreature = (creature: Creature, callback: (data: Creature)=>void) : void => {
@@ -3897,8 +3810,7 @@ let CreaturesRepository = class CreaturesRepository {
         };
         this.saveCreature = (creature) => {
             var _Url = `api/Creature/saveCreature`;
-            return this._httpClient.post(_Url, creature)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.post(_Url, creature);
         };
         // delete: api/Creature/deleteCreature?id=${id}
         //public deleteCreature = (id: number, callback: (data: void)=>void) : void => {
@@ -3914,18 +3826,8 @@ let CreaturesRepository = class CreaturesRepository {
         };
         this.deleteCreature = (id) => {
             var _Url = `api/Creature/deleteCreature?id=${id}`;
-            return this._httpClient.delete(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.delete(_Url);
         };
-    }
-    // Utility
-    handleError(error) {
-        console.error(error);
-        let customError = "";
-        if (error.error) {
-            customError = error.status === 400 ? error.error : error.statusText;
-        }
-        return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["throwError"])(customError || 'Server error');
     }
 };
 CreaturesRepository.ctorParameters = () => [
@@ -3953,8 +3855,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
 
 //*************************DO NOT MODIFY**************************
 //
@@ -3962,8 +3862,6 @@ __webpack_require__.r(__webpack_exports__);
 //PLEASE VISIT http://frhagn.github.io/Typewriter/ TO LEARN MORE ABOUT THIS VISUAL STUDIO EXTENSION
 //
 //*************************DO NOT MODIFY**************************
-
-
 
 
 let CriticalEffectsRepository = class CriticalEffectsRepository {
@@ -3983,8 +3881,7 @@ let CriticalEffectsRepository = class CriticalEffectsRepository {
         };
         this.getCriticalEffects = (actorId) => {
             var _Url = `api/CriticalEffects/getCriticalEffects?actorId=${actorId}`;
-            return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.get(_Url);
         };
         // get: api/CriticalEffects/getCriticalEffect?id=${id}
         //public getCriticalEffect = (id: number, callback: (data: CriticalEffect)=>void) : void => {
@@ -4000,8 +3897,7 @@ let CriticalEffectsRepository = class CriticalEffectsRepository {
         };
         this.getCriticalEffect = (id) => {
             var _Url = `api/CriticalEffects/getCriticalEffect?id=${id}`;
-            return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.get(_Url);
         };
         // post: api/CriticalEffects/saveCriticalEffect
         //public saveCriticalEffect = (criticalEffect: CriticalEffect, callback: (data: CriticalEffect)=>void) : void => {
@@ -4017,8 +3913,7 @@ let CriticalEffectsRepository = class CriticalEffectsRepository {
         };
         this.saveCriticalEffect = (criticalEffect) => {
             var _Url = `api/CriticalEffects/saveCriticalEffect`;
-            return this._httpClient.post(_Url, criticalEffect)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.post(_Url, criticalEffect);
         };
         // delete: api/CriticalEffects/deleteCriticalEffect?id=${id}
         //public deleteCriticalEffect = (id: number, callback: (data: void)=>void) : void => {
@@ -4034,18 +3929,8 @@ let CriticalEffectsRepository = class CriticalEffectsRepository {
         };
         this.deleteCriticalEffect = (id) => {
             var _Url = `api/CriticalEffects/deleteCriticalEffect?id=${id}`;
-            return this._httpClient.delete(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.delete(_Url);
         };
-    }
-    // Utility
-    handleError(error) {
-        console.error(error);
-        let customError = "";
-        if (error.error) {
-            customError = error.status === 400 ? error.error : error.statusText;
-        }
-        return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["throwError"])(customError || 'Server error');
     }
 };
 CriticalEffectsRepository.ctorParameters = () => [
@@ -4073,8 +3958,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
 
 //*************************DO NOT MODIFY**************************
 //
@@ -4082,8 +3965,6 @@ __webpack_require__.r(__webpack_exports__);
 //PLEASE VISIT http://frhagn.github.io/Typewriter/ TO LEARN MORE ABOUT THIS VISUAL STUDIO EXTENSION
 //
 //*************************DO NOT MODIFY**************************
-
-
 
 
 let EncounterRepository = class EncounterRepository {
@@ -4103,8 +3984,7 @@ let EncounterRepository = class EncounterRepository {
         };
         this.getCurrentGame = () => {
             var _Url = `api/Encounter/getCurrentGame`;
-            return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.get(_Url);
         };
         // post: api/Encounter/setCurrentGame?gameId=${gameId}
         //public setCurrentGame = (gameId: number, callback: (data: Game)=>void) : void => {
@@ -4120,8 +4000,7 @@ let EncounterRepository = class EncounterRepository {
         };
         this.setCurrentGame = (gameId) => {
             var _Url = `api/Encounter/setCurrentGame?gameId=${gameId}`;
-            return this._httpClient.post(_Url, gameId)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.post(_Url, gameId);
         };
         // post: api/Encounter/createActorFromCreature?creatureId=${creatureId}
         //public createActorFromCreature = (creatureId: number, callback: (data: Actor)=>void) : void => {
@@ -4137,8 +4016,7 @@ let EncounterRepository = class EncounterRepository {
         };
         this.createActorFromCreature = (creatureId) => {
             var _Url = `api/Encounter/createActorFromCreature?creatureId=${creatureId}`;
-            return this._httpClient.post(_Url, creatureId)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.post(_Url, creatureId);
         };
         // post: api/Encounter/createActorFromCharacter?characterId=${characterId}&rolledInit=${rolledInit}
         //public createActorFromCharacter = (characterId: number, rolledInit: number, callback: (data: Actor)=>void) : void => {
@@ -4154,8 +4032,7 @@ let EncounterRepository = class EncounterRepository {
         };
         this.createActorFromCharacter = (characterId, rolledInit) => {
             var _Url = `api/Encounter/createActorFromCharacter?characterId=${characterId}&rolledInit=${rolledInit}`;
-            return this._httpClient.post(_Url, characterId)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.post(_Url, characterId);
         };
         // post: api/Encounter/moveToNext?none=${none}
         //public moveToNext = (none: boolean, callback: (data: MoveNextResult)=>void) : void => {
@@ -4171,8 +4048,7 @@ let EncounterRepository = class EncounterRepository {
         };
         this.moveToNext = (none) => {
             var _Url = `api/Encounter/moveToNext?none=${none}`;
-            return this._httpClient.post(_Url, none)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.post(_Url, none);
         };
         // post: api/Encounter/proposeActionUnconscious?actorId=${actorId}
         //public proposeActionUnconscious = (actorId: number, callback: (data: BaseAction)=>void) : void => {
@@ -4188,8 +4064,7 @@ let EncounterRepository = class EncounterRepository {
         };
         this.proposeActionUnconscious = (actorId) => {
             var _Url = `api/Encounter/proposeActionUnconscious?actorId=${actorId}`;
-            return this._httpClient.post(_Url, actorId)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.post(_Url, actorId);
         };
         // post: api/Encounter/proposeAction?actionDefId=${actionDefId}&whomId=${whomId}&modifier=${modifier}&attackId=${attackId}
         //public proposeAction = (actionDefId: number, whomId: number, modifier: number, attackId: number, callback: (data: BaseAction)=>void) : void => {
@@ -4205,8 +4080,7 @@ let EncounterRepository = class EncounterRepository {
         };
         this.proposeAction = (actionDefId, whomId, modifier, attackId) => {
             var _Url = `api/Encounter/proposeAction?actionDefId=${actionDefId}&whomId=${whomId}&modifier=${modifier}&attackId=${attackId}`;
-            return this._httpClient.post(_Url, actionDefId)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.post(_Url, actionDefId);
         };
         // post: api/Encounter/proposeActionContinue?previousActionId=${previousActionId}&whomId=${whomId}
         //public proposeActionContinue = (previousActionId: number, whomId: number, callback: (data: BaseAction)=>void) : void => {
@@ -4222,8 +4096,7 @@ let EncounterRepository = class EncounterRepository {
         };
         this.proposeActionContinue = (previousActionId, whomId) => {
             var _Url = `api/Encounter/proposeActionContinue?previousActionId=${previousActionId}&whomId=${whomId}`;
-            return this._httpClient.post(_Url, previousActionId)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.post(_Url, previousActionId);
         };
         // post: api/Encounter/addBleedEffect?whomId=${whomId}&bleedRate=${bleedRate}
         //public addBleedEffect = (whomId: number, bleedRate: number, callback: (data: BaseAction)=>void) : void => {
@@ -4239,8 +4112,7 @@ let EncounterRepository = class EncounterRepository {
         };
         this.addBleedEffect = (whomId, bleedRate) => {
             var _Url = `api/Encounter/addBleedEffect?whomId=${whomId}&bleedRate=${bleedRate}`;
-            return this._httpClient.post(_Url, whomId)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.post(_Url, whomId);
         };
         // post: api/Encounter/addCriticalEffect?whomId=${whomId}&rounds=${rounds}
         //public addCriticalEffect = (whomId: number, crit: CriticalEffect, rounds: number, callback: (data: BaseAction)=>void) : void => {
@@ -4256,8 +4128,7 @@ let EncounterRepository = class EncounterRepository {
         };
         this.addCriticalEffect = (whomId, crit, rounds) => {
             var _Url = `api/Encounter/addCriticalEffect?whomId=${whomId}&rounds=${rounds}`;
-            return this._httpClient.post(_Url, whomId)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.post(_Url, whomId);
         };
         // post: api/Encounter/addPsychicEffect?whomId=${whomId}&psychicLevel=${psychicLevel}
         //public addPsychicEffect = (whomId: number, psychicLevel: number, callback: (data: BaseAction)=>void) : void => {
@@ -4273,8 +4144,7 @@ let EncounterRepository = class EncounterRepository {
         };
         this.addPsychicEffect = (whomId, psychicLevel) => {
             var _Url = `api/Encounter/addPsychicEffect?whomId=${whomId}&psychicLevel=${psychicLevel}`;
-            return this._httpClient.post(_Url, whomId)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.post(_Url, whomId);
         };
         // post: api/Encounter/addSpellEffect?effectedActorId=${effectedActorId}&casterId=${casterId}&spellName=${encodeURIComponent(spellName)}&rounds=${rounds}&hastePercent=${hastePercent}
         //public addSpellEffect = (effectedActorId: number, casterId: number, spellName: string, rounds: number, hastePercent: number, callback: (data: BaseAction)=>void) : void => {
@@ -4290,8 +4160,7 @@ let EncounterRepository = class EncounterRepository {
         };
         this.addSpellEffect = (effectedActorId, casterId, spellName, rounds, hastePercent) => {
             var _Url = `api/Encounter/addSpellEffect?effectedActorId=${effectedActorId}&casterId=${casterId}&spellName=${encodeURIComponent(spellName)}&rounds=${rounds}&hastePercent=${hastePercent}`;
-            return this._httpClient.post(_Url, effectedActorId)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.post(_Url, effectedActorId);
         };
         // post: api/Encounter/removeEffect?actionId=${actionId}
         //public removeEffect = (actionId: number, callback: (data: void)=>void) : void => {
@@ -4307,8 +4176,7 @@ let EncounterRepository = class EncounterRepository {
         };
         this.removeEffect = (actionId) => {
             var _Url = `api/Encounter/removeEffect?actionId=${actionId}`;
-            return this._httpClient.post(_Url, actionId)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.post(_Url, actionId);
         };
         // post: api/Encounter/removeCriticalsFromActor?whomId=${whomId}&count=${count}
         //public removeCriticalsFromActor = (whomId: number, count: number, callback: (data: void)=>void) : void => {
@@ -4324,8 +4192,7 @@ let EncounterRepository = class EncounterRepository {
         };
         this.removeCriticalsFromActor = (whomId, count) => {
             var _Url = `api/Encounter/removeCriticalsFromActor?whomId=${whomId}&count=${count}`;
-            return this._httpClient.post(_Url, whomId)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.post(_Url, whomId);
         };
         // post: api/Encounter/doProposedAction?whomId=${whomId}
         //public doProposedAction = (whomId: number, callback: (data: void)=>void) : void => {
@@ -4341,8 +4208,7 @@ let EncounterRepository = class EncounterRepository {
         };
         this.doProposedAction = (whomId) => {
             var _Url = `api/Encounter/doProposedAction?whomId=${whomId}`;
-            return this._httpClient.post(_Url, whomId)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.post(_Url, whomId);
         };
         // post: api/Encounter/setModifierOnAction?actionId=${actionId}&modifier=${modifier}
         //public setModifierOnAction = (actionId: number, modifier: number, callback: (data: void)=>void) : void => {
@@ -4358,8 +4224,7 @@ let EncounterRepository = class EncounterRepository {
         };
         this.setModifierOnAction = (actionId, modifier) => {
             var _Url = `api/Encounter/setModifierOnAction?actionId=${actionId}&modifier=${modifier}`;
-            return this._httpClient.post(_Url, actionId)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.post(_Url, actionId);
         };
         // post: api/Encounter/setAttackOnAction?actionId=${actionId}&attackId=${attackId}
         //public setAttackOnAction = (actionId: number, attackId: number, callback: (data: void)=>void) : void => {
@@ -4375,18 +4240,8 @@ let EncounterRepository = class EncounterRepository {
         };
         this.setAttackOnAction = (actionId, attackId) => {
             var _Url = `api/Encounter/setAttackOnAction?actionId=${actionId}&attackId=${attackId}`;
-            return this._httpClient.post(_Url, actionId)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.post(_Url, actionId);
         };
-    }
-    // Utility
-    handleError(error) {
-        console.error(error);
-        let customError = "";
-        if (error.error) {
-            customError = error.status === 400 ? error.error : error.statusText;
-        }
-        return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["throwError"])(customError || 'Server error');
     }
 };
 EncounterRepository.ctorParameters = () => [
@@ -4414,8 +4269,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
 
 //*************************DO NOT MODIFY**************************
 //
@@ -4423,8 +4276,6 @@ __webpack_require__.r(__webpack_exports__);
 //PLEASE VISIT http://frhagn.github.io/Typewriter/ TO LEARN MORE ABOUT THIS VISUAL STUDIO EXTENSION
 //
 //*************************DO NOT MODIFY**************************
-
-
 
 
 let GamesRepository = class GamesRepository {
@@ -4444,8 +4295,7 @@ let GamesRepository = class GamesRepository {
         };
         this.getGames = (gameType) => {
             var _Url = `api/Games/getGames?gameType=${gameType}`;
-            return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.get(_Url);
         };
         // get: api/Games/getGame?id=${id}
         //public getGame = (id: number, callback: (data: Game)=>void) : void => {
@@ -4461,8 +4311,7 @@ let GamesRepository = class GamesRepository {
         };
         this.getGame = (id) => {
             var _Url = `api/Games/getGame?id=${id}`;
-            return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.get(_Url);
         };
         // post: api/Games/saveGame
         //public saveGame = (game: Game, callback: (data: Game)=>void) : void => {
@@ -4478,8 +4327,7 @@ let GamesRepository = class GamesRepository {
         };
         this.saveGame = (game) => {
             var _Url = `api/Games/saveGame`;
-            return this._httpClient.post(_Url, game)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.post(_Url, game);
         };
         // delete: api/Games/deleteGame?id=${id}
         //public deleteGame = (id: number, callback: (data: void)=>void) : void => {
@@ -4495,18 +4343,8 @@ let GamesRepository = class GamesRepository {
         };
         this.deleteGame = (id) => {
             var _Url = `api/Games/deleteGame?id=${id}`;
-            return this._httpClient.delete(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.delete(_Url);
         };
-    }
-    // Utility
-    handleError(error) {
-        console.error(error);
-        let customError = "";
-        if (error.error) {
-            customError = error.status === 400 ? error.error : error.statusText;
-        }
-        return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["throwError"])(customError || 'Server error');
     }
 };
 GamesRepository.ctorParameters = () => [
@@ -4534,8 +4372,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
 
 //*************************DO NOT MODIFY**************************
 //
@@ -4543,8 +4379,6 @@ __webpack_require__.r(__webpack_exports__);
 //PLEASE VISIT http://frhagn.github.io/Typewriter/ TO LEARN MORE ABOUT THIS VISUAL STUDIO EXTENSION
 //
 //*************************DO NOT MODIFY**************************
-
-
 
 
 let ReferenceRepository = class ReferenceRepository {
@@ -4564,8 +4398,7 @@ let ReferenceRepository = class ReferenceRepository {
         };
         this.getActionGroups = () => {
             var _Url = `api/Reference/getActionGroups`;
-            return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.get(_Url);
         };
         // get: api/Reference/getActions?groupId=${groupId}
         //public getActions = (groupId: number, callback: (data: ActionDefinition[])=>void) : void => {
@@ -4581,8 +4414,7 @@ let ReferenceRepository = class ReferenceRepository {
         };
         this.getActions = (groupId) => {
             var _Url = `api/Reference/getActions?groupId=${groupId}`;
-            return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.get(_Url);
         };
         // get: api/Reference/getConstitutionBonusCharts
         //public getConstitutionBonusCharts = (, callback: (data: ConstitutionBonusChart[])=>void) : void => {
@@ -4598,8 +4430,7 @@ let ReferenceRepository = class ReferenceRepository {
         };
         this.getConstitutionBonusCharts = () => {
             var _Url = `api/Reference/getConstitutionBonusCharts`;
-            return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.get(_Url);
         };
         // get: api/Reference/getCriticalCodes
         //public getCriticalCodes = (, callback: (data: CriticalCode[])=>void) : void => {
@@ -4615,8 +4446,7 @@ let ReferenceRepository = class ReferenceRepository {
         };
         this.getCriticalCodes = () => {
             var _Url = `api/Reference/getCriticalCodes`;
-            return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.get(_Url);
         };
         // get: api/Reference/getCriticalIgnores
         //public getCriticalIgnores = (, callback: (data: CriticalIgnore[])=>void) : void => {
@@ -4632,8 +4462,7 @@ let ReferenceRepository = class ReferenceRepository {
         };
         this.getCriticalIgnores = () => {
             var _Url = `api/Reference/getCriticalIgnores`;
-            return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.get(_Url);
         };
         // get: api/Reference/getIQs
         //public getIQs = (, callback: (data: IQ[])=>void) : void => {
@@ -4649,8 +4478,7 @@ let ReferenceRepository = class ReferenceRepository {
         };
         this.getIQs = () => {
             var _Url = `api/Reference/getIQs`;
-            return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.get(_Url);
         };
         // get: api/Reference/getLevelCharts
         //public getLevelCharts = (, callback: (data: LevelChart[])=>void) : void => {
@@ -4666,8 +4494,7 @@ let ReferenceRepository = class ReferenceRepository {
         };
         this.getLevelCharts = () => {
             var _Url = `api/Reference/getLevelCharts`;
-            return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.get(_Url);
         };
         // get: api/Reference/getOutlooks
         //public getOutlooks = (, callback: (data: Outlook[])=>void) : void => {
@@ -4683,8 +4510,7 @@ let ReferenceRepository = class ReferenceRepository {
         };
         this.getOutlooks = () => {
             var _Url = `api/Reference/getOutlooks`;
-            return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.get(_Url);
         };
         // get: api/Reference/getPaces
         //public getPaces = (, callback: (data: Pace[])=>void) : void => {
@@ -4700,8 +4526,7 @@ let ReferenceRepository = class ReferenceRepository {
         };
         this.getPaces = () => {
             var _Url = `api/Reference/getPaces`;
-            return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.get(_Url);
         };
         // get: api/Reference/getSizeRatings
         //public getSizeRatings = (, callback: (data: SizeRating[])=>void) : void => {
@@ -4717,8 +4542,7 @@ let ReferenceRepository = class ReferenceRepository {
         };
         this.getSizeRatings = () => {
             var _Url = `api/Reference/getSizeRatings`;
-            return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.get(_Url);
         };
         // get: api/Reference/getSpeedCharts
         //public getSpeedCharts = (, callback: (data: SpeedChart[])=>void) : void => {
@@ -4734,8 +4558,7 @@ let ReferenceRepository = class ReferenceRepository {
         };
         this.getSpeedCharts = () => {
             var _Url = `api/Reference/getSpeedCharts`;
-            return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.get(_Url);
         };
         // get: api/Reference/getAttackTypes
         //public getAttackTypes = (, callback: (data: AttackType[])=>void) : void => {
@@ -4751,8 +4574,7 @@ let ReferenceRepository = class ReferenceRepository {
         };
         this.getAttackTypes = () => {
             var _Url = `api/Reference/getAttackTypes`;
-            return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.get(_Url);
         };
         // get: api/Reference/getCriticalTypes
         //public getCriticalTypes = (, callback: (data: CriticalType[])=>void) : void => {
@@ -4768,8 +4590,7 @@ let ReferenceRepository = class ReferenceRepository {
         };
         this.getCriticalTypes = () => {
             var _Url = `api/Reference/getCriticalTypes`;
-            return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.get(_Url);
         };
         // get: api/Reference/getWeaponTypes
         //public getWeaponTypes = (, callback: (data: WeaponType[])=>void) : void => {
@@ -4785,8 +4606,7 @@ let ReferenceRepository = class ReferenceRepository {
         };
         this.getWeaponTypes = () => {
             var _Url = `api/Reference/getWeaponTypes`;
-            return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.get(_Url);
         };
         // get: api/Reference/getBooks
         //public getBooks = (, callback: (data: Book[])=>void) : void => {
@@ -4802,8 +4622,7 @@ let ReferenceRepository = class ReferenceRepository {
         };
         this.getBooks = () => {
             var _Url = `api/Reference/getBooks`;
-            return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.get(_Url);
         };
         // get: api/Reference/getPsychicRefractoryPeriodEntries
         //public getPsychicRefractoryPeriodEntries = (, callback: (data: PsychicRefractoryPeriodEntry[])=>void) : void => {
@@ -4819,18 +4638,8 @@ let ReferenceRepository = class ReferenceRepository {
         };
         this.getPsychicRefractoryPeriodEntries = () => {
             var _Url = `api/Reference/getPsychicRefractoryPeriodEntries`;
-            return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.get(_Url);
         };
-    }
-    // Utility
-    handleError(error) {
-        console.error(error);
-        let customError = "";
-        if (error.error) {
-            customError = error.status === 400 ? error.error : error.statusText;
-        }
-        return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["throwError"])(customError || 'Server error');
     }
 };
 ReferenceRepository.ctorParameters = () => [
@@ -4858,8 +4667,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
 
 //*************************DO NOT MODIFY**************************
 //
@@ -4867,8 +4674,6 @@ __webpack_require__.r(__webpack_exports__);
 //PLEASE VISIT http://frhagn.github.io/Typewriter/ TO LEARN MORE ABOUT THIS VISUAL STUDIO EXTENSION
 //
 //*************************DO NOT MODIFY**************************
-
-
 
 
 let SampleDataRepository = class SampleDataRepository {
@@ -4888,18 +4693,8 @@ let SampleDataRepository = class SampleDataRepository {
         };
         this.weatherForecasts = () => {
             var _Url = `api/SampleData/weatherForecasts`;
-            return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.get(_Url);
         };
-    }
-    // Utility
-    handleError(error) {
-        console.error(error);
-        let customError = "";
-        if (error.error) {
-            customError = error.status === 400 ? error.error : error.statusText;
-        }
-        return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["throwError"])(customError || 'Server error');
     }
 };
 SampleDataRepository.ctorParameters = () => [
@@ -4927,7 +4722,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
 
 //*************************DO NOT MODIFY**************************
 //
@@ -4937,19 +4731,9 @@ __webpack_require__.r(__webpack_exports__);
 //*************************DO NOT MODIFY**************************
 
 
-
 let SettingsRepository = class SettingsRepository {
     constructor(_httpClient) {
         this._httpClient = _httpClient;
-    }
-    // Utility
-    handleError(error) {
-        console.error(error);
-        let customError = "";
-        if (error.error) {
-            customError = error.status === 400 ? error.error : error.statusText;
-        }
-        return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["throwError"])(customError || 'Server error');
     }
 };
 SettingsRepository.ctorParameters = () => [
@@ -4977,8 +4761,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
 
 //*************************DO NOT MODIFY**************************
 //
@@ -4986,8 +4768,6 @@ __webpack_require__.r(__webpack_exports__);
 //PLEASE VISIT http://frhagn.github.io/Typewriter/ TO LEARN MORE ABOUT THIS VISUAL STUDIO EXTENSION
 //
 //*************************DO NOT MODIFY**************************
-
-
 
 
 let UsersRepository = class UsersRepository {
@@ -5007,8 +4787,7 @@ let UsersRepository = class UsersRepository {
         };
         this.currentUser = () => {
             var _Url = `api/Users/CurrentUser`;
-            return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.get(_Url);
         };
         // post: api/Users/authenticate
         //public authenticate = (model: AuthenticateModel, callback: (data: ApplicationUser)=>void) : void => {
@@ -5024,8 +4803,7 @@ let UsersRepository = class UsersRepository {
         };
         this.authenticate = (model) => {
             var _Url = `api/Users/authenticate`;
-            return this._httpClient.post(_Url, model)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.post(_Url, model);
         };
         // post: api/Users/register
         //public register = (model: RegisterModel, callback: (data: ApplicationUser)=>void) : void => {
@@ -5041,8 +4819,7 @@ let UsersRepository = class UsersRepository {
         };
         this.register = (model) => {
             var _Url = `api/Users/register`;
-            return this._httpClient.post(_Url, model)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.post(_Url, model);
         };
         // get: api/Users/GetAll
         //public getAll = (, callback: (data: ApplicationUser[])=>void) : void => {
@@ -5058,8 +4835,7 @@ let UsersRepository = class UsersRepository {
         };
         this.getAll = () => {
             var _Url = `api/Users/GetAll`;
-            return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.get(_Url);
         };
         // get: api/Users/GetById/${encodeURIComponent(id)}
         //public getById = (id: string, callback: (data: ApplicationUser)=>void) : void => {
@@ -5075,8 +4851,7 @@ let UsersRepository = class UsersRepository {
         };
         this.getById = (id) => {
             var _Url = `api/Users/GetById/${encodeURIComponent(id)}`;
-            return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.get(_Url);
         };
         // put: api/Users/Update/${encodeURIComponent(id)}
         //public update = (id: string, model: UpdateModel, callback: (data: ApplicationUser)=>void) : void => {
@@ -5092,8 +4867,7 @@ let UsersRepository = class UsersRepository {
         };
         this.update = (id, model) => {
             var _Url = `api/Users/Update/${encodeURIComponent(id)}`;
-            return this._httpClient.put(_Url, id)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.put(_Url, id);
         };
         // delete: api/Users/Delete/${encodeURIComponent(id)}
         //public delete = (id: string, callback: (data: void)=>void) : void => {
@@ -5109,8 +4883,7 @@ let UsersRepository = class UsersRepository {
         };
         this.delete = (id) => {
             var _Url = `api/Users/Delete/${encodeURIComponent(id)}`;
-            return this._httpClient.delete(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.delete(_Url);
         };
         // post: api/Users/ForgotPassword?email=${encodeURIComponent(email)}
         //public forgotPassword = (email: string, callback: (data: boolean)=>void) : void => {
@@ -5126,18 +4899,8 @@ let UsersRepository = class UsersRepository {
         };
         this.forgotPassword = (email) => {
             var _Url = `api/Users/ForgotPassword?email=${encodeURIComponent(email)}`;
-            return this._httpClient.post(_Url, email)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+            return this._httpClient.post(_Url, email);
         };
-    }
-    // Utility
-    handleError(error) {
-        console.error(error);
-        let customError = "";
-        if (error.error) {
-            customError = error.status === 400 ? error.error : error.statusText;
-        }
-        return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["throwError"])(customError || 'Server error');
     }
 };
 UsersRepository.ctorParameters = () => [
@@ -5310,7 +5073,7 @@ let AuthenticationService = class AuthenticationService {
         this.userRepository = userRepository;
         this.currentUserSubject = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"](JSON.parse(localStorage.getItem('currentUser')));
         this.currentUser = this.currentUserSubject.asObservable();
-        debugger;
+        //debugger;
         this.refreshUser();
     }
     refreshUser() {

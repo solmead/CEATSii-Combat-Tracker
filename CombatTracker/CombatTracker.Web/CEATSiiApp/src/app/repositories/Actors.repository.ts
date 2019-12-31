@@ -40,8 +40,7 @@ export class ActorsRepository {
 
 	public getActors = (gameId: number) : Observable<Actor[]> => {
         var _Url = `api/Actors/getActors?gameId=${gameId}`;
-            return this._httpClient.get<Actor[]>(_Url)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.get<Actor[]>(_Url);
 	};
 
     
@@ -64,8 +63,7 @@ export class ActorsRepository {
 
 	public getActor = (id: number) : Observable<Actor> => {
         var _Url = `api/Actors/getActor?id=${id}`;
-            return this._httpClient.get<Actor>(_Url)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.get<Actor>(_Url);
 	};
 
     
@@ -88,8 +86,7 @@ export class ActorsRepository {
 
 	public saveActor = (actor: Actor) : Observable<Actor> => {
         var _Url = `api/Actors/saveActor`;
-            return this._httpClient.post<Actor>(_Url, actor)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.post<Actor>(_Url, actor);
 	};
 
     
@@ -112,20 +109,10 @@ export class ActorsRepository {
 
 	public deleteActor = (id: number) : Observable<void> => {
         var _Url = `api/Actors/deleteActor?id=${id}`;
-            return this._httpClient.delete<void>(_Url)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.delete<void>(_Url);
 	};
 
     
-    // Utility
-    private handleError(error: HttpErrorResponse) {
-        console.error(error);
-        let customError: string = "";
-        if (error.error) {
-            customError = error.status === 400 ? error.error : error.statusText
-        }
-        return throwError(customError || 'Server error');
-    }
 }
 
 

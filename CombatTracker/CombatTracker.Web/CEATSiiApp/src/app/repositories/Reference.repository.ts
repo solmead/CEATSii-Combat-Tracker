@@ -55,8 +55,7 @@ export class ReferenceRepository {
 
 	public getActionGroups = () : Observable<ActionGroup[]> => {
         var _Url = `api/Reference/getActionGroups`;
-            return this._httpClient.get<ActionGroup[]>(_Url)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.get<ActionGroup[]>(_Url);
 	};
 
     
@@ -79,8 +78,7 @@ export class ReferenceRepository {
 
 	public getActions = (groupId: number) : Observable<ActionDefinition[]> => {
         var _Url = `api/Reference/getActions?groupId=${groupId}`;
-            return this._httpClient.get<ActionDefinition[]>(_Url)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.get<ActionDefinition[]>(_Url);
 	};
 
     
@@ -103,8 +101,7 @@ export class ReferenceRepository {
 
 	public getConstitutionBonusCharts = () : Observable<ConstitutionBonusChart[]> => {
         var _Url = `api/Reference/getConstitutionBonusCharts`;
-            return this._httpClient.get<ConstitutionBonusChart[]>(_Url)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.get<ConstitutionBonusChart[]>(_Url);
 	};
 
     
@@ -127,8 +124,7 @@ export class ReferenceRepository {
 
 	public getCriticalCodes = () : Observable<CriticalCode[]> => {
         var _Url = `api/Reference/getCriticalCodes`;
-            return this._httpClient.get<CriticalCode[]>(_Url)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.get<CriticalCode[]>(_Url);
 	};
 
     
@@ -151,8 +147,7 @@ export class ReferenceRepository {
 
 	public getCriticalIgnores = () : Observable<CriticalIgnore[]> => {
         var _Url = `api/Reference/getCriticalIgnores`;
-            return this._httpClient.get<CriticalIgnore[]>(_Url)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.get<CriticalIgnore[]>(_Url);
 	};
 
     
@@ -175,8 +170,7 @@ export class ReferenceRepository {
 
 	public getIQs = () : Observable<IQ[]> => {
         var _Url = `api/Reference/getIQs`;
-            return this._httpClient.get<IQ[]>(_Url)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.get<IQ[]>(_Url);
 	};
 
     
@@ -199,8 +193,7 @@ export class ReferenceRepository {
 
 	public getLevelCharts = () : Observable<LevelChart[]> => {
         var _Url = `api/Reference/getLevelCharts`;
-            return this._httpClient.get<LevelChart[]>(_Url)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.get<LevelChart[]>(_Url);
 	};
 
     
@@ -223,8 +216,7 @@ export class ReferenceRepository {
 
 	public getOutlooks = () : Observable<Outlook[]> => {
         var _Url = `api/Reference/getOutlooks`;
-            return this._httpClient.get<Outlook[]>(_Url)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.get<Outlook[]>(_Url);
 	};
 
     
@@ -247,8 +239,7 @@ export class ReferenceRepository {
 
 	public getPaces = () : Observable<Pace[]> => {
         var _Url = `api/Reference/getPaces`;
-            return this._httpClient.get<Pace[]>(_Url)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.get<Pace[]>(_Url);
 	};
 
     
@@ -271,8 +262,7 @@ export class ReferenceRepository {
 
 	public getSizeRatings = () : Observable<SizeRating[]> => {
         var _Url = `api/Reference/getSizeRatings`;
-            return this._httpClient.get<SizeRating[]>(_Url)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.get<SizeRating[]>(_Url);
 	};
 
     
@@ -295,8 +285,7 @@ export class ReferenceRepository {
 
 	public getSpeedCharts = () : Observable<SpeedChart[]> => {
         var _Url = `api/Reference/getSpeedCharts`;
-            return this._httpClient.get<SpeedChart[]>(_Url)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.get<SpeedChart[]>(_Url);
 	};
 
     
@@ -319,8 +308,7 @@ export class ReferenceRepository {
 
 	public getAttackTypes = () : Observable<AttackType[]> => {
         var _Url = `api/Reference/getAttackTypes`;
-            return this._httpClient.get<AttackType[]>(_Url)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.get<AttackType[]>(_Url);
 	};
 
     
@@ -343,8 +331,7 @@ export class ReferenceRepository {
 
 	public getCriticalTypes = () : Observable<CriticalType[]> => {
         var _Url = `api/Reference/getCriticalTypes`;
-            return this._httpClient.get<CriticalType[]>(_Url)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.get<CriticalType[]>(_Url);
 	};
 
     
@@ -367,8 +354,7 @@ export class ReferenceRepository {
 
 	public getWeaponTypes = () : Observable<WeaponType[]> => {
         var _Url = `api/Reference/getWeaponTypes`;
-            return this._httpClient.get<WeaponType[]>(_Url)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.get<WeaponType[]>(_Url);
 	};
 
     
@@ -391,8 +377,7 @@ export class ReferenceRepository {
 
 	public getBooks = () : Observable<Book[]> => {
         var _Url = `api/Reference/getBooks`;
-            return this._httpClient.get<Book[]>(_Url)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.get<Book[]>(_Url);
 	};
 
     
@@ -415,20 +400,10 @@ export class ReferenceRepository {
 
 	public getPsychicRefractoryPeriodEntries = () : Observable<PsychicRefractoryPeriodEntry[]> => {
         var _Url = `api/Reference/getPsychicRefractoryPeriodEntries`;
-            return this._httpClient.get<PsychicRefractoryPeriodEntry[]>(_Url)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.get<PsychicRefractoryPeriodEntry[]>(_Url);
 	};
 
     
-    // Utility
-    private handleError(error: HttpErrorResponse) {
-        console.error(error);
-        let customError: string = "";
-        if (error.error) {
-            customError = error.status === 400 ? error.error : error.statusText
-        }
-        return throwError(customError || 'Server error');
-    }
 }
 
 

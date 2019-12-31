@@ -44,8 +44,7 @@ export class EncounterRepository {
 
 	public getCurrentGame = () : Observable<Game> => {
         var _Url = `api/Encounter/getCurrentGame`;
-            return this._httpClient.get<Game>(_Url)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.get<Game>(_Url);
 	};
 
     
@@ -68,8 +67,7 @@ export class EncounterRepository {
 
 	public setCurrentGame = (gameId: number) : Observable<Game> => {
         var _Url = `api/Encounter/setCurrentGame?gameId=${gameId}`;
-            return this._httpClient.post<Game>(_Url, gameId)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.post<Game>(_Url, gameId);
 	};
 
     
@@ -92,8 +90,7 @@ export class EncounterRepository {
 
 	public createActorFromCreature = (creatureId: number) : Observable<Actor> => {
         var _Url = `api/Encounter/createActorFromCreature?creatureId=${creatureId}`;
-            return this._httpClient.post<Actor>(_Url, creatureId)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.post<Actor>(_Url, creatureId);
 	};
 
     
@@ -116,8 +113,7 @@ export class EncounterRepository {
 
 	public createActorFromCharacter = (characterId: number, rolledInit: number) : Observable<Actor> => {
         var _Url = `api/Encounter/createActorFromCharacter?characterId=${characterId}&rolledInit=${rolledInit}`;
-            return this._httpClient.post<Actor>(_Url, characterId)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.post<Actor>(_Url, characterId);
 	};
 
     
@@ -140,8 +136,7 @@ export class EncounterRepository {
 
 	public moveToNext = (none: boolean) : Observable<MoveNextResult> => {
         var _Url = `api/Encounter/moveToNext?none=${none}`;
-            return this._httpClient.post<MoveNextResult>(_Url, none)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.post<MoveNextResult>(_Url, none);
 	};
 
     
@@ -164,8 +159,7 @@ export class EncounterRepository {
 
 	public proposeActionUnconscious = (actorId: number) : Observable<BaseAction> => {
         var _Url = `api/Encounter/proposeActionUnconscious?actorId=${actorId}`;
-            return this._httpClient.post<BaseAction>(_Url, actorId)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.post<BaseAction>(_Url, actorId);
 	};
 
     
@@ -188,8 +182,7 @@ export class EncounterRepository {
 
 	public proposeAction = (actionDefId: number, whomId: number, modifier: number, attackId: number) : Observable<BaseAction> => {
         var _Url = `api/Encounter/proposeAction?actionDefId=${actionDefId}&whomId=${whomId}&modifier=${modifier}&attackId=${attackId}`;
-            return this._httpClient.post<BaseAction>(_Url, actionDefId)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.post<BaseAction>(_Url, actionDefId);
 	};
 
     
@@ -212,8 +205,7 @@ export class EncounterRepository {
 
 	public proposeActionContinue = (previousActionId: number, whomId: number) : Observable<BaseAction> => {
         var _Url = `api/Encounter/proposeActionContinue?previousActionId=${previousActionId}&whomId=${whomId}`;
-            return this._httpClient.post<BaseAction>(_Url, previousActionId)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.post<BaseAction>(_Url, previousActionId);
 	};
 
     
@@ -236,8 +228,7 @@ export class EncounterRepository {
 
 	public addBleedEffect = (whomId: number, bleedRate: number) : Observable<BaseAction> => {
         var _Url = `api/Encounter/addBleedEffect?whomId=${whomId}&bleedRate=${bleedRate}`;
-            return this._httpClient.post<BaseAction>(_Url, whomId)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.post<BaseAction>(_Url, whomId);
 	};
 
     
@@ -260,8 +251,7 @@ export class EncounterRepository {
 
 	public addCriticalEffect = (whomId: number, crit: CriticalEffect, rounds: number) : Observable<BaseAction> => {
         var _Url = `api/Encounter/addCriticalEffect?whomId=${whomId}&rounds=${rounds}`;
-            return this._httpClient.post<BaseAction>(_Url, whomId)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.post<BaseAction>(_Url, whomId);
 	};
 
     
@@ -284,8 +274,7 @@ export class EncounterRepository {
 
 	public addPsychicEffect = (whomId: number, psychicLevel: number) : Observable<BaseAction> => {
         var _Url = `api/Encounter/addPsychicEffect?whomId=${whomId}&psychicLevel=${psychicLevel}`;
-            return this._httpClient.post<BaseAction>(_Url, whomId)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.post<BaseAction>(_Url, whomId);
 	};
 
     
@@ -308,8 +297,7 @@ export class EncounterRepository {
 
 	public addSpellEffect = (effectedActorId: number, casterId: number, spellName: string, rounds: number, hastePercent: number) : Observable<BaseAction> => {
         var _Url = `api/Encounter/addSpellEffect?effectedActorId=${effectedActorId}&casterId=${casterId}&spellName=${encodeURIComponent(spellName)}&rounds=${rounds}&hastePercent=${hastePercent}`;
-            return this._httpClient.post<BaseAction>(_Url, effectedActorId)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.post<BaseAction>(_Url, effectedActorId);
 	};
 
     
@@ -332,8 +320,7 @@ export class EncounterRepository {
 
 	public removeEffect = (actionId: number) : Observable<void> => {
         var _Url = `api/Encounter/removeEffect?actionId=${actionId}`;
-            return this._httpClient.post<void>(_Url, actionId)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.post<void>(_Url, actionId);
 	};
 
     
@@ -356,8 +343,7 @@ export class EncounterRepository {
 
 	public removeCriticalsFromActor = (whomId: number, count: number) : Observable<void> => {
         var _Url = `api/Encounter/removeCriticalsFromActor?whomId=${whomId}&count=${count}`;
-            return this._httpClient.post<void>(_Url, whomId)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.post<void>(_Url, whomId);
 	};
 
     
@@ -380,8 +366,7 @@ export class EncounterRepository {
 
 	public doProposedAction = (whomId: number) : Observable<void> => {
         var _Url = `api/Encounter/doProposedAction?whomId=${whomId}`;
-            return this._httpClient.post<void>(_Url, whomId)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.post<void>(_Url, whomId);
 	};
 
     
@@ -404,8 +389,7 @@ export class EncounterRepository {
 
 	public setModifierOnAction = (actionId: number, modifier: number) : Observable<void> => {
         var _Url = `api/Encounter/setModifierOnAction?actionId=${actionId}&modifier=${modifier}`;
-            return this._httpClient.post<void>(_Url, actionId)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.post<void>(_Url, actionId);
 	};
 
     
@@ -428,20 +412,10 @@ export class EncounterRepository {
 
 	public setAttackOnAction = (actionId: number, attackId: number) : Observable<void> => {
         var _Url = `api/Encounter/setAttackOnAction?actionId=${actionId}&attackId=${attackId}`;
-            return this._httpClient.post<void>(_Url, actionId)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.post<void>(_Url, actionId);
 	};
 
     
-    // Utility
-    private handleError(error: HttpErrorResponse) {
-        console.error(error);
-        let customError: string = "";
-        if (error.error) {
-            customError = error.status === 400 ? error.error : error.statusText
-        }
-        return throwError(customError || 'Server error');
-    }
 }
 
 

@@ -41,8 +41,7 @@ export class CreaturesRepository {
 
 	public getCreatures = (gameType: GameType) : Observable<Creature[]> => {
         var _Url = `api/Creature/getCreatures?gameType=${gameType}`;
-            return this._httpClient.get<Creature[]>(_Url)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.get<Creature[]>(_Url);
 	};
 
     
@@ -65,8 +64,7 @@ export class CreaturesRepository {
 
 	public getCreature = (id: number) : Observable<Creature> => {
         var _Url = `api/Creature/getCreature?id=${id}`;
-            return this._httpClient.get<Creature>(_Url)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.get<Creature>(_Url);
 	};
 
     
@@ -89,8 +87,7 @@ export class CreaturesRepository {
 
 	public saveCreature = (creature: Creature) : Observable<Creature> => {
         var _Url = `api/Creature/saveCreature`;
-            return this._httpClient.post<Creature>(_Url, creature)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.post<Creature>(_Url, creature);
 	};
 
     
@@ -113,20 +110,10 @@ export class CreaturesRepository {
 
 	public deleteCreature = (id: number) : Observable<void> => {
         var _Url = `api/Creature/deleteCreature?id=${id}`;
-            return this._httpClient.delete<void>(_Url)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.delete<void>(_Url);
 	};
 
     
-    // Utility
-    private handleError(error: HttpErrorResponse) {
-        console.error(error);
-        let customError: string = "";
-        if (error.error) {
-            customError = error.status === 400 ? error.error : error.statusText
-        }
-        return throwError(customError || 'Server error');
-    }
 }
 
 

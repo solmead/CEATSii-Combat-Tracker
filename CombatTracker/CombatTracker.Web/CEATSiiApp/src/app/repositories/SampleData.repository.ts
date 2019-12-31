@@ -40,20 +40,10 @@ export class SampleDataRepository {
 
 	public weatherForecasts = () : Observable<WeatherForecast[]> => {
         var _Url = `api/SampleData/weatherForecasts`;
-            return this._httpClient.get<WeatherForecast[]>(_Url)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.get<WeatherForecast[]>(_Url);
 	};
 
     
-    // Utility
-    private handleError(error: HttpErrorResponse) {
-        console.error(error);
-        let customError: string = "";
-        if (error.error) {
-            customError = error.status === 400 ? error.error : error.statusText
-        }
-        return throwError(customError || 'Server error');
-    }
 }
 
 

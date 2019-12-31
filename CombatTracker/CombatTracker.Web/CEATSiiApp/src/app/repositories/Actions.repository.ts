@@ -40,8 +40,7 @@ export class ActionsRepository {
 
 	public getActionsOnActor = (actorId: number) : Observable<BaseAction[]> => {
         var _Url = `api/Actions/getActionsOnActor?actorId=${actorId}`;
-            return this._httpClient.get<BaseAction[]>(_Url)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.get<BaseAction[]>(_Url);
 	};
 
     
@@ -64,8 +63,7 @@ export class ActionsRepository {
 
 	public getActionsInGame = (gameId: number) : Observable<BaseAction[]> => {
         var _Url = `api/Actions/getActionsInGame?gameId=${gameId}`;
-            return this._httpClient.get<BaseAction[]>(_Url)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.get<BaseAction[]>(_Url);
 	};
 
     
@@ -88,8 +86,7 @@ export class ActionsRepository {
 
 	public getAction = (id: number) : Observable<BaseAction> => {
         var _Url = `api/Actions/getAction?id=${id}`;
-            return this._httpClient.get<BaseAction>(_Url)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.get<BaseAction>(_Url);
 	};
 
     
@@ -112,8 +109,7 @@ export class ActionsRepository {
 
 	public saveAction = (action: BaseAction) : Observable<BaseAction> => {
         var _Url = `api/Actions/[action]`;
-            return this._httpClient.post<BaseAction>(_Url, action)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.post<BaseAction>(_Url, action);
 	};
 
     
@@ -136,20 +132,10 @@ export class ActionsRepository {
 
 	public deleteAction = (id: number) : Observable<void> => {
         var _Url = `api/Actions/deleteAction?id=${id}`;
-            return this._httpClient.delete<void>(_Url)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.delete<void>(_Url);
 	};
 
     
-    // Utility
-    private handleError(error: HttpErrorResponse) {
-        console.error(error);
-        let customError: string = "";
-        if (error.error) {
-            customError = error.status === 400 ? error.error : error.statusText
-        }
-        return throwError(customError || 'Server error');
-    }
 }
 
 

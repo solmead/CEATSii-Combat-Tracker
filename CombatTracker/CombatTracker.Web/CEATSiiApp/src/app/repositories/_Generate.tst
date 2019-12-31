@@ -294,20 +294,10 @@ export class $ServiceName {
 
 	public $name = ($Parameters[$name: $Type][, ]) : Observable<$ReturnType> => {
         var _Url = `$Url`;
-            return this._httpClient.$HttpMethod$MethodFormat
-                .pipe(catchError(this.handleError));
+            return this._httpClient.$HttpMethod$MethodFormat;
 	};
 
     ]
-    // Utility
-    private handleError(error: HttpErrorResponse) {
-        console.error(error);
-        let customError: string = "";
-        if (error.error) {
-            customError = error.status === 400 ? error.error : error.statusText
-        }
-        return throwError(customError || 'Server error');
-    }
 }]
 
 

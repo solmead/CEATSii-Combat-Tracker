@@ -43,8 +43,7 @@ export class UsersRepository {
 
 	public currentUser = () : Observable<ApplicationUser> => {
         var _Url = `api/Users/CurrentUser`;
-            return this._httpClient.get<ApplicationUser>(_Url)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.get<ApplicationUser>(_Url);
 	};
 
     
@@ -67,8 +66,7 @@ export class UsersRepository {
 
 	public authenticate = (model: AuthenticateModel) : Observable<ApplicationUser> => {
         var _Url = `api/Users/authenticate`;
-            return this._httpClient.post<ApplicationUser>(_Url, model)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.post<ApplicationUser>(_Url, model);
 	};
 
     
@@ -91,8 +89,7 @@ export class UsersRepository {
 
 	public register = (model: RegisterModel) : Observable<ApplicationUser> => {
         var _Url = `api/Users/register`;
-            return this._httpClient.post<ApplicationUser>(_Url, model)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.post<ApplicationUser>(_Url, model);
 	};
 
     
@@ -115,8 +112,7 @@ export class UsersRepository {
 
 	public getAll = () : Observable<ApplicationUser[]> => {
         var _Url = `api/Users/GetAll`;
-            return this._httpClient.get<ApplicationUser[]>(_Url)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.get<ApplicationUser[]>(_Url);
 	};
 
     
@@ -139,8 +135,7 @@ export class UsersRepository {
 
 	public getById = (id: string) : Observable<ApplicationUser> => {
         var _Url = `api/Users/GetById/${encodeURIComponent(id)}`;
-            return this._httpClient.get<ApplicationUser>(_Url)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.get<ApplicationUser>(_Url);
 	};
 
     
@@ -163,8 +158,7 @@ export class UsersRepository {
 
 	public update = (id: string, model: UpdateModel) : Observable<ApplicationUser> => {
         var _Url = `api/Users/Update/${encodeURIComponent(id)}`;
-            return this._httpClient.put<ApplicationUser>(_Url, id)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.put<ApplicationUser>(_Url, id);
 	};
 
     
@@ -187,8 +181,7 @@ export class UsersRepository {
 
 	public delete = (id: string) : Observable<void> => {
         var _Url = `api/Users/Delete/${encodeURIComponent(id)}`;
-            return this._httpClient.delete<void>(_Url)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.delete<void>(_Url);
 	};
 
     
@@ -211,20 +204,10 @@ export class UsersRepository {
 
 	public forgotPassword = (email: string) : Observable<boolean> => {
         var _Url = `api/Users/ForgotPassword?email=${encodeURIComponent(email)}`;
-            return this._httpClient.post<boolean>(_Url, email)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.post<boolean>(_Url, email);
 	};
 
     
-    // Utility
-    private handleError(error: HttpErrorResponse) {
-        console.error(error);
-        let customError: string = "";
-        if (error.error) {
-            customError = error.status === 400 ? error.error : error.statusText
-        }
-        return throwError(customError || 'Server error');
-    }
 }
 
 

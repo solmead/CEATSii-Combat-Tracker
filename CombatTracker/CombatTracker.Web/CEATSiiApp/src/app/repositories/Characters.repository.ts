@@ -41,8 +41,7 @@ export class CharactersRepository {
 
 	public getCharacters = (gameType: GameType) : Observable<Character[]> => {
         var _Url = `api/Characters/getCharacters?gameType=${gameType}`;
-            return this._httpClient.get<Character[]>(_Url)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.get<Character[]>(_Url);
 	};
 
     
@@ -65,8 +64,7 @@ export class CharactersRepository {
 
 	public getCharacter = (id: number) : Observable<Character> => {
         var _Url = `api/Characters/getCharacter?id=${id}`;
-            return this._httpClient.get<Character>(_Url)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.get<Character>(_Url);
 	};
 
     
@@ -89,8 +87,7 @@ export class CharactersRepository {
 
 	public saveCharacter = (character: Character) : Observable<Character> => {
         var _Url = `api/Characters/saveCharacter`;
-            return this._httpClient.post<Character>(_Url, character)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.post<Character>(_Url, character);
 	};
 
     
@@ -113,20 +110,10 @@ export class CharactersRepository {
 
 	public deleteCharacter = (id: number) : Observable<void> => {
         var _Url = `api/Characters/deleteCharacter?id=${id}`;
-            return this._httpClient.delete<void>(_Url)
-                .pipe(catchError(this.handleError));
+            return this._httpClient.delete<void>(_Url);
 	};
 
     
-    // Utility
-    private handleError(error: HttpErrorResponse) {
-        console.error(error);
-        let customError: string = "";
-        if (error.error) {
-            customError = error.status === 400 ? error.error : error.statusText
-        }
-        return throwError(customError || 'Server error');
-    }
 }
 
 
