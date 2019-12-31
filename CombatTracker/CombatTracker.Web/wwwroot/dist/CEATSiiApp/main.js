@@ -862,6 +862,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
 /* harmony import */ var _approot__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! @/approot */ "./src/app/approot/index.ts");
 /* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! @/_helpers */ "./src/app/_helpers/index.ts");
+/* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! @/services */ "./src/app/services/index.ts");
+
 
 
 
@@ -934,10 +936,27 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _app_routing_module__WEBPACK_IMPORTED_MODULE_25__["AppRoutingModule"]
         ],
         providers: [
-            { provide: 'BASE_URL', useFactory: getBaseUrl },
-            { provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HTTP_INTERCEPTORS"], useClass: _helpers__WEBPACK_IMPORTED_MODULE_27__["ApiPathInterceptor"], multi: true },
-            { provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HTTP_INTERCEPTORS"], useClass: _helpers__WEBPACK_IMPORTED_MODULE_27__["JwtInterceptor"], multi: true },
-            { provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HTTP_INTERCEPTORS"], useClass: _helpers__WEBPACK_IMPORTED_MODULE_27__["ErrorInterceptor"], multi: true },
+            {
+                provide: 'BASE_URL',
+                useFactory: getBaseUrl
+            },
+            {
+                provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HTTP_INTERCEPTORS"],
+                useClass: _helpers__WEBPACK_IMPORTED_MODULE_27__["ApiPathInterceptor"],
+                multi: true
+            },
+            {
+                provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HTTP_INTERCEPTORS"],
+                useClass: _helpers__WEBPACK_IMPORTED_MODULE_27__["JwtInterceptor"],
+                multi: true,
+                deps: [_services__WEBPACK_IMPORTED_MODULE_28__["AuthenticationService"]]
+            },
+            {
+                provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HTTP_INTERCEPTORS"],
+                useClass: _helpers__WEBPACK_IMPORTED_MODULE_27__["ErrorInterceptor"],
+                multi: true,
+                deps: [_services__WEBPACK_IMPORTED_MODULE_28__["AuthenticationService"]]
+            },
         ],
         bootstrap: [_approot__WEBPACK_IMPORTED_MODULE_26__["AppComponent"]]
     })
@@ -4974,7 +4993,7 @@ __webpack_require__.r(__webpack_exports__);
 let UsersRepository = class UsersRepository {
     constructor(_httpClient) {
         this._httpClient = _httpClient;
-        // get: api/Users
+        // get: api/Users/CurrentUser
         //public currentUser = (, callback: (data: ApplicationUser)=>void) : void => {
         //	this.currentUserObserve().subscribe(response => callback(response));
         //}
@@ -4987,7 +5006,7 @@ let UsersRepository = class UsersRepository {
             });
         };
         this.currentUser = () => {
-            var _Url = `api/Users`;
+            var _Url = `api/Users/CurrentUser`;
             return this._httpClient.get(_Url)
                 .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
@@ -5025,7 +5044,7 @@ let UsersRepository = class UsersRepository {
             return this._httpClient.post(_Url, model)
                 .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
-        // get: api/Users
+        // get: api/Users/GetAll
         //public getAll = (, callback: (data: ApplicationUser[])=>void) : void => {
         //	this.getAllObserve().subscribe(response => callback(response));
         //}
@@ -5038,11 +5057,11 @@ let UsersRepository = class UsersRepository {
             });
         };
         this.getAll = () => {
-            var _Url = `api/Users`;
+            var _Url = `api/Users/GetAll`;
             return this._httpClient.get(_Url)
                 .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
-        // get: api/Users/${encodeURIComponent(id)}
+        // get: api/Users/GetById/${encodeURIComponent(id)}
         //public getById = (id: string, callback: (data: ApplicationUser)=>void) : void => {
         //	this.getByIdObserve(id).subscribe(response => callback(response));
         //}
@@ -5055,11 +5074,11 @@ let UsersRepository = class UsersRepository {
             });
         };
         this.getById = (id) => {
-            var _Url = `api/Users/${encodeURIComponent(id)}`;
+            var _Url = `api/Users/GetById/${encodeURIComponent(id)}`;
             return this._httpClient.get(_Url)
                 .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
-        // put: api/Users/${encodeURIComponent(id)}
+        // put: api/Users/Update/${encodeURIComponent(id)}
         //public update = (id: string, model: UpdateModel, callback: (data: ApplicationUser)=>void) : void => {
         //	this.updateObserve(id, model).subscribe(response => callback(response));
         //}
@@ -5072,11 +5091,11 @@ let UsersRepository = class UsersRepository {
             });
         };
         this.update = (id, model) => {
-            var _Url = `api/Users/${encodeURIComponent(id)}`;
+            var _Url = `api/Users/Update/${encodeURIComponent(id)}`;
             return this._httpClient.put(_Url, id)
                 .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
-        // delete: api/Users/${encodeURIComponent(id)}
+        // delete: api/Users/Delete/${encodeURIComponent(id)}
         //public delete = (id: string, callback: (data: void)=>void) : void => {
         //	this.deleteObserve(id).subscribe(response => callback(response));
         //}
@@ -5089,11 +5108,11 @@ let UsersRepository = class UsersRepository {
             });
         };
         this.delete = (id) => {
-            var _Url = `api/Users/${encodeURIComponent(id)}`;
+            var _Url = `api/Users/Delete/${encodeURIComponent(id)}`;
             return this._httpClient.delete(_Url)
                 .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
-        // post: api/Users?email=${encodeURIComponent(email)}
+        // post: api/Users/ForgotPassword?email=${encodeURIComponent(email)}
         //public forgotPassword = (email: string, callback: (data: boolean)=>void) : void => {
         //	this.forgotPasswordObserve(email).subscribe(response => callback(response));
         //}
@@ -5106,7 +5125,7 @@ let UsersRepository = class UsersRepository {
             });
         };
         this.forgotPassword = (email) => {
-            var _Url = `api/Users?email=${encodeURIComponent(email)}`;
+            var _Url = `api/Users/ForgotPassword?email=${encodeURIComponent(email)}`;
             return this._httpClient.post(_Url, email)
                 .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
@@ -5277,6 +5296,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
 /* harmony import */ var _repositories__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/repositories */ "./src/app/repositories/index.ts");
 /* harmony import */ var _entities_AuthenticateModel__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/entities/AuthenticateModel */ "./src/app/entities/AuthenticateModel.ts");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+
 
 
 
@@ -5290,9 +5311,15 @@ let AuthenticationService = class AuthenticationService {
         this.currentUserSubject = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"](JSON.parse(localStorage.getItem('currentUser')));
         this.currentUser = this.currentUserSubject.asObservable();
         debugger;
-        this.userRepository.currentUser().subscribe((user) => {
-            localStorage.setItem('currentUser', JSON.stringify(user));
-            this.currentUserSubject.next(user);
+        this.refreshUser();
+    }
+    refreshUser() {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            yield Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["delay"])(10);
+            this.userRepository.currentUser().subscribe((user) => {
+                localStorage.setItem('currentUser', JSON.stringify(user));
+                this.currentUserSubject.next(user);
+            });
         });
     }
     get currentUserValue() {

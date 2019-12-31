@@ -5,6 +5,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { UsersRepository } from '@/repositories';
 import { AuthenticateModel } from '@/entities/AuthenticateModel';
 import { ApplicationUser } from '@/entities/ApplicationUser';
+import { delay } from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' } )
 export class AuthenticationService {
@@ -16,11 +17,18 @@ export class AuthenticationService {
     this.currentUser = this.currentUserSubject.asObservable();
 
     debugger;
+    this.refreshUser();
+  }
+
+  public async refreshUser(): Promise<void> {
+    await delay(10);
+
     this.userRepository.currentUser().subscribe((user) => {
       localStorage.setItem('currentUser', JSON.stringify(user));
       this.currentUserSubject.next(user);
     });
   }
+
 
   public get currentUserValue(): ApplicationUser {
     return this.currentUserSubject.value;

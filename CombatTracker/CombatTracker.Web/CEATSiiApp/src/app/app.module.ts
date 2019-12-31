@@ -33,8 +33,7 @@ import { AlertComponent } from '@/elements';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from '@/approot';
 import { JwtInterceptor, ErrorInterceptor, ApiPathInterceptor } from '@/_helpers';
-import * as Services from '@/services';
-import * as Repositories from '@/repositories';
+import { AuthenticationService } from '@/services';
 
 
 @NgModule({
@@ -74,10 +73,27 @@ import * as Repositories from '@/repositories';
     AppRoutingModule
   ],
   providers: [
-    { provide: 'BASE_URL', useFactory: getBaseUrl },
-    { provide: HTTP_INTERCEPTORS, useClass: ApiPathInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    {
+      provide: 'BASE_URL',
+      useFactory: getBaseUrl
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ApiPathInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: JwtInterceptor,
+      multi: true,
+      deps: [AuthenticationService]
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ErrorInterceptor,
+      multi: true,
+      deps: [AuthenticationService]
+    },
     //Services.AlertService,
     //Services.AuthenticationService,
     //Services.EncounterService,

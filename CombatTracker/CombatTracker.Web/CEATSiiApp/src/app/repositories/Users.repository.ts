@@ -24,7 +24,7 @@ export class UsersRepository {
 
     constructor(private _httpClient: HttpClient) { }
     
-    // get: api/Users
+    // get: api/Users/CurrentUser
 
 	//public currentUser = (, callback: (data: ApplicationUser)=>void) : void => {
 	//	this.currentUserObserve().subscribe(response => callback(response));
@@ -42,7 +42,7 @@ export class UsersRepository {
 	}
 
 	public currentUser = () : Observable<ApplicationUser> => {
-        var _Url = `api/Users`;
+        var _Url = `api/Users/CurrentUser`;
             return this._httpClient.get<ApplicationUser>(_Url)
                 .pipe(catchError(this.handleError));
 	};
@@ -96,7 +96,7 @@ export class UsersRepository {
 	};
 
     
-    // get: api/Users
+    // get: api/Users/GetAll
 
 	//public getAll = (, callback: (data: ApplicationUser[])=>void) : void => {
 	//	this.getAllObserve().subscribe(response => callback(response));
@@ -114,13 +114,13 @@ export class UsersRepository {
 	}
 
 	public getAll = () : Observable<ApplicationUser[]> => {
-        var _Url = `api/Users`;
+        var _Url = `api/Users/GetAll`;
             return this._httpClient.get<ApplicationUser[]>(_Url)
                 .pipe(catchError(this.handleError));
 	};
 
     
-    // get: api/Users/${encodeURIComponent(id)}
+    // get: api/Users/GetById/${encodeURIComponent(id)}
 
 	//public getById = (id: string, callback: (data: ApplicationUser)=>void) : void => {
 	//	this.getByIdObserve(id).subscribe(response => callback(response));
@@ -138,13 +138,13 @@ export class UsersRepository {
 	}
 
 	public getById = (id: string) : Observable<ApplicationUser> => {
-        var _Url = `api/Users/${encodeURIComponent(id)}`;
+        var _Url = `api/Users/GetById/${encodeURIComponent(id)}`;
             return this._httpClient.get<ApplicationUser>(_Url)
                 .pipe(catchError(this.handleError));
 	};
 
     
-    // put: api/Users/${encodeURIComponent(id)}
+    // put: api/Users/Update/${encodeURIComponent(id)}
 
 	//public update = (id: string, model: UpdateModel, callback: (data: ApplicationUser)=>void) : void => {
 	//	this.updateObserve(id, model).subscribe(response => callback(response));
@@ -162,13 +162,13 @@ export class UsersRepository {
 	}
 
 	public update = (id: string, model: UpdateModel) : Observable<ApplicationUser> => {
-        var _Url = `api/Users/${encodeURIComponent(id)}`;
+        var _Url = `api/Users/Update/${encodeURIComponent(id)}`;
             return this._httpClient.put<ApplicationUser>(_Url, id)
                 .pipe(catchError(this.handleError));
 	};
 
     
-    // delete: api/Users/${encodeURIComponent(id)}
+    // delete: api/Users/Delete/${encodeURIComponent(id)}
 
 	//public delete = (id: string, callback: (data: void)=>void) : void => {
 	//	this.deleteObserve(id).subscribe(response => callback(response));
@@ -186,13 +186,13 @@ export class UsersRepository {
 	}
 
 	public delete = (id: string) : Observable<void> => {
-        var _Url = `api/Users/${encodeURIComponent(id)}`;
+        var _Url = `api/Users/Delete/${encodeURIComponent(id)}`;
             return this._httpClient.delete<void>(_Url)
                 .pipe(catchError(this.handleError));
 	};
 
     
-    // post: api/Users?email=${encodeURIComponent(email)}
+    // post: api/Users/ForgotPassword?email=${encodeURIComponent(email)}
 
 	//public forgotPassword = (email: string, callback: (data: boolean)=>void) : void => {
 	//	this.forgotPasswordObserve(email).subscribe(response => callback(response));
@@ -210,7 +210,7 @@ export class UsersRepository {
 	}
 
 	public forgotPassword = (email: string) : Observable<boolean> => {
-        var _Url = `api/Users?email=${encodeURIComponent(email)}`;
+        var _Url = `api/Users/ForgotPassword?email=${encodeURIComponent(email)}`;
             return this._httpClient.post<boolean>(_Url, email)
                 .pipe(catchError(this.handleError));
 	};

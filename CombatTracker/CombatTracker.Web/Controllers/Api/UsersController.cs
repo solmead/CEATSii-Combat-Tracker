@@ -30,10 +30,10 @@ namespace CombatTracker.Web.Controllers.Api
             _userService = userService;
         }
 
-
+        [AllowAnonymous]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
-        [HttpGet]
+        [HttpGet("CurrentUser")]
         public async Task<ActionResult<ApplicationUser>> CurrentUser()
         {
             var us = await _sessionContext.GetCurrentUserAsync();
@@ -44,6 +44,8 @@ namespace CombatTracker.Web.Controllers.Api
             }
             return Ok(us);
         }
+
+
         [AllowAnonymous]
         [HttpPost("authenticate")]
         public async Task<ActionResult<ApplicationUser>> Authenticate([FromBody]AuthenticateModel model)
@@ -55,6 +57,8 @@ namespace CombatTracker.Web.Controllers.Api
 
             return Ok(user);
         }
+
+
         [AllowAnonymous]
         [HttpPost("register")]
         public async Task<ActionResult<ApplicationUser>> Register([FromBody]RegisterModel model)
@@ -75,7 +79,7 @@ namespace CombatTracker.Web.Controllers.Api
             }
         }
 
-        [HttpGet]
+        [HttpGet("GetAll")]
         [Authorize(Roles="Admin")]
         public async Task<ActionResult<List<ApplicationUser>>> GetAll()
         {
@@ -83,7 +87,7 @@ namespace CombatTracker.Web.Controllers.Api
             return Ok(users);
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("GetById/{id}")]
         [Authorize(Roles = "Admin")]
         public async Task<ActionResult<ApplicationUser>> GetById(string id)
         {
@@ -91,7 +95,7 @@ namespace CombatTracker.Web.Controllers.Api
             return Ok(user);
         }
 
-        [HttpPut("{id}")]
+        [HttpPut("Update/{id}")]
         [Authorize(Roles = "Admin")]
         public async Task<ActionResult<ApplicationUser>> Update(string id, [FromBody]UpdateModel model)
         {
@@ -118,7 +122,7 @@ namespace CombatTracker.Web.Controllers.Api
             }
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("Delete/{id}")]
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(string id)
         {
@@ -126,7 +130,8 @@ namespace CombatTracker.Web.Controllers.Api
             return Ok();
         }
 
-        [HttpPost]
+        [AllowAnonymous]
+        [HttpPost("ForgotPassword")]
         public async Task<ActionResult<bool>> ForgotPassword(string email)
         {
             var user = await _userService.GetByEmailAsync(email);
