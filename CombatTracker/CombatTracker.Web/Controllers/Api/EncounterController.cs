@@ -12,7 +12,7 @@ namespace CombatTracker.Web.Controllers.Api
 {
     [Produces("application/json")]
     [Route("api/Encounter")]
-    public class EncounterController : Controller
+    public class EncounterController : BaseController
     {
         private readonly ICreatureRepository _creatureRepository;
         private readonly ICharacterRepository _characterRepository;
@@ -24,7 +24,8 @@ namespace CombatTracker.Web.Controllers.Api
             ICharacterRepository characterRepository, 
             IGameRepository gameRepository,
             IChartRepository chartRepository,
-            IGameService gameService)
+            IGameService gameService,
+            ISessionContext sessionContext) : base(sessionContext)
         {
             _gameRepository = gameRepository;
             _creatureRepository = creatureRepository;

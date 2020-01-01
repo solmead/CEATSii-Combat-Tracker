@@ -5,6 +5,14 @@ using System.Text;
 
 namespace CombatTracker.Entities.Reference
 {
+    public enum SecurityRoles
+    {
+        None,
+        Normal,
+        Compendium,
+        Admin
+    }
+
     public enum ResponseEnum
     {
         ChooseNextAction,
@@ -86,5 +94,12 @@ namespace CombatTracker.Entities.Reference
         No_Parry
     }
 
+
+    public enum CreatureStatus
+    {
+        Personal,
+        Proposed,
+        InCompendium
+    }
     
 }

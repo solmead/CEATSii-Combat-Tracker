@@ -8,6 +8,7 @@ using CombatTracker.Entities.Reference.Attacks.Charts;
 using CombatTracker.Entities.Reference.Creatures.Charts;
 using CombatTracker.Entities.Reference.Magic;
 using CombatTracker.Entities.Repositories;
+using CombatTracker.Entities.Service;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,12 +16,13 @@ namespace CombatTracker.Web.Controllers.Api
 {
     [Produces("application/json")]
     [Route("api/Reference")]
-    public class ReferenceController : Controller
+    public class ReferenceController : BaseController
     {
 
         public readonly IChartRepository _chartRepository;
 
-        public ReferenceController(IChartRepository chartRepository)
+        public ReferenceController(IChartRepository chartRepository,
+            ISessionContext sessionContext) : base(sessionContext)
         {
             _chartRepository = chartRepository;
         }

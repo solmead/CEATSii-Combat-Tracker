@@ -4,17 +4,21 @@ using System.Linq;
 using System.Threading.Tasks;
 using CombatTracker.Entities.Current;
 using CombatTracker.Entities.Repositories;
+using CombatTracker.Entities.Service;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CombatTracker.Web.Controllers.Api
 {
+
     [Route("api/[controller]")]
-    public class ActorsController : Controller
+    public class ActorsController : BaseController
     {
         public readonly IGameRepository _gameRepository;
 
-        public ActorsController(IGameRepository gameRepository)
+        public ActorsController(IGameRepository gameRepository,
+            ISessionContext sessionContext) : base(sessionContext)
         {
             _gameRepository = gameRepository;
         }

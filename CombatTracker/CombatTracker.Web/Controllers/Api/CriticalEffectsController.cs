@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using CombatTracker.Entities.Current;
 using CombatTracker.Entities.Repositories;
+using CombatTracker.Entities.Service;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,12 +12,13 @@ namespace CombatTracker.Web.Controllers.Api
 {
     [Produces("application/json")]
     [Route("api/[controller]")]
-    public class CriticalEffectsController : Controller
+    public class CriticalEffectsController : BaseController
     {
 
         public readonly IGameRepository _gameRepository;
 
-        public CriticalEffectsController(IGameRepository gameRepository)
+        public CriticalEffectsController(IGameRepository gameRepository,
+            ISessionContext sessionContext) : base(sessionContext)
         {
             _gameRepository = gameRepository;
         }

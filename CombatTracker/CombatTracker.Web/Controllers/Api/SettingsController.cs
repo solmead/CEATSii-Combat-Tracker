@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CombatTracker.Entities.Reference;
+using CombatTracker.Entities.Service;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Utilities.Caching;
@@ -11,40 +13,47 @@ namespace CombatTracker.Web.Controllers.Api
 {
     [Produces("application/json")]
     [Route("api/Settings")]
-    public class SettingsController : Controller
+    public class SettingsController : BaseController
     {
 
-        public static MySettings settings
+        public SettingsController(
+            ISessionContext sessionContext) : base(sessionContext)
         {
-            get
-            {
-                return Cache.GetItem<MySettings>(CacheArea.Session, "MySettings", new MySettings());
-            }
-            set
-            {
-                Cache.SetItem<MySettings>(CacheArea.Session, "MySettings", value);
-            }
+
         }
 
-        [HttpGet("[action]")]
-        public MySettings GetSetting()
-        {
-            try
-            {
-                return settings;
-            }
-            catch (Exception ex)
-            {
+        //public static MySettings settings
+        //{
+        //    get
+        //    {
+        //        return Cache.GetItem<MySettings>(CacheArea.Session, "MySettings", new MySettings());
+        //    }
+        //    set
+        //    {
+        //        Cache.SetItem<MySettings>(CacheArea.Session, "MySettings", value);
+        //    }
+        //}
 
-            }
-            return null;
-        }
+        //[AllowAnonymous]
+        //[HttpGet("[action]")]
+        //public MySettings GetSetting()
+        //{
+        //    try
+        //    {
+        //        return settings;
+        //    }
+        //    catch (Exception ex)
+        //    {
 
-        [HttpPost("[action]")]
-        public void SetGameType(GameType gameType)
-        {
-            settings.GameSystem = gameType;
-        }
+        //    }
+        //    return null;
+        //}
+
+        //[HttpPost("[action]")]
+        //public void SetGameType(GameType gameType)
+        //{
+        //    settings.GameSystem = gameType;
+        //}
 
 
     }

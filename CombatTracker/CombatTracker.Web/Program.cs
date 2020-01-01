@@ -2,8 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CombatTracker.Authorization;
 using CombatTracker.Domain;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -23,7 +25,17 @@ namespace CombatTracker.Web
                 try
                 {
                     var context = services.GetRequiredService<TrackerContext>();
+                    context.Database.Migrate();
                     //DbInitializer.Initialize(context);
+
+                    // requires using Microsoft.Extensions.Configuration;
+                    var config = host.Services.GetRequiredService<IConfiguration>();
+                    // Set password with the Secret Manager tool.
+                    // dotnet user-secrets set SeedUserPW <pw>
+
+                    var testUserPw = config["SeedUserPW"];
+
+                    SeedData.Initialize(services, testUserPw).Wait();
                 }
                 catch (Exception ex)
                 {

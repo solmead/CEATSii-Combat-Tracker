@@ -6,6 +6,7 @@ using CombatTracker.Entities.Current;
 using CombatTracker.Entities.Reference;
 using CombatTracker.Entities.Reference.Attacks.Charts;
 using CombatTracker.Entities.Repositories;
+using CombatTracker.Entities.Service;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -14,12 +15,13 @@ namespace CombatTracker.Web.Controllers.Api
 {
     [Produces("application/json")]
     [Route("api/[controller]")]
-    public class GamesController : Controller
+    public class GamesController : BaseController
     {
 
         public readonly IGameRepository _gameRepository;
 
-        public GamesController(IGameRepository gameRepository)
+        public GamesController(IGameRepository gameRepository,
+            ISessionContext sessionContext) : base(sessionContext)
         {
             _gameRepository = gameRepository;
         }

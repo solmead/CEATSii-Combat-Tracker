@@ -4,19 +4,22 @@ using System.Linq;
 using System.Threading.Tasks;
 using CombatTracker.Entities.Reference;
 using CombatTracker.Entities.Repositories;
+using CombatTracker.Entities.Service;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CombatTracker.Web.Controllers.Api
 {
+
     [Produces("application/json")]
     [Route("api/Characters")]
-    public class CharactersController : Controller
+    public class CharactersController : BaseController
     {
 
         public readonly ICharacterRepository _characterRepository;
 
-        public CharactersController(ICharacterRepository characterRepository)
+        public CharactersController(ICharacterRepository characterRepository,
+            ISessionContext sessionContext) : base(sessionContext)
         {
             _characterRepository = characterRepository;
         }

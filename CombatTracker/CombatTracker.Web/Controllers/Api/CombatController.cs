@@ -6,6 +6,7 @@ using CombatTracker.Entities.Current;
 using CombatTracker.Entities.Reference;
 using CombatTracker.Entities.Reference.Attacks;
 using CombatTracker.Entities.Repositories;
+using CombatTracker.Entities.Service;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,14 +14,15 @@ namespace CombatTracker.Web.Controllers.Api
 {
     [Produces("application/json")]
     [Route("api/Combat")]
-    public class CombatController : Controller
+    public class CombatController : BaseController
     {
 
         public readonly ICombatRepository _combatRepository;
         public readonly IGameRepository _gameRepository;
 
         public CombatController(ICombatRepository combatRepository,
-            IGameRepository gameRepository)
+            IGameRepository gameRepository,
+            ISessionContext sessionContext) : base(sessionContext)
         {
             _combatRepository = combatRepository;
             _gameRepository = gameRepository;
