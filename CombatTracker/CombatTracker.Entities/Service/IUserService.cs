@@ -9,7 +9,8 @@ namespace CombatTracker.Entities.Service
 {
     public interface IUserService
     {
-        Task<ApplicationUser> AuthenticateAsync(string username, string password);
+        Task<bool> Logout();
+        Task<ApplicationUser> AuthenticateAsync(string username, string password, bool rememberMe = true);
         Task<IEnumerable<ApplicationUser>> GetAllAsync();
         Task<ApplicationUser> GetByIdAsync(string id);
         Task<ApplicationUser> GetByUserNameAsync(string username);

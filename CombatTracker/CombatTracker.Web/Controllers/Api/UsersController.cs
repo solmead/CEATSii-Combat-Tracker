@@ -45,12 +45,20 @@ namespace CombatTracker.Web.Controllers.Api
             return Ok(us);
         }
 
+        [HttpPost("logout")]
+        public async Task<ActionResult<bool>> Logout()
+        {
+            var success = await _userService.Logout();
+
+
+            return Ok(success);
+        }
 
         [AllowAnonymous]
         [HttpPost("authenticate")]
         public async Task<ActionResult<ApplicationUser>> Authenticate([FromBody]AuthenticateModel model)
         {
-            var user = await _userService.AuthenticateAsync(model.Username, model.Password);
+            var user = await _userService.AuthenticateAsync(model.Username, model.Password, model.RememberMe);
 
             if (user == null)
                 return BadRequest(new { message = "Username or password is incorrect" });

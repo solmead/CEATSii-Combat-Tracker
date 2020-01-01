@@ -47,6 +47,29 @@ export class UsersRepository {
 	};
 
     
+    // post: api/Users/logout
+
+	//public logout = (, callback: (data: boolean)=>void) : void => {
+	//	this.logoutObserve().subscribe(response => callback(response));
+	//}
+
+	public logoutAsync = () : Promise<boolean> => {
+
+        return new Promise<boolean>((resolve, reject) => {
+            this.logout()
+            .subscribe((res) => {
+                    resolve(res);
+                });
+
+        });
+	}
+
+	public logout = () : Observable<boolean> => {
+        var _Url = `api/Users/logout`;
+            return this._httpClient.post<boolean>(_Url, null);
+	};
+
+    
     // post: api/Users/authenticate
 
 	//public authenticate = (model: AuthenticateModel, callback: (data: ApplicationUser)=>void) : void => {

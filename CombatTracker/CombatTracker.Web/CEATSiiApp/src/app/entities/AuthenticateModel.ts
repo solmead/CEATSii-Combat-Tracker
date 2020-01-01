@@ -9,6 +9,7 @@
     export class AuthenticateModel {
         username: string;
         password: string;
+        rememberMe: boolean;
 
         constructor() {
         }

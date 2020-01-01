@@ -61,12 +61,18 @@ ${
             if(objMethod.HttpMethod() == "get"){
                 return  $"<{nm}>(_Url)";
             }
+            var para = objMethod.Parameters.FirstOrDefault()?.name;
+            if (para == null) {
+              para="null";
+            }
+
 
             if(objMethod.HttpMethod() == "post"){
-                return  $"<{nm}>(_Url, {objMethod.Parameters.FirstOrDefault()?.name})";
+
+                return  $"<{nm}>(_Url, {para})";
             }
             if(objMethod.HttpMethod() == "put"){
-                return  $"<{nm}>(_Url, {objMethod.Parameters.FirstOrDefault()?.name})";
+                return  $"<{nm}>(_Url, {para})";
             }
             if(objMethod.HttpMethod() == "delete"){
                 return  $"<{nm}>(_Url)";

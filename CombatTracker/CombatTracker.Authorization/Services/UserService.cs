@@ -1,9 +1,11 @@
-﻿using CombatTracker.Entities.Security;
+﻿using CombatTracker.Entities.Reference;
+using CombatTracker.Entities.Security;
 using CombatTracker.Entities.Service;
 using CombatTracker.Entities.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Utilities.EnumExtensions;
@@ -29,12 +31,12 @@ namespace CombatTracker.Authorization.Services
         }
 
 
-        public async Task<ApplicationUser> AuthenticateAsync(string username, string password)
+        public async Task<ApplicationUser> AuthenticateAsync(string username, string password, bool rememberMe = true)
         {
-            var result = await _signInManager.PasswordSignInAsync(username, password, false, lockoutOnFailure: false);
+            var result = await _signInManager.PasswordSignInAsync(username, password, rememberMe, lockoutOnFailure: false);
             if (result.Succeeded)
             {
-                var usr = await _usermanager.FindByNameAsync(username);
+                var usr = await GetByUserNameAsync(username);
                 _sessionContext.SetCurrentUser(usr);
                 //var us = await _sessionContext.GetCurrentUserAsync();
                 return usr;
@@ -62,10 +64,10 @@ namespace CombatTracker.Authorization.Services
 
         public async Task<ApplicationUser> CreateAsync(RegisterModel user, string password)
         {
-            var exuser = await _usermanager.FindByNameAsync(user.Username);
+            var exuser = await GetByUserNameAsync(user.Username);
             if (exuser==null)
             {
-                exuser = await _usermanager.FindByEmailAsync(user.Email);
+                exuser = await GetByEmailAsync(user.Email);
             }
             if (exuser == null)
             {
@@ -76,7 +78,7 @@ namespace CombatTracker.Authorization.Services
                     EmailConfirmed = true
                 };
                 var result = await _usermanager.CreateAsync(exuser, user.Password);
-                
+
             } else
             {
                 throw new Exception("User already exists");
@@ -87,23 +89,30 @@ namespace CombatTracker.Authorization.Services
                 throw new Exception("The password is probably not strong enough!");
             }
 
-            return await _usermanager.FindByNameAsync(exuser.UserName);
+            return await GetByUserNameAsync(exuser.UserName);
         }
 
         public async Task DeleteAsync(string id)
         {
-            var user = await _usermanager.FindByIdAsync(id);
+            var user = await GetByIdAsync(id);
             await _usermanager.DeleteAsync(user);
         }
 
         public async Task<IEnumerable<ApplicationUser>> GetAllAsync()
         {
             var rList = new List<ApplicationUser>();
-            var roles = Constants.SecurityRoles.None;
+            var roles = SecurityRoles.None;
             foreach (var r in roles.GetWithOrder()) {
                 var lst = await _usermanager.GetUsersInRoleAsync(r.ToString());
                 rList.AddRange(lst);
             }
+
+            foreach(var u in rList) {
+                var roleList = await _usermanager.GetRolesAsync(u);
+                u.Roles = roleList.Select((r) => r.ToEnum<SecurityRoles>()).ToList();
+            }
+
+
 
             return rList;
         }
@@ -111,19 +120,40 @@ namespace CombatTracker.Authorization.Services
         public async Task<ApplicationUser> GetByEmailAsync(string email)
         {
             var user = await _usermanager.FindByEmailAsync(email);
+            if (user != null)
+            {
+                var roles = await _usermanager.GetRolesAsync(user);
+                user.Roles = roles.Select((r) => r.ToEnum<SecurityRoles>()).ToList();
+            }
             return user;
         }
 
         public async Task<ApplicationUser> GetByIdAsync(string id)
         {
             var user = await _usermanager.FindByIdAsync(id);
+            if (user != null)
+            {
+                var roles = await _usermanager.GetRolesAsync(user);
+                user.Roles = roles.Select((r) => r.ToEnum<SecurityRoles>()).ToList();
+            }
             return user;
         }
 
         public async Task<ApplicationUser> GetByUserNameAsync(string username)
         {
             var user = await _usermanager.FindByNameAsync(username);
+            if (user != null)
+            {
+                var roles = await _usermanager.GetRolesAsync(user);
+                user.Roles = roles.Select((r) => r.ToEnum<SecurityRoles>()).ToList();
+            }
             return user;
+        }
+
+        public async Task<bool> Logout()
+        {
+            await _signInManager.SignOutAsync();
+            return true;
         }
 
         public async Task UpdateAsync(ApplicationUser userParam, string password = null)

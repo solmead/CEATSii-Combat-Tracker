@@ -21,17 +21,24 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using CombatTracker.Entities.Security;
 using CombatTracker.Authorization;
+using System.Text;
+using CombatTracker.Web.Models;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using CombatTracker.Entities.Service;
 
 namespace CombatTracker.Web
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        private readonly IWebHostEnvironment _env;
+        private readonly IConfiguration _configuration;
+        public Startup(IWebHostEnvironment env, IConfiguration configuration)
         {
-            Configuration = configuration;
+            _env = env;
+            _configuration = configuration;
         }
 
-        public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -44,7 +51,7 @@ namespace CombatTracker.Web
             //});
 
             services.AddDbContext<TrackerContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+                options.UseSqlServer(_configuration.GetConnectionString("DefaultConnection")));
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped(sp => sp.GetRequiredService<IHttpContextAccessor>().HttpContext);
             services.RegisterServices();
@@ -61,13 +68,59 @@ namespace CombatTracker.Web
                 .AddApiAuthorization<ApplicationUser, TrackerContext>();
 
 
+
+
+            services.AddCors();
+            services.AddControllersWithViews();
+
+
+            //// configure strongly typed settings objects
+            //var appSettingsSection = _configuration.GetSection("AppSettings");
+            //services.Configure<AppSettings>(appSettingsSection);
+
+            //// configure jwt authentication
+            //var appSettings = appSettingsSection.Get<AppSettings>();
+            //var key = Encoding.ASCII.GetBytes(appSettings.Secret);
+
+            //services.AddAuthentication(x =>
+            //{
+            //    x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+            //    x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            //})
+            //.AddJwtBearer(x =>
+            //{
+            //    x.Events = new JwtBearerEvents
+            //    {
+            //        OnTokenValidated = async context =>
+            //        {
+            //            var userService = context.HttpContext.RequestServices.GetRequiredService<IUserService>();
+            //            var userId = context.Principal.Identity.Name;
+            //            var user = await userService.GetByIdAsync(userId);
+            //            if (user == null)
+            //            {
+            //                // return unauthorized if user no longer exists
+            //                context.Fail("Unauthorized");
+            //            }
+            //        }
+            //    };
+            //    x.RequireHttpsMetadata = false;
+            //    x.SaveToken = true;
+            //    x.TokenValidationParameters = new TokenValidationParameters
+            //    {
+            //        ValidateIssuerSigningKey = true,
+            //        IssuerSigningKey = new SymmetricSecurityKey(key),
+            //        ValidateIssuer = false,
+            //        ValidateAudience = false
+            //    };
+            //});
+
+
             services.AddAuthentication()
                 .AddIdentityServerJwt();
 
 
 
 
-            services.AddControllersWithViews();
             //config => {
             //    // using Microsoft.AspNetCore.Mvc.Authorization;
             //    // using Microsoft.AspNetCore.Authorization;
@@ -120,6 +173,11 @@ namespace CombatTracker.Web
             }
 
             app.UseRouting();
+            // global cors policy
+            app.UseCors(x => x
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader());
 
             app.UseAuthentication();
             app.UseIdentityServer();

@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using CombatTracker.Entities.Reference;
+using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace CombatTracker.Entities.Security
@@ -15,6 +17,9 @@ namespace CombatTracker.Entities.Security
         public override string UserName { get => base.UserName; set => base.UserName = value; }
 
         public override string SecurityStamp { get => base.SecurityStamp; set => base.SecurityStamp = value; }
+
+        [NotMapped]
+        public List<SecurityRoles> Roles { get; set; }
 
 
     }

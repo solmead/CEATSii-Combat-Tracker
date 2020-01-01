@@ -1,4 +1,5 @@
-﻿using CombatTracker.Entities.Reference.Creatures;
+﻿using CombatTracker.Entities.Reference;
+using CombatTracker.Entities.Reference.Creatures;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authorization.Infrastructure;
 using System;
@@ -22,7 +23,7 @@ namespace CombatTracker.Authorization
             }
 
             // Administrators can do anything.
-            if (context.User.IsInRole(Constants.SecurityRoles.Admin.ToString()))
+            if (context.User.IsInRole(SecurityRoles.Admin.ToString()))
             {
                 context.Succeed(requirement);
             }

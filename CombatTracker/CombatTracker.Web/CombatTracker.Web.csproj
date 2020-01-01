@@ -102,6 +102,9 @@
     <None Update="CEATSiiApp\src\app\entities\Dice.ts">
       <CustomToolNamespace>..\CombatTracker.Entities\Reference\Dice.cs</CustomToolNamespace>
     </None>
+    <None Update="CEATSiiApp\src\app\entities\EnumDefinitions.ts">
+      <CustomToolNamespace>..\CombatTracker.Entities\Reference\EnumDefinitions.cs</CustomToolNamespace>
+    </None>
     <None Update="CEATSiiApp\src\app\entities\Game.ts">
       <CustomToolNamespace>..\CombatTracker.Entities\Current\Game.cs</CustomToolNamespace>
     </None>

@@ -253,7 +253,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ul class=\"navbar-nav\">\r\n  <li class=\"nav-item\" *ngIf=\"currentUser\">\r\n    <a class=\"nav-link text-dark\" [routerLink]=\"['/profile']\" title=\"Manage\">Hello {{currentUser.userName}}</a>\r\n  </li>\r\n  <li class=\"nav-item\" *ngIf=\"currentUser\">\r\n    <a (click)=\"logout()\"> class=\"nav-link btn btn-link text-dark\">Logout</a>\r\n  </li>\r\n\r\n  <li class=\"nav-item\" *ngIf=\"!currentUser\">\r\n    <a class=\"nav-link text-dark\" [routerLink]=\"['/register']\">Register</a>\r\n  </li>\r\n  <li class=\"nav-item\" *ngIf=\"!currentUser\">\r\n    <a class=\"nav-link text-dark\" [routerLink]=\"['/login']\">Login</a>\r\n  </li>\r\n</ul>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<ul class=\"navbar-nav\">\r\n  <li class=\"nav-item\" *ngIf=\"currentUser\">\r\n    <a class=\"nav-link text-dark\" [routerLink]=\"['/profile']\" title=\"Manage\">Hello {{currentUser.userName}}</a>\r\n  </li>\r\n  <li class=\"nav-item\" *ngIf=\"currentUser\">\r\n    <a (click)=\"logout()\" class=\"nav-link btn btn-link text-dark\">Logout</a>\r\n  </li>\r\n\r\n  <li class=\"nav-item\" *ngIf=\"!currentUser\">\r\n    <a class=\"nav-link text-dark\" [routerLink]=\"['/register']\">Register</a>\r\n  </li>\r\n  <li class=\"nav-item\" *ngIf=\"!currentUser\">\r\n    <a class=\"nav-link text-dark\" [routerLink]=\"['/login']\">Login</a>\r\n  </li>\r\n</ul>\r\n");
 
 /***/ }),
 
@@ -666,7 +666,7 @@ let ErrorInterceptor = class ErrorInterceptor {
         return next.handle(request).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(this.handleError));
     }
     handleError(error) {
-        debugger;
+        //debugger;
         console.error(error);
         let customError = "";
         if (error.error) {
@@ -1010,10 +1010,6 @@ let AppComponent = class AppComponent {
         this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
     }
     ngOnInit() {
-    }
-    logout() {
-        this.authenticationService.logout();
-        this.router.navigate(['/login']);
     }
 };
 AppComponent.ctorParameters = () => [
@@ -2725,6 +2721,13 @@ __webpack_require__.r(__webpack_exports__);
 
 var EnumDefinitions;
 (function (EnumDefinitions) {
+    let SecurityRoles;
+    (function (SecurityRoles) {
+        SecurityRoles[SecurityRoles["None"] = 0] = "None";
+        SecurityRoles[SecurityRoles["Normal"] = 1] = "Normal";
+        SecurityRoles[SecurityRoles["Compendium"] = 2] = "Compendium";
+        SecurityRoles[SecurityRoles["Admin"] = 3] = "Admin";
+    })(SecurityRoles = EnumDefinitions.SecurityRoles || (EnumDefinitions.SecurityRoles = {}));
     let ResponseEnum;
     (function (ResponseEnum) {
         ResponseEnum[ResponseEnum["ChooseNextAction"] = 0] = "ChooseNextAction";
@@ -2872,6 +2875,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/services */ "./src/app/services/index.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+
 
 
 
@@ -2879,12 +2884,18 @@ let AccountNavMenuComponent =
 /** account-nav-menu component*/
 class AccountNavMenuComponent {
     /** account-nav-menu ctor */
-    constructor(authenticationService) {
+    constructor(router, authenticationService) {
+        this.router = router;
         this.authenticationService = authenticationService;
         this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
     }
+    logout() {
+        this.authenticationService.logout();
+        this.router.navigate(['/']);
+    }
 };
 AccountNavMenuComponent.ctorParameters = () => [
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
     { type: _services__WEBPACK_IMPORTED_MODULE_2__["AuthenticationService"] }
 ];
 AccountNavMenuComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -2895,7 +2906,8 @@ AccountNavMenuComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     })
     /** account-nav-menu component*/
     ,
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services__WEBPACK_IMPORTED_MODULE_2__["AuthenticationService"]])
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"],
+        _services__WEBPACK_IMPORTED_MODULE_2__["AuthenticationService"]])
 ], AccountNavMenuComponent);
 
 
@@ -4789,6 +4801,22 @@ let UsersRepository = class UsersRepository {
             var _Url = `api/Users/CurrentUser`;
             return this._httpClient.get(_Url);
         };
+        // post: api/Users/logout
+        //public logout = (, callback: (data: boolean)=>void) : void => {
+        //	this.logoutObserve().subscribe(response => callback(response));
+        //}
+        this.logoutAsync = () => {
+            return new Promise((resolve, reject) => {
+                this.logout()
+                    .subscribe((res) => {
+                    resolve(res);
+                });
+            });
+        };
+        this.logout = () => {
+            var _Url = `api/Users/logout`;
+            return this._httpClient.post(_Url, null);
+        };
         // post: api/Users/authenticate
         //public authenticate = (model: AuthenticateModel, callback: (data: ApplicationUser)=>void) : void => {
         //	this.authenticateObserve(model).subscribe(response => callback(response));
@@ -5101,6 +5129,7 @@ let AuthenticationService = class AuthenticationService {
         //return null;
     }
     logout() {
+        this.userRepository.logout();
         // remove user from local storage and set current user to null
         localStorage.removeItem('currentUser');
         this.currentUserSubject.next(null);

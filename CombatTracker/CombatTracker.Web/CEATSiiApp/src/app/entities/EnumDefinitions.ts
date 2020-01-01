@@ -3,6 +3,13 @@
 
     export module EnumDefinitions {
 
+            export enum SecurityRoles {
+                None = 0,
+                Normal = 1,
+                Compendium = 2,
+                Admin = 3
+            }
+    
             export enum ResponseEnum {
                 ChooseNextAction = 0,
                 DisplayMessage = 1,

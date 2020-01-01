@@ -1,4 +1,5 @@
-﻿using CombatTracker.Entities.Reference.Creatures;
+﻿using CombatTracker.Entities.Reference;
+using CombatTracker.Entities.Reference.Creatures;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authorization.Infrastructure;
 using System;
@@ -28,7 +29,7 @@ namespace CombatTracker.Authorization
             //    return Task.CompletedTask;
             //}
 
-            var validRole = context.User.IsInRole(Constants.SecurityRoles.Compendium.ToString());
+            var validRole = context.User.IsInRole(SecurityRoles.Compendium.ToString());
 
 
             var cudAccess = (resource.Status != Entities.Reference.CreatureStatus.Personal);

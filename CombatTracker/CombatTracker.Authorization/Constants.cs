@@ -13,13 +13,7 @@ namespace CombatTracker.Authorization
             Approve,
             Reject
         }
-        public enum SecurityRoles
-        {
-            None,
-            Normal,
-            Compendium,
-            Admin
-        }
+        
 
     }
 }

@@ -45,8 +45,8 @@ namespace CombatTracker.Web.Controllers.Api
             list = (from i in list where i.GameType == gameType select i);
 
 
-            var isAuthorized = User.IsInRole(Constants.SecurityRoles.Compendium.ToString()) ||
-                               User.IsInRole(Constants.SecurityRoles.Admin.ToString());
+            var isAuthorized = User.IsInRole(SecurityRoles.Compendium.ToString()) ||
+                               User.IsInRole(SecurityRoles.Admin.ToString());
 
             var currentUserId = _userManager.GetUserId(User);
 
