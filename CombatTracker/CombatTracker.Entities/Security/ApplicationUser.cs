@@ -18,6 +18,17 @@ namespace CombatTracker.Entities.Security
 
         public override string SecurityStamp { get => base.SecurityStamp; set => base.SecurityStamp = value; }
 
+        public override string ConcurrencyStamp { get => base.ConcurrencyStamp; set => base.ConcurrencyStamp = value; }
+
+        public override bool TwoFactorEnabled { get => base.TwoFactorEnabled; set => base.TwoFactorEnabled = value; }
+
+        public override int AccessFailedCount { get => base.AccessFailedCount; set => base.AccessFailedCount = value; }
+
+        public override bool LockoutEnabled { get => base.LockoutEnabled; set => base.LockoutEnabled = value; }
+
+        public override DateTimeOffset? LockoutEnd { get => base.LockoutEnd; set => base.LockoutEnd = value; }
+
+
         [NotMapped]
         public List<SecurityRoles> Roles { get; set; }
 

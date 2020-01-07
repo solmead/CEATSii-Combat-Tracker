@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { Game } from '@/entities/Game';
+import { Game } from '@/entities';
 import { GamesRepository } from '@/repositories';
 import { EncounterService } from "@/services";
 import * as Enums from '@/entities/EnumDefinitions'

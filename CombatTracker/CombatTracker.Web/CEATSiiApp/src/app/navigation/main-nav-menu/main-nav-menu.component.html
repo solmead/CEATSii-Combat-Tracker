@@ -2,6 +2,12 @@
   <li class="nav-item">
     <a class="nav-link text-dark" [routerLink]="['/home']">Home</a>
   </li>
+  <li class="nav-item" *ngIf="currentUser">
+    <a class="nav-link text-dark" [routerLink]="['/creatures']">Creature Compendium</a>
+  </li>
+  <li class="nav-item" *ngIf="currentUser">
+    <a class="nav-link text-dark" [routerLink]="['/mycreatures']">My Creatures</a>
+  </li>
   <!--<li class="nav-item">
     <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
   </li>-->

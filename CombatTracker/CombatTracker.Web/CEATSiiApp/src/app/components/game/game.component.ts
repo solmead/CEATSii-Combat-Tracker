@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { EncounterService } from "@/services";
 import { GamesRepository } from '@/repositories';
-import { Game } from '@/entities/Game';
+import { Game } from '@/entities';
 
 
 @Component({

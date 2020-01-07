@@ -1,22 +1,22 @@
 import { Injectable } from '@angular/core';
 import * as Enums from '@/entities/EnumDefinitions'
 import { ReferenceRepository } from '@/repositories';
-import { ActionGroup } from '@/entities/ActionGroup';
-import { ActionDefinition } from '@/entities/ActionDefinition';
-import { ConstitutionBonusChart } from '@/entities/ConstitutionBonusChart';
-import { CriticalCode } from '@/entities/CriticalCode';
-import { CriticalIgnore } from '@/entities/CriticalIgnore';
-import { IQ } from '@/entities/IQ';
-import { LevelChart } from '@/entities/LevelChart';
-import { Outlook } from '@/entities/Outlook';
-import { Pace } from '@/entities/Pace';
-import { SizeRating } from '@/entities/SizeRating';
-import { SpeedChart } from '@/entities/SpeedChart';
-import { AttackType } from '@/entities/AttackType';
-import { CriticalType } from '@/entities/CriticalType';
-import { WeaponType } from '@/entities/WeaponType';
-import { Book } from '@/entities/Book';
-import { PsychicRefractoryPeriodEntry } from '@/entities/PsychicRefractoryPeriodEntry';
+import { ActionGroup } from '@/entities';
+import { ActionDefinition } from '@/entities';
+import { ConstitutionBonusChart } from '@/entities';
+import { CriticalCode } from '@/entities';
+import { CriticalIgnore } from '@/entities';
+import { IQ } from '@/entities';
+import { LevelChart } from '@/entities';
+import { Outlook } from '@/entities';
+import { Pace } from '@/entities';
+import { SizeRating } from '@/entities';
+import { SpeedChart } from '@/entities';
+import { AttackType } from '@/entities';
+import { CriticalType } from '@/entities';
+import { WeaponType } from '@/entities';
+import { Book } from '@/entities';
+import { PsychicRefractoryPeriodEntry } from '@/entities';
 
 
 

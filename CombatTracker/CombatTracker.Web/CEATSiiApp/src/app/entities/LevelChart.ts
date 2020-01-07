@@ -2,7 +2,6 @@
 
 
 
-
     import * as Enums from './EnumDefinitions'
     import { LevelChartValue } from './LevelChartValue';
     export class LevelChart {

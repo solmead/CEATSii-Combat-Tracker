@@ -13,7 +13,7 @@ import {Observable, throwError} from "rxjs";
 import { map, catchError } from "rxjs/operators";
 
     import * as Enums from '@/entities/EnumDefinitions'
-    import { BaseAction } from '@/entities/BaseAction';
+    import { BaseAction } from '@/entities';
 
 
 @Injectable({ providedIn: 'root' })

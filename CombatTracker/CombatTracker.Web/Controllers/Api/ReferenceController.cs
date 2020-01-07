@@ -14,6 +14,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CombatTracker.Web.Controllers.Api
 {
+    [ApiController]
     [Produces("application/json")]
     [Route("api/Reference")]
     public class ReferenceController : BaseController

@@ -67,68 +67,13 @@ namespace CombatTracker.Web
             services.AddIdentityServer()
                 .AddApiAuthorization<ApplicationUser, TrackerContext>();
 
-
-
-
-            services.AddCors();
-            services.AddControllersWithViews();
-
-
-            //// configure strongly typed settings objects
-            //var appSettingsSection = _configuration.GetSection("AppSettings");
-            //services.Configure<AppSettings>(appSettingsSection);
-
-            //// configure jwt authentication
-            //var appSettings = appSettingsSection.Get<AppSettings>();
-            //var key = Encoding.ASCII.GetBytes(appSettings.Secret);
-
-            //services.AddAuthentication(x =>
-            //{
-            //    x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-            //    x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            //})
-            //.AddJwtBearer(x =>
-            //{
-            //    x.Events = new JwtBearerEvents
-            //    {
-            //        OnTokenValidated = async context =>
-            //        {
-            //            var userService = context.HttpContext.RequestServices.GetRequiredService<IUserService>();
-            //            var userId = context.Principal.Identity.Name;
-            //            var user = await userService.GetByIdAsync(userId);
-            //            if (user == null)
-            //            {
-            //                // return unauthorized if user no longer exists
-            //                context.Fail("Unauthorized");
-            //            }
-            //        }
-            //    };
-            //    x.RequireHttpsMetadata = false;
-            //    x.SaveToken = true;
-            //    x.TokenValidationParameters = new TokenValidationParameters
-            //    {
-            //        ValidateIssuerSigningKey = true,
-            //        IssuerSigningKey = new SymmetricSecurityKey(key),
-            //        ValidateIssuer = false,
-            //        ValidateAudience = false
-            //    };
-            //});
-
-
             services.AddAuthentication()
                 .AddIdentityServerJwt();
 
 
 
-
-            //config => {
-            //    // using Microsoft.AspNetCore.Mvc.Authorization;
-            //    // using Microsoft.AspNetCore.Authorization;
-            //    var policy = new AuthorizationPolicyBuilder()
-            //                     .RequireAuthenticatedUser()
-            //                     .Build();
-            //    config.Filters.Add(new AuthorizeFilter(policy));
-            //});
+            services.AddCors();
+            services.AddControllersWithViews();
             services.AddRazorPages();
 
 

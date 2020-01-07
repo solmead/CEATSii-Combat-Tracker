@@ -13,8 +13,7 @@ import {Observable, throwError} from "rxjs";
 import { map, catchError } from "rxjs/operators";
 
     import * as Enums from '@/entities/EnumDefinitions'
-    import { Game } from '@/entities/Game';
-import GameType = Enums.EnumDefinitions.GameType;
+    import { Game } from '@/entities';
 
 
 @Injectable({ providedIn: 'root' })
@@ -22,16 +21,16 @@ export class GamesRepository {
 
     constructor(private _httpClient: HttpClient) { }
     
-    // get: api/Games/getGames?gameType=${gameType}
+    // get: api/Games/getGames
 
-	//public getGames = (gameType: GameType, callback: (data: Game[])=>void) : void => {
-	//	this.getGamesObserve(gameType).subscribe(response => callback(response));
+	//public getGames = (, callback: (data: Game[])=>void) : void => {
+	//	this.getGamesObserve().subscribe(response => callback(response));
 	//}
 
-	public getGamesAsync = (gameType: GameType) : Promise<Game[]> => {
+	public getGamesAsync = () : Promise<Game[]> => {
 
         return new Promise<Game[]>((resolve, reject) => {
-            this.getGames(gameType)
+            this.getGames()
             .subscribe((res) => {
                     resolve(res);
                 });
@@ -39,8 +38,8 @@ export class GamesRepository {
         });
 	}
 
-	public getGames = (gameType: GameType) : Observable<Game[]> => {
-        var _Url = `api/Games/getGames?gameType=${gameType}`;
+	public getGames = () : Observable<Game[]> => {
+        var _Url = `api/Games/getGames`;
             return this._httpClient.get<Game[]>(_Url);
 	};
 

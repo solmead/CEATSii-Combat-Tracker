@@ -3,10 +3,10 @@ import { ModalService } from '@/elements/modal/modal.service';
 import { CreaturesRepository } from '@/repositories';
 import { EncounterService } from "@/services";
 import { ReferencesService } from "@/services";
-import { Creature } from '@/entities/Creature';
-import { Armor } from '@/entities/Armor';
-import { Weapon } from '@/entities/Weapon';
-import { Attack } from '@/entities/Attack';
+import { Creature } from '@/entities';
+import { Armor } from '@/entities';
+import { Weapon } from '@/entities';
+import { Attack } from '@/entities';
 import * as Enums from '@/entities/EnumDefinitions'
 import GameType = Enums.EnumDefinitions.GameType;
 

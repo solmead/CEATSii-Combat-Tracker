@@ -1,4 +1,4 @@
-﻿
+
 export class EnumEx {
     static getNamesAndValues<T extends number>(e: any) {
         var nms = EnumEx.getNames(e);
@@ -9,11 +9,11 @@ export class EnumEx {
         return mpped;
     }
 
-    static getNames(e: any) {
+  static getNames(e: any): string[] {
         return EnumEx.getObjValues(e).filter(v => typeof v === "string") as string[];
     }
 
-    static getValues<T extends number>(e: any) {
+    static getValues<T extends number>(e: any):T[] {
         return EnumEx.getObjValues(e).filter(v => typeof v === "number") as T[];
     }
 

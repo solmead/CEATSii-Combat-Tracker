@@ -1,11 +1,11 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Attack } from '@/entities/Attack';
+import { Attack } from '@/entities';
 import { CombatRepository } from '@/repositories';
 import { EncounterService } from "@/services";
 import { ReferencesService } from "@/services";
 import * as Enums from '@/entities/EnumDefinitions'
 import GameType = Enums.EnumDefinitions.GameType;
-import { Weapon } from '@/entities/Weapon';
+import { Weapon } from '@/entities';
 
 @Component({
     selector: 'app-attack-edit',

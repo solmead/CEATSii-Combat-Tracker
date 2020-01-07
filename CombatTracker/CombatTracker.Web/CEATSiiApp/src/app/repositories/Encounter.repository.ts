@@ -13,11 +13,11 @@ import {Observable, throwError} from "rxjs";
 import { map, catchError } from "rxjs/operators";
 
     import * as Enums from '@/entities/EnumDefinitions'
-    import { Game } from '@/entities/Game';
-import { Actor } from '@/entities/Actor';
-import { MoveNextResult } from '@/entities/MoveNextResult';
-import { BaseAction } from '@/entities/BaseAction';
-import { CriticalEffect } from '@/entities/CriticalEffect';
+    import { Game } from '@/entities';
+import { Actor } from '@/entities';
+import { MoveNextResult } from '@/entities';
+import { BaseAction } from '@/entities';
+import { CriticalEffect } from '@/entities';
 
 
 @Injectable({ providedIn: 'root' })

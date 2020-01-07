@@ -1,7 +1,6 @@
 ﻿
 
 
-
     import * as Enums from './EnumDefinitions'
     import { ActionDefinition } from './ActionDefinition';
 import { Actor } from './Actor';

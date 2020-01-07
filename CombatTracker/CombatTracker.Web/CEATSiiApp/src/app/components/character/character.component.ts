@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { CharactersRepository } from '@/repositories';
 import { EncounterService } from "@/services";
-import { Character } from '@/entities/Character';
+import { Character } from '@/entities';
 
 @Component({
     selector: 'app-character',

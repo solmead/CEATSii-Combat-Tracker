@@ -186,13 +186,6 @@ ${
 
 }
 
-$Classes(CombatTracker.Web.Factories.WeatherForecast)[
-    $ImportsListProperties
-    export interface $Name {$BaseClass[$Properties[
-        $name$TypeFormatted: $Type;]]$Properties[
-        $name$TypeFormatted: $Type;]
-    }
-]
 $Classes(CombatTracker.Entities.Current.*)[
     import * as Enums from './EnumDefinitions'
     $ImportsListProperties

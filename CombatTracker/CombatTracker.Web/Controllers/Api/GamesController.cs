@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CombatTracker.Web.Controllers.Api
 {
+    [ApiController]
     [Produces("application/json")]
     [Route("api/[controller]")]
     public class GamesController : BaseController
@@ -28,11 +29,11 @@ namespace CombatTracker.Web.Controllers.Api
         
         // GET: /<controller>/
         [HttpGet("[action]")]
-        public List<Game> GetGames(GameType gameType = GameType.RMSS)
+        public List<Game> GetGames()
         {
             var list = _gameRepository.GetGames();
 
-            list = (from i in list where i.GameType == gameType select i).ToList();
+            //list = (from i in list where i.GameType == gameType select i).ToList();
             return list;
 
         }

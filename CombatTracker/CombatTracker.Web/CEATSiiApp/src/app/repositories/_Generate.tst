@@ -110,7 +110,7 @@ ${
             var lst1 = (from objProp in objClass.Properties
                         where (!objProp.Type.Unwrap().IsPrimitive) &&
                         objProp.Type.Unwrap().Name != objClass.Name
-                        select $"import {{ {objProp.Type.Unwrap().Name} }} from '@/entities/{objProp.Type.Unwrap().Name}';"
+                        select $"import {{ {objProp.Type.Unwrap().Name} }} from '@/entities';"
                         ).ToList();
 
             ImportsOutput.AddRange(lst1);
@@ -151,7 +151,7 @@ ${
                 var lst1 = (from objProp in objClass.BaseClass.Properties
                             where (!objProp.Type.Unwrap().IsPrimitive) &&
                             objProp.Type.Unwrap().Name != objClass.Name
-                            select $"import {{ {objProp.Type.Unwrap().Name} }} from '@/entities/{objProp.Type.Unwrap().Name}';"
+                            select $"import {{ {objProp.Type.Unwrap().Name} }} from '@/entities';"
                             ).ToList();
 
                 ImportsOutput.AddRange(lst1);
@@ -207,7 +207,7 @@ ${
                         objMethod.Type.Name != "ActionResult" &&
                         objMethod.Type.Name != "IActionResult" &&
                         objMethod.Type.Name != "void"
-                        select $"import {{ {objMethod.Type.Unwrap().Name.Replace("[]","")} }} from '@/entities/{objMethod.Type.Unwrap().Name.Replace("[]","")}';").ToList();
+                        select $"import {{ {objMethod.Type.Unwrap().Name.Replace("[]","")} }} from '@/entities';").ToList();
 
             ImportsOutput.AddRange(lst1);
         }
@@ -223,7 +223,7 @@ ${
                         objMethod.Type.Name != "ActionResult" &&
                         objMethod.Type.Name != "IActionResult" &&
                         objParameter.Type.Name != objClass.Name
-                        select $"import {{ {objParameter.Type.Unwrap().Name.Replace("[]","")} }} from '@/entities/{objParameter.Type.Unwrap().Name.Replace("[]","")}';").ToList();
+                        select $"import {{ {objParameter.Type.Unwrap().Name.Replace("[]","")} }} from '@/entities';").ToList();
 
             ImportsOutput.AddRange(lst1);
         }

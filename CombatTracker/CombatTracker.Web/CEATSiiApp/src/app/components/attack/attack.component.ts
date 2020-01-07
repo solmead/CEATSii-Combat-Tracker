@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Attack } from '@/entities/Attack';
+import { Attack } from '@/entities';
 
 @Component({
     selector: 'app-attack',

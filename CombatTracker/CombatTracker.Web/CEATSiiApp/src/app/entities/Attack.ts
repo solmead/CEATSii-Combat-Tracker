@@ -2,7 +2,6 @@
 
 
 
-
     import * as Enums from './EnumDefinitions'
     import { CriticalType } from './CriticalType';
 import { AttackType } from './AttackType';

@@ -13,8 +13,7 @@ import {Observable, throwError} from "rxjs";
 import { map, catchError } from "rxjs/operators";
 
     import * as Enums from '@/entities/EnumDefinitions'
-    import { Character } from '@/entities/Character';
-import GameType = Enums.EnumDefinitions.GameType;
+    import { Character } from '@/entities';
 
 
 @Injectable({ providedIn: 'root' })
@@ -22,16 +21,16 @@ export class CharactersRepository {
 
     constructor(private _httpClient: HttpClient) { }
     
-    // get: api/Characters/getCharacters?gameType=${gameType}
+    // get: api/Characters/getCharacters
 
-	//public getCharacters = (gameType: GameType, callback: (data: Character[])=>void) : void => {
-	//	this.getCharactersObserve(gameType).subscribe(response => callback(response));
+	//public getCharacters = (, callback: (data: Character[])=>void) : void => {
+	//	this.getCharactersObserve().subscribe(response => callback(response));
 	//}
 
-	public getCharactersAsync = (gameType: GameType) : Promise<Character[]> => {
+	public getCharactersAsync = () : Promise<Character[]> => {
 
         return new Promise<Character[]>((resolve, reject) => {
-            this.getCharacters(gameType)
+            this.getCharacters()
             .subscribe((res) => {
                     resolve(res);
                 });
@@ -39,8 +38,8 @@ export class CharactersRepository {
         });
 	}
 
-	public getCharacters = (gameType: GameType) : Observable<Character[]> => {
-        var _Url = `api/Characters/getCharacters?gameType=${gameType}`;
+	public getCharacters = () : Observable<Character[]> => {
+        var _Url = `api/Characters/getCharacters`;
             return this._httpClient.get<Character[]>(_Url);
 	};
 

@@ -2,9 +2,9 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ModalService } from '@/elements/modal/modal.service';
 import { CharactersRepository } from '@/repositories';
 import { EncounterService } from "@/services";
-import { Character } from '@/entities/Character';
-import { Armor } from '@/entities/Armor';
-import { Weapon } from '@/entities/Weapon';
+import { Character } from '@/entities';
+import { Armor } from '@/entities';
+import { Weapon } from '@/entities';
 import * as Enums from '@/entities/EnumDefinitions'
 import GameType = Enums.EnumDefinitions.GameType;
 import CharacterType = Enums.EnumDefinitions.CharacterType;

@@ -13,8 +13,7 @@ import {Observable, throwError} from "rxjs";
 import { map, catchError } from "rxjs/operators";
 
     import * as Enums from '@/entities/EnumDefinitions'
-    import { Creature } from '@/entities/Creature';
-import GameType = Enums.EnumDefinitions.GameType;
+    import { Creature } from '@/entities';
 
 
 @Injectable({ providedIn: 'root' })
@@ -22,16 +21,16 @@ export class CreaturesRepository {
 
     constructor(private _httpClient: HttpClient) { }
     
-    // get: api/Creature/getCreatures?gameType=${gameType}
+    // get: api/Creature/getCreatures
 
-	//public getCreatures = (gameType: GameType, callback: (data: Creature[])=>void) : void => {
-	//	this.getCreaturesObserve(gameType).subscribe(response => callback(response));
+	//public getCreatures = (, callback: (data: Creature[])=>void) : void => {
+	//	this.getCreaturesObserve().subscribe(response => callback(response));
 	//}
 
-	public getCreaturesAsync = (gameType: GameType) : Promise<Creature[]> => {
+	public getCreaturesAsync = () : Promise<Creature[]> => {
 
         return new Promise<Creature[]>((resolve, reject) => {
-            this.getCreatures(gameType)
+            this.getCreatures()
             .subscribe((res) => {
                     resolve(res);
                 });
@@ -39,8 +38,8 @@ export class CreaturesRepository {
         });
 	}
 
-	public getCreatures = (gameType: GameType) : Observable<Creature[]> => {
-        var _Url = `api/Creature/getCreatures?gameType=${gameType}`;
+	public getCreatures = () : Observable<Creature[]> => {
+        var _Url = `api/Creature/getCreatures`;
             return this._httpClient.get<Creature[]>(_Url);
 	};
 

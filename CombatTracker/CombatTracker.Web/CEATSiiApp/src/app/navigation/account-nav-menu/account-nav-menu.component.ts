@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthenticationService } from '@/services';
-import { ApplicationUser } from '@/entities/ApplicationUser';
+import { ApplicationUser } from '@/entities';
 import { Router } from '@angular/router';
 
 @Component({
@@ -21,8 +21,8 @@ export class AccountNavMenuComponent {
   }
 
 
-  logout() {
-    this.authenticationService.logout();
+  async logout():Promise<void> {
+    await this.authenticationService.logoutAsync();
     this.router.navigate(['/']);
   }
 }

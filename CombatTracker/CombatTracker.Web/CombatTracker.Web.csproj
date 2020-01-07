@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -156,9 +156,6 @@
     <None Update="CEATSiiApp\src\app\entities\WeaponType.ts">
       <CustomToolNamespace>..\CombatTracker.Entities\Reference\Attacks\Charts\WeaponType.cs</CustomToolNamespace>
     </None>
-    <None Update="CEATSiiApp\src\app\entities\WeatherForecast.ts">
-      <CustomToolNamespace>Models\Factories\WeatherForecast.cs</CustomToolNamespace>
-    </None>
     <None Update="CEATSiiApp\src\app\repositories\Actions.repository.ts">
       <CustomToolNamespace>Controllers\Api\ActionsController.cs</CustomToolNamespace>
     </None>
@@ -185,9 +182,6 @@
     </None>
     <None Update="CEATSiiApp\src\app\repositories\Reference.repository.ts">
       <CustomToolNamespace>Controllers\Api\ReferenceController.cs</CustomToolNamespace>
-    </None>
-    <None Update="CEATSiiApp\src\app\repositories\SampleData.repository.ts">
-      <CustomToolNamespace>Controllers\Api\SampleDataController.cs</CustomToolNamespace>
     </None>
     <None Update="CEATSiiApp\src\app\repositories\Settings.repository.ts">
       <CustomToolNamespace>Controllers\Api\SettingsController.cs</CustomToolNamespace>

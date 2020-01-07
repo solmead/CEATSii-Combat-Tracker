@@ -1,7 +1,6 @@
 ﻿
 
 
-
     import * as Enums from './EnumDefinitions'
     import ParryType = Enums.EnumDefinitions.ParryType;
     export class CriticalEffect {

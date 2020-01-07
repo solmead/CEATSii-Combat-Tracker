@@ -1,4 +1,4 @@
-﻿
+
 
 
 //*************************DO NOT MODIFY**************************
@@ -13,10 +13,10 @@ import {Observable, throwError} from "rxjs";
 import { map, catchError } from "rxjs/operators";
 
     import * as Enums from '@/entities/EnumDefinitions'
-    import { ApplicationUser } from '@/entities/ApplicationUser';
-import { AuthenticateModel } from '@/entities/AuthenticateModel';
-import { RegisterModel } from '@/entities/RegisterModel';
-import { UpdateModel } from '@/entities/UpdateModel';
+    import { ApplicationUser } from '@/entities';
+import { AuthenticateModel } from '@/entities';
+import { RegisterModel } from '@/entities';
+import { UpdateModel } from '@/entities';
 
 
 @Injectable({ providedIn: 'root' })

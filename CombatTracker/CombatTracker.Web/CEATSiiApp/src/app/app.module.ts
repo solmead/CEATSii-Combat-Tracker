@@ -17,7 +17,6 @@ import { GameComponent } from '@/components/game/game.component';
 import { GameEditComponent } from './components/game/game-edit.component';
 import { CharacterComponent } from './components/character/character.component';
 import { CharacterEditComponent } from './components/character/character-edit.component';
-import { CreatureComponent } from './components/creature/creature.component';
 import { CreatureEditComponent } from './components/creature/creature-edit.component';
 import { ArmorComponent } from './components/armor/armor.component';
 import { ArmorEditComponent } from './components/armor/armor-edit.component';
@@ -34,6 +33,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from '@/approot';
 import { JwtInterceptor, ErrorInterceptor, ApiPathInterceptor } from '@/_helpers';
 import { AuthenticationService } from '@/services';
+import { CreatureComponent } from '@/top/creature';
+import { AuthorizeInterceptor } from './api-authorization/authorize.interceptor';
+import { ApiAuthorizationModule } from './api-authorization/api-authorization.module';
 
 
 @NgModule({
@@ -63,13 +65,14 @@ import { AuthenticationService } from '@/services';
     SideNavMenuComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     ReactiveFormsModule,
     HttpClientModule,
     //NgbModule,
     CommonModule,
     FormsModule,
     BrowserModule,
+    ApiAuthorizationModule,
     AppRoutingModule
   ],
   providers: [
@@ -82,12 +85,13 @@ import { AuthenticationService } from '@/services';
       useClass: ApiPathInterceptor,
       multi: true
     },
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: JwtInterceptor,
-      multi: true,
-      deps: [AuthenticationService]
-    },
+    { provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true },
+    //{
+    //  provide: HTTP_INTERCEPTORS,
+    //  useClass: JwtInterceptor,
+    //  multi: true,
+    //  deps: [AuthenticationService]
+    //},
     {
       provide: HTTP_INTERCEPTORS,
       useClass: ErrorInterceptor,

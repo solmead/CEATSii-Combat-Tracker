@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthenticationService } from '@/services';
-import { ApplicationUser } from '@/entities/ApplicationUser';
+import { ApplicationUser } from '@/entities';
 
 @Component({
   selector: 'main-nav-menu',

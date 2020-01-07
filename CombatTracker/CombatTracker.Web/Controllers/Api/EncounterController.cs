@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CombatTracker.Web.Controllers.Api
 {
+    [ApiController]
     [Produces("application/json")]
     [Route("api/Encounter")]
     public class EncounterController : BaseController

@@ -2,7 +2,6 @@
 
 
 
-
     import * as Enums from './EnumDefinitions'
     import { Attack } from './Attack';
 import { Book } from './Book';

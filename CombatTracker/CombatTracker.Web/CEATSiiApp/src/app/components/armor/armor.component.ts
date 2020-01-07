@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Armor } from '@/entities/Armor';
+import { Armor } from '@/entities';
 
 @Component({
     selector: 'app-armor',

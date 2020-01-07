@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace CombatTracker.Web.Controllers.Api
 {
 
+    [ApiController]
     [Route("api/[controller]")]
     public class ActorsController : BaseController
     {

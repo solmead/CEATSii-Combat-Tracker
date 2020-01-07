@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Extensions;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Mime;
@@ -17,6 +18,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CombatTracker.Web.Controllers.Api
 {
+    [ApiController]
     [Produces("application/json")]
     [Route("api/Creature")]
     public class CreaturesController : BaseController
@@ -38,24 +40,43 @@ namespace CombatTracker.Web.Controllers.Api
 
         [HttpGet("[action]")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<List<Creature>> GetCreatures(GameType gameType = GameType.RMSS)
+        public async Task<List<Creature>> GetCreatures()
         {
             var list = _creatureRepository.GetCreatures().AsQueryable();
+            //list = (from i in list where i.GameType == gameType select i);
+            //var currentUserId = _userManager.GetUserId(User);
+            //list = list.Where(c => c.Status == CreatureStatus.InCompendium || c.OwnerID == currentUserId);
 
-            list = (from i in list where i.GameType == gameType select i);
+            list = (await list.WhereAsync(async c =>
+            {
+                var isAuthorized = await _authorizationService.AuthorizeAsync(User, c, ContactOperations.Read);
+
+                return isAuthorized.Succeeded;
+
+            })).AsQueryable();
+
+            //await list.ForEachAsync(async (c) =>
+            //{
+            //    var isAuthorized = await _authorizationService.AuthorizeAsync( User, c, ContactOperations.Read);
 
 
-            var isAuthorized = User.IsInRole(SecurityRoles.Compendium.ToString()) ||
-                               User.IsInRole(SecurityRoles.Admin.ToString());
+            //});
 
-            var currentUserId = _userManager.GetUserId(User);
+
+
+
+            //var isAuthorized = User.IsInRole(SecurityRoles.Compendium.ToString()) ||
+            //                   User.IsInRole(SecurityRoles.Admin.ToString());
+
 
             // Only approved contacts are shown UNLESS you're authorized to see them
             // or you are the owner.
-            if (!isAuthorized)
-            {
-                list = list.Where(c => c.OwnerID == currentUserId);
-            }
+
+
+            //if (!isAuthorized)
+            //{
+            //    list = list.Where(c => c.OwnerID == currentUserId);
+            //}
 
 
             return await list.ToListAsync();

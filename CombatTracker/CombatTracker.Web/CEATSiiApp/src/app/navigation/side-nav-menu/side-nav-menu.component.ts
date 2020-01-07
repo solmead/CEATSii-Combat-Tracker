@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthenticationService } from '@/services';
 import { EncounterService } from '@/services';
-import { ApplicationUser } from '@/entities/ApplicationUser';
+import { ApplicationUser } from '@/entities';
 
 @Component({
   selector: 'side-nav-menu',

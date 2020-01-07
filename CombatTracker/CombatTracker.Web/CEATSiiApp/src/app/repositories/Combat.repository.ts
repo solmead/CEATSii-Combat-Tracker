@@ -13,9 +13,9 @@ import {Observable, throwError} from "rxjs";
 import { map, catchError } from "rxjs/operators";
 
     import * as Enums from '@/entities/EnumDefinitions'
-    import { Armor } from '@/entities/Armor';
-import { Attack } from '@/entities/Attack';
-import { Weapon } from '@/entities/Weapon';
+    import { Armor } from '@/entities';
+import { Attack } from '@/entities';
+import { Weapon } from '@/entities';
 
 
 @Injectable({ providedIn: 'root' })

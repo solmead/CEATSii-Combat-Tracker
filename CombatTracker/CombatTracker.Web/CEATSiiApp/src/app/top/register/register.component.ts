@@ -5,6 +5,7 @@ import { first } from 'rxjs/operators';
 import { AuthenticationService } from '@/services';
 import { AlertService } from '@/services';
 import { UsersRepository } from '@/repositories';
+import { RegisterModel } from '@/entities';
 
 
 @Component({ templateUrl: 'register.component.html' })
@@ -30,7 +31,7 @@ export class RegisterComponent implements OnInit {
         this.registerForm = this.formBuilder.group({
             firstName: ['', Validators.required],
             lastName: ['', Validators.required],
-            username: ['', Validators.required],
+            email: ['', Validators.required],
             password: ['', [Validators.required, Validators.minLength(6)]]
         });
     }
@@ -49,8 +50,15 @@ export class RegisterComponent implements OnInit {
             return;
         }
 
+      var regModel = new RegisterModel();
+      regModel.firstName = this.registerForm.value.firstName;
+      regModel.lastName = this.registerForm.value.lastName;
+      regModel.password = this.registerForm.value.password;
+      regModel.email = this.registerForm.value.email;
+      regModel.username = this.registerForm.value.email;
+
         this.loading = true;
-        this.userService.register(this.registerForm.value)
+      this.userService.register(regModel)
             .pipe(first())
             .subscribe(
                 data => {

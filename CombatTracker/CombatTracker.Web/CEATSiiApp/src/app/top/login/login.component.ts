@@ -40,6 +40,11 @@ export class LoginComponent implements OnInit {
     get f() { return this.loginForm.controls; }
 
     onSubmit() {
+        this.loginToSite();
+
+    }
+
+    async loginToSite(): Promise<void> {
         this.submitted = true;
 
         // reset alerts on submit
@@ -51,15 +56,17 @@ export class LoginComponent implements OnInit {
         }
 
         this.loading = true;
-        this.authenticationService.login(this.f.username.value, this.f.password.value)
-            .pipe(first())
-            .subscribe(
-                data => {
-                    this.router.navigate([this.returnUrl]);
-                },
-                error => {
-                    this.alertService.error(error);
-                    this.loading = false;
-                });
+
+
+        var user = await this.authenticationService.loginAsync(this.f.username.value, this.f.password.value);
+
+        if (user != null) {
+            this.router.navigate([this.returnUrl]);
+        } else {
+            this.alertService.error("Login Failed");
+            this.loading = false;
+        }
+
     }
+
 }

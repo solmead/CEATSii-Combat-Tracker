@@ -1,16 +1,15 @@
 import { Injectable } from '@angular/core';
-import * as Enums from '@/entities/EnumDefinitions'
-import { Game } from '@/entities/Game';
-import { Actor } from '@/entities/Actor';
-import { BaseAction } from '@/entities/BaseAction';
+import { EnumDefinitions } from '@/entities/EnumDefinitions'
+import { Game } from '@/entities';
+import { Actor } from '@/entities';
+import { BaseAction } from '@/entities';
 import { GamesRepository } from '@/repositories';
 import { ActorsRepository } from '@/repositories';
 import { ActionsRepository } from '@/repositories';
-import { EnumDefinitions } from '@/entities/EnumDefinitions';
-import { MySettings } from '@/entities/MySettings';
-import GameType = Enums.EnumDefinitions.GameType;
-import { Character } from '@/entities/Character';
-import { Creature } from '@/entities/Creature';
+import { MySettings } from '@/entities';
+import GameType = EnumDefinitions.GameType;
+import { Character } from '@/entities';
+import { Creature } from '@/entities';
 import { EncounterRepository } from '@/repositories';
 import { AuthenticationService } from './Authentication.service';
 

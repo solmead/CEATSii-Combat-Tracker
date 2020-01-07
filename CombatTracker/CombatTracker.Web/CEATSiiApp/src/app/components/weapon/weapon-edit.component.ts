@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Weapon } from '@/entities/Weapon';
+import { Weapon } from '@/entities';
 import { CombatRepository } from '@/repositories';
 import { EncounterService } from "@/services";
 import * as Enums from '@/entities/EnumDefinitions'
