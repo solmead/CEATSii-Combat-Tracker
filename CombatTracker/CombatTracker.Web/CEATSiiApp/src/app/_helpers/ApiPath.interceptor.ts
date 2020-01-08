@@ -17,11 +17,11 @@ export class ApiPathInterceptor implements HttpInterceptor {
         return next.handle(apiReq);
     }
 
-    getBaseUrl() {
-        var str = (<any>document.getElementsByTagName('baseapi')[0]).attributes[0].nodeValue;
-        //alert(str);
-        return str;
-    }
+    //getBaseUrl() {
+    //    var str = (<any>document.getElementsByTagName('baseapi')[0]).attributes[0].nodeValue;
+    //    //alert(str);
+    //    return str;
+    //}
 
 
 }

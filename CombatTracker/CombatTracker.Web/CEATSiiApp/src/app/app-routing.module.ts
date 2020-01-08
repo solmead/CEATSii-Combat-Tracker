@@ -4,27 +4,22 @@ import { GameComponent } from './components/game/game.component';
 import { CharacterComponent } from './components/character/character.component';
 import { ActorComponent } from './components/actor/actor.component';
 import { EncounterComponent } from './components/encounter/encounter.component';
-import { AuthGuard } from './_helpers/auth.guard';
 import { HomeComponent } from '@/top/home';
-import { LoginComponent } from '@/top/login';
-import { RegisterComponent } from '@/top/register';
 import { CreatureComponent } from '@/top/creature';
 import { AuthorizeGuard } from './api-authorization/authorize.guard';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
-  { path: 'home', component: HomeComponent },
-  { path: 'creatures', component: CreatureComponent, canActivate: [AuthorizeGuard] },
-  { path: 'mycreatures', component: CreatureComponent, canActivate: [AuthGuard] },
+    { path: '', redirectTo: '/home', pathMatch: 'full' },
+    { path: 'home', component: HomeComponent },
+    { path: 'creatures', component: CreatureComponent, canActivate: [AuthorizeGuard] },
+    { path: 'mycreatures', component: CreatureComponent, canActivate: [AuthorizeGuard] },
 
-  { path: 'games', component: GameComponent, canActivate: [AuthGuard] },
-  { path: 'character', component: CharacterComponent, canActivate: [AuthGuard] },
-  { path: 'encounter/:id', component: EncounterComponent, canActivate: [AuthGuard] },
-  { path: 'actor/:id', component: ActorComponent, canActivate: [AuthGuard] },
-  { path: '**', redirectTo: '' }
+    { path: 'games', component: GameComponent, canActivate: [AuthorizeGuard] },
+    { path: 'character', component: CharacterComponent, canActivate: [AuthorizeGuard] },
+    { path: 'encounter/:id', component: EncounterComponent, canActivate: [AuthorizeGuard] },
+    { path: 'actor/:id', component: ActorComponent, canActivate: [AuthorizeGuard] },
+    { path: '**', redirectTo: '' }
 ];
 
 @NgModule({

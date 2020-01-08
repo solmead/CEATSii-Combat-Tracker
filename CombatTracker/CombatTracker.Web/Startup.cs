@@ -131,10 +131,10 @@ namespace CombatTracker.Web
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute(
-                    name: "Dashboard",
-                    pattern: "Dashboard/{*stuff}",
-                    defaults: new { controller = "Home", action = "index" });
+                //endpoints.MapControllerRoute(
+                //    name: "Dashboard",
+                //    pattern: "Dashboard/{*stuff}",
+                //    defaults: new { controller = "Home", action = "index" });
 
                 endpoints.MapControllerRoute(
                     name: "default",

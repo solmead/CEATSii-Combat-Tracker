@@ -8,11 +8,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { MainNavMenuComponent } from '@/navigation';
-import { AccountNavMenuComponent } from '@/navigation';
 import { SideNavMenuComponent } from '@/navigation';
 import { HomeComponent } from '@/top/home';
-import { LoginComponent } from '@/top/login';
-import { RegisterComponent } from '@/top/register';
 import { GameComponent } from '@/components/game/game.component';
 import { GameEditComponent } from './components/game/game-edit.component';
 import { CharacterComponent } from './components/character/character.component';
@@ -41,8 +38,6 @@ import { ApiAuthorizationModule } from './api-authorization/api-authorization.mo
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    RegisterComponent,
     GameComponent,
     GameEditComponent,
     HomeComponent,
@@ -61,7 +56,6 @@ import { ApiAuthorizationModule } from './api-authorization/api-authorization.mo
     AttackEditComponent,
     AlertComponent,
     MainNavMenuComponent,
-    AccountNavMenuComponent,
     SideNavMenuComponent
   ],
   imports: [
@@ -76,10 +70,10 @@ import { ApiAuthorizationModule } from './api-authorization/api-authorization.mo
     AppRoutingModule
   ],
   providers: [
-    {
-      provide: 'BASE_URL',
-      useFactory: getBaseUrl
-    },
+    //{
+    //  provide: 'BASE_URL',
+    //  useFactory: getBaseUrl
+    //},
     {
       provide: HTTP_INTERCEPTORS,
       useClass: ApiPathInterceptor,
@@ -119,6 +113,6 @@ import { ApiAuthorizationModule } from './api-authorization/api-authorization.mo
 })
 export class AppModule { }
 
-export function getBaseUrl() {
-  return document.getElementsByTagName('base')[0].href;
-}
+//export function getBaseUrl() {
+//  return document.getElementsByTagName('base')[0].href;
+//}

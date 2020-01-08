@@ -3,10 +3,13 @@ using CombatTracker.Entities.Security;
 using CombatTracker.Entities.Service;
 using CombatTracker.Entities.ViewModels;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.WebUtilities;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using Utilities.EnumExtensions;
 
@@ -18,16 +21,19 @@ namespace CombatTracker.Authorization.Services
         private readonly UserManager<ApplicationUser> _usermanager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly ISessionContext _sessionContext;
+        private readonly ILogger<RegisterModel> _logger;
 
 
 
         public UserService(UserManager<ApplicationUser> usermanager,
             SignInManager<ApplicationUser> signInManager,
+            ILogger<RegisterModel> logger,
             ISessionContext sessionContext)
         {
             _usermanager = usermanager;
             _signInManager = signInManager;
             _sessionContext = sessionContext;
+            _logger = logger;
         }
 
 
@@ -62,34 +68,38 @@ namespace CombatTracker.Authorization.Services
 
         }
 
-        public async Task<ApplicationUser> CreateAsync(RegisterModel user, string password)
+        public async Task<ApplicationUser> CreateAsync(RegisterModel ruser, string password)
         {
-            var exuser = await GetByUserNameAsync(user.Username);
-            if (exuser==null)
+            var user = await GetByUserNameAsync(ruser.Username);
+            if (user==null)
             {
-                exuser = await GetByEmailAsync(user.Email);
+                user = await GetByEmailAsync(ruser.Email);
             }
-            if (exuser == null)
+            if (user == null)
             {
-                exuser = new ApplicationUser
+                user = new ApplicationUser
                 {
-                    UserName = user.Username,
-                    Email = user.Email,
+                    UserName = ruser.Username,
+                    Email = ruser.Email,
                     EmailConfirmed = true
                 };
-                var result = await _usermanager.CreateAsync(exuser, user.Password);
-
+                var result = await _usermanager.CreateAsync(user, ruser.Password);
+                if (result.Succeeded)
+                {
+                    _logger.LogInformation("User created a new account with password.");
+                    await _signInManager.SignInAsync(user, isPersistent: false);
+                }
             } else
             {
                 throw new Exception("User already exists");
             }
 
-            if (exuser == null)
+            if (user == null)
             {
                 throw new Exception("The password is probably not strong enough!");
             }
 
-            return await GetByUserNameAsync(exuser.UserName);
+            return await GetByUserNameAsync(user.UserName);
         }
 
         public async Task DeleteAsync(string id)

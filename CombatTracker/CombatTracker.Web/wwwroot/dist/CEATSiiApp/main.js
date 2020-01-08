@@ -71,7 +71,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\r\n\r\n<header class=\"\" style=\"height: 10%!important;\">\r\n  <nav class=\"navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow h-100 \">\r\n    <div class=\"container\">\r\n      <a class=\"navbar-brand\" asp-area=\"\" asp-controller=\"Home\" asp-action=\"Index\">CombatTracker.Web</a>\r\n      <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\".navbar-collapse\" aria-controls=\"navbarSupportedContent\"\r\n              aria-expanded=\"false\" aria-label=\"Toggle navigation\">\r\n        <span class=\"navbar-toggler-icon\"></span>\r\n      </button>\r\n      <div class=\"navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse\">\r\n        <account-nav-menu class=\"navbar-nav\"></account-nav-menu>\r\n\r\n        <main-nav-menu class=\"navbar-nav flex-grow-1\"></main-nav-menu>\r\n\r\n      </div>\r\n    </div>\r\n  </nav>\r\n</header>\r\n\r\n<div class=\"mainbody h-100\">\r\n  <main role=\"main\" class=\"clear h-100\" style=\"\">\r\n\r\n    <div class=\"h-100\" style=\"position:relative;\">\r\n      <div class='apparea'>\r\n        <div class='menu-column'>\r\n          <div class=\"displayInfo\"></div>\r\n          <side-nav-menu></side-nav-menu>\r\n        </div>\r\n        <div class='body-content'>\r\n          <router-outlet></router-outlet>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </main>\r\n\r\n\r\n\r\n\r\n  <footer class=\"border-top footer text-muted\" style=\"height: 10%!important;\">\r\n    <div class=\"container h-100\">\r\n      &copy; 2019 - CombatTracker.Web - <a asp-area=\"\" asp-controller=\"Home\" asp-action=\"Privacy\">Privacy</a>\r\n    </div>\r\n  </footer>\r\n</div>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("\r\n\r\n<header class=\"\" style=\"height: 10%!important;\">\r\n  <nav class=\"navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow h-100 \">\r\n    <div class=\"container\">\r\n      <a class=\"navbar-brand\" asp-area=\"\" asp-controller=\"Home\" asp-action=\"Index\">CombatTracker.Web</a>\r\n      <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\".navbar-collapse\" aria-controls=\"navbarSupportedContent\"\r\n              aria-expanded=\"false\" aria-label=\"Toggle navigation\">\r\n        <span class=\"navbar-toggler-icon\"></span>\r\n      </button>\r\n      <div class=\"navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse\">\r\n        <app-login-menu class=\"navbar-nav\"></app-login-menu>\r\n\r\n        <main-nav-menu class=\"navbar-nav flex-grow-1\"></main-nav-menu>\r\n\r\n      </div>\r\n    </div>\r\n  </nav>\r\n</header>\r\n\r\n<div class=\"mainbody\">\r\n  <main role=\"main\" class=\"clear h-100\" style=\"\">\r\n\r\n    <div class=\"h-100\" style=\"position:relative;\">\r\n      <div class='apparea'>\r\n        <div class='menu-column'>\r\n          <div class=\"displayInfo\"></div>\r\n          <side-nav-menu></side-nav-menu>\r\n        </div>\r\n        <div class='body-content'>\r\n          <router-outlet></router-outlet>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </main>\r\n\r\n\r\n\r\n\r\n  <footer class=\"border-top footer text-muted\" style=\"height: 10%!important;\">\r\n    <div class=\"container h-100\">\r\n      &copy; 2019 - CombatTracker.Web - <a asp-area=\"\" asp-controller=\"Home\" asp-action=\"Privacy\">Privacy</a>\r\n    </div>\r\n  </footer>\r\n</div>\r\n");
 
 /***/ }),
 
@@ -270,19 +270,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/navigation/account-nav-menu/account-nav-menu.component.html":
-/*!*******************************************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/navigation/account-nav-menu/account-nav-menu.component.html ***!
-  \*******************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ul class=\"navbar-nav\">\r\n  <li class=\"nav-item\" *ngIf=\"currentUser\">\r\n    <a class=\"nav-link text-dark\" [routerLink]=\"['/profile']\" title=\"Manage\">Hello {{currentUser.userName}}</a>\r\n  </li>\r\n  <li class=\"nav-item\" *ngIf=\"currentUser\">\r\n    <a (click)=\"logout()\" class=\"nav-link btn btn-link text-dark\">Logout</a>\r\n  </li>\r\n\r\n  <li class=\"nav-item\" *ngIf=\"!currentUser\">\r\n    <a class=\"nav-link text-dark\" [routerLink]=\"['/register']\">Register</a>\r\n  </li>\r\n  <li class=\"nav-item\" *ngIf=\"!currentUser\">\r\n    <a class=\"nav-link text-dark\" [routerLink]=\"['/login']\">Login</a>\r\n  </li>\r\n</ul>\r\n");
-
-/***/ }),
-
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/navigation/main-nav-menu/main-nav-menu.component.html":
 /*!*************************************************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/navigation/main-nav-menu/main-nav-menu.component.html ***!
@@ -332,32 +319,6 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ("<h1>Combat Environment Activity Tracking System</h1>\r\n<h2>Hello {{name}}</h2>\r\n<p>CEATSii second by second, threaded combat system</p>\r\n\r\n");
-
-/***/ }),
-
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/top/login/login.component.html":
-/*!**************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/top/login/login.component.html ***!
-  \**************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<h2>Login</h2>\n<form [formGroup]=\"loginForm\" (ngSubmit)=\"onSubmit()\">\n    <div class=\"form-group\">\n        <label for=\"username\">Username</label>\n        <input type=\"text\" formControlName=\"username\" class=\"form-control\" [ngClass]=\"{ 'is-invalid': submitted && f.username.errors }\" />\n        <div *ngIf=\"submitted && f.username.errors\" class=\"invalid-feedback\">\n            <div *ngIf=\"f.username.errors.required\">Username is required</div>\n        </div>\n    </div>\n    <div class=\"form-group\">\n        <label for=\"password\">Password</label>\n        <input type=\"password\" formControlName=\"password\" class=\"form-control\" [ngClass]=\"{ 'is-invalid': submitted && f.password.errors }\" />\n        <div *ngIf=\"submitted && f.password.errors\" class=\"invalid-feedback\">\n            <div *ngIf=\"f.password.errors.required\">Password is required</div>\n        </div>\n    </div>\n    <div class=\"form-group\">\n        <button [disabled]=\"loading\" class=\"btn btn-primary\">\n            <span *ngIf=\"loading\" class=\"spinner-border spinner-border-sm mr-1\"></span>\n            Login\n        </button>\n        <a routerLink=\"/register\" class=\"btn btn-link\">Register</a>\n    </div>\n</form>");
-
-/***/ }),
-
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/top/register/register.component.html":
-/*!********************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/top/register/register.component.html ***!
-  \********************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<h2>Register</h2>\n<form [formGroup]=\"registerForm\" (ngSubmit)=\"onSubmit()\">\r\n  <div class=\"form-group\">\r\n    <label for=\"firstName\">First Name</label>\r\n    <input type=\"text\" formControlName=\"firstName\" class=\"form-control\" [ngClass]=\"{ 'is-invalid': submitted && f.firstName.errors }\" />\r\n    <div *ngIf=\"submitted && f.firstName.errors\" class=\"invalid-feedback\">\r\n      <div *ngIf=\"f.firstName.errors.required\">First Name is required</div>\r\n    </div>\r\n  </div>\r\n  <div class=\"form-group\">\r\n    <label for=\"lastName\">Last Name</label>\r\n    <input type=\"text\" formControlName=\"lastName\" class=\"form-control\" [ngClass]=\"{ 'is-invalid': submitted && f.lastName.errors }\" />\r\n    <div *ngIf=\"submitted && f.lastName.errors\" class=\"invalid-feedback\">\r\n      <div *ngIf=\"f.lastName.errors.required\">Last Name is required</div>\r\n    </div>\r\n  </div>\r\n  <div class=\"form-group\">\r\n    <label for=\"email\">Email Address</label>\r\n    <input type=\"text\" formControlName=\"email\" class=\"form-control\" [ngClass]=\"{ 'is-invalid': submitted && f.email.errors }\" />\r\n    <div *ngIf=\"submitted && f.email.errors\" class=\"invalid-feedback\">\r\n      <div *ngIf=\"f.email.errors.required\">Email is required</div>\r\n    </div>\r\n  </div>\r\n  <!--<div class=\"form-group\">\r\n    <label for=\"username\">Username</label>\r\n    <input type=\"text\" formControlName=\"username\" class=\"form-control\" [ngClass]=\"{ 'is-invalid': submitted && f.username.errors }\" />\r\n    <div *ngIf=\"submitted && f.username.errors\" class=\"invalid-feedback\">\r\n      <div *ngIf=\"f.username.errors.required\">Username is required</div>\r\n    </div>\r\n  </div>-->\r\n  <div class=\"form-group\">\r\n    <label for=\"password\">Password</label>\r\n    <input type=\"password\" formControlName=\"password\" class=\"form-control\" [ngClass]=\"{ 'is-invalid': submitted && f.password.errors }\" />\r\n    <div *ngIf=\"submitted && f.password.errors\" class=\"invalid-feedback\">\r\n      <div *ngIf=\"f.password.errors.required\">Password is required</div>\r\n      <div *ngIf=\"f.password.errors.minlength\">Password must be at least 6 characters</div>\r\n    </div>\r\n  </div>\r\n  <div class=\"form-group\">\r\n    <button [disabled]=\"loading\" class=\"btn btn-primary\">\r\n      <span *ngIf=\"loading\" class=\"spinner-border spinner-border-sm mr-1\"></span>\r\n      Register\r\n    </button>\r\n    <a routerLink=\"/login\" class=\"btn btn-link\">Cancel</a>\r\n  </div>\r\n</form>\n");
 
 /***/ }),
 
@@ -613,11 +574,6 @@ let ApiPathInterceptor = class ApiPathInterceptor {
         //debugger;
         const apiReq = req.clone({ url: bUrl + `/${rUrl}` });
         return next.handle(apiReq);
-    }
-    getBaseUrl() {
-        var str = document.getElementsByTagName('baseapi')[0].attributes[0].nodeValue;
-        //alert(str);
-        return str;
     }
 };
 ApiPathInterceptor = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -911,7 +867,7 @@ ErrorInterceptor = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 /*!***********************************!*\
   !*** ./src/app/_helpers/index.ts ***!
   \***********************************/
-/*! exports provided: AuthGuard, ApiPathInterceptor, ErrorInterceptor, JwtInterceptor, EnumEx, Lock, RecurringTask, delay, whenTrue, WhenAll */
+/*! exports provided: ApiPathInterceptor, AuthGuard, ErrorInterceptor, JwtInterceptor, EnumEx, Lock, RecurringTask, delay, whenTrue, WhenAll */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1756,6 +1712,7 @@ let LogoutComponent = class LogoutComponent {
                     break;
                 case _api_authorization_constants__WEBPACK_IMPORTED_MODULE_6__["LogoutActions"].LoggedOut:
                     this.message.next('You successfully logged out!');
+                    yield this.navigateToReturnUrl("home");
                     break;
                 default:
                     throw new Error(`Invalid action '${action}'`);
@@ -1768,6 +1725,7 @@ let LogoutComponent = class LogoutComponent {
             const isauthenticated = yield this.authorizeService.isAuthenticated().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["take"])(1)).toPromise();
             if (isauthenticated) {
                 const result = yield this.authorizeService.signOut(state);
+                debugger;
                 switch (result.status) {
                     case _authorize_service__WEBPACK_IMPORTED_MODULE_2__["AuthenticationResultStatus"].Redirect:
                         break;
@@ -1782,7 +1740,9 @@ let LogoutComponent = class LogoutComponent {
                 }
             }
             else {
+                debugger;
                 this.message.next('You successfully logged out!');
+                yield this.navigateToReturnUrl("home");
             }
         });
     }
@@ -1790,6 +1750,7 @@ let LogoutComponent = class LogoutComponent {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
             const url = window.location.href;
             const result = yield this.authorizeService.completeSignOut(url);
+            debugger;
             switch (result.status) {
                 case _authorize_service__WEBPACK_IMPORTED_MODULE_2__["AuthenticationResultStatus"].Redirect:
                     // There should not be any redirects as the only time completeAuthentication finishes
@@ -1808,6 +1769,7 @@ let LogoutComponent = class LogoutComponent {
     }
     navigateToReturnUrl(returnUrl) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            debugger;
             yield this.router.navigateByUrl(returnUrl, {
                 replaceUrl: true
             });
@@ -1865,15 +1827,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_character_character_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/character/character.component */ "./src/app/components/character/character.component.ts");
 /* harmony import */ var _components_actor_actor_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/actor/actor.component */ "./src/app/components/actor/actor.component.ts");
 /* harmony import */ var _components_encounter_encounter_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/encounter/encounter.component */ "./src/app/components/encounter/encounter.component.ts");
-/* harmony import */ var _helpers_auth_guard__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./_helpers/auth.guard */ "./src/app/_helpers/auth.guard.ts");
-/* harmony import */ var _top_home__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @/top/home */ "./src/app/top/home/index.ts");
-/* harmony import */ var _top_login__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @/top/login */ "./src/app/top/login/index.ts");
-/* harmony import */ var _top_register__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @/top/register */ "./src/app/top/register/index.ts");
-/* harmony import */ var _top_creature__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @/top/creature */ "./src/app/top/creature/index.ts");
-/* harmony import */ var _api_authorization_authorize_guard__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./api-authorization/authorize.guard */ "./src/app/api-authorization/authorize.guard.ts");
-
-
-
+/* harmony import */ var _top_home__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/top/home */ "./src/app/top/home/index.ts");
+/* harmony import */ var _top_creature__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @/top/creature */ "./src/app/top/creature/index.ts");
+/* harmony import */ var _api_authorization_authorize_guard__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./api-authorization/authorize.guard */ "./src/app/api-authorization/authorize.guard.ts");
 
 
 
@@ -1886,15 +1842,13 @@ __webpack_require__.r(__webpack_exports__);
 
 const routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
-    { path: 'login', component: _top_login__WEBPACK_IMPORTED_MODULE_9__["LoginComponent"] },
-    { path: 'register', component: _top_register__WEBPACK_IMPORTED_MODULE_10__["RegisterComponent"] },
-    { path: 'home', component: _top_home__WEBPACK_IMPORTED_MODULE_8__["HomeComponent"] },
-    { path: 'creatures', component: _top_creature__WEBPACK_IMPORTED_MODULE_11__["CreatureComponent"], canActivate: [_api_authorization_authorize_guard__WEBPACK_IMPORTED_MODULE_12__["AuthorizeGuard"]] },
-    { path: 'mycreatures', component: _top_creature__WEBPACK_IMPORTED_MODULE_11__["CreatureComponent"], canActivate: [_helpers_auth_guard__WEBPACK_IMPORTED_MODULE_7__["AuthGuard"]] },
-    { path: 'games', component: _components_game_game_component__WEBPACK_IMPORTED_MODULE_3__["GameComponent"], canActivate: [_helpers_auth_guard__WEBPACK_IMPORTED_MODULE_7__["AuthGuard"]] },
-    { path: 'character', component: _components_character_character_component__WEBPACK_IMPORTED_MODULE_4__["CharacterComponent"], canActivate: [_helpers_auth_guard__WEBPACK_IMPORTED_MODULE_7__["AuthGuard"]] },
-    { path: 'encounter/:id', component: _components_encounter_encounter_component__WEBPACK_IMPORTED_MODULE_6__["EncounterComponent"], canActivate: [_helpers_auth_guard__WEBPACK_IMPORTED_MODULE_7__["AuthGuard"]] },
-    { path: 'actor/:id', component: _components_actor_actor_component__WEBPACK_IMPORTED_MODULE_5__["ActorComponent"], canActivate: [_helpers_auth_guard__WEBPACK_IMPORTED_MODULE_7__["AuthGuard"]] },
+    { path: 'home', component: _top_home__WEBPACK_IMPORTED_MODULE_7__["HomeComponent"] },
+    { path: 'creatures', component: _top_creature__WEBPACK_IMPORTED_MODULE_8__["CreatureComponent"], canActivate: [_api_authorization_authorize_guard__WEBPACK_IMPORTED_MODULE_9__["AuthorizeGuard"]] },
+    { path: 'mycreatures', component: _top_creature__WEBPACK_IMPORTED_MODULE_8__["CreatureComponent"], canActivate: [_api_authorization_authorize_guard__WEBPACK_IMPORTED_MODULE_9__["AuthorizeGuard"]] },
+    { path: 'games', component: _components_game_game_component__WEBPACK_IMPORTED_MODULE_3__["GameComponent"], canActivate: [_api_authorization_authorize_guard__WEBPACK_IMPORTED_MODULE_9__["AuthorizeGuard"]] },
+    { path: 'character', component: _components_character_character_component__WEBPACK_IMPORTED_MODULE_4__["CharacterComponent"], canActivate: [_api_authorization_authorize_guard__WEBPACK_IMPORTED_MODULE_9__["AuthorizeGuard"]] },
+    { path: 'encounter/:id', component: _components_encounter_encounter_component__WEBPACK_IMPORTED_MODULE_6__["EncounterComponent"], canActivate: [_api_authorization_authorize_guard__WEBPACK_IMPORTED_MODULE_9__["AuthorizeGuard"]] },
+    { path: 'actor/:id', component: _components_actor_actor_component__WEBPACK_IMPORTED_MODULE_5__["ActorComponent"], canActivate: [_api_authorization_authorize_guard__WEBPACK_IMPORTED_MODULE_9__["AuthorizeGuard"]] },
     { path: '**', redirectTo: '' }
 ];
 let AppRoutingModule = class AppRoutingModule {
@@ -1915,13 +1869,12 @@ AppRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 /*!*******************************!*\
   !*** ./src/app/app.module.ts ***!
   \*******************************/
-/*! exports provided: AppModule, getBaseUrl */
+/*! exports provided: AppModule */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppModule", function() { return AppModule; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getBaseUrl", function() { return getBaseUrl; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm2015/platform-browser.js");
@@ -1930,32 +1883,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
 /* harmony import */ var _navigation__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/navigation */ "./src/app/navigation/index.ts");
 /* harmony import */ var _top_home__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/top/home */ "./src/app/top/home/index.ts");
-/* harmony import */ var _top_login__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @/top/login */ "./src/app/top/login/index.ts");
-/* harmony import */ var _top_register__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @/top/register */ "./src/app/top/register/index.ts");
-/* harmony import */ var _components_game_game_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @/components/game/game.component */ "./src/app/components/game/game.component.ts");
-/* harmony import */ var _components_game_game_edit_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/game/game-edit.component */ "./src/app/components/game/game-edit.component.ts");
-/* harmony import */ var _components_character_character_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/character/character.component */ "./src/app/components/character/character.component.ts");
-/* harmony import */ var _components_character_character_edit_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/character/character-edit.component */ "./src/app/components/character/character-edit.component.ts");
-/* harmony import */ var _components_creature_creature_edit_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/creature/creature-edit.component */ "./src/app/components/creature/creature-edit.component.ts");
-/* harmony import */ var _components_armor_armor_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/armor/armor.component */ "./src/app/components/armor/armor.component.ts");
-/* harmony import */ var _components_armor_armor_edit_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/armor/armor-edit.component */ "./src/app/components/armor/armor-edit.component.ts");
-/* harmony import */ var _components_attack_attack_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/attack/attack.component */ "./src/app/components/attack/attack.component.ts");
-/* harmony import */ var _components_attack_attack_edit_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/attack/attack-edit.component */ "./src/app/components/attack/attack-edit.component.ts");
-/* harmony import */ var _components_weapon_weapon_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/weapon/weapon.component */ "./src/app/components/weapon/weapon.component.ts");
-/* harmony import */ var _components_weapon_weapon_edit_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/weapon/weapon-edit.component */ "./src/app/components/weapon/weapon-edit.component.ts");
-/* harmony import */ var _components_actor_actor_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/actor/actor.component */ "./src/app/components/actor/actor.component.ts");
-/* harmony import */ var _components_encounter_encounter_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/encounter/encounter.component */ "./src/app/components/encounter/encounter.component.ts");
-/* harmony import */ var _elements__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! @/elements */ "./src/app/elements/index.ts");
-/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
-/* harmony import */ var _approot__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! @/approot */ "./src/app/approot/index.ts");
-/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! @/_helpers */ "./src/app/_helpers/index.ts");
-/* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! @/services */ "./src/app/services/index.ts");
-/* harmony import */ var _top_creature__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! @/top/creature */ "./src/app/top/creature/index.ts");
-/* harmony import */ var _api_authorization_authorize_interceptor__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./api-authorization/authorize.interceptor */ "./src/app/api-authorization/authorize.interceptor.ts");
-/* harmony import */ var _api_authorization_api_authorization_module__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./api-authorization/api-authorization.module */ "./src/app/api-authorization/api-authorization.module.ts");
-
-
-
+/* harmony import */ var _components_game_game_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @/components/game/game.component */ "./src/app/components/game/game.component.ts");
+/* harmony import */ var _components_game_game_edit_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/game/game-edit.component */ "./src/app/components/game/game-edit.component.ts");
+/* harmony import */ var _components_character_character_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/character/character.component */ "./src/app/components/character/character.component.ts");
+/* harmony import */ var _components_character_character_edit_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/character/character-edit.component */ "./src/app/components/character/character-edit.component.ts");
+/* harmony import */ var _components_creature_creature_edit_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/creature/creature-edit.component */ "./src/app/components/creature/creature-edit.component.ts");
+/* harmony import */ var _components_armor_armor_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/armor/armor.component */ "./src/app/components/armor/armor.component.ts");
+/* harmony import */ var _components_armor_armor_edit_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/armor/armor-edit.component */ "./src/app/components/armor/armor-edit.component.ts");
+/* harmony import */ var _components_attack_attack_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/attack/attack.component */ "./src/app/components/attack/attack.component.ts");
+/* harmony import */ var _components_attack_attack_edit_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/attack/attack-edit.component */ "./src/app/components/attack/attack-edit.component.ts");
+/* harmony import */ var _components_weapon_weapon_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/weapon/weapon.component */ "./src/app/components/weapon/weapon.component.ts");
+/* harmony import */ var _components_weapon_weapon_edit_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/weapon/weapon-edit.component */ "./src/app/components/weapon/weapon-edit.component.ts");
+/* harmony import */ var _components_actor_actor_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/actor/actor.component */ "./src/app/components/actor/actor.component.ts");
+/* harmony import */ var _components_encounter_encounter_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/encounter/encounter.component */ "./src/app/components/encounter/encounter.component.ts");
+/* harmony import */ var _elements__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! @/elements */ "./src/app/elements/index.ts");
+/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
+/* harmony import */ var _approot__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! @/approot */ "./src/app/approot/index.ts");
+/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! @/_helpers */ "./src/app/_helpers/index.ts");
+/* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! @/services */ "./src/app/services/index.ts");
+/* harmony import */ var _top_creature__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! @/top/creature */ "./src/app/top/creature/index.ts");
+/* harmony import */ var _api_authorization_authorize_interceptor__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./api-authorization/authorize.interceptor */ "./src/app/api-authorization/authorize.interceptor.ts");
+/* harmony import */ var _api_authorization_api_authorization_module__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./api-authorization/api-authorization.module */ "./src/app/api-authorization/api-authorization.module.ts");
 
 
 
@@ -1993,28 +1941,25 @@ let AppModule = class AppModule {
 AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
         declarations: [
-            _approot__WEBPACK_IMPORTED_MODULE_25__["AppComponent"],
-            _top_login__WEBPACK_IMPORTED_MODULE_8__["LoginComponent"],
-            _top_register__WEBPACK_IMPORTED_MODULE_9__["RegisterComponent"],
-            _components_game_game_component__WEBPACK_IMPORTED_MODULE_10__["GameComponent"],
-            _components_game_game_edit_component__WEBPACK_IMPORTED_MODULE_11__["GameEditComponent"],
+            _approot__WEBPACK_IMPORTED_MODULE_23__["AppComponent"],
+            _components_game_game_component__WEBPACK_IMPORTED_MODULE_8__["GameComponent"],
+            _components_game_game_edit_component__WEBPACK_IMPORTED_MODULE_9__["GameEditComponent"],
             _top_home__WEBPACK_IMPORTED_MODULE_7__["HomeComponent"],
-            _components_character_character_edit_component__WEBPACK_IMPORTED_MODULE_13__["CharacterEditComponent"],
-            _components_character_character_component__WEBPACK_IMPORTED_MODULE_12__["CharacterComponent"],
-            _top_creature__WEBPACK_IMPORTED_MODULE_28__["CreatureComponent"],
-            _components_creature_creature_edit_component__WEBPACK_IMPORTED_MODULE_14__["CreatureEditComponent"],
-            _components_actor_actor_component__WEBPACK_IMPORTED_MODULE_21__["ActorComponent"],
-            _components_encounter_encounter_component__WEBPACK_IMPORTED_MODULE_22__["EncounterComponent"],
-            _components_armor_armor_component__WEBPACK_IMPORTED_MODULE_15__["ArmorComponent"],
-            _components_armor_armor_edit_component__WEBPACK_IMPORTED_MODULE_16__["ArmorEditComponent"],
-            _components_weapon_weapon_component__WEBPACK_IMPORTED_MODULE_19__["WeaponComponent"],
-            _components_weapon_weapon_edit_component__WEBPACK_IMPORTED_MODULE_20__["WeaponEditComponent"],
-            _elements__WEBPACK_IMPORTED_MODULE_23__["ModalComponent"],
-            _components_attack_attack_component__WEBPACK_IMPORTED_MODULE_17__["AttackComponent"],
-            _components_attack_attack_edit_component__WEBPACK_IMPORTED_MODULE_18__["AttackEditComponent"],
-            _elements__WEBPACK_IMPORTED_MODULE_23__["AlertComponent"],
+            _components_character_character_edit_component__WEBPACK_IMPORTED_MODULE_11__["CharacterEditComponent"],
+            _components_character_character_component__WEBPACK_IMPORTED_MODULE_10__["CharacterComponent"],
+            _top_creature__WEBPACK_IMPORTED_MODULE_26__["CreatureComponent"],
+            _components_creature_creature_edit_component__WEBPACK_IMPORTED_MODULE_12__["CreatureEditComponent"],
+            _components_actor_actor_component__WEBPACK_IMPORTED_MODULE_19__["ActorComponent"],
+            _components_encounter_encounter_component__WEBPACK_IMPORTED_MODULE_20__["EncounterComponent"],
+            _components_armor_armor_component__WEBPACK_IMPORTED_MODULE_13__["ArmorComponent"],
+            _components_armor_armor_edit_component__WEBPACK_IMPORTED_MODULE_14__["ArmorEditComponent"],
+            _components_weapon_weapon_component__WEBPACK_IMPORTED_MODULE_17__["WeaponComponent"],
+            _components_weapon_weapon_edit_component__WEBPACK_IMPORTED_MODULE_18__["WeaponEditComponent"],
+            _elements__WEBPACK_IMPORTED_MODULE_21__["ModalComponent"],
+            _components_attack_attack_component__WEBPACK_IMPORTED_MODULE_15__["AttackComponent"],
+            _components_attack_attack_edit_component__WEBPACK_IMPORTED_MODULE_16__["AttackEditComponent"],
+            _elements__WEBPACK_IMPORTED_MODULE_21__["AlertComponent"],
             _navigation__WEBPACK_IMPORTED_MODULE_6__["MainNavMenuComponent"],
-            _navigation__WEBPACK_IMPORTED_MODULE_6__["AccountNavMenuComponent"],
             _navigation__WEBPACK_IMPORTED_MODULE_6__["SideNavMenuComponent"]
         ],
         imports: [
@@ -2025,20 +1970,20 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _angular_common__WEBPACK_IMPORTED_MODULE_3__["CommonModule"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormsModule"],
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"],
-            _api_authorization_api_authorization_module__WEBPACK_IMPORTED_MODULE_30__["ApiAuthorizationModule"],
-            _app_routing_module__WEBPACK_IMPORTED_MODULE_24__["AppRoutingModule"]
+            _api_authorization_api_authorization_module__WEBPACK_IMPORTED_MODULE_28__["ApiAuthorizationModule"],
+            _app_routing_module__WEBPACK_IMPORTED_MODULE_22__["AppRoutingModule"]
         ],
         providers: [
-            {
-                provide: 'BASE_URL',
-                useFactory: getBaseUrl
-            },
+            //{
+            //  provide: 'BASE_URL',
+            //  useFactory: getBaseUrl
+            //},
             {
                 provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HTTP_INTERCEPTORS"],
-                useClass: _helpers__WEBPACK_IMPORTED_MODULE_26__["ApiPathInterceptor"],
+                useClass: _helpers__WEBPACK_IMPORTED_MODULE_24__["ApiPathInterceptor"],
                 multi: true
             },
-            { provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HTTP_INTERCEPTORS"], useClass: _api_authorization_authorize_interceptor__WEBPACK_IMPORTED_MODULE_29__["AuthorizeInterceptor"], multi: true },
+            { provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HTTP_INTERCEPTORS"], useClass: _api_authorization_authorize_interceptor__WEBPACK_IMPORTED_MODULE_27__["AuthorizeInterceptor"], multi: true },
             //{
             //  provide: HTTP_INTERCEPTORS,
             //  useClass: JwtInterceptor,
@@ -2047,18 +1992,18 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             //},
             {
                 provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HTTP_INTERCEPTORS"],
-                useClass: _helpers__WEBPACK_IMPORTED_MODULE_26__["ErrorInterceptor"],
+                useClass: _helpers__WEBPACK_IMPORTED_MODULE_24__["ErrorInterceptor"],
                 multi: true,
-                deps: [_services__WEBPACK_IMPORTED_MODULE_27__["AuthenticationService"]]
+                deps: [_services__WEBPACK_IMPORTED_MODULE_25__["AuthenticationService"]]
             },
         ],
-        bootstrap: [_approot__WEBPACK_IMPORTED_MODULE_25__["AppComponent"]]
+        bootstrap: [_approot__WEBPACK_IMPORTED_MODULE_23__["AppComponent"]]
     })
 ], AppModule);
 
-function getBaseUrl() {
-    return document.getElementsByTagName('base')[0].href;
-}
+//export function getBaseUrl() {
+//  return document.getElementsByTagName('base')[0].href;
+//}
 
 
 /***/ }),
@@ -2072,7 +2017,7 @@ function getBaseUrl() {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".body-content {\n  border: 1px solid #aaa;\n  border-radius: 5px;\n  background: white;\n  display: inline-block;\n  vertical-align: top;\n  margin: 5px 5px 5px 0;\n  padding: 10px;\n  position: absolute;\n  top: 0;\n  left: 20%;\n  bottom: 0;\n  width: 79.5%;\n  overflow: auto;\n}\n.menu-column {\n  padding: 0;\n  display: inline-block;\n  vertical-align: top;\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  width: 20%;\n}\n.apparea {\n  background: #222 !important;\n  position: absolute;\n  left: 0;\n  right: 0;\n  top: 0;\n  bottom: 0;\n}\n@media (max-width: 767px) {\n  /* On small screens, the nav menu spans the full width of the screen. Leave a space for it. */\n  .body-content {\n    padding-top: 50px;\n    border: 1px solid #aaa;\n    border-radius: 5px;\n  }\n  .menu-column {\n    padding: 0;\n  }\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwcm9vdC9QOi9QZXJzb25hbCBQcm9qZWN0cy9DRUFUU2lpLUNvbWJhdC1UcmFja2VyL0NvbWJhdFRyYWNrZXIvQ29tYmF0VHJhY2tlci5XZWIvQ0VBVFNpaUFwcC9zcmMvYXBwL2FwcHJvb3QvYXBwLmNvbXBvbmVudC5sZXNzIiwic3JjL2FwcC9hcHByb290L2FwcC5jb21wb25lbnQubGVzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFFQTtFQUNFLHNCQUFBO0VBQ0Esa0JBQUE7RUFDQSxpQkFBQTtFQUNBLHFCQUFBO0VBQ0EsbUJBQUE7RUFDQSxxQkFBQTtFQUNBLGFBQUE7RUFDQSxrQkFBQTtFQUNBLE1BQUE7RUFDQSxTQUFBO0VBQ0EsU0FBQTtFQUNBLFlBQUE7RUFDQSxjQUFBO0FDREY7QURJQTtFQUNFLFVBQUE7RUFDQSxxQkFBQTtFQUNBLG1CQUFBO0VBQ0Esa0JBQUE7RUFDQSxNQUFBO0VBQ0EsU0FBQTtFQUNBLFVBQUE7QUNGRjtBREtBO0VBQ0UsMkJBQUE7RUFDQSxrQkFBQTtFQUNBLE9BQUE7RUFDQSxRQUFBO0VBQ0EsTUFBQTtFQUNBLFNBQUE7QUNIRjtBRFFBO0VDTkUsNkZBQTZGO0VEUTdGO0lBQ0UsaUJBQUE7SUFDQSxzQkFBQTtJQUNBLGtCQUFBO0VDTkY7RURTQTtJQUNFLFVBQUE7RUNQRjtBQUNGIiwiZmlsZSI6InNyYy9hcHAvYXBwcm9vdC9hcHAuY29tcG9uZW50Lmxlc3MiLCJzb3VyY2VzQ29udGVudCI6WyJcblxuLmJvZHktY29udGVudCB7XG4gIGJvcmRlcjogMXB4IHNvbGlkICNhYWE7XG4gIGJvcmRlci1yYWRpdXM6IDVweDtcbiAgYmFja2dyb3VuZDogd2hpdGU7XG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgdmVydGljYWwtYWxpZ246IHRvcDtcbiAgbWFyZ2luOiA1cHggNXB4IDVweCAwO1xuICBwYWRkaW5nOiAxMHB4O1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIHRvcDogMDtcbiAgbGVmdDogMjAlO1xuICBib3R0b206IDA7XG4gIHdpZHRoOiA3OS41JTtcbiAgb3ZlcmZsb3c6IGF1dG87XG59XG5cbi5tZW51LWNvbHVtbiB7XG4gIHBhZGRpbmc6IDA7XG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgdmVydGljYWwtYWxpZ246IHRvcDtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICB0b3A6IDA7XG4gIGJvdHRvbTogMDtcbiAgd2lkdGg6IDIwJTtcbn1cblxuLmFwcGFyZWEge1xuICBiYWNrZ3JvdW5kOiAjMjIyICFpbXBvcnRhbnQ7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgbGVmdDogMDtcbiAgcmlnaHQ6IDA7XG4gIHRvcDogMDtcbiAgYm90dG9tOiAwO1xufVxuXG5cblxuQG1lZGlhIChtYXgtd2lkdGg6IDc2N3B4KSB7XG4gIC8qIE9uIHNtYWxsIHNjcmVlbnMsIHRoZSBuYXYgbWVudSBzcGFucyB0aGUgZnVsbCB3aWR0aCBvZiB0aGUgc2NyZWVuLiBMZWF2ZSBhIHNwYWNlIGZvciBpdC4gKi9cbiAgLmJvZHktY29udGVudCB7XG4gICAgcGFkZGluZy10b3A6IDUwcHg7XG4gICAgYm9yZGVyOiAxcHggc29saWQgI2FhYTtcbiAgICBib3JkZXItcmFkaXVzOiA1cHg7XG4gIH1cblxuICAubWVudS1jb2x1bW4ge1xuICAgIHBhZGRpbmc6IDA7XG4gIH1cbn1cbiIsIi5ib2R5LWNvbnRlbnQge1xuICBib3JkZXI6IDFweCBzb2xpZCAjYWFhO1xuICBib3JkZXItcmFkaXVzOiA1cHg7XG4gIGJhY2tncm91bmQ6IHdoaXRlO1xuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG4gIHZlcnRpY2FsLWFsaWduOiB0b3A7XG4gIG1hcmdpbjogNXB4IDVweCA1cHggMDtcbiAgcGFkZGluZzogMTBweDtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICB0b3A6IDA7XG4gIGxlZnQ6IDIwJTtcbiAgYm90dG9tOiAwO1xuICB3aWR0aDogNzkuNSU7XG4gIG92ZXJmbG93OiBhdXRvO1xufVxuLm1lbnUtY29sdW1uIHtcbiAgcGFkZGluZzogMDtcbiAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xuICB2ZXJ0aWNhbC1hbGlnbjogdG9wO1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIHRvcDogMDtcbiAgYm90dG9tOiAwO1xuICB3aWR0aDogMjAlO1xufVxuLmFwcGFyZWEge1xuICBiYWNrZ3JvdW5kOiAjMjIyICFpbXBvcnRhbnQ7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgbGVmdDogMDtcbiAgcmlnaHQ6IDA7XG4gIHRvcDogMDtcbiAgYm90dG9tOiAwO1xufVxuQG1lZGlhIChtYXgtd2lkdGg6IDc2N3B4KSB7XG4gIC8qIE9uIHNtYWxsIHNjcmVlbnMsIHRoZSBuYXYgbWVudSBzcGFucyB0aGUgZnVsbCB3aWR0aCBvZiB0aGUgc2NyZWVuLiBMZWF2ZSBhIHNwYWNlIGZvciBpdC4gKi9cbiAgLmJvZHktY29udGVudCB7XG4gICAgcGFkZGluZy10b3A6IDUwcHg7XG4gICAgYm9yZGVyOiAxcHggc29saWQgI2FhYTtcbiAgICBib3JkZXItcmFkaXVzOiA1cHg7XG4gIH1cbiAgLm1lbnUtY29sdW1uIHtcbiAgICBwYWRkaW5nOiAwO1xuICB9XG59XG4iXX0= */");
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FwcHJvb3QvYXBwLmNvbXBvbmVudC5sZXNzIn0= */");
 
 /***/ }),
 
@@ -4585,111 +4530,21 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/app/navigation/account-nav-menu/account-nav-menu.component.less":
-/*!*****************************************************************************!*\
-  !*** ./src/app/navigation/account-nav-menu/account-nav-menu.component.less ***!
-  \*****************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL25hdmlnYXRpb24vYWNjb3VudC1uYXYtbWVudS9hY2NvdW50LW5hdi1tZW51LmNvbXBvbmVudC5sZXNzIn0= */");
-
-/***/ }),
-
-/***/ "./src/app/navigation/account-nav-menu/account-nav-menu.component.ts":
-/*!***************************************************************************!*\
-  !*** ./src/app/navigation/account-nav-menu/account-nav-menu.component.ts ***!
-  \***************************************************************************/
-/*! exports provided: AccountNavMenuComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AccountNavMenuComponent", function() { return AccountNavMenuComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/services */ "./src/app/services/index.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-
-
-
-
-let AccountNavMenuComponent = 
-/** account-nav-menu component*/
-class AccountNavMenuComponent {
-    /** account-nav-menu ctor */
-    constructor(router, authenticationService) {
-        this.router = router;
-        this.authenticationService = authenticationService;
-        this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
-    }
-    logout() {
-        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
-            yield this.authenticationService.logoutAsync();
-            this.router.navigate(['/']);
-        });
-    }
-};
-AccountNavMenuComponent.ctorParameters = () => [
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
-    { type: _services__WEBPACK_IMPORTED_MODULE_2__["AuthenticationService"] }
-];
-AccountNavMenuComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'account-nav-menu',
-        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./account-nav-menu.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/navigation/account-nav-menu/account-nav-menu.component.html")).default,
-        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./account-nav-menu.component.less */ "./src/app/navigation/account-nav-menu/account-nav-menu.component.less")).default]
-    })
-    /** account-nav-menu component*/
-    ,
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"],
-        _services__WEBPACK_IMPORTED_MODULE_2__["AuthenticationService"]])
-], AccountNavMenuComponent);
-
-
-
-/***/ }),
-
-/***/ "./src/app/navigation/account-nav-menu/index.ts":
-/*!******************************************************!*\
-  !*** ./src/app/navigation/account-nav-menu/index.ts ***!
-  \******************************************************/
-/*! exports provided: AccountNavMenuComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _account_nav_menu_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./account-nav-menu.component */ "./src/app/navigation/account-nav-menu/account-nav-menu.component.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AccountNavMenuComponent", function() { return _account_nav_menu_component__WEBPACK_IMPORTED_MODULE_1__["AccountNavMenuComponent"]; });
-
-
-
-
-
-/***/ }),
-
 /***/ "./src/app/navigation/index.ts":
 /*!*************************************!*\
   !*** ./src/app/navigation/index.ts ***!
   \*************************************/
-/*! exports provided: AccountNavMenuComponent, MainNavMenuComponent, SideNavMenuComponent */
+/*! exports provided: MainNavMenuComponent, SideNavMenuComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _account_nav_menu_index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./account-nav-menu/index */ "./src/app/navigation/account-nav-menu/index.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AccountNavMenuComponent", function() { return _account_nav_menu_index__WEBPACK_IMPORTED_MODULE_1__["AccountNavMenuComponent"]; });
+/* harmony import */ var _main_nav_menu_index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./main-nav-menu/index */ "./src/app/navigation/main-nav-menu/index.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MainNavMenuComponent", function() { return _main_nav_menu_index__WEBPACK_IMPORTED_MODULE_1__["MainNavMenuComponent"]; });
 
-/* harmony import */ var _main_nav_menu_index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./main-nav-menu/index */ "./src/app/navigation/main-nav-menu/index.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MainNavMenuComponent", function() { return _main_nav_menu_index__WEBPACK_IMPORTED_MODULE_2__["MainNavMenuComponent"]; });
-
-/* harmony import */ var _side_nav_menu_index__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./side-nav-menu/index */ "./src/app/navigation/side-nav-menu/index.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SideNavMenuComponent", function() { return _side_nav_menu_index__WEBPACK_IMPORTED_MODULE_3__["SideNavMenuComponent"]; });
-
+/* harmony import */ var _side_nav_menu_index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./side-nav-menu/index */ "./src/app/navigation/side-nav-menu/index.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SideNavMenuComponent", function() { return _side_nav_menu_index__WEBPACK_IMPORTED_MODULE_2__["SideNavMenuComponent"]; });
 
 
 
@@ -7306,230 +7161,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "HomeComponent", function() { return _home_component__WEBPACK_IMPORTED_MODULE_1__["HomeComponent"]; });
 
 
-
-
-
-/***/ }),
-
-/***/ "./src/app/top/login/index.ts":
-/*!************************************!*\
-  !*** ./src/app/top/login/index.ts ***!
-  \************************************/
-/*! exports provided: LoginComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _login_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./login.component */ "./src/app/top/login/login.component.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "LoginComponent", function() { return _login_component__WEBPACK_IMPORTED_MODULE_1__["LoginComponent"]; });
-
-
-
-
-
-/***/ }),
-
-/***/ "./src/app/top/login/login.component.ts":
-/*!**********************************************!*\
-  !*** ./src/app/top/login/login.component.ts ***!
-  \**********************************************/
-/*! exports provided: LoginComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginComponent", function() { return LoginComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
-/* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/services */ "./src/app/services/index.ts");
-
-
-
-
-
-
-let LoginComponent = class LoginComponent {
-    constructor(formBuilder, route, router, authenticationService, alertService) {
-        this.formBuilder = formBuilder;
-        this.route = route;
-        this.router = router;
-        this.authenticationService = authenticationService;
-        this.alertService = alertService;
-        this.loading = false;
-        this.submitted = false;
-        // redirect to home if already logged in
-        if (this.authenticationService.currentUserValue) {
-            this.router.navigate(['/']);
-        }
-    }
-    ngOnInit() {
-        this.loginForm = this.formBuilder.group({
-            username: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required],
-            password: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]
-        });
-        // get return url from route parameters or default to '/'
-        this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
-    }
-    // convenience getter for easy access to form fields
-    get f() { return this.loginForm.controls; }
-    onSubmit() {
-        this.loginToSite();
-    }
-    loginToSite() {
-        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
-            this.submitted = true;
-            // reset alerts on submit
-            this.alertService.clear();
-            // stop here if form is invalid
-            if (this.loginForm.invalid) {
-                return;
-            }
-            this.loading = true;
-            var user = yield this.authenticationService.loginAsync(this.f.username.value, this.f.password.value);
-            if (user != null) {
-                this.router.navigate([this.returnUrl]);
-            }
-            else {
-                this.alertService.error("Login Failed");
-                this.loading = false;
-            }
-        });
-    }
-};
-LoginComponent.ctorParameters = () => [
-    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormBuilder"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
-    { type: _services__WEBPACK_IMPORTED_MODULE_4__["AuthenticationService"] },
-    { type: _services__WEBPACK_IMPORTED_MODULE_4__["AlertService"] }
-];
-LoginComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({ template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./login.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/top/login/login.component.html")).default }),
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormBuilder"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
-        _services__WEBPACK_IMPORTED_MODULE_4__["AuthenticationService"],
-        _services__WEBPACK_IMPORTED_MODULE_4__["AlertService"]])
-], LoginComponent);
-
-
-
-/***/ }),
-
-/***/ "./src/app/top/register/index.ts":
-/*!***************************************!*\
-  !*** ./src/app/top/register/index.ts ***!
-  \***************************************/
-/*! exports provided: RegisterComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _register_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./register.component */ "./src/app/top/register/register.component.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "RegisterComponent", function() { return _register_component__WEBPACK_IMPORTED_MODULE_1__["RegisterComponent"]; });
-
-
-
-
-
-/***/ }),
-
-/***/ "./src/app/top/register/register.component.ts":
-/*!****************************************************!*\
-  !*** ./src/app/top/register/register.component.ts ***!
-  \****************************************************/
-/*! exports provided: RegisterComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RegisterComponent", function() { return RegisterComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
-/* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/services */ "./src/app/services/index.ts");
-/* harmony import */ var _repositories__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/repositories */ "./src/app/repositories/index.ts");
-/* harmony import */ var _entities__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/entities */ "./src/app/entities/index.ts");
-
-
-
-
-
-
-
-
-
-let RegisterComponent = class RegisterComponent {
-    constructor(formBuilder, router, authenticationService, userService, alertService) {
-        this.formBuilder = formBuilder;
-        this.router = router;
-        this.authenticationService = authenticationService;
-        this.userService = userService;
-        this.alertService = alertService;
-        this.loading = false;
-        this.submitted = false;
-        // redirect to home if already logged in
-        if (this.authenticationService.currentUserValue) {
-            this.router.navigate(['/']);
-        }
-    }
-    ngOnInit() {
-        this.registerForm = this.formBuilder.group({
-            firstName: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required],
-            lastName: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required],
-            email: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required],
-            password: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].minLength(6)]]
-        });
-    }
-    // convenience getter for easy access to form fields
-    get f() { return this.registerForm.controls; }
-    onSubmit() {
-        this.submitted = true;
-        // reset alerts on submit
-        this.alertService.clear();
-        // stop here if form is invalid
-        if (this.registerForm.invalid) {
-            return;
-        }
-        var regModel = new _entities__WEBPACK_IMPORTED_MODULE_7__["RegisterModel"]();
-        regModel.firstName = this.registerForm.value.firstName;
-        regModel.lastName = this.registerForm.value.lastName;
-        regModel.password = this.registerForm.value.password;
-        regModel.email = this.registerForm.value.email;
-        regModel.username = this.registerForm.value.email;
-        this.loading = true;
-        this.userService.register(regModel)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["first"])())
-            .subscribe(data => {
-            this.alertService.success('Registration successful', true);
-            this.router.navigate(['/login']);
-        }, error => {
-            this.alertService.error(error);
-            this.loading = false;
-        });
-    }
-};
-RegisterComponent.ctorParameters = () => [
-    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormBuilder"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
-    { type: _services__WEBPACK_IMPORTED_MODULE_5__["AuthenticationService"] },
-    { type: _repositories__WEBPACK_IMPORTED_MODULE_6__["UsersRepository"] },
-    { type: _services__WEBPACK_IMPORTED_MODULE_5__["AlertService"] }
-];
-RegisterComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({ template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./register.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/top/register/register.component.html")).default }),
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormBuilder"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
-        _services__WEBPACK_IMPORTED_MODULE_5__["AuthenticationService"],
-        _repositories__WEBPACK_IMPORTED_MODULE_6__["UsersRepository"],
-        _services__WEBPACK_IMPORTED_MODULE_5__["AlertService"]])
-], RegisterComponent);
 
 
 
