@@ -10,8 +10,7 @@ import { AuthorizeGuard } from './api-authorization/authorize.guard';
 
 
 const routes: Routes = [
-    { path: '', redirectTo: '/home', pathMatch: 'full' },
-    { path: 'home', component: HomeComponent },
+    { path: '', component: HomeComponent, pathMatch: 'full' },
     { path: 'creatures', component: CreatureComponent, canActivate: [AuthorizeGuard] },
     { path: 'mycreatures', component: CreatureComponent, canActivate: [AuthorizeGuard] },
 

@@ -74,11 +74,11 @@ import { ApiAuthorizationModule } from './api-authorization/api-authorization.mo
     //  provide: 'BASE_URL',
     //  useFactory: getBaseUrl
     //},
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: ApiPathInterceptor,
-      multi: true
-    },
+    //{
+    //  provide: HTTP_INTERCEPTORS,
+    //  useClass: ApiPathInterceptor,
+    //  multi: true
+    //},
     { provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true },
     //{
     //  provide: HTTP_INTERCEPTORS,
@@ -91,28 +91,9 @@ import { ApiAuthorizationModule } from './api-authorization/api-authorization.mo
       useClass: ErrorInterceptor,
       multi: true,
       deps: [AuthenticationService]
-    },
-    //Services.AlertService,
-    //Services.AuthenticationService,
-    //Services.EncounterService,
-    //Services.ReferencesService,
-    //Repositories.ActionsRepository,
-    //Repositories.ActorsRepository,
-    //Repositories.CharactersRepository,
-    //Repositories.CombatRepository,
-    //Repositories.CreaturesRepository,
-    //Repositories.CriticalEffectsRepository,
-    //Repositories.EncounterRepository,
-    //Repositories.GamesRepository,
-    //Repositories.ReferenceRepository,
-    //Repositories.SampleDataRepository,
-    //Repositories.SettingsRepository,
-    //Repositories.UsersRepository
+    }
   ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
 
-//export function getBaseUrl() {
-//  return document.getElementsByTagName('base')[0].href;
-//}

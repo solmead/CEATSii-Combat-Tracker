@@ -192,7 +192,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\Services\" />
+    <Folder Include="CEATSiiApp\e2e\" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

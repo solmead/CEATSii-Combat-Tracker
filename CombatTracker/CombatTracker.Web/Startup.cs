@@ -52,6 +52,7 @@ namespace CombatTracker.Web
 
             services.AddDbContext<TrackerContext>(options =>
                 options.UseSqlServer(_configuration.GetConnectionString("DefaultConnection")));
+
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped(sp => sp.GetRequiredService<IHttpContextAccessor>().HttpContext);
             services.RegisterServices();
@@ -69,8 +70,6 @@ namespace CombatTracker.Web
 
             services.AddAuthentication()
                 .AddIdentityServerJwt();
-
-
 
             services.AddCors();
             services.AddControllersWithViews();
@@ -131,11 +130,6 @@ namespace CombatTracker.Web
 
             app.UseEndpoints(endpoints =>
             {
-                //endpoints.MapControllerRoute(
-                //    name: "Dashboard",
-                //    pattern: "Dashboard/{*stuff}",
-                //    defaults: new { controller = "Home", action = "index" });
-
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
