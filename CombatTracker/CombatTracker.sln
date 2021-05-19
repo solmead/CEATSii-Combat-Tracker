@@ -9,9 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CombatTracker.Domain", "Com
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CombatTracker.Services", "CombatTracker.Services\CombatTracker.Services.csproj", "{51457E52-4657-41DB-86F4-FB1AE91E2225}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CombatTracker.Web", "CombatTracker.Web\CombatTracker.Web.csproj", "{CBF107E4-CFB5-4954-BFD5-1FDD5972C9B0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CombatTracker.Authorization", "CombatTracker.Authorization\CombatTracker.Authorization.csproj", "{146763F3-8FBD-40FF-879C-15BBA48B2F77}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CombatTracker.Authorization", "CombatTracker.Authorization\CombatTracker.Authorization.csproj", "{146763F3-8FBD-40FF-879C-15BBA48B2F77}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CombatTracker.Web", "CombatTracker.Web\CombatTracker.Web.csproj", "{9E22C6D8-99A9-4D28-8B1F-9F28018945D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CombatTracker.Ang", "CombatTracker.Ang\CombatTracker.Ang.csproj", "{F543D394-61F6-4592-81B0-876ED615A3CA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,14 +33,18 @@ Global
 		{51457E52-4657-41DB-86F4-FB1AE91E2225}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{51457E52-4657-41DB-86F4-FB1AE91E2225}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{51457E52-4657-41DB-86F4-FB1AE91E2225}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CBF107E4-CFB5-4954-BFD5-1FDD5972C9B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CBF107E4-CFB5-4954-BFD5-1FDD5972C9B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CBF107E4-CFB5-4954-BFD5-1FDD5972C9B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CBF107E4-CFB5-4954-BFD5-1FDD5972C9B0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{146763F3-8FBD-40FF-879C-15BBA48B2F77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{146763F3-8FBD-40FF-879C-15BBA48B2F77}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{146763F3-8FBD-40FF-879C-15BBA48B2F77}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{146763F3-8FBD-40FF-879C-15BBA48B2F77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E22C6D8-99A9-4D28-8B1F-9F28018945D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E22C6D8-99A9-4D28-8B1F-9F28018945D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E22C6D8-99A9-4D28-8B1F-9F28018945D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E22C6D8-99A9-4D28-8B1F-9F28018945D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F543D394-61F6-4592-81B0-876ED615A3CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F543D394-61F6-4592-81B0-876ED615A3CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F543D394-61F6-4592-81B0-876ED615A3CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F543D394-61F6-4592-81B0-876ED615A3CA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

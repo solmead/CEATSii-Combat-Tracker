@@ -1,4 +1,4 @@
-﻿import { TestBed, async, ComponentFixture, ComponentFixtureAutoDetect } from '@angular/core/testing';
+﻿import { TestBed, ComponentFixture, ComponentFixtureAutoDetect, waitForAsync } from '@angular/core/testing';
 import { BrowserModule, By } from "@angular/platform-browser";
 import { CreatureComponent } from './creature.component';
 
@@ -6,7 +6,7 @@ let component: CreatureComponent;
 let fixture: ComponentFixture<CreatureComponent>;
 
 describe('creature component', () => {
-    beforeEach(async(() => {
+    beforeEach(waitForAsync(() => {
         TestBed.configureTestingModule({
             declarations: [ CreatureComponent ],
             imports: [ BrowserModule ],
@@ -18,7 +18,7 @@ describe('creature component', () => {
         component = fixture.componentInstance;
     }));
 
-    it('should do something', async(() => {
+    it('should do something', waitForAsync(() => {
         expect(true).toEqual(true);
     }));
 });

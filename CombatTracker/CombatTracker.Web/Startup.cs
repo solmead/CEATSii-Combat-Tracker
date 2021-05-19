@@ -1,31 +1,26 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using CombatTracker.Authorization;
+using CombatTracker.Domain;
+using CombatTracker.Entities.Security;
+using CombatTracker.Web.Factories;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.AspNetCore.Http;
-using CombatTracker.Domain;
-using CombatTracker.Web.Factories;
-using Utilities.Caching.AspNetCore;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc.Authorization;
-using CombatTracker.Entities.Security;
-using CombatTracker.Authorization;
-using System.Text;
-using CombatTracker.Web.Models;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
-using CombatTracker.Entities.Service;
+using Microsoft.OpenApi.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Utilities.Caching.AspNetCore.Configuration;
 
 namespace CombatTracker.Web
 {
@@ -40,30 +35,26 @@ namespace CombatTracker.Web
         }
 
 
+
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.Configure<CookiePolicyOptions>(options =>
-            //{
-            //    // This lambda determines whether user consent for non-essential cookies is needed for a given request.
-            //    options.CheckConsentNeeded = context => true;
-            //    options.MinimumSameSitePolicy = SameSiteMode.None;
-            //});
-
             services.AddDbContext<TrackerContext>(options =>
                 options.UseSqlServer(_configuration.GetConnectionString("DefaultConnection")));
+
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped(sp => sp.GetRequiredService<IHttpContextAccessor>().HttpContext);
             services.RegisterServices();
 
 
-            //services.AddDbContext<ApplicationDbContext>(options =>
-            //    options.UseSqlServer( Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDatabaseDeveloperPageExceptionFilter();
 
             services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<TrackerContext>();
+
+
 
             services.AddIdentityServer()
                 .AddApiAuthorization<ApplicationUser, TrackerContext>();
@@ -73,6 +64,7 @@ namespace CombatTracker.Web
 
             services.AddCors();
             services.AddControllersWithViews();
+
             services.AddRazorPages();
 
 
@@ -93,6 +85,11 @@ namespace CombatTracker.Web
             {
                 configuration.RootPath = "dist/CEATSiiApp";
             });
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "CombatTracker.Web", Version = "v1" });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -102,6 +99,9 @@ namespace CombatTracker.Web
             {
                 app.UseDeveloperExceptionPage();
                 app.UseDatabaseErrorPage();
+                app.UseMigrationsEndPoint();
+                app.UseSwagger();
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "CombatTracker.Web v1"));
             }
             else
             {
@@ -111,13 +111,15 @@ namespace CombatTracker.Web
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+
             if (!env.IsDevelopment())
             {
                 app.UseSpaStaticFiles();
             }
 
+
             app.UseRouting();
-            // global cors policy
+
             app.UseCors(x => x
                 .AllowAnyOrigin()
                 .AllowAnyMethod()
@@ -127,14 +129,15 @@ namespace CombatTracker.Web
             app.UseIdentityServer();
             app.UseAuthorization();
 
-
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllers();
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
+
 
             app.UseSpa(spa =>
             {

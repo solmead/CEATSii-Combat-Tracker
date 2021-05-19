@@ -81,15 +81,15 @@ namespace CombatTracker.Web.Models
             Extensions.ReturnUrl = returnUrl;
         }
 
-        public static ISessionContext _sessionContext(this HtmlHelper helper)
-        {
-            var s = helper.ViewBag.SessionContext as ISessionContext;
-            if (s == null)
-            {
-                //s = new SessionInfo();
-            }
-            return s;
-        }
+        //public static ISessionContext _sessionContext(this HtmlHelper helper)
+        //{
+        //    var s = helper.ViewBag.SessionContext as ISessionContext;
+        //    if (s == null)
+        //    {
+        //        //s = new SessionInfo();
+        //    }
+        //    return s;
+        //}
 
 
         public static string GetRouteString(this ActionExecutedContext context, string name)

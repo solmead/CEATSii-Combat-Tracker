@@ -1,4 +1,4 @@
-﻿import { TestBed, async, ComponentFixture, ComponentFixtureAutoDetect } from '@angular/core/testing';
+﻿import { TestBed, ComponentFixture, ComponentFixtureAutoDetect, waitForAsync } from '@angular/core/testing';
 import { BrowserModule, By } from "@angular/platform-browser";
 import { MainNavMenuComponent } from './main-nav-menu.component';
 
@@ -6,7 +6,7 @@ let component: MainNavMenuComponent;
 let fixture: ComponentFixture<MainNavMenuComponent>;
 
 describe('mainNavMenu component', () => {
-    beforeEach(async(() => {
+    beforeEach(waitForAsync(() => {
         TestBed.configureTestingModule({
             declarations: [ MainNavMenuComponent ],
             imports: [ BrowserModule ],
@@ -18,7 +18,7 @@ describe('mainNavMenu component', () => {
         component = fixture.componentInstance;
     }));
 
-    it('should do something', async(() => {
+    it('should do something', waitForAsync(() => {
         expect(true).toEqual(true);
     }));
 });

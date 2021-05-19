@@ -351,3 +351,6 @@ MigrationBackup/
 CombatTracker/TypeScriptGenerator
 .DS_Store
 test
+CombatTracker/CombatTracker.WebV2
+CombatTracker/CombatTracker.WebApi
+CombatTracker/CombatTracker.Ang
