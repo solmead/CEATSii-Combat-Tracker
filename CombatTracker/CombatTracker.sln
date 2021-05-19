@@ -11,9 +11,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CombatTracker.Services", "C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CombatTracker.Authorization", "CombatTracker.Authorization\CombatTracker.Authorization.csproj", "{146763F3-8FBD-40FF-879C-15BBA48B2F77}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CombatTracker.Web", "CombatTracker.Web\CombatTracker.Web.csproj", "{9E22C6D8-99A9-4D28-8B1F-9F28018945D8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CombatTracker.Web", "CombatTracker.Web\CombatTracker.Web.csproj", "{9E22C6D8-99A9-4D28-8B1F-9F28018945D8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CombatTracker.Ang", "CombatTracker.Ang\CombatTracker.Ang.csproj", "{F543D394-61F6-4592-81B0-876ED615A3CA}"
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{2D2691CC-74F7-49B4-9CED-97680D03D8DA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Db", "Db", "{058799C4-416C-4A7A-84CE-5875D0BFDF41}"
+	ProjectSection(SolutionItems) = preProject
+		Db\create-database.sql = Db\create-database.sql
+		Db\Dockerfile = Db\Dockerfile
+		Db\entrypoint.sh = Db\entrypoint.sh
+		Db\run-initialization.sh = Db\run-initialization.sh
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,10 +49,10 @@ Global
 		{9E22C6D8-99A9-4D28-8B1F-9F28018945D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9E22C6D8-99A9-4D28-8B1F-9F28018945D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9E22C6D8-99A9-4D28-8B1F-9F28018945D8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F543D394-61F6-4592-81B0-876ED615A3CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F543D394-61F6-4592-81B0-876ED615A3CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F543D394-61F6-4592-81B0-876ED615A3CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F543D394-61F6-4592-81B0-876ED615A3CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D2691CC-74F7-49B4-9CED-97680D03D8DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D2691CC-74F7-49B4-9CED-97680D03D8DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D2691CC-74F7-49B4-9CED-97680D03D8DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D2691CC-74F7-49B4-9CED-97680D03D8DA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

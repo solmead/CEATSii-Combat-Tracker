@@ -1,0 +1,14 @@
+version: '3.4'
+
+services:
+  rmss-db-server:
+    build: ./Db
+  combattracker.web:
+    image: ${DOCKER_REGISTRY-}combattrackerweb
+    build:
+      context: .
+      dockerfile: CombatTracker.Web/Dockerfile
+    ports:
+      - 8080:80
+    depends_on:
+      - rmss-db-server

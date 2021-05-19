@@ -8,6 +8,10 @@ EXPOSE 443
 FROM mcr.microsoft.com/dotnet/sdk:5.0-buster-slim AS build
 WORKDIR /src
 COPY ["CombatTracker.Web/CombatTracker.Web.csproj", "CombatTracker.Web/"]
+COPY ["CombatTracker.Domain/CombatTracker.Domain.csproj", "CombatTracker.Domain/"]
+COPY ["CombatTracker.Entities/CombatTracker.Entities.csproj", "CombatTracker.Entities/"]
+COPY ["CombatTracker.Services/CombatTracker.Services.csproj", "CombatTracker.Services/"]
+COPY ["CombatTracker.Authorization/CombatTracker.Authorization.csproj", "CombatTracker.Authorization/"]
 RUN dotnet restore "CombatTracker.Web/CombatTracker.Web.csproj"
 COPY . .
 WORKDIR "/src/CombatTracker.Web"
