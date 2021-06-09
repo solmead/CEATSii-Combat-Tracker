@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CombatTracker.Entities.Abstract.Repos;
+using CombatTracker.Entities.Abstract.Services;
 using CombatTracker.Entities.Reference;
 using CombatTracker.Entities.Reference.Actions;
 using CombatTracker.Entities.Reference.Attacks.Charts;
 using CombatTracker.Entities.Reference.Creatures.Charts;
 using CombatTracker.Entities.Reference.Magic;
-using CombatTracker.Entities.Repositories;
-using CombatTracker.Entities.Service;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 

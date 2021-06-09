@@ -3,6 +3,8 @@ version: '3.4'
 services:
   rmss-db-server:
     build: ./Db
+    volumes:
+      - database-data:/var/opt/mssql
   combattracker.web:
     image: ${DOCKER_REGISTRY-}combattrackerweb
     build:
@@ -12,3 +14,7 @@ services:
       - 8080:80
     depends_on:
       - rmss-db-server
+
+      
+volumes:
+    database-data:

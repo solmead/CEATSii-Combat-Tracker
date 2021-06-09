@@ -13,7 +13,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Utilities.Caching" Version="6.7.6" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="5.0.0" />
+    <PackageReference Include="Utilities.Caching" Version="7.1.1" />
   </ItemGroup>
 
 </Project>

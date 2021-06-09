@@ -1,15 +1,16 @@
 # We choose exact tag (not 'latest'), to be sure that new version won't break creating image
-FROM mcr.microsoft.com/mssql/server:2017-CU17-ubuntu
+FROM mcr.microsoft.com/mssql/server:2019-CU10-ubuntu-20.04
 
 # Create app directory
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
+#RUN mkdir -p /usr/src/app
+#WORKDIR /usr/src/app
 
 # Copy initialization scripts
-COPY . /usr/src/app
+COPY . / 
+#/usr/src/app
 
 # Grant permissions for the run-initialization script to be executable
-RUN chmod +x /usr/src/app/run-initialization.sh
+#RUN chmod +x /run-initialization.sh #/usr/src/app
 
 # Set environment variables, not to have to write them with docker run command
 # Note: make sure that your password matches what is in the run-initialization script 

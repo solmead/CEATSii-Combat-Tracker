@@ -1,12 +1,12 @@
 ﻿using CombatTracker.Entities.Current;
 using CombatTracker.Entities.Reference;
 using CombatTracker.Entities.Reference.Actions;
-using CombatTracker.Entities.Repositories;
-using CombatTracker.Entities.Service;
 using System;
 using System.Linq;
 using System.Collections.Generic;
 using System.Text;
+using CombatTracker.Entities.Abstract.Repos;
+using CombatTracker.Entities.Abstract.Services;
 
 namespace CombatTracker.Services.Services.Types
 {

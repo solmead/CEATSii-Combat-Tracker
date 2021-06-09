@@ -5,10 +5,10 @@ using System.Linq;
 using CombatTracker.Entities.Current;
 using CombatTracker.Entities.Reference.Attacks;
 using CombatTracker.Entities.Reference.Attacks.Charts;
-using CombatTracker.Entities.Repositories;
 using CombatTracker.Entities.Reference;
 using Utilities.Caching;
 using CombatTracker.Domain.Reference.Attacks;
+using CombatTracker.Entities.Abstract.Repos;
 
 namespace CombatTracker.Domain.Repositories
 {

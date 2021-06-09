@@ -4,10 +4,9 @@ using System.Text;
 using System.Linq;
 using CombatTracker.Entities.Current;
 using CombatTracker.Entities.Reference.Attacks;
-using CombatTracker.Entities.Repositories;
 using Utilities.Caching;
 using CombatTracker.Domain.Models;
-
+using CombatTracker.Entities.Abstract.Repos;
 
 namespace CombatTracker.Domain.Repositories
 {

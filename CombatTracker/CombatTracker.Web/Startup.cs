@@ -1,25 +1,11 @@
-using CombatTracker.Authorization;
-using CombatTracker.Domain;
-using CombatTracker.Entities.Security;
-using CombatTracker.Web.Factories;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authorization;
+using CombatTracker.Web.Configuration;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.OpenApi.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 using Utilities.Caching.AspNetCore.Configuration;
 
 namespace CombatTracker.Web
@@ -39,66 +25,35 @@ namespace CombatTracker.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<TrackerContext>(options =>
-                options.UseSqlServer(_configuration.GetConnectionString("DefaultConnection")));
 
 
-            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-            services.AddScoped(sp => sp.GetRequiredService<IHttpContextAccessor>().HttpContext);
-            services.RegisterServices();
+            services.RegisterSiteServices(_configuration);
+            services.ConfigureCache();
 
 
             services.AddDatabaseDeveloperPageExceptionFilter();
 
-            services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddRoles<IdentityRole>()
-                .AddEntityFrameworkStores<TrackerContext>();
-
-
-
-            services.AddIdentityServer()
-                .AddApiAuthorization<ApplicationUser, TrackerContext>();
-
-            services.AddAuthentication()
-                .AddIdentityServerJwt();
-
-            services.AddCors();
-            services.AddControllersWithViews();
-
-            services.AddRazorPages();
-
-
-            // Authorization handlers.
-            services.AddScoped<IAuthorizationHandler,
-                                  CreatureIsOwnerAuthorizationHandler>();
-
-            services.AddSingleton<IAuthorizationHandler,
-                                  CreatureAdministratorsAuthorizationHandler>();
-
-            services.AddSingleton<IAuthorizationHandler,
-                                  CreatureManagerAuthorizationHandler>();
-
-
-
             // In production, the Angular files will be served from this directory
+            //services.AddSpaStaticFiles(configuration =>
+            //{
+            //    configuration.RootPath = "dist/CEATSiiApp";
+            //});
             services.AddSpaStaticFiles(configuration =>
             {
-                configuration.RootPath = "dist/CEATSiiApp";
+                configuration.RootPath = "CEATSiiApp/dist";
             });
 
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "CombatTracker.Web", Version = "v1" });
-            });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILogger _logger)
         {
+            //Database.Initilize();
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseDatabaseErrorPage();
+                //app.UseDatabaseErrorPage();
                 app.UseMigrationsEndPoint();
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "CombatTracker.Web v1"));
@@ -129,6 +84,8 @@ namespace CombatTracker.Web
             app.UseIdentityServer();
             app.UseAuthorization();
 
+            app.UseSession();
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
@@ -153,6 +110,7 @@ namespace CombatTracker.Web
             });
 
             app.InitCache();
+            _logger.LogInformation("Starting App Finished");
         }
     }
 }

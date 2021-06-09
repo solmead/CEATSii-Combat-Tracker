@@ -5,7 +5,7 @@ using CombatTracker.Entities.Reference;
 using CombatTracker.Entities.Reference.Attacks;
 using CombatTracker.Entities.Reference.Creatures;
 
-namespace CombatTracker.Entities.Repositories
+namespace CombatTracker.Entities.Abstract.Repos
 {
     public interface ICreatureRepository
     {
@@ -16,6 +16,6 @@ namespace CombatTracker.Entities.Repositories
         void DeleteCreature(Creature character);
         void DeleteCreature(int id);
 
-        
+
     }
 }

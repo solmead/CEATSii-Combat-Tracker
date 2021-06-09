@@ -6,10 +6,10 @@ using CombatTracker.Entities.Reference.Creatures;
 using System.Linq;
 using CombatTracker.Entities.Current;
 using CombatTracker.Entities.Reference;
-using CombatTracker.Entities.Repositories;
 using Utilities.Caching;
 using CombatTracker.Domain.Reference.Creatures;
 using Microsoft.EntityFrameworkCore;
+using CombatTracker.Entities.Abstract.Repos;
 
 namespace CombatTracker.Domain.Repositories
 {
@@ -151,7 +151,7 @@ namespace CombatTracker.Domain.Repositories
                 _combatRepository.DeleteAttack(att.ID);
             }
 
-            CacheSystem.Instance.ClearTaggedCache("creatures");
+            Cache.Instance.ClearTaggedCache("creatures");
             return GetCreature(creature.ID);
         }
 
@@ -164,7 +164,7 @@ namespace CombatTracker.Domain.Repositories
                 db.Creatures.Remove(car);
                 db.SaveChanges();
             }
-            CacheSystem.Instance.ClearTaggedCache("creatures");
+            Cache.Instance.ClearTaggedCache("creatures");
         }
 
         public void DeleteCreature(int id)
@@ -175,7 +175,7 @@ namespace CombatTracker.Domain.Repositories
                 db.Creatures.Remove(car);
                 db.SaveChanges();
             }
-            CacheSystem.Instance.ClearTaggedCache("creatures");
+            Cache.Instance.ClearTaggedCache("creatures");
         }
 
     }

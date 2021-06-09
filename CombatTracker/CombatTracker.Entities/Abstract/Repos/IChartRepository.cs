@@ -7,7 +7,7 @@ using CombatTracker.Entities.Reference.Attacks.Charts;
 using CombatTracker.Entities.Reference.Creatures.Charts;
 using CombatTracker.Entities.Reference.Magic;
 
-namespace CombatTracker.Entities.Repositories
+namespace CombatTracker.Entities.Abstract.Repos
 {
     public interface IChartRepository
     {
@@ -41,7 +41,7 @@ namespace CombatTracker.Entities.Repositories
         List<LevelChart> GetLevelCharts();
         LevelChart GetLevelChart(int id);
         LevelChart GetLevelChart(string name);
-        
+
         List<Outlook> GetOutlooks();
         Outlook GetOutlook(int id);
         Outlook GetOutlook(string name);

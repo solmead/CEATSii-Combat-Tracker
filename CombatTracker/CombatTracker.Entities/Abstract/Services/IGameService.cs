@@ -7,7 +7,7 @@ using CombatTracker.Entities.Reference.Actions;
 using CombatTracker.Entities.Reference.Attacks;
 using CombatTracker.Entities.Reference.Base;
 
-namespace CombatTracker.Entities.Service
+namespace CombatTracker.Entities.Abstract.Services
 {
     public interface IGameService
     {
@@ -51,7 +51,7 @@ namespace CombatTracker.Entities.Service
 
         //void AddCriticalToActor(Actor actor, CriticalEffect crit, int rounds);
         //void AddRoundsCriticalAffectsToActor(Actor actor, CriticalEffect cAffect, int rounds);
-        
+
 
         void SetCurrentAction(Actor actor, BaseAction action);
         void SetProposedAction(Actor actor, BaseAction action);

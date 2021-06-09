@@ -1,8 +1,8 @@
-﻿using CombatTracker.Entities.Current;
+﻿using CombatTracker.Entities.Abstract.Repos;
+using CombatTracker.Entities.Abstract.Services;
+using CombatTracker.Entities.Current;
 using CombatTracker.Entities.Reference;
 using CombatTracker.Entities.Reference.Actions;
-using CombatTracker.Entities.Repositories;
-using CombatTracker.Entities.Service;
 using CombatTracker.Services.Services.Types;
 using System;
 using System.Collections.Generic;

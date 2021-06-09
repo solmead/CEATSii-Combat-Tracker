@@ -5,12 +5,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace CombatTracker.Entities.Service
+namespace CombatTracker.Entities.Abstract.Services
 {
     public interface IActionServices
     {
         BaseAction GetStandardAction(ActionDefinition action, BaseAction prevAction, Actor whom, Game game);
-        BaseAction GetSpecialAction(ActorActionType action, Actor whom, Game game, int count=0);
+        BaseAction GetSpecialAction(ActorActionType action, Actor whom, Game game, int count = 0);
 
 
         MoveNextResult ProcessAction(BaseAction action, Actor whom, IGameService gameService);

@@ -4,7 +4,7 @@ using System.Text;
 using CombatTracker.Entities.Current;
 using CombatTracker.Entities.Reference;
 
-namespace CombatTracker.Entities.Repositories
+namespace CombatTracker.Entities.Abstract.Repos
 {
     public interface ICharacterRepository
     {

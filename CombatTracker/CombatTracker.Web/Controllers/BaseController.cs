@@ -1,5 +1,5 @@
-﻿using CombatTracker.Entities.Security;
-using CombatTracker.Entities.Service;
+﻿using CombatTracker.Entities.Abstract.Services;
+using CombatTracker.Entities.Security;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;

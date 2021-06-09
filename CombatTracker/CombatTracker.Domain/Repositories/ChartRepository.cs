@@ -6,10 +6,10 @@ using CombatTracker.Entities.Reference;
 using CombatTracker.Entities.Reference.Attacks.Charts;
 using CombatTracker.Entities.Reference.Creatures.Charts;
 using CombatTracker.Entities.Reference.Magic;
-using CombatTracker.Entities.Repositories;
 using Utilities.Caching;
 using CombatTracker.Entities;
 using CombatTracker.Entities.Reference.Actions;
+using CombatTracker.Entities.Abstract.Repos;
 
 namespace CombatTracker.Domain.Repositories
 {

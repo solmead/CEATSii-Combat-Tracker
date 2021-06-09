@@ -4,8 +4,8 @@ import { GameComponent } from './components/game/game.component';
 import { CharacterComponent } from './components/character/character.component';
 import { ActorComponent } from './components/actor/actor.component';
 import { EncounterComponent } from './components/encounter/encounter.component';
-import { HomeComponent } from '@/top/home';
-import { CreatureComponent } from '@/top/creature';
+import { HomeComponent } from './top/home';
+import { CreatureComponent } from './top/creature';
 import { AuthorizeGuard } from './api-authorization/authorize.guard';
 
 

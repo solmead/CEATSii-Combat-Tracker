@@ -1,4 +1,4 @@
-﻿using CombatTracker.Entities.Service;
+﻿using CombatTracker.Entities.Abstract.Services;
 using CombatTracker.Web.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

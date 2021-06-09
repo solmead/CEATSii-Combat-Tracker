@@ -1,7 +1,7 @@
-﻿using CombatTracker.Entities.Current;
+﻿using CombatTracker.Entities.Abstract.Services;
+using CombatTracker.Entities.Current;
 using CombatTracker.Entities.Reference;
 using CombatTracker.Entities.Reference.Actions;
-using CombatTracker.Entities.Service;
 using System;
 using System.Collections.Generic;
 using System.Text;

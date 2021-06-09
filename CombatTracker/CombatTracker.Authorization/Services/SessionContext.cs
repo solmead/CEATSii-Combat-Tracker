@@ -1,5 +1,4 @@
 ﻿using CombatTracker.Entities.Security;
-using CombatTracker.Entities.Service;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
@@ -9,6 +8,7 @@ using System.Security.Claims;
 using Microsoft.AspNetCore.Identity;
 using System.Threading.Tasks;
 using CombatTracker.Authorization;
+using CombatTracker.Entities.Abstract.Services;
 
 namespace CombatTracker.Authorization.Services
 {

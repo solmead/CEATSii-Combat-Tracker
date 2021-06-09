@@ -1,6 +1,6 @@
-﻿using CombatTracker.Entities.Reference;
+﻿using CombatTracker.Entities.Abstract.Services;
+using CombatTracker.Entities.Reference;
 using CombatTracker.Entities.Security;
-using CombatTracker.Entities.Service;
 using CombatTracker.Entities.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.WebUtilities;

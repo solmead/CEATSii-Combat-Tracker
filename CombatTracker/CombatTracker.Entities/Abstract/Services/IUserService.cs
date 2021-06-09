@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CombatTracker.Entities.Service
+namespace CombatTracker.Entities.Abstract.Services
 {
     public interface IUserService
     {

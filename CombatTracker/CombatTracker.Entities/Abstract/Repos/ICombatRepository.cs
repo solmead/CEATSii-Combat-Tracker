@@ -6,7 +6,7 @@ using CombatTracker.Entities.Reference;
 using CombatTracker.Entities.Reference.Attacks;
 using CombatTracker.Entities.Reference.Creatures;
 
-namespace CombatTracker.Entities.Repositories
+namespace CombatTracker.Entities.Abstract.Repos
 {
     public interface ICombatRepository
     {

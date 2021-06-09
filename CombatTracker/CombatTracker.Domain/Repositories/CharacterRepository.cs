@@ -4,10 +4,10 @@ using System.Text;
 using System.Linq;
 using CombatTracker.Entities.Current;
 using CombatTracker.Entities.Reference;
-using CombatTracker.Entities.Repositories;
 using Utilities.Caching;
 using CombatTracker.Domain.Reference.Players;
 using Microsoft.EntityFrameworkCore;
+using CombatTracker.Entities.Abstract.Repos;
 
 namespace CombatTracker.Domain.Repositories
 {
@@ -112,8 +112,8 @@ namespace CombatTracker.Domain.Repositories
                 _combatRepository.DeleteWeapon(weapon.ID);
             }
 
-            CacheSystem.Instance.ClearTaggedCache("characters");
-            //CacheSystem.Instance.ClearTaggedCache("combatItems");
+            Cache.Instance.ClearTaggedCache("characters");
+            //Cache.Instance.ClearTaggedCache("combatItems");
             return GetCharacter(character.ID);
         }
 
@@ -125,7 +125,7 @@ namespace CombatTracker.Domain.Repositories
                 db.Characters.Remove(car);
                 db.SaveChanges();
             }
-            CacheSystem.Instance.ClearTaggedCache("characters");
+            Cache.Instance.ClearTaggedCache("characters");
         }
 
         public void DeleteCharacter(int id)
@@ -136,7 +136,7 @@ namespace CombatTracker.Domain.Repositories
                 db.Characters.Remove(car);
                 db.SaveChanges();
             }
-            CacheSystem.Instance.ClearTaggedCache("characters");
+            Cache.Instance.ClearTaggedCache("characters");
         }
 
 
