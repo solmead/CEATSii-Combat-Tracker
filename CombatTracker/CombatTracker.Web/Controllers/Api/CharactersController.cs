@@ -11,10 +11,9 @@ using Microsoft.AspNetCore.Mvc;
 namespace CombatTracker.Web.Controllers.Api
 {
 
-    [ApiController]
-    [Produces("application/json")]
-    [Route("api/Characters")]
-    public class CharactersController : BaseController
+    [ApiVersion("1.0")]
+    [ApiExplorerSettings(GroupName = "v1")]
+    public class CharactersController : BaseApiController
     {
 
         public readonly ICharacterRepository _characterRepository;
@@ -35,17 +34,17 @@ namespace CombatTracker.Web.Controllers.Api
             //list = (from i in list where i.GameType == gameType select i).ToList();
             return list;
         }
-        [HttpGet("[action]")]
+        [HttpGet("[action]/{id}")]
         public Character GetCharacter(int id)
         {
             return _characterRepository.GetCharacter(id);
         }
-        [HttpPost("[action]")]
+        [HttpPost("SaveCharacter")]
         public Character SaveCharacter([FromBody] Character character)
         {
             return _characterRepository.SaveCharacter(character);
         }
-        [HttpDelete("[action]")]
+        [HttpDelete("[action]/{id}")]
         public void DeleteCharacter(int id)
         {
             _characterRepository.DeleteCharacter(id);

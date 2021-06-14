@@ -275,6 +275,7 @@ $Classes(*Api.*Controller)[
     import * as Enums from '@/entities/EnumDefinitions'
     $ImportsListMethods
 
+var version = "1.0";
 
 @Injectable({ providedIn: 'root' })
 export class $ServiceName {
@@ -299,11 +300,23 @@ export class $ServiceName {
 	}
 
 	public $name = ($Parameters[$name: $Type][, ]) : Observable<$ReturnType> => {
+        $Parameters[$name = ($name == null ? <$Type><any>"" : $name);
+        ]
         var _Url = `$Url`;
-            return this._httpClient.$HttpMethod$MethodFormat;
+            return this._httpClient.$HttpMethod$MethodFormat
+                .pipe(catchError(this.handleError));
 	};
 
     ]
+    // Utility
+    private handleError(error: HttpErrorResponse) {
+        console.error(error);
+        let customError: string = "";
+        if (error.error) {
+            customError = error.status === 400 ? error.error : error.statusText
+        }
+        return Observable.throw(customError || 'Server error');
+    }
 }]
 
 

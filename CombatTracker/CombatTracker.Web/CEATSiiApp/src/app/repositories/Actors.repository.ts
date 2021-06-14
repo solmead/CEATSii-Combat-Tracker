@@ -15,22 +15,23 @@ import { map, catchError } from "rxjs/operators";
     import * as Enums from '@/entities/EnumDefinitions'
     import { Actor } from '@/entities';
 
+var version = "1.0";
 
 @Injectable({ providedIn: 'root' })
 export class ActorsRepository {
 
     constructor(private _httpClient: HttpClient) { }
     
-    // get: api/Actors/getActors?gameId=${gameId}
+    // get: api/v${version}/Actors/getActorsInGame/${gameId}
 
-	//public getActors = (gameId: number, callback: (data: Actor[])=>void) : void => {
-	//	this.getActorsObserve(gameId).subscribe(response => callback(response));
+	//public getActorsInGame = (gameId: number, callback: (data: Actor[])=>void) : void => {
+	//	this.getActorsInGameObserve(gameId).subscribe(response => callback(response));
 	//}
 
-	public getActorsAsync = (gameId: number) : Promise<Actor[]> => {
+	public getActorsInGameAsync = (gameId: number) : Promise<Actor[]> => {
 
         return new Promise<Actor[]>((resolve, reject) => {
-            this.getActors(gameId)
+            this.getActorsInGame(gameId)
             .subscribe((res) => {
                     resolve(res);
                 });
@@ -38,13 +39,16 @@ export class ActorsRepository {
         });
 	}
 
-	public getActors = (gameId: number) : Observable<Actor[]> => {
-        var _Url = `api/Actors/getActors?gameId=${gameId}`;
-            return this._httpClient.get<Actor[]>(_Url);
+	public getActorsInGame = (gameId: number) : Observable<Actor[]> => {
+        gameId = (gameId == null ? <number><any>"" : gameId);
+        
+        var _Url = `api/v${version}/Actors/getActorsInGame/${gameId}`;
+            return this._httpClient.get<Actor[]>(_Url)
+                .pipe(catchError(this.handleError));
 	};
 
     
-    // get: api/Actors/getActor?id=${id}
+    // get: api/v${version}/Actors/getActor/${id}
 
 	//public getActor = (id: number, callback: (data: Actor)=>void) : void => {
 	//	this.getActorObserve(id).subscribe(response => callback(response));
@@ -62,12 +66,15 @@ export class ActorsRepository {
 	}
 
 	public getActor = (id: number) : Observable<Actor> => {
-        var _Url = `api/Actors/getActor?id=${id}`;
-            return this._httpClient.get<Actor>(_Url);
+        id = (id == null ? <number><any>"" : id);
+        
+        var _Url = `api/v${version}/Actors/getActor/${id}`;
+            return this._httpClient.get<Actor>(_Url)
+                .pipe(catchError(this.handleError));
 	};
 
     
-    // post: api/Actors/saveActor
+    // post: api/v${version}/Actors/SaveActor
 
 	//public saveActor = (actor: Actor, callback: (data: Actor)=>void) : void => {
 	//	this.saveActorObserve(actor).subscribe(response => callback(response));
@@ -85,12 +92,15 @@ export class ActorsRepository {
 	}
 
 	public saveActor = (actor: Actor) : Observable<Actor> => {
-        var _Url = `api/Actors/saveActor`;
-            return this._httpClient.post<Actor>(_Url, actor);
+        actor = (actor == null ? <Actor><any>"" : actor);
+        
+        var _Url = `api/v${version}/Actors/SaveActor`;
+            return this._httpClient.post<Actor>(_Url, actor)
+                .pipe(catchError(this.handleError));
 	};
 
     
-    // delete: api/Actors/deleteActor?id=${id}
+    // delete: api/v${version}/Actors/deleteActor/${id}
 
 	//public deleteActor = (id: number, callback: (data: void)=>void) : void => {
 	//	this.deleteActorObserve(id).subscribe(response => callback(response));
@@ -108,11 +118,23 @@ export class ActorsRepository {
 	}
 
 	public deleteActor = (id: number) : Observable<void> => {
-        var _Url = `api/Actors/deleteActor?id=${id}`;
-            return this._httpClient.delete<void>(_Url);
+        id = (id == null ? <number><any>"" : id);
+        
+        var _Url = `api/v${version}/Actors/deleteActor/${id}`;
+            return this._httpClient.delete<void>(_Url)
+                .pipe(catchError(this.handleError));
 	};
 
     
+    // Utility
+    private handleError(error: HttpErrorResponse) {
+        console.error(error);
+        let customError: string = "";
+        if (error.error) {
+            customError = error.status === 400 ? error.error : error.statusText
+        }
+        return Observable.throw(customError || 'Server error');
+    }
 }
 
 

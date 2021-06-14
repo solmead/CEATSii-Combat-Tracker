@@ -11,10 +11,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CombatTracker.Web.Controllers.Api
 {
-    [ApiController]
-    [Produces("application/json")]
-    [Route("api/[controller]")]
-    public class ActionsController : BaseController
+    [ApiVersion("1.0")]
+    [ApiExplorerSettings(GroupName = "v1")]
+    public class ActionsController : BaseApiController
     {
 
         public readonly IGameRepository _gameRepository;
@@ -26,29 +25,29 @@ namespace CombatTracker.Web.Controllers.Api
         }
 
 
-        [HttpGet("[action]")]
+        [HttpGet("[action]/{actorId}")]
         public List<BaseAction> GetActionsOnActor(int actorId)
         {
             return _gameRepository.GetActionsOnActor(actorId);
         }
-        [HttpGet("[action]")]
+        [HttpGet("[action]/{gameId}")]
         public List<BaseAction> GetActionsInGame(int gameId)
         {
             var lst = _gameRepository.GetActionsInGame(gameId);
             var s = Newtonsoft.Json.JsonConvert.SerializeObject(lst);
             return lst;
         }
-        [HttpGet("[action]")]
+        [HttpGet("[action]/{id}")]
         public BaseAction GetAction(int id)
         {
             return _gameRepository.GetAction(id);
         }
-        [HttpPost("[action]")]
+        [HttpPost("SaveAction")]
         public BaseAction SaveAction([FromBody] BaseAction action)
         {
             return _gameRepository.SaveAction(action);
         }
-        [HttpDelete("[action]")]
+        [HttpDelete("[action]/{id}")]
         public void DeleteAction(int id)
         {
             _gameRepository.DeleteAction(id);

@@ -18,10 +18,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CombatTracker.Web.Controllers.Api
 {
-    [ApiController]
-    [Produces("application/json")]
-    [Route("api/Creature")]
-    public class CreaturesController : BaseController
+    [ApiVersion("1.0")]
+    [ApiExplorerSettings(GroupName = "v1")]
+    public class CreaturesController : BaseApiController
     {
         public readonly ICreatureRepository _creatureRepository;
         protected IAuthorizationService _authorizationService { get; }
@@ -82,7 +81,7 @@ namespace CombatTracker.Web.Controllers.Api
             return await list.ToListAsync();
         }
 
-        [HttpGet("[action]")]
+        [HttpGet("[action]/{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         public async Task<ActionResult<Creature>> GetCreature(int id)
@@ -103,7 +102,7 @@ namespace CombatTracker.Web.Controllers.Api
             return creature;
         }
 
-        [HttpPost("[action]")]
+        [HttpPost("SaveCreature")]
         [Consumes(MediaTypeNames.Application.Json)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status201Created)]
@@ -151,7 +150,7 @@ namespace CombatTracker.Web.Controllers.Api
 
         }
 
-        [HttpDelete("[action]")]
+        [HttpDelete("[action]/{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]

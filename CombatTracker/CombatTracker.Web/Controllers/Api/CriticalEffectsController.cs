@@ -10,10 +10,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CombatTracker.Web.Controllers.Api
 {
-    [ApiController]
-    [Produces("application/json")]
-    [Route("api/[controller]")]
-    public class CriticalEffectsController : BaseController
+    [ApiVersion("1.0")]
+    [ApiExplorerSettings(GroupName = "v1")]
+    public class CriticalEffectsController : BaseApiController
     {
 
         public readonly IGameRepository _gameRepository;
@@ -26,22 +25,22 @@ namespace CombatTracker.Web.Controllers.Api
 
 
 
-        [HttpGet("[action]")]
+        [HttpGet("[action]/{actorId}")]
         public List<CriticalEffect> GetCriticalEffects(int actorId)
         {
             return _gameRepository.GetCriticalEffects(actorId);
         }
-        [HttpGet("[action]")]
+        [HttpGet("[action]/{id}")]
         public CriticalEffect GetCriticalEffect(int id)
         {
             return _gameRepository.GetCriticalEffect(id);
         }
-        [HttpPost("[action]")]
+        [HttpPost("SaveCriticalEffect")]
         public CriticalEffect SaveCriticalEffect([FromBody] CriticalEffect criticalEffect)
         {
             return _gameRepository.SaveCriticalEffect(criticalEffect);
         }
-        [HttpDelete("[action]")]
+        [HttpDelete("[action]/{id}")]
         public void DeleteCriticalEffect(int id)
         {
             _gameRepository.DeleteCriticalEffect(id);

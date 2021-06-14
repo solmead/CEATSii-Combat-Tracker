@@ -15,12 +15,22 @@ import { map, catchError } from "rxjs/operators";
     import * as Enums from '@/entities/EnumDefinitions'
     
 
+var version = "1.0";
 
 @Injectable({ providedIn: 'root' })
 export class SettingsRepository {
 
     constructor(private _httpClient: HttpClient) { }
     
+    // Utility
+    private handleError(error: HttpErrorResponse) {
+        console.error(error);
+        let customError: string = "";
+        if (error.error) {
+            customError = error.status === 400 ? error.error : error.statusText
+        }
+        return Observable.throw(customError || 'Server error');
+    }
 }
 
 

@@ -15,13 +15,14 @@ import { map, catchError } from "rxjs/operators";
     import * as Enums from '@/entities/EnumDefinitions'
     import { Creature } from '@/entities';
 
+var version = "1.0";
 
 @Injectable({ providedIn: 'root' })
 export class CreaturesRepository {
 
     constructor(private _httpClient: HttpClient) { }
     
-    // get: api/Creature/getCreatures
+    // get: api/v${version}/Creatures/getCreatures
 
 	//public getCreatures = (, callback: (data: Creature[])=>void) : void => {
 	//	this.getCreaturesObserve().subscribe(response => callback(response));
@@ -39,12 +40,14 @@ export class CreaturesRepository {
 	}
 
 	public getCreatures = () : Observable<Creature[]> => {
-        var _Url = `api/Creature/getCreatures`;
-            return this._httpClient.get<Creature[]>(_Url);
+        
+        var _Url = `api/v${version}/Creatures/getCreatures`;
+            return this._httpClient.get<Creature[]>(_Url)
+                .pipe(catchError(this.handleError));
 	};
 
     
-    // get: api/Creature/getCreature?id=${id}
+    // get: api/v${version}/Creatures/getCreature/${id}
 
 	//public getCreature = (id: number, callback: (data: Creature)=>void) : void => {
 	//	this.getCreatureObserve(id).subscribe(response => callback(response));
@@ -62,12 +65,15 @@ export class CreaturesRepository {
 	}
 
 	public getCreature = (id: number) : Observable<Creature> => {
-        var _Url = `api/Creature/getCreature?id=${id}`;
-            return this._httpClient.get<Creature>(_Url);
+        id = (id == null ? <number><any>"" : id);
+        
+        var _Url = `api/v${version}/Creatures/getCreature/${id}`;
+            return this._httpClient.get<Creature>(_Url)
+                .pipe(catchError(this.handleError));
 	};
 
     
-    // post: api/Creature/saveCreature
+    // post: api/v${version}/Creatures/SaveCreature
 
 	//public saveCreature = (creature: Creature, callback: (data: Creature)=>void) : void => {
 	//	this.saveCreatureObserve(creature).subscribe(response => callback(response));
@@ -85,12 +91,15 @@ export class CreaturesRepository {
 	}
 
 	public saveCreature = (creature: Creature) : Observable<Creature> => {
-        var _Url = `api/Creature/saveCreature`;
-            return this._httpClient.post<Creature>(_Url, creature);
+        creature = (creature == null ? <Creature><any>"" : creature);
+        
+        var _Url = `api/v${version}/Creatures/SaveCreature`;
+            return this._httpClient.post<Creature>(_Url, creature)
+                .pipe(catchError(this.handleError));
 	};
 
     
-    // delete: api/Creature/deleteCreature?id=${id}
+    // delete: api/v${version}/Creatures/deleteCreature/${id}
 
 	//public deleteCreature = (id: number, callback: (data: void)=>void) : void => {
 	//	this.deleteCreatureObserve(id).subscribe(response => callback(response));
@@ -108,11 +117,23 @@ export class CreaturesRepository {
 	}
 
 	public deleteCreature = (id: number) : Observable<void> => {
-        var _Url = `api/Creature/deleteCreature?id=${id}`;
-            return this._httpClient.delete<void>(_Url);
+        id = (id == null ? <number><any>"" : id);
+        
+        var _Url = `api/v${version}/Creatures/deleteCreature/${id}`;
+            return this._httpClient.delete<void>(_Url)
+                .pipe(catchError(this.handleError));
 	};
 
     
+    // Utility
+    private handleError(error: HttpErrorResponse) {
+        console.error(error);
+        let customError: string = "";
+        if (error.error) {
+            customError = error.status === 400 ? error.error : error.statusText
+        }
+        return Observable.throw(customError || 'Server error');
+    }
 }
 
 

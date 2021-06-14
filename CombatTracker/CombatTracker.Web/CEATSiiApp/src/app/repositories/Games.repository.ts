@@ -15,13 +15,14 @@ import { map, catchError } from "rxjs/operators";
     import * as Enums from '@/entities/EnumDefinitions'
     import { Game } from '@/entities';
 
+var version = "1.0";
 
 @Injectable({ providedIn: 'root' })
 export class GamesRepository {
 
     constructor(private _httpClient: HttpClient) { }
     
-    // get: api/Games/getGames
+    // get: api/v${version}/Games/getGames
 
 	//public getGames = (, callback: (data: Game[])=>void) : void => {
 	//	this.getGamesObserve().subscribe(response => callback(response));
@@ -39,12 +40,14 @@ export class GamesRepository {
 	}
 
 	public getGames = () : Observable<Game[]> => {
-        var _Url = `api/Games/getGames`;
-            return this._httpClient.get<Game[]>(_Url);
+        
+        var _Url = `api/v${version}/Games/getGames`;
+            return this._httpClient.get<Game[]>(_Url)
+                .pipe(catchError(this.handleError));
 	};
 
     
-    // get: api/Games/getGame?id=${id}
+    // get: api/v${version}/Games/getGame/${id}
 
 	//public getGame = (id: number, callback: (data: Game)=>void) : void => {
 	//	this.getGameObserve(id).subscribe(response => callback(response));
@@ -62,12 +65,15 @@ export class GamesRepository {
 	}
 
 	public getGame = (id: number) : Observable<Game> => {
-        var _Url = `api/Games/getGame?id=${id}`;
-            return this._httpClient.get<Game>(_Url);
+        id = (id == null ? <number><any>"" : id);
+        
+        var _Url = `api/v${version}/Games/getGame/${id}`;
+            return this._httpClient.get<Game>(_Url)
+                .pipe(catchError(this.handleError));
 	};
 
     
-    // post: api/Games/saveGame
+    // post: api/v${version}/Games/SaveGame
 
 	//public saveGame = (game: Game, callback: (data: Game)=>void) : void => {
 	//	this.saveGameObserve(game).subscribe(response => callback(response));
@@ -85,12 +91,15 @@ export class GamesRepository {
 	}
 
 	public saveGame = (game: Game) : Observable<Game> => {
-        var _Url = `api/Games/saveGame`;
-            return this._httpClient.post<Game>(_Url, game);
+        game = (game == null ? <Game><any>"" : game);
+        
+        var _Url = `api/v${version}/Games/SaveGame`;
+            return this._httpClient.post<Game>(_Url, game)
+                .pipe(catchError(this.handleError));
 	};
 
     
-    // delete: api/Games/deleteGame?id=${id}
+    // delete: api/v${version}/Games/deleteGame/${id}
 
 	//public deleteGame = (id: number, callback: (data: void)=>void) : void => {
 	//	this.deleteGameObserve(id).subscribe(response => callback(response));
@@ -108,11 +117,23 @@ export class GamesRepository {
 	}
 
 	public deleteGame = (id: number) : Observable<void> => {
-        var _Url = `api/Games/deleteGame?id=${id}`;
-            return this._httpClient.delete<void>(_Url);
+        id = (id == null ? <number><any>"" : id);
+        
+        var _Url = `api/v${version}/Games/deleteGame/${id}`;
+            return this._httpClient.delete<void>(_Url)
+                .pipe(catchError(this.handleError));
 	};
 
     
+    // Utility
+    private handleError(error: HttpErrorResponse) {
+        console.error(error);
+        let customError: string = "";
+        if (error.error) {
+            customError = error.status === 400 ? error.error : error.statusText
+        }
+        return Observable.throw(customError || 'Server error');
+    }
 }
 
 

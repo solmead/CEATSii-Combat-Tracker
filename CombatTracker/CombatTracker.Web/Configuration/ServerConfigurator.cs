@@ -1,5 +1,7 @@
-﻿using CombatTracker.Web.Models.Settings;
+﻿using CombatTracker.Web.Models.Conventions;
+using CombatTracker.Web.Models.Settings;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.Extensions.Configuration;
@@ -23,10 +25,14 @@ namespace CombatTracker.Web.Configuration
             services.Configure<SiteSettings>(configuration.GetSection(nameof(SiteSettings)));
 
 
+            services.AddHttpContextAccessor();
+            //services.AddActionContextAccessor();
             // Add useful interface for accessing the HttpContext outside a controller.
-            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            //services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             // Add useful interface for accessing the ActionContext outside a controller.
             services.AddSingleton<IActionContextAccessor, ActionContextAccessor>();
+
+
             // Add useful interface for accessing the IUrlHelper outside a controller.
             services.AddScoped(x => x
                     .GetRequiredService<IUrlHelperFactory>()
@@ -47,14 +53,20 @@ namespace CombatTracker.Web.Configuration
 
             services.AddCors();
 
-            services.AddControllersWithViews()
+            services.AddControllersWithViews(c => {
+                        //c.Conventions.Add(new ApiExplorerGroupPerVersionConvention()); // decorate Controllers to distinguish SwaggerDoc (v1, v2, etc.)
+                        //c.Conventions.Add(new ApiExplorerGroupPerVersionMethodConvention()); // decorate Controllers to distinguish SwaggerDoc (v1, v2, etc.)                    })
                     .AddJsonOptions(options =>
                             options.JsonSerializerOptions.PropertyNamingPolicy = null)
                     .AddNewtonsoftJson(options => {
                         options.UseMemberCasing();
                     });
             services.AddRazorPages();
-            services.AddApiVersioning();
+            services.AddApiVersioning(o =>
+            {
+                o.AssumeDefaultVersionWhenUnspecified = true;
+                o.DefaultApiVersion = new ApiVersion(1, 0);
+            });
             //services.AddGrpc();
 
             //    services.Configure<RazorViewEngineOptions>(o =>

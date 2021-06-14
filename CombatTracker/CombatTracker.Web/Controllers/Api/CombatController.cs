@@ -12,10 +12,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CombatTracker.Web.Controllers.Api
 {
-    [ApiController]
-    [Produces("application/json")]
-    [Route("api/Combat")]
-    public class CombatController : BaseController
+    [ApiVersion("1.0")]
+    [ApiExplorerSettings(GroupName = "v1")]
+    public class CombatController : BaseApiController
     {
 
         public readonly ICombatRepository _combatRepository;
@@ -30,27 +29,27 @@ namespace CombatTracker.Web.Controllers.Api
         }
         
 
-        [HttpDelete("[action]")]
+        [HttpDelete("[action]/{id}")]
         public void DeleteArmor(int id)
         {
             _combatRepository.DeleteArmor(id);
         }
         
 
-        [HttpDelete("[action]")]
+        [HttpDelete("[action]/{id}")]
         public void DeleteAttack(int id)
         {
             _combatRepository.DeleteAttack(id);
         }
         
 
-        [HttpDelete("[action]")]
+        [HttpDelete("[action]/{id}")]
         public void DeleteWeapon(int id)
         {
             _combatRepository.DeleteWeapon(id);
         }
 
-        [HttpGet("[action]")]
+        [HttpGet("[action]/{id}")]
         public Armor GetArmor(int id)
         {
             return _combatRepository.GetArmor(id);
@@ -62,13 +61,13 @@ namespace CombatTracker.Web.Controllers.Api
             return _combatRepository.GetArmors();
         }
 
-        [HttpGet("[action]")]
+        [HttpGet("[action]/{characterId}")]
         public List<Armor> GetArmorsOnCharacter(int characterId)
         {
             return _combatRepository.GetArmors(characterId);
         }
 
-        [HttpGet("[action]")]
+        [HttpGet("[action]/{id}")]
         public Attack GetAttack(int id)
         {
             return _combatRepository.GetAttack(id);
@@ -80,19 +79,19 @@ namespace CombatTracker.Web.Controllers.Api
             return _combatRepository.GetAttacks();
         }
 
-        [HttpGet("[action]")]
+        [HttpGet("[action]/{actorId}")]
         public List<Attack> GetAttacksOnActor(int actorId)
         {
             return _combatRepository.GetAttacksOnActor(actorId);
         }
 
-        [HttpGet("[action]")]
+        [HttpGet("[action]/{creatureId}")]
         public List<Attack> GetAttacksOnCreature(int creatureId)
         {
             return _combatRepository.GetAttacksOnCreature(creatureId);
         }
 
-        [HttpGet("[action]")]
+        [HttpGet("[action]/{id}")]
         public Weapon GetWeapon(int id)
         {
             return _combatRepository.GetWeapon(id);
@@ -104,32 +103,32 @@ namespace CombatTracker.Web.Controllers.Api
             return _combatRepository.GetWeapons();
         }
 
-        [HttpGet("[action]")]
+        [HttpGet("[action]/{characterId}")]
         public List<Weapon> GetWeaponsOnCharacter(int characterId)
         {
             return _combatRepository.GetWeapons(characterId);
         }
 
-        [HttpPost("[action]")]
+        [HttpPost("SaveArmor")]
         public Armor SaveArmor([FromBody] Armor armor)
         {
             return _combatRepository.SaveArmor(armor);
         }
 
-        [HttpPost("[action]")]
+        [HttpPost("SaveAttack")]
         public Attack SaveAttack([FromBody] Attack attack)
         {
             return _combatRepository.SaveAttack(attack);
         }
 
-        [HttpPost("[action]")]
+        [HttpPost("SaveAttackOnActor/{actorId}")]
         public Attack SaveAttackOnActor(int actorId, [FromBody]  Attack attack)
         {
             var actor = _gameRepository.GetActor(actorId);
             return _combatRepository.SaveAttack(actor, attack);
         }
 
-        [HttpPost("[action]")]
+        [HttpPost("SaveWeapon")]
         public Weapon SaveWeapon([FromBody] Weapon weapon)
         {
             return _combatRepository.SaveWeapon(weapon);

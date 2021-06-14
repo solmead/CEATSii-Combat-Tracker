@@ -34,6 +34,7 @@ namespace CombatTracker.Web
                     // dotnet user-secrets set SeedUserPW <pw>
 
                     var testUserPw = config["SeedUserPW"];
+                    testUserPw = testUserPw ?? "testPassword1!";
 
                     SeedData.Initialize(services, testUserPw).Wait();
                 }

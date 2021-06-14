@@ -11,10 +11,9 @@ using Utilities.Caching;
 
 namespace CombatTracker.Web.Controllers.Api
 {
-    [ApiController]
-    [Produces("application/json")]
-    [Route("api/Settings")]
-    public class SettingsController : BaseController
+    [ApiVersion("1.0")]
+    [ApiExplorerSettings(GroupName = "v1")]
+    public class SettingsController : BaseApiController
     {
 
         public SettingsController(

@@ -12,9 +12,9 @@ using Microsoft.AspNetCore.Mvc;
 namespace CombatTracker.Web.Controllers.Api
 {
 
-    [ApiController]
-    [Route("api/[controller]")]
-    public class ActorsController : BaseController
+    [ApiVersion("1.0")]
+    [ApiExplorerSettings(GroupName = "v1")]
+    public class ActorsController : BaseApiController
     {
         public readonly IGameRepository _gameRepository;
 
@@ -24,25 +24,25 @@ namespace CombatTracker.Web.Controllers.Api
             _gameRepository = gameRepository;
         }
 
-        [HttpGet("[action]")]
-        public List<Actor> GetActors(int gameId)
+        [HttpGet("[action]/{gameId}")]
+        public List<Actor> GetActorsInGame(int gameId)
         {
             return _gameRepository.GetActors(gameId);
         }
 
-        [HttpGet("[action]")]
+        [HttpGet("[action]/{id}")]
         public Actor GetActor(int id)
         {
             return _gameRepository.GetActor(id);
         }
 
-        [HttpPost("[action]")]
+        [HttpPost("SaveActor")]
         public Actor SaveActor([FromBody] Actor actor)
         {
             return _gameRepository.SaveActor(actor);
         }
 
-        [HttpDelete("[action]")]
+        [HttpDelete("[action]/{id}")]
         public void DeleteActor(int id)
         {
             _gameRepository.DeleteActor(id);

@@ -13,10 +13,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CombatTracker.Web.Controllers.Api
 {
-    [ApiController]
-    [Produces("application/json")]
-    [Route("api/[controller]")]
-    public class GamesController : BaseController
+    [ApiVersion("1.0")]
+    [ApiExplorerSettings(GroupName = "v1")]
+    public class GamesController : BaseApiController
     {
 
         public readonly IGameRepository _gameRepository;
@@ -38,19 +37,19 @@ namespace CombatTracker.Web.Controllers.Api
 
         }
 
-        [HttpGet("[action]")]
+        [HttpGet("[action]/{id}")]
         public Game GetGame(int id)
         {
             return _gameRepository.GetGame(id);
         }
 
-        [HttpPost("[action]")]
+        [HttpPost("SaveGame")]
         public Game SaveGame([FromBody] Game game)
         {
             return _gameRepository.SaveGame(game);
         }
 
-        [HttpDelete("[action]")]
+        [HttpDelete("[action]/{id}")]
         public void DeleteGame(int id)
         {
             _gameRepository.DeleteGame(id);

@@ -95,7 +95,7 @@ export class EncounterService {
         if (this.currentGame != null) {
             //this._currentGame = await this.gameRepo.getGameAsync(this._currentGame.id);
 
-            this.actors = await this.actorRepo.getActorsAsync(this.currentGame.id);
+            this.actors = await this.actorRepo.getActorsInGameAsync(this.currentGame.id);
             this.actions = await this.actionRepo.getActionsInGameAsync(this.currentGame.id);
             if (this.selectedActor == null) {
 

@@ -1,6 +1,6 @@
 
 import { CounterComponent } from './counter.component';
-import { TestBed, ComponentFixture, waitForAsync } from '@angular/core/testing';
+import { TestBed, async, ComponentFixture } from '@angular/core/testing';
 
 let fixture: ComponentFixture<CounterComponent>;
 
@@ -11,12 +11,12 @@ describe('Counter component', () => {
         fixture.detectChanges();
     });
 
-    it('should display a title', waitForAsync(() => {
+    it('should display a title', async(() => {
         const titleText = fixture.nativeElement.querySelector('h1').textContent;
         expect(titleText).toEqual('Counter');
     }));
 
-    it('should start with count 0, then increments by 1 when clicked', waitForAsync(() => {
+    it('should start with count 0, then increments by 1 when clicked', async(() => {
         const countElement = fixture.nativeElement.querySelector('strong');
         expect(countElement.textContent).toEqual('0');
 

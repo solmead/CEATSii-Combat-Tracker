@@ -15,13 +15,14 @@ import { map, catchError } from "rxjs/operators";
     import * as Enums from '@/entities/EnumDefinitions'
     import { CriticalEffect } from '@/entities';
 
+var version = "1.0";
 
 @Injectable({ providedIn: 'root' })
 export class CriticalEffectsRepository {
 
     constructor(private _httpClient: HttpClient) { }
     
-    // get: api/CriticalEffects/getCriticalEffects?actorId=${actorId}
+    // get: api/v${version}/CriticalEffects/getCriticalEffects/${actorId}
 
 	//public getCriticalEffects = (actorId: number, callback: (data: CriticalEffect[])=>void) : void => {
 	//	this.getCriticalEffectsObserve(actorId).subscribe(response => callback(response));
@@ -39,12 +40,15 @@ export class CriticalEffectsRepository {
 	}
 
 	public getCriticalEffects = (actorId: number) : Observable<CriticalEffect[]> => {
-        var _Url = `api/CriticalEffects/getCriticalEffects?actorId=${actorId}`;
-            return this._httpClient.get<CriticalEffect[]>(_Url);
+        actorId = (actorId == null ? <number><any>"" : actorId);
+        
+        var _Url = `api/v${version}/CriticalEffects/getCriticalEffects/${actorId}`;
+            return this._httpClient.get<CriticalEffect[]>(_Url)
+                .pipe(catchError(this.handleError));
 	};
 
     
-    // get: api/CriticalEffects/getCriticalEffect?id=${id}
+    // get: api/v${version}/CriticalEffects/getCriticalEffect/${id}
 
 	//public getCriticalEffect = (id: number, callback: (data: CriticalEffect)=>void) : void => {
 	//	this.getCriticalEffectObserve(id).subscribe(response => callback(response));
@@ -62,12 +66,15 @@ export class CriticalEffectsRepository {
 	}
 
 	public getCriticalEffect = (id: number) : Observable<CriticalEffect> => {
-        var _Url = `api/CriticalEffects/getCriticalEffect?id=${id}`;
-            return this._httpClient.get<CriticalEffect>(_Url);
+        id = (id == null ? <number><any>"" : id);
+        
+        var _Url = `api/v${version}/CriticalEffects/getCriticalEffect/${id}`;
+            return this._httpClient.get<CriticalEffect>(_Url)
+                .pipe(catchError(this.handleError));
 	};
 
     
-    // post: api/CriticalEffects/saveCriticalEffect
+    // post: api/v${version}/CriticalEffects/SaveCriticalEffect
 
 	//public saveCriticalEffect = (criticalEffect: CriticalEffect, callback: (data: CriticalEffect)=>void) : void => {
 	//	this.saveCriticalEffectObserve(criticalEffect).subscribe(response => callback(response));
@@ -85,12 +92,15 @@ export class CriticalEffectsRepository {
 	}
 
 	public saveCriticalEffect = (criticalEffect: CriticalEffect) : Observable<CriticalEffect> => {
-        var _Url = `api/CriticalEffects/saveCriticalEffect`;
-            return this._httpClient.post<CriticalEffect>(_Url, criticalEffect);
+        criticalEffect = (criticalEffect == null ? <CriticalEffect><any>"" : criticalEffect);
+        
+        var _Url = `api/v${version}/CriticalEffects/SaveCriticalEffect`;
+            return this._httpClient.post<CriticalEffect>(_Url, criticalEffect)
+                .pipe(catchError(this.handleError));
 	};
 
     
-    // delete: api/CriticalEffects/deleteCriticalEffect?id=${id}
+    // delete: api/v${version}/CriticalEffects/deleteCriticalEffect/${id}
 
 	//public deleteCriticalEffect = (id: number, callback: (data: void)=>void) : void => {
 	//	this.deleteCriticalEffectObserve(id).subscribe(response => callback(response));
@@ -108,11 +118,23 @@ export class CriticalEffectsRepository {
 	}
 
 	public deleteCriticalEffect = (id: number) : Observable<void> => {
-        var _Url = `api/CriticalEffects/deleteCriticalEffect?id=${id}`;
-            return this._httpClient.delete<void>(_Url);
+        id = (id == null ? <number><any>"" : id);
+        
+        var _Url = `api/v${version}/CriticalEffects/deleteCriticalEffect/${id}`;
+            return this._httpClient.delete<void>(_Url)
+                .pipe(catchError(this.handleError));
 	};
 
     
+    // Utility
+    private handleError(error: HttpErrorResponse) {
+        console.error(error);
+        let customError: string = "";
+        if (error.error) {
+            customError = error.status === 400 ? error.error : error.statusText
+        }
+        return Observable.throw(customError || 'Server error');
+    }
 }
 
 

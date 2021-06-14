@@ -16,10 +16,9 @@ using Utilities.Poco;
 
 namespace CombatTracker.Web.Controllers.Api
 {
-    [ApiController]
-    [Produces("application/json")]
-    [Route("api/[controller]")]
-    public class UsersController : BaseController
+    [ApiVersion("1.0")]
+    [ApiExplorerSettings(GroupName = "v1")]
+    public class UsersController : BaseApiController
     {
 
         private readonly IUserService _userService;

@@ -53,10 +53,17 @@ namespace CombatTracker.Web
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                //app.UseDatabaseErrorPage();
-                app.UseMigrationsEndPoint();
+                //app.UseMigrationsEndPoint();
+                //app.UseSwagger();
+                //app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "CombatTracker.Web v1"));
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "CombatTracker.Web v1"));
+                app.UseSwaggerUI(c =>
+                {
+                    //c.SwaggerEndpoint("/swagger/v2/swagger.json", "CombatTracker.Web API v2");
+                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "CombatTracker.Web API v1");
+                    c.DisplayOperationId();
+                    c.DisplayRequestDuration();
+                });
             }
             else
             {

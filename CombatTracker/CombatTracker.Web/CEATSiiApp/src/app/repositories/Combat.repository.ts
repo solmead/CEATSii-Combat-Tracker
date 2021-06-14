@@ -17,13 +17,14 @@ import { map, catchError } from "rxjs/operators";
 import { Attack } from '@/entities';
 import { Weapon } from '@/entities';
 
+var version = "1.0";
 
 @Injectable({ providedIn: 'root' })
 export class CombatRepository {
 
     constructor(private _httpClient: HttpClient) { }
     
-    // delete: api/Combat/deleteArmor?id=${id}
+    // delete: api/v${version}/Combat/deleteArmor/${id}
 
 	//public deleteArmor = (id: number, callback: (data: void)=>void) : void => {
 	//	this.deleteArmorObserve(id).subscribe(response => callback(response));
@@ -41,12 +42,15 @@ export class CombatRepository {
 	}
 
 	public deleteArmor = (id: number) : Observable<void> => {
-        var _Url = `api/Combat/deleteArmor?id=${id}`;
-            return this._httpClient.delete<void>(_Url);
+        id = (id == null ? <number><any>"" : id);
+        
+        var _Url = `api/v${version}/Combat/deleteArmor/${id}`;
+            return this._httpClient.delete<void>(_Url)
+                .pipe(catchError(this.handleError));
 	};
 
     
-    // delete: api/Combat/deleteAttack?id=${id}
+    // delete: api/v${version}/Combat/deleteAttack/${id}
 
 	//public deleteAttack = (id: number, callback: (data: void)=>void) : void => {
 	//	this.deleteAttackObserve(id).subscribe(response => callback(response));
@@ -64,12 +68,15 @@ export class CombatRepository {
 	}
 
 	public deleteAttack = (id: number) : Observable<void> => {
-        var _Url = `api/Combat/deleteAttack?id=${id}`;
-            return this._httpClient.delete<void>(_Url);
+        id = (id == null ? <number><any>"" : id);
+        
+        var _Url = `api/v${version}/Combat/deleteAttack/${id}`;
+            return this._httpClient.delete<void>(_Url)
+                .pipe(catchError(this.handleError));
 	};
 
     
-    // delete: api/Combat/deleteWeapon?id=${id}
+    // delete: api/v${version}/Combat/deleteWeapon/${id}
 
 	//public deleteWeapon = (id: number, callback: (data: void)=>void) : void => {
 	//	this.deleteWeaponObserve(id).subscribe(response => callback(response));
@@ -87,12 +94,15 @@ export class CombatRepository {
 	}
 
 	public deleteWeapon = (id: number) : Observable<void> => {
-        var _Url = `api/Combat/deleteWeapon?id=${id}`;
-            return this._httpClient.delete<void>(_Url);
+        id = (id == null ? <number><any>"" : id);
+        
+        var _Url = `api/v${version}/Combat/deleteWeapon/${id}`;
+            return this._httpClient.delete<void>(_Url)
+                .pipe(catchError(this.handleError));
 	};
 
     
-    // get: api/Combat/getArmor?id=${id}
+    // get: api/v${version}/Combat/getArmor/${id}
 
 	//public getArmor = (id: number, callback: (data: Armor)=>void) : void => {
 	//	this.getArmorObserve(id).subscribe(response => callback(response));
@@ -110,12 +120,15 @@ export class CombatRepository {
 	}
 
 	public getArmor = (id: number) : Observable<Armor> => {
-        var _Url = `api/Combat/getArmor?id=${id}`;
-            return this._httpClient.get<Armor>(_Url);
+        id = (id == null ? <number><any>"" : id);
+        
+        var _Url = `api/v${version}/Combat/getArmor/${id}`;
+            return this._httpClient.get<Armor>(_Url)
+                .pipe(catchError(this.handleError));
 	};
 
     
-    // get: api/Combat/getArmors
+    // get: api/v${version}/Combat/getArmors
 
 	//public getArmors = (, callback: (data: Armor[])=>void) : void => {
 	//	this.getArmorsObserve().subscribe(response => callback(response));
@@ -133,12 +146,14 @@ export class CombatRepository {
 	}
 
 	public getArmors = () : Observable<Armor[]> => {
-        var _Url = `api/Combat/getArmors`;
-            return this._httpClient.get<Armor[]>(_Url);
+        
+        var _Url = `api/v${version}/Combat/getArmors`;
+            return this._httpClient.get<Armor[]>(_Url)
+                .pipe(catchError(this.handleError));
 	};
 
     
-    // get: api/Combat/getArmorsOnCharacter?characterId=${characterId}
+    // get: api/v${version}/Combat/getArmorsOnCharacter/${characterId}
 
 	//public getArmorsOnCharacter = (characterId: number, callback: (data: Armor[])=>void) : void => {
 	//	this.getArmorsOnCharacterObserve(characterId).subscribe(response => callback(response));
@@ -156,12 +171,15 @@ export class CombatRepository {
 	}
 
 	public getArmorsOnCharacter = (characterId: number) : Observable<Armor[]> => {
-        var _Url = `api/Combat/getArmorsOnCharacter?characterId=${characterId}`;
-            return this._httpClient.get<Armor[]>(_Url);
+        characterId = (characterId == null ? <number><any>"" : characterId);
+        
+        var _Url = `api/v${version}/Combat/getArmorsOnCharacter/${characterId}`;
+            return this._httpClient.get<Armor[]>(_Url)
+                .pipe(catchError(this.handleError));
 	};
 
     
-    // get: api/Combat/getAttack?id=${id}
+    // get: api/v${version}/Combat/getAttack/${id}
 
 	//public getAttack = (id: number, callback: (data: Attack)=>void) : void => {
 	//	this.getAttackObserve(id).subscribe(response => callback(response));
@@ -179,12 +197,15 @@ export class CombatRepository {
 	}
 
 	public getAttack = (id: number) : Observable<Attack> => {
-        var _Url = `api/Combat/getAttack?id=${id}`;
-            return this._httpClient.get<Attack>(_Url);
+        id = (id == null ? <number><any>"" : id);
+        
+        var _Url = `api/v${version}/Combat/getAttack/${id}`;
+            return this._httpClient.get<Attack>(_Url)
+                .pipe(catchError(this.handleError));
 	};
 
     
-    // get: api/Combat/getAttacks
+    // get: api/v${version}/Combat/getAttacks
 
 	//public getAttacks = (, callback: (data: Attack[])=>void) : void => {
 	//	this.getAttacksObserve().subscribe(response => callback(response));
@@ -202,12 +223,14 @@ export class CombatRepository {
 	}
 
 	public getAttacks = () : Observable<Attack[]> => {
-        var _Url = `api/Combat/getAttacks`;
-            return this._httpClient.get<Attack[]>(_Url);
+        
+        var _Url = `api/v${version}/Combat/getAttacks`;
+            return this._httpClient.get<Attack[]>(_Url)
+                .pipe(catchError(this.handleError));
 	};
 
     
-    // get: api/Combat/getAttacksOnActor?actorId=${actorId}
+    // get: api/v${version}/Combat/getAttacksOnActor/${actorId}
 
 	//public getAttacksOnActor = (actorId: number, callback: (data: Attack[])=>void) : void => {
 	//	this.getAttacksOnActorObserve(actorId).subscribe(response => callback(response));
@@ -225,12 +248,15 @@ export class CombatRepository {
 	}
 
 	public getAttacksOnActor = (actorId: number) : Observable<Attack[]> => {
-        var _Url = `api/Combat/getAttacksOnActor?actorId=${actorId}`;
-            return this._httpClient.get<Attack[]>(_Url);
+        actorId = (actorId == null ? <number><any>"" : actorId);
+        
+        var _Url = `api/v${version}/Combat/getAttacksOnActor/${actorId}`;
+            return this._httpClient.get<Attack[]>(_Url)
+                .pipe(catchError(this.handleError));
 	};
 
     
-    // get: api/Combat/getAttacksOnCreature?creatureId=${creatureId}
+    // get: api/v${version}/Combat/getAttacksOnCreature/${creatureId}
 
 	//public getAttacksOnCreature = (creatureId: number, callback: (data: Attack[])=>void) : void => {
 	//	this.getAttacksOnCreatureObserve(creatureId).subscribe(response => callback(response));
@@ -248,12 +274,15 @@ export class CombatRepository {
 	}
 
 	public getAttacksOnCreature = (creatureId: number) : Observable<Attack[]> => {
-        var _Url = `api/Combat/getAttacksOnCreature?creatureId=${creatureId}`;
-            return this._httpClient.get<Attack[]>(_Url);
+        creatureId = (creatureId == null ? <number><any>"" : creatureId);
+        
+        var _Url = `api/v${version}/Combat/getAttacksOnCreature/${creatureId}`;
+            return this._httpClient.get<Attack[]>(_Url)
+                .pipe(catchError(this.handleError));
 	};
 
     
-    // get: api/Combat/getWeapon?id=${id}
+    // get: api/v${version}/Combat/getWeapon/${id}
 
 	//public getWeapon = (id: number, callback: (data: Weapon)=>void) : void => {
 	//	this.getWeaponObserve(id).subscribe(response => callback(response));
@@ -271,12 +300,15 @@ export class CombatRepository {
 	}
 
 	public getWeapon = (id: number) : Observable<Weapon> => {
-        var _Url = `api/Combat/getWeapon?id=${id}`;
-            return this._httpClient.get<Weapon>(_Url);
+        id = (id == null ? <number><any>"" : id);
+        
+        var _Url = `api/v${version}/Combat/getWeapon/${id}`;
+            return this._httpClient.get<Weapon>(_Url)
+                .pipe(catchError(this.handleError));
 	};
 
     
-    // get: api/Combat/getWeapons
+    // get: api/v${version}/Combat/getWeapons
 
 	//public getWeapons = (, callback: (data: Weapon[])=>void) : void => {
 	//	this.getWeaponsObserve().subscribe(response => callback(response));
@@ -294,12 +326,14 @@ export class CombatRepository {
 	}
 
 	public getWeapons = () : Observable<Weapon[]> => {
-        var _Url = `api/Combat/getWeapons`;
-            return this._httpClient.get<Weapon[]>(_Url);
+        
+        var _Url = `api/v${version}/Combat/getWeapons`;
+            return this._httpClient.get<Weapon[]>(_Url)
+                .pipe(catchError(this.handleError));
 	};
 
     
-    // get: api/Combat/getWeaponsOnCharacter?characterId=${characterId}
+    // get: api/v${version}/Combat/getWeaponsOnCharacter/${characterId}
 
 	//public getWeaponsOnCharacter = (characterId: number, callback: (data: Weapon[])=>void) : void => {
 	//	this.getWeaponsOnCharacterObserve(characterId).subscribe(response => callback(response));
@@ -317,12 +351,15 @@ export class CombatRepository {
 	}
 
 	public getWeaponsOnCharacter = (characterId: number) : Observable<Weapon[]> => {
-        var _Url = `api/Combat/getWeaponsOnCharacter?characterId=${characterId}`;
-            return this._httpClient.get<Weapon[]>(_Url);
+        characterId = (characterId == null ? <number><any>"" : characterId);
+        
+        var _Url = `api/v${version}/Combat/getWeaponsOnCharacter/${characterId}`;
+            return this._httpClient.get<Weapon[]>(_Url)
+                .pipe(catchError(this.handleError));
 	};
 
     
-    // post: api/Combat/saveArmor
+    // post: api/v${version}/Combat/SaveArmor
 
 	//public saveArmor = (armor: Armor, callback: (data: Armor)=>void) : void => {
 	//	this.saveArmorObserve(armor).subscribe(response => callback(response));
@@ -340,12 +377,15 @@ export class CombatRepository {
 	}
 
 	public saveArmor = (armor: Armor) : Observable<Armor> => {
-        var _Url = `api/Combat/saveArmor`;
-            return this._httpClient.post<Armor>(_Url, armor);
+        armor = (armor == null ? <Armor><any>"" : armor);
+        
+        var _Url = `api/v${version}/Combat/SaveArmor`;
+            return this._httpClient.post<Armor>(_Url, armor)
+                .pipe(catchError(this.handleError));
 	};
 
     
-    // post: api/Combat/saveAttack
+    // post: api/v${version}/Combat/SaveAttack
 
 	//public saveAttack = (attack: Attack, callback: (data: Attack)=>void) : void => {
 	//	this.saveAttackObserve(attack).subscribe(response => callback(response));
@@ -363,12 +403,15 @@ export class CombatRepository {
 	}
 
 	public saveAttack = (attack: Attack) : Observable<Attack> => {
-        var _Url = `api/Combat/saveAttack`;
-            return this._httpClient.post<Attack>(_Url, attack);
+        attack = (attack == null ? <Attack><any>"" : attack);
+        
+        var _Url = `api/v${version}/Combat/SaveAttack`;
+            return this._httpClient.post<Attack>(_Url, attack)
+                .pipe(catchError(this.handleError));
 	};
 
     
-    // post: api/Combat/saveAttackOnActor?actorId=${actorId}
+    // post: api/v${version}/Combat/SaveAttackOnActor/${actorId}
 
 	//public saveAttackOnActor = (actorId: number, attack: Attack, callback: (data: Attack)=>void) : void => {
 	//	this.saveAttackOnActorObserve(actorId, attack).subscribe(response => callback(response));
@@ -386,12 +429,16 @@ export class CombatRepository {
 	}
 
 	public saveAttackOnActor = (actorId: number, attack: Attack) : Observable<Attack> => {
-        var _Url = `api/Combat/saveAttackOnActor?actorId=${actorId}`;
-            return this._httpClient.post<Attack>(_Url, actorId);
+        actorId = (actorId == null ? <number><any>"" : actorId);
+        attack = (attack == null ? <Attack><any>"" : attack);
+        
+        var _Url = `api/v${version}/Combat/SaveAttackOnActor/${actorId}`;
+            return this._httpClient.post<Attack>(_Url, actorId)
+                .pipe(catchError(this.handleError));
 	};
 
     
-    // post: api/Combat/saveWeapon
+    // post: api/v${version}/Combat/SaveWeapon
 
 	//public saveWeapon = (weapon: Weapon, callback: (data: Weapon)=>void) : void => {
 	//	this.saveWeaponObserve(weapon).subscribe(response => callback(response));
@@ -409,11 +456,23 @@ export class CombatRepository {
 	}
 
 	public saveWeapon = (weapon: Weapon) : Observable<Weapon> => {
-        var _Url = `api/Combat/saveWeapon`;
-            return this._httpClient.post<Weapon>(_Url, weapon);
+        weapon = (weapon == null ? <Weapon><any>"" : weapon);
+        
+        var _Url = `api/v${version}/Combat/SaveWeapon`;
+            return this._httpClient.post<Weapon>(_Url, weapon)
+                .pipe(catchError(this.handleError));
 	};
 
     
+    // Utility
+    private handleError(error: HttpErrorResponse) {
+        console.error(error);
+        let customError: string = "";
+        if (error.error) {
+            customError = error.status === 400 ? error.error : error.statusText
+        }
+        return Observable.throw(customError || 'Server error');
+    }
 }
 
 

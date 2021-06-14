@@ -14,10 +14,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CombatTracker.Web.Controllers.Api
 {
-    [ApiController]
-    [Produces("application/json")]
-    [Route("api/Reference")]
-    public class ReferenceController : BaseController
+    [ApiVersion("1.0")]
+    [ApiExplorerSettings(GroupName = "v1")]
+    public class ReferenceController : BaseApiController
     {
 
         public readonly IChartRepository _chartRepository;

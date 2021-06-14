@@ -2,27 +2,36 @@
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
-    "module": "es2020",
-    "outDir": "./dist/out-tsc",
+    "outDir": "../wwwroot/dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
+    "module": "esnext",
     "moduleResolution": "node",
-    "emitDecoratorMetadata": true,
+    "downlevelIteration": true,
     "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "skipDefaultLibCheck": true,
+    "importHelpers": true,
     "target": "es2015",
+    "strict": true,
+    "strictNullChecks": false,
+    "strictPropertyInitialization": false,
     "typeRoots": [
       "node_modules/@types"
     ],
     "lib": [
-      "es2017",
+      "es2018",
       "dom"
-    ]//,
-    //"paths": {
-    //  "@/*": [
-    //    "src/app/*"
-    //  ],
-    //  "@environments/*": [ "src/environments/*" ]
-    //}
-
+    ],
+    "paths": {
+      "@/*": [
+        "src/app/*"
+      ],
+      "@environments/*": [ "src/environments/*" ]
+    }
+  },
+  "angularCompilerOptions": {
+    "fullTemplateTypeCheck": true,
+    "strictInjectionParameters": true
   }
 }

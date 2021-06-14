@@ -15,13 +15,14 @@ import { map, catchError } from "rxjs/operators";
     import * as Enums from '@/entities/EnumDefinitions'
     import { BaseAction } from '@/entities';
 
+var version = "1.0";
 
 @Injectable({ providedIn: 'root' })
 export class ActionsRepository {
 
     constructor(private _httpClient: HttpClient) { }
     
-    // get: api/Actions/getActionsOnActor?actorId=${actorId}
+    // get: api/v${version}/Actions/getActionsOnActor/${actorId}
 
 	//public getActionsOnActor = (actorId: number, callback: (data: BaseAction[])=>void) : void => {
 	//	this.getActionsOnActorObserve(actorId).subscribe(response => callback(response));
@@ -39,12 +40,15 @@ export class ActionsRepository {
 	}
 
 	public getActionsOnActor = (actorId: number) : Observable<BaseAction[]> => {
-        var _Url = `api/Actions/getActionsOnActor?actorId=${actorId}`;
-            return this._httpClient.get<BaseAction[]>(_Url);
+        actorId = (actorId == null ? <number><any>"" : actorId);
+        
+        var _Url = `api/v${version}/Actions/getActionsOnActor/${actorId}`;
+            return this._httpClient.get<BaseAction[]>(_Url)
+                .pipe(catchError(this.handleError));
 	};
 
     
-    // get: api/Actions/getActionsInGame?gameId=${gameId}
+    // get: api/v${version}/Actions/getActionsInGame/${gameId}
 
 	//public getActionsInGame = (gameId: number, callback: (data: BaseAction[])=>void) : void => {
 	//	this.getActionsInGameObserve(gameId).subscribe(response => callback(response));
@@ -62,12 +66,15 @@ export class ActionsRepository {
 	}
 
 	public getActionsInGame = (gameId: number) : Observable<BaseAction[]> => {
-        var _Url = `api/Actions/getActionsInGame?gameId=${gameId}`;
-            return this._httpClient.get<BaseAction[]>(_Url);
+        gameId = (gameId == null ? <number><any>"" : gameId);
+        
+        var _Url = `api/v${version}/Actions/getActionsInGame/${gameId}`;
+            return this._httpClient.get<BaseAction[]>(_Url)
+                .pipe(catchError(this.handleError));
 	};
 
     
-    // get: api/Actions/getAction?id=${id}
+    // get: api/v${version}/Actions/getAction/${id}
 
 	//public getAction = (id: number, callback: (data: BaseAction)=>void) : void => {
 	//	this.getActionObserve(id).subscribe(response => callback(response));
@@ -85,12 +92,15 @@ export class ActionsRepository {
 	}
 
 	public getAction = (id: number) : Observable<BaseAction> => {
-        var _Url = `api/Actions/getAction?id=${id}`;
-            return this._httpClient.get<BaseAction>(_Url);
+        id = (id == null ? <number><any>"" : id);
+        
+        var _Url = `api/v${version}/Actions/getAction/${id}`;
+            return this._httpClient.get<BaseAction>(_Url)
+                .pipe(catchError(this.handleError));
 	};
 
     
-    // post: api/Actions/[action]
+    // post: api/v${version}/Actions/SaveAction
 
 	//public saveAction = (action: BaseAction, callback: (data: BaseAction)=>void) : void => {
 	//	this.saveActionObserve(action).subscribe(response => callback(response));
@@ -108,12 +118,15 @@ export class ActionsRepository {
 	}
 
 	public saveAction = (action: BaseAction) : Observable<BaseAction> => {
-        var _Url = `api/Actions/[action]`;
-            return this._httpClient.post<BaseAction>(_Url, action);
+        action = (action == null ? <BaseAction><any>"" : action);
+        
+        var _Url = `api/v${version}/Actions/SaveAction`;
+            return this._httpClient.post<BaseAction>(_Url, action)
+                .pipe(catchError(this.handleError));
 	};
 
     
-    // delete: api/Actions/deleteAction?id=${id}
+    // delete: api/v${version}/Actions/deleteAction/${id}
 
 	//public deleteAction = (id: number, callback: (data: void)=>void) : void => {
 	//	this.deleteActionObserve(id).subscribe(response => callback(response));
@@ -131,11 +144,23 @@ export class ActionsRepository {
 	}
 
 	public deleteAction = (id: number) : Observable<void> => {
-        var _Url = `api/Actions/deleteAction?id=${id}`;
-            return this._httpClient.delete<void>(_Url);
+        id = (id == null ? <number><any>"" : id);
+        
+        var _Url = `api/v${version}/Actions/deleteAction/${id}`;
+            return this._httpClient.delete<void>(_Url)
+                .pipe(catchError(this.handleError));
 	};
 
     
+    // Utility
+    private handleError(error: HttpErrorResponse) {
+        console.error(error);
+        let customError: string = "";
+        if (error.error) {
+            customError = error.status === 400 ? error.error : error.statusText
+        }
+        return Observable.throw(customError || 'Server error');
+    }
 }
 
 

@@ -10,10 +10,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CombatTracker.Web.Controllers.Api
 {
-    [ApiController]
-    [Produces("application/json")]
-    [Route("api/Encounter")]
-    public class EncounterController : BaseController
+    [ApiVersion("1.0")]
+    [ApiExplorerSettings(GroupName = "v1")]
+    public class EncounterController : BaseApiController
     {
         private readonly ICreatureRepository _creatureRepository;
         private readonly ICharacterRepository _characterRepository;
@@ -41,7 +40,7 @@ namespace CombatTracker.Web.Controllers.Api
             return _gameService.CurrentGame;
         }
 
-        [HttpPost("[action]")]
+        [HttpPost("SetCurrentGame/{gameId}")]
         public Game SetCurrentGame(int gameId)
         {
             var gm = _gameRepository.GetGame(gameId);
@@ -50,7 +49,7 @@ namespace CombatTracker.Web.Controllers.Api
         }
 
 
-        [HttpPost("[action]")]
+        [HttpPost("CreateActorFromCreature/{creatureId}")]
         public Actor CreateActorFromCreature(int creatureId)
         {
             var person = _creatureRepository.GetCreature(creatureId);
@@ -60,7 +59,7 @@ namespace CombatTracker.Web.Controllers.Api
             return actor;
         }
 
-        [HttpPost("[action]")]
+        [HttpPost("CreateActorFromCharacter/{characterId}")]
         public Actor CreateActorFromCharacter(int characterId, int? rolledInit = null)
         {
             var person = _characterRepository.GetCharacter(characterId);
@@ -70,21 +69,21 @@ namespace CombatTracker.Web.Controllers.Api
             return actor;
         }
 
-        [HttpPost("[action]")]
+        [HttpPost("MoveToNext")]
         public MoveNextResult MoveToNext(bool none = false)
         {
 
             return _gameService.MoveToNextAction();
         }
 
-        [HttpPost("[action]")]
+        [HttpPost("ProposeActionUnconscious")]
         public BaseAction ProposeActionUnconscious(int actorId)
         {
             var actor = _gameRepository.GetActor(actorId);
             return _gameService.ProposeActionUnconscious(actor);
         }
 
-        [HttpPost("[action]")]
+        [HttpPost("ProposeAction")]
         public BaseAction ProposeAction(int actionDefId, int whomId, int modifier = 0, int? attackId = null)
         {
             var actor = _gameRepository.GetActor(whomId);
@@ -92,7 +91,7 @@ namespace CombatTracker.Web.Controllers.Api
             return _gameService.ProposeAction(actionDef, actor, modifier, attackId);
         }
 
-        [HttpPost("[action]")]
+        [HttpPost("ProposeActionContinue")]
         public BaseAction ProposeActionContinue(int previousActionId, int whomId)
         {
             var actor = _gameRepository.GetActor(whomId);
@@ -100,28 +99,28 @@ namespace CombatTracker.Web.Controllers.Api
             return _gameService.ProposeActionContinue(action, actor);
         }
 
-        [HttpPost("[action]")]
+        [HttpPost("AddBleedEffect")]
         public BaseAction AddBleedEffect(int whomId, int bleedRate)
         {
             var actor = _gameRepository.GetActor(whomId);
             return _gameService.AddBleedEffect(actor, bleedRate);
         }
 
-        [HttpPost("[action]")]
+        [HttpPost("AddCriticalEffect")]
         public BaseAction AddCriticalEffect(int whomId, [FromBody] CriticalEffect crit, int rounds)
         {
             var actor = _gameRepository.GetActor(whomId);
             return _gameService.AddCriticalEffect(actor, crit, rounds);
         }
 
-        [HttpPost("[action]")]
+        [HttpPost("AddPsychicEffect")]
         public BaseAction AddPsychicEffect(int whomId, int psychicLevel)
         {
             var actor = _gameRepository.GetActor(whomId);
             return _gameService.AddPsychicEffect(actor, psychicLevel);
         }
 
-        [HttpPost("[action]")]
+        [HttpPost("AddSpellEffect")]
         public BaseAction AddSpellEffect(int effectedActorId, int casterId, string spellName, int rounds, int hastePercent)
         {
             var effected = _gameRepository.GetActor(effectedActorId);
@@ -129,7 +128,7 @@ namespace CombatTracker.Web.Controllers.Api
             return _gameService.AddSpellEffect(effected, caster, spellName, rounds, hastePercent);
         }
 
-        [HttpPost("[action]")]
+        [HttpPost("RemoveEffect/{actionId}")]
         public void RemoveEffect(int actionId)
         {
 
@@ -137,7 +136,7 @@ namespace CombatTracker.Web.Controllers.Api
             _gameService.RemoveEffect(action);
         }
 
-        [HttpPost("[action]")]
+        [HttpPost("RemoveCriticalsFromActor/{whomId}")]
         public void RemoveCriticalsFromActor(int whomId, int count = 1)
         {
             var actor = _gameRepository.GetActor(whomId);
@@ -145,14 +144,14 @@ namespace CombatTracker.Web.Controllers.Api
         }
         
 
-        [HttpPost("[action]")]
+        [HttpPost("DoProposedAction/{whomId}")]
         public void DoProposedAction(int whomId)
         {
             var actor = _gameRepository.GetActor(whomId);
             _gameService.DoProposedAction(actor);
         }
 
-        [HttpPost("[action]")]
+        [HttpPost("SetModifierOnAction")]
         public void SetModifierOnAction(int actionId, int modifier)
         {
 
@@ -160,7 +159,7 @@ namespace CombatTracker.Web.Controllers.Api
             _gameService.SetModifierOnAction(action, modifier);
         }
 
-        [HttpPost("[action]")]
+        [HttpPost("SetAttackOnAction")]
         public void SetAttackOnAction(int actionId, int attackId)
         {
 

@@ -7,10 +7,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
-import { MainNavMenuComponent } from './navigation';
-import { SideNavMenuComponent } from './navigation';
-import { HomeComponent } from './top/home';
-import { GameComponent } from './components/game/game.component';
+import { MainNavMenuComponent } from '@/navigation';
+import { SideNavMenuComponent } from '@/navigation';
+import { HomeComponent } from '@/top/home';
+import { GameComponent } from '@/components/game/game.component';
 import { GameEditComponent } from './components/game/game-edit.component';
 import { CharacterComponent } from './components/character/character.component';
 import { CharacterEditComponent } from './components/character/character-edit.component';
@@ -23,14 +23,14 @@ import { WeaponComponent } from './components/weapon/weapon.component';
 import { WeaponEditComponent } from './components/weapon/weapon-edit.component';
 import { ActorComponent } from './components/actor/actor.component';
 import { EncounterComponent } from './components/encounter/encounter.component';
-import { ModalComponent } from './elements';
-import { AlertComponent } from './elements';
+import { ModalComponent } from '@/elements';
+import { AlertComponent } from '@/elements';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './approot';
-import { JwtInterceptor, ErrorInterceptor, ApiPathInterceptor } from './_helpers';
-import { AuthenticationService } from './services';
-import { CreatureComponent } from './top/creature';
+import { AppComponent } from '@/approot';
+import { JwtInterceptor, ErrorInterceptor, ApiPathInterceptor } from '@/_helpers';
+import { AuthenticationService } from '@/services';
+import { CreatureComponent } from '@/top/creature';
 import { AuthorizeInterceptor } from './api-authorization/authorize.interceptor';
 import { ApiAuthorizationModule } from './api-authorization/api-authorization.module';
 
@@ -74,11 +74,11 @@ import { ApiAuthorizationModule } from './api-authorization/api-authorization.mo
     //  provide: 'BASE_URL',
     //  useFactory: getBaseUrl
     //},
-    //{
-    //  provide: HTTP_INTERCEPTORS,
-    //  useClass: ApiPathInterceptor,
-    //  multi: true
-    //},
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ApiPathInterceptor,
+      multi: true
+    },
     { provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true },
     //{
     //  provide: HTTP_INTERCEPTORS,
@@ -91,9 +91,28 @@ import { ApiAuthorizationModule } from './api-authorization/api-authorization.mo
       useClass: ErrorInterceptor,
       multi: true,
       deps: [AuthenticationService]
-    }
+    },
+    //Services.AlertService,
+    //Services.AuthenticationService,
+    //Services.EncounterService,
+    //Services.ReferencesService,
+    //Repositories.ActionsRepository,
+    //Repositories.ActorsRepository,
+    //Repositories.CharactersRepository,
+    //Repositories.CombatRepository,
+    //Repositories.CreaturesRepository,
+    //Repositories.CriticalEffectsRepository,
+    //Repositories.EncounterRepository,
+    //Repositories.GamesRepository,
+    //Repositories.ReferenceRepository,
+    //Repositories.SampleDataRepository,
+    //Repositories.SettingsRepository,
+    //Repositories.UsersRepository
   ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
 
+//export function getBaseUrl() {
+//  return document.getElementsByTagName('base')[0].href;
+//}

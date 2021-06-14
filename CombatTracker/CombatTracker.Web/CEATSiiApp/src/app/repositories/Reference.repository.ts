@@ -30,13 +30,14 @@ import { WeaponType } from '@/entities';
 import { Book } from '@/entities';
 import { PsychicRefractoryPeriodEntry } from '@/entities';
 
+var version = "1.0";
 
 @Injectable({ providedIn: 'root' })
 export class ReferenceRepository {
 
     constructor(private _httpClient: HttpClient) { }
     
-    // get: api/Reference/getActionGroups
+    // get: api/v${version}/Reference/getActionGroups
 
 	//public getActionGroups = (, callback: (data: ActionGroup[])=>void) : void => {
 	//	this.getActionGroupsObserve().subscribe(response => callback(response));
@@ -54,12 +55,14 @@ export class ReferenceRepository {
 	}
 
 	public getActionGroups = () : Observable<ActionGroup[]> => {
-        var _Url = `api/Reference/getActionGroups`;
-            return this._httpClient.get<ActionGroup[]>(_Url);
+        
+        var _Url = `api/v${version}/Reference/getActionGroups`;
+            return this._httpClient.get<ActionGroup[]>(_Url)
+                .pipe(catchError(this.handleError));
 	};
 
     
-    // get: api/Reference/getActions?groupId=${groupId}
+    // get: api/v${version}/Reference/getActions?groupId=${groupId}
 
 	//public getActions = (groupId: number, callback: (data: ActionDefinition[])=>void) : void => {
 	//	this.getActionsObserve(groupId).subscribe(response => callback(response));
@@ -77,12 +80,15 @@ export class ReferenceRepository {
 	}
 
 	public getActions = (groupId: number) : Observable<ActionDefinition[]> => {
-        var _Url = `api/Reference/getActions?groupId=${groupId}`;
-            return this._httpClient.get<ActionDefinition[]>(_Url);
+        groupId = (groupId == null ? <number><any>"" : groupId);
+        
+        var _Url = `api/v${version}/Reference/getActions?groupId=${groupId}`;
+            return this._httpClient.get<ActionDefinition[]>(_Url)
+                .pipe(catchError(this.handleError));
 	};
 
     
-    // get: api/Reference/getConstitutionBonusCharts
+    // get: api/v${version}/Reference/getConstitutionBonusCharts
 
 	//public getConstitutionBonusCharts = (, callback: (data: ConstitutionBonusChart[])=>void) : void => {
 	//	this.getConstitutionBonusChartsObserve().subscribe(response => callback(response));
@@ -100,12 +106,14 @@ export class ReferenceRepository {
 	}
 
 	public getConstitutionBonusCharts = () : Observable<ConstitutionBonusChart[]> => {
-        var _Url = `api/Reference/getConstitutionBonusCharts`;
-            return this._httpClient.get<ConstitutionBonusChart[]>(_Url);
+        
+        var _Url = `api/v${version}/Reference/getConstitutionBonusCharts`;
+            return this._httpClient.get<ConstitutionBonusChart[]>(_Url)
+                .pipe(catchError(this.handleError));
 	};
 
     
-    // get: api/Reference/getCriticalCodes
+    // get: api/v${version}/Reference/getCriticalCodes
 
 	//public getCriticalCodes = (, callback: (data: CriticalCode[])=>void) : void => {
 	//	this.getCriticalCodesObserve().subscribe(response => callback(response));
@@ -123,12 +131,14 @@ export class ReferenceRepository {
 	}
 
 	public getCriticalCodes = () : Observable<CriticalCode[]> => {
-        var _Url = `api/Reference/getCriticalCodes`;
-            return this._httpClient.get<CriticalCode[]>(_Url);
+        
+        var _Url = `api/v${version}/Reference/getCriticalCodes`;
+            return this._httpClient.get<CriticalCode[]>(_Url)
+                .pipe(catchError(this.handleError));
 	};
 
     
-    // get: api/Reference/getCriticalIgnores
+    // get: api/v${version}/Reference/getCriticalIgnores
 
 	//public getCriticalIgnores = (, callback: (data: CriticalIgnore[])=>void) : void => {
 	//	this.getCriticalIgnoresObserve().subscribe(response => callback(response));
@@ -146,12 +156,14 @@ export class ReferenceRepository {
 	}
 
 	public getCriticalIgnores = () : Observable<CriticalIgnore[]> => {
-        var _Url = `api/Reference/getCriticalIgnores`;
-            return this._httpClient.get<CriticalIgnore[]>(_Url);
+        
+        var _Url = `api/v${version}/Reference/getCriticalIgnores`;
+            return this._httpClient.get<CriticalIgnore[]>(_Url)
+                .pipe(catchError(this.handleError));
 	};
 
     
-    // get: api/Reference/getIQs
+    // get: api/v${version}/Reference/getIQs
 
 	//public getIQs = (, callback: (data: IQ[])=>void) : void => {
 	//	this.getIQsObserve().subscribe(response => callback(response));
@@ -169,12 +181,14 @@ export class ReferenceRepository {
 	}
 
 	public getIQs = () : Observable<IQ[]> => {
-        var _Url = `api/Reference/getIQs`;
-            return this._httpClient.get<IQ[]>(_Url);
+        
+        var _Url = `api/v${version}/Reference/getIQs`;
+            return this._httpClient.get<IQ[]>(_Url)
+                .pipe(catchError(this.handleError));
 	};
 
     
-    // get: api/Reference/getLevelCharts
+    // get: api/v${version}/Reference/getLevelCharts
 
 	//public getLevelCharts = (, callback: (data: LevelChart[])=>void) : void => {
 	//	this.getLevelChartsObserve().subscribe(response => callback(response));
@@ -192,12 +206,14 @@ export class ReferenceRepository {
 	}
 
 	public getLevelCharts = () : Observable<LevelChart[]> => {
-        var _Url = `api/Reference/getLevelCharts`;
-            return this._httpClient.get<LevelChart[]>(_Url);
+        
+        var _Url = `api/v${version}/Reference/getLevelCharts`;
+            return this._httpClient.get<LevelChart[]>(_Url)
+                .pipe(catchError(this.handleError));
 	};
 
     
-    // get: api/Reference/getOutlooks
+    // get: api/v${version}/Reference/getOutlooks
 
 	//public getOutlooks = (, callback: (data: Outlook[])=>void) : void => {
 	//	this.getOutlooksObserve().subscribe(response => callback(response));
@@ -215,12 +231,14 @@ export class ReferenceRepository {
 	}
 
 	public getOutlooks = () : Observable<Outlook[]> => {
-        var _Url = `api/Reference/getOutlooks`;
-            return this._httpClient.get<Outlook[]>(_Url);
+        
+        var _Url = `api/v${version}/Reference/getOutlooks`;
+            return this._httpClient.get<Outlook[]>(_Url)
+                .pipe(catchError(this.handleError));
 	};
 
     
-    // get: api/Reference/getPaces
+    // get: api/v${version}/Reference/getPaces
 
 	//public getPaces = (, callback: (data: Pace[])=>void) : void => {
 	//	this.getPacesObserve().subscribe(response => callback(response));
@@ -238,12 +256,14 @@ export class ReferenceRepository {
 	}
 
 	public getPaces = () : Observable<Pace[]> => {
-        var _Url = `api/Reference/getPaces`;
-            return this._httpClient.get<Pace[]>(_Url);
+        
+        var _Url = `api/v${version}/Reference/getPaces`;
+            return this._httpClient.get<Pace[]>(_Url)
+                .pipe(catchError(this.handleError));
 	};
 
     
-    // get: api/Reference/getSizeRatings
+    // get: api/v${version}/Reference/getSizeRatings
 
 	//public getSizeRatings = (, callback: (data: SizeRating[])=>void) : void => {
 	//	this.getSizeRatingsObserve().subscribe(response => callback(response));
@@ -261,12 +281,14 @@ export class ReferenceRepository {
 	}
 
 	public getSizeRatings = () : Observable<SizeRating[]> => {
-        var _Url = `api/Reference/getSizeRatings`;
-            return this._httpClient.get<SizeRating[]>(_Url);
+        
+        var _Url = `api/v${version}/Reference/getSizeRatings`;
+            return this._httpClient.get<SizeRating[]>(_Url)
+                .pipe(catchError(this.handleError));
 	};
 
     
-    // get: api/Reference/getSpeedCharts
+    // get: api/v${version}/Reference/getSpeedCharts
 
 	//public getSpeedCharts = (, callback: (data: SpeedChart[])=>void) : void => {
 	//	this.getSpeedChartsObserve().subscribe(response => callback(response));
@@ -284,12 +306,14 @@ export class ReferenceRepository {
 	}
 
 	public getSpeedCharts = () : Observable<SpeedChart[]> => {
-        var _Url = `api/Reference/getSpeedCharts`;
-            return this._httpClient.get<SpeedChart[]>(_Url);
+        
+        var _Url = `api/v${version}/Reference/getSpeedCharts`;
+            return this._httpClient.get<SpeedChart[]>(_Url)
+                .pipe(catchError(this.handleError));
 	};
 
     
-    // get: api/Reference/getAttackTypes
+    // get: api/v${version}/Reference/getAttackTypes
 
 	//public getAttackTypes = (, callback: (data: AttackType[])=>void) : void => {
 	//	this.getAttackTypesObserve().subscribe(response => callback(response));
@@ -307,12 +331,14 @@ export class ReferenceRepository {
 	}
 
 	public getAttackTypes = () : Observable<AttackType[]> => {
-        var _Url = `api/Reference/getAttackTypes`;
-            return this._httpClient.get<AttackType[]>(_Url);
+        
+        var _Url = `api/v${version}/Reference/getAttackTypes`;
+            return this._httpClient.get<AttackType[]>(_Url)
+                .pipe(catchError(this.handleError));
 	};
 
     
-    // get: api/Reference/getCriticalTypes
+    // get: api/v${version}/Reference/getCriticalTypes
 
 	//public getCriticalTypes = (, callback: (data: CriticalType[])=>void) : void => {
 	//	this.getCriticalTypesObserve().subscribe(response => callback(response));
@@ -330,12 +356,14 @@ export class ReferenceRepository {
 	}
 
 	public getCriticalTypes = () : Observable<CriticalType[]> => {
-        var _Url = `api/Reference/getCriticalTypes`;
-            return this._httpClient.get<CriticalType[]>(_Url);
+        
+        var _Url = `api/v${version}/Reference/getCriticalTypes`;
+            return this._httpClient.get<CriticalType[]>(_Url)
+                .pipe(catchError(this.handleError));
 	};
 
     
-    // get: api/Reference/getWeaponTypes
+    // get: api/v${version}/Reference/getWeaponTypes
 
 	//public getWeaponTypes = (, callback: (data: WeaponType[])=>void) : void => {
 	//	this.getWeaponTypesObserve().subscribe(response => callback(response));
@@ -353,12 +381,14 @@ export class ReferenceRepository {
 	}
 
 	public getWeaponTypes = () : Observable<WeaponType[]> => {
-        var _Url = `api/Reference/getWeaponTypes`;
-            return this._httpClient.get<WeaponType[]>(_Url);
+        
+        var _Url = `api/v${version}/Reference/getWeaponTypes`;
+            return this._httpClient.get<WeaponType[]>(_Url)
+                .pipe(catchError(this.handleError));
 	};
 
     
-    // get: api/Reference/getBooks
+    // get: api/v${version}/Reference/getBooks
 
 	//public getBooks = (, callback: (data: Book[])=>void) : void => {
 	//	this.getBooksObserve().subscribe(response => callback(response));
@@ -376,12 +406,14 @@ export class ReferenceRepository {
 	}
 
 	public getBooks = () : Observable<Book[]> => {
-        var _Url = `api/Reference/getBooks`;
-            return this._httpClient.get<Book[]>(_Url);
+        
+        var _Url = `api/v${version}/Reference/getBooks`;
+            return this._httpClient.get<Book[]>(_Url)
+                .pipe(catchError(this.handleError));
 	};
 
     
-    // get: api/Reference/getPsychicRefractoryPeriodEntries
+    // get: api/v${version}/Reference/getPsychicRefractoryPeriodEntries
 
 	//public getPsychicRefractoryPeriodEntries = (, callback: (data: PsychicRefractoryPeriodEntry[])=>void) : void => {
 	//	this.getPsychicRefractoryPeriodEntriesObserve().subscribe(response => callback(response));
@@ -399,11 +431,22 @@ export class ReferenceRepository {
 	}
 
 	public getPsychicRefractoryPeriodEntries = () : Observable<PsychicRefractoryPeriodEntry[]> => {
-        var _Url = `api/Reference/getPsychicRefractoryPeriodEntries`;
-            return this._httpClient.get<PsychicRefractoryPeriodEntry[]>(_Url);
+        
+        var _Url = `api/v${version}/Reference/getPsychicRefractoryPeriodEntries`;
+            return this._httpClient.get<PsychicRefractoryPeriodEntry[]>(_Url)
+                .pipe(catchError(this.handleError));
 	};
 
     
+    // Utility
+    private handleError(error: HttpErrorResponse) {
+        console.error(error);
+        let customError: string = "";
+        if (error.error) {
+            customError = error.status === 400 ? error.error : error.statusText
+        }
+        return Observable.throw(customError || 'Server error');
+    }
 }
 
 

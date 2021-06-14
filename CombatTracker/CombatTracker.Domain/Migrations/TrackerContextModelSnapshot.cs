@@ -15,8 +15,8 @@ namespace CombatTracker.Domain.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.0")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
+                .HasAnnotation("ProductVersion", "5.0.6")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("CombatTracker.Domain.DbArmor", b =>
@@ -27,16 +27,16 @@ namespace CombatTracker.Domain.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int?>("CharacterId")
-                        .HasColumnName("TiedToID")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("TiedToID");
 
                     b.Property<int>("DB")
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("nvarchar(255)")
-                        .HasMaxLength(255);
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<int>("MovingManeuverMod")
                         .HasColumnType("int");
@@ -62,8 +62,8 @@ namespace CombatTracker.Domain.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Code")
-                        .HasColumnType("nvarchar(1)")
-                        .HasMaxLength(1);
+                        .HasMaxLength(1)
+                        .HasColumnType("nvarchar(1)");
 
                     b.Property<int>("PerLevelDifference")
                         .HasColumnType("int");
@@ -82,13 +82,13 @@ namespace CombatTracker.Domain.Migrations
 
                     b.Property<string>("Abbreviation")
                         .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("ID");
 
@@ -104,13 +104,13 @@ namespace CombatTracker.Domain.Migrations
 
                     b.Property<string>("Abbreviation")
                         .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("ID");
 
@@ -126,13 +126,13 @@ namespace CombatTracker.Domain.Migrations
 
                     b.Property<string>("Abbreviation")
                         .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("ID");
 
@@ -148,8 +148,8 @@ namespace CombatTracker.Domain.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(1)")
-                        .HasMaxLength(1);
+                        .HasMaxLength(1)
+                        .HasColumnType("nvarchar(1)");
 
                     b.HasKey("ID");
 
@@ -191,13 +191,13 @@ namespace CombatTracker.Domain.Migrations
 
                     b.Property<string>("Abbreviation")
                         .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(250)")
-                        .HasMaxLength(250);
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)");
 
                     b.HasKey("ID");
 
@@ -213,13 +213,13 @@ namespace CombatTracker.Domain.Migrations
 
                     b.Property<string>("Abbreviation")
                         .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("ID");
 
@@ -235,13 +235,13 @@ namespace CombatTracker.Domain.Migrations
 
                     b.Property<string>("Abbreviation")
                         .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("ID");
 
@@ -263,8 +263,8 @@ namespace CombatTracker.Domain.Migrations
 
                     b.Property<string>("Abbreviation")
                         .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<int>("MSBaseDB")
                         .HasColumnType("int");
@@ -274,8 +274,8 @@ namespace CombatTracker.Domain.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(500)")
-                        .HasMaxLength(500);
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
 
                     b.HasKey("ID");
 
@@ -293,8 +293,8 @@ namespace CombatTracker.Domain.Migrations
                         .HasColumnType("int");
 
                     b.Property<int?>("CharacterId")
-                        .HasColumnName("TiedToID")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("TiedToID");
 
                     b.Property<bool>("Is2Handed")
                         .HasColumnType("bit");
@@ -307,8 +307,8 @@ namespace CombatTracker.Domain.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(500)")
-                        .HasMaxLength(500);
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
 
                     b.Property<int>("OB")
                         .HasColumnType("int");
@@ -341,8 +341,8 @@ namespace CombatTracker.Domain.Migrations
 
                     b.Property<string>("Color")
                         .IsRequired()
-                        .HasColumnType("nvarchar(11)")
-                        .HasMaxLength(11);
+                        .HasMaxLength(11)
+                        .HasColumnType("nvarchar(11)");
 
                     b.Property<int>("ConstitutionStat")
                         .HasColumnType("int");
@@ -382,8 +382,8 @@ namespace CombatTracker.Domain.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<double>("NextSpellTime")
                         .HasColumnType("float");
@@ -414,8 +414,8 @@ namespace CombatTracker.Domain.Migrations
 
                     b.Property<string>("Type")
                         .IsRequired()
-                        .HasColumnType("nvarchar(5)")
-                        .HasMaxLength(5);
+                        .HasMaxLength(5)
+                        .HasColumnType("nvarchar(5)");
 
                     b.Property<bool>("UsingAdrenalDB")
                         .HasColumnType("bit");
@@ -440,8 +440,8 @@ namespace CombatTracker.Domain.Migrations
 
                     b.Property<string>("ActionType")
                         .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<int?>("BaseAction_ID")
                         .HasColumnType("int");
@@ -496,13 +496,13 @@ namespace CombatTracker.Domain.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Note")
                         .IsRequired()
-                        .HasColumnType("nvarchar(250)")
-                        .HasMaxLength(250);
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)");
 
                     b.Property<bool>("Reoccuring")
                         .HasColumnType("bit");
@@ -512,16 +512,16 @@ namespace CombatTracker.Domain.Migrations
 
                     b.Property<string>("State")
                         .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<int>("TotalRounds")
                         .HasColumnType("int");
 
                     b.Property<string>("Type")
                         .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<int>("WhoIsActing_ID")
                         .HasColumnType("int");
@@ -581,8 +581,8 @@ namespace CombatTracker.Domain.Migrations
 
                     b.Property<string>("Parry")
                         .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<int>("ParryNegative")
                         .HasColumnType("int");
@@ -618,8 +618,8 @@ namespace CombatTracker.Domain.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("ID");
 
@@ -647,17 +647,17 @@ namespace CombatTracker.Domain.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(500)")
-                        .HasMaxLength(500);
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
 
                     b.Property<int?>("NextAction_ID")
                         .HasColumnType("int");
 
                     b.Property<string>("Type")
                         .IsRequired()
-                        .HasColumnName("Type")
+                        .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
+                        .HasColumnName("Type");
 
                     b.HasKey("ID");
 
@@ -677,8 +677,8 @@ namespace CombatTracker.Domain.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(500)")
-                        .HasMaxLength(500);
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
 
                     b.HasKey("ID");
 
@@ -694,8 +694,8 @@ namespace CombatTracker.Domain.Migrations
 
                     b.Property<string>("Abbreviation")
                         .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<bool>("HasDB")
                         .HasColumnType("bit");
@@ -705,8 +705,8 @@ namespace CombatTracker.Domain.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("ID");
 
@@ -722,13 +722,13 @@ namespace CombatTracker.Domain.Migrations
 
                     b.Property<string>("Abbreviation")
                         .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("ID");
 
@@ -744,13 +744,13 @@ namespace CombatTracker.Domain.Migrations
 
                     b.Property<string>("Abbreviation")
                         .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("ID");
 
@@ -771,8 +771,8 @@ namespace CombatTracker.Domain.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("CriticalLevel")
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<int>("DamageMultiplier")
                         .HasColumnType("int");
@@ -914,16 +914,16 @@ namespace CombatTracker.Domain.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("nvarchar(255)")
-                        .HasMaxLength(255);
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("GameType")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Habitat")
                         .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<int>("HitMod_ID")
                         .HasColumnType("int");
@@ -966,8 +966,8 @@ namespace CombatTracker.Domain.Migrations
 
                     b.Property<string>("TypeName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(500)")
-                        .HasMaxLength(500);
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
 
                     b.HasKey("ID");
 
@@ -1007,8 +1007,8 @@ namespace CombatTracker.Domain.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(500)")
-                        .HasMaxLength(500);
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
 
                     b.HasKey("ID");
 
@@ -1063,8 +1063,8 @@ namespace CombatTracker.Domain.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(500)")
-                        .HasMaxLength(500);
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
 
                     b.Property<double>("PercentRequiredAdrenalDB")
                         .HasColumnType("float");
@@ -1077,8 +1077,8 @@ namespace CombatTracker.Domain.Migrations
 
                     b.Property<string>("Type")
                         .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<double>("WalkSpeed")
                         .HasColumnType("float");
@@ -1101,8 +1101,8 @@ namespace CombatTracker.Domain.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
-                        .HasColumnType("nvarchar(256)")
-                        .HasMaxLength(256);
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
 
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
@@ -1114,12 +1114,12 @@ namespace CombatTracker.Domain.Migrations
                         .HasColumnType("datetimeoffset");
 
                     b.Property<string>("NormalizedEmail")
-                        .HasColumnType("nvarchar(256)")
-                        .HasMaxLength(256);
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
 
                     b.Property<string>("NormalizedUserName")
-                        .HasColumnType("nvarchar(256)")
-                        .HasMaxLength(256);
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
 
                     b.Property<string>("PasswordHash")
                         .HasColumnType("nvarchar(max)");
@@ -1137,17 +1137,17 @@ namespace CombatTracker.Domain.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("UserName")
-                        .HasColumnType("nvarchar(256)")
-                        .HasMaxLength(256);
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("NormalizedEmail")
-                        .HasName("EmailIndex");
+                        .HasDatabaseName("EmailIndex");
 
                     b.HasIndex("NormalizedUserName")
                         .IsUnique()
-                        .HasName("UserNameIndex")
+                        .HasDatabaseName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
@@ -1156,34 +1156,42 @@ namespace CombatTracker.Domain.Migrations
             modelBuilder.Entity("IdentityServer4.EntityFramework.Entities.DeviceFlowCodes", b =>
                 {
                     b.Property<string>("UserCode")
-                        .HasColumnType("nvarchar(200)")
-                        .HasMaxLength(200);
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<string>("ClientId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(200)")
-                        .HasMaxLength(200);
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<DateTime>("CreationTime")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Data")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)")
-                        .HasMaxLength(50000);
+                        .HasMaxLength(50000)
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Description")
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<string>("DeviceCode")
                         .IsRequired()
-                        .HasColumnType("nvarchar(200)")
-                        .HasMaxLength(200);
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<DateTime?>("Expiration")
                         .IsRequired()
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("SessionId")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
                     b.Property<string>("SubjectId")
-                        .HasColumnType("nvarchar(200)")
-                        .HasMaxLength(200);
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.HasKey("UserCode");
 
@@ -1198,39 +1206,52 @@ namespace CombatTracker.Domain.Migrations
             modelBuilder.Entity("IdentityServer4.EntityFramework.Entities.PersistedGrant", b =>
                 {
                     b.Property<string>("Key")
-                        .HasColumnType("nvarchar(200)")
-                        .HasMaxLength(200);
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<string>("ClientId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(200)")
-                        .HasMaxLength(200);
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<DateTime?>("ConsumedTime")
+                        .HasColumnType("datetime2");
 
                     b.Property<DateTime>("CreationTime")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Data")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)")
-                        .HasMaxLength(50000);
+                        .HasMaxLength(50000)
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Description")
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<DateTime?>("Expiration")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("SessionId")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
                     b.Property<string>("SubjectId")
-                        .HasColumnType("nvarchar(200)")
-                        .HasMaxLength(200);
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<string>("Type")
                         .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("Key");
 
                     b.HasIndex("Expiration");
 
                     b.HasIndex("SubjectId", "ClientId", "Type");
+
+                    b.HasIndex("SubjectId", "SessionId", "Type");
 
                     b.ToTable("PersistedGrants");
                 });
@@ -1245,18 +1266,18 @@ namespace CombatTracker.Domain.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(256)")
-                        .HasMaxLength(256);
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
 
                     b.Property<string>("NormalizedName")
-                        .HasColumnType("nvarchar(256)")
-                        .HasMaxLength(256);
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("NormalizedName")
                         .IsUnique()
-                        .HasName("RoleNameIndex")
+                        .HasDatabaseName("RoleNameIndex")
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles");
@@ -1313,12 +1334,12 @@ namespace CombatTracker.Domain.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(128)")
-                        .HasMaxLength(128);
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("ProviderKey")
-                        .HasColumnType("nvarchar(128)")
-                        .HasMaxLength(128);
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("nvarchar(max)");
@@ -1355,12 +1376,12 @@ namespace CombatTracker.Domain.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(128)")
-                        .HasMaxLength(128);
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(128)")
-                        .HasMaxLength(128);
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("Value")
                         .HasColumnType("nvarchar(max)");
@@ -1375,6 +1396,8 @@ namespace CombatTracker.Domain.Migrations
                     b.HasOne("CombatTracker.Domain.Reference.Players.DbCharacter", "Character")
                         .WithMany("Armors")
                         .HasForeignKey("CharacterId");
+
+                    b.Navigation("Character");
                 });
 
             modelBuilder.Entity("CombatTracker.Domain.DbLevelChartValue", b =>
@@ -1384,6 +1407,8 @@ namespace CombatTracker.Domain.Migrations
                         .HasForeignKey("Level_ID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Chart");
                 });
 
             modelBuilder.Entity("CombatTracker.Domain.DbWeapon", b =>
@@ -1391,6 +1416,8 @@ namespace CombatTracker.Domain.Migrations
                     b.HasOne("CombatTracker.Domain.Reference.Players.DbCharacter", "Character")
                         .WithMany("Weapons")
                         .HasForeignKey("CharacterId");
+
+                    b.Navigation("Character");
                 });
 
             modelBuilder.Entity("CombatTracker.Domain.Models.DbActor", b =>
@@ -1408,6 +1435,12 @@ namespace CombatTracker.Domain.Migrations
                         .HasForeignKey("Game_ID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Character");
+
+                    b.Navigation("Creature");
+
+                    b.Navigation("Game");
                 });
 
             modelBuilder.Entity("CombatTracker.Domain.Models.DbActorsAction", b =>
@@ -1435,6 +1468,16 @@ namespace CombatTracker.Domain.Migrations
                         .HasForeignKey("WhoIsActing_ID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Action");
+
+                    b.Navigation("Actor");
+
+                    b.Navigation("CriticalAffect");
+
+                    b.Navigation("CurrentAttack");
+
+                    b.Navigation("Game");
                 });
 
             modelBuilder.Entity("CombatTracker.Domain.Models.DbActorsAttack", b =>
@@ -1450,6 +1493,10 @@ namespace CombatTracker.Domain.Migrations
                         .HasForeignKey("Attack_ID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Actor");
+
+                    b.Navigation("Attack");
                 });
 
             modelBuilder.Entity("CombatTracker.Domain.Models.DbCriticalAffect", b =>
@@ -1459,6 +1506,8 @@ namespace CombatTracker.Domain.Migrations
                         .HasForeignKey("Actor_ID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Actor");
                 });
 
             modelBuilder.Entity("CombatTracker.Domain.Reference.Actions.DbActionDefinition", b =>
@@ -1470,6 +1519,10 @@ namespace CombatTracker.Domain.Migrations
                     b.HasOne("CombatTracker.Domain.Reference.Actions.DbActionDefinition", "NextAction")
                         .WithMany()
                         .HasForeignKey("NextAction_ID");
+
+                    b.Navigation("ActionGroup");
+
+                    b.Navigation("NextAction");
                 });
 
             modelBuilder.Entity("CombatTracker.Domain.Reference.Attacks.DbAttack", b =>
@@ -1503,6 +1556,20 @@ namespace CombatTracker.Domain.Migrations
                     b.HasOne("CombatTracker.Domain.DbWeapon", "WeaponUsed")
                         .WithMany()
                         .HasForeignKey("WeaponUsed_ID");
+
+                    b.Navigation("AttackType");
+
+                    b.Navigation("Creature");
+
+                    b.Navigation("CriticalUseInstead");
+
+                    b.Navigation("NextRoundSuccess");
+
+                    b.Navigation("SizeRating");
+
+                    b.Navigation("ThisRoundSuccess");
+
+                    b.Navigation("WeaponUsed");
                 });
 
             modelBuilder.Entity("CombatTracker.Domain.Reference.Attacks.DbAttacksAddCrit", b =>
@@ -1518,6 +1585,10 @@ namespace CombatTracker.Domain.Migrations
                         .HasForeignKey("Critical_ID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Attack");
+
+                    b.Navigation("CriticalType");
                 });
 
             modelBuilder.Entity("CombatTracker.Domain.Reference.Creatures.Charts.DbConstitutionBonusChartValues", b =>
@@ -1527,6 +1598,8 @@ namespace CombatTracker.Domain.Migrations
                         .HasForeignKey("Chart_ID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Chart");
                 });
 
             modelBuilder.Entity("CombatTracker.Domain.Reference.Creatures.DbCreature", b =>
@@ -1600,6 +1673,30 @@ namespace CombatTracker.Domain.Migrations
                         .HasForeignKey("Size_ID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("AQRating");
+
+                    b.Navigation("Book");
+
+                    b.Navigation("CriticalIgnore");
+
+                    b.Navigation("Criticals");
+
+                    b.Navigation("HitMod");
+
+                    b.Navigation("IQ");
+
+                    b.Navigation("LevelMod");
+
+                    b.Navigation("MaxPace");
+
+                    b.Navigation("MSRating");
+
+                    b.Navigation("Outlook");
+
+                    b.Navigation("Owner");
+
+                    b.Navigation("Size");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -1651,6 +1748,59 @@ namespace CombatTracker.Domain.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("CombatTracker.Domain.DbConstitutionBonusChart", b =>
+                {
+                    b.Navigation("Values");
+                });
+
+            modelBuilder.Entity("CombatTracker.Domain.DbLevelChart", b =>
+                {
+                    b.Navigation("Values");
+                });
+
+            modelBuilder.Entity("CombatTracker.Domain.Models.DbActor", b =>
+                {
+                    b.Navigation("Actions");
+
+                    b.Navigation("Attacks");
+
+                    b.Navigation("CriticalAffects");
+                });
+
+            modelBuilder.Entity("CombatTracker.Domain.Models.DbGame", b =>
+                {
+                    b.Navigation("Actors");
+
+                    b.Navigation("ActorsActions");
+                });
+
+            modelBuilder.Entity("CombatTracker.Domain.Reference.Actions.DbActionGroup", b =>
+                {
+                    b.Navigation("Actions");
+                });
+
+            modelBuilder.Entity("CombatTracker.Domain.Reference.Attacks.DbAttack", b =>
+                {
+                    b.Navigation("AdditionalCrits");
+                });
+
+            modelBuilder.Entity("CombatTracker.Domain.Reference.Creatures.DbCreature", b =>
+                {
+                    b.Navigation("Attacks");
+                });
+
+            modelBuilder.Entity("CombatTracker.Domain.Reference.DbBook", b =>
+                {
+                    b.Navigation("Creatures");
+                });
+
+            modelBuilder.Entity("CombatTracker.Domain.Reference.Players.DbCharacter", b =>
+                {
+                    b.Navigation("Armors");
+
+                    b.Navigation("Weapons");
                 });
 #pragma warning restore 612, 618
         }

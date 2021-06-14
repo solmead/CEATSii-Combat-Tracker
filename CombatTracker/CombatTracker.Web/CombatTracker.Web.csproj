@@ -66,6 +66,89 @@
 		<Content Remove="$(SpaRoot)**" />
 		<None Remove="$(SpaRoot)**" />
 		<None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
+		<None Remove="Models\Conventions\" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\favicon.ico" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\polyfills.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\index.html" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\runtime.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\main.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\polyfills.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\styles.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\vendor.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\main.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\scripts.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\runtime.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\scripts.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\styles.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\vendor.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\main.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\polyfills.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\runtime.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\styles.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\vendor.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\scripts.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\main.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\polyfills.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\runtime.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\styles.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\vendor.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\scripts.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\favicon.ico" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\index.html" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\main.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\polyfills.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\runtime.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\styles.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\vendor.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\scripts.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\main.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\polyfills.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\runtime.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\styles.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\vendor.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\scripts.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\favicon.ico" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\index.html" />
+	</ItemGroup>
+
+
+	<ItemGroup>
+	  <None Update="CEATSiiApp\src\app\repositories\Actions.repository.ts">
+	    <CustomToolNamespace>Controllers\Api\ActionsController.cs</CustomToolNamespace>
+	  </None>
+	  <None Update="CEATSiiApp\src\app\repositories\Actors.repository.ts">
+	    <CustomToolNamespace>Controllers\Api\ActorsController.cs</CustomToolNamespace>
+	  </None>
+	  <None Update="CEATSiiApp\src\app\repositories\Characters.repository.ts">
+	    <CustomToolNamespace>Controllers\Api\CharactersController.cs</CustomToolNamespace>
+	  </None>
+	  <None Update="CEATSiiApp\src\app\repositories\Combat.repository.ts">
+	    <CustomToolNamespace>Controllers\Api\CombatController.cs</CustomToolNamespace>
+	  </None>
+	  <None Update="CEATSiiApp\src\app\repositories\Creatures.repository.ts">
+	    <CustomToolNamespace>Controllers\Api\CreaturesController.cs</CustomToolNamespace>
+	  </None>
+	  <None Update="CEATSiiApp\src\app\repositories\CriticalEffects.repository.ts">
+	    <CustomToolNamespace>Controllers\Api\CriticalEffectsController.cs</CustomToolNamespace>
+	  </None>
+	  <None Update="CEATSiiApp\src\app\repositories\Encounter.repository.ts">
+	    <CustomToolNamespace>Controllers\Api\EncounterController.cs</CustomToolNamespace>
+	  </None>
+	  <None Update="CEATSiiApp\src\app\repositories\Games.repository.ts">
+	    <CustomToolNamespace>Controllers\Api\GamesController.cs</CustomToolNamespace>
+	  </None>
+	  <None Update="CEATSiiApp\src\app\repositories\Reference.repository.ts">
+	    <CustomToolNamespace>Controllers\Api\ReferenceController.cs</CustomToolNamespace>
+	  </None>
+	  <None Update="CEATSiiApp\src\app\repositories\Settings.repository.ts">
+	    <CustomToolNamespace>Controllers\Api\SettingsController.cs</CustomToolNamespace>
+	  </None>
+	  <None Update="CEATSiiApp\src\app\repositories\Users.repository.ts">
+	    <CustomToolNamespace>Controllers\Api\UsersController.cs</CustomToolNamespace>
+	  </None>
+	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="Models\Conventions\" />
 	</ItemGroup>
 	<Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
 		<!-- Ensure Node.js is installed -->
@@ -84,7 +167,7 @@
 		<ItemGroup>
 			<DistFiles Include="$(SpaRoot)dist\**; $(SpaRoot)dist-server\**" />
 			<DistFiles Include="$(SpaRoot)node_modules\**" Condition="'$(BuildServerSideRenderer)' == 'true'" />
-			<ResolvedFileToPublish Include="@(DistFiles->'%(FullPath)')" Exclude="@(ResolvedFileToPublish)">
+			<ResolvedFileToPublish Include="@(DistFiles-&gt;'%(FullPath)')" Exclude="@(ResolvedFileToPublish)">
 				<RelativePath>%(DistFiles.Identity)</RelativePath>
 				<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
 				<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
@@ -101,7 +184,7 @@
 		<ItemGroup>
 			<DistFiles Include="$(SpaRoot)dist\**; $(SpaRoot)dist-server\**" />
 			<DistFiles Include="$(SpaRoot)node_modules\**" Condition="'$(BuildServerSideRenderer)' == 'true'" />
-			<ResolvedFileToPublish Include="@(DistFiles->'%(FullPath)')" Exclude="@(ResolvedFileToPublish)">
+			<ResolvedFileToPublish Include="@(DistFiles-&gt;'%(FullPath)')" Exclude="@(ResolvedFileToPublish)">
 				<RelativePath>%(DistFiles.Identity)</RelativePath>
 				<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
 				<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
