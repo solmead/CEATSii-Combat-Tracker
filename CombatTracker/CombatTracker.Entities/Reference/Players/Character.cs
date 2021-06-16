@@ -4,6 +4,7 @@ using System.Linq;
 using CombatTracker.Entities.Reference.Attacks;
 using CombatTracker.Entities.Reference.Attacks.Charts;
 using CombatTracker.Entities.Reference.Base;
+using Utilities.EnumExtensions;
 
 namespace CombatTracker.Entities.Reference
 {
@@ -37,7 +38,7 @@ namespace CombatTracker.Entities.Reference
         public string GameTypeString
         {
             get => GameType.ToString();
-            set => GameType = (GameType)Enum.Parse(typeof(GameType), value);
+            set => GameType = (!string.IsNullOrWhiteSpace(value) ? value.ToEnum<GameType>() : GameType.RMSS);
         }
 
         //public virtual ICollection<Actor> Actors { get; set; }

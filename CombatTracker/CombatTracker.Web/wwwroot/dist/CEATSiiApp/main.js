@@ -71,7 +71,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\r\n\r\n<header class=\"\" style=\"height: 10%!important;\">\r\n  <nav class=\"navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow h-100 \">\r\n    <div class=\"container\">\r\n      <a class=\"navbar-brand\" asp-area=\"\" asp-controller=\"Home\" asp-action=\"Index\">CombatTracker.Web</a>\r\n      <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\".navbar-collapse\" aria-controls=\"navbarSupportedContent\"\r\n              aria-expanded=\"false\" aria-label=\"Toggle navigation\">\r\n        <span class=\"navbar-toggler-icon\"></span>\r\n      </button>\r\n      <div class=\"navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse\">\r\n        <app-login-menu class=\"navbar-nav\"></app-login-menu>\r\n\r\n        <main-nav-menu class=\"navbar-nav flex-grow-1\"></main-nav-menu>\r\n\r\n      </div>\r\n    </div>\r\n  </nav>\r\n</header>\r\n\r\n<div class=\"mainbody\">\r\n  <main role=\"main\" class=\"clear h-100\" style=\"\">\r\n\r\n    <div class=\"h-100\" style=\"position:relative;\">\r\n      <div class='apparea'>\r\n        <div class='menu-column'>\r\n          <div class=\"displayInfo\"></div>\r\n          <side-nav-menu></side-nav-menu>\r\n        </div>\r\n        <div class='body-content'>\r\n          <router-outlet></router-outlet>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </main>\r\n\r\n\r\n\r\n\r\n  <footer class=\"border-top footer text-muted\" style=\"height: 10%!important;\">\r\n    <div class=\"container h-100\">\r\n      &copy; 2019 - CombatTracker.Web - <a asp-area=\"\" asp-controller=\"Home\" asp-action=\"Privacy\">Privacy</a>\r\n    </div>\r\n  </footer>\r\n</div>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("\r\n\r\n<header class=\"\" style=\"height: 10%!important;\">\r\n  <nav class=\"navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow h-100 \">\r\n    <div class=\"container\">\r\n      <a class=\"navbar-brand\" asp-area=\"\" asp-controller=\"Home\" asp-action=\"Index\">CombatTracker.Web</a>\r\n      <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\".navbar-collapse\" aria-controls=\"navbarSupportedContent\"\r\n              aria-expanded=\"false\" aria-label=\"Toggle navigation\">\r\n        <span class=\"navbar-toggler-icon\"></span>\r\n      </button>\r\n      <div class=\"navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse\">\r\n        <app-login-menu class=\"navbar-nav\"></app-login-menu>\r\n\r\n        <main-nav-menu class=\"navbar-nav flex-grow-1\"></main-nav-menu>\r\n\r\n      </div>\r\n    </div>\r\n  </nav>\r\n</header>\r\n\r\n<div class=\"mainbody\">\r\n  <main role=\"main\" class=\"clear h-100\" style=\"\">\r\n\r\n    <div class=\"h-100\" style=\"position:relative;\">\r\n      <div class='apparea'>\r\n        <div class='menu-column'>\r\n          <div class=\"displayInfo\"></div>\r\n          <side-nav-menu></side-nav-menu>\r\n        </div>\r\n        <div class='body-content'>\r\n          <router-outlet></router-outlet>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </main>\r\n\r\n\r\n\r\n\r\n  <footer class=\"border-top footer text-muted\" style=\"height: 10%!important;\">\r\n    <div class=\"container h-100\">\r\n      &copy; 2021 - CombatTracker.Web - <a asp-area=\"\" asp-controller=\"Home\" asp-action=\"Privacy\">Privacy</a>\r\n    </div>\r\n  </footer>\r\n</div>\r\n");
 
 /***/ }),
 
@@ -101,10 +101,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/armor/armor.component.html":
-/*!*********************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/components/armor/armor.component.html ***!
-  \*********************************************************************************************/
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/armor/armor-list.component.html":
+/*!**************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/components/armor/armor-list.component.html ***!
+  \**************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -127,10 +127,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/attack/attack.component.html":
-/*!***********************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/components/attack/attack.component.html ***!
-  \***********************************************************************************************/
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/attack/attack-list.component.html":
+/*!****************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/components/attack/attack-list.component.html ***!
+  \****************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -149,14 +149,14 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div *ngIf=\"character\">\r\n    <fieldset>\r\n        <legend>{{character?.name}}</legend>\r\n        <form #charForm=\"ngForm\">\r\n            <div class=\"row\">\r\n                <div class=\"form-group col-sm-6\">\r\n                    <label>Name</label>\r\n                    <input #name=\"ngModel\" name=\"name\" class=\"form-control\"\r\n                           [(ngModel)]=\"character.name\" required />\r\n                    <div *ngIf=\"name.invalid\" class=\"text-danger\">\r\n                        Please enter a name\r\n                    </div>\r\n                </div>\r\n                <div class=\"form-group col-sm-6\" style=\"vertical-align:bottom;\">\r\n                    <div class=\"btn-group\">\r\n                        <label><input type=\"radio\" value=\"PC\" name=\"chartype\" [(ngModel)]=\"character.typeString\"> PC</label>\r\n                        <label><input type=\"radio\" value=\"NPC\" name=\"chartype\" [(ngModel)]=\"character.typeString\"> NPC</label>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n\r\n            <div class=\"row\">\r\n                <div class=\"form-group col-sm-2\">\r\n                    <label>Level</label>\r\n                    <input #level=\"ngModel\" name=\"level\" class=\"form-control\"\r\n                           [(ngModel)]=\"character.level\" required />\r\n                    <div *ngIf=\"level.invalid\" class=\"text-danger\">\r\n                        Please enter a level\r\n                    </div>\r\n                </div>\r\n                <div class=\"form-group  col-sm-2\">\r\n                    <label>Base Inititive</label>\r\n                    <input #baseInititive=\"ngModel\" name=\"baseInititive\" class=\"form-control\"\r\n                           [(ngModel)]=\"character.baseInititive\" required />\r\n                    <div *ngIf=\"baseInititive.invalid\" class=\"text-danger\">\r\n                        Please enter a base inititive\r\n                    </div>\r\n                </div>\r\n                <div class=\"form-group  col-sm-2\">\r\n                    <label>Walk Speed</label>\r\n                    <input #walkSpeed=\"ngModel\" name=\"walkSpeed\" class=\"form-control\"\r\n                           [(ngModel)]=\"character.walkSpeed\" required />\r\n                    <div *ngIf=\"walkSpeed.invalid\" class=\"text-danger\">\r\n                        Please enter a Walk Speed\r\n                    </div>\r\n                </div>\r\n                <div class=\"form-group  col-sm-2\">\r\n                    <label>Strength Bonus</label>\r\n                    <input #strengthBonus=\"ngModel\" name=\"strengthBonus\" class=\"form-control\"\r\n                           [(ngModel)]=\"character.strengthBonus\" required />\r\n                    <div *ngIf=\"strengthBonus.invalid\" class=\"text-danger\">\r\n                        Please enter a Strength Bonus\r\n                    </div>\r\n                </div>\r\n            </div>\r\n            <div class=\"row\">\r\n                <div class=\"form-group  col-sm-2\">\r\n                    <label>Hit<br />Points</label>\r\n                    <input #hitPoints=\"ngModel\" name=\"hitPoints\" class=\"form-control\"\r\n                           [(ngModel)]=\"character.hitPoints\" required />\r\n                    <div *ngIf=\"hitPoints.invalid\" class=\"text-danger\">\r\n                        Please enter Hit Points\r\n                    </div>\r\n                </div>\r\n                <div *ngIf=\"isRolemaster\" class=\"form-group  col-sm-2\">\r\n                    <label style=\"white-space: nowrap;\">Power<br />Points</label>\r\n                    <input #powerPoints=\"ngModel\" name=\"powerPoints\" class=\"form-control\"\r\n                           [(ngModel)]=\"character.powerPoints\" required />\r\n                    <div *ngIf=\"powerPoints.invalid\" class=\"text-danger\">\r\n                        Please enter Power Points\r\n                    </div>\r\n                </div>\r\n                <div *ngIf=\"isRolemaster\" class=\"form-group  col-sm-2\">\r\n                    <label style=\"white-space: nowrap;\">Exhaustion<br />Points</label>\r\n                    <input #exhaustionPoints=\"ngModel\" name=\"exhaustionPoints\" class=\"form-control\"\r\n                           [(ngModel)]=\"character.exhaustionPoints\" required />\r\n                    <div *ngIf=\"exhaustionPoints.invalid\" class=\"text-danger\">\r\n                        Please enter Exhaustion Points\r\n                    </div>\r\n                </div>\r\n                <div *ngIf=\"isRolemaster\" class=\"form-group  col-sm-2\">\r\n                    <label>Percent Required<br />Adrenal DB</label>\r\n                    <input #percentRequiredAdrenalDB=\"ngModel\" name=\"percentRequiredAdrenalDB\" class=\"form-control\"\r\n                           [(ngModel)]=\"character.percentRequiredAdrenalDB\" />\r\n                </div>\r\n            </div>\r\n            <div class=\"row\">\r\n                <div class=\"form-group  col-sm-6\">\r\n                    <app-weapon [weapons]=\"character.weapons\" [charId]=\"character.id\" (onDelete)=\"onWeaponDeleted($event)\"></app-weapon>\r\n                </div>\r\n            </div>\r\n            <div class=\"row\">\r\n                <div *ngIf=\"isRolemaster\" class=\"form-group  col-sm-6\">\r\n                    <app-armor [armors]=\"character.armors\" [charId]=\"character.id\" (onDelete)=\"onArmorDeleted($event)\"></app-armor>\r\n                </div>\r\n            </div>\r\n            <div class=\"text-center pt-2\">\r\n                <button class=\"btn btn-outline-primary pull-left\" (click)=\"closeEdit()\">\r\n                    Back\r\n                </button>\r\n\r\n                <button class=\"btn btn-danger\" [disabled]=\"charForm.invalid\"\r\n                        (click)=\"saveCharacter()\">\r\n                    Save\r\n                </button>\r\n\r\n                <button *ngIf=\"hasCurrentGame\" class=\"btn btn-primary pull-right\"\r\n                        (click)=\"addToEncounter()\">\r\n                    Add To Encounter\r\n                </button>\r\n\r\n            </div>\r\n        </form>\r\n    </fieldset>\r\n</div>\r\n<modal id=\"custom-modal-2\">\r\n    <div class=\"modal\">\r\n        <div class=\"modal-body\">\r\n            <h1>Roll Init - 2d10</h1>\r\n            <input name=\"rolledInit\" class=\"form-control\"\r\n                    [(ngModel)]=\"rolledInit\" required />\r\n            <button (click)=\"closeModal('custom-modal-2');\">Add To Encounter</button>\r\n        </div>\r\n    </div>\r\n    <div class=\"modal-background\"></div>\r\n</modal>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div *ngIf=\"character\">\r\n    <fieldset>\r\n        <legend>{{character?.name}}</legend>\r\n        <form #charForm=\"ngForm\">\r\n            <div class=\"row\">\r\n                <div class=\"form-group col-sm-6\">\r\n                    <label>Name</label>\r\n                    <input #name=\"ngModel\" name=\"name\" class=\"form-control\"\r\n                           [(ngModel)]=\"character.name\" required />\r\n                    <div *ngIf=\"name.invalid\" class=\"text-danger\">\r\n                        Please enter a name\r\n                    </div>\r\n                </div>\r\n                <div class=\"form-group col-sm-6\" style=\"vertical-align:bottom;\">\r\n                    <div class=\"btn-group\">\r\n                        <label><input type=\"radio\" value=\"PC\" name=\"chartype\" [(ngModel)]=\"character.typeString\"> PC</label>\r\n                        <label><input type=\"radio\" value=\"NPC\" name=\"chartype\" [(ngModel)]=\"character.typeString\"> NPC</label>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n\r\n            <div class=\"row\">\r\n                <div class=\"form-group col-sm-2\">\r\n                    <label>Level</label>\r\n                    <input #level=\"ngModel\" name=\"level\" class=\"form-control\"\r\n                           [(ngModel)]=\"character.level\" required />\r\n                    <div *ngIf=\"level.invalid\" class=\"text-danger\">\r\n                        Please enter a level\r\n                    </div>\r\n                </div>\r\n                <div class=\"form-group  col-sm-2\">\r\n                    <label>Base Inititive</label>\r\n                    <input #baseInititive=\"ngModel\" name=\"baseInititive\" class=\"form-control\"\r\n                           [(ngModel)]=\"character.baseInititive\" required />\r\n                    <div *ngIf=\"baseInititive.invalid\" class=\"text-danger\">\r\n                        Please enter a base inititive\r\n                    </div>\r\n                </div>\r\n                <div class=\"form-group  col-sm-2\">\r\n                    <label>Walk Speed</label>\r\n                    <input #walkSpeed=\"ngModel\" name=\"walkSpeed\" class=\"form-control\"\r\n                           [(ngModel)]=\"character.walkSpeed\" required />\r\n                    <div *ngIf=\"walkSpeed.invalid\" class=\"text-danger\">\r\n                        Please enter a Walk Speed\r\n                    </div>\r\n                </div>\r\n                <div class=\"form-group  col-sm-2\">\r\n                    <label>Strength Bonus</label>\r\n                    <input #strengthBonus=\"ngModel\" name=\"strengthBonus\" class=\"form-control\"\r\n                           [(ngModel)]=\"character.strengthBonus\" required />\r\n                    <div *ngIf=\"strengthBonus.invalid\" class=\"text-danger\">\r\n                        Please enter a Strength Bonus\r\n                    </div>\r\n                </div>\r\n            </div>\r\n            <div class=\"row\">\r\n                <div class=\"form-group  col-sm-2\">\r\n                    <label>Hit<br />Points</label>\r\n                    <input #hitPoints=\"ngModel\" name=\"hitPoints\" class=\"form-control\"\r\n                           [(ngModel)]=\"character.hitPoints\" required />\r\n                    <div *ngIf=\"hitPoints.invalid\" class=\"text-danger\">\r\n                        Please enter Hit Points\r\n                    </div>\r\n                </div>\r\n                <div *ngIf=\"isRolemaster\" class=\"form-group  col-sm-2\">\r\n                    <label style=\"white-space: nowrap;\">Power<br />Points</label>\r\n                    <input #powerPoints=\"ngModel\" name=\"powerPoints\" class=\"form-control\"\r\n                           [(ngModel)]=\"character.powerPoints\" required />\r\n                    <div *ngIf=\"powerPoints.invalid\" class=\"text-danger\">\r\n                        Please enter Power Points\r\n                    </div>\r\n                </div>\r\n                <div *ngIf=\"isRolemaster\" class=\"form-group  col-sm-2\">\r\n                    <label style=\"white-space: nowrap;\">Exhaustion<br />Points</label>\r\n                    <input #exhaustionPoints=\"ngModel\" name=\"exhaustionPoints\" class=\"form-control\"\r\n                           [(ngModel)]=\"character.exhaustionPoints\" required />\r\n                    <div *ngIf=\"exhaustionPoints.invalid\" class=\"text-danger\">\r\n                        Please enter Exhaustion Points\r\n                    </div>\r\n                </div>\r\n                <div *ngIf=\"isRolemaster\" class=\"form-group  col-sm-2\">\r\n                    <label>Percent Required<br />Adrenal DB</label>\r\n                    <input #percentRequiredAdrenalDB=\"ngModel\" name=\"percentRequiredAdrenalDB\" class=\"form-control\"\r\n                           [(ngModel)]=\"character.percentRequiredAdrenalDB\" />\r\n                </div>\r\n            </div>\r\n            <div class=\"row\">\r\n                <div class=\"form-group  col-sm-6\">\r\n                    <weapon-list [weapons]=\"character.weapons\" [charId]=\"character.id\" (onDelete)=\"onWeaponDeleted($event)\"></weapon-list>\r\n                </div>\r\n            </div>\r\n            <div class=\"row\">\r\n                <div *ngIf=\"isRolemaster\" class=\"form-group  col-sm-6\">\r\n                    <armor-list [armors]=\"character.armors\" [charId]=\"character.id\" (onDelete)=\"onArmorDeleted($event)\"></armor-list>\r\n                </div>\r\n            </div>\r\n            <div class=\"text-center pt-2\">\r\n                <button class=\"btn btn-outline-primary pull-left\" (click)=\"closeEdit()\">\r\n                    Back\r\n                </button>\r\n\r\n                <button class=\"btn btn-danger\" [disabled]=\"charForm.invalid\"\r\n                        (click)=\"saveCharacter()\">\r\n                    Save\r\n                </button>\r\n\r\n                <button *ngIf=\"hasCurrentGame\" class=\"btn btn-primary pull-right\"\r\n                        (click)=\"addToEncounter()\">\r\n                    Add To Encounter\r\n                </button>\r\n\r\n            </div>\r\n        </form>\r\n    </fieldset>\r\n</div>\r\n<modal id=\"custom-modal-2\">\r\n    <div class=\"modal\">\r\n        <div class=\"modal-body\">\r\n            <h1>Roll Init - 2d10</h1>\r\n            <input name=\"rolledInit\" class=\"form-control\"\r\n                    [(ngModel)]=\"rolledInit\" required />\r\n            <button (click)=\"closeModal('custom-modal-2');\">Add To Encounter</button>\r\n        </div>\r\n    </div>\r\n    <div class=\"modal-background\"></div>\r\n</modal>\r\n");
 
 /***/ }),
 
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/character/character.component.html":
-/*!*****************************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/components/character/character.component.html ***!
-  \*****************************************************************************************************/
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/character/character-list.component.html":
+/*!**********************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/components/character/character-list.component.html ***!
+  \**********************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -175,20 +175,46 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div *ngIf=\"creature\">\r\n    <fieldset>\r\n        <legend>{{creature?.name}}</legend>\r\n        <form #charForm=\"ngForm\">\r\n            <div class=\"row\">\r\n                <div class=\"form-group col-sm-6\">\r\n                    <label>Name</label>\r\n                    <input #name=\"ngModel\" name=\"typeName\" class=\"form-control\"\r\n                           [(ngModel)]=\"creature.typeName\" required />\r\n                    <div *ngIf=\"name.invalid\" class=\"text-danger\">\r\n                        Please enter a name\r\n                    </div>\r\n                </div>\r\n            </div>\r\n            <div class=\"row\">\r\n                <div class=\"form-group col-sm-6\">\r\n                    <label>Description</label>\r\n                    <textarea name=\"description\" class=\"form-control\"\r\n                              [(ngModel)]=\"creature.description\"></textarea>\r\n                </div>\r\n            </div>\r\n\r\n            <div class=\"row\">\r\n                <div class=\"form-group col-sm-3\">\r\n                    <div class=\"col-sm-4\" style=\"padding:0;\">\r\n                        <label>Base Level</label>\r\n                        <input #level=\"ngModel\" name=\"baseLevel\" class=\"form-control\"\r\n                               [(ngModel)]=\"creature.baseLevel\" required />\r\n                        <div *ngIf=\"level.invalid\" class=\"text-danger\">\r\n                            Please enter a level\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"col-sm-5\" style=\"padding:0;\">\r\n                        <label>&nbsp;</label>\r\n                        <select class=\"form-control\" name=\"selectedLevel\" [(ngModel)]=\"creature.levelMod_ID\">\r\n                            <option *ngFor=\"let level of referencesService.LevelCharts\" value={{level?.id}}>\r\n                                {{level?.name}}\r\n                            </option>\r\n                        </select>\r\n                    </div>\r\n                </div>\r\n\r\n                <div class=\"form-group col-sm-3\">\r\n                    <label>Size</label>\r\n                    <select class=\"form-control\" name=\"selectedSize\" [(ngModel)]=\"creature.size_ID\">\r\n                        <option *ngFor=\"let item of referencesService.SizeRatings\" value={{item?.id}}>\r\n                            {{item?.abbreviation}} ({{item?.name}})\r\n                        </option>\r\n                    </select>\r\n                </div>\r\n                <div class=\"form-group col-sm-3\">\r\n                    <div class=\"col-sm-6\" style=\"padding:0;\">\r\n                        <label>Movement Speed</label>\r\n                        <select class=\"form-control\" name=\"selectedMS\" [(ngModel)]=\"creature.msRating_ID\">\r\n                            <option *ngFor=\"let item of referencesService.SpeedCharts\" value={{item?.id}}>\r\n                                {{item?.abbreviation}} ({{item?.name}})\r\n                            </option>\r\n                        </select>\r\n                    </div>\r\n                    <div class=\"col-sm-6\" style=\"padding:0;\">\r\n                        <label>Attack Quickness</label>\r\n                        <select class=\"form-control\" name=\"selectedAQ\" [(ngModel)]=\"creature.aqRating_ID\">\r\n                            <option *ngFor=\"let item of referencesService.SpeedCharts\" value={{item?.id}}>\r\n                                {{item?.abbreviation}} ({{item?.name}})\r\n                            </option>\r\n                        </select>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n\r\n            <div class=\"row\">\r\n                <div class=\"form-group col-sm-3\">\r\n                    <div class=\"col-sm-4\" style=\"padding:0;\">\r\n                        <label>Base Move</label>\r\n                        <input #move=\"ngModel\" name=\"baseMove\" class=\"form-control\"\r\n                               [(ngModel)]=\"creature.baseMove\" required />\r\n                        <div *ngIf=\"move.invalid\" class=\"text-danger\">\r\n                            Please enter a distance\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n                <div class=\"form-group col-sm-3\">\r\n                    <label>Max Pace</label>\r\n                    <select class=\"form-control\" name=\"selectedPace\" [(ngModel)]=\"creature.maxPace_ID\">\r\n                        <option *ngFor=\"let item of referencesService.Paces\" value={{item?.id}}>\r\n                            {{item?.abbreviation}} ({{item?.name}})\r\n                        </option>\r\n                    </select>\r\n                </div>\r\n                <div class=\"form-group col-sm-1\">\r\n                    <label>Moving Maneuver Bonus</label>\r\n                    <input #move=\"ngModel\" name=\"MMBonus\" class=\"form-control\"\r\n                           [(ngModel)]=\"creature.mmBonus\" required />\r\n                </div>\r\n            </div>\r\n\r\n            <div class=\"row\">\r\n                <div class=\"form-group col-sm-3\">\r\n                    <div class=\"col-sm-4\" style=\"padding:0;\">\r\n                        <label>Base Hits</label>\r\n                        <input #hits=\"ngModel\" name=\"baseHits\" class=\"form-control\"\r\n                               [(ngModel)]=\"creature.baseHits\" required />\r\n                        <div *ngIf=\"hits.invalid\" class=\"text-danger\">\r\n                            Please enter hit points\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"col-sm-5\" style=\"padding:0;\">\r\n                        <label>&nbsp;</label>\r\n                        <select class=\"form-control\" name=\"selectedHitMod\" [(ngModel)]=\"creature.hitMod_ID\">\r\n                            <option *ngFor=\"let item of referencesService.ConstitutionBonusCharts\" value={{item?.id}}>\r\n                                {{item?.code}}\r\n                            </option>\r\n                        </select>\r\n                    </div>\r\n                </div>\r\n\r\n                <div class=\"form-group col-sm-3\">\r\n                    <div class=\"col-sm-6\" style=\"padding:0;\">\r\n                        <label>Criticals</label>\r\n                        <select class=\"form-control\" name=\"selectedCritical\" [(ngModel)]=\"creature.criticals_ID\">\r\n                            <option *ngFor=\"let item of referencesService.CriticalCodes\" value={{item?.id}}>\r\n                                {{item?.abbreviation}} ({{item?.name}})\r\n                            </option>\r\n                        </select>\r\n                    </div>\r\n\r\n                    <div class=\"col-sm-6\" style=\"padding:0;\">\r\n                        <label>Criticals Ignored</label>\r\n                        <select class=\"form-control\" name=\"selectedCriticalIgnore\" [(ngModel)]=\"creature.criticalsIgnore_ID\">\r\n                            <option *ngFor=\"let item of referencesService.CriticalIgnores\" value={{item?.id}}>\r\n                                {{item?.abbreviation}} ({{item?.name}})\r\n                            </option>\r\n                        </select>\r\n                    </div>\r\n                </div>\r\n\r\n\r\n                <div class=\"form-group col-sm-3\">\r\n                    <div class=\"col-sm-5\" style=\"padding:0;\">\r\n                        <label>AT</label>\r\n                        <input name=\"at\" class=\"form-control\"\r\n                               [(ngModel)]=\"creature.at\" required />\r\n                    </div>\r\n                    <div class=\"col-sm-5\" style=\"padding:0;\">\r\n                        <label>DB</label>\r\n                        <input name=\"at\" class=\"form-control\"\r\n                               [(ngModel)]=\"creature.db\" required />\r\n                    </div>\r\n                </div>\r\n            </div>\r\n\r\n            <div class=\"row\">\r\n                <div class=\"form-group col-sm-3\">\r\n                    <label>Numbers Encountered</label>\r\n                    <div class=\"col-sm-6\" style=\"padding:0;\">\r\n                        <label>Min</label>\r\n                        <input name=\"baseMin\" class=\"form-control\"\r\n                               [(ngModel)]=\"creature.minEncountered\" />\r\n                    </div>\r\n                    <div class=\"col-sm-6\" style=\"padding:0;\">\r\n                        <label>Max</label>\r\n                        <input name=\"baseMax\" class=\"form-control\"\r\n                               [(ngModel)]=\"creature.maxEncountered\" />\r\n                    </div>\r\n                </div>\r\n            </div>\r\n            <div class=\"row\">\r\n                <div class=\"form-group  col-sm-12\">\r\n                    <app-attack [attacks]=\"creature.attacks\" [creatureId]=\"creature.id\" (onDelete)=\"onAttackDeleted($event)\"></app-attack>\r\n                </div>\r\n            </div>\r\n            <!--\r\n    <div class=\"row\">\r\n        <div class=\"form-group  col-sm-2\">\r\n            <label>Hit<br />Points</label>\r\n            <input #hitPoints=\"ngModel\" name=\"hitPoints\" class=\"form-control\"\r\n                   [(ngModel)]=\"character.hitPoints\" required />\r\n            <div *ngIf=\"hitPoints.invalid\" class=\"text-danger\">\r\n                Please enter Hit Points\r\n            </div>\r\n        </div>\r\n        <div *ngIf=\"isRolemaster\" class=\"form-group  col-sm-2\">\r\n            <label style=\"white-space: nowrap;\">Power<br />Points</label>\r\n            <input #powerPoints=\"ngModel\" name=\"powerPoints\" class=\"form-control\"\r\n                   [(ngModel)]=\"character.powerPoints\" required />\r\n            <div *ngIf=\"powerPoints.invalid\" class=\"text-danger\">\r\n                Please enter Power Points\r\n            </div>\r\n        </div>\r\n        <div *ngIf=\"isRolemaster\" class=\"form-group  col-sm-2\">\r\n            <label style=\"white-space: nowrap;\">Exhaustion<br />Points</label>\r\n            <input #exhaustionPoints=\"ngModel\" name=\"exhaustionPoints\" class=\"form-control\"\r\n                   [(ngModel)]=\"character.exhaustionPoints\" required />\r\n            <div *ngIf=\"exhaustionPoints.invalid\" class=\"text-danger\">\r\n                Please enter Exhaustion Points\r\n            </div>\r\n        </div>\r\n        <div *ngIf=\"isRolemaster\" class=\"form-group  col-sm-2\">\r\n            <label>Percent Required<br />Adrenal DB</label>\r\n            <input #percentRequiredAdrenalDB=\"ngModel\" name=\"percentRequiredAdrenalDB\" class=\"form-control\"\r\n                   [(ngModel)]=\"character.percentRequiredAdrenalDB\" />\r\n        </div>\r\n    </div>-->\r\n            <!--<div class=\"row\">\r\n        <div class=\"form-group  col-sm-6\">\r\n            <app-weapon [weapons]=\"character.weapons\" [charId]=\"character.id\" (onDelete)=\"onWeaponDeleted($event)\"></app-weapon>\r\n        </div>\r\n    </div>\r\n    <div class=\"row\">\r\n        <div *ngIf=\"isRolemaster\" class=\"form-group  col-sm-6\">\r\n            <app-armor [armors]=\"character.armors\" [charId]=\"character.id\" (onDelete)=\"onArmorDeleted($event)\"></app-armor>\r\n        </div>\r\n    </div>-->\r\n            <div class=\"text-center pt-2\">\r\n                <button class=\"btn btn-outline-primary pull-left\" (click)=\"closeEdit()\">\r\n                    Back\r\n                </button>\r\n\r\n                <button class=\"btn btn-danger\" [disabled]=\"charForm.invalid\"\r\n                        (click)=\"saveCharacter()\">\r\n                    Save\r\n                </button>\r\n\r\n                <button *ngIf=\"hasCurrentGame\" class=\"btn btn-primary pull-right\"\r\n                        (click)=\"addToEncounter()\">\r\n                    Add To Encounter\r\n                </button>\r\n\r\n            </div>\r\n        </form>\r\n    </fieldset>\r\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div *ngIf=\"creature\">\r\n    <fieldset>\r\n        <legend>{{creature?.name}}</legend>\r\n        <form #charForm=\"ngForm\">\r\n            <div class=\"row\">\r\n                <div class=\"form-group col-sm-6\">\r\n                    <label>Name</label>\r\n                    <input #name=\"ngModel\" name=\"typeName\" class=\"form-control\"\r\n                           [(ngModel)]=\"creature.typeName\" required />\r\n                    <div *ngIf=\"name.invalid\" class=\"text-danger\">\r\n                        Please enter a name\r\n                    </div>\r\n                </div>\r\n            </div>\r\n            <div class=\"row\">\r\n                <div class=\"form-group col-sm-6\">\r\n                    <label>Description</label>\r\n                    <textarea name=\"description\" class=\"form-control\"\r\n                              [(ngModel)]=\"creature.description\"></textarea>\r\n                </div>\r\n            </div>\r\n\r\n            <div class=\"row\">\r\n                <div class=\"form-group col-sm-3\">\r\n                    <div class=\"col-sm-4\" style=\"padding:0;\">\r\n                        <label>Base Level</label>\r\n                        <input #level=\"ngModel\" name=\"baseLevel\" class=\"form-control\"\r\n                               [(ngModel)]=\"creature.baseLevel\" required />\r\n                        <div *ngIf=\"level.invalid\" class=\"text-danger\">\r\n                            Please enter a level\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"col-sm-5\" style=\"padding:0;\">\r\n                        <label>&nbsp;</label>\r\n                        <select class=\"form-control\" name=\"selectedLevel\" [(ngModel)]=\"creature.levelMod_ID\">\r\n                            <option *ngFor=\"let level of referencesService.LevelCharts\" value={{level?.id}}>\r\n                                {{level?.name}}\r\n                            </option>\r\n                        </select>\r\n                    </div>\r\n                </div>\r\n\r\n                <div class=\"form-group col-sm-3\">\r\n                    <label>Size</label>\r\n                    <select class=\"form-control\" name=\"selectedSize\" [(ngModel)]=\"creature.size_ID\">\r\n                        <option *ngFor=\"let item of referencesService.SizeRatings\" value={{item?.id}}>\r\n                            {{item?.abbreviation}} ({{item?.name}})\r\n                        </option>\r\n                    </select>\r\n                </div>\r\n                <div class=\"form-group col-sm-3\">\r\n                    <div class=\"col-sm-6\" style=\"padding:0;\">\r\n                        <label>Movement Speed</label>\r\n                        <select class=\"form-control\" name=\"selectedMS\" [(ngModel)]=\"creature.msRating_ID\">\r\n                            <option *ngFor=\"let item of referencesService.SpeedCharts\" value={{item?.id}}>\r\n                                {{item?.abbreviation}} ({{item?.name}})\r\n                            </option>\r\n                        </select>\r\n                    </div>\r\n                    <div class=\"col-sm-6\" style=\"padding:0;\">\r\n                        <label>Attack Quickness</label>\r\n                        <select class=\"form-control\" name=\"selectedAQ\" [(ngModel)]=\"creature.aqRating_ID\">\r\n                            <option *ngFor=\"let item of referencesService.SpeedCharts\" value={{item?.id}}>\r\n                                {{item?.abbreviation}} ({{item?.name}})\r\n                            </option>\r\n                        </select>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n\r\n            <div class=\"row\">\r\n                <div class=\"form-group col-sm-3\">\r\n                    <div class=\"col-sm-4\" style=\"padding:0;\">\r\n                        <label>Base Move</label>\r\n                        <input #move=\"ngModel\" name=\"baseMove\" class=\"form-control\"\r\n                               [(ngModel)]=\"creature.baseMove\" required />\r\n                        <div *ngIf=\"move.invalid\" class=\"text-danger\">\r\n                            Please enter a distance\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n                <div class=\"form-group col-sm-3\">\r\n                    <label>Max Pace</label>\r\n                    <select class=\"form-control\" name=\"selectedPace\" [(ngModel)]=\"creature.maxPace_ID\">\r\n                        <option *ngFor=\"let item of referencesService.Paces\" value={{item?.id}}>\r\n                            {{item?.abbreviation}} ({{item?.name}})\r\n                        </option>\r\n                    </select>\r\n                </div>\r\n                <div class=\"form-group col-sm-1\">\r\n                    <label>Moving Maneuver Bonus</label>\r\n                    <input #move=\"ngModel\" name=\"MMBonus\" class=\"form-control\"\r\n                           [(ngModel)]=\"creature.mmBonus\" required />\r\n                </div>\r\n            </div>\r\n\r\n            <div class=\"row\">\r\n                <div class=\"form-group col-sm-3\">\r\n                    <div class=\"col-sm-4\" style=\"padding:0;\">\r\n                        <label>Base Hits</label>\r\n                        <input #hits=\"ngModel\" name=\"baseHits\" class=\"form-control\"\r\n                               [(ngModel)]=\"creature.baseHits\" required />\r\n                        <div *ngIf=\"hits.invalid\" class=\"text-danger\">\r\n                            Please enter hit points\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"col-sm-5\" style=\"padding:0;\">\r\n                        <label>&nbsp;</label>\r\n                        <select class=\"form-control\" name=\"selectedHitMod\" [(ngModel)]=\"creature.hitMod_ID\">\r\n                            <option *ngFor=\"let item of referencesService.ConstitutionBonusCharts\" value={{item?.id}}>\r\n                                {{item?.code}}\r\n                            </option>\r\n                        </select>\r\n                    </div>\r\n                </div>\r\n\r\n                <div class=\"form-group col-sm-3\">\r\n                    <div class=\"col-sm-6\" style=\"padding:0;\">\r\n                        <label>Criticals</label>\r\n                        <select class=\"form-control\" name=\"selectedCritical\" [(ngModel)]=\"creature.criticals_ID\">\r\n                            <option *ngFor=\"let item of referencesService.CriticalCodes\" value={{item?.id}}>\r\n                                {{item?.abbreviation}} ({{item?.name}})\r\n                            </option>\r\n                        </select>\r\n                    </div>\r\n\r\n                    <div class=\"col-sm-6\" style=\"padding:0;\">\r\n                        <label>Criticals Ignored</label>\r\n                        <select class=\"form-control\" name=\"selectedCriticalIgnore\" [(ngModel)]=\"creature.criticalsIgnore_ID\">\r\n                            <option *ngFor=\"let item of referencesService.CriticalIgnores\" value={{item?.id}}>\r\n                                {{item?.abbreviation}} ({{item?.name}})\r\n                            </option>\r\n                        </select>\r\n                    </div>\r\n                </div>\r\n\r\n\r\n                <div class=\"form-group col-sm-3\">\r\n                    <div class=\"col-sm-5\" style=\"padding:0;\">\r\n                        <label>AT</label>\r\n                        <input name=\"at\" class=\"form-control\"\r\n                               [(ngModel)]=\"creature.at\" required />\r\n                    </div>\r\n                    <div class=\"col-sm-5\" style=\"padding:0;\">\r\n                        <label>DB</label>\r\n                        <input name=\"at\" class=\"form-control\"\r\n                               [(ngModel)]=\"creature.db\" required />\r\n                    </div>\r\n                </div>\r\n            </div>\r\n\r\n            <div class=\"row\">\r\n                <div class=\"form-group col-sm-3\">\r\n                    <label>Numbers Encountered</label>\r\n                    <div class=\"col-sm-6\" style=\"padding:0;\">\r\n                        <label>Min</label>\r\n                        <input name=\"baseMin\" class=\"form-control\"\r\n                               [(ngModel)]=\"creature.minEncountered\" />\r\n                    </div>\r\n                    <div class=\"col-sm-6\" style=\"padding:0;\">\r\n                        <label>Max</label>\r\n                        <input name=\"baseMax\" class=\"form-control\"\r\n                               [(ngModel)]=\"creature.maxEncountered\" />\r\n                    </div>\r\n                </div>\r\n            </div>\r\n            <div class=\"row\">\r\n                <div class=\"form-group  col-sm-12\">\r\n                    <attack-list [attacks]=\"creature.attacks\" [creatureId]=\"creature.id\" (onDelete)=\"onAttackDeleted($event)\"></attack-list>\r\n                </div>\r\n            </div>\r\n            <!--\r\n    <div class=\"row\">\r\n        <div class=\"form-group  col-sm-2\">\r\n            <label>Hit<br />Points</label>\r\n            <input #hitPoints=\"ngModel\" name=\"hitPoints\" class=\"form-control\"\r\n                   [(ngModel)]=\"character.hitPoints\" required />\r\n            <div *ngIf=\"hitPoints.invalid\" class=\"text-danger\">\r\n                Please enter Hit Points\r\n            </div>\r\n        </div>\r\n        <div *ngIf=\"isRolemaster\" class=\"form-group  col-sm-2\">\r\n            <label style=\"white-space: nowrap;\">Power<br />Points</label>\r\n            <input #powerPoints=\"ngModel\" name=\"powerPoints\" class=\"form-control\"\r\n                   [(ngModel)]=\"character.powerPoints\" required />\r\n            <div *ngIf=\"powerPoints.invalid\" class=\"text-danger\">\r\n                Please enter Power Points\r\n            </div>\r\n        </div>\r\n        <div *ngIf=\"isRolemaster\" class=\"form-group  col-sm-2\">\r\n            <label style=\"white-space: nowrap;\">Exhaustion<br />Points</label>\r\n            <input #exhaustionPoints=\"ngModel\" name=\"exhaustionPoints\" class=\"form-control\"\r\n                   [(ngModel)]=\"character.exhaustionPoints\" required />\r\n            <div *ngIf=\"exhaustionPoints.invalid\" class=\"text-danger\">\r\n                Please enter Exhaustion Points\r\n            </div>\r\n        </div>\r\n        <div *ngIf=\"isRolemaster\" class=\"form-group  col-sm-2\">\r\n            <label>Percent Required<br />Adrenal DB</label>\r\n            <input #percentRequiredAdrenalDB=\"ngModel\" name=\"percentRequiredAdrenalDB\" class=\"form-control\"\r\n                   [(ngModel)]=\"character.percentRequiredAdrenalDB\" />\r\n        </div>\r\n    </div>-->\r\n            <!--<div class=\"row\">\r\n        <div class=\"form-group  col-sm-6\">\r\n            <app-weapon [weapons]=\"character.weapons\" [charId]=\"character.id\" (onDelete)=\"onWeaponDeleted($event)\"></app-weapon>\r\n        </div>\r\n    </div>\r\n    <div class=\"row\">\r\n        <div *ngIf=\"isRolemaster\" class=\"form-group  col-sm-6\">\r\n            <app-armor [armors]=\"character.armors\" [charId]=\"character.id\" (onDelete)=\"onArmorDeleted($event)\"></app-armor>\r\n        </div>\r\n    </div>-->\r\n            <div class=\"text-center pt-2\">\r\n                <button class=\"btn btn-outline-primary pull-left\" (click)=\"closeEdit()\">\r\n                    Back\r\n                </button>\r\n\r\n                <button class=\"btn btn-danger\" [disabled]=\"charForm.invalid\"\r\n                        (click)=\"saveCharacter()\">\r\n                    Save\r\n                </button>\r\n\r\n                <button *ngIf=\"hasCurrentGame\" class=\"btn btn-primary pull-right\"\r\n                        (click)=\"addToEncounter()\">\r\n                    Add To Encounter\r\n                </button>\r\n\r\n            </div>\r\n        </form>\r\n    </fieldset>\r\n</div>");
 
 /***/ }),
 
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/encounter/encounter.component.html":
-/*!*****************************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/components/encounter/encounter.component.html ***!
-  \*****************************************************************************************************/
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/creature/creature-list.component.html":
+/*!********************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/components/creature/creature-list.component.html ***!
+  \********************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div style=\"border: 1px solid red\">encounter Component</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("\r\n<div class=\"wrapper\">\r\n  <div class=\"area\">\r\n    <div class=\"list\">\r\n      <p *ngIf=\"!creatures\"><em>Loading...</em></p>\r\n      <div class=\"mainList\">\r\n        <h3 style=\"display:block; margin-top:0; white-space: nowrap;\">\r\n          <div style=\"float:right;\">\r\n            <button class=\"btn btn-primary btn-sm\" (click)=\"newCreature()\">\r\n              <span class=\"glyphicon glyphicon-plus\"></span> New\r\n            </button>\r\n          </div>\r\n          Creatures\r\n        </h3>\r\n        <table *ngIf=\"creatures\" class=\"table table-striped\">\r\n          <tr>\r\n            <th style=\"vertical-align: middle;\">\r\n              System\r\n            </th>\r\n            <th style=\"vertical-align: middle;\">\r\n              Book\r\n            </th>\r\n            <th style=\"vertical-align: middle;\">\r\n              Name\r\n            </th>\r\n            <th style=\"vertical-align: middle;\">\r\n              Level\r\n            </th>\r\n            <th style=\"vertical-align: middle;\">\r\n              Size\r\n            </th>\r\n            <th style=\"vertical-align: middle;\">\r\n              Number\r\n            </th>\r\n            <th style=\"vertical-align: middle;\">\r\n              Speed\r\n            </th>\r\n          </tr>\r\n          <tr *ngFor=\"let creature of creatures\">\r\n            <td style=\"white-space: nowrap;\">\r\n              {{creature?.gameTypeString}}\r\n            </td>\r\n            <td style=\"white-space: nowrap;\">\r\n              {{creature?.book.name}}\r\n            </td>\r\n            <td style=\"white-space: nowrap;\">\r\n              <a (click)=\"selectCreature(creature.id)\">{{creature?.typeName}}</a>\r\n            </td>\r\n            <td style=\"white-space: nowrap;\">\r\n              {{creature?.baseLevel}}{{creature?.levelMod.name}}\r\n            </td>\r\n            <td style=\"white-space: nowrap;\">\r\n              {{creature?.size.name}}\r\n            </td>\r\n            <td style=\"white-space: nowrap;\">\r\n              {{creature?.minEncountered}} - {{creature?.maxEncountered}}\r\n            </td>\r\n            <td style=\"white-space: nowrap;\">\r\n              {{creature?.msRating.name}} / {{creature?.aqRating.name}}\r\n            </td>\r\n          </tr>\r\n        </table>\r\n      </div>\r\n    </div>\r\n    <!--<div class=\"edit\">\r\n      <app-creature-edit [creature]=\"selectedCreature\" (onDelete)=\"onCreatureDeleted($event)\" (onSave)=\"onCreatureSave($event)\"></app-creature-edit>\r\n    </div>-->\r\n  </div>\r\n</div>\r\n");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/encounter/action.component.html":
+/*!**************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/components/encounter/action.component.html ***!
+  \**************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"ActorAction\" [style.background-color]=\"getColor()\">\r\n    <span>\r\n        {{action.whoIsActing.name}}\r\n    </span><br />\r\n    {{action.name}}<br />\r\n    {{action.note}}<br />\r\n    {{action.actionTypeString}}<br />\r\n    {{action.stateString}}<br />\r\n    {{action.typeString}}<br />\r\n    {{action.reoccuring}}\r\n</div>\r\n");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/encounter/actions-list.component.html":
+/*!********************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/components/encounter/actions-list.component.html ***!
+  \********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\r\n<div class=\"list\">\r\n    <p *ngIf=\"!actions\"><em>Loading...</em></p>\r\n    <div class=\"mainActionList\">\r\n        <div class=\"ActorActionBack\" *ngFor=\"let action of actions\" [style.margin-left]=\"getLeft(action)\" >\r\n            <action-view [action]=\"action\" [isSelectable]=\"isSelectable\"  (onSelect)=\"selectAction($event)\"></action-view>\r\n        </div>\r\n    </div>\r\n</div>");
 
 /***/ }),
 
@@ -205,16 +231,16 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/game/game.component.html":
-/*!*******************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/components/game/game.component.html ***!
-  \*******************************************************************************************/
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/game/game-list.component.html":
+/*!************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/components/game/game-list.component.html ***!
+  \************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("tesy\r\n<div class=\"wrapper\">\r\n    <div class=\"area\">\r\n        <div class=\"list\">\r\n            <p *ngIf=\"!games\"><em>Loading...</em></p>\r\n            <div class=\"mainList\">\r\n                <h3 style=\"display:block; margin-top:0;\">\r\n                    <div style=\"float:right;\">\r\n                        <button class=\"btn btn-primary btn-sm\" (click)=\"newGame()\">\r\n                            <span class=\"glyphicon glyphicon-plus\"></span> New\r\n                        </button>\r\n                    </div>\r\n                    Games\r\n                </h3>\r\n                <table *ngIf=\"games\" class=\"table table-striped\">\r\n                    <tr>\r\n                        <th style=\"vertical-align: middle;\">\r\n                            Name\r\n                        </th>\r\n                    </tr>\r\n                    <tr *ngFor=\"let game of games\">\r\n                        <td style=\"white-space:nowrap;\"><a (click)=\"selectGame(game.id)\">{{game?.name}}</a> ({{game?.currentTime.toFixed(2)}})</td>\r\n                    </tr>\r\n                </table>\r\n            </div>\r\n        </div>\r\n        <div class=\"edit\">\r\n            <!--(onSave)=\"onArmorSaved($event)\"-->\r\n            <app-game-edit [game]=\"selectedGame\" (onDelete)=\"onGameDeleted($event)\" (onSave)=\"onGameSave($event)\"></app-game-edit>\r\n        </div>\r\n    </div>\r\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<!--tesy\r\n<div class=\"wrapper\">\r\n    <div class=\"area\">-->\r\n        <div class=\"list\">\r\n            <p *ngIf=\"!games\"><em>Loading...</em></p>\r\n            <div class=\"mainList\">\r\n                <h3 style=\"display:block; margin-top:0;\">\r\n                    <div style=\"float:right;\">\r\n                        <button class=\"btn btn-primary btn-sm\" (click)=\"newGame()\">\r\n                            <span class=\"glyphicon glyphicon-plus\"></span> New\r\n                        </button>\r\n                    </div>\r\n                    Games\r\n                </h3>\r\n                <table *ngIf=\"games\" class=\"table table-striped\">\r\n                    <tr>\r\n                        <th style=\"vertical-align: middle;\">\r\n                            Name\r\n                        </th>\r\n                    </tr>\r\n                    <tr *ngFor=\"let game of games\">\r\n                        <td style=\"white-space:nowrap;\"><a (click)=\"selectGame(game.id)\">{{game?.name}}</a> ({{game?.currentTime.toFixed(2)}})</td>\r\n                    </tr>\r\n                </table>\r\n            </div>\r\n        </div>\r\n        <!--<div class=\"edit\">-->\r\n            <!--(onSave)=\"onArmorSaved($event)\"-->\r\n            <!--<app-game-edit [game]=\"selectedGame\" (onDelete)=\"onGameDeleted($event)\" (onSave)=\"onGameSave($event)\"></app-game-edit>\r\n        </div>\r\n    </div>\r\n</div>-->");
 
 /***/ }),
 
@@ -231,10 +257,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/weapon/weapon.component.html":
-/*!***********************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/components/weapon/weapon.component.html ***!
-  \***********************************************************************************************/
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/weapon/weapon-list.component.html":
+/*!****************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/components/weapon/weapon-list.component.html ***!
+  \****************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -279,7 +305,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ul class=\"navbar-nav flex-grow-1\">\r\n  <li class=\"nav-item\">\r\n    <a class=\"nav-link text-dark\" [routerLink]=\"['/home']\">Home</a>\r\n  </li>\r\n  <li class=\"nav-item\" *ngIf=\"currentUser\">\r\n    <a class=\"nav-link text-dark\" [routerLink]=\"['/creatures']\">Creature Compendium</a>\r\n  </li>\r\n  <li class=\"nav-item\" *ngIf=\"currentUser\">\r\n    <a class=\"nav-link text-dark\" [routerLink]=\"['/mycreatures']\">My Creatures</a>\r\n  </li>\r\n  <!--<li class=\"nav-item\">\r\n    <a class=\"nav-link text-dark\" asp-area=\"\" asp-controller=\"Home\" asp-action=\"Privacy\">Privacy</a>\r\n  </li>-->\r\n</ul>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<ul class=\"navbar-nav flex-grow-1\">\r\n  <li class=\"nav-item\">\r\n    <a class=\"nav-link text-dark\" [routerLink]=\"['/home']\">Home</a>\r\n  </li>\r\n  <li class=\"nav-item\" *ngIf=\"currentUser\">\r\n    <a class=\"nav-link text-dark\" [routerLink]=\"['/creatures']\">Creature Compendium</a>\r\n  </li>\r\n  <li class=\"nav-item\" *ngIf=\"currentUser\">\r\n    <a class=\"nav-link text-dark\" [routerLink]=\"['/mycreatures']\">My Creatures</a>\r\n  </li>\r\n  <!--<li class=\"nav-item\" *ngIf=\"currentUser\">\r\n      <select name=\"gameSystem\" class=\"form-control\"\r\n              [(ngModel)]=\"systemSettings.gameSystem\" (ngModelChange)=\"onChange($event)\">\r\n          <option *ngFor=\"let gtype of gameTypes\" [value]=\"gtype.value\">{{gtype.name}}</option>\r\n      </select>\r\n  </li>-->\r\n  <!--<li class=\"nav-item\">\r\n    <a class=\"nav-link text-dark\" asp-area=\"\" asp-controller=\"Home\" asp-action=\"Privacy\">Privacy</a>\r\n  </li>-->\r\n</ul>\r\n");
 
 /***/ }),
 
@@ -296,6 +322,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/top/character/character.component.html":
+/*!**********************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/top/character/character.component.html ***!
+  \**********************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div style=\"border: 1px solid red\">character Component</div>");
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/top/creature/creature.component.html":
 /*!********************************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/top/creature/creature.component.html ***!
@@ -305,7 +344,20 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\r\n<div class=\"wrapper\">\r\n  <div class=\"area\">\r\n    <div class=\"list\">\r\n      <p *ngIf=\"!creatures\"><em>Loading...</em></p>\r\n      <div class=\"mainList\">\r\n        <h3 style=\"display:block; margin-top:0; white-space: nowrap;\">\r\n          <div style=\"float:right;\">\r\n            <button class=\"btn btn-primary btn-sm\" (click)=\"newCreature()\">\r\n              <span class=\"glyphicon glyphicon-plus\"></span> New\r\n            </button>\r\n          </div>\r\n          Creatures\r\n        </h3>\r\n        <table *ngIf=\"creatures\" class=\"table table-striped\">\r\n          <tr>\r\n            <th style=\"vertical-align: middle;\">\r\n              System\r\n            </th>\r\n            <th style=\"vertical-align: middle;\">\r\n              Book\r\n            </th>\r\n            <th style=\"vertical-align: middle;\">\r\n              Name\r\n            </th>\r\n            <th style=\"vertical-align: middle;\">\r\n              Level\r\n            </th>\r\n            <th style=\"vertical-align: middle;\">\r\n              Size\r\n            </th>\r\n            <th style=\"vertical-align: middle;\">\r\n              Number\r\n            </th>\r\n            <th style=\"vertical-align: middle;\">\r\n              Speed\r\n            </th>\r\n          </tr>\r\n          <tr *ngFor=\"let creature of creatures\">\r\n            <td style=\"white-space: nowrap;\">\r\n              {{creature?.gameTypeString}}\r\n            </td>\r\n            <td style=\"white-space: nowrap;\">\r\n              {{creature?.book.name}}\r\n            </td>\r\n            <td style=\"white-space: nowrap;\">\r\n              <a (click)=\"selectCreature(creature.id)\">{{creature?.typeName}}</a>\r\n            </td>\r\n            <td style=\"white-space: nowrap;\">\r\n              {{creature?.baseLevel}}{{creature?.levelMod.name}}\r\n            </td>\r\n            <td style=\"white-space: nowrap;\">\r\n              {{creature?.size.name}}\r\n            </td>\r\n            <td style=\"white-space: nowrap;\">\r\n              {{creature?.minEncountered}} - {{creature?.maxEncountered}}\r\n            </td>\r\n            <td style=\"white-space: nowrap;\">\r\n              {{creature?.msRating.name}} / {{creature?.aqRating.name}}\r\n            </td>\r\n          </tr>\r\n        </table>\r\n      </div>\r\n    </div>\r\n    <!--<div class=\"edit\">\r\n      <app-creature-edit [creature]=\"selectedCreature\" (onDelete)=\"onCreatureDeleted($event)\" (onSave)=\"onCreatureSave($event)\"></app-creature-edit>\r\n    </div>-->\r\n  </div>\r\n</div>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div style=\"border: 1px solid red\">creature Component</div>");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/top/encounter/encounter.component.html":
+/*!**********************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/top/encounter/encounter.component.html ***!
+  \**********************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div style=\"border: 1px solid red; height: 100%;\">\r\n    <div class=\"row\">\r\n        <div class=\"list\">\r\n            encounter Component\r\n        </div>\r\n        <div class=\"edit\">\r\n            <actions-list [actions]=\"actions\"></actions-list>\r\n        </div>\r\n\r\n\r\n    </div>\r\n    \r\n    \r\n    \r\n</div>");
 
 /***/ }),
 
@@ -596,7 +648,7 @@ let ApiPathInterceptor = class ApiPathInterceptor {
     intercept(req, next) {
         var bUrl = ''; //this.getBaseUrl();
         var rUrl = req.url;
-        //debugger;
+        ////debugger;
         const apiReq = req.clone({ url: bUrl + `/${rUrl}` });
         return next.handle(apiReq);
     }
@@ -867,7 +919,7 @@ let ErrorInterceptor = class ErrorInterceptor {
         return next.handle(request).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(this.handleError));
     }
     handleError(error) {
-        //debugger;
+        ////debugger;
         console.error(error);
         let customError = "";
         if (error.error) {
@@ -959,7 +1011,7 @@ let JwtInterceptor = class JwtInterceptor {
     }
     intercept(request, next) {
         // add authorization header with jwt token if available
-        //debugger;
+        ////debugger;
         let currentUser = this.authenticationService.currentUserValue;
         //if (currentUser) {
         //  return this.authenticationService.getAccessToken().pipe(mergeMap(token => this.processRequestWithToken(token, request, next)));
@@ -1047,7 +1099,7 @@ const LoginActions = {
 };
 let applicationPaths = {
     DefaultLoginRedirectPath: '/',
-    ApiAuthorizationClientConfigurationUrl: `/_configuration/${ApplicationName}`,
+    ApiAuthorizationClientConfigurationUrl: `_configuration/${ApplicationName}`,
     Login: `authentication/${LoginActions.Login}`,
     LoginFailed: `authentication/${LoginActions.LoginFailed}`,
     LoginCallback: `authentication/${LoginActions.LoginCallback}`,
@@ -1064,8 +1116,8 @@ let applicationPaths = {
     LogOutPathComponents: [],
     LoggedOutPathComponents: [],
     LogOutCallbackPathComponents: [],
-    IdentityRegisterPath: '/Identity/Account/Register',
-    IdentityManagePath: '/Identity/Account/Manage'
+    IdentityRegisterPath: 'Identity/Account/Register',
+    IdentityManagePath: 'Identity/Account/Manage'
 };
 applicationPaths = Object.assign({}, applicationPaths, { LoginPathComponents: applicationPaths.Login.split('/'), LoginFailedPathComponents: applicationPaths.LoginFailed.split('/'), RegisterPathComponents: applicationPaths.Register.split('/'), ProfilePathComponents: applicationPaths.Profile.split('/'), LogOutPathComponents: applicationPaths.LogOut.split('/'), LoggedOutPathComponents: applicationPaths.LoggedOut.split('/'), LogOutCallbackPathComponents: applicationPaths.LogOutCallback.split('/') });
 const ApplicationPaths = applicationPaths;
@@ -1361,6 +1413,7 @@ let AuthorizeService = class AuthorizeService {
                 return this.success(user && user.state);
             }
             catch (error) {
+                //debugger;
                 console.log('There was an error signing in: ', error);
                 return this.error('There was an error signing in.');
             }
@@ -1384,7 +1437,7 @@ let AuthorizeService = class AuthorizeService {
                     return this.redirect();
                 }
                 catch (redirectSignOutError) {
-                    console.log('Redirect signout error: ', popupSignOutError);
+                    console.log('Redirect signout error: ', redirectSignOutError);
                     return this.error(redirectSignOutError);
                 }
             }
@@ -1394,9 +1447,9 @@ let AuthorizeService = class AuthorizeService {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
             yield this.ensureUserManagerInitialized();
             try {
-                const state = yield this.userManager.signoutCallback(url);
+                const response = yield this.userManager.signoutCallback(url);
                 this.userSubject.next(null);
-                return this.success(state && state.data);
+                return this.success(response && response.state);
             }
             catch (error) {
                 console.log(`There was an error trying to log out '${error}'.`);
@@ -1632,7 +1685,7 @@ let LoginComponent = class LoginComponent {
     }
     getReturnUrl(state) {
         const fromQuery = this.activatedRoute.snapshot.queryParams.returnUrl;
-        // If the url is comming from the query string, check that is either
+        // If the url is coming from the query string, check that is either
         // a relative url or an absolute url
         if (fromQuery &&
             !(fromQuery.startsWith(`${window.location.origin}/`) ||
@@ -1648,7 +1701,7 @@ let LoginComponent = class LoginComponent {
         // It's important that we do a replace here so that when the user hits the back arrow on the
         // browser they get sent back to where it was on the app instead of to an endpoint on this
         // component.
-        const redirectUrl = `${window.location.origin}${apiAuthorizationPath}`;
+        const redirectUrl = `${window.location.origin}/${apiAuthorizationPath}`;
         window.location.replace(redirectUrl);
     }
 };
@@ -1737,7 +1790,6 @@ let LogoutComponent = class LogoutComponent {
                     break;
                 case _api_authorization_constants__WEBPACK_IMPORTED_MODULE_6__["LogoutActions"].LoggedOut:
                     this.message.next('You successfully logged out!');
-                    yield this.navigateToReturnUrl("home");
                     break;
                 default:
                     throw new Error(`Invalid action '${action}'`);
@@ -1750,7 +1802,6 @@ let LogoutComponent = class LogoutComponent {
             const isauthenticated = yield this.authorizeService.isAuthenticated().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["take"])(1)).toPromise();
             if (isauthenticated) {
                 const result = yield this.authorizeService.signOut(state);
-                debugger;
                 switch (result.status) {
                     case _authorize_service__WEBPACK_IMPORTED_MODULE_2__["AuthenticationResultStatus"].Redirect:
                         break;
@@ -1765,9 +1816,7 @@ let LogoutComponent = class LogoutComponent {
                 }
             }
             else {
-                debugger;
                 this.message.next('You successfully logged out!');
-                yield this.navigateToReturnUrl("home");
             }
         });
     }
@@ -1775,7 +1824,6 @@ let LogoutComponent = class LogoutComponent {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
             const url = window.location.href;
             const result = yield this.authorizeService.completeSignOut(url);
-            debugger;
             switch (result.status) {
                 case _authorize_service__WEBPACK_IMPORTED_MODULE_2__["AuthenticationResultStatus"].Redirect:
                     // There should not be any redirects as the only time completeAuthentication finishes
@@ -1794,7 +1842,6 @@ let LogoutComponent = class LogoutComponent {
     }
     navigateToReturnUrl(returnUrl) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
-            debugger;
             yield this.router.navigateByUrl(returnUrl, {
                 replaceUrl: true
             });
@@ -1802,7 +1849,7 @@ let LogoutComponent = class LogoutComponent {
     }
     getReturnUrl(state) {
         const fromQuery = this.activatedRoute.snapshot.queryParams.returnUrl;
-        // If the url is comming from the query string, check that is either
+        // If the url is coming from the query string, check that is either
         // a relative url or an absolute url
         if (fromQuery &&
             !(fromQuery.startsWith(`${window.location.origin}/`) ||
@@ -1848,18 +1895,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var _components_game_game_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/game/game.component */ "./src/app/components/game/game.component.ts");
-/* harmony import */ var _components_character_character_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/character/character.component */ "./src/app/components/character/character.component.ts");
-/* harmony import */ var _components_actor_actor_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/actor/actor.component */ "./src/app/components/actor/actor.component.ts");
-/* harmony import */ var _components_encounter_encounter_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/encounter/encounter.component */ "./src/app/components/encounter/encounter.component.ts");
-/* harmony import */ var _top_home__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/top/home */ "./src/app/top/home/index.ts");
-/* harmony import */ var _top_creature__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @/top/creature */ "./src/app/top/creature/index.ts");
-/* harmony import */ var _api_authorization_authorize_guard__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./api-authorization/authorize.guard */ "./src/app/api-authorization/authorize.guard.ts");
+/* harmony import */ var _top_home__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/top/home */ "./src/app/top/home/index.ts");
+/* harmony import */ var _top_creature__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/top/creature */ "./src/app/top/creature/index.ts");
+/* harmony import */ var _top_character__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/top/character */ "./src/app/top/character/index.ts");
+/* harmony import */ var _top_encounter__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/top/encounter */ "./src/app/top/encounter/index.ts");
+/* harmony import */ var _api_authorization_authorize_guard__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./api-authorization/authorize.guard */ "./src/app/api-authorization/authorize.guard.ts");
 
 
 
-
-
+//import { GameComponent } from './components/game/game.component';
+//import { CharacterComponent } from './components/character/character.component';
+//import { ActorComponent } from './components/actor/actor.component';
 
 
 
@@ -1867,13 +1913,15 @@ __webpack_require__.r(__webpack_exports__);
 
 const routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
-    { path: 'home', component: _top_home__WEBPACK_IMPORTED_MODULE_7__["HomeComponent"] },
-    { path: 'creatures', component: _top_creature__WEBPACK_IMPORTED_MODULE_8__["CreatureComponent"], canActivate: [_api_authorization_authorize_guard__WEBPACK_IMPORTED_MODULE_9__["AuthorizeGuard"]] },
-    { path: 'mycreatures', component: _top_creature__WEBPACK_IMPORTED_MODULE_8__["CreatureComponent"], canActivate: [_api_authorization_authorize_guard__WEBPACK_IMPORTED_MODULE_9__["AuthorizeGuard"]] },
-    { path: 'games', component: _components_game_game_component__WEBPACK_IMPORTED_MODULE_3__["GameComponent"], canActivate: [_api_authorization_authorize_guard__WEBPACK_IMPORTED_MODULE_9__["AuthorizeGuard"]] },
-    { path: 'character', component: _components_character_character_component__WEBPACK_IMPORTED_MODULE_4__["CharacterComponent"], canActivate: [_api_authorization_authorize_guard__WEBPACK_IMPORTED_MODULE_9__["AuthorizeGuard"]] },
-    { path: 'encounter/:id', component: _components_encounter_encounter_component__WEBPACK_IMPORTED_MODULE_6__["EncounterComponent"], canActivate: [_api_authorization_authorize_guard__WEBPACK_IMPORTED_MODULE_9__["AuthorizeGuard"]] },
-    { path: 'actor/:id', component: _components_actor_actor_component__WEBPACK_IMPORTED_MODULE_5__["ActorComponent"], canActivate: [_api_authorization_authorize_guard__WEBPACK_IMPORTED_MODULE_9__["AuthorizeGuard"]] },
+    { path: 'home', component: _top_home__WEBPACK_IMPORTED_MODULE_3__["HomeComponent"] },
+    { path: 'creatures', component: _top_creature__WEBPACK_IMPORTED_MODULE_4__["CreatureComponent"], canActivate: [_api_authorization_authorize_guard__WEBPACK_IMPORTED_MODULE_7__["AuthorizeGuard"]] },
+    { path: 'characters', component: _top_character__WEBPACK_IMPORTED_MODULE_5__["CharacterComponent"], canActivate: [_api_authorization_authorize_guard__WEBPACK_IMPORTED_MODULE_7__["AuthorizeGuard"]] },
+    { path: 'encounter/:id', component: _top_encounter__WEBPACK_IMPORTED_MODULE_6__["EncounterComponent"] },
+    //{ path: 'mycreatures', component: CreatureComponent, canActivate: [AuthorizeGuard] },
+    //{ path: 'games', component: GameComponent, canActivate: [AuthorizeGuard] },
+    //{ path: 'character', component: CharacterComponent, canActivate: [AuthorizeGuard] },
+    //
+    //{ path: 'actor/:id', component: ActorComponent, canActivate: [AuthorizeGuard] },
     { path: '**', redirectTo: '' }
 ];
 let AppRoutingModule = class AppRoutingModule {
@@ -1906,29 +1954,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
-/* harmony import */ var _navigation__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/navigation */ "./src/app/navigation/index.ts");
+/* harmony import */ var _approot__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/approot */ "./src/app/approot/index.ts");
 /* harmony import */ var _top_home__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/top/home */ "./src/app/top/home/index.ts");
-/* harmony import */ var _components_game_game_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @/components/game/game.component */ "./src/app/components/game/game.component.ts");
-/* harmony import */ var _components_game_game_edit_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/game/game-edit.component */ "./src/app/components/game/game-edit.component.ts");
-/* harmony import */ var _components_character_character_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/character/character.component */ "./src/app/components/character/character.component.ts");
-/* harmony import */ var _components_character_character_edit_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/character/character-edit.component */ "./src/app/components/character/character-edit.component.ts");
-/* harmony import */ var _components_creature_creature_edit_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/creature/creature-edit.component */ "./src/app/components/creature/creature-edit.component.ts");
-/* harmony import */ var _components_armor_armor_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/armor/armor.component */ "./src/app/components/armor/armor.component.ts");
-/* harmony import */ var _components_armor_armor_edit_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/armor/armor-edit.component */ "./src/app/components/armor/armor-edit.component.ts");
-/* harmony import */ var _components_attack_attack_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/attack/attack.component */ "./src/app/components/attack/attack.component.ts");
-/* harmony import */ var _components_attack_attack_edit_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/attack/attack-edit.component */ "./src/app/components/attack/attack-edit.component.ts");
-/* harmony import */ var _components_weapon_weapon_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/weapon/weapon.component */ "./src/app/components/weapon/weapon.component.ts");
-/* harmony import */ var _components_weapon_weapon_edit_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/weapon/weapon-edit.component */ "./src/app/components/weapon/weapon-edit.component.ts");
+/* harmony import */ var _top_encounter__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @/top/encounter */ "./src/app/top/encounter/index.ts");
+/* harmony import */ var _top_creature__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @/top/creature */ "./src/app/top/creature/index.ts");
+/* harmony import */ var _top_character__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @/top/character */ "./src/app/top/character/index.ts");
+/* harmony import */ var _navigation__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @/navigation */ "./src/app/navigation/index.ts");
+/* harmony import */ var _components_game__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @/components/game */ "./src/app/components/game/index.ts");
+/* harmony import */ var _components_character__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @/components/character */ "./src/app/components/character/index.ts");
+/* harmony import */ var _components_creature__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @/components/creature */ "./src/app/components/creature/index.ts");
+/* harmony import */ var _components_armor__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @/components/armor */ "./src/app/components/armor/index.ts");
+/* harmony import */ var _components_attack__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @/components/attack */ "./src/app/components/attack/index.ts");
+/* harmony import */ var _components_weapon__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @/components/weapon */ "./src/app/components/weapon/index.ts");
+/* harmony import */ var _components_encounter__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @/components/encounter */ "./src/app/components/encounter/index.ts");
 /* harmony import */ var _components_actor_actor_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/actor/actor.component */ "./src/app/components/actor/actor.component.ts");
-/* harmony import */ var _components_encounter_encounter_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/encounter/encounter.component */ "./src/app/components/encounter/encounter.component.ts");
-/* harmony import */ var _elements__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! @/elements */ "./src/app/elements/index.ts");
-/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
-/* harmony import */ var _approot__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! @/approot */ "./src/app/approot/index.ts");
-/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! @/_helpers */ "./src/app/_helpers/index.ts");
-/* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! @/services */ "./src/app/services/index.ts");
-/* harmony import */ var _top_creature__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! @/top/creature */ "./src/app/top/creature/index.ts");
-/* harmony import */ var _api_authorization_authorize_interceptor__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./api-authorization/authorize.interceptor */ "./src/app/api-authorization/authorize.interceptor.ts");
-/* harmony import */ var _api_authorization_api_authorization_module__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./api-authorization/api-authorization.module */ "./src/app/api-authorization/api-authorization.module.ts");
+/* harmony import */ var _elements__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! @/elements */ "./src/app/elements/index.ts");
+/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
+/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! @/_helpers */ "./src/app/_helpers/index.ts");
+/* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! @/services */ "./src/app/services/index.ts");
+/* harmony import */ var _api_authorization_authorize_interceptor__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./api-authorization/authorize.interceptor */ "./src/app/api-authorization/authorize.interceptor.ts");
+/* harmony import */ var _api_authorization_api_authorization_module__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./api-authorization/api-authorization.module */ "./src/app/api-authorization/api-authorization.module.ts");
 
 
 
@@ -1937,6 +1982,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
+//import { GameComponent } from '@/top/game';
 
 
 
@@ -1966,26 +2016,31 @@ let AppModule = class AppModule {
 AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
         declarations: [
-            _approot__WEBPACK_IMPORTED_MODULE_23__["AppComponent"],
-            _components_game_game_component__WEBPACK_IMPORTED_MODULE_8__["GameComponent"],
-            _components_game_game_edit_component__WEBPACK_IMPORTED_MODULE_9__["GameEditComponent"],
             _top_home__WEBPACK_IMPORTED_MODULE_7__["HomeComponent"],
-            _components_character_character_edit_component__WEBPACK_IMPORTED_MODULE_11__["CharacterEditComponent"],
-            _components_character_character_component__WEBPACK_IMPORTED_MODULE_10__["CharacterComponent"],
-            _top_creature__WEBPACK_IMPORTED_MODULE_26__["CreatureComponent"],
-            _components_creature_creature_edit_component__WEBPACK_IMPORTED_MODULE_12__["CreatureEditComponent"],
+            _top_encounter__WEBPACK_IMPORTED_MODULE_8__["EncounterComponent"],
+            _top_creature__WEBPACK_IMPORTED_MODULE_9__["CreatureComponent"],
+            _top_character__WEBPACK_IMPORTED_MODULE_10__["CharacterComponent"],
+            _approot__WEBPACK_IMPORTED_MODULE_6__["AppComponent"],
+            _components_game__WEBPACK_IMPORTED_MODULE_12__["GameListComponent"],
+            _components_game__WEBPACK_IMPORTED_MODULE_12__["GameEditComponent"],
+            _components_character__WEBPACK_IMPORTED_MODULE_13__["CharacterEditComponent"],
+            _components_character__WEBPACK_IMPORTED_MODULE_13__["CharacterListComponent"],
+            _components_creature__WEBPACK_IMPORTED_MODULE_14__["CreatureListComponent"],
+            _components_creature__WEBPACK_IMPORTED_MODULE_14__["CreatureEditComponent"],
             _components_actor_actor_component__WEBPACK_IMPORTED_MODULE_19__["ActorComponent"],
-            _components_encounter_encounter_component__WEBPACK_IMPORTED_MODULE_20__["EncounterComponent"],
-            _components_armor_armor_component__WEBPACK_IMPORTED_MODULE_13__["ArmorComponent"],
-            _components_armor_armor_edit_component__WEBPACK_IMPORTED_MODULE_14__["ArmorEditComponent"],
-            _components_weapon_weapon_component__WEBPACK_IMPORTED_MODULE_17__["WeaponComponent"],
-            _components_weapon_weapon_edit_component__WEBPACK_IMPORTED_MODULE_18__["WeaponEditComponent"],
-            _elements__WEBPACK_IMPORTED_MODULE_21__["ModalComponent"],
-            _components_attack_attack_component__WEBPACK_IMPORTED_MODULE_15__["AttackComponent"],
-            _components_attack_attack_edit_component__WEBPACK_IMPORTED_MODULE_16__["AttackEditComponent"],
-            _elements__WEBPACK_IMPORTED_MODULE_21__["AlertComponent"],
-            _navigation__WEBPACK_IMPORTED_MODULE_6__["MainNavMenuComponent"],
-            _navigation__WEBPACK_IMPORTED_MODULE_6__["SideNavMenuComponent"]
+            _top_encounter__WEBPACK_IMPORTED_MODULE_8__["EncounterComponent"],
+            _components_armor__WEBPACK_IMPORTED_MODULE_15__["ArmorListComponent"],
+            _components_armor__WEBPACK_IMPORTED_MODULE_15__["ArmorEditComponent"],
+            _components_weapon__WEBPACK_IMPORTED_MODULE_17__["WeaponListComponent"],
+            _components_weapon__WEBPACK_IMPORTED_MODULE_17__["WeaponEditComponent"],
+            _elements__WEBPACK_IMPORTED_MODULE_20__["ModalComponent"],
+            _components_attack__WEBPACK_IMPORTED_MODULE_16__["AttackListComponent"],
+            _components_attack__WEBPACK_IMPORTED_MODULE_16__["AttackEditComponent"],
+            _components_encounter__WEBPACK_IMPORTED_MODULE_18__["ActionsListComponent"],
+            _components_encounter__WEBPACK_IMPORTED_MODULE_18__["ActionComponent"],
+            _elements__WEBPACK_IMPORTED_MODULE_20__["AlertComponent"],
+            _navigation__WEBPACK_IMPORTED_MODULE_11__["MainNavMenuComponent"],
+            _navigation__WEBPACK_IMPORTED_MODULE_11__["SideNavMenuComponent"]
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"].withServerTransition({ appId: 'ng-cli-universal' }),
@@ -1995,8 +2050,8 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _angular_common__WEBPACK_IMPORTED_MODULE_3__["CommonModule"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormsModule"],
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"],
-            _api_authorization_api_authorization_module__WEBPACK_IMPORTED_MODULE_28__["ApiAuthorizationModule"],
-            _app_routing_module__WEBPACK_IMPORTED_MODULE_22__["AppRoutingModule"]
+            _api_authorization_api_authorization_module__WEBPACK_IMPORTED_MODULE_25__["ApiAuthorizationModule"],
+            _app_routing_module__WEBPACK_IMPORTED_MODULE_21__["AppRoutingModule"]
         ],
         providers: [
             //{
@@ -2005,10 +2060,14 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             //},
             {
                 provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HTTP_INTERCEPTORS"],
-                useClass: _helpers__WEBPACK_IMPORTED_MODULE_24__["ApiPathInterceptor"],
+                useClass: _helpers__WEBPACK_IMPORTED_MODULE_22__["ApiPathInterceptor"],
                 multi: true
             },
-            { provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HTTP_INTERCEPTORS"], useClass: _api_authorization_authorize_interceptor__WEBPACK_IMPORTED_MODULE_27__["AuthorizeInterceptor"], multi: true },
+            {
+                provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HTTP_INTERCEPTORS"],
+                useClass: _api_authorization_authorize_interceptor__WEBPACK_IMPORTED_MODULE_24__["AuthorizeInterceptor"],
+                multi: true
+            },
             //{
             //  provide: HTTP_INTERCEPTORS,
             //  useClass: JwtInterceptor,
@@ -2017,12 +2076,15 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             //},
             {
                 provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HTTP_INTERCEPTORS"],
-                useClass: _helpers__WEBPACK_IMPORTED_MODULE_24__["ErrorInterceptor"],
+                useClass: _helpers__WEBPACK_IMPORTED_MODULE_22__["ErrorInterceptor"],
                 multi: true,
-                deps: [_services__WEBPACK_IMPORTED_MODULE_25__["AuthenticationService"]]
+                deps: [_services__WEBPACK_IMPORTED_MODULE_23__["AuthenticationService"]]
             },
+            _services__WEBPACK_IMPORTED_MODULE_23__["EncounterService"],
+            _services__WEBPACK_IMPORTED_MODULE_23__["AlertService"],
+            _services__WEBPACK_IMPORTED_MODULE_23__["ReferencesService"],
         ],
-        bootstrap: [_approot__WEBPACK_IMPORTED_MODULE_23__["AppComponent"]]
+        bootstrap: [_approot__WEBPACK_IMPORTED_MODULE_6__["AppComponent"]]
     })
 ], AppModule);
 
@@ -2248,38 +2310,38 @@ ArmorEditComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 /***/ }),
 
-/***/ "./src/app/components/armor/armor.component.css":
-/*!******************************************************!*\
-  !*** ./src/app/components/armor/armor.component.css ***!
-  \******************************************************/
+/***/ "./src/app/components/armor/armor-list.component.css":
+/*!***********************************************************!*\
+  !*** ./src/app/components/armor/armor-list.component.css ***!
+  \***********************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".wrapper {\r\n}\r\n\r\n.area {\r\n}\r\n\r\n.list {\r\n    display: table-cell;\r\n    width: 20%;\r\n}\r\n\r\n.edit {\r\n    display: table-cell;\r\n    width: 80%;\r\n}\r\n\r\n.mainList {\r\n    font-size: 12px;\r\n    max-height: 100%;\r\n    width: 120px;\r\n}\r\n\r\n.mainList a {\r\n        cursor: pointer;\r\n    }\r\n\r\n.mainList button {\r\n        padding: 0 5px;\r\n    }\r\n\r\n.mainList td {\r\n        padding: 2px;\r\n    }\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9hcm1vci9hcm1vci5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0FBQ0E7O0FBRUE7QUFDQTs7QUFFQTtJQUNJLG1CQUFtQjtJQUNuQixVQUFVO0FBQ2Q7O0FBRUE7SUFDSSxtQkFBbUI7SUFDbkIsVUFBVTtBQUNkOztBQUVBO0lBQ0ksZUFBZTtJQUNmLGdCQUFnQjtJQUNoQixZQUFZO0FBQ2hCOztBQUVJO1FBQ0ksZUFBZTtJQUNuQjs7QUFFQTtRQUNJLGNBQWM7SUFDbEI7O0FBRUE7UUFDSSxZQUFZO0lBQ2hCIiwiZmlsZSI6InNyYy9hcHAvY29tcG9uZW50cy9hcm1vci9hcm1vci5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLndyYXBwZXIge1xyXG59XHJcblxyXG4uYXJlYSB7XHJcbn1cclxuXHJcbi5saXN0IHtcclxuICAgIGRpc3BsYXk6IHRhYmxlLWNlbGw7XHJcbiAgICB3aWR0aDogMjAlO1xyXG59XHJcblxyXG4uZWRpdCB7XHJcbiAgICBkaXNwbGF5OiB0YWJsZS1jZWxsO1xyXG4gICAgd2lkdGg6IDgwJTtcclxufVxyXG5cclxuLm1haW5MaXN0IHtcclxuICAgIGZvbnQtc2l6ZTogMTJweDtcclxuICAgIG1heC1oZWlnaHQ6IDEwMCU7XHJcbiAgICB3aWR0aDogMTIwcHg7XHJcbn1cclxuXHJcbiAgICAubWFpbkxpc3QgYSB7XHJcbiAgICAgICAgY3Vyc29yOiBwb2ludGVyO1xyXG4gICAgfVxyXG5cclxuICAgIC5tYWluTGlzdCBidXR0b24ge1xyXG4gICAgICAgIHBhZGRpbmc6IDAgNXB4O1xyXG4gICAgfVxyXG5cclxuICAgIC5tYWluTGlzdCB0ZCB7XHJcbiAgICAgICAgcGFkZGluZzogMnB4O1xyXG4gICAgfVxyXG4iXX0= */");
+/* harmony default export */ __webpack_exports__["default"] = (".wrapper {\r\n}\r\n\r\n.area {\r\n}\r\n\r\n.list {\r\n    display: table-cell;\r\n    width: 20%;\r\n}\r\n\r\n.edit {\r\n    display: table-cell;\r\n    width: 80%;\r\n}\r\n\r\n.mainList {\r\n    font-size: 12px;\r\n    max-height: 100%;\r\n    width: 120px;\r\n}\r\n\r\n.mainList a {\r\n        cursor: pointer;\r\n    }\r\n\r\n.mainList button {\r\n        padding: 0 5px;\r\n    }\r\n\r\n.mainList td {\r\n        padding: 2px;\r\n    }\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9hcm1vci9hcm1vci1saXN0LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7QUFDQTs7QUFFQTtBQUNBOztBQUVBO0lBQ0ksbUJBQW1CO0lBQ25CLFVBQVU7QUFDZDs7QUFFQTtJQUNJLG1CQUFtQjtJQUNuQixVQUFVO0FBQ2Q7O0FBRUE7SUFDSSxlQUFlO0lBQ2YsZ0JBQWdCO0lBQ2hCLFlBQVk7QUFDaEI7O0FBRUk7UUFDSSxlQUFlO0lBQ25COztBQUVBO1FBQ0ksY0FBYztJQUNsQjs7QUFFQTtRQUNJLFlBQVk7SUFDaEIiLCJmaWxlIjoic3JjL2FwcC9jb21wb25lbnRzL2FybW9yL2FybW9yLWxpc3QuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi53cmFwcGVyIHtcclxufVxyXG5cclxuLmFyZWEge1xyXG59XHJcblxyXG4ubGlzdCB7XHJcbiAgICBkaXNwbGF5OiB0YWJsZS1jZWxsO1xyXG4gICAgd2lkdGg6IDIwJTtcclxufVxyXG5cclxuLmVkaXQge1xyXG4gICAgZGlzcGxheTogdGFibGUtY2VsbDtcclxuICAgIHdpZHRoOiA4MCU7XHJcbn1cclxuXHJcbi5tYWluTGlzdCB7XHJcbiAgICBmb250LXNpemU6IDEycHg7XHJcbiAgICBtYXgtaGVpZ2h0OiAxMDAlO1xyXG4gICAgd2lkdGg6IDEyMHB4O1xyXG59XHJcblxyXG4gICAgLm1haW5MaXN0IGEge1xyXG4gICAgICAgIGN1cnNvcjogcG9pbnRlcjtcclxuICAgIH1cclxuXHJcbiAgICAubWFpbkxpc3QgYnV0dG9uIHtcclxuICAgICAgICBwYWRkaW5nOiAwIDVweDtcclxuICAgIH1cclxuXHJcbiAgICAubWFpbkxpc3QgdGQge1xyXG4gICAgICAgIHBhZGRpbmc6IDJweDtcclxuICAgIH1cclxuIl19 */");
 
 /***/ }),
 
-/***/ "./src/app/components/armor/armor.component.ts":
-/*!*****************************************************!*\
-  !*** ./src/app/components/armor/armor.component.ts ***!
-  \*****************************************************/
-/*! exports provided: ArmorComponent */
+/***/ "./src/app/components/armor/armor-list.component.ts":
+/*!**********************************************************!*\
+  !*** ./src/app/components/armor/armor-list.component.ts ***!
+  \**********************************************************/
+/*! exports provided: ArmorListComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ArmorComponent", function() { return ArmorComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ArmorListComponent", function() { return ArmorListComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _entities__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/entities */ "./src/app/entities/index.ts");
 
 
 
-let ArmorComponent = 
+let ArmorListComponent = 
 /** Armor component*/
-class ArmorComponent {
+class ArmorListComponent {
     /** Armor ctor */
     constructor() {
         this.armors = new Array();
@@ -2327,25 +2389,48 @@ class ArmorComponent {
 tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
     tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Array)
-], ArmorComponent.prototype, "armors", void 0);
+], ArmorListComponent.prototype, "armors", void 0);
 tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
     tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Number)
-], ArmorComponent.prototype, "charId", void 0);
+], ArmorListComponent.prototype, "charId", void 0);
 tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
     tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
-], ArmorComponent.prototype, "onDelete", void 0);
-ArmorComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+], ArmorListComponent.prototype, "onDelete", void 0);
+ArmorListComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-armor',
-        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./armor.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/armor/armor.component.html")).default,
-        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./armor.component.css */ "./src/app/components/armor/armor.component.css")).default]
+        selector: 'armor-list',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./armor-list.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/armor/armor-list.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./armor-list.component.css */ "./src/app/components/armor/armor-list.component.css")).default]
     })
     /** Armor component*/
     ,
     tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
-], ArmorComponent);
+], ArmorListComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/armor/index.ts":
+/*!*******************************************!*\
+  !*** ./src/app/components/armor/index.ts ***!
+  \*******************************************/
+/*! exports provided: ArmorListComponent, ArmorEditComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _armor_list_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./armor-list.component */ "./src/app/components/armor/armor-list.component.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ArmorListComponent", function() { return _armor_list_component__WEBPACK_IMPORTED_MODULE_1__["ArmorListComponent"]; });
+
+/* harmony import */ var _armor_edit_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./armor-edit.component */ "./src/app/components/armor/armor-edit.component.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ArmorEditComponent", function() { return _armor_edit_component__WEBPACK_IMPORTED_MODULE_2__["ArmorEditComponent"]; });
+
+
+
 
 
 
@@ -2447,38 +2532,38 @@ AttackEditComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 /***/ }),
 
-/***/ "./src/app/components/attack/attack.component.css":
-/*!********************************************************!*\
-  !*** ./src/app/components/attack/attack.component.css ***!
-  \********************************************************/
+/***/ "./src/app/components/attack/attack-list.component.css":
+/*!*************************************************************!*\
+  !*** ./src/app/components/attack/attack-list.component.css ***!
+  \*************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".wrapper {\r\n}\r\n\r\n.area {\r\n}\r\n\r\n.list {\r\n    display: table-cell;\r\n    width: 20%;\r\n}\r\n\r\n.edit {\r\n    display: table-cell;\r\n    width: 80%;\r\n}\r\n\r\n.mainList {\r\n    font-size: 12px;\r\n    max-height: 100%;\r\n    width: 120px;\r\n}\r\n\r\n.mainList a {\r\n        cursor: pointer;\r\n    }\r\n\r\n.mainList button {\r\n        padding: 0 5px;\r\n    }\r\n\r\n.mainList td {\r\n        padding: 2px;\r\n    }\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9hdHRhY2svYXR0YWNrLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7QUFDQTs7QUFFQTtBQUNBOztBQUVBO0lBQ0ksbUJBQW1CO0lBQ25CLFVBQVU7QUFDZDs7QUFFQTtJQUNJLG1CQUFtQjtJQUNuQixVQUFVO0FBQ2Q7O0FBRUE7SUFDSSxlQUFlO0lBQ2YsZ0JBQWdCO0lBQ2hCLFlBQVk7QUFDaEI7O0FBRUk7UUFDSSxlQUFlO0lBQ25COztBQUVBO1FBQ0ksY0FBYztJQUNsQjs7QUFFQTtRQUNJLFlBQVk7SUFDaEIiLCJmaWxlIjoic3JjL2FwcC9jb21wb25lbnRzL2F0dGFjay9hdHRhY2suY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi53cmFwcGVyIHtcclxufVxyXG5cclxuLmFyZWEge1xyXG59XHJcblxyXG4ubGlzdCB7XHJcbiAgICBkaXNwbGF5OiB0YWJsZS1jZWxsO1xyXG4gICAgd2lkdGg6IDIwJTtcclxufVxyXG5cclxuLmVkaXQge1xyXG4gICAgZGlzcGxheTogdGFibGUtY2VsbDtcclxuICAgIHdpZHRoOiA4MCU7XHJcbn1cclxuXHJcbi5tYWluTGlzdCB7XHJcbiAgICBmb250LXNpemU6IDEycHg7XHJcbiAgICBtYXgtaGVpZ2h0OiAxMDAlO1xyXG4gICAgd2lkdGg6IDEyMHB4O1xyXG59XHJcblxyXG4gICAgLm1haW5MaXN0IGEge1xyXG4gICAgICAgIGN1cnNvcjogcG9pbnRlcjtcclxuICAgIH1cclxuXHJcbiAgICAubWFpbkxpc3QgYnV0dG9uIHtcclxuICAgICAgICBwYWRkaW5nOiAwIDVweDtcclxuICAgIH1cclxuXHJcbiAgICAubWFpbkxpc3QgdGQge1xyXG4gICAgICAgIHBhZGRpbmc6IDJweDtcclxuICAgIH1cclxuIl19 */");
+/* harmony default export */ __webpack_exports__["default"] = (".wrapper {\r\n}\r\n\r\n.area {\r\n}\r\n\r\n.list {\r\n    display: table-cell;\r\n    width: 20%;\r\n}\r\n\r\n.edit {\r\n    display: table-cell;\r\n    width: 80%;\r\n}\r\n\r\n.mainList {\r\n    font-size: 12px;\r\n    max-height: 100%;\r\n    width: 120px;\r\n}\r\n\r\n.mainList a {\r\n        cursor: pointer;\r\n    }\r\n\r\n.mainList button {\r\n        padding: 0 5px;\r\n    }\r\n\r\n.mainList td {\r\n        padding: 2px;\r\n    }\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9hdHRhY2svYXR0YWNrLWxpc3QuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtBQUNBOztBQUVBO0FBQ0E7O0FBRUE7SUFDSSxtQkFBbUI7SUFDbkIsVUFBVTtBQUNkOztBQUVBO0lBQ0ksbUJBQW1CO0lBQ25CLFVBQVU7QUFDZDs7QUFFQTtJQUNJLGVBQWU7SUFDZixnQkFBZ0I7SUFDaEIsWUFBWTtBQUNoQjs7QUFFSTtRQUNJLGVBQWU7SUFDbkI7O0FBRUE7UUFDSSxjQUFjO0lBQ2xCOztBQUVBO1FBQ0ksWUFBWTtJQUNoQiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvYXR0YWNrL2F0dGFjay1saXN0LmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIud3JhcHBlciB7XHJcbn1cclxuXHJcbi5hcmVhIHtcclxufVxyXG5cclxuLmxpc3Qge1xyXG4gICAgZGlzcGxheTogdGFibGUtY2VsbDtcclxuICAgIHdpZHRoOiAyMCU7XHJcbn1cclxuXHJcbi5lZGl0IHtcclxuICAgIGRpc3BsYXk6IHRhYmxlLWNlbGw7XHJcbiAgICB3aWR0aDogODAlO1xyXG59XHJcblxyXG4ubWFpbkxpc3Qge1xyXG4gICAgZm9udC1zaXplOiAxMnB4O1xyXG4gICAgbWF4LWhlaWdodDogMTAwJTtcclxuICAgIHdpZHRoOiAxMjBweDtcclxufVxyXG5cclxuICAgIC5tYWluTGlzdCBhIHtcclxuICAgICAgICBjdXJzb3I6IHBvaW50ZXI7XHJcbiAgICB9XHJcblxyXG4gICAgLm1haW5MaXN0IGJ1dHRvbiB7XHJcbiAgICAgICAgcGFkZGluZzogMCA1cHg7XHJcbiAgICB9XHJcblxyXG4gICAgLm1haW5MaXN0IHRkIHtcclxuICAgICAgICBwYWRkaW5nOiAycHg7XHJcbiAgICB9XHJcbiJdfQ== */");
 
 /***/ }),
 
-/***/ "./src/app/components/attack/attack.component.ts":
-/*!*******************************************************!*\
-  !*** ./src/app/components/attack/attack.component.ts ***!
-  \*******************************************************/
-/*! exports provided: AttackComponent */
+/***/ "./src/app/components/attack/attack-list.component.ts":
+/*!************************************************************!*\
+  !*** ./src/app/components/attack/attack-list.component.ts ***!
+  \************************************************************/
+/*! exports provided: AttackListComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AttackComponent", function() { return AttackComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AttackListComponent", function() { return AttackListComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _entities__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/entities */ "./src/app/entities/index.ts");
 
 
 
-let AttackComponent = 
+let AttackListComponent = 
 /** Attack component*/
-class AttackComponent {
+class AttackListComponent {
     /** Armor ctor */
     constructor() {
         this.onDelete = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
@@ -2522,25 +2607,48 @@ class AttackComponent {
 tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
     tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Array)
-], AttackComponent.prototype, "attacks", void 0);
+], AttackListComponent.prototype, "attacks", void 0);
 tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
     tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Number)
-], AttackComponent.prototype, "creatureId", void 0);
+], AttackListComponent.prototype, "creatureId", void 0);
 tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
     tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
-], AttackComponent.prototype, "onDelete", void 0);
-AttackComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+], AttackListComponent.prototype, "onDelete", void 0);
+AttackListComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-attack',
-        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./attack.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/attack/attack.component.html")).default,
-        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./attack.component.css */ "./src/app/components/attack/attack.component.css")).default]
+        selector: 'attack-list',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./attack-list.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/attack/attack-list.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./attack-list.component.css */ "./src/app/components/attack/attack-list.component.css")).default]
     })
     /** Attack component*/
     ,
     tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
-], AttackComponent);
+], AttackListComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/attack/index.ts":
+/*!********************************************!*\
+  !*** ./src/app/components/attack/index.ts ***!
+  \********************************************/
+/*! exports provided: AttackListComponent, AttackEditComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _attack_list_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./attack-list.component */ "./src/app/components/attack/attack-list.component.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AttackListComponent", function() { return _attack_list_component__WEBPACK_IMPORTED_MODULE_1__["AttackListComponent"]; });
+
+/* harmony import */ var _attack_edit_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./attack-edit.component */ "./src/app/components/attack/attack-edit.component.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AttackEditComponent", function() { return _attack_edit_component__WEBPACK_IMPORTED_MODULE_2__["AttackEditComponent"]; });
+
+
+
 
 
 
@@ -2673,29 +2781,29 @@ CharacterEditComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 /***/ }),
 
-/***/ "./src/app/components/character/character.component.css":
-/*!**************************************************************!*\
-  !*** ./src/app/components/character/character.component.css ***!
-  \**************************************************************/
+/***/ "./src/app/components/character/character-list.component.css":
+/*!*******************************************************************!*\
+  !*** ./src/app/components/character/character-list.component.css ***!
+  \*******************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".wrapper {\r\n}\r\n\r\n.area {\r\n}\r\n\r\n.list {\r\n    display: table-cell;\r\n    width: 20%;\r\n}\r\n\r\n.edit {\r\n    display: table-cell;\r\n    width: 80%;\r\n}\r\n\r\n.mainList {\r\n    font-size: 12px;\r\n    max-height: 100%;\r\n    /*width: 120px;*/\r\n}\r\n\r\n.mainList a {\r\n        cursor: pointer;\r\n    }\r\n\r\n.mainList button {\r\n        padding: 0 5px;\r\n    }\r\n\r\n.mainList td {\r\n        padding: 2px;\r\n    }\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9jaGFyYWN0ZXIvY2hhcmFjdGVyLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7QUFDQTs7QUFFQTtBQUNBOztBQUVBO0lBQ0ksbUJBQW1CO0lBQ25CLFVBQVU7QUFDZDs7QUFFQTtJQUNJLG1CQUFtQjtJQUNuQixVQUFVO0FBQ2Q7O0FBRUE7SUFDSSxlQUFlO0lBQ2YsZ0JBQWdCO0lBQ2hCLGdCQUFnQjtBQUNwQjs7QUFFSTtRQUNJLGVBQWU7SUFDbkI7O0FBRUE7UUFDSSxjQUFjO0lBQ2xCOztBQUVBO1FBQ0ksWUFBWTtJQUNoQiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvY2hhcmFjdGVyL2NoYXJhY3Rlci5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLndyYXBwZXIge1xyXG59XHJcblxyXG4uYXJlYSB7XHJcbn1cclxuXHJcbi5saXN0IHtcclxuICAgIGRpc3BsYXk6IHRhYmxlLWNlbGw7XHJcbiAgICB3aWR0aDogMjAlO1xyXG59XHJcblxyXG4uZWRpdCB7XHJcbiAgICBkaXNwbGF5OiB0YWJsZS1jZWxsO1xyXG4gICAgd2lkdGg6IDgwJTtcclxufVxyXG5cclxuLm1haW5MaXN0IHtcclxuICAgIGZvbnQtc2l6ZTogMTJweDtcclxuICAgIG1heC1oZWlnaHQ6IDEwMCU7XHJcbiAgICAvKndpZHRoOiAxMjBweDsqL1xyXG59XHJcblxyXG4gICAgLm1haW5MaXN0IGEge1xyXG4gICAgICAgIGN1cnNvcjogcG9pbnRlcjtcclxuICAgIH1cclxuXHJcbiAgICAubWFpbkxpc3QgYnV0dG9uIHtcclxuICAgICAgICBwYWRkaW5nOiAwIDVweDtcclxuICAgIH1cclxuXHJcbiAgICAubWFpbkxpc3QgdGQge1xyXG4gICAgICAgIHBhZGRpbmc6IDJweDtcclxuICAgIH1cclxuIl19 */");
+/* harmony default export */ __webpack_exports__["default"] = (".wrapper {\r\n}\r\n\r\n.area {\r\n}\r\n\r\n.list {\r\n    display: table-cell;\r\n    width: 20%;\r\n}\r\n\r\n.edit {\r\n    display: table-cell;\r\n    width: 80%;\r\n}\r\n\r\n.mainList {\r\n    font-size: 12px;\r\n    max-height: 100%;\r\n    /*width: 120px;*/\r\n}\r\n\r\n.mainList a {\r\n        cursor: pointer;\r\n    }\r\n\r\n.mainList button {\r\n        padding: 0 5px;\r\n    }\r\n\r\n.mainList td {\r\n        padding: 2px;\r\n    }\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9jaGFyYWN0ZXIvY2hhcmFjdGVyLWxpc3QuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtBQUNBOztBQUVBO0FBQ0E7O0FBRUE7SUFDSSxtQkFBbUI7SUFDbkIsVUFBVTtBQUNkOztBQUVBO0lBQ0ksbUJBQW1CO0lBQ25CLFVBQVU7QUFDZDs7QUFFQTtJQUNJLGVBQWU7SUFDZixnQkFBZ0I7SUFDaEIsZ0JBQWdCO0FBQ3BCOztBQUVJO1FBQ0ksZUFBZTtJQUNuQjs7QUFFQTtRQUNJLGNBQWM7SUFDbEI7O0FBRUE7UUFDSSxZQUFZO0lBQ2hCIiwiZmlsZSI6InNyYy9hcHAvY29tcG9uZW50cy9jaGFyYWN0ZXIvY2hhcmFjdGVyLWxpc3QuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi53cmFwcGVyIHtcclxufVxyXG5cclxuLmFyZWEge1xyXG59XHJcblxyXG4ubGlzdCB7XHJcbiAgICBkaXNwbGF5OiB0YWJsZS1jZWxsO1xyXG4gICAgd2lkdGg6IDIwJTtcclxufVxyXG5cclxuLmVkaXQge1xyXG4gICAgZGlzcGxheTogdGFibGUtY2VsbDtcclxuICAgIHdpZHRoOiA4MCU7XHJcbn1cclxuXHJcbi5tYWluTGlzdCB7XHJcbiAgICBmb250LXNpemU6IDEycHg7XHJcbiAgICBtYXgtaGVpZ2h0OiAxMDAlO1xyXG4gICAgLyp3aWR0aDogMTIwcHg7Ki9cclxufVxyXG5cclxuICAgIC5tYWluTGlzdCBhIHtcclxuICAgICAgICBjdXJzb3I6IHBvaW50ZXI7XHJcbiAgICB9XHJcblxyXG4gICAgLm1haW5MaXN0IGJ1dHRvbiB7XHJcbiAgICAgICAgcGFkZGluZzogMCA1cHg7XHJcbiAgICB9XHJcblxyXG4gICAgLm1haW5MaXN0IHRkIHtcclxuICAgICAgICBwYWRkaW5nOiAycHg7XHJcbiAgICB9XHJcbiJdfQ== */");
 
 /***/ }),
 
-/***/ "./src/app/components/character/character.component.ts":
-/*!*************************************************************!*\
-  !*** ./src/app/components/character/character.component.ts ***!
-  \*************************************************************/
-/*! exports provided: CharacterComponent */
+/***/ "./src/app/components/character/character-list.component.ts":
+/*!******************************************************************!*\
+  !*** ./src/app/components/character/character-list.component.ts ***!
+  \******************************************************************/
+/*! exports provided: CharacterListComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CharacterComponent", function() { return CharacterComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CharacterListComponent", function() { return CharacterListComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _repositories__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/repositories */ "./src/app/repositories/index.ts");
@@ -2706,9 +2814,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-let CharacterComponent = 
+let CharacterListComponent = 
 /** character component*/
-class CharacterComponent {
+class CharacterListComponent {
     /** character ctor */
     constructor(characterRepo, encounterService) {
         this.characterRepo = characterRepo;
@@ -2752,21 +2860,44 @@ class CharacterComponent {
         this.selectedCharacter = new _entities__WEBPACK_IMPORTED_MODULE_4__["Character"]();
     }
 };
-CharacterComponent.ctorParameters = () => [
+CharacterListComponent.ctorParameters = () => [
     { type: _repositories__WEBPACK_IMPORTED_MODULE_2__["CharactersRepository"] },
     { type: _services__WEBPACK_IMPORTED_MODULE_3__["EncounterService"] }
 ];
-CharacterComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+CharacterListComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-character',
-        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./character.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/character/character.component.html")).default,
-        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./character.component.css */ "./src/app/components/character/character.component.css")).default]
+        selector: 'character-list',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./character-list.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/character/character-list.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./character-list.component.css */ "./src/app/components/character/character-list.component.css")).default]
     })
     /** character component*/
     ,
     tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_repositories__WEBPACK_IMPORTED_MODULE_2__["CharactersRepository"],
         _services__WEBPACK_IMPORTED_MODULE_3__["EncounterService"]])
-], CharacterComponent);
+], CharacterListComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/character/index.ts":
+/*!***********************************************!*\
+  !*** ./src/app/components/character/index.ts ***!
+  \***********************************************/
+/*! exports provided: CharacterListComponent, CharacterEditComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _character_list_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./character-list.component */ "./src/app/components/character/character-list.component.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "CharacterListComponent", function() { return _character_list_component__WEBPACK_IMPORTED_MODULE_1__["CharacterListComponent"]; });
+
+/* harmony import */ var _character_edit_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./character-edit.component */ "./src/app/components/character/character-edit.component.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "CharacterEditComponent", function() { return _character_edit_component__WEBPACK_IMPORTED_MODULE_2__["CharacterEditComponent"]; });
+
+
+
 
 
 
@@ -2882,50 +3013,294 @@ CreatureEditComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 /***/ }),
 
-/***/ "./src/app/components/encounter/encounter.component.css":
-/*!**************************************************************!*\
-  !*** ./src/app/components/encounter/encounter.component.css ***!
-  \**************************************************************/
+/***/ "./src/app/components/creature/creature-list.component.less":
+/*!******************************************************************!*\
+  !*** ./src/app/components/creature/creature-list.component.less ***!
+  \******************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvZW5jb3VudGVyL2VuY291bnRlci5jb21wb25lbnQuY3NzIn0= */");
+/* harmony default export */ __webpack_exports__["default"] = (".list {\n  display: table-cell;\n  width: 20%;\n}\n.edit {\n  display: table-cell;\n  width: 80%;\n}\n.mainList {\n  font-size: 12px;\n  max-height: 100%;\n  /*width: 120px;*/\n}\n.mainList a {\n  cursor: pointer;\n}\n.mainList button {\n  padding: 0 5px;\n}\n.mainList td {\n  padding: 2px;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9jcmVhdHVyZS9YOi9QZXJzb25hbCBQcm9qZWN0cy9DRUFUU2lpLUNvbWJhdC1UcmFja2VyL0NvbWJhdFRyYWNrZXIvQ29tYmF0VHJhY2tlci5XZWIvQ0VBVFNpaUFwcC9zcmMvYXBwL2NvbXBvbmVudHMvY3JlYXR1cmUvY3JlYXR1cmUtbGlzdC5jb21wb25lbnQubGVzcyIsInNyYy9hcHAvY29tcG9uZW50cy9jcmVhdHVyZS9jcmVhdHVyZS1saXN0LmNvbXBvbmVudC5sZXNzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQU1BO0VBQ0UsbUJBQUE7RUFDQSxVQUFBO0FDTEY7QURRQTtFQUNFLG1CQUFBO0VBQ0EsVUFBQTtBQ05GO0FEU0E7RUFDRSxlQUFBO0VBQ0EsZ0JBQUE7RUNQQSxnQkFBZ0I7QUFDbEI7QURVQTtFQUNFLGVBQUE7QUNSRjtBRFdBO0VBQ0UsY0FBQTtBQ1RGO0FEWUE7RUFDRSxZQUFBO0FDVkYiLCJmaWxlIjoic3JjL2FwcC9jb21wb25lbnRzL2NyZWF0dXJlL2NyZWF0dXJlLWxpc3QuY29tcG9uZW50Lmxlc3MiLCJzb3VyY2VzQ29udGVudCI6WyIud3JhcHBlciB7XG59XG5cbi5hcmVhIHtcbn1cblxuLmxpc3Qge1xuICBkaXNwbGF5OiB0YWJsZS1jZWxsO1xuICB3aWR0aDogMjAlO1xufVxuXG4uZWRpdCB7XG4gIGRpc3BsYXk6IHRhYmxlLWNlbGw7XG4gIHdpZHRoOiA4MCU7XG59XG5cbi5tYWluTGlzdCB7XG4gIGZvbnQtc2l6ZTogMTJweDtcbiAgbWF4LWhlaWdodDogMTAwJTtcbiAgLyp3aWR0aDogMTIwcHg7Ki9cbn1cblxuLm1haW5MaXN0IGEge1xuICBjdXJzb3I6IHBvaW50ZXI7XG59XG5cbi5tYWluTGlzdCBidXR0b24ge1xuICBwYWRkaW5nOiAwIDVweDtcbn1cblxuLm1haW5MaXN0IHRkIHtcbiAgcGFkZGluZzogMnB4O1xufVxuIiwiLmxpc3Qge1xuICBkaXNwbGF5OiB0YWJsZS1jZWxsO1xuICB3aWR0aDogMjAlO1xufVxuLmVkaXQge1xuICBkaXNwbGF5OiB0YWJsZS1jZWxsO1xuICB3aWR0aDogODAlO1xufVxuLm1haW5MaXN0IHtcbiAgZm9udC1zaXplOiAxMnB4O1xuICBtYXgtaGVpZ2h0OiAxMDAlO1xuICAvKndpZHRoOiAxMjBweDsqL1xufVxuLm1haW5MaXN0IGEge1xuICBjdXJzb3I6IHBvaW50ZXI7XG59XG4ubWFpbkxpc3QgYnV0dG9uIHtcbiAgcGFkZGluZzogMCA1cHg7XG59XG4ubWFpbkxpc3QgdGQge1xuICBwYWRkaW5nOiAycHg7XG59XG4iXX0= */");
 
 /***/ }),
 
-/***/ "./src/app/components/encounter/encounter.component.ts":
-/*!*************************************************************!*\
-  !*** ./src/app/components/encounter/encounter.component.ts ***!
-  \*************************************************************/
-/*! exports provided: EncounterComponent */
+/***/ "./src/app/components/creature/creature-list.component.ts":
+/*!****************************************************************!*\
+  !*** ./src/app/components/creature/creature-list.component.ts ***!
+  \****************************************************************/
+/*! exports provided: CreatureListComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EncounterComponent", function() { return EncounterComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CreatureListComponent", function() { return CreatureListComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _repositories__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/repositories */ "./src/app/repositories/index.ts");
+/* harmony import */ var _entities__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/entities */ "./src/app/entities/index.ts");
+
+
+
+
+let CreatureListComponent = 
+/** creature component*/
+class CreatureListComponent {
+    /** character ctor */
+    constructor(creatureRepo) {
+        this.creatureRepo = creatureRepo;
+        this.creatures = new Array();
+        this.refresh = () => tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            this.creatures = yield this.creatureRepo.getCreaturesAsync();
+        });
+        this.selectCreature = (charId) => tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            this.selectedCreature = yield this.creatureRepo.getCreatureAsync(charId);
+            //this.selectedCreature.aqRating.name
+        });
+        this.onCreatureSave = (creature) => {
+            this.refresh();
+        };
+        this.onCreatureDeleted = (creature) => {
+            this.refresh();
+        };
+        this.refresh();
+    }
+    ngOnChanges() {
+        if (this.creatures.length > 0) {
+            if (this.selectedCreature != null) {
+                this.selectCreature(this.selectedCreature.id);
+            }
+            else {
+                this.selectCreature(this.creatures[0].id);
+            }
+        }
+    }
+    ngOnInit() {
+        if (this.creatures.length > 0) {
+            if (this.selectedCreature != null) {
+                this.selectCreature(this.selectedCreature.id);
+            }
+            else {
+                this.selectCreature(this.creatures[0].id);
+            }
+        }
+    }
+    newCreature() {
+        this.selectedCreature = new _entities__WEBPACK_IMPORTED_MODULE_3__["Creature"]();
+    }
+};
+CreatureListComponent.ctorParameters = () => [
+    { type: _repositories__WEBPACK_IMPORTED_MODULE_2__["CreaturesRepository"] }
+];
+CreatureListComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'creature-list',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./creature-list.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/creature/creature-list.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./creature-list.component.less */ "./src/app/components/creature/creature-list.component.less")).default]
+    })
+    /** creature component*/
+    ,
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_repositories__WEBPACK_IMPORTED_MODULE_2__["CreaturesRepository"]])
+], CreatureListComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/creature/index.ts":
+/*!**********************************************!*\
+  !*** ./src/app/components/creature/index.ts ***!
+  \**********************************************/
+/*! exports provided: CreatureListComponent, CreatureEditComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _creature_list_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./creature-list.component */ "./src/app/components/creature/creature-list.component.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "CreatureListComponent", function() { return _creature_list_component__WEBPACK_IMPORTED_MODULE_1__["CreatureListComponent"]; });
+
+/* harmony import */ var _creature_edit_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./creature-edit.component */ "./src/app/components/creature/creature-edit.component.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "CreatureEditComponent", function() { return _creature_edit_component__WEBPACK_IMPORTED_MODULE_2__["CreatureEditComponent"]; });
+
+
+
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/encounter/action.component.css":
+/*!***********************************************************!*\
+  !*** ./src/app/components/encounter/action.component.css ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("/*\r\n    279,97\r\n    280,98\r\n*/\r\n.ActorAction {\r\n    border: 1px solid red;\r\n    width: 134px;\r\n    height: 49px;\r\n\r\n    width: 262px;\r\n    height: 90px;\r\n    padding: 3px 8px 3px 8px;\r\n    overflow: hidden;\r\n    font-size: .73em;\r\n    white-space: nowrap;\r\n    color: Black;\r\n    border-radius: 5px;\r\n    line-height: 1em;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9lbmNvdW50ZXIvYWN0aW9uLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7OztDQUdDO0FBQ0Q7SUFDSSxxQkFBcUI7SUFDckIsWUFBWTtJQUNaLFlBQVk7O0lBRVosWUFBWTtJQUNaLFlBQVk7SUFDWix3QkFBd0I7SUFDeEIsZ0JBQWdCO0lBQ2hCLGdCQUFnQjtJQUNoQixtQkFBbUI7SUFDbkIsWUFBWTtJQUNaLGtCQUFrQjtJQUNsQixnQkFBZ0I7QUFDcEIiLCJmaWxlIjoic3JjL2FwcC9jb21wb25lbnRzL2VuY291bnRlci9hY3Rpb24uY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi8qXHJcbiAgICAyNzksOTdcclxuICAgIDI4MCw5OFxyXG4qL1xyXG4uQWN0b3JBY3Rpb24ge1xyXG4gICAgYm9yZGVyOiAxcHggc29saWQgcmVkO1xyXG4gICAgd2lkdGg6IDEzNHB4O1xyXG4gICAgaGVpZ2h0OiA0OXB4O1xyXG5cclxuICAgIHdpZHRoOiAyNjJweDtcclxuICAgIGhlaWdodDogOTBweDtcclxuICAgIHBhZGRpbmc6IDNweCA4cHggM3B4IDhweDtcclxuICAgIG92ZXJmbG93OiBoaWRkZW47XHJcbiAgICBmb250LXNpemU6IC43M2VtO1xyXG4gICAgd2hpdGUtc3BhY2U6IG5vd3JhcDtcclxuICAgIGNvbG9yOiBCbGFjaztcclxuICAgIGJvcmRlci1yYWRpdXM6IDVweDtcclxuICAgIGxpbmUtaGVpZ2h0OiAxZW07XHJcbn1cclxuIl19 */");
+
+/***/ }),
+
+/***/ "./src/app/components/encounter/action.component.ts":
+/*!**********************************************************!*\
+  !*** ./src/app/components/encounter/action.component.ts ***!
+  \**********************************************************/
+/*! exports provided: ActionComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ActionComponent", function() { return ActionComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _entities__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/entities */ "./src/app/entities/index.ts");
+
+
+
+let ActionComponent = 
+/** action component*/
+class ActionComponent {
+    /** action ctor */
+    constructor() {
+        //this.action.note
+        this.isSelectable = false;
+        this.onSelect = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        //this.action.actionTypeString
+        //this.action.stateString
+        //this.action.typeString
+        //this.action.reoccuring
+    }
+    getColor() {
+        return "rgba(" + this.action.color + ")";
+    }
+};
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _entities__WEBPACK_IMPORTED_MODULE_2__["BaseAction"])
+], ActionComponent.prototype, "action", void 0);
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Boolean)
+], ActionComponent.prototype, "isSelectable", void 0);
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
+], ActionComponent.prototype, "onSelect", void 0);
+ActionComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'action-view',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./action.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/encounter/action.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./action.component.css */ "./src/app/components/encounter/action.component.css")).default]
+    })
+    /** action component*/
+    ,
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+], ActionComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/encounter/actions-list.component.css":
+/*!*****************************************************************!*\
+  !*** ./src/app/components/encounter/actions-list.component.css ***!
+  \*****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\r\n/*\r\n    280,98\r\n*/\r\n.mainActionList {\r\n    padding-right: 150px;\r\n\r\n    padding-right: 280px;\r\n    overflow-x: visible;\r\n    overflow-y: auto;\r\n    height: 100%;\r\n}\r\n.list {\r\n    height: 100%;\r\n    border: 2px solid grey;\r\n    border-radius: 5px;\r\n}\r\n.ActorActionBack {\r\n    background: #fff;\r\n    width: 150px;\r\n    height: 55px;\r\n    width: 280px;\r\n    height: 98px;\r\n    overflow: hidden;\r\n    white-space: nowrap;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9lbmNvdW50ZXIvYWN0aW9ucy1saXN0LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IjtBQUNBOztDQUVDO0FBQ0Q7SUFDSSxvQkFBb0I7O0lBRXBCLG9CQUFvQjtJQUNwQixtQkFBbUI7SUFDbkIsZ0JBQWdCO0lBQ2hCLFlBQVk7QUFDaEI7QUFDQTtJQUNJLFlBQVk7SUFDWixzQkFBc0I7SUFDdEIsa0JBQWtCO0FBQ3RCO0FBRUE7SUFDSSxnQkFBZ0I7SUFDaEIsWUFBWTtJQUNaLFlBQVk7SUFDWixZQUFZO0lBQ1osWUFBWTtJQUNaLGdCQUFnQjtJQUNoQixtQkFBbUI7QUFDdkIiLCJmaWxlIjoic3JjL2FwcC9jb21wb25lbnRzL2VuY291bnRlci9hY3Rpb25zLWxpc3QuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIlxyXG4vKlxyXG4gICAgMjgwLDk4XHJcbiovXHJcbi5tYWluQWN0aW9uTGlzdCB7XHJcbiAgICBwYWRkaW5nLXJpZ2h0OiAxNTBweDtcclxuXHJcbiAgICBwYWRkaW5nLXJpZ2h0OiAyODBweDtcclxuICAgIG92ZXJmbG93LXg6IHZpc2libGU7XHJcbiAgICBvdmVyZmxvdy15OiBhdXRvO1xyXG4gICAgaGVpZ2h0OiAxMDAlO1xyXG59XHJcbi5saXN0IHtcclxuICAgIGhlaWdodDogMTAwJTtcclxuICAgIGJvcmRlcjogMnB4IHNvbGlkIGdyZXk7XHJcbiAgICBib3JkZXItcmFkaXVzOiA1cHg7XHJcbn1cclxuXHJcbi5BY3RvckFjdGlvbkJhY2sge1xyXG4gICAgYmFja2dyb3VuZDogI2ZmZjtcclxuICAgIHdpZHRoOiAxNTBweDtcclxuICAgIGhlaWdodDogNTVweDtcclxuICAgIHdpZHRoOiAyODBweDtcclxuICAgIGhlaWdodDogOThweDtcclxuICAgIG92ZXJmbG93OiBoaWRkZW47XHJcbiAgICB3aGl0ZS1zcGFjZTogbm93cmFwO1xyXG59Il19 */");
+
+/***/ }),
+
+/***/ "./src/app/components/encounter/actions-list.component.ts":
+/*!****************************************************************!*\
+  !*** ./src/app/components/encounter/actions-list.component.ts ***!
+  \****************************************************************/
+/*! exports provided: ActionsListComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ActionsListComponent", function() { return ActionsListComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 
 
-let EncounterComponent = 
-/** encounter component*/
-class EncounterComponent {
-    /** encounter ctor */
+let ActionsListComponent = 
+/** actions-list component*/
+class ActionsListComponent {
+    /** actions-list ctor */
     constructor() {
+        this.actions = new Array();
+        this.isSelectable = false;
+        this.onSelect = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        this.selectedAction = null;
+    }
+    ngOnInit() { }
+    ngOnChanges() {
+        //this.cdr.detectChanges();
+    }
+    selectAction(action) {
+        this.selectedAction = action;
+        if (this.isSelectable) {
+            this.onSelect.next(action);
+        }
+    }
+    getLeft(action) {
+        //<%=int((Model.LeftPercent * 156)) %> px;
+        return Math.round(action.leftPercent * 100) + "%";
     }
 };
-EncounterComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Array)
+], ActionsListComponent.prototype, "actions", void 0);
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Boolean)
+], ActionsListComponent.prototype, "isSelectable", void 0);
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
+], ActionsListComponent.prototype, "onSelect", void 0);
+ActionsListComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-encounter',
-        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./encounter.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/encounter/encounter.component.html")).default,
-        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./encounter.component.css */ "./src/app/components/encounter/encounter.component.css")).default]
+        selector: 'actions-list',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./actions-list.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/encounter/actions-list.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./actions-list.component.css */ "./src/app/components/encounter/actions-list.component.css")).default]
     })
-    /** encounter component*/
+    /** actions-list component*/
     ,
     tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
-], EncounterComponent);
+], ActionsListComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/encounter/index.ts":
+/*!***********************************************!*\
+  !*** ./src/app/components/encounter/index.ts ***!
+  \***********************************************/
+/*! exports provided: ActionsListComponent, ActionComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _actions_list_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./actions-list.component */ "./src/app/components/encounter/actions-list.component.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ActionsListComponent", function() { return _actions_list_component__WEBPACK_IMPORTED_MODULE_1__["ActionsListComponent"]; });
+
+/* harmony import */ var _action_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./action.component */ "./src/app/components/encounter/action.component.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ActionComponent", function() { return _action_component__WEBPACK_IMPORTED_MODULE_2__["ActionComponent"]; });
+
+
+
 
 
 
@@ -3029,29 +3404,29 @@ GameEditComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 /***/ }),
 
-/***/ "./src/app/components/game/game.component.css":
-/*!****************************************************!*\
-  !*** ./src/app/components/game/game.component.css ***!
-  \****************************************************/
+/***/ "./src/app/components/game/game-list.component.css":
+/*!*********************************************************!*\
+  !*** ./src/app/components/game/game-list.component.css ***!
+  \*********************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".wrapper {\r\n}\r\n\r\n.area {\r\n}\r\n\r\n.list {\r\n    display: table-cell;\r\n    width: 20%;\r\n}\r\n\r\n.edit {\r\n    display: table-cell;\r\n    width: 80%;\r\n}\r\n\r\n.mainList {\r\n    font-size: 12px;\r\n    max-height: 100%;\r\n    /*width: 120px;*/\r\n}\r\n\r\n.mainList a {\r\n        cursor: pointer;\r\n    }\r\n\r\n.mainList button {\r\n        padding: 0 5px;\r\n    }\r\n\r\n.mainList td {\r\n        padding: 2px;\r\n    }\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9nYW1lL2dhbWUuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtBQUNBOztBQUVBO0FBQ0E7O0FBRUE7SUFDSSxtQkFBbUI7SUFDbkIsVUFBVTtBQUNkOztBQUVBO0lBQ0ksbUJBQW1CO0lBQ25CLFVBQVU7QUFDZDs7QUFFQTtJQUNJLGVBQWU7SUFDZixnQkFBZ0I7SUFDaEIsZ0JBQWdCO0FBQ3BCOztBQUVJO1FBQ0ksZUFBZTtJQUNuQjs7QUFFQTtRQUNJLGNBQWM7SUFDbEI7O0FBRUE7UUFDSSxZQUFZO0lBQ2hCIiwiZmlsZSI6InNyYy9hcHAvY29tcG9uZW50cy9nYW1lL2dhbWUuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi53cmFwcGVyIHtcclxufVxyXG5cclxuLmFyZWEge1xyXG59XHJcblxyXG4ubGlzdCB7XHJcbiAgICBkaXNwbGF5OiB0YWJsZS1jZWxsO1xyXG4gICAgd2lkdGg6IDIwJTtcclxufVxyXG5cclxuLmVkaXQge1xyXG4gICAgZGlzcGxheTogdGFibGUtY2VsbDtcclxuICAgIHdpZHRoOiA4MCU7XHJcbn1cclxuXHJcbi5tYWluTGlzdCB7XHJcbiAgICBmb250LXNpemU6IDEycHg7XHJcbiAgICBtYXgtaGVpZ2h0OiAxMDAlO1xyXG4gICAgLyp3aWR0aDogMTIwcHg7Ki9cclxufVxyXG5cclxuICAgIC5tYWluTGlzdCBhIHtcclxuICAgICAgICBjdXJzb3I6IHBvaW50ZXI7XHJcbiAgICB9XHJcblxyXG4gICAgLm1haW5MaXN0IGJ1dHRvbiB7XHJcbiAgICAgICAgcGFkZGluZzogMCA1cHg7XHJcbiAgICB9XHJcblxyXG4gICAgLm1haW5MaXN0IHRkIHtcclxuICAgICAgICBwYWRkaW5nOiAycHg7XHJcbiAgICB9XHJcbiJdfQ== */");
+/* harmony default export */ __webpack_exports__["default"] = (".wrapper {\r\n}\r\n\r\n.area {\r\n}\r\n\r\n.list {\r\n    display: table-cell;\r\n    width: 20%;\r\n}\r\n\r\n.edit {\r\n    display: table-cell;\r\n    width: 80%;\r\n}\r\n\r\n.mainList {\r\n    font-size: 12px;\r\n    max-height: 100%;\r\n    /*width: 120px;*/\r\n}\r\n\r\n.mainList a {\r\n        cursor: pointer;\r\n    }\r\n\r\n.mainList button {\r\n        padding: 0 5px;\r\n    }\r\n\r\n.mainList td {\r\n        padding: 2px;\r\n    }\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9nYW1lL2dhbWUtbGlzdC5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0FBQ0E7O0FBRUE7QUFDQTs7QUFFQTtJQUNJLG1CQUFtQjtJQUNuQixVQUFVO0FBQ2Q7O0FBRUE7SUFDSSxtQkFBbUI7SUFDbkIsVUFBVTtBQUNkOztBQUVBO0lBQ0ksZUFBZTtJQUNmLGdCQUFnQjtJQUNoQixnQkFBZ0I7QUFDcEI7O0FBRUk7UUFDSSxlQUFlO0lBQ25COztBQUVBO1FBQ0ksY0FBYztJQUNsQjs7QUFFQTtRQUNJLFlBQVk7SUFDaEIiLCJmaWxlIjoic3JjL2FwcC9jb21wb25lbnRzL2dhbWUvZ2FtZS1saXN0LmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIud3JhcHBlciB7XHJcbn1cclxuXHJcbi5hcmVhIHtcclxufVxyXG5cclxuLmxpc3Qge1xyXG4gICAgZGlzcGxheTogdGFibGUtY2VsbDtcclxuICAgIHdpZHRoOiAyMCU7XHJcbn1cclxuXHJcbi5lZGl0IHtcclxuICAgIGRpc3BsYXk6IHRhYmxlLWNlbGw7XHJcbiAgICB3aWR0aDogODAlO1xyXG59XHJcblxyXG4ubWFpbkxpc3Qge1xyXG4gICAgZm9udC1zaXplOiAxMnB4O1xyXG4gICAgbWF4LWhlaWdodDogMTAwJTtcclxuICAgIC8qd2lkdGg6IDEyMHB4OyovXHJcbn1cclxuXHJcbiAgICAubWFpbkxpc3QgYSB7XHJcbiAgICAgICAgY3Vyc29yOiBwb2ludGVyO1xyXG4gICAgfVxyXG5cclxuICAgIC5tYWluTGlzdCBidXR0b24ge1xyXG4gICAgICAgIHBhZGRpbmc6IDAgNXB4O1xyXG4gICAgfVxyXG5cclxuICAgIC5tYWluTGlzdCB0ZCB7XHJcbiAgICAgICAgcGFkZGluZzogMnB4O1xyXG4gICAgfVxyXG4iXX0= */");
 
 /***/ }),
 
-/***/ "./src/app/components/game/game.component.ts":
-/*!***************************************************!*\
-  !*** ./src/app/components/game/game.component.ts ***!
-  \***************************************************/
-/*! exports provided: GameComponent */
+/***/ "./src/app/components/game/game-list.component.ts":
+/*!********************************************************!*\
+  !*** ./src/app/components/game/game-list.component.ts ***!
+  \********************************************************/
+/*! exports provided: GameListComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GameComponent", function() { return GameComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GameListComponent", function() { return GameListComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/services */ "./src/app/services/index.ts");
@@ -3060,9 +3435,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-let GameComponent = 
+let GameListComponent = 
 /** Game component*/
-class GameComponent {
+class GameListComponent {
     /** character ctor */
     constructor(gameRepo, encounterService) {
         this.gameRepo = gameRepo;
@@ -3109,21 +3484,67 @@ class GameComponent {
         //this.selectedGame = _game;
     }
 };
-GameComponent.ctorParameters = () => [
+GameListComponent.ctorParameters = () => [
     { type: _repositories__WEBPACK_IMPORTED_MODULE_3__["GamesRepository"] },
     { type: _services__WEBPACK_IMPORTED_MODULE_2__["EncounterService"] }
 ];
-GameComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+GameListComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-game',
-        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./game.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/game/game.component.html")).default,
-        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./game.component.css */ "./src/app/components/game/game.component.css")).default]
+        selector: 'game-list',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./game-list.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/game/game-list.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./game-list.component.css */ "./src/app/components/game/game-list.component.css")).default]
     })
     /** Game component*/
     ,
     tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_repositories__WEBPACK_IMPORTED_MODULE_3__["GamesRepository"],
         _services__WEBPACK_IMPORTED_MODULE_2__["EncounterService"]])
-], GameComponent);
+], GameListComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/game/index.ts":
+/*!******************************************!*\
+  !*** ./src/app/components/game/index.ts ***!
+  \******************************************/
+/*! exports provided: GameListComponent, GameEditComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _game_list_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./game-list.component */ "./src/app/components/game/game-list.component.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "GameListComponent", function() { return _game_list_component__WEBPACK_IMPORTED_MODULE_1__["GameListComponent"]; });
+
+/* harmony import */ var _game_edit_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./game-edit.component */ "./src/app/components/game/game-edit.component.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "GameEditComponent", function() { return _game_edit_component__WEBPACK_IMPORTED_MODULE_2__["GameEditComponent"]; });
+
+
+
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/weapon/index.ts":
+/*!********************************************!*\
+  !*** ./src/app/components/weapon/index.ts ***!
+  \********************************************/
+/*! exports provided: WeaponListComponent, WeaponEditComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _weapon_list_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./weapon-list.component */ "./src/app/components/weapon/weapon-list.component.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "WeaponListComponent", function() { return _weapon_list_component__WEBPACK_IMPORTED_MODULE_1__["WeaponListComponent"]; });
+
+/* harmony import */ var _weapon_edit_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./weapon-edit.component */ "./src/app/components/weapon/weapon-edit.component.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "WeaponEditComponent", function() { return _weapon_edit_component__WEBPACK_IMPORTED_MODULE_2__["WeaponEditComponent"]; });
+
+
+
 
 
 
@@ -3206,38 +3627,38 @@ WeaponEditComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 /***/ }),
 
-/***/ "./src/app/components/weapon/weapon.component.css":
-/*!********************************************************!*\
-  !*** ./src/app/components/weapon/weapon.component.css ***!
-  \********************************************************/
+/***/ "./src/app/components/weapon/weapon-list.component.css":
+/*!*************************************************************!*\
+  !*** ./src/app/components/weapon/weapon-list.component.css ***!
+  \*************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".wrapper {\r\n}\r\n\r\n.area {\r\n}\r\n\r\n.list {\r\n    display: table-cell;\r\n    width: 20%;\r\n}\r\n\r\n.edit {\r\n    display: table-cell;\r\n    width: 80%;\r\n}\r\n\r\n.mainList {\r\n    font-size: 12px;\r\n    max-height: 100%;\r\n    width: 120px;\r\n\r\n}\r\n\r\n.mainList a {\r\n        cursor: pointer;\r\n    }\r\n\r\n.mainList button {\r\n        padding: 0 5px;\r\n    }\r\n\r\n.mainList td {\r\n        padding: 2px;\r\n    }\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy93ZWFwb24vd2VhcG9uLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7QUFDQTs7QUFFQTtBQUNBOztBQUVBO0lBQ0ksbUJBQW1CO0lBQ25CLFVBQVU7QUFDZDs7QUFFQTtJQUNJLG1CQUFtQjtJQUNuQixVQUFVO0FBQ2Q7O0FBRUE7SUFDSSxlQUFlO0lBQ2YsZ0JBQWdCO0lBQ2hCLFlBQVk7O0FBRWhCOztBQUVJO1FBQ0ksZUFBZTtJQUNuQjs7QUFFQTtRQUNJLGNBQWM7SUFDbEI7O0FBRUE7UUFDSSxZQUFZO0lBQ2hCIiwiZmlsZSI6InNyYy9hcHAvY29tcG9uZW50cy93ZWFwb24vd2VhcG9uLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIud3JhcHBlciB7XHJcbn1cclxuXHJcbi5hcmVhIHtcclxufVxyXG5cclxuLmxpc3Qge1xyXG4gICAgZGlzcGxheTogdGFibGUtY2VsbDtcclxuICAgIHdpZHRoOiAyMCU7XHJcbn1cclxuXHJcbi5lZGl0IHtcclxuICAgIGRpc3BsYXk6IHRhYmxlLWNlbGw7XHJcbiAgICB3aWR0aDogODAlO1xyXG59XHJcblxyXG4ubWFpbkxpc3Qge1xyXG4gICAgZm9udC1zaXplOiAxMnB4O1xyXG4gICAgbWF4LWhlaWdodDogMTAwJTtcclxuICAgIHdpZHRoOiAxMjBweDtcclxuXHJcbn1cclxuXHJcbiAgICAubWFpbkxpc3QgYSB7XHJcbiAgICAgICAgY3Vyc29yOiBwb2ludGVyO1xyXG4gICAgfVxyXG5cclxuICAgIC5tYWluTGlzdCBidXR0b24ge1xyXG4gICAgICAgIHBhZGRpbmc6IDAgNXB4O1xyXG4gICAgfVxyXG5cclxuICAgIC5tYWluTGlzdCB0ZCB7XHJcbiAgICAgICAgcGFkZGluZzogMnB4O1xyXG4gICAgfVxyXG4iXX0= */");
+/* harmony default export */ __webpack_exports__["default"] = (".wrapper {\r\n}\r\n\r\n.area {\r\n}\r\n\r\n.list {\r\n    display: table-cell;\r\n    width: 20%;\r\n}\r\n\r\n.edit {\r\n    display: table-cell;\r\n    width: 80%;\r\n}\r\n\r\n.mainList {\r\n    font-size: 12px;\r\n    max-height: 100%;\r\n    width: 120px;\r\n\r\n}\r\n\r\n.mainList a {\r\n        cursor: pointer;\r\n    }\r\n\r\n.mainList button {\r\n        padding: 0 5px;\r\n    }\r\n\r\n.mainList td {\r\n        padding: 2px;\r\n    }\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy93ZWFwb24vd2VhcG9uLWxpc3QuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtBQUNBOztBQUVBO0FBQ0E7O0FBRUE7SUFDSSxtQkFBbUI7SUFDbkIsVUFBVTtBQUNkOztBQUVBO0lBQ0ksbUJBQW1CO0lBQ25CLFVBQVU7QUFDZDs7QUFFQTtJQUNJLGVBQWU7SUFDZixnQkFBZ0I7SUFDaEIsWUFBWTs7QUFFaEI7O0FBRUk7UUFDSSxlQUFlO0lBQ25COztBQUVBO1FBQ0ksY0FBYztJQUNsQjs7QUFFQTtRQUNJLFlBQVk7SUFDaEIiLCJmaWxlIjoic3JjL2FwcC9jb21wb25lbnRzL3dlYXBvbi93ZWFwb24tbGlzdC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLndyYXBwZXIge1xyXG59XHJcblxyXG4uYXJlYSB7XHJcbn1cclxuXHJcbi5saXN0IHtcclxuICAgIGRpc3BsYXk6IHRhYmxlLWNlbGw7XHJcbiAgICB3aWR0aDogMjAlO1xyXG59XHJcblxyXG4uZWRpdCB7XHJcbiAgICBkaXNwbGF5OiB0YWJsZS1jZWxsO1xyXG4gICAgd2lkdGg6IDgwJTtcclxufVxyXG5cclxuLm1haW5MaXN0IHtcclxuICAgIGZvbnQtc2l6ZTogMTJweDtcclxuICAgIG1heC1oZWlnaHQ6IDEwMCU7XHJcbiAgICB3aWR0aDogMTIwcHg7XHJcblxyXG59XHJcblxyXG4gICAgLm1haW5MaXN0IGEge1xyXG4gICAgICAgIGN1cnNvcjogcG9pbnRlcjtcclxuICAgIH1cclxuXHJcbiAgICAubWFpbkxpc3QgYnV0dG9uIHtcclxuICAgICAgICBwYWRkaW5nOiAwIDVweDtcclxuICAgIH1cclxuXHJcbiAgICAubWFpbkxpc3QgdGQge1xyXG4gICAgICAgIHBhZGRpbmc6IDJweDtcclxuICAgIH1cclxuIl19 */");
 
 /***/ }),
 
-/***/ "./src/app/components/weapon/weapon.component.ts":
-/*!*******************************************************!*\
-  !*** ./src/app/components/weapon/weapon.component.ts ***!
-  \*******************************************************/
-/*! exports provided: WeaponComponent */
+/***/ "./src/app/components/weapon/weapon-list.component.ts":
+/*!************************************************************!*\
+  !*** ./src/app/components/weapon/weapon-list.component.ts ***!
+  \************************************************************/
+/*! exports provided: WeaponListComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WeaponComponent", function() { return WeaponComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WeaponListComponent", function() { return WeaponListComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _entities__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/entities */ "./src/app/entities/index.ts");
 
 
 
-let WeaponComponent = 
+let WeaponListComponent = 
 /** Weapon component*/
-class WeaponComponent {
+class WeaponListComponent {
     /** Armor ctor */
     constructor() {
         this.onDelete = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
@@ -3281,25 +3702,25 @@ class WeaponComponent {
 tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
     tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Array)
-], WeaponComponent.prototype, "weapons", void 0);
+], WeaponListComponent.prototype, "weapons", void 0);
 tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
     tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Number)
-], WeaponComponent.prototype, "charId", void 0);
+], WeaponListComponent.prototype, "charId", void 0);
 tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
     tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
-], WeaponComponent.prototype, "onDelete", void 0);
-WeaponComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+], WeaponListComponent.prototype, "onDelete", void 0);
+WeaponListComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-weapon',
-        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./weapon.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/weapon/weapon.component.html")).default,
-        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./weapon.component.css */ "./src/app/components/weapon/weapon.component.css")).default]
+        selector: 'weapon-list',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./weapon-list.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/weapon/weapon-list.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./weapon-list.component.css */ "./src/app/components/weapon/weapon-list.component.css")).default]
     })
     /** Weapon component*/
     ,
     tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
-], WeaponComponent);
+], WeaponListComponent);
 
 
 
@@ -3378,7 +3799,7 @@ __webpack_require__.r(__webpack_exports__);
 /*!***********************************!*\
   !*** ./src/app/elements/index.ts ***!
   \***********************************/
-/*! exports provided: ModalService, AlertComponent, ModalComponent */
+/*! exports provided: AlertComponent, ModalService, ModalComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4623,9 +5044,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/services */ "./src/app/services/index.ts");
+/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/_helpers */ "./src/app/_helpers/index.ts");
+/* harmony import */ var _entities_EnumDefinitions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/entities/EnumDefinitions */ "./src/app/entities/EnumDefinitions.ts");
 
 
 
+
+
+var GameType = _entities_EnumDefinitions__WEBPACK_IMPORTED_MODULE_4__["EnumDefinitions"].GameType;
 let MainNavMenuComponent = 
 /** mainNavMenu component*/
 class MainNavMenuComponent {
@@ -4633,6 +5059,10 @@ class MainNavMenuComponent {
     constructor(authenticationService) {
         this.authenticationService = authenticationService;
         this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
+    }
+    get gameTypes() {
+        var lst = _helpers__WEBPACK_IMPORTED_MODULE_3__["EnumEx"].getNamesAndValues(GameType);
+        return lst;
     }
 };
 MainNavMenuComponent.ctorParameters = () => [
@@ -4681,7 +5111,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("li .glyphicon {\n  margin-right: 10px;\n}\n/* Highlighting rules for nav menu items */\nli ul {\n  padding-left: 5px;\n}\n/* Keep the nav menu independent of scrolling and on top of other items */\n.main-nav {\n  /*position: fixed;\n    top: 0;\n    left: 0;\n    right: 0;*/\n  z-index: 1;\n}\n.navbar li li {\n  font-size: 12px;\n}\n.navbar-inverse .navbar-nav > li a {\n  color: #9d9d9d;\n}\n.navbar-inverse .navbar-nav > li a:hover,\n.navbar-inverse .navbar-nav > li a:focus {\n  color: #fff;\n  background-color: transparent;\n  cursor: pointer;\n}\n.navbar-inverse .navbar-nav li.link-active > a,\n.navbar-inverse .navbar-nav li.link-active > a:hover,\n.navbar-inverse .navbar-nav li.link-active > a:focus {\n  background-color: #4189C7;\n  color: white;\n}\n@media (min-width: 768px) {\n  /* On small screens, convert the nav menu to a vertical sidebar */\n  .main-nav {\n    height: 100%;\n    /*width: calc(25% - 20px);*/\n  }\n  .navbar {\n    border-radius: 0px;\n    border-width: 0px;\n    height: 100%;\n  }\n  .navbar-header {\n    float: none;\n  }\n  .navbar-collapse {\n    border-top: 1px solid #444;\n    padding: 0px;\n  }\n  .navbar ul {\n    float: none;\n  }\n  .navbar li {\n    float: none;\n    font-size: 15px;\n    margin: 6px;\n  }\n  .navbar li li {\n    font-size: 12px;\n  }\n  .navbar li a {\n    padding: 10px 16px;\n    border-radius: 4px;\n  }\n  .navbar a {\n    /* If a menu item's text is too long, truncate it */\n    width: 100%;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n  }\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zb2xtZWFkL0RldmVsb3BtZW50L1BlcnNvbmFsIFByb2plY3RzL0NFQVRTaWktQ29tYmF0LVRyYWNrZXIvQ29tYmF0VHJhY2tlci9Db21iYXRUcmFja2VyLldlYi9DRUFUU2lpQXBwL3NyYy9hcHAvbmF2aWdhdGlvbi9zaWRlLW5hdi1tZW51L3NpZGUtbmF2LW1lbnUuY29tcG9uZW50Lmxlc3MiLCJzcmMvYXBwL25hdmlnYXRpb24vc2lkZS1uYXYtbWVudS9zaWRlLW5hdi1tZW51LmNvbXBvbmVudC5sZXNzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0Usa0JBQUE7QUNDRjtBQUNBLDBDQUEwQztBREcxQztFQUNFLGlCQUFBO0FDREY7QUFDQSx5RUFBeUU7QURJekU7RUNGRTs7O2NBR1k7RURJWixVQUFBO0FDRkY7QURLQTtFQUNFLGVBQUE7QUNIRjtBRE1BO0VBQ0UsY0FBQTtBQ0pGO0FET0E7O0VBRUUsV0FBQTtFQUNBLDZCQUFBO0VBQ0EsZUFBQTtBQ0xGO0FEUUE7OztFQUdFLHlCQUFBO0VBQ0EsWUFBQTtBQ05GO0FEVUE7RUNSRSxpRUFBaUU7RURVakU7SUFDRSxZQUFBO0lDUkEsMkJBQTJCO0VBQzdCO0VEV0E7SUFDRSxrQkFBQTtJQUNBLGlCQUFBO0lBQ0EsWUFBQTtFQ1RGO0VEWUE7SUFDRSxXQUFBO0VDVkY7RURhQTtJQUNFLDBCQUFBO0lBQ0EsWUFBQTtFQ1hGO0VEY0E7SUFDRSxXQUFBO0VDWkY7RURlQTtJQUNFLFdBQUE7SUFDQSxlQUFBO0lBQ0EsV0FBQTtFQ2JGO0VEZ0JBO0lBQ0UsZUFBQTtFQ2RGO0VEaUJBO0lBQ0Usa0JBQUE7SUFDQSxrQkFBQTtFQ2ZGO0VEa0JBO0lDaEJFLG1EQUFtRDtJRGtCbkQsV0FBQTtJQUNBLG1CQUFBO0lBQ0EsZ0JBQUE7SUFDQSx1QkFBQTtFQ2hCRjtBQUNGIiwiZmlsZSI6InNyYy9hcHAvbmF2aWdhdGlvbi9zaWRlLW5hdi1tZW51L3NpZGUtbmF2LW1lbnUuY29tcG9uZW50Lmxlc3MiLCJzb3VyY2VzQ29udGVudCI6WyJsaSAuZ2x5cGhpY29uIHtcbiAgbWFyZ2luLXJpZ2h0OiAxMHB4O1xufVxuXG4vKiBIaWdobGlnaHRpbmcgcnVsZXMgZm9yIG5hdiBtZW51IGl0ZW1zICovXG5cbmxpIHVsIHtcbiAgcGFkZGluZy1sZWZ0OiA1cHg7XG59XG5cbi8qIEtlZXAgdGhlIG5hdiBtZW51IGluZGVwZW5kZW50IG9mIHNjcm9sbGluZyBhbmQgb24gdG9wIG9mIG90aGVyIGl0ZW1zICovXG4ubWFpbi1uYXYge1xuICAvKnBvc2l0aW9uOiBmaXhlZDtcbiAgICB0b3A6IDA7XG4gICAgbGVmdDogMDtcbiAgICByaWdodDogMDsqL1xuICB6LWluZGV4OiAxO1xufVxuXG4ubmF2YmFyIGxpIGxpIHtcbiAgZm9udC1zaXplOiAxMnB4O1xufVxuXG4ubmF2YmFyLWludmVyc2UgLm5hdmJhci1uYXYgPiBsaSBhIHtcbiAgY29sb3I6ICM5ZDlkOWQ7XG59XG5cbi5uYXZiYXItaW52ZXJzZSAubmF2YmFyLW5hdiA+IGxpIGE6aG92ZXIsXG4ubmF2YmFyLWludmVyc2UgLm5hdmJhci1uYXYgPiBsaSBhOmZvY3VzIHtcbiAgY29sb3I6ICNmZmY7XG4gIGJhY2tncm91bmQtY29sb3I6IHRyYW5zcGFyZW50O1xuICBjdXJzb3I6IHBvaW50ZXI7XG59XG5cbi5uYXZiYXItaW52ZXJzZSAubmF2YmFyLW5hdiBsaS5saW5rLWFjdGl2ZSA+IGEsXG4ubmF2YmFyLWludmVyc2UgLm5hdmJhci1uYXYgbGkubGluay1hY3RpdmUgPiBhOmhvdmVyLFxuLm5hdmJhci1pbnZlcnNlIC5uYXZiYXItbmF2IGxpLmxpbmstYWN0aXZlID4gYTpmb2N1cyB7XG4gIGJhY2tncm91bmQtY29sb3I6ICM0MTg5Qzc7XG4gIGNvbG9yOiB3aGl0ZTtcbn1cblxuXG5AbWVkaWEgKG1pbi13aWR0aDogNzY4cHgpIHtcbiAgLyogT24gc21hbGwgc2NyZWVucywgY29udmVydCB0aGUgbmF2IG1lbnUgdG8gYSB2ZXJ0aWNhbCBzaWRlYmFyICovXG4gIC5tYWluLW5hdiB7XG4gICAgaGVpZ2h0OiAxMDAlO1xuICAgIC8qd2lkdGg6IGNhbGMoMjUlIC0gMjBweCk7Ki9cbiAgfVxuXG4gIC5uYXZiYXIge1xuICAgIGJvcmRlci1yYWRpdXM6IDBweDtcbiAgICBib3JkZXItd2lkdGg6IDBweDtcbiAgICBoZWlnaHQ6IDEwMCU7XG4gIH1cblxuICAubmF2YmFyLWhlYWRlciB7XG4gICAgZmxvYXQ6IG5vbmU7XG4gIH1cblxuICAubmF2YmFyLWNvbGxhcHNlIHtcbiAgICBib3JkZXItdG9wOiAxcHggc29saWQgIzQ0NDtcbiAgICBwYWRkaW5nOiAwcHg7XG4gIH1cblxuICAubmF2YmFyIHVsIHtcbiAgICBmbG9hdDogbm9uZTtcbiAgfVxuXG4gIC5uYXZiYXIgbGkge1xuICAgIGZsb2F0OiBub25lO1xuICAgIGZvbnQtc2l6ZTogMTVweDtcbiAgICBtYXJnaW46IDZweDtcbiAgfVxuXG4gIC5uYXZiYXIgbGkgbGkge1xuICAgIGZvbnQtc2l6ZTogMTJweDtcbiAgfVxuXG4gIC5uYXZiYXIgbGkgYSB7XG4gICAgcGFkZGluZzogMTBweCAxNnB4O1xuICAgIGJvcmRlci1yYWRpdXM6IDRweDtcbiAgfVxuXG4gIC5uYXZiYXIgYSB7XG4gICAgLyogSWYgYSBtZW51IGl0ZW0ncyB0ZXh0IGlzIHRvbyBsb25nLCB0cnVuY2F0ZSBpdCAqL1xuICAgIHdpZHRoOiAxMDAlO1xuICAgIHdoaXRlLXNwYWNlOiBub3dyYXA7XG4gICAgb3ZlcmZsb3c6IGhpZGRlbjtcbiAgICB0ZXh0LW92ZXJmbG93OiBlbGxpcHNpcztcbiAgfVxufVxuIiwibGkgLmdseXBoaWNvbiB7XG4gIG1hcmdpbi1yaWdodDogMTBweDtcbn1cbi8qIEhpZ2hsaWdodGluZyBydWxlcyBmb3IgbmF2IG1lbnUgaXRlbXMgKi9cbmxpIHVsIHtcbiAgcGFkZGluZy1sZWZ0OiA1cHg7XG59XG4vKiBLZWVwIHRoZSBuYXYgbWVudSBpbmRlcGVuZGVudCBvZiBzY3JvbGxpbmcgYW5kIG9uIHRvcCBvZiBvdGhlciBpdGVtcyAqL1xuLm1haW4tbmF2IHtcbiAgLypwb3NpdGlvbjogZml4ZWQ7XG4gICAgdG9wOiAwO1xuICAgIGxlZnQ6IDA7XG4gICAgcmlnaHQ6IDA7Ki9cbiAgei1pbmRleDogMTtcbn1cbi5uYXZiYXIgbGkgbGkge1xuICBmb250LXNpemU6IDEycHg7XG59XG4ubmF2YmFyLWludmVyc2UgLm5hdmJhci1uYXYgPiBsaSBhIHtcbiAgY29sb3I6ICM5ZDlkOWQ7XG59XG4ubmF2YmFyLWludmVyc2UgLm5hdmJhci1uYXYgPiBsaSBhOmhvdmVyLFxuLm5hdmJhci1pbnZlcnNlIC5uYXZiYXItbmF2ID4gbGkgYTpmb2N1cyB7XG4gIGNvbG9yOiAjZmZmO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudDtcbiAgY3Vyc29yOiBwb2ludGVyO1xufVxuLm5hdmJhci1pbnZlcnNlIC5uYXZiYXItbmF2IGxpLmxpbmstYWN0aXZlID4gYSxcbi5uYXZiYXItaW52ZXJzZSAubmF2YmFyLW5hdiBsaS5saW5rLWFjdGl2ZSA+IGE6aG92ZXIsXG4ubmF2YmFyLWludmVyc2UgLm5hdmJhci1uYXYgbGkubGluay1hY3RpdmUgPiBhOmZvY3VzIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogIzQxODlDNztcbiAgY29sb3I6IHdoaXRlO1xufVxuQG1lZGlhIChtaW4td2lkdGg6IDc2OHB4KSB7XG4gIC8qIE9uIHNtYWxsIHNjcmVlbnMsIGNvbnZlcnQgdGhlIG5hdiBtZW51IHRvIGEgdmVydGljYWwgc2lkZWJhciAqL1xuICAubWFpbi1uYXYge1xuICAgIGhlaWdodDogMTAwJTtcbiAgICAvKndpZHRoOiBjYWxjKDI1JSAtIDIwcHgpOyovXG4gIH1cbiAgLm5hdmJhciB7XG4gICAgYm9yZGVyLXJhZGl1czogMHB4O1xuICAgIGJvcmRlci13aWR0aDogMHB4O1xuICAgIGhlaWdodDogMTAwJTtcbiAgfVxuICAubmF2YmFyLWhlYWRlciB7XG4gICAgZmxvYXQ6IG5vbmU7XG4gIH1cbiAgLm5hdmJhci1jb2xsYXBzZSB7XG4gICAgYm9yZGVyLXRvcDogMXB4IHNvbGlkICM0NDQ7XG4gICAgcGFkZGluZzogMHB4O1xuICB9XG4gIC5uYXZiYXIgdWwge1xuICAgIGZsb2F0OiBub25lO1xuICB9XG4gIC5uYXZiYXIgbGkge1xuICAgIGZsb2F0OiBub25lO1xuICAgIGZvbnQtc2l6ZTogMTVweDtcbiAgICBtYXJnaW46IDZweDtcbiAgfVxuICAubmF2YmFyIGxpIGxpIHtcbiAgICBmb250LXNpemU6IDEycHg7XG4gIH1cbiAgLm5hdmJhciBsaSBhIHtcbiAgICBwYWRkaW5nOiAxMHB4IDE2cHg7XG4gICAgYm9yZGVyLXJhZGl1czogNHB4O1xuICB9XG4gIC5uYXZiYXIgYSB7XG4gICAgLyogSWYgYSBtZW51IGl0ZW0ncyB0ZXh0IGlzIHRvbyBsb25nLCB0cnVuY2F0ZSBpdCAqL1xuICAgIHdpZHRoOiAxMDAlO1xuICAgIHdoaXRlLXNwYWNlOiBub3dyYXA7XG4gICAgb3ZlcmZsb3c6IGhpZGRlbjtcbiAgICB0ZXh0LW92ZXJmbG93OiBlbGxpcHNpcztcbiAgfVxufVxuIl19 */");
+/* harmony default export */ __webpack_exports__["default"] = ("li .glyphicon {\n  margin-right: 10px;\n}\n/* Highlighting rules for nav menu items */\nli ul {\n  padding-left: 5px;\n}\n/* Keep the nav menu independent of scrolling and on top of other items */\n.main-nav {\n  /*position: fixed;\n    top: 0;\n    left: 0;\n    right: 0;*/\n  z-index: 1;\n}\n.navbar li li {\n  font-size: 12px;\n}\n.navbar-inverse .navbar-nav > li a {\n  color: #9d9d9d;\n}\n.navbar-inverse .navbar-nav > li a:hover,\n.navbar-inverse .navbar-nav > li a:focus {\n  color: #fff;\n  background-color: transparent;\n  cursor: pointer;\n}\n.navbar-inverse .navbar-nav li.link-active > a,\n.navbar-inverse .navbar-nav li.link-active > a:hover,\n.navbar-inverse .navbar-nav li.link-active > a:focus {\n  background-color: #4189C7;\n  color: white;\n}\n@media (min-width: 768px) {\n  /* On small screens, convert the nav menu to a vertical sidebar */\n  .main-nav {\n    height: 100%;\n    /*width: calc(25% - 20px);*/\n  }\n  .navbar {\n    border-radius: 0px;\n    border-width: 0px;\n    height: 100%;\n  }\n  .navbar-header {\n    float: none;\n  }\n  .navbar-collapse {\n    border-top: 1px solid #444;\n    padding: 0px;\n  }\n  .navbar ul {\n    float: none;\n  }\n  .navbar li {\n    float: none;\n    font-size: 15px;\n    margin: 6px;\n  }\n  .navbar li li {\n    font-size: 12px;\n  }\n  .navbar li a {\n    padding: 10px 16px;\n    border-radius: 4px;\n  }\n  .navbar a {\n    /* If a menu item's text is too long, truncate it */\n    width: 100%;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n  }\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbmF2aWdhdGlvbi9zaWRlLW5hdi1tZW51L1g6L1BlcnNvbmFsIFByb2plY3RzL0NFQVRTaWktQ29tYmF0LVRyYWNrZXIvQ29tYmF0VHJhY2tlci9Db21iYXRUcmFja2VyLldlYi9DRUFUU2lpQXBwL3NyYy9hcHAvbmF2aWdhdGlvbi9zaWRlLW5hdi1tZW51L3NpZGUtbmF2LW1lbnUuY29tcG9uZW50Lmxlc3MiLCJzcmMvYXBwL25hdmlnYXRpb24vc2lkZS1uYXYtbWVudS9zaWRlLW5hdi1tZW51LmNvbXBvbmVudC5sZXNzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0Usa0JBQUE7QUNDRjtBQUNBLDBDQUEwQztBREcxQztFQUNFLGlCQUFBO0FDREY7QUFDQSx5RUFBeUU7QURJekU7RUNGRTs7O2NBR1k7RURJWixVQUFBO0FDRkY7QURLQTtFQUNFLGVBQUE7QUNIRjtBRE1BO0VBQ0UsY0FBQTtBQ0pGO0FET0E7O0VBRUUsV0FBQTtFQUNBLDZCQUFBO0VBQ0EsZUFBQTtBQ0xGO0FEUUE7OztFQUdFLHlCQUFBO0VBQ0EsWUFBQTtBQ05GO0FEVUE7RUNSRSxpRUFBaUU7RURVakU7SUFDRSxZQUFBO0lDUkEsMkJBQTJCO0VBQzdCO0VEV0E7SUFDRSxrQkFBQTtJQUNBLGlCQUFBO0lBQ0EsWUFBQTtFQ1RGO0VEWUE7SUFDRSxXQUFBO0VDVkY7RURhQTtJQUNFLDBCQUFBO0lBQ0EsWUFBQTtFQ1hGO0VEY0E7SUFDRSxXQUFBO0VDWkY7RURlQTtJQUNFLFdBQUE7SUFDQSxlQUFBO0lBQ0EsV0FBQTtFQ2JGO0VEZ0JBO0lBQ0UsZUFBQTtFQ2RGO0VEaUJBO0lBQ0Usa0JBQUE7SUFDQSxrQkFBQTtFQ2ZGO0VEa0JBO0lDaEJFLG1EQUFtRDtJRGtCbkQsV0FBQTtJQUNBLG1CQUFBO0lBQ0EsZ0JBQUE7SUFDQSx1QkFBQTtFQ2hCRjtBQUNGIiwiZmlsZSI6InNyYy9hcHAvbmF2aWdhdGlvbi9zaWRlLW5hdi1tZW51L3NpZGUtbmF2LW1lbnUuY29tcG9uZW50Lmxlc3MiLCJzb3VyY2VzQ29udGVudCI6WyJsaSAuZ2x5cGhpY29uIHtcbiAgbWFyZ2luLXJpZ2h0OiAxMHB4O1xufVxuXG4vKiBIaWdobGlnaHRpbmcgcnVsZXMgZm9yIG5hdiBtZW51IGl0ZW1zICovXG5cbmxpIHVsIHtcbiAgcGFkZGluZy1sZWZ0OiA1cHg7XG59XG5cbi8qIEtlZXAgdGhlIG5hdiBtZW51IGluZGVwZW5kZW50IG9mIHNjcm9sbGluZyBhbmQgb24gdG9wIG9mIG90aGVyIGl0ZW1zICovXG4ubWFpbi1uYXYge1xuICAvKnBvc2l0aW9uOiBmaXhlZDtcbiAgICB0b3A6IDA7XG4gICAgbGVmdDogMDtcbiAgICByaWdodDogMDsqL1xuICB6LWluZGV4OiAxO1xufVxuXG4ubmF2YmFyIGxpIGxpIHtcbiAgZm9udC1zaXplOiAxMnB4O1xufVxuXG4ubmF2YmFyLWludmVyc2UgLm5hdmJhci1uYXYgPiBsaSBhIHtcbiAgY29sb3I6ICM5ZDlkOWQ7XG59XG5cbi5uYXZiYXItaW52ZXJzZSAubmF2YmFyLW5hdiA+IGxpIGE6aG92ZXIsXG4ubmF2YmFyLWludmVyc2UgLm5hdmJhci1uYXYgPiBsaSBhOmZvY3VzIHtcbiAgY29sb3I6ICNmZmY7XG4gIGJhY2tncm91bmQtY29sb3I6IHRyYW5zcGFyZW50O1xuICBjdXJzb3I6IHBvaW50ZXI7XG59XG5cbi5uYXZiYXItaW52ZXJzZSAubmF2YmFyLW5hdiBsaS5saW5rLWFjdGl2ZSA+IGEsXG4ubmF2YmFyLWludmVyc2UgLm5hdmJhci1uYXYgbGkubGluay1hY3RpdmUgPiBhOmhvdmVyLFxuLm5hdmJhci1pbnZlcnNlIC5uYXZiYXItbmF2IGxpLmxpbmstYWN0aXZlID4gYTpmb2N1cyB7XG4gIGJhY2tncm91bmQtY29sb3I6ICM0MTg5Qzc7XG4gIGNvbG9yOiB3aGl0ZTtcbn1cblxuXG5AbWVkaWEgKG1pbi13aWR0aDogNzY4cHgpIHtcbiAgLyogT24gc21hbGwgc2NyZWVucywgY29udmVydCB0aGUgbmF2IG1lbnUgdG8gYSB2ZXJ0aWNhbCBzaWRlYmFyICovXG4gIC5tYWluLW5hdiB7XG4gICAgaGVpZ2h0OiAxMDAlO1xuICAgIC8qd2lkdGg6IGNhbGMoMjUlIC0gMjBweCk7Ki9cbiAgfVxuXG4gIC5uYXZiYXIge1xuICAgIGJvcmRlci1yYWRpdXM6IDBweDtcbiAgICBib3JkZXItd2lkdGg6IDBweDtcbiAgICBoZWlnaHQ6IDEwMCU7XG4gIH1cblxuICAubmF2YmFyLWhlYWRlciB7XG4gICAgZmxvYXQ6IG5vbmU7XG4gIH1cblxuICAubmF2YmFyLWNvbGxhcHNlIHtcbiAgICBib3JkZXItdG9wOiAxcHggc29saWQgIzQ0NDtcbiAgICBwYWRkaW5nOiAwcHg7XG4gIH1cblxuICAubmF2YmFyIHVsIHtcbiAgICBmbG9hdDogbm9uZTtcbiAgfVxuXG4gIC5uYXZiYXIgbGkge1xuICAgIGZsb2F0OiBub25lO1xuICAgIGZvbnQtc2l6ZTogMTVweDtcbiAgICBtYXJnaW46IDZweDtcbiAgfVxuXG4gIC5uYXZiYXIgbGkgbGkge1xuICAgIGZvbnQtc2l6ZTogMTJweDtcbiAgfVxuXG4gIC5uYXZiYXIgbGkgYSB7XG4gICAgcGFkZGluZzogMTBweCAxNnB4O1xuICAgIGJvcmRlci1yYWRpdXM6IDRweDtcbiAgfVxuXG4gIC5uYXZiYXIgYSB7XG4gICAgLyogSWYgYSBtZW51IGl0ZW0ncyB0ZXh0IGlzIHRvbyBsb25nLCB0cnVuY2F0ZSBpdCAqL1xuICAgIHdpZHRoOiAxMDAlO1xuICAgIHdoaXRlLXNwYWNlOiBub3dyYXA7XG4gICAgb3ZlcmZsb3c6IGhpZGRlbjtcbiAgICB0ZXh0LW92ZXJmbG93OiBlbGxpcHNpcztcbiAgfVxufVxuIiwibGkgLmdseXBoaWNvbiB7XG4gIG1hcmdpbi1yaWdodDogMTBweDtcbn1cbi8qIEhpZ2hsaWdodGluZyBydWxlcyBmb3IgbmF2IG1lbnUgaXRlbXMgKi9cbmxpIHVsIHtcbiAgcGFkZGluZy1sZWZ0OiA1cHg7XG59XG4vKiBLZWVwIHRoZSBuYXYgbWVudSBpbmRlcGVuZGVudCBvZiBzY3JvbGxpbmcgYW5kIG9uIHRvcCBvZiBvdGhlciBpdGVtcyAqL1xuLm1haW4tbmF2IHtcbiAgLypwb3NpdGlvbjogZml4ZWQ7XG4gICAgdG9wOiAwO1xuICAgIGxlZnQ6IDA7XG4gICAgcmlnaHQ6IDA7Ki9cbiAgei1pbmRleDogMTtcbn1cbi5uYXZiYXIgbGkgbGkge1xuICBmb250LXNpemU6IDEycHg7XG59XG4ubmF2YmFyLWludmVyc2UgLm5hdmJhci1uYXYgPiBsaSBhIHtcbiAgY29sb3I6ICM5ZDlkOWQ7XG59XG4ubmF2YmFyLWludmVyc2UgLm5hdmJhci1uYXYgPiBsaSBhOmhvdmVyLFxuLm5hdmJhci1pbnZlcnNlIC5uYXZiYXItbmF2ID4gbGkgYTpmb2N1cyB7XG4gIGNvbG9yOiAjZmZmO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudDtcbiAgY3Vyc29yOiBwb2ludGVyO1xufVxuLm5hdmJhci1pbnZlcnNlIC5uYXZiYXItbmF2IGxpLmxpbmstYWN0aXZlID4gYSxcbi5uYXZiYXItaW52ZXJzZSAubmF2YmFyLW5hdiBsaS5saW5rLWFjdGl2ZSA+IGE6aG92ZXIsXG4ubmF2YmFyLWludmVyc2UgLm5hdmJhci1uYXYgbGkubGluay1hY3RpdmUgPiBhOmZvY3VzIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogIzQxODlDNztcbiAgY29sb3I6IHdoaXRlO1xufVxuQG1lZGlhIChtaW4td2lkdGg6IDc2OHB4KSB7XG4gIC8qIE9uIHNtYWxsIHNjcmVlbnMsIGNvbnZlcnQgdGhlIG5hdiBtZW51IHRvIGEgdmVydGljYWwgc2lkZWJhciAqL1xuICAubWFpbi1uYXYge1xuICAgIGhlaWdodDogMTAwJTtcbiAgICAvKndpZHRoOiBjYWxjKDI1JSAtIDIwcHgpOyovXG4gIH1cbiAgLm5hdmJhciB7XG4gICAgYm9yZGVyLXJhZGl1czogMHB4O1xuICAgIGJvcmRlci13aWR0aDogMHB4O1xuICAgIGhlaWdodDogMTAwJTtcbiAgfVxuICAubmF2YmFyLWhlYWRlciB7XG4gICAgZmxvYXQ6IG5vbmU7XG4gIH1cbiAgLm5hdmJhci1jb2xsYXBzZSB7XG4gICAgYm9yZGVyLXRvcDogMXB4IHNvbGlkICM0NDQ7XG4gICAgcGFkZGluZzogMHB4O1xuICB9XG4gIC5uYXZiYXIgdWwge1xuICAgIGZsb2F0OiBub25lO1xuICB9XG4gIC5uYXZiYXIgbGkge1xuICAgIGZsb2F0OiBub25lO1xuICAgIGZvbnQtc2l6ZTogMTVweDtcbiAgICBtYXJnaW46IDZweDtcbiAgfVxuICAubmF2YmFyIGxpIGxpIHtcbiAgICBmb250LXNpemU6IDEycHg7XG4gIH1cbiAgLm5hdmJhciBsaSBhIHtcbiAgICBwYWRkaW5nOiAxMHB4IDE2cHg7XG4gICAgYm9yZGVyLXJhZGl1czogNHB4O1xuICB9XG4gIC5uYXZiYXIgYSB7XG4gICAgLyogSWYgYSBtZW51IGl0ZW0ncyB0ZXh0IGlzIHRvbyBsb25nLCB0cnVuY2F0ZSBpdCAqL1xuICAgIHdpZHRoOiAxMDAlO1xuICAgIHdoaXRlLXNwYWNlOiBub3dyYXA7XG4gICAgb3ZlcmZsb3c6IGhpZGRlbjtcbiAgICB0ZXh0LW92ZXJmbG93OiBlbGxpcHNpcztcbiAgfVxufVxuIl19 */");
 
 /***/ }),
 
@@ -4759,7 +5189,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var version = "1.0";
+var version = "1";
 let ActionsRepository = class ActionsRepository {
     constructor(_httpClient) {
         this._httpClient = _httpClient;
@@ -4902,7 +5332,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var version = "1.0";
+var version = "1";
 let ActorsRepository = class ActorsRepository {
     constructor(_httpClient) {
         this._httpClient = _httpClient;
@@ -5027,7 +5457,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var version = "1.0";
+var version = "1";
 let CharactersRepository = class CharactersRepository {
     constructor(_httpClient) {
         this._httpClient = _httpClient;
@@ -5151,7 +5581,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var version = "1.0";
+var version = "1";
 let CombatRepository = class CombatRepository {
     constructor(_httpClient) {
         this._httpClient = _httpClient;
@@ -5508,7 +5938,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var version = "1.0";
+var version = "1";
 let CreaturesRepository = class CreaturesRepository {
     constructor(_httpClient) {
         this._httpClient = _httpClient;
@@ -5632,7 +6062,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var version = "1.0";
+var version = "1";
 let CriticalEffectsRepository = class CriticalEffectsRepository {
     constructor(_httpClient) {
         this._httpClient = _httpClient;
@@ -5757,7 +6187,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var version = "1.0";
+var version = "1";
 let EncounterRepository = class EncounterRepository {
     constructor(_httpClient) {
         this._httpClient = _httpClient;
@@ -6131,7 +6561,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var version = "1.0";
+var version = "1";
 let GamesRepository = class GamesRepository {
     constructor(_httpClient) {
         this._httpClient = _httpClient;
@@ -6255,7 +6685,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var version = "1.0";
+var version = "1";
 let ReferenceRepository = class ReferenceRepository {
     constructor(_httpClient) {
         this._httpClient = _httpClient;
@@ -6579,7 +7009,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var version = "1.0";
+var version = "1";
 let SettingsRepository = class SettingsRepository {
     constructor(_httpClient) {
         this._httpClient = _httpClient;
@@ -6632,7 +7062,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var version = "1.0";
+var version = "1";
 let UsersRepository = class UsersRepository {
     constructor(_httpClient) {
         this._httpClient = _httpClient;
@@ -6978,7 +7408,7 @@ let AuthenticationService = class AuthenticationService {
         this.authorizeService = authorizeService;
         this.currentUserSubject = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"](JSON.parse(localStorage.getItem('currentUser')));
         this.currentUser = this.currentUserSubject.asObservable();
-        //debugger;
+        ////debugger;
         this.refreshUserAsync();
     }
     refreshUserAsync() {
@@ -7024,7 +7454,7 @@ let AuthenticationService = class AuthenticationService {
             const result = yield this.authorizeService.completeSignIn(url);
             switch (result.status) {
                 case _api_authorization_authorize_service__WEBPACK_IMPORTED_MODULE_7__["AuthenticationResultStatus"].Redirect:
-                    debugger;
+                    //debugger;
                     break;
                 case _api_authorization_authorize_service__WEBPACK_IMPORTED_MODULE_7__["AuthenticationResultStatus"].Success:
                     //await this.navigateToReturnUrl(returnUrl);
@@ -7033,10 +7463,10 @@ let AuthenticationService = class AuthenticationService {
                     //await this.router.navigate(ApplicationPaths.LoginFailedPathComponents, {
                     //  queryParams: { [QueryParameterNames.Message]: result.message }
                     //});
-                    debugger;
+                    //debugger;
                     break;
                 default:
-                    debugger;
+                    //debugger;
                     throw new Error(`Invalid status result ${result.status}.`);
             }
         });
@@ -7047,17 +7477,17 @@ let AuthenticationService = class AuthenticationService {
             const result = yield this.authorizeService.signOut(state);
             switch (result.status) {
                 case _api_authorization_authorize_service__WEBPACK_IMPORTED_MODULE_7__["AuthenticationResultStatus"].Redirect:
-                    debugger;
+                    //debugger;
                     break;
                 case _api_authorization_authorize_service__WEBPACK_IMPORTED_MODULE_7__["AuthenticationResultStatus"].Success:
                     //await this.navigateToReturnUrl(returnUrl);
                     break;
                 case _api_authorization_authorize_service__WEBPACK_IMPORTED_MODULE_7__["AuthenticationResultStatus"].Fail:
-                    debugger;
+                    //debugger;
                     //this.message.next(result.message);
                     break;
                 default:
-                    debugger;
+                    //debugger;
                     throw new Error('Invalid authentication result status.');
             }
         });
@@ -7111,20 +7541,36 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+var ActionTypeEnum = _entities_EnumDefinitions__WEBPACK_IMPORTED_MODULE_2__["EnumDefinitions"].ActionTypeEnum;
+var ActorActionType = _entities_EnumDefinitions__WEBPACK_IMPORTED_MODULE_2__["EnumDefinitions"].ActorActionType;
+var CharacterType = _entities_EnumDefinitions__WEBPACK_IMPORTED_MODULE_2__["EnumDefinitions"].CharacterType;
 let EncounterService = class EncounterService {
     constructor(authService, gameRepo, actorRepo, actionRepo, encounterRepo) {
+        //authService.currentUser.subscribe((user) => {
+        //    ////debugger;
+        //    if (user != null) {
+        //        this.refresh();
+        //    } else {
+        //        this._currentGame = null;
+        //        this.actors = new Array<Actor>();
+        //        this.actions = new Array<BaseAction>();
+        //        this._selectedActor = null;
+        //        this._selectedAction = null;
+        //    }
+        //});
         this.authService = authService;
         this.gameRepo = gameRepo;
         this.actorRepo = actorRepo;
         this.actionRepo = actionRepo;
         this.encounterRepo = encounterRepo;
         this.actors = new Array();
-        this.actions = new Array();
+        this.allActions = new Array();
         this.selectGame = (gameId) => tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
             yield this.encounterRepo.setCurrentGameAsync(gameId);
             yield this.refresh();
         });
         this.refresh = () => tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            //debugger;
             this._currentGame = yield this.encounterRepo.getCurrentGameAsync();
             if (this._currentGame.id == 0) {
                 this._currentGame = null;
@@ -7132,7 +7578,7 @@ let EncounterService = class EncounterService {
             if (this.currentGame != null) {
                 //this._currentGame = await this.gameRepo.getGameAsync(this._currentGame.id);
                 this.actors = yield this.actorRepo.getActorsInGameAsync(this.currentGame.id);
-                this.actions = yield this.actionRepo.getActionsInGameAsync(this.currentGame.id);
+                this.allActions = yield this.actionRepo.getActionsInGameAsync(this.currentGame.id);
                 if (this.selectedActor == null) {
                     this.selectedAction = this.actions[0];
                 }
@@ -7146,18 +7592,19 @@ let EncounterService = class EncounterService {
             yield this.encounterRepo.createActorFromCharacterAsync(character.id, rolledInit);
             yield this.refresh();
         });
-        authService.currentUser.subscribe((user) => {
-            if (user != null) {
-                this.refresh();
-            }
-            else {
-                this._currentGame = null;
-                this.actors = new Array();
-                this.actions = new Array();
-                this._selectedActor = null;
-                this._selectedAction = null;
-            }
-        });
+        this.refresh();
+    }
+    get actions() {
+        var acts = this.allActions;
+        if (this.authService.currentUser == null) {
+            acts = acts.filter((element, index, array) => {
+                var isNext = element.actionType == ActionTypeEnum.Next;
+                var isEffect = element.actionType == ActionTypeEnum.Effect && element.type != ActorActionType.SpellEffect;
+                var isSpellOnNPC = element.actionType == ActionTypeEnum.Effect && element.type == ActorActionType.SpellEffect && element.whoIsActing.type == CharacterType.NPC;
+                return !isNext && !isEffect;
+            });
+        }
+        return acts;
     }
     //get systemSettings(): MySettings {
     //    return this.settings.settings;
@@ -7340,16 +7787,84 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/app/top/creature/creature.component.less":
-/*!******************************************************!*\
-  !*** ./src/app/top/creature/creature.component.less ***!
-  \******************************************************/
+/***/ "./src/app/top/character/character.component.css":
+/*!*******************************************************!*\
+  !*** ./src/app/top/character/character.component.css ***!
+  \*******************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".list {\n  display: table-cell;\n  width: 20%;\n}\n.edit {\n  display: table-cell;\n  width: 80%;\n}\n.mainList {\n  font-size: 12px;\n  max-height: 100%;\n  /*width: 120px;*/\n}\n.mainList a {\n  cursor: pointer;\n}\n.mainList button {\n  padding: 0 5px;\n}\n.mainList td {\n  padding: 2px;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zb2xtZWFkL0RldmVsb3BtZW50L1BlcnNvbmFsIFByb2plY3RzL0NFQVRTaWktQ29tYmF0LVRyYWNrZXIvQ29tYmF0VHJhY2tlci9Db21iYXRUcmFja2VyLldlYi9DRUFUU2lpQXBwL3NyYy9hcHAvdG9wL2NyZWF0dXJlL2NyZWF0dXJlLmNvbXBvbmVudC5sZXNzIiwic3JjL2FwcC90b3AvY3JlYXR1cmUvY3JlYXR1cmUuY29tcG9uZW50Lmxlc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBTUE7RUFDRSxtQkFBQTtFQUNBLFVBQUE7QUNMRjtBRFFBO0VBQ0UsbUJBQUE7RUFDQSxVQUFBO0FDTkY7QURTQTtFQUNFLGVBQUE7RUFDQSxnQkFBQTtFQ1BBLGdCQUFnQjtBQUNsQjtBRFVBO0VBQ0UsZUFBQTtBQ1JGO0FEV0E7RUFDRSxjQUFBO0FDVEY7QURZQTtFQUNFLFlBQUE7QUNWRiIsImZpbGUiOiJzcmMvYXBwL3RvcC9jcmVhdHVyZS9jcmVhdHVyZS5jb21wb25lbnQubGVzcyIsInNvdXJjZXNDb250ZW50IjpbIi53cmFwcGVyIHtcbn1cblxuLmFyZWEge1xufVxuXG4ubGlzdCB7XG4gIGRpc3BsYXk6IHRhYmxlLWNlbGw7XG4gIHdpZHRoOiAyMCU7XG59XG5cbi5lZGl0IHtcbiAgZGlzcGxheTogdGFibGUtY2VsbDtcbiAgd2lkdGg6IDgwJTtcbn1cblxuLm1haW5MaXN0IHtcbiAgZm9udC1zaXplOiAxMnB4O1xuICBtYXgtaGVpZ2h0OiAxMDAlO1xuICAvKndpZHRoOiAxMjBweDsqL1xufVxuXG4ubWFpbkxpc3QgYSB7XG4gIGN1cnNvcjogcG9pbnRlcjtcbn1cblxuLm1haW5MaXN0IGJ1dHRvbiB7XG4gIHBhZGRpbmc6IDAgNXB4O1xufVxuXG4ubWFpbkxpc3QgdGQge1xuICBwYWRkaW5nOiAycHg7XG59XG4iLCIubGlzdCB7XG4gIGRpc3BsYXk6IHRhYmxlLWNlbGw7XG4gIHdpZHRoOiAyMCU7XG59XG4uZWRpdCB7XG4gIGRpc3BsYXk6IHRhYmxlLWNlbGw7XG4gIHdpZHRoOiA4MCU7XG59XG4ubWFpbkxpc3Qge1xuICBmb250LXNpemU6IDEycHg7XG4gIG1heC1oZWlnaHQ6IDEwMCU7XG4gIC8qd2lkdGg6IDEyMHB4OyovXG59XG4ubWFpbkxpc3QgYSB7XG4gIGN1cnNvcjogcG9pbnRlcjtcbn1cbi5tYWluTGlzdCBidXR0b24ge1xuICBwYWRkaW5nOiAwIDVweDtcbn1cbi5tYWluTGlzdCB0ZCB7XG4gIHBhZGRpbmc6IDJweDtcbn1cbiJdfQ== */");
+/* harmony default export */ __webpack_exports__["default"] = ("\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3RvcC9jaGFyYWN0ZXIvY2hhcmFjdGVyLmNvbXBvbmVudC5jc3MifQ== */");
+
+/***/ }),
+
+/***/ "./src/app/top/character/character.component.ts":
+/*!******************************************************!*\
+  !*** ./src/app/top/character/character.component.ts ***!
+  \******************************************************/
+/*! exports provided: CharacterComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CharacterComponent", function() { return CharacterComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+
+
+let CharacterComponent = 
+/** character component*/
+class CharacterComponent {
+    /** character ctor */
+    constructor() {
+    }
+};
+CharacterComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'character',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./character.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/top/character/character.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./character.component.css */ "./src/app/top/character/character.component.css")).default]
+    })
+    /** character component*/
+    ,
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+], CharacterComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/top/character/index.ts":
+/*!****************************************!*\
+  !*** ./src/app/top/character/index.ts ***!
+  \****************************************/
+/*! exports provided: CharacterComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _character_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./character.component */ "./src/app/top/character/character.component.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "CharacterComponent", function() { return _character_component__WEBPACK_IMPORTED_MODULE_1__["CharacterComponent"]; });
+
+
+
+
+
+/***/ }),
+
+/***/ "./src/app/top/creature/creature.component.css":
+/*!*****************************************************!*\
+  !*** ./src/app/top/creature/creature.component.css ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3RvcC9jcmVhdHVyZS9jcmVhdHVyZS5jb21wb25lbnQuY3NzIn0= */");
 
 /***/ }),
 
@@ -7365,70 +7880,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CreatureComponent", function() { return CreatureComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _repositories__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/repositories */ "./src/app/repositories/index.ts");
-/* harmony import */ var _entities__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/entities */ "./src/app/entities/index.ts");
-
-
 
 
 let CreatureComponent = 
 /** creature component*/
 class CreatureComponent {
-    /** character ctor */
-    constructor(creatureRepo) {
-        this.creatureRepo = creatureRepo;
-        this.creatures = new Array();
-        this.refresh = () => tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
-            this.creatures = yield this.creatureRepo.getCreaturesAsync();
-        });
-        this.selectCreature = (charId) => tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
-            this.selectedCreature = yield this.creatureRepo.getCreatureAsync(charId);
-            //this.selectedCreature.aqRating.name
-        });
-        this.onCreatureSave = (creature) => {
-            this.refresh();
-        };
-        this.onCreatureDeleted = (creature) => {
-            this.refresh();
-        };
-        this.refresh();
-    }
-    ngOnChanges() {
-        if (this.creatures.length > 0) {
-            if (this.selectedCreature != null) {
-                this.selectCreature(this.selectedCreature.id);
-            }
-            else {
-                this.selectCreature(this.creatures[0].id);
-            }
-        }
-    }
-    ngOnInit() {
-        if (this.creatures.length > 0) {
-            if (this.selectedCreature != null) {
-                this.selectCreature(this.selectedCreature.id);
-            }
-            else {
-                this.selectCreature(this.creatures[0].id);
-            }
-        }
-    }
-    newCreature() {
-        this.selectedCreature = new _entities__WEBPACK_IMPORTED_MODULE_3__["Creature"]();
+    /** creature ctor */
+    constructor() {
     }
 };
-CreatureComponent.ctorParameters = () => [
-    { type: _repositories__WEBPACK_IMPORTED_MODULE_2__["CreaturesRepository"] }
-];
 CreatureComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'creature',
         template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./creature.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/top/creature/creature.component.html")).default,
-        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./creature.component.less */ "./src/app/top/creature/creature.component.less")).default]
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./creature.component.css */ "./src/app/top/creature/creature.component.css")).default]
     })
     /** creature component*/
     ,
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_repositories__WEBPACK_IMPORTED_MODULE_2__["CreaturesRepository"]])
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
 ], CreatureComponent);
 
 
@@ -7447,6 +7916,103 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _creature_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./creature.component */ "./src/app/top/creature/creature.component.ts");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "CreatureComponent", function() { return _creature_component__WEBPACK_IMPORTED_MODULE_1__["CreatureComponent"]; });
+
+
+
+
+
+/***/ }),
+
+/***/ "./src/app/top/encounter/encounter.component.css":
+/*!*******************************************************!*\
+  !*** ./src/app/top/encounter/encounter.component.css ***!
+  \*******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\r\n.list {\r\n    display: table-cell;\r\n    width: 20%;\r\n}\r\n\r\n.edit {\r\n    display: table-cell;\r\n    width: 80%;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdG9wL2VuY291bnRlci9lbmNvdW50ZXIuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO0FBQ0E7SUFDSSxtQkFBbUI7SUFDbkIsVUFBVTtBQUNkOztBQUVBO0lBQ0ksbUJBQW1CO0lBQ25CLFVBQVU7QUFDZCIsImZpbGUiOiJzcmMvYXBwL3RvcC9lbmNvdW50ZXIvZW5jb3VudGVyLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJcclxuLmxpc3Qge1xyXG4gICAgZGlzcGxheTogdGFibGUtY2VsbDtcclxuICAgIHdpZHRoOiAyMCU7XHJcbn1cclxuXHJcbi5lZGl0IHtcclxuICAgIGRpc3BsYXk6IHRhYmxlLWNlbGw7XHJcbiAgICB3aWR0aDogODAlO1xyXG59XHJcbiJdfQ== */");
+
+/***/ }),
+
+/***/ "./src/app/top/encounter/encounter.component.ts":
+/*!******************************************************!*\
+  !*** ./src/app/top/encounter/encounter.component.ts ***!
+  \******************************************************/
+/*! exports provided: EncounterComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EncounterComponent", function() { return EncounterComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/services */ "./src/app/services/index.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+
+
+
+
+let EncounterComponent = 
+/** encounter component*/
+class EncounterComponent {
+    //public actions: Array<BaseAction> = null;
+    /** encounter ctor */
+    constructor(gameView, _route, _userService) {
+        this.gameView = gameView;
+        this._route = _route;
+        this._userService = _userService;
+        this._route.paramMap.subscribe(params => {
+            let id = params.get('id');
+            //debugger;
+            this.gameView.selectGame(parseInt(id));
+        });
+    }
+    ngOnChanges(changes) {
+        //throw new Error('Method not implemented.');
+    }
+    ngOnInit() {
+    }
+    get actions() {
+        var acts = this.gameView.actions;
+        return acts;
+    }
+};
+EncounterComponent.ctorParameters = () => [
+    { type: _services__WEBPACK_IMPORTED_MODULE_2__["EncounterService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"] },
+    { type: _services__WEBPACK_IMPORTED_MODULE_2__["AuthenticationService"] }
+];
+EncounterComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-encounter',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./encounter.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/top/encounter/encounter.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./encounter.component.css */ "./src/app/top/encounter/encounter.component.css")).default]
+    })
+    /** encounter component*/
+    ,
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services__WEBPACK_IMPORTED_MODULE_2__["EncounterService"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"],
+        _services__WEBPACK_IMPORTED_MODULE_2__["AuthenticationService"]])
+], EncounterComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/top/encounter/index.ts":
+/*!****************************************!*\
+  !*** ./src/app/top/encounter/index.ts ***!
+  \****************************************/
+/*! exports provided: EncounterComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _encounter_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./encounter.component */ "./src/app/top/encounter/encounter.component.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "EncounterComponent", function() { return _encounter_component__WEBPACK_IMPORTED_MODULE_1__["EncounterComponent"]; });
 
 
 
@@ -7576,7 +8142,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_2__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/solmead/Development/Personal Projects/CEATSii-Combat-Tracker/CombatTracker/CombatTracker.Web/CEATSiiApp/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! X:\Personal Projects\CEATSii-Combat-Tracker\CombatTracker\CombatTracker.Web\CEATSiiApp\src\main.ts */"./src/main.ts");
 
 
 /***/ })

@@ -86,12 +86,12 @@
             </div>
             <div class="row">
                 <div class="form-group  col-sm-6">
-                    <app-weapon [weapons]="character.weapons" [charId]="character.id" (onDelete)="onWeaponDeleted($event)"></app-weapon>
+                    <weapon-list [weapons]="character.weapons" [charId]="character.id" (onDelete)="onWeaponDeleted($event)"></weapon-list>
                 </div>
             </div>
             <div class="row">
                 <div *ngIf="isRolemaster" class="form-group  col-sm-6">
-                    <app-armor [armors]="character.armors" [charId]="character.id" (onDelete)="onArmorDeleted($event)"></app-armor>
+                    <armor-list [armors]="character.armors" [charId]="character.id" (onDelete)="onArmorDeleted($event)"></armor-list>
                 </div>
             </div>
             <div class="text-center pt-2">

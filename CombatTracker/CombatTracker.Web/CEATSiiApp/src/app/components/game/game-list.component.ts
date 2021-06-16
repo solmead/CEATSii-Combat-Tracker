@@ -5,12 +5,12 @@ import { Game } from '@/entities';
 
 
 @Component({
-    selector: 'app-game',
-    templateUrl: './game.component.html',
-    styleUrls: ['./game.component.css']
+    selector: 'game-list',
+    templateUrl: './game-list.component.html',
+    styleUrls: ['./game-list.component.css']
 })
 /** Game component*/
-export class GameComponent {
+export class GameListComponent {
 
     public games: Array<Game> = new Array<Game>();
     public selectedGame: Game;

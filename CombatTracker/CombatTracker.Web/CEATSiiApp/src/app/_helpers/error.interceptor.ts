@@ -13,7 +13,7 @@ export class ErrorInterceptor implements HttpInterceptor {
     return next.handle(request).pipe(catchError(this.handleError));
   }
   private handleError(error: HttpErrorResponse) {
-    //debugger;
+    ////debugger;
     console.error(error);
     let customError: string = "";
     if (error.error) {

@@ -1,0 +1,27 @@
+﻿
+/*
+    280,98
+*/
+.mainActionList {
+    padding-right: 150px;
+
+    padding-right: 280px;
+    overflow-x: visible;
+    overflow-y: auto;
+    height: 100%;
+}
+.list {
+    height: 100%;
+    border: 2px solid grey;
+    border-radius: 5px;
+}
+
+.ActorActionBack {
+    background: #fff;
+    width: 150px;
+    height: 55px;
+    width: 280px;
+    height: 98px;
+    overflow: hidden;
+    white-space: nowrap;
+}

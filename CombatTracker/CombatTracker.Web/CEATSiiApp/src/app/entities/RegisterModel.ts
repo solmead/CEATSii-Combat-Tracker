@@ -3,6 +3,7 @@
 
 
 
+
     import * as Enums from './EnumDefinitions'
     
     export class RegisterModel {

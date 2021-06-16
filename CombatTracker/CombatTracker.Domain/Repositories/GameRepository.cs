@@ -464,8 +464,15 @@ namespace CombatTracker.Domain.Repositories
                                 Critical_ID = a.Critical_ID
                             }).ToList();
 
+                list.Sort((x, y) => x.EndTime.CompareTo(y.EndTime));
+
+                var min = list.First().EndTime;
+                var max = list.Last().EndTime;
+                var range = max - min;
+
                 list.ForEach((g) =>
                 {
+                    g.LeftPercent = (g.EndTime-min) / range;
                     if (g.BaseAction_ID.HasValue)
                     {
                         g.Base = _chartRepository.GetAction(g.BaseAction_ID.Value);

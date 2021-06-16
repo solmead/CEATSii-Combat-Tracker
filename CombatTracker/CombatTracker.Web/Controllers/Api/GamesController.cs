@@ -7,6 +7,7 @@ using CombatTracker.Entities.Abstract.Services;
 using CombatTracker.Entities.Current;
 using CombatTracker.Entities.Reference;
 using CombatTracker.Entities.Reference.Attacks.Charts;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -15,6 +16,7 @@ namespace CombatTracker.Web.Controllers.Api
 {
     [ApiVersion("1.0")]
     [ApiExplorerSettings(GroupName = "v1")]
+    [Authorize]
     public class GamesController : BaseApiController
     {
 

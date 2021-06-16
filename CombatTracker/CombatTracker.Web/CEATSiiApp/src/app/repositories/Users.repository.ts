@@ -18,7 +18,7 @@ import { AuthenticateModel } from '@/entities';
 import { RegisterModel } from '@/entities';
 import { UpdateModel } from '@/entities';
 
-var version = "1.0";
+var version = "1";
 
 @Injectable({ providedIn: 'root' })
 export class UsersRepository {

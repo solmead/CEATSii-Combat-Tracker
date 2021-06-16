@@ -4,6 +4,7 @@
 
 
 
+
     import * as Enums from './EnumDefinitions'
     import SecurityRoles = Enums.EnumDefinitions.SecurityRoles;
     export class ApplicationUser {

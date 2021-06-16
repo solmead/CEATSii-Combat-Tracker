@@ -2,12 +2,12 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Weapon } from '@/entities';
 
 @Component({
-    selector: 'app-weapon',
-    templateUrl: './weapon.component.html',
-    styleUrls: ['./weapon.component.css']
+    selector: 'weapon-list',
+    templateUrl: './weapon-list.component.html',
+    styleUrls: ['./weapon-list.component.css']
 })
 /** Weapon component*/
-export class WeaponComponent {
+export class WeaponListComponent {
     /** Weapon ctor */
     @Input() weapons: Array<Weapon>;
     @Input() charId: number;

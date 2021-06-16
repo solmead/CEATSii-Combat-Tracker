@@ -2,12 +2,12 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Attack } from '@/entities';
 
 @Component({
-    selector: 'app-attack',
-    templateUrl: './attack.component.html',
-    styleUrls: ['./attack.component.css']
+    selector: 'attack-list',
+    templateUrl: './attack-list.component.html',
+    styleUrls: ['./attack-list.component.css']
 })
 /** Attack component*/
-export class AttackComponent {
+export class AttackListComponent {
     @Input() attacks: Array<Attack>;
     @Input() creatureId: number;
     @Output() onDelete = new EventEmitter<Attack>();

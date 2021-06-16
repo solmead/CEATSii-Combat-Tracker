@@ -275,7 +275,7 @@ $Classes(*Api.*Controller)[
     import * as Enums from '@/entities/EnumDefinitions'
     $ImportsListMethods
 
-var version = "1.0";
+var version = "1";
 
 @Injectable({ providedIn: 'root' })
 export class $ServiceName {

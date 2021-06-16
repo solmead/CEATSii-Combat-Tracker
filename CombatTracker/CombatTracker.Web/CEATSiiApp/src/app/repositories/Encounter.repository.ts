@@ -19,7 +19,7 @@ import { MoveNextResult } from '@/entities';
 import { BaseAction } from '@/entities';
 import { CriticalEffect } from '@/entities';
 
-var version = "1.0";
+var version = "1";
 
 @Injectable({ providedIn: 'root' })
 export class EncounterRepository {

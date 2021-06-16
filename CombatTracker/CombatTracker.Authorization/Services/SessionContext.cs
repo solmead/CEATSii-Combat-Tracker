@@ -9,6 +9,9 @@ using Microsoft.AspNetCore.Identity;
 using System.Threading.Tasks;
 using CombatTracker.Authorization;
 using CombatTracker.Entities.Abstract.Services;
+using System.Linq;
+using CombatTracker.Entities.Reference;
+using Utilities.EnumExtensions;
 
 namespace CombatTracker.Authorization.Services
 {
@@ -26,8 +29,25 @@ namespace CombatTracker.Authorization.Services
         {
             return await Cache.GetItemAsync(CacheArea.Session, "CurrentUser", async () =>
             {
-                var user = await _userManager.GetUserAsync(_httpContextAccessor.HttpContext.User);
-                return user.AsUser();
+                var uName = _httpContextAccessor.HttpContext.User?.Identity?.Name;
+                if (string.IsNullOrWhiteSpace(uName))
+                {
+                    return null;
+                }
+
+
+                var user = await _userManager.FindByNameAsync(uName);
+                if (user != null)
+                {
+                    var roles = await _userManager.GetRolesAsync(user);
+                    user.Roles = roles.Select((r) => r.ToEnum<SecurityRoles>()).ToList();
+                }
+                //return user;
+
+
+
+                //var user = await _userManager.GetUserAsync(_httpContextAccessor.HttpContext.User);
+                return user;//.AsUser();
             });
         }
 

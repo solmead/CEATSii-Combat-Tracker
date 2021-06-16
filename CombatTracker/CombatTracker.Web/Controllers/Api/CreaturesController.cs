@@ -18,6 +18,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CombatTracker.Web.Controllers.Api
 {
+    [Authorize]
     [ApiVersion("1.0")]
     [ApiExplorerSettings(GroupName = "v1")]
     public class CreaturesController : BaseApiController

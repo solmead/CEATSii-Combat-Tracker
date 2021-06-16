@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace CombatTracker.Web.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [Produces("application/json")]
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     [Route("api/v{version:apiVersion}/[controller]")] //DO NOT MODIFY: Routing scheme for all api controllers inheriting from this class.

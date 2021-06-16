@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using CombatTracker.Entities.Abstract.Repos;
 using CombatTracker.Entities.Abstract.Services;
 using CombatTracker.Entities.Current;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,6 +13,7 @@ namespace CombatTracker.Web.Controllers.Api
 {
     [ApiVersion("1.0")]
     [ApiExplorerSettings(GroupName = "v1")]
+    [Authorize]
     public class EncounterController : BaseApiController
     {
         private readonly ICreatureRepository _creatureRepository;
@@ -34,12 +36,14 @@ namespace CombatTracker.Web.Controllers.Api
             _gameService = gameService;
         }
 
+        [AllowAnonymous]
         [HttpGet("[action]")]
         public Game GetCurrentGame()
         {
             return _gameService.CurrentGame;
         }
 
+        [AllowAnonymous]
         [HttpPost("SetCurrentGame/{gameId}")]
         public Game SetCurrentGame(int gameId)
         {
@@ -47,7 +51,6 @@ namespace CombatTracker.Web.Controllers.Api
             _gameService.CurrentGame = gm;
             return gm;
         }
-
 
         [HttpPost("CreateActorFromCreature/{creatureId}")]
         public Actor CreateActorFromCreature(int creatureId)

@@ -42,11 +42,13 @@ namespace CombatTracker.Web.Controllers.Api
         {
             return _gameRepository.GetAction(id);
         }
+        [Authorize]
         [HttpPost("SaveAction")]
         public BaseAction SaveAction([FromBody] BaseAction action)
         {
             return _gameRepository.SaveAction(action);
         }
+        [Authorize]
         [HttpDelete("[action]/{id}")]
         public void DeleteAction(int id)
         {

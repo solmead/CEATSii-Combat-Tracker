@@ -1,6 +1,7 @@
 ﻿
 
 
+
     import * as Enums from './EnumDefinitions'
     import ResponseEnum = Enums.EnumDefinitions.ResponseEnum;
     export class MoveNextResult {

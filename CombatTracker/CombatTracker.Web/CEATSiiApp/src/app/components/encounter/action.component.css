@@ -1,0 +1,19 @@
+﻿/*
+    279,97
+    280,98
+*/
+.ActorAction {
+    border: 1px solid red;
+    width: 134px;
+    height: 49px;
+
+    width: 262px;
+    height: 90px;
+    padding: 3px 8px 3px 8px;
+    overflow: hidden;
+    font-size: .73em;
+    white-space: nowrap;
+    color: Black;
+    border-radius: 5px;
+    line-height: 1em;
+}

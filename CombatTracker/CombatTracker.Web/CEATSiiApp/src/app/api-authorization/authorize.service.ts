@@ -30,7 +30,7 @@ export enum AuthenticationResultStatus {
 }
 
 export interface IUser {
-  name: string;
+  name?: string;
 }
 
 @Injectable({
@@ -74,7 +74,7 @@ export class AuthorizeService {
     let user: User = null;
     try {
       user = await this.userManager.signinSilent(this.createArguments());
-        this.userSubject.next(<IUser>user.profile);
+      this.userSubject.next(user.profile);
       return this.success(state);
     } catch (silentError) {
       // User might not be authenticated, fallback to popup authentication
@@ -85,7 +85,7 @@ export class AuthorizeService {
           throw new Error('Popup disabled. Change \'authorize.service.ts:AuthorizeService.popupDisabled\' to false to enable it.');
         }
         user = await this.userManager.signinPopup(this.createArguments());
-          this.userSubject.next(<IUser>user.profile);
+        this.userSubject.next(user.profile);
         return this.success(state);
       } catch (popupError) {
         if (popupError.message === 'Popup window closed') {
@@ -108,12 +108,13 @@ export class AuthorizeService {
   }
 
   public async completeSignIn(url: string): Promise<IAuthenticationResult> {
-    try {
+      try {
       await this.ensureUserManagerInitialized();
       const user = await this.userManager.signinCallback(url);
-        this.userSubject.next(user && <IUser>user.profile);
+      this.userSubject.next(user && user.profile);
       return this.success(user && user.state);
     } catch (error) {
+        //debugger;
       console.log('There was an error signing in: ', error);
       return this.error('There was an error signing in.');
     }
@@ -135,7 +136,7 @@ export class AuthorizeService {
         await this.userManager.signoutRedirect(this.createArguments(state));
         return this.redirect();
       } catch (redirectSignOutError) {
-        console.log('Redirect signout error: ', popupSignOutError);
+        console.log('Redirect signout error: ', redirectSignOutError);
         return this.error(redirectSignOutError);
       }
     }
@@ -144,9 +145,9 @@ export class AuthorizeService {
   public async completeSignOut(url: string): Promise<IAuthenticationResult> {
     await this.ensureUserManagerInitialized();
     try {
-      const state = await this.userManager.signoutCallback(url);
+      const response = await this.userManager.signoutCallback(url);
       this.userSubject.next(null);
-      return this.success(state && (<any>state).data);
+      return this.success(response && response.state);
     } catch (error) {
       console.log(`There was an error trying to log out '${error}'.`);
       return this.error(error);
@@ -194,6 +195,6 @@ export class AuthorizeService {
     return from(this.ensureUserManagerInitialized())
       .pipe(
         mergeMap(() => this.userManager.getUser()),
-          map(u => u && <IUser>u.profile));
+        map(u => u && u.profile));
   }
 }

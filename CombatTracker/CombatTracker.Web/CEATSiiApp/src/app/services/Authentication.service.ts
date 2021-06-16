@@ -30,7 +30,7 @@ export class AuthenticationService {
         this.currentUserSubject = new BehaviorSubject<ApplicationUser>(JSON.parse(localStorage.getItem('currentUser')));
         this.currentUser = this.currentUserSubject.asObservable();
 
-        //debugger;
+        ////debugger;
         this.refreshUserAsync();
     }
 
@@ -82,7 +82,7 @@ export class AuthenticationService {
 
         switch (result.status) {
             case AuthenticationResultStatus.Redirect:
-                debugger;
+                //debugger;
                 break;
             case AuthenticationResultStatus.Success:
                 //await this.navigateToReturnUrl(returnUrl);
@@ -91,10 +91,10 @@ export class AuthenticationService {
                 //await this.router.navigate(ApplicationPaths.LoginFailedPathComponents, {
                 //  queryParams: { [QueryParameterNames.Message]: result.message }
                 //});
-                debugger;
+                //debugger;
                 break;
             default:
-                debugger;
+                //debugger;
                 throw new Error(`Invalid status result ${(result as any).status}.`);
         }
     }
@@ -104,17 +104,17 @@ export class AuthenticationService {
         const result = await this.authorizeService.signOut(state);
         switch (result.status) {
             case AuthenticationResultStatus.Redirect:
-                debugger;
+                //debugger;
                 break;
             case AuthenticationResultStatus.Success:
                 //await this.navigateToReturnUrl(returnUrl);
                 break;
             case AuthenticationResultStatus.Fail:
-                debugger;
+                //debugger;
                 //this.message.next(result.message);
                 break;
             default:
-                debugger;
+                //debugger;
                 throw new Error('Invalid authentication result status.');
         }
     }

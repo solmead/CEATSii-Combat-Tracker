@@ -53,13 +53,14 @@ namespace CombatTracker.Web.Configuration
 
             services.AddCors();
 
-            services.AddControllersWithViews(c => {
-                        //c.Conventions.Add(new ApiExplorerGroupPerVersionConvention()); // decorate Controllers to distinguish SwaggerDoc (v1, v2, etc.)
-                        //c.Conventions.Add(new ApiExplorerGroupPerVersionMethodConvention()); // decorate Controllers to distinguish SwaggerDoc (v1, v2, etc.)                    })
+            services.AddControllersWithViews()
                     .AddJsonOptions(options =>
-                            options.JsonSerializerOptions.PropertyNamingPolicy = null)
-                    .AddNewtonsoftJson(options => {
-                        options.UseMemberCasing();
+                    {
+                        //options.JsonSerializerOptions.PropertyNamingPolicy = null;
+                    })
+                    .AddNewtonsoftJson(options =>
+                    {
+                        //options.UseMemberCasing();
                     });
             services.AddRazorPages();
             services.AddApiVersioning(o =>

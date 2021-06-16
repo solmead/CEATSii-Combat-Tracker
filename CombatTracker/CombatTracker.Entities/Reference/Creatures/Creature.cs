@@ -5,6 +5,7 @@ using CombatTracker.Entities.Reference.Attacks;
 using CombatTracker.Entities.Reference.Base;
 using CombatTracker.Entities.Reference.Creatures.Charts;
 using CombatTracker.Entities.Security;
+using Utilities.EnumExtensions;
 
 namespace CombatTracker.Entities.Reference.Creatures
 {
@@ -48,7 +49,7 @@ namespace CombatTracker.Entities.Reference.Creatures
         public string GameTypeString
         {
             get => GameType.ToString();
-            set => GameType = (GameType)Enum.Parse(typeof(GameType), value);
+            set => GameType = (!string.IsNullOrWhiteSpace(value) ? value.ToEnum<GameType>() : GameType.RMSS);
         }
 
         public string OwnerID { get; set; }

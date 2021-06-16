@@ -4,12 +4,12 @@ import { EncounterService } from "@/services";
 import { Character } from '@/entities';
 
 @Component({
-    selector: 'app-character',
-    templateUrl: './character.component.html',
-    styleUrls: ['./character.component.css']
+    selector: 'character-list',
+    templateUrl: './character-list.component.html',
+    styleUrls: ['./character-list.component.css']
 })
 /** character component*/
-export class CharacterComponent {
+export class CharacterListComponent {
 
     public characters: Array<Character> = new Array<Character>();
     public selectedCharacter: Character;

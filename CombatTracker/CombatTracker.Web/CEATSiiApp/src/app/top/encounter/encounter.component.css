@@ -1,0 +1,10 @@
+﻿
+.list {
+    display: table-cell;
+    width: 20%;
+}
+
+.edit {
+    display: table-cell;
+    width: 80%;
+}

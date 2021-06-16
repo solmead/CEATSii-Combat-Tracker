@@ -17,7 +17,7 @@ import { map, catchError } from "rxjs/operators";
 import { Attack } from '@/entities';
 import { Weapon } from '@/entities';
 
-var version = "1.0";
+var version = "1";
 
 @Injectable({ providedIn: 'root' })
 export class CombatRepository {

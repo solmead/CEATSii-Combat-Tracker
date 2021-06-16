@@ -166,7 +166,7 @@
             </div>
             <div class="row">
                 <div class="form-group  col-sm-12">
-                    <app-attack [attacks]="creature.attacks" [creatureId]="creature.id" (onDelete)="onAttackDeleted($event)"></app-attack>
+                    <attack-list [attacks]="creature.attacks" [creatureId]="creature.id" (onDelete)="onAttackDeleted($event)"></attack-list>
                 </div>
             </div>
             <!--

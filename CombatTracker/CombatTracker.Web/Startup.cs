@@ -53,7 +53,7 @@ namespace CombatTracker.Web
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                //app.UseMigrationsEndPoint();
+                app.UseMigrationsEndPoint();
                 //app.UseSwagger();
                 //app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "CombatTracker.Web v1"));
                 app.UseSwagger();

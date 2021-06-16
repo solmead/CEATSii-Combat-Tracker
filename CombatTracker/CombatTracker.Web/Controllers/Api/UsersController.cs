@@ -45,6 +45,7 @@ namespace CombatTracker.Web.Controllers.Api
             return Ok(us);
         }
 
+        [Authorize]
         [HttpPost("logout")]
         public async Task<ActionResult<bool>> Logout()
         {

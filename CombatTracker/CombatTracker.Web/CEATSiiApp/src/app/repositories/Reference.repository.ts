@@ -30,7 +30,7 @@ import { WeaponType } from '@/entities';
 import { Book } from '@/entities';
 import { PsychicRefractoryPeriodEntry } from '@/entities';
 
-var version = "1.0";
+var version = "1";
 
 @Injectable({ providedIn: 'root' })
 export class ReferenceRepository {

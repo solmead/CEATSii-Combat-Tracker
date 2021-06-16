@@ -15,7 +15,7 @@ import { map, catchError } from "rxjs/operators";
     import * as Enums from '@/entities/EnumDefinitions'
     
 
-var version = "1.0";
+var version = "1";
 
 @Injectable({ providedIn: 'root' })
 export class SettingsRepository {

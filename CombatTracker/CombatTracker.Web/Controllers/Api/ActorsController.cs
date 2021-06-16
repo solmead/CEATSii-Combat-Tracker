@@ -36,12 +36,14 @@ namespace CombatTracker.Web.Controllers.Api
             return _gameRepository.GetActor(id);
         }
 
+        [Authorize]
         [HttpPost("SaveActor")]
         public Actor SaveActor([FromBody] Actor actor)
         {
             return _gameRepository.SaveActor(actor);
         }
 
+        [Authorize]
         [HttpDelete("[action]/{id}")]
         public void DeleteActor(int id)
         {

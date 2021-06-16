@@ -8,6 +8,12 @@
   <li class="nav-item" *ngIf="currentUser">
     <a class="nav-link text-dark" [routerLink]="['/mycreatures']">My Creatures</a>
   </li>
+  <!--<li class="nav-item" *ngIf="currentUser">
+      <select name="gameSystem" class="form-control"
+              [(ngModel)]="systemSettings.gameSystem" (ngModelChange)="onChange($event)">
+          <option *ngFor="let gtype of gameTypes" [value]="gtype.value">{{gtype.name}}</option>
+      </select>
+  </li>-->
   <!--<li class="nav-item">
     <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
   </li>-->

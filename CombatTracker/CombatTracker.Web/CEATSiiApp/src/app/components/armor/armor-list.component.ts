@@ -2,12 +2,12 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Armor } from '@/entities';
 
 @Component({
-    selector: 'app-armor',
-    templateUrl: './armor.component.html',
-    styleUrls: ['./armor.component.css']
+    selector: 'armor-list',
+    templateUrl: './armor-list.component.html',
+    styleUrls: ['./armor-list.component.css']
 })
 /** Armor component*/
-export class ArmorComponent {
+export class ArmorListComponent {
 
     @Input() armors: Array<Armor> = new Array<Armor>();
     @Input() charId: number;

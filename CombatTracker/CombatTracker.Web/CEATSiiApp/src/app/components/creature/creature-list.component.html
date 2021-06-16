@@ -1,0 +1,69 @@
+
+<div class="wrapper">
+  <div class="area">
+    <div class="list">
+      <p *ngIf="!creatures"><em>Loading...</em></p>
+      <div class="mainList">
+        <h3 style="display:block; margin-top:0; white-space: nowrap;">
+          <div style="float:right;">
+            <button class="btn btn-primary btn-sm" (click)="newCreature()">
+              <span class="glyphicon glyphicon-plus"></span> New
+            </button>
+          </div>
+          Creatures
+        </h3>
+        <table *ngIf="creatures" class="table table-striped">
+          <tr>
+            <th style="vertical-align: middle;">
+              System
+            </th>
+            <th style="vertical-align: middle;">
+              Book
+            </th>
+            <th style="vertical-align: middle;">
+              Name
+            </th>
+            <th style="vertical-align: middle;">
+              Level
+            </th>
+            <th style="vertical-align: middle;">
+              Size
+            </th>
+            <th style="vertical-align: middle;">
+              Number
+            </th>
+            <th style="vertical-align: middle;">
+              Speed
+            </th>
+          </tr>
+          <tr *ngFor="let creature of creatures">
+            <td style="white-space: nowrap;">
+              {{creature?.gameTypeString}}
+            </td>
+            <td style="white-space: nowrap;">
+              {{creature?.book.name}}
+            </td>
+            <td style="white-space: nowrap;">
+              <a (click)="selectCreature(creature.id)">{{creature?.typeName}}</a>
+            </td>
+            <td style="white-space: nowrap;">
+              {{creature?.baseLevel}}{{creature?.levelMod.name}}
+            </td>
+            <td style="white-space: nowrap;">
+              {{creature?.size.name}}
+            </td>
+            <td style="white-space: nowrap;">
+              {{creature?.minEncountered}} - {{creature?.maxEncountered}}
+            </td>
+            <td style="white-space: nowrap;">
+              {{creature?.msRating.name}} / {{creature?.aqRating.name}}
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <!--<div class="edit">
+      <app-creature-edit [creature]="selectedCreature" (onDelete)="onCreatureDeleted($event)" (onSave)="onCreatureSave($event)"></app-creature-edit>
+    </div>-->
+  </div>
+</div>

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="RMSS" Class="RMSSDataDataContext" Serialization="Unidirectional" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=cpowell-8460p\sqlexpress;Initial Catalog=RMSS;Persist Security Info=True;User ID=rmssAdmin" SettingsObjectName="CombatTrackerData.My.MySettings" SettingsPropertyName="MainDBConnString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Server=MacBook-Pro-3.local,1433;Database=RMSSNew;User Id=sa;Password=Fair1dale!;MultipleActiveResultSets=true" SettingsObjectName="CombatTrackerData.My.MySettings" SettingsPropertyName="MainDBConnString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.ActionGroups" Member="ActionGroups">
     <Type Name="ActionGroup">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />

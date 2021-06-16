@@ -7,6 +7,7 @@ using CombatTracker.Entities.Abstract.Services;
 using CombatTracker.Entities.Current;
 using CombatTracker.Entities.Reference;
 using CombatTracker.Entities.Reference.Attacks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,6 +15,7 @@ namespace CombatTracker.Web.Controllers.Api
 {
     [ApiVersion("1.0")]
     [ApiExplorerSettings(GroupName = "v1")]
+    [Authorize]
     public class CombatController : BaseApiController
     {
 

@@ -1,0 +1,9 @@
+﻿
+<div class="list">
+    <p *ngIf="!actions"><em>Loading...</em></p>
+    <div class="mainActionList">
+        <div class="ActorActionBack" *ngFor="let action of actions" [style.margin-left]="getLeft(action)" >
+            <action-view [action]="action" [isSelectable]="isSelectable"  (onSelect)="selectAction($event)"></action-view>
+        </div>
+    </div>
+</div>
