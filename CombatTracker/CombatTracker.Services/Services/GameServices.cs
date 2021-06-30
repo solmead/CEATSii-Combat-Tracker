@@ -55,7 +55,9 @@ namespace CombatTracker.Services.Services
                 StrengthBonus = person.GetStrengthBonus(),
                 PercentRequiredAdrenalDB = person.GetPercentRequiredAdrenalDB(),
                 Movement = person.GetWalkSpeed(),
-                RolledInititive = rolledInit ?? Dice.RollAddOnes10High(2)
+                RolledInititive = rolledInit ?? Dice.RollAddOnes10High(2),
+                CriticalModified = person.GetCriticalModified(),
+                CriticalIgnores = person.GetCriticalIgnores()
             };
             actor.HitsRemaining = actor.HitsTotal;
             actor.ExhaustionRemaining = actor.ExhaustionTotal;
@@ -119,7 +121,7 @@ namespace CombatTracker.Services.Services
             CurAction = action;
             CurAction.ActionType = ActionTypeEnum.Current;
             CurAction.WhoIsActing_ID = actor.ID;
-            CurAction.WhoIsActing = actor;
+            //CurAction.WhoIsActing = actor;
             CurAction.Game_ID = CurrentGame.ID;
 
             if ((CurAction.EndTime == 0))
@@ -219,7 +221,7 @@ namespace CombatTracker.Services.Services
 
             action.ActionType = ActionTypeEnum.Proposed;
             action.WhoIsActing_ID = actor.ID;
-            action.WhoIsActing = actor;
+            //action.WhoIsActing = actor;
             action.Game_ID = CurrentGame.ID;
 
             action.ID = _gameRepository.SaveAction(action).ID;
@@ -260,7 +262,7 @@ namespace CombatTracker.Services.Services
 
             action.ActionType = ActionTypeEnum.Next;
             action.WhoIsActing_ID = actor.ID;
-            action.WhoIsActing = actor;
+            //action.WhoIsActing = actor;
             action.Game_ID = CurrentGame.ID;
             action.ID = _gameRepository.SaveAction(action).ID;
 
@@ -602,7 +604,8 @@ namespace CombatTracker.Services.Services
         {
             action.CurrentModifier = modifier;
             _gameRepository.SaveAction(action);
-            RecalculateActionsTime(action.WhoIsActing);
+            var who = _gameRepository.GetActor(action.WhoIsActing_ID);
+            RecalculateActionsTime(who);
         }
 
         public void SetAttackOnAction(BaseAction action, int attackId)
@@ -610,7 +613,8 @@ namespace CombatTracker.Services.Services
             action.CurrentAttack = _combatRepository.GetAttack(attackId);
             action.CurrentAttack_ID = attackId;
             _gameRepository.SaveAction(action);
-            RecalculateActionsTime(action.WhoIsActing);
+            var who = _gameRepository.GetActor(action.WhoIsActing_ID);
+            RecalculateActionsTime(who);
         }
 
         public MoveNextResult MoveToNextAction()
@@ -618,12 +622,13 @@ namespace CombatTracker.Services.Services
             var actions = _gameRepository.GetActionsInGame(CurrentGame);
             var next = actions.First();
             CurrentGame.CurrentTime = next.EndTime;
+            var who = _gameRepository.GetActor(next.WhoIsActing_ID);
             if (next.Type == ActorActionType.Spell)
             {
-                next.WhoIsActing.NextSpellTime = CurrentGame.CurrentTime + TimeCalc.GetActionTime(next.WhoIsActing, ActionTypeEnum.Current, CurrentGame);
+                who.NextSpellTime = CurrentGame.CurrentTime + TimeCalc.GetActionTime(who, ActionTypeEnum.Current, CurrentGame);
             }
             
-            var result = _actionServices.ProcessAction(next, next.WhoIsActing, this);
+            var result = _actionServices.ProcessAction(next, who, this);
 
             if (!next.CharacterAction && !next.Reoccuring)
             {

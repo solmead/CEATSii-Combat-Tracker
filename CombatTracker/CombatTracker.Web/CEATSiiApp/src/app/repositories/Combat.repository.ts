@@ -44,9 +44,16 @@ export class CombatRepository {
 	public deleteArmor = (id: number) : Observable<void> => {
         id = (id == null ? <number><any>"" : id);
         
-        var _Url = `api/v${version}/Combat/deleteArmor/${id}`;
+            var _Url = `api/v${version}/Combat/deleteArmor/${id}`;
+
             return this._httpClient.delete<void>(_Url)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     
@@ -70,9 +77,16 @@ export class CombatRepository {
 	public deleteAttack = (id: number) : Observable<void> => {
         id = (id == null ? <number><any>"" : id);
         
-        var _Url = `api/v${version}/Combat/deleteAttack/${id}`;
+            var _Url = `api/v${version}/Combat/deleteAttack/${id}`;
+
             return this._httpClient.delete<void>(_Url)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     
@@ -96,9 +110,16 @@ export class CombatRepository {
 	public deleteWeapon = (id: number) : Observable<void> => {
         id = (id == null ? <number><any>"" : id);
         
-        var _Url = `api/v${version}/Combat/deleteWeapon/${id}`;
+            var _Url = `api/v${version}/Combat/deleteWeapon/${id}`;
+
             return this._httpClient.delete<void>(_Url)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     
@@ -122,9 +143,16 @@ export class CombatRepository {
 	public getArmor = (id: number) : Observable<Armor> => {
         id = (id == null ? <number><any>"" : id);
         
-        var _Url = `api/v${version}/Combat/getArmor/${id}`;
+            var _Url = `api/v${version}/Combat/getArmor/${id}`;
+
             return this._httpClient.get<Armor>(_Url)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            if (data != null) data = Object.assign(new Armor(), data);
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     
@@ -147,9 +175,16 @@ export class CombatRepository {
 
 	public getArmors = () : Observable<Armor[]> => {
         
-        var _Url = `api/v${version}/Combat/getArmors`;
+            var _Url = `api/v${version}/Combat/getArmors`;
+
             return this._httpClient.get<Armor[]>(_Url)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            if (data != null) data = data.map((dt) => Object.assign(new Armor(), dt));
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     
@@ -173,9 +208,16 @@ export class CombatRepository {
 	public getArmorsOnCharacter = (characterId: number) : Observable<Armor[]> => {
         characterId = (characterId == null ? <number><any>"" : characterId);
         
-        var _Url = `api/v${version}/Combat/getArmorsOnCharacter/${characterId}`;
+            var _Url = `api/v${version}/Combat/getArmorsOnCharacter/${characterId}`;
+
             return this._httpClient.get<Armor[]>(_Url)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            if (data != null) data = data.map((dt) => Object.assign(new Armor(), dt));
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     
@@ -199,9 +241,16 @@ export class CombatRepository {
 	public getAttack = (id: number) : Observable<Attack> => {
         id = (id == null ? <number><any>"" : id);
         
-        var _Url = `api/v${version}/Combat/getAttack/${id}`;
+            var _Url = `api/v${version}/Combat/getAttack/${id}`;
+
             return this._httpClient.get<Attack>(_Url)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            if (data != null) data = Object.assign(new Attack(), data);
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     
@@ -224,9 +273,16 @@ export class CombatRepository {
 
 	public getAttacks = () : Observable<Attack[]> => {
         
-        var _Url = `api/v${version}/Combat/getAttacks`;
+            var _Url = `api/v${version}/Combat/getAttacks`;
+
             return this._httpClient.get<Attack[]>(_Url)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            if (data != null) data = data.map((dt) => Object.assign(new Attack(), dt));
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     
@@ -250,9 +306,16 @@ export class CombatRepository {
 	public getAttacksOnActor = (actorId: number) : Observable<Attack[]> => {
         actorId = (actorId == null ? <number><any>"" : actorId);
         
-        var _Url = `api/v${version}/Combat/getAttacksOnActor/${actorId}`;
+            var _Url = `api/v${version}/Combat/getAttacksOnActor/${actorId}`;
+
             return this._httpClient.get<Attack[]>(_Url)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            if (data != null) data = data.map((dt) => Object.assign(new Attack(), dt));
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     
@@ -276,9 +339,16 @@ export class CombatRepository {
 	public getAttacksOnCreature = (creatureId: number) : Observable<Attack[]> => {
         creatureId = (creatureId == null ? <number><any>"" : creatureId);
         
-        var _Url = `api/v${version}/Combat/getAttacksOnCreature/${creatureId}`;
+            var _Url = `api/v${version}/Combat/getAttacksOnCreature/${creatureId}`;
+
             return this._httpClient.get<Attack[]>(_Url)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            if (data != null) data = data.map((dt) => Object.assign(new Attack(), dt));
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     
@@ -302,9 +372,16 @@ export class CombatRepository {
 	public getWeapon = (id: number) : Observable<Weapon> => {
         id = (id == null ? <number><any>"" : id);
         
-        var _Url = `api/v${version}/Combat/getWeapon/${id}`;
+            var _Url = `api/v${version}/Combat/getWeapon/${id}`;
+
             return this._httpClient.get<Weapon>(_Url)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            if (data != null) data = Object.assign(new Weapon(), data);
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     
@@ -327,9 +404,16 @@ export class CombatRepository {
 
 	public getWeapons = () : Observable<Weapon[]> => {
         
-        var _Url = `api/v${version}/Combat/getWeapons`;
+            var _Url = `api/v${version}/Combat/getWeapons`;
+
             return this._httpClient.get<Weapon[]>(_Url)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            if (data != null) data = data.map((dt) => Object.assign(new Weapon(), dt));
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     
@@ -353,9 +437,16 @@ export class CombatRepository {
 	public getWeaponsOnCharacter = (characterId: number) : Observable<Weapon[]> => {
         characterId = (characterId == null ? <number><any>"" : characterId);
         
-        var _Url = `api/v${version}/Combat/getWeaponsOnCharacter/${characterId}`;
+            var _Url = `api/v${version}/Combat/getWeaponsOnCharacter/${characterId}`;
+
             return this._httpClient.get<Weapon[]>(_Url)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            if (data != null) data = data.map((dt) => Object.assign(new Weapon(), dt));
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     
@@ -379,9 +470,16 @@ export class CombatRepository {
 	public saveArmor = (armor: Armor) : Observable<Armor> => {
         armor = (armor == null ? <Armor><any>"" : armor);
         
-        var _Url = `api/v${version}/Combat/SaveArmor`;
+            var _Url = `api/v${version}/Combat/SaveArmor`;
+
             return this._httpClient.post<Armor>(_Url, armor)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            if (data != null) data = Object.assign(new Armor(), data);
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     
@@ -405,9 +503,16 @@ export class CombatRepository {
 	public saveAttack = (attack: Attack) : Observable<Attack> => {
         attack = (attack == null ? <Attack><any>"" : attack);
         
-        var _Url = `api/v${version}/Combat/SaveAttack`;
+            var _Url = `api/v${version}/Combat/SaveAttack`;
+
             return this._httpClient.post<Attack>(_Url, attack)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            if (data != null) data = Object.assign(new Attack(), data);
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     
@@ -432,9 +537,16 @@ export class CombatRepository {
         actorId = (actorId == null ? <number><any>"" : actorId);
         attack = (attack == null ? <Attack><any>"" : attack);
         
-        var _Url = `api/v${version}/Combat/SaveAttackOnActor/${actorId}`;
+            var _Url = `api/v${version}/Combat/SaveAttackOnActor/${actorId}`;
+
             return this._httpClient.post<Attack>(_Url, actorId)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            if (data != null) data = Object.assign(new Attack(), data);
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     
@@ -458,9 +570,16 @@ export class CombatRepository {
 	public saveWeapon = (weapon: Weapon) : Observable<Weapon> => {
         weapon = (weapon == null ? <Weapon><any>"" : weapon);
         
-        var _Url = `api/v${version}/Combat/SaveWeapon`;
+            var _Url = `api/v${version}/Combat/SaveWeapon`;
+
             return this._httpClient.post<Weapon>(_Url, weapon)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            if (data != null) data = Object.assign(new Weapon(), data);
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     

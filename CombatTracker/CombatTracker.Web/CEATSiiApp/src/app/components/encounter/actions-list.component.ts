@@ -1,5 +1,7 @@
 ﻿import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
 import { BaseAction } from '@/entities';
+import { EnumDefinitions } from '@/entities/EnumDefinitions';
+import ViewTypeEnum = EnumDefinitions.ViewTypeEnum;
 
 
 @Component({
@@ -15,10 +17,12 @@ export class ActionsListComponent implements OnInit, OnChanges {
 
     @Input() isSelectable: boolean = false;
 
+    @Input() viewType: ViewTypeEnum = ViewTypeEnum.Overview;
+
 
     @Output() onSelect = new EventEmitter<BaseAction>();
 
-    public selectedAction: BaseAction = null;
+    //public selectedAction: BaseAction = null;
     /** actions-list ctor */
     constructor() {
 
@@ -31,7 +35,6 @@ export class ActionsListComponent implements OnInit, OnChanges {
     }
 
     selectAction(action: BaseAction) {
-        this.selectedAction = action;
         if (this.isSelectable) {
             this.onSelect.next(action);
         }

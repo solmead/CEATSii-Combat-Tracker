@@ -45,9 +45,16 @@ export class EncounterRepository {
 
 	public getCurrentGame = () : Observable<Game> => {
         
-        var _Url = `api/v${version}/Encounter/getCurrentGame`;
+            var _Url = `api/v${version}/Encounter/getCurrentGame`;
+
             return this._httpClient.get<Game>(_Url)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            if (data != null) data = Object.assign(new Game(), data);
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     
@@ -71,9 +78,16 @@ export class EncounterRepository {
 	public setCurrentGame = (gameId: number) : Observable<Game> => {
         gameId = (gameId == null ? <number><any>"" : gameId);
         
-        var _Url = `api/v${version}/Encounter/SetCurrentGame/${gameId}`;
+            var _Url = `api/v${version}/Encounter/SetCurrentGame/${gameId}`;
+
             return this._httpClient.post<Game>(_Url, gameId)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            if (data != null) data = Object.assign(new Game(), data);
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     
@@ -97,9 +111,16 @@ export class EncounterRepository {
 	public createActorFromCreature = (creatureId: number) : Observable<Actor> => {
         creatureId = (creatureId == null ? <number><any>"" : creatureId);
         
-        var _Url = `api/v${version}/Encounter/CreateActorFromCreature/${creatureId}`;
+            var _Url = `api/v${version}/Encounter/CreateActorFromCreature/${creatureId}`;
+
             return this._httpClient.post<Actor>(_Url, creatureId)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            if (data != null) data = Object.assign(new Actor(), data);
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     
@@ -124,9 +145,16 @@ export class EncounterRepository {
         characterId = (characterId == null ? <number><any>"" : characterId);
         rolledInit = (rolledInit == null ? <number><any>"" : rolledInit);
         
-        var _Url = `api/v${version}/Encounter/CreateActorFromCharacter/${characterId}?rolledInit=${rolledInit}`;
+            var _Url = `api/v${version}/Encounter/CreateActorFromCharacter/${characterId}?rolledInit=${rolledInit}`;
+
             return this._httpClient.post<Actor>(_Url, characterId)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            if (data != null) data = Object.assign(new Actor(), data);
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     
@@ -150,9 +178,16 @@ export class EncounterRepository {
 	public moveToNext = (none: boolean) : Observable<MoveNextResult> => {
         none = (none == null ? <boolean><any>"" : none);
         
-        var _Url = `api/v${version}/Encounter/MoveToNext?none=${none}`;
+            var _Url = `api/v${version}/Encounter/MoveToNext?none=${none}`;
+
             return this._httpClient.post<MoveNextResult>(_Url, none)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            if (data != null) data = Object.assign(new MoveNextResult(), data);
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     
@@ -176,9 +211,16 @@ export class EncounterRepository {
 	public proposeActionUnconscious = (actorId: number) : Observable<BaseAction> => {
         actorId = (actorId == null ? <number><any>"" : actorId);
         
-        var _Url = `api/v${version}/Encounter/ProposeActionUnconscious?actorId=${actorId}`;
+            var _Url = `api/v${version}/Encounter/ProposeActionUnconscious?actorId=${actorId}`;
+
             return this._httpClient.post<BaseAction>(_Url, actorId)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            if (data != null) data = Object.assign(new BaseAction(), data);
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     
@@ -205,9 +247,16 @@ export class EncounterRepository {
         modifier = (modifier == null ? <number><any>"" : modifier);
         attackId = (attackId == null ? <number><any>"" : attackId);
         
-        var _Url = `api/v${version}/Encounter/ProposeAction?actionDefId=${actionDefId}&whomId=${whomId}&modifier=${modifier}&attackId=${attackId}`;
+            var _Url = `api/v${version}/Encounter/ProposeAction?actionDefId=${actionDefId}&whomId=${whomId}&modifier=${modifier}&attackId=${attackId}`;
+
             return this._httpClient.post<BaseAction>(_Url, actionDefId)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            if (data != null) data = Object.assign(new BaseAction(), data);
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     
@@ -232,9 +281,16 @@ export class EncounterRepository {
         previousActionId = (previousActionId == null ? <number><any>"" : previousActionId);
         whomId = (whomId == null ? <number><any>"" : whomId);
         
-        var _Url = `api/v${version}/Encounter/ProposeActionContinue?previousActionId=${previousActionId}&whomId=${whomId}`;
+            var _Url = `api/v${version}/Encounter/ProposeActionContinue?previousActionId=${previousActionId}&whomId=${whomId}`;
+
             return this._httpClient.post<BaseAction>(_Url, previousActionId)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            if (data != null) data = Object.assign(new BaseAction(), data);
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     
@@ -259,9 +315,16 @@ export class EncounterRepository {
         whomId = (whomId == null ? <number><any>"" : whomId);
         bleedRate = (bleedRate == null ? <number><any>"" : bleedRate);
         
-        var _Url = `api/v${version}/Encounter/AddBleedEffect?whomId=${whomId}&bleedRate=${bleedRate}`;
+            var _Url = `api/v${version}/Encounter/AddBleedEffect?whomId=${whomId}&bleedRate=${bleedRate}`;
+
             return this._httpClient.post<BaseAction>(_Url, whomId)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            if (data != null) data = Object.assign(new BaseAction(), data);
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     
@@ -287,9 +350,16 @@ export class EncounterRepository {
         crit = (crit == null ? <CriticalEffect><any>"" : crit);
         rounds = (rounds == null ? <number><any>"" : rounds);
         
-        var _Url = `api/v${version}/Encounter/AddCriticalEffect?whomId=${whomId}&rounds=${rounds}`;
+            var _Url = `api/v${version}/Encounter/AddCriticalEffect?whomId=${whomId}&rounds=${rounds}`;
+
             return this._httpClient.post<BaseAction>(_Url, whomId)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            if (data != null) data = Object.assign(new BaseAction(), data);
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     
@@ -314,9 +384,16 @@ export class EncounterRepository {
         whomId = (whomId == null ? <number><any>"" : whomId);
         psychicLevel = (psychicLevel == null ? <number><any>"" : psychicLevel);
         
-        var _Url = `api/v${version}/Encounter/AddPsychicEffect?whomId=${whomId}&psychicLevel=${psychicLevel}`;
+            var _Url = `api/v${version}/Encounter/AddPsychicEffect?whomId=${whomId}&psychicLevel=${psychicLevel}`;
+
             return this._httpClient.post<BaseAction>(_Url, whomId)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            if (data != null) data = Object.assign(new BaseAction(), data);
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     
@@ -344,9 +421,16 @@ export class EncounterRepository {
         rounds = (rounds == null ? <number><any>"" : rounds);
         hastePercent = (hastePercent == null ? <number><any>"" : hastePercent);
         
-        var _Url = `api/v${version}/Encounter/AddSpellEffect?effectedActorId=${effectedActorId}&casterId=${casterId}&spellName=${encodeURIComponent(spellName)}&rounds=${rounds}&hastePercent=${hastePercent}`;
+            var _Url = `api/v${version}/Encounter/AddSpellEffect?effectedActorId=${effectedActorId}&casterId=${casterId}&spellName=${encodeURIComponent(spellName)}&rounds=${rounds}&hastePercent=${hastePercent}`;
+
             return this._httpClient.post<BaseAction>(_Url, effectedActorId)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            if (data != null) data = Object.assign(new BaseAction(), data);
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     
@@ -370,9 +454,16 @@ export class EncounterRepository {
 	public removeEffect = (actionId: number) : Observable<void> => {
         actionId = (actionId == null ? <number><any>"" : actionId);
         
-        var _Url = `api/v${version}/Encounter/RemoveEffect/${actionId}`;
+            var _Url = `api/v${version}/Encounter/RemoveEffect/${actionId}`;
+
             return this._httpClient.post<void>(_Url, actionId)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     
@@ -397,9 +488,16 @@ export class EncounterRepository {
         whomId = (whomId == null ? <number><any>"" : whomId);
         count = (count == null ? <number><any>"" : count);
         
-        var _Url = `api/v${version}/Encounter/RemoveCriticalsFromActor/${whomId}?count=${count}`;
+            var _Url = `api/v${version}/Encounter/RemoveCriticalsFromActor/${whomId}?count=${count}`;
+
             return this._httpClient.post<void>(_Url, whomId)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     
@@ -423,9 +521,16 @@ export class EncounterRepository {
 	public doProposedAction = (whomId: number) : Observable<void> => {
         whomId = (whomId == null ? <number><any>"" : whomId);
         
-        var _Url = `api/v${version}/Encounter/DoProposedAction/${whomId}`;
+            var _Url = `api/v${version}/Encounter/DoProposedAction/${whomId}`;
+
             return this._httpClient.post<void>(_Url, whomId)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     
@@ -450,9 +555,16 @@ export class EncounterRepository {
         actionId = (actionId == null ? <number><any>"" : actionId);
         modifier = (modifier == null ? <number><any>"" : modifier);
         
-        var _Url = `api/v${version}/Encounter/SetModifierOnAction?actionId=${actionId}&modifier=${modifier}`;
+            var _Url = `api/v${version}/Encounter/SetModifierOnAction?actionId=${actionId}&modifier=${modifier}`;
+
             return this._httpClient.post<void>(_Url, actionId)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     
@@ -477,9 +589,16 @@ export class EncounterRepository {
         actionId = (actionId == null ? <number><any>"" : actionId);
         attackId = (attackId == null ? <number><any>"" : attackId);
         
-        var _Url = `api/v${version}/Encounter/SetAttackOnAction?actionId=${actionId}&attackId=${attackId}`;
+            var _Url = `api/v${version}/Encounter/SetAttackOnAction?actionId=${actionId}&attackId=${attackId}`;
+
             return this._httpClient.post<void>(_Url, actionId)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     

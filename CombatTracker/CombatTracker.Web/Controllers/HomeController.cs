@@ -11,7 +11,10 @@ using System.Threading.Tasks;
 
 namespace CombatTracker.Web.Controllers
 {
-    public class HomeController : BaseController
+
+    //[RoutePrefix("Home")]
+    //[Route("{action = index}")]
+public class HomeController : BaseController
     {
         public HomeController(ISessionContext sessionContext) : base(sessionContext)
         {
@@ -20,7 +23,10 @@ namespace CombatTracker.Web.Controllers
         [AllowAnonymous]
         public IActionResult Index()
         {
-            return View();
+            return RedirectToAction("App", "Dashboard");
+            //return View();
+            //
+            //return Redirect("/dist/CEATSiiApp");
         }
         public IActionResult Privacy()
         {

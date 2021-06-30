@@ -41,9 +41,16 @@ export class CreaturesRepository {
 
 	public getCreatures = () : Observable<Creature[]> => {
         
-        var _Url = `api/v${version}/Creatures/getCreatures`;
+            var _Url = `api/v${version}/Creatures/getCreatures`;
+
             return this._httpClient.get<Creature[]>(_Url)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            if (data != null) data = data.map((dt) => Object.assign(new Creature(), dt));
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     
@@ -67,9 +74,16 @@ export class CreaturesRepository {
 	public getCreature = (id: number) : Observable<Creature> => {
         id = (id == null ? <number><any>"" : id);
         
-        var _Url = `api/v${version}/Creatures/getCreature/${id}`;
+            var _Url = `api/v${version}/Creatures/getCreature/${id}`;
+
             return this._httpClient.get<Creature>(_Url)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            if (data != null) data = Object.assign(new Creature(), data);
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     
@@ -93,9 +107,16 @@ export class CreaturesRepository {
 	public saveCreature = (creature: Creature) : Observable<Creature> => {
         creature = (creature == null ? <Creature><any>"" : creature);
         
-        var _Url = `api/v${version}/Creatures/SaveCreature`;
+            var _Url = `api/v${version}/Creatures/SaveCreature`;
+
             return this._httpClient.post<Creature>(_Url, creature)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            if (data != null) data = Object.assign(new Creature(), data);
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     
@@ -119,9 +140,16 @@ export class CreaturesRepository {
 	public deleteCreature = (id: number) : Observable<void> => {
         id = (id == null ? <number><any>"" : id);
         
-        var _Url = `api/v${version}/Creatures/deleteCreature/${id}`;
+            var _Url = `api/v${version}/Creatures/deleteCreature/${id}`;
+
             return this._httpClient.delete<void>(_Url)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     

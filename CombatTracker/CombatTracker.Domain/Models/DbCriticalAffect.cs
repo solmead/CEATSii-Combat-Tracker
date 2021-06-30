@@ -14,6 +14,8 @@ namespace CombatTracker.Domain.Models
 
         public int ID { get; set; }
 
+        public int SortOrder { get; set; }
+
         public bool IsStunned { get; set; }
 
         [Required]

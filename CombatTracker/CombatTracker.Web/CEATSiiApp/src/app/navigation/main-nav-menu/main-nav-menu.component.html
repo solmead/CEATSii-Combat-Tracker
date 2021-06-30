@@ -1,20 +1,32 @@
 <ul class="navbar-nav flex-grow-1">
-  <li class="nav-item">
-    <a class="nav-link text-dark" [routerLink]="['/home']">Home</a>
-  </li>
-  <li class="nav-item" *ngIf="currentUser">
-    <a class="nav-link text-dark" [routerLink]="['/creatures']">Creature Compendium</a>
-  </li>
-  <li class="nav-item" *ngIf="currentUser">
-    <a class="nav-link text-dark" [routerLink]="['/mycreatures']">My Creatures</a>
-  </li>
-  <!--<li class="nav-item" *ngIf="currentUser">
-      <select name="gameSystem" class="form-control"
-              [(ngModel)]="systemSettings.gameSystem" (ngModelChange)="onChange($event)">
-          <option *ngFor="let gtype of gameTypes" [value]="gtype.value">{{gtype.name}}</option>
-      </select>
-  </li>-->
-  <!--<li class="nav-item">
-    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-  </li>-->
+    <li class="nav-item">
+        <a class="nav-link text-dark" [routerLink]="['/home']">Home</a>
+    </li>
+    <li class="nav-item" *ngIf="currentUser">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">
+            Encounters</a>
+        <ul class="dropdown-menu">
+            <li class="dropdown-item" >
+                <a class="nav-link text-dark" [routerLink]="['/creatures']">Create New Encounter</a>
+            </li>
+            <li class="dropdown-item" *ngFor="let game of games">
+                <a class="nav-link text-dark" [routerLink]="['/encountor', game.id]">{{game.name}} - {{game.gameTypeString}}</a>
+            </li>
+        </ul>
+    </li>
+    <li class="nav-item" *ngIf="currentUser">
+        <a class="nav-link text-dark" [routerLink]="['/creatures']">Creature Compendium</a>
+    </li>
+    <li class="nav-item" *ngIf="currentUser">
+        <a class="nav-link text-dark" [routerLink]="['/mycreatures']">My Creatures</a>
+    </li>
+    <!--<li class="nav-item" *ngIf="currentUser">
+        <select name="gameSystem" class="form-control"
+                [(ngModel)]="systemSettings.gameSystem" (ngModelChange)="onChange($event)">
+            <option *ngFor="let gtype of gameTypes" [value]="gtype.value">{{gtype.name}}</option>
+        </select>
+    </li>-->
+    <!--<li class="nav-item">
+      <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    </li>-->
 </ul>

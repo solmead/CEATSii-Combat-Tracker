@@ -52,6 +52,66 @@ ${
 
 
     }
+
+        string ProcessReturnedArray(Method objMethod) {
+                var a = 1;
+                try {
+                Typewriter.CodeModel.Type t = objMethod.Type;
+                a = 2;
+                
+                if(objMethod.Type.Name == "IActionResult")
+                {
+                        a = 3;
+                        if((objMethod.Parameters.Where(x => !x.Type.IsPrimitive).FirstOrDefault() != null))
+                        {
+                                a = 4;
+                                t= objMethod.Parameters.Where(x => !x.Type.IsPrimitive).FirstOrDefault().Type;
+                        }
+                        else
+                        {
+                                a = 5;
+                                t = null;
+                        }
+                }
+                else if(objMethod.Type.Name.Contains("ActionResult"))
+                {
+                        a = 6;
+                        t = objMethod.Type.Unwrap();
+                        var tn = t.Name;
+                        if (tn=="ActionResult") {
+                                t = null;
+                        }
+                }
+                a = 7;
+                if (t!=null) {
+                        var nm = t.Name;
+
+                        if (nm=="void") {
+                                t = null;
+                        }
+                }
+        
+                a = 8;
+              var s = "";
+                if (t!=null) {
+                        if (t.IsEnumerable) {
+                                s = "if (data != null) data = data.map((dt) => Object.assign(new " + t.Unwrap().Name + "(), dt));";
+                        } else if (!t.IsPrimitive) {
+                                s = "if (data != null) data = Object.assign(new " + t.Name + "(), data);";
+                        }
+                }
+                return s;
+                }
+                catch(Exception ex) {
+                        return "/*a=" + a + "   " + ex.ToString() + "*/";
+                }
+
+        }
+
+    string ReturnTypeGeneric(Method objMethod)
+    {
+        return objMethod.Type.Unwrap().Name;
+    }
     // Format the method based on the return type
     string MethodFormat(Method objMethod)
     {
@@ -302,9 +362,16 @@ export class $ServiceName {
 	public $name = ($Parameters[$name: $Type][, ]) : Observable<$ReturnType> => {
         $Parameters[$name = ($name == null ? <$Type><any>"" : $name);
         ]
-        var _Url = `$Url`;
+            var _Url = `$Url`;
+
             return this._httpClient.$HttpMethod$MethodFormat
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            $ProcessReturnedArray
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     ]

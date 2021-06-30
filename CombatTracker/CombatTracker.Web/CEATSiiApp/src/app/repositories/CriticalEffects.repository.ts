@@ -42,9 +42,16 @@ export class CriticalEffectsRepository {
 	public getCriticalEffects = (actorId: number) : Observable<CriticalEffect[]> => {
         actorId = (actorId == null ? <number><any>"" : actorId);
         
-        var _Url = `api/v${version}/CriticalEffects/getCriticalEffects/${actorId}`;
+            var _Url = `api/v${version}/CriticalEffects/getCriticalEffects/${actorId}`;
+
             return this._httpClient.get<CriticalEffect[]>(_Url)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            if (data != null) data = data.map((dt) => Object.assign(new CriticalEffect(), dt));
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     
@@ -68,9 +75,16 @@ export class CriticalEffectsRepository {
 	public getCriticalEffect = (id: number) : Observable<CriticalEffect> => {
         id = (id == null ? <number><any>"" : id);
         
-        var _Url = `api/v${version}/CriticalEffects/getCriticalEffect/${id}`;
+            var _Url = `api/v${version}/CriticalEffects/getCriticalEffect/${id}`;
+
             return this._httpClient.get<CriticalEffect>(_Url)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            if (data != null) data = Object.assign(new CriticalEffect(), data);
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     
@@ -94,9 +108,16 @@ export class CriticalEffectsRepository {
 	public saveCriticalEffect = (criticalEffect: CriticalEffect) : Observable<CriticalEffect> => {
         criticalEffect = (criticalEffect == null ? <CriticalEffect><any>"" : criticalEffect);
         
-        var _Url = `api/v${version}/CriticalEffects/SaveCriticalEffect`;
+            var _Url = `api/v${version}/CriticalEffects/SaveCriticalEffect`;
+
             return this._httpClient.post<CriticalEffect>(_Url, criticalEffect)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            if (data != null) data = Object.assign(new CriticalEffect(), data);
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     
@@ -120,9 +141,16 @@ export class CriticalEffectsRepository {
 	public deleteCriticalEffect = (id: number) : Observable<void> => {
         id = (id == null ? <number><any>"" : id);
         
-        var _Url = `api/v${version}/CriticalEffects/deleteCriticalEffect/${id}`;
+            var _Url = `api/v${version}/CriticalEffects/deleteCriticalEffect/${id}`;
+
             return this._httpClient.delete<void>(_Url)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     

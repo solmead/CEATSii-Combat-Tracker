@@ -9,6 +9,7 @@ namespace CombatTracker.Entities.Current
     {
 
         public int ID { get; set; }
+        public int SortOrder { get; set; }
         public bool IsStunned { get; set; }
         public ParryType Parry { get; set; }
         public string ParryString

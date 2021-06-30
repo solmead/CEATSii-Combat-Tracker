@@ -56,9 +56,16 @@ export class ReferenceRepository {
 
 	public getActionGroups = () : Observable<ActionGroup[]> => {
         
-        var _Url = `api/v${version}/Reference/getActionGroups`;
+            var _Url = `api/v${version}/Reference/getActionGroups`;
+
             return this._httpClient.get<ActionGroup[]>(_Url)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            if (data != null) data = data.map((dt) => Object.assign(new ActionGroup(), dt));
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     
@@ -82,9 +89,16 @@ export class ReferenceRepository {
 	public getActions = (groupId: number) : Observable<ActionDefinition[]> => {
         groupId = (groupId == null ? <number><any>"" : groupId);
         
-        var _Url = `api/v${version}/Reference/getActions?groupId=${groupId}`;
+            var _Url = `api/v${version}/Reference/getActions?groupId=${groupId}`;
+
             return this._httpClient.get<ActionDefinition[]>(_Url)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            if (data != null) data = data.map((dt) => Object.assign(new ActionDefinition(), dt));
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     
@@ -107,9 +121,16 @@ export class ReferenceRepository {
 
 	public getConstitutionBonusCharts = () : Observable<ConstitutionBonusChart[]> => {
         
-        var _Url = `api/v${version}/Reference/getConstitutionBonusCharts`;
+            var _Url = `api/v${version}/Reference/getConstitutionBonusCharts`;
+
             return this._httpClient.get<ConstitutionBonusChart[]>(_Url)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            if (data != null) data = data.map((dt) => Object.assign(new ConstitutionBonusChart(), dt));
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     
@@ -132,9 +153,16 @@ export class ReferenceRepository {
 
 	public getCriticalCodes = () : Observable<CriticalCode[]> => {
         
-        var _Url = `api/v${version}/Reference/getCriticalCodes`;
+            var _Url = `api/v${version}/Reference/getCriticalCodes`;
+
             return this._httpClient.get<CriticalCode[]>(_Url)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            if (data != null) data = data.map((dt) => Object.assign(new CriticalCode(), dt));
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     
@@ -157,9 +185,16 @@ export class ReferenceRepository {
 
 	public getCriticalIgnores = () : Observable<CriticalIgnore[]> => {
         
-        var _Url = `api/v${version}/Reference/getCriticalIgnores`;
+            var _Url = `api/v${version}/Reference/getCriticalIgnores`;
+
             return this._httpClient.get<CriticalIgnore[]>(_Url)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            if (data != null) data = data.map((dt) => Object.assign(new CriticalIgnore(), dt));
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     
@@ -182,9 +217,16 @@ export class ReferenceRepository {
 
 	public getIQs = () : Observable<IQ[]> => {
         
-        var _Url = `api/v${version}/Reference/getIQs`;
+            var _Url = `api/v${version}/Reference/getIQs`;
+
             return this._httpClient.get<IQ[]>(_Url)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            if (data != null) data = data.map((dt) => Object.assign(new IQ(), dt));
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     
@@ -207,9 +249,16 @@ export class ReferenceRepository {
 
 	public getLevelCharts = () : Observable<LevelChart[]> => {
         
-        var _Url = `api/v${version}/Reference/getLevelCharts`;
+            var _Url = `api/v${version}/Reference/getLevelCharts`;
+
             return this._httpClient.get<LevelChart[]>(_Url)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            if (data != null) data = data.map((dt) => Object.assign(new LevelChart(), dt));
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     
@@ -232,9 +281,16 @@ export class ReferenceRepository {
 
 	public getOutlooks = () : Observable<Outlook[]> => {
         
-        var _Url = `api/v${version}/Reference/getOutlooks`;
+            var _Url = `api/v${version}/Reference/getOutlooks`;
+
             return this._httpClient.get<Outlook[]>(_Url)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            if (data != null) data = data.map((dt) => Object.assign(new Outlook(), dt));
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     
@@ -257,9 +313,16 @@ export class ReferenceRepository {
 
 	public getPaces = () : Observable<Pace[]> => {
         
-        var _Url = `api/v${version}/Reference/getPaces`;
+            var _Url = `api/v${version}/Reference/getPaces`;
+
             return this._httpClient.get<Pace[]>(_Url)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            if (data != null) data = data.map((dt) => Object.assign(new Pace(), dt));
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     
@@ -282,9 +345,16 @@ export class ReferenceRepository {
 
 	public getSizeRatings = () : Observable<SizeRating[]> => {
         
-        var _Url = `api/v${version}/Reference/getSizeRatings`;
+            var _Url = `api/v${version}/Reference/getSizeRatings`;
+
             return this._httpClient.get<SizeRating[]>(_Url)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            if (data != null) data = data.map((dt) => Object.assign(new SizeRating(), dt));
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     
@@ -307,9 +377,16 @@ export class ReferenceRepository {
 
 	public getSpeedCharts = () : Observable<SpeedChart[]> => {
         
-        var _Url = `api/v${version}/Reference/getSpeedCharts`;
+            var _Url = `api/v${version}/Reference/getSpeedCharts`;
+
             return this._httpClient.get<SpeedChart[]>(_Url)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            if (data != null) data = data.map((dt) => Object.assign(new SpeedChart(), dt));
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     
@@ -332,9 +409,16 @@ export class ReferenceRepository {
 
 	public getAttackTypes = () : Observable<AttackType[]> => {
         
-        var _Url = `api/v${version}/Reference/getAttackTypes`;
+            var _Url = `api/v${version}/Reference/getAttackTypes`;
+
             return this._httpClient.get<AttackType[]>(_Url)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            if (data != null) data = data.map((dt) => Object.assign(new AttackType(), dt));
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     
@@ -357,9 +441,16 @@ export class ReferenceRepository {
 
 	public getCriticalTypes = () : Observable<CriticalType[]> => {
         
-        var _Url = `api/v${version}/Reference/getCriticalTypes`;
+            var _Url = `api/v${version}/Reference/getCriticalTypes`;
+
             return this._httpClient.get<CriticalType[]>(_Url)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            if (data != null) data = data.map((dt) => Object.assign(new CriticalType(), dt));
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     
@@ -382,9 +473,16 @@ export class ReferenceRepository {
 
 	public getWeaponTypes = () : Observable<WeaponType[]> => {
         
-        var _Url = `api/v${version}/Reference/getWeaponTypes`;
+            var _Url = `api/v${version}/Reference/getWeaponTypes`;
+
             return this._httpClient.get<WeaponType[]>(_Url)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            if (data != null) data = data.map((dt) => Object.assign(new WeaponType(), dt));
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     
@@ -407,9 +505,16 @@ export class ReferenceRepository {
 
 	public getBooks = () : Observable<Book[]> => {
         
-        var _Url = `api/v${version}/Reference/getBooks`;
+            var _Url = `api/v${version}/Reference/getBooks`;
+
             return this._httpClient.get<Book[]>(_Url)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            if (data != null) data = data.map((dt) => Object.assign(new Book(), dt));
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     
@@ -432,9 +537,16 @@ export class ReferenceRepository {
 
 	public getPsychicRefractoryPeriodEntries = () : Observable<PsychicRefractoryPeriodEntry[]> => {
         
-        var _Url = `api/v${version}/Reference/getPsychicRefractoryPeriodEntries`;
+            var _Url = `api/v${version}/Reference/getPsychicRefractoryPeriodEntries`;
+
             return this._httpClient.get<PsychicRefractoryPeriodEntry[]>(_Url)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            if (data != null) data = data.map((dt) => Object.assign(new PsychicRefractoryPeriodEntry(), dt));
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     

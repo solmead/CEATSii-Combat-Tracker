@@ -42,9 +42,16 @@ export class ActionsRepository {
 	public getActionsOnActor = (actorId: number) : Observable<BaseAction[]> => {
         actorId = (actorId == null ? <number><any>"" : actorId);
         
-        var _Url = `api/v${version}/Actions/getActionsOnActor/${actorId}`;
+            var _Url = `api/v${version}/Actions/getActionsOnActor/${actorId}`;
+
             return this._httpClient.get<BaseAction[]>(_Url)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            if (data != null) data = data.map((dt) => Object.assign(new BaseAction(), dt));
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     
@@ -68,9 +75,16 @@ export class ActionsRepository {
 	public getActionsInGame = (gameId: number) : Observable<BaseAction[]> => {
         gameId = (gameId == null ? <number><any>"" : gameId);
         
-        var _Url = `api/v${version}/Actions/getActionsInGame/${gameId}`;
+            var _Url = `api/v${version}/Actions/getActionsInGame/${gameId}`;
+
             return this._httpClient.get<BaseAction[]>(_Url)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            if (data != null) data = data.map((dt) => Object.assign(new BaseAction(), dt));
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     
@@ -94,9 +108,16 @@ export class ActionsRepository {
 	public getAction = (id: number) : Observable<BaseAction> => {
         id = (id == null ? <number><any>"" : id);
         
-        var _Url = `api/v${version}/Actions/getAction/${id}`;
+            var _Url = `api/v${version}/Actions/getAction/${id}`;
+
             return this._httpClient.get<BaseAction>(_Url)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            if (data != null) data = Object.assign(new BaseAction(), data);
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     
@@ -120,9 +141,16 @@ export class ActionsRepository {
 	public saveAction = (action: BaseAction) : Observable<BaseAction> => {
         action = (action == null ? <BaseAction><any>"" : action);
         
-        var _Url = `api/v${version}/Actions/SaveAction`;
+            var _Url = `api/v${version}/Actions/SaveAction`;
+
             return this._httpClient.post<BaseAction>(_Url, action)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            if (data != null) data = Object.assign(new BaseAction(), data);
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     
@@ -146,9 +174,16 @@ export class ActionsRepository {
 	public deleteAction = (id: number) : Observable<void> => {
         id = (id == null ? <number><any>"" : id);
         
-        var _Url = `api/v${version}/Actions/deleteAction/${id}`;
+            var _Url = `api/v${version}/Actions/deleteAction/${id}`;
+
             return this._httpClient.delete<void>(_Url)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     

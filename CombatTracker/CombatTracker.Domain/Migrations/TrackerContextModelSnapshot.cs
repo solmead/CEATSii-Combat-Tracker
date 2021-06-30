@@ -587,6 +587,9 @@ namespace CombatTracker.Domain.Migrations
                     b.Property<int>("ParryNegative")
                         .HasColumnType("int");
 
+                    b.Property<int>("SortOrder")
+                        .HasColumnType("int");
+
                     b.Property<double>("TimeEnd")
                         .HasColumnType("float");
 

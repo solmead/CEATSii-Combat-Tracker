@@ -42,9 +42,16 @@ export class ActorsRepository {
 	public getActorsInGame = (gameId: number) : Observable<Actor[]> => {
         gameId = (gameId == null ? <number><any>"" : gameId);
         
-        var _Url = `api/v${version}/Actors/getActorsInGame/${gameId}`;
+            var _Url = `api/v${version}/Actors/getActorsInGame/${gameId}`;
+
             return this._httpClient.get<Actor[]>(_Url)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            if (data != null) data = data.map((dt) => Object.assign(new Actor(), dt));
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     
@@ -68,9 +75,16 @@ export class ActorsRepository {
 	public getActor = (id: number) : Observable<Actor> => {
         id = (id == null ? <number><any>"" : id);
         
-        var _Url = `api/v${version}/Actors/getActor/${id}`;
+            var _Url = `api/v${version}/Actors/getActor/${id}`;
+
             return this._httpClient.get<Actor>(_Url)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            if (data != null) data = Object.assign(new Actor(), data);
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     
@@ -94,9 +108,16 @@ export class ActorsRepository {
 	public saveActor = (actor: Actor) : Observable<Actor> => {
         actor = (actor == null ? <Actor><any>"" : actor);
         
-        var _Url = `api/v${version}/Actors/SaveActor`;
+            var _Url = `api/v${version}/Actors/SaveActor`;
+
             return this._httpClient.post<Actor>(_Url, actor)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            if (data != null) data = Object.assign(new Actor(), data);
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     
@@ -120,9 +141,16 @@ export class ActorsRepository {
 	public deleteActor = (id: number) : Observable<void> => {
         id = (id == null ? <number><any>"" : id);
         
-        var _Url = `api/v${version}/Actors/deleteActor/${id}`;
+            var _Url = `api/v${version}/Actors/deleteActor/${id}`;
+
             return this._httpClient.delete<void>(_Url)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     

@@ -1,12 +1,12 @@
 ﻿
 
 
-
     import * as Enums from './EnumDefinitions'
     import { Armor } from './Armor';
 import { Attack } from './Attack';
 import { CriticalEffect } from './CriticalEffect';
 import CharacterType = Enums.EnumDefinitions.CharacterType;
+import DamageLevel = Enums.EnumDefinitions.DamageLevel;
     export class Actor {
         id: number;
         name: string;
@@ -15,6 +15,8 @@ import CharacterType = Enums.EnumDefinitions.CharacterType;
         level: number;
         hitsTotal: number;
         hitsRemaining: number;
+        damage: DamageLevel;
+        damageString: string;
         baseInititive: number;
         rolledInititive: number;
         exhaustionTotal: number;
@@ -37,6 +39,8 @@ import CharacterType = Enums.EnumDefinitions.CharacterType;
         baseCreature_ID?: number;
         baseCharacter_ID?: number;
         currentArmor_ID?: number;
+        criticalIgnores: string;
+        criticalModified: string;
         currentArmor: Armor;
         attacks: Attack[];
         criticalEffects: CriticalEffect[];
@@ -45,7 +49,10 @@ import CharacterType = Enums.EnumDefinitions.CharacterType;
         parryRounds: number;
         negativeRounds: number;
         currentCrits: CriticalEffect;
+        hitNegatives: number;
+        exhNegatives: number;
         negatives: number;
+        spellNegatives: number;
 
 
         constructor() {

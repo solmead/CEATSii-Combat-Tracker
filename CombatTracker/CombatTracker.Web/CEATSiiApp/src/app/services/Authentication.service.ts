@@ -24,6 +24,7 @@ export class AuthenticationService {
     private currentUserSubject: BehaviorSubject<ApplicationUser>;
     public currentUser: Observable<ApplicationUser>;
 
+
     constructor(private http: HttpClient,
         private userRepository: UsersRepository,
         private authorizeService: AuthorizeService) {
@@ -34,6 +35,15 @@ export class AuthenticationService {
         this.refreshUserAsync();
     }
 
+
+    public async currentUserAsync():Promise<ApplicationUser> {
+        var p = new Promise<ApplicationUser>((resolve, reject) => {
+            this.currentUser.subscribe((user) => {
+                resolve(user);
+            });
+        });
+        return p;
+    }
 
     public async refreshUserAsync(): Promise<void> {
         await delay(10);

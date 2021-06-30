@@ -2,7 +2,6 @@
 
 
 
-
     import * as Enums from './EnumDefinitions'
     import { ActionDefinition } from './ActionDefinition';
     export class ActionGroup {

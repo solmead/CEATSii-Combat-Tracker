@@ -1,0 +1,502 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+@font-face {
+    font-family: 'Roboto';
+    font-style: italic;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/roboto/v20/KFOkCnqEu92Fr1Mu51xIIzc.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto';
+    font-style: italic;
+    font-weight: 700;
+    src: url(https://fonts.gstatic.com/s/roboto/v20/KFOjCnqEu92Fr1Mu51TzBic6CsE.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu4mxP.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    src: url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmWUlfBBc9.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Spectral SC';
+    font-style: italic;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/spectralsc/v5/KtkrALCRZonmalTgyPmRfsWg02P3Fw.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Spectral SC';
+    font-style: italic;
+    font-weight: 700;
+    src: url(https://fonts.gstatic.com/s/spectralsc/v5/Ktk2ALCRZonmalTgyPmRfsWg29jSB4S9XQ.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Spectral SC';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/spectralsc/v5/KtkpALCRZonmalTgyPmRfsWl42Q.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Spectral SC';
+    font-style: normal;
+    font-weight: 700;
+    src: url(https://fonts.gstatic.com/s/spectralsc/v5/Ktk0ALCRZonmalTgyPmRfs0exnTQN4M.ttf) format('truetype');
+}
+* {
+    border-color: #999;
+    box-shadow: #999;
+    font-family: "Roboto", sans-serif;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    flex-shrink: 0;
+    touch-action: manipulation;
+}
+
+body {
+    background: #f4efe7 url('/images/paper-bg.jpeg') no-repeat top / cover;
+    font-size: 14px !important;
+    font-weight: normal !important;
+    line-height: normal !important;
+}
+
+
+
+a.navbar-brand {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+    color: #0366d6;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.border-top {
+    border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+
+button.accept-policy {
+    font-size: 1rem;
+    line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+.mainbody {
+    height: 80% !important;
+    overflow: hidden;
+    background: rgba(0,0,0,0.05);
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px; /* Vertically center the text there */
+    background: white;
+    background-color: rgba(255, 255, 255, 0.45) !important;
+}
+
+
+
+.body-content {
+    /*border: 1px solid #aaa;
+   border-radius: 5px;*/
+    background: transparent;
+    display: inline-block;
+    vertical-align: top;
+    /*margin: 5px 5px 5px 5px;
+    padding: 10px;*/
+    position: absolute;
+    /*top: 0;
+    left: 20%;
+    bottom: 0;
+    width: 79.5%;*/
+    overflow: hidden;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.menu-column {
+    padding: 0;
+    display: inline-block;
+    vertical-align: top;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 20%;
+}
+
+.apparea {
+    /*background: #222 !important;*/
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+nav.navbar {
+    background-color: rgba(255, 255, 255, 0.45) !important;
+}
+
+
+@media (max-width: 767px) {
+    /* On small screens, the nav menu spans the full width of the screen. Leave a space for it. */
+    .body-content {
+        padding-top: 50px;
+        border: 1px solid #aaa;
+        border-radius: 5px;
+    }
+
+    .menu-column {
+        padding: 0;
+    }
+}
+
+h1, h2, h3, h4 {
+    font-family: "Spectral SC", serif;
+    color: #822000;
+}
+
+h1 *,
+h2 *,
+h3 *,
+h4 * {
+    font-family: "Spectral SC", serif;
+}
+
+h1 {
+    font-family: "Spectral SC", serif;
+    font-size: 2.75rem;
+}
+
+h2 {
+    margin: 0.125rem 0 0.5rem;
+    font-size: 1.25rem;
+    font-weight: normal;
+    color: #0a0908;
+}
+
+h3 {
+    margin: 0.5rem 0 0.125rem;
+    font-size: 1.75rem;
+    line-height: 1;
+}
+
+h4 {
+    margin: 0.125rem 0.125rem 0.5rem;
+    font-size: 1.15rem;
+}
+
+
+
+
+
+a {
+    color: #0366d6;
+}
+
+code {
+    color: #e01a76;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+
+
+
+.encounter-box {
+    position: relative;
+    color: #0a0908;
+    border-color: #999;
+    margin: 2rem;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 0;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 25%), 0 7px 14px rgba(0, 0, 0, 25%);
+    margin: 1rem;
+    padding: 1rem;
+    height: 95%;
+
+    &:before,
+    &:after {
+        content: "";
+        display: block;
+        background: #822000 center;
+        background-size: 100% 100%;
+        height: 6px;
+        position: absolute;
+    }
+
+    &:before {
+        top: 0px;
+        left: -3px;
+        right: -3px;
+    }
+
+    &:after {
+        bottom: -6px;
+        left: -3px;
+        right: -3px;
+    }
+}
+
+
+.initiative-list {
+    flex-shrink: 1;
+    overflow: hidden auto;
+    min-height: 6rem;
+    margin: 5px 0 5px 5px;
+}
+/*combatants, .combatants * {
+    position: static;
+}*/
+
+.combatants {
+    border: 1px solid #d3c1a7;
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+    position: static;
+
+    * {
+        position: static;
+    }
+
+    th, td {
+        vertical-align: middle;
+        text-align: center;
+    }
+
+    th {
+        padding: 8px 5px;
+        font-weight: normal;
+    }
+}
+
+.combatants--header {
+    color: white;
+    background-color: #212121;
+    border-color: #212121;
+    padding: 0.5rem;
+}
+
+.combatant {
+    padding: 0.5rem;
+    height: 2.2rem;
+    color: #0a0908;
+    background-color: white;
+    border-color: transparent;
+
+    &:nth-child(2n-1) {
+        background-color: #f5f1eb;
+    }
+
+    &.selected {
+        box-shadow: inset 0 0 0 3px #00643c;
+    }
+
+    &.active {
+        td:first-child {
+            //color: #822000;
+            //border-color: #822000;
+            border-left: 6px solid #822000;
+        }
+
+        .nameColumn {
+            font-weight: bold;
+        }
+    }
+}
+
+.iconArea,
+.iconAreaText {
+    background: white;
+    border-radius: 3px;
+    display: inline-block;
+    border: 1px solid white;
+    border: 1px solid black;
+    box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 35%);
+
+    .material-icons {
+        font-size: 16px;
+        vertical-align: middle;
+    }
+
+    .textMod {
+        display: inline-block;
+        vertical-align: middle;
+        font-weight: bold;
+        padding-right: 4px;
+    }
+
+
+
+    &.hasted {
+        background: green;
+        color: white;
+    }
+
+    &.slowed {
+        background: yellow;
+    }
+
+    &.suprised {
+    }
+
+    &.stun {
+        //background: red;
+        color: red;
+        font-weight: bold;
+    }
+
+    &.concentrating {
+    }
+
+    &.adrenal {
+        color: green;
+    }
+
+    &.mustParry {
+        //background: red;
+        color: red;
+        font-weight: bold;
+    }
+
+    &.noParry {
+        //background: red;
+        color: red;
+        font-weight: bold;
+    }
+}
+.combatant {
+    .iconArea,
+    .iconAreaText {
+        margin: 0 3px;
+        border: 1px solid black;
+        background: black;
+        color: white;
+
+
+
+
+
+        &.hasted {
+            background: green;
+            color: white;
+        }
+
+        &.slowed {
+            color: black;
+            background: yellow;
+        }
+
+        &.suprised {
+        }
+
+        &.stun {
+            background: red;
+            color: white;
+            font-weight: normal;
+        }
+
+        &.concentrating {
+        }
+
+        &.adrenal {
+            background: green;
+            color: white;
+        }
+
+        &.mustParry {
+            background: red;
+            color: white;
+            font-weight: normal;
+        }
+
+        &.noParry {
+            background: red;
+            color: white;
+            font-weight: normal;
+        }
+    }
+}
+
+.ActorAction {
+    position: relative;
+    border: 2px solid red;
+    width: 134px;
+    height: 49px;
+    width: 288px;
+    height: 88px;
+    padding: 3px 8px 3px 8px;
+    overflow: hidden;
+    font-size: .73em;
+    /*white-space: nowrap;*/
+    color: Black;
+    border-radius: 5px;
+    line-height: 1em;
+    padding: 3px 17px;
+    background: white;
+}

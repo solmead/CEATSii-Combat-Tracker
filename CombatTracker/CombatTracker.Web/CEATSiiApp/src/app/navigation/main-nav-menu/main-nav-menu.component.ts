@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { AuthenticationService } from '@/services';
-import { ApplicationUser } from '@/entities';
+import { ApplicationUser, Game } from '@/entities';
 import { EnumEx } from '@/_helpers';
 import * as Enums from '@/entities/EnumDefinitions'
 import GameType = Enums.EnumDefinitions.GameType;
+import { GamesRepository } from '@/repositories';
 
 
 @Component({
@@ -14,10 +15,13 @@ import GameType = Enums.EnumDefinitions.GameType;
 /** mainNavMenu component*/
 export class MainNavMenuComponent {
     currentUser: ApplicationUser;
-    /** mainNavMenu ctor */
-    constructor(private authenticationService: AuthenticationService) {
 
-        this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
+    games: Array<Game>;
+
+    /** mainNavMenu ctor */
+    constructor(private authenticationService: AuthenticationService, private gameRepository: GamesRepository) {
+
+        this.init();
     }
 
 
@@ -25,5 +29,21 @@ export class MainNavMenuComponent {
         var lst = EnumEx.getNamesAndValues(GameType);
         return lst;
     }
+
+    private async init(): Promise<void> {
+
+        var u = await this.authenticationService.currentUserAsync();
+        this.currentUser = u;
+
+        var gms =await this.gameRepository.getGamesAsync();
+
+        gms = gms.filter((gm) => {
+            gm.gM_ID == this.currentUser.id;
+        });
+
+        this.games = gms;
+
+    }
+
 }
 

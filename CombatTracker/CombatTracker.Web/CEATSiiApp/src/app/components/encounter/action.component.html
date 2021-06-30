@@ -1,11 +1,101 @@
-﻿<div class="ActorAction" [style.background-color]="getColor()">
-    <span>
-        {{action.whoIsActing.name}}
-    </span><br />
-    {{action.name}}<br />
-    {{action.note}}<br />
-    {{action.actionTypeString}}<br />
+﻿<div class="ActorAction" [style.border-color]="currentBorderColor" [style.background-color]="currentBackColor">
+    <div class="row">
+        <div class="col-2">{{currentTime}}</div>
+        <div class="col-6" style="font-weight:bold;">{{whoIsActing.name}}</div>
+        <div class="col-1" *ngIf="isCurrent">{{whoIsActing.level}}</div>
+        <div class="col-3" *ngIf="isCurrent">
+            <span *ngIf="isControlledVisible">Hits: {{whoIsActing.hitsRemaining}}/{{whoIsActing.hitsTotal}}</span>
+            <span *ngIf="!isControlledVisible">{{whoIsActing.damageString}}</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <span *ngIf="isCurrent">Init: {{whoIsActing.inititive}}</span>
+        </div>
+        <div class="col-6 nameArea">{{action.name}}</div>
+        <div class="col-3" *ngIf="isCurrent && isControlledVisible">Exhs: {{whoIsActing.exhaustionRemaining}}/{{whoIsActing.exhaustionTotal}}</div>
+
+    </div>
+    <div class="row">
+        <div class="col-2" style="text-align:right;">Note:</div>
+        <div class="col-7 noteArea" style="font-style: italic;">{{action.note}}</div>
+        <div class="col-3 powerPointsArea" *ngIf="isCurrent && whoIsActing.powerPointsTotal>0 && isControlledVisible">Ppts: {{whoIsActing.powerPointsRemaining}}/{{whoIsActing.powerPointsTotal}}</div>
+    </div>
+    <div class="row">
+        <div class="col-2">
+            &nbsp;
+        </div>
+        <div class="col-5 criticalModifiersArea">
+            <span *ngIf="isCurrent">{{whoIsActing.criticalModified}}</span>
+        </div>
+        <div class="col-5 criticalIgnoresArea">
+            <span *ngIf="isCurrent">{{whoIsActing.criticalIgnores}}</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-1 hasteArea">
+            <span class="hasted iconArea" *ngIf="isCurrent && whoIsActing.percentAction > 100">
+                <i class='material-icons'>directions_run</i>
+            </span>
+            <span class="slowed iconArea" *ngIf="isCurrent && whoIsActing.percentAction < 100">
+                <i class='material-icons'>slow_motion_video</i>
+            </span>
+        </div>
+        <div class="col-1 suprisedArea">
+            <span class="suprised iconArea" *ngIf="isCurrent && whoIsActing.suprised">
+                <i class='material-icons'>alarm</i>
+            </span>
+        </div>
+        <div class="col-2 stunArea">
+            <span class="stun iconAreaText" *ngIf="isCurrent && currentCrits.isStunned"><i class='material-icons'>emergency</i><span class="textMod">->{{whoIsActing.stunRounds}}</span></span>
+        </div>
+        <div class="col-6">
+            <div>
+                <span *ngIf="isCurrent && isControlledVisible && ((whoIsActing.negatives + action.currentModifier!=0) || (whoIsActing.spellNegatives + action.currentModifier!=0))">Modifier: {{whoIsActing.negatives + action.currentModifier}}/{{whoIsActing.spellNegatives + action.currentModifier}}</span>
+                &nbsp;
+            </div>
+            <div>
+                <span *ngIf="isCurrent">Armor-> {{currentArmor}}</span>
+                &nbsp;
+            </div>
+        </div>
+        <div class="col-2">
+            <div>
+                &nbsp;
+            </div>
+            <div>
+                <span *ngIf="isCurrent && isControlledVisible">DB->{{currentDB}}</span>
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-1">
+            <span class="concentrating iconArea" *ngIf="isCurrent && whoIsActing.isConcentrating">
+                <i class='material-icons'>emoji_objects</i>
+            </span>
+        </div>
+        <div class="col-1">
+            <span class="adrenal iconArea" *ngIf="isCurrent && whoIsActing.usingAdrenalDB">
+                <i class='material-icons'>run_circle</i>
+            </span>
+        </div>
+        <div class="col-2">
+            <span class="mustParry iconAreaText" *ngIf="isCurrent && isMustParry"><i class='material-icons'>error</i><span class="textMod">->{{whoIsActing.parryRounds}}</span></span>
+            <span class="noParry iconAreaText" *ngIf="isCurrent && isNoParry"><i class='material-icons'>priority_high</i><span class="textMod">->{{whoIsActing.parryRounds}}</span></span>
+        </div>
+        <div class="col-6">
+            <div *ngIf="isCurrent">Weapon-> {{currentWeapon}}</div>
+        </div>
+        <div class="col-2">
+            <div>
+                <span *ngIf="isCurrent && isControlledVisible">OB->{{currentOB}}</span>
+            </div>
+        </div>
+
+    </div>
+    <!--{{action.actionTypeString}}<br />
     {{action.stateString}}<br />
     {{action.typeString}}<br />
-    {{action.reoccuring}}
+    {{action.reoccuring}}-->
 </div>

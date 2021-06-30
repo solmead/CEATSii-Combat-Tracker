@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "Grants";
+    Layout = "~/Views/Shared/_LayoutApp.cshtml";
+}
+@section SiteHead
+{
+    <baseApi href="/"></baseApi>
+    @*<base href="/dist/CEATSiiApp/" />*@
+    <base href="/Dashboard/App/" />
+}
+
+<app-root class="h-100" style="display:block;">Loading...</app-root>
+
+@section scripts {
+    <script src="~/dist/CEATSiiApp/runtime.js" defer></script>
+    <script src="~/dist/CEATSiiApp/polyfills.js" defer></script>
+    <script src="~/dist/CEATSiiApp/styles.js" defer></script>
+    <script src="~/dist/CEATSiiApp/scripts.js" defer></script>
+    <script src="~/dist/CEATSiiApp/vendor.js" defer></script>
+    <script src="~/dist/CEATSiiApp/main.js" defer></script>
+
+}
+

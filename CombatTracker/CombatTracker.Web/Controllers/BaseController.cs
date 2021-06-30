@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 namespace CombatTracker.Web.Controllers
 {
     [Authorize]
+   // [Route("[controller]")] 
     public class BaseController : Controller
     {
 

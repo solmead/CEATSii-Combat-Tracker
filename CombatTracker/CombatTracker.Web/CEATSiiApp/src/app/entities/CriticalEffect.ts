@@ -1,11 +1,11 @@
 ﻿
 
 
-
     import * as Enums from './EnumDefinitions'
     import ParryType = Enums.EnumDefinitions.ParryType;
     export class CriticalEffect {
         id: number;
+        sortOrder: number;
         isStunned: boolean;
         parry: ParryType;
         parryString: string;

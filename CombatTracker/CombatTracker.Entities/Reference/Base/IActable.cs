@@ -23,6 +23,8 @@ namespace CombatTracker.Entities.Reference.Base
         List<Attack> GetAttacks();
         double GetWalkSpeed();
 
+        string GetCriticalIgnores();
+        string GetCriticalModified();
 
 
     }

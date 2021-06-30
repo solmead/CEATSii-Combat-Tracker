@@ -33,6 +33,40 @@ namespace CombatTracker.Entities.Current
         public int Level { get; set; }
         public int HitsTotal { get; set; }
         public int HitsRemaining { get; set; }
+
+        public DamageLevel Damage  {
+            get
+            {
+                var dmg = ((1.0 * HitsRemaining) / (1.0 * HitsTotal))*100;
+                if (dmg>=100)
+                {
+                    return DamageLevel.Healthy;
+                }
+                if (dmg >= 66)
+                {
+                    return DamageLevel.Winded;
+                }
+                if (dmg >= 33)
+                {
+                    return DamageLevel.Rough;
+                }
+                if (dmg > 0)
+                {
+                    return DamageLevel.Bloodied;
+                }
+                
+                return DamageLevel.Dead;
+                
+
+            }
+        }
+        public string DamageString
+        {
+            get
+            {
+                return Damage.ToString();
+            }
+        }
         public int BaseInititive { get; set; }
         public int RolledInititive { get; set; }
         public int ExhaustionTotal { get; set; }
@@ -57,6 +91,13 @@ namespace CombatTracker.Entities.Current
         public int? BaseCreature_ID { get; set; }
         public int? BaseCharacter_ID { get; set; }
         public int? CurrentArmor_ID { get; set; }
+
+
+        public string CriticalIgnores { get; set; }
+        public string CriticalModified { get; set; }
+
+
+
 
         //public  Character Character { get; set; }
         public  Armor CurrentArmor { get; set; }
@@ -94,76 +135,81 @@ namespace CombatTracker.Entities.Current
         public int NegativeRounds => (from CR in CriticalEffects where CR.Negative != 0 select CR).Count();
 
 
-        public CriticalEffect CurrentCrits => CriticalEffects.FirstOrDefault();
-        
-        
-        private int HitNegatives()
-        {
-            if (HitsRemaining >= 0.75 * HitsTotal)
-            {
-                return 0;
-            }
-            else if (HitsRemaining >= 0.5 * HitsTotal)
-            {
-                return -10;
-            }
-            else if (HitsRemaining >= 0.25 * HitsTotal)
-            {
-                return -20;
-            }
-            else
-            {
-                return -30;
+        public CriticalEffect CurrentCrits => CriticalEffects.LastOrDefault();
+
+
+        public int HitNegatives {
+            get {
+                if (HitsRemaining >= 0.75 * HitsTotal)
+                {
+                    return 0;
+                }
+                else if (HitsRemaining >= 0.5 * HitsTotal)
+                {
+                    return -10;
+                }
+                else if (HitsRemaining >= 0.25 * HitsTotal)
+                {
+                    return -20;
+                }
+                else
+                {
+                    return -30;
+                }
             }
         }
 
-        private int ExhNegatives()
-        {
-            if (ExhaustionRemaining >= 0.75 * ExhaustionTotal)
-            {
-                return 0;
-            }
-            else if (ExhaustionRemaining >= 0.5 * ExhaustionTotal)
-            {
-                return -5;
-            }
-            else if (ExhaustionRemaining >= 0.25 * ExhaustionTotal)
-            {
-                return -15;
-            }
-            else if (ExhaustionRemaining >= 0.1 * ExhaustionTotal)
-            {
-                return -30;
-            }
-            else if (ExhaustionRemaining >= 0.01 * ExhaustionTotal)
-            {
-                return -60;
-            }
-            else
-            {
-                return -100;
+        public int ExhNegatives {
+            get {
+                if (ExhaustionRemaining >= 0.75 * ExhaustionTotal)
+                {
+                    return 0;
+                }
+                else if (ExhaustionRemaining >= 0.5 * ExhaustionTotal)
+                {
+                    return -5;
+                }
+                else if (ExhaustionRemaining >= 0.25 * ExhaustionTotal)
+                {
+                    return -15;
+                }
+                else if (ExhaustionRemaining >= 0.1 * ExhaustionTotal)
+                {
+                    return -30;
+                }
+                else if (ExhaustionRemaining >= 0.01 * ExhaustionTotal)
+                {
+                    return -60;
+                }
+                else
+                {
+                    return -100;
+                }
             }
         }
 
-        public int Negatives => CritNegatives + HitNegatives() + ExhNegatives() + (CurrentCrits?.Negative ?? 0);
+        public int Negatives => CritNegatives + HitNegatives + ExhNegatives + (CurrentCrits?.Negative ?? 0);
 
-        public int SpellNegatives()
+        public int SpellNegatives
         {
-            if (PowerPointsRemaining >= 0.75 * PowerPointsTotal)
+            get
             {
-                return 0 + Negatives;
-            }
-            else if (PowerPointsRemaining >= 0.5 * PowerPointsTotal)
-            {
-                return -10 + Negatives;
-            }
-            else if (PowerPointsRemaining >= 0.25 * PowerPointsTotal)
-            {
-                return -20 + Negatives;
-            }
-            else
-            {
-                return -30 + Negatives;
+                if (PowerPointsRemaining >= 0.75 * PowerPointsTotal)
+                {
+                    return 0 + Negatives;
+                }
+                else if (PowerPointsRemaining >= 0.5 * PowerPointsTotal)
+                {
+                    return -10 + Negatives;
+                }
+                else if (PowerPointsRemaining >= 0.25 * PowerPointsTotal)
+                {
+                    return -20 + Negatives;
+                }
+                else
+                {
+                    return -30 + Negatives;
+                }
             }
         }
 

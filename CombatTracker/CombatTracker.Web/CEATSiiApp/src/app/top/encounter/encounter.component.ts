@@ -1,7 +1,11 @@
 ﻿import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { BaseAction } from '@/entities';
+import { Actor, BaseAction } from '@/entities';
 import { AuthenticationService, EncounterService } from '@/services';
 import { ActivatedRoute } from '@angular/router';
+import { EnumDefinitions } from '@/entities/EnumDefinitions';
+import ViewTypeEnum = EnumDefinitions.ViewTypeEnum;
+
+
 
 @Component({
     selector: 'app-encounter',
@@ -33,11 +37,41 @@ export class EncounterComponent implements OnInit, OnChanges {
     }
     ngOnInit(): void {
     }
-
+    get viewType(): ViewTypeEnum {
+        return this.gameView.viewType;
+    }
     get actions(): Array<BaseAction> {
         var acts = this.gameView.actions;
 
         return acts;
+    }
+    get actors(): Array<Actor> {
+        var acts = this.gameView.actors;
+
+        return acts;
+    }
+
+    selectActor(actor: Actor) {
+        if (this.isGM) {
+            this.gameView.selectedActor = actor;
+        }
+    }
+    selectAction(action: BaseAction) {
+        if (this.isGM) {
+            this.gameView.selectedAction = action;
+        }
+    }
+
+    get isGM(): boolean {
+        return this.viewType == ViewTypeEnum.GM;
+    }
+
+    get isPlayer(): boolean {
+        return this.viewType == ViewTypeEnum.Player;
+    }
+
+    get isViewOnly(): boolean {
+        return this.viewType == ViewTypeEnum.Overview;
     }
 
 }

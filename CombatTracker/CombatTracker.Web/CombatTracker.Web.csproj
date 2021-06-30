@@ -7,22 +7,11 @@
 		<TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
 		<IsPackable>false</IsPackable>
 		<SpaRoot>CEATSiiApp\</SpaRoot>
-		<DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
-		<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
 		<DefaultItemExcludes>$(DefaultItemExcludes);$(SpaRoot)node_modules\**</DefaultItemExcludes>
 
 		<!-- Set this to true if you enable server-side prerendering -->
 		<BuildServerSideRenderer>false</BuildServerSideRenderer>
 	</PropertyGroup>
-
-	<!--<ItemGroup>
-		<None Include="Views\Home\Index.cshtml" />
-		<None Include="Views\Home\Privacy.cshtml" />
-		<None Include="Views\Shared\Error.cshtml" />
-		<None Include="Views\Shared\_Layout.cshtml" />
-		<None Include="Views\Shared\_LoginPartial.cshtml" />
-		<None Include="Views\Shared\_ValidationScriptsPartial.cshtml" />
-	</ItemGroup>-->
 
 	<ItemGroup>
 		<PackageReference Include="Microsoft.AspNetCore.ApiAuthorization.IdentityServer" Version="5.0.6" />
@@ -56,59 +45,13 @@
 		<ProjectReference Include="..\CombatTracker.Services\CombatTracker.Services.csproj" />
 	</ItemGroup>
 
-	<!--<ItemGroup>
-		<Folder Include="CEATSiiApp\" />
-	</ItemGroup>-->
-
-
 	<ItemGroup>
 		<!-- Don't publish the SPA source files, but do show them in the project files list -->
 		<Content Remove="$(SpaRoot)**" />
 		<None Remove="$(SpaRoot)**" />
 		<None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
+		<Content Remove="compilerconfig.json" />
 		<None Remove="Models\Conventions\" />
-		<Content Remove="wwwroot\dist\CEATSiiApp\favicon.ico" />
-		<Content Remove="wwwroot\dist\CEATSiiApp\polyfills.js.map" />
-		<Content Remove="wwwroot\dist\CEATSiiApp\index.html" />
-		<Content Remove="wwwroot\dist\CEATSiiApp\runtime.js" />
-		<Content Remove="wwwroot\dist\CEATSiiApp\main.js.map" />
-		<Content Remove="wwwroot\dist\CEATSiiApp\polyfills.js" />
-		<Content Remove="wwwroot\dist\CEATSiiApp\styles.js.map" />
-		<Content Remove="wwwroot\dist\CEATSiiApp\vendor.js" />
-		<Content Remove="wwwroot\dist\CEATSiiApp\main.js" />
-		<Content Remove="wwwroot\dist\CEATSiiApp\scripts.js" />
-		<Content Remove="wwwroot\dist\CEATSiiApp\runtime.js.map" />
-		<Content Remove="wwwroot\dist\CEATSiiApp\scripts.js.map" />
-		<Content Remove="wwwroot\dist\CEATSiiApp\styles.js" />
-		<Content Remove="wwwroot\dist\CEATSiiApp\vendor.js.map" />
-		<Content Remove="wwwroot\dist\CEATSiiApp\main.js" />
-		<Content Remove="wwwroot\dist\CEATSiiApp\polyfills.js" />
-		<Content Remove="wwwroot\dist\CEATSiiApp\runtime.js" />
-		<Content Remove="wwwroot\dist\CEATSiiApp\styles.js" />
-		<Content Remove="wwwroot\dist\CEATSiiApp\vendor.js" />
-		<Content Remove="wwwroot\dist\CEATSiiApp\scripts.js" />
-		<Content Remove="wwwroot\dist\CEATSiiApp\main.js.map" />
-		<Content Remove="wwwroot\dist\CEATSiiApp\polyfills.js.map" />
-		<Content Remove="wwwroot\dist\CEATSiiApp\runtime.js.map" />
-		<Content Remove="wwwroot\dist\CEATSiiApp\styles.js.map" />
-		<Content Remove="wwwroot\dist\CEATSiiApp\vendor.js.map" />
-		<Content Remove="wwwroot\dist\CEATSiiApp\scripts.js.map" />
-		<Content Remove="wwwroot\dist\CEATSiiApp\favicon.ico" />
-		<Content Remove="wwwroot\dist\CEATSiiApp\index.html" />
-		<Content Remove="wwwroot\dist\CEATSiiApp\main.js" />
-		<Content Remove="wwwroot\dist\CEATSiiApp\polyfills.js" />
-		<Content Remove="wwwroot\dist\CEATSiiApp\runtime.js" />
-		<Content Remove="wwwroot\dist\CEATSiiApp\styles.js" />
-		<Content Remove="wwwroot\dist\CEATSiiApp\vendor.js" />
-		<Content Remove="wwwroot\dist\CEATSiiApp\scripts.js" />
-		<Content Remove="wwwroot\dist\CEATSiiApp\main.js.map" />
-		<Content Remove="wwwroot\dist\CEATSiiApp\polyfills.js.map" />
-		<Content Remove="wwwroot\dist\CEATSiiApp\runtime.js.map" />
-		<Content Remove="wwwroot\dist\CEATSiiApp\styles.js.map" />
-		<Content Remove="wwwroot\dist\CEATSiiApp\vendor.js.map" />
-		<Content Remove="wwwroot\dist\CEATSiiApp\scripts.js.map" />
-		<Content Remove="wwwroot\dist\CEATSiiApp\favicon.ico" />
-		<Content Remove="wwwroot\dist\CEATSiiApp\index.html" />
 		<None Remove="CEATSiiApp\src\app\top\character\" />
 		<None Remove="CEATSiiApp\src\app\top\encounter\" />
 		<None Remove="CEATSiiApp\src\app\top\game\" />
@@ -172,6 +115,9 @@
 	  </None>
 	  <None Update="CEATSiiApp\src\app\entities\Dice.ts">
 	    <CustomToolNamespace>..\CombatTracker.Entities\Reference\Dice.cs</CustomToolNamespace>
+	  </None>
+	  <None Update="CEATSiiApp\src\app\entities\EnumDefinitions.ts">
+	    <CustomToolNamespace>..\CombatTracker.Entities\Reference\EnumDefinitions.cs</CustomToolNamespace>
 	  </None>
 	  <None Update="CEATSiiApp\src\app\entities\Game.ts">
 	    <CustomToolNamespace>..\CombatTracker.Entities\Current\Game.cs</CustomToolNamespace>
@@ -263,45 +209,21 @@
 	  <Folder Include="CEATSiiApp\src\app\top\encounter\" />
 	  <Folder Include="CEATSiiApp\src\app\top\game\" />
 	</ItemGroup>
-	<Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
-		<!-- Ensure Node.js is installed -->
-		<Exec Command="node --version" ContinueOnError="true">
-			<Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
-		</Exec>
-		<Error Condition="'$(ErrorCode)' != '0'" Text="Node.js is required to build and run this project. To continue, please install Node.js from https://nodejs.org/, and then restart your command prompt or IDE." />
-		<Message Importance="high" Text="Restoring dependencies using 'npm'. This may take several minutes..." />
-		<Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
-	</Target>
-
-	<Target Name="BuildAng" AfterTargets="Build">
-		<!-- As part of publishing, ensure the JS resources are freshly built in production mode -->
-		<Exec WorkingDirectory="$(SpaRoot)" Command="ng build" />
-		<!-- Include the newly-built files in the publish output -->
-		<ItemGroup>
-			<DistFiles Include="$(SpaRoot)dist\**; $(SpaRoot)dist-server\**" />
-			<DistFiles Include="$(SpaRoot)node_modules\**" Condition="'$(BuildServerSideRenderer)' == 'true'" />
-			<ResolvedFileToPublish Include="@(DistFiles->'%(FullPath)')" Exclude="@(ResolvedFileToPublish)">
-				<RelativePath>%(DistFiles.Identity)</RelativePath>
-				<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-				<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-			</ResolvedFileToPublish>
-		</ItemGroup>
-	</Target>
-	<Target Name="PublishRunWebpack" AfterTargets="ComputeFilesToPublish">
-		<!-- As part of publishing, ensure the JS resources are freshly built in production mode -->
-		<Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
-		<Exec WorkingDirectory="$(SpaRoot)" Command="npm run build -- --prod" />
-		<Exec WorkingDirectory="$(SpaRoot)" Command="npm run build:ssr -- --prod" Condition=" '$(BuildServerSideRenderer)' == 'true' " />
-
-		<!-- Include the newly-built files in the publish output -->
-		<ItemGroup>
-			<DistFiles Include="$(SpaRoot)dist\**; $(SpaRoot)dist-server\**" />
-			<DistFiles Include="$(SpaRoot)node_modules\**" Condition="'$(BuildServerSideRenderer)' == 'true'" />
-			<ResolvedFileToPublish Include="@(DistFiles->'%(FullPath)')" Exclude="@(ResolvedFileToPublish)">
-				<RelativePath>%(DistFiles.Identity)</RelativePath>
-				<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-				<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-			</ResolvedFileToPublish>
-		</ItemGroup>
-	</Target>
+	<ItemGroup>
+	  <None Include="compilerconfig.json" />
+	  <None Include="wwwroot\dist\CEATSiiApp\main.js" />
+	  <None Include="wwwroot\dist\CEATSiiApp\main.js.map" />
+	  <None Include="wwwroot\dist\CEATSiiApp\polyfills.js" />
+	  <None Include="wwwroot\dist\CEATSiiApp\polyfills.js.map" />
+	  <None Include="wwwroot\dist\CEATSiiApp\runtime.js" />
+	  <None Include="wwwroot\dist\CEATSiiApp\runtime.js.map" />
+	  <None Include="wwwroot\dist\CEATSiiApp\scripts.js" />
+	  <None Include="wwwroot\dist\CEATSiiApp\scripts.js.map" />
+	  <None Include="wwwroot\dist\CEATSiiApp\styles.js" />
+	  <None Include="wwwroot\dist\CEATSiiApp\styles.js.map" />
+	  <None Include="wwwroot\dist\CEATSiiApp\vendor.js" />
+	  <None Include="wwwroot\dist\CEATSiiApp\vendor.js.map" />
+	  <None Include="wwwroot\images\paper-bg.jpeg" />
+	</ItemGroup>
+	
 </Project>

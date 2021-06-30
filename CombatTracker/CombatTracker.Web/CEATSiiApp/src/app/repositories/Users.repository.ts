@@ -44,9 +44,16 @@ export class UsersRepository {
 
 	public currentUser = () : Observable<ApplicationUser> => {
         
-        var _Url = `api/v${version}/Users/CurrentUser`;
+            var _Url = `api/v${version}/Users/CurrentUser`;
+
             return this._httpClient.get<ApplicationUser>(_Url)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            if (data != null) data = Object.assign(new ApplicationUser(), data);
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     
@@ -69,9 +76,16 @@ export class UsersRepository {
 
 	public logout = () : Observable<boolean> => {
         
-        var _Url = `api/v${version}/Users/logout`;
+            var _Url = `api/v${version}/Users/logout`;
+
             return this._httpClient.post<boolean>(_Url, null)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     
@@ -95,9 +109,16 @@ export class UsersRepository {
 	public authenticate = (model: AuthenticateModel) : Observable<ApplicationUser> => {
         model = (model == null ? <AuthenticateModel><any>"" : model);
         
-        var _Url = `api/v${version}/Users/authenticate`;
+            var _Url = `api/v${version}/Users/authenticate`;
+
             return this._httpClient.post<ApplicationUser>(_Url, model)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            if (data != null) data = Object.assign(new ApplicationUser(), data);
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     
@@ -121,9 +142,16 @@ export class UsersRepository {
 	public register = (model: RegisterModel) : Observable<ApplicationUser> => {
         model = (model == null ? <RegisterModel><any>"" : model);
         
-        var _Url = `api/v${version}/Users/register`;
+            var _Url = `api/v${version}/Users/register`;
+
             return this._httpClient.post<ApplicationUser>(_Url, model)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            if (data != null) data = Object.assign(new ApplicationUser(), data);
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     
@@ -146,9 +174,16 @@ export class UsersRepository {
 
 	public getAll = () : Observable<ApplicationUser[]> => {
         
-        var _Url = `api/v${version}/Users/GetAll`;
+            var _Url = `api/v${version}/Users/GetAll`;
+
             return this._httpClient.get<ApplicationUser[]>(_Url)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            if (data != null) data = data.map((dt) => Object.assign(new ApplicationUser(), dt));
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     
@@ -172,9 +207,16 @@ export class UsersRepository {
 	public getById = (id: string) : Observable<ApplicationUser> => {
         id = (id == null ? <string><any>"" : id);
         
-        var _Url = `api/v${version}/Users/GetById/${encodeURIComponent(id)}`;
+            var _Url = `api/v${version}/Users/GetById/${encodeURIComponent(id)}`;
+
             return this._httpClient.get<ApplicationUser>(_Url)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            if (data != null) data = Object.assign(new ApplicationUser(), data);
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     
@@ -199,9 +241,16 @@ export class UsersRepository {
         id = (id == null ? <string><any>"" : id);
         model = (model == null ? <UpdateModel><any>"" : model);
         
-        var _Url = `api/v${version}/Users/Update/${encodeURIComponent(id)}`;
+            var _Url = `api/v${version}/Users/Update/${encodeURIComponent(id)}`;
+
             return this._httpClient.put<ApplicationUser>(_Url, id)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            if (data != null) data = Object.assign(new ApplicationUser(), data);
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     
@@ -225,9 +274,16 @@ export class UsersRepository {
 	public delete = (id: string) : Observable<void> => {
         id = (id == null ? <string><any>"" : id);
         
-        var _Url = `api/v${version}/Users/Delete/${encodeURIComponent(id)}`;
+            var _Url = `api/v${version}/Users/Delete/${encodeURIComponent(id)}`;
+
             return this._httpClient.delete<void>(_Url)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     
@@ -251,9 +307,16 @@ export class UsersRepository {
 	public forgotPassword = (email: string) : Observable<boolean> => {
         email = (email == null ? <string><any>"" : email);
         
-        var _Url = `api/v${version}/Users/ForgotPassword?email=${encodeURIComponent(email)}`;
+            var _Url = `api/v${version}/Users/ForgotPassword?email=${encodeURIComponent(email)}`;
+
             return this._httpClient.post<boolean>(_Url, email)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     

@@ -41,9 +41,16 @@ export class CharactersRepository {
 
 	public getCharacters = () : Observable<Character[]> => {
         
-        var _Url = `api/v${version}/Characters/getCharacters`;
+            var _Url = `api/v${version}/Characters/getCharacters`;
+
             return this._httpClient.get<Character[]>(_Url)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            if (data != null) data = data.map((dt) => Object.assign(new Character(), dt));
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     
@@ -67,9 +74,16 @@ export class CharactersRepository {
 	public getCharacter = (id: number) : Observable<Character> => {
         id = (id == null ? <number><any>"" : id);
         
-        var _Url = `api/v${version}/Characters/getCharacter/${id}`;
+            var _Url = `api/v${version}/Characters/getCharacter/${id}`;
+
             return this._httpClient.get<Character>(_Url)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            if (data != null) data = Object.assign(new Character(), data);
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     
@@ -93,9 +107,16 @@ export class CharactersRepository {
 	public saveCharacter = (character: Character) : Observable<Character> => {
         character = (character == null ? <Character><any>"" : character);
         
-        var _Url = `api/v${version}/Characters/SaveCharacter`;
+            var _Url = `api/v${version}/Characters/SaveCharacter`;
+
             return this._httpClient.post<Character>(_Url, character)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            if (data != null) data = Object.assign(new Character(), data);
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     
@@ -119,9 +140,16 @@ export class CharactersRepository {
 	public deleteCharacter = (id: number) : Observable<void> => {
         id = (id == null ? <number><any>"" : id);
         
-        var _Url = `api/v${version}/Characters/deleteCharacter/${id}`;
+            var _Url = `api/v${version}/Characters/deleteCharacter/${id}`;
+
             return this._httpClient.delete<void>(_Url)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     

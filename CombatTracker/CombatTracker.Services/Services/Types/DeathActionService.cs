@@ -15,7 +15,7 @@ namespace CombatTracker.Services.Services.Types
             var sa = new BaseAction();
             sa.Name = whom.Name + " is Unconcious";
             sa.BasePercent = 1;
-            sa.WhoIsActing = whom;
+            //sa.WhoIsActing = whom;
             sa.WhoIsActing_ID = whom.ID;
             sa.Type = ActorActionType.Death;
             sa.State = ActionProblem.IsOK;

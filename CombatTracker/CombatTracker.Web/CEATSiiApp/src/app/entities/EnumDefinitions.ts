@@ -1,8 +1,13 @@
 ﻿
 
-
     export module EnumDefinitions {
 
+            export enum ViewTypeEnum {
+                Overview = 0,
+                Player = 1,
+                GM = 2
+            }
+    
             export enum SecurityRoles {
                 None = 0,
                 Normal = 1,
@@ -19,6 +24,14 @@
             export enum GameType {
                 RMSS = 0,
                 DnD5e = 1
+            }
+    
+            export enum DamageLevel {
+                Healthy = 0,
+                Winded = 1,
+                Bloodied = 2,
+                Rough = 3,
+                Dead = 4
             }
     
             export enum CriticalLevels {

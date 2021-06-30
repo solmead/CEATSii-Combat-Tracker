@@ -145,6 +145,15 @@ namespace CombatTracker.Entities.Reference.Creatures
             return BaseMove;
         }
 
+        public string GetCriticalIgnores()
+        {
+            return CriticalIgnore.Name;
+        }
+
+        public string GetCriticalModified()
+        {
+            return Criticals.Name;
+        }
     }
 
 }

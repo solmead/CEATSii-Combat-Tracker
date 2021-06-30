@@ -28,7 +28,7 @@ namespace CombatTracker.Services.Services.Types
             sa.BasePercent = game.SizeOfSquare / (whom.Movement * action.BasePercent);
             sa.BaseAction_ID = action.ID;
             sa.Base = action;
-            sa.WhoIsActing = whom;
+            //sa.WhoIsActing = whom;
             sa.WhoIsActing_ID = whom.ID;
             sa.Type = ActorActionType.Movement;
             sa.State = ActionProblem.IsOK;

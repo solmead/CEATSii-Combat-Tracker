@@ -17,7 +17,7 @@ namespace CombatTracker.Services.Services.Types
             sa.Bleeder = count;
             sa.Name = whom.Name + " bleeding at " + sa.Bleeder;
             sa.BasePercent = 1;
-            sa.WhoIsActing = whom;
+            //sa.WhoIsActing = whom;
             sa.WhoIsActing_ID = whom.ID;
             sa.Type = ActorActionType.Bleed;
             sa.ActionType = ActionTypeEnum.Effect;

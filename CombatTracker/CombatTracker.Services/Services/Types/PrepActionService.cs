@@ -22,7 +22,7 @@ namespace CombatTracker.Services.Services.Types
             sa.BasePercent = action.BasePercent;
             sa.BaseAction_ID = action.ID;
             sa.Base = action;
-            sa.WhoIsActing = whom;
+            //sa.WhoIsActing = whom;
             sa.WhoIsActing_ID = whom.ID;
             sa.Type = ActorActionType.Prep;
             sa.State = ActionProblem.IsOK;

@@ -1,45 +1,42 @@
 
 
 <header class="" style="height: 10%!important;">
-  <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow h-100 ">
-    <div class="container">
-      <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">CombatTracker.Web</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-              aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-        <app-login-menu class="navbar-nav"></app-login-menu>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow h-100 ">
+        <div class="container">
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">CEATSii</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                <app-login-menu class="navbar-nav"></app-login-menu>
 
-        <main-nav-menu class="navbar-nav flex-grow-1"></main-nav-menu>
+                <main-nav-menu class="navbar-nav flex-grow-1"></main-nav-menu>
 
-      </div>
-    </div>
-  </nav>
+            </div>
+        </div>
+    </nav>
 </header>
 
 <div class="mainbody">
-  <main role="main" class="clear h-100" style="">
+    <main role="main" class="clear h-100" style="">
 
-    <div class="h-100" style="position:relative;">
-      <div class='apparea'>
-        <div class='menu-column'>
-          <div class="displayInfo"></div>
-          <side-nav-menu></side-nav-menu>
+        <div class="h-100" style="position:relative;">
+            <div class='apparea'>
+                <!--<div class='menu-column'>
+                  <div class="displayInfo"></div>
+                  <side-nav-menu></side-nav-menu>
+                </div>-->
+                <div class='body-content'>
+                    <router-outlet></router-outlet>
+                </div>
+            </div>
         </div>
-        <div class='body-content'>
-          <router-outlet></router-outlet>
-        </div>
-      </div>
-    </div>
-  </main>
-
-
-
-
-  <footer class="border-top footer text-muted" style="height: 10%!important;">
-    <div class="container h-100">
-      &copy; 2021 - CombatTracker.Web - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-    </div>
-  </footer>
+    </main>
 </div>
+
+<footer class="border-top footer text-muted" style="height: 10%!important;">
+    <div class="container h-100">
+        &copy; 2021 Solmead Productions - CEATSii - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    </div>
+</footer>

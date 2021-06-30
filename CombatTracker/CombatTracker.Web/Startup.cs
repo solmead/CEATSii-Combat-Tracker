@@ -38,10 +38,10 @@ namespace CombatTracker.Web
             //{
             //    configuration.RootPath = "dist/CEATSiiApp";
             //});
-            services.AddSpaStaticFiles(configuration =>
-            {
-                configuration.RootPath = "CEATSiiApp/dist";
-            });
+            //services.AddSpaStaticFiles(configuration =>
+            //{
+            //    configuration.RootPath = "CEATSiiApp/dist";
+            //});
 
 
         }
@@ -74,10 +74,10 @@ namespace CombatTracker.Web
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
-            if (!env.IsDevelopment())
-            {
-                app.UseSpaStaticFiles();
-            }
+            //if (!env.IsDevelopment())
+            //{
+            //    app.UseSpaStaticFiles();
+            //}
 
 
             app.UseRouting();
@@ -103,18 +103,18 @@ namespace CombatTracker.Web
             });
 
 
-            app.UseSpa(spa =>
-            {
-                // To learn more about options for serving an Angular SPA from ASP.NET Core,
-                // see https://go.microsoft.com/fwlink/?linkid=864501
+            //app.UseSpa(spa =>
+            //{
+            //    // To learn more about options for serving an Angular SPA from ASP.NET Core,
+            //    // see https://go.microsoft.com/fwlink/?linkid=864501
 
-                spa.Options.SourcePath = "CEATSiiApp";
+            //    spa.Options.SourcePath = "CEATSiiApp";
 
-                if (env.IsDevelopment())
-                {
-                    spa.UseAngularCliServer(npmScript: "start");
-                }
-            });
+            //    if (env.IsDevelopment())
+            //    {
+            //        spa.UseAngularCliServer(npmScript: "start");
+            //    }
+            //});
 
             app.InitCache();
             _logger.LogInformation("Starting App Finished");

@@ -5,6 +5,13 @@ using System.Text;
 
 namespace CombatTracker.Entities.Reference
 {
+    public enum ViewTypeEnum
+    {
+        Overview,
+        Player,
+        GM
+    }
+
     public enum SecurityRoles
     {
         None,
@@ -24,6 +31,15 @@ namespace CombatTracker.Entities.Reference
     {
         RMSS,
         DnD5e
+    }
+
+    public enum DamageLevel
+    {
+        Healthy,
+        Winded,
+        Bloodied,
+        Rough,
+        Dead
     }
 
 

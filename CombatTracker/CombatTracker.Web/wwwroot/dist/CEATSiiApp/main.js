@@ -71,7 +71,20 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\r\n\r\n<header class=\"\" style=\"height: 10%!important;\">\r\n  <nav class=\"navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow h-100 \">\r\n    <div class=\"container\">\r\n      <a class=\"navbar-brand\" asp-area=\"\" asp-controller=\"Home\" asp-action=\"Index\">CombatTracker.Web</a>\r\n      <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\".navbar-collapse\" aria-controls=\"navbarSupportedContent\"\r\n              aria-expanded=\"false\" aria-label=\"Toggle navigation\">\r\n        <span class=\"navbar-toggler-icon\"></span>\r\n      </button>\r\n      <div class=\"navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse\">\r\n        <app-login-menu class=\"navbar-nav\"></app-login-menu>\r\n\r\n        <main-nav-menu class=\"navbar-nav flex-grow-1\"></main-nav-menu>\r\n\r\n      </div>\r\n    </div>\r\n  </nav>\r\n</header>\r\n\r\n<div class=\"mainbody\">\r\n  <main role=\"main\" class=\"clear h-100\" style=\"\">\r\n\r\n    <div class=\"h-100\" style=\"position:relative;\">\r\n      <div class='apparea'>\r\n        <div class='menu-column'>\r\n          <div class=\"displayInfo\"></div>\r\n          <side-nav-menu></side-nav-menu>\r\n        </div>\r\n        <div class='body-content'>\r\n          <router-outlet></router-outlet>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </main>\r\n\r\n\r\n\r\n\r\n  <footer class=\"border-top footer text-muted\" style=\"height: 10%!important;\">\r\n    <div class=\"container h-100\">\r\n      &copy; 2021 - CombatTracker.Web - <a asp-area=\"\" asp-controller=\"Home\" asp-action=\"Privacy\">Privacy</a>\r\n    </div>\r\n  </footer>\r\n</div>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("\r\n\r\n<header class=\"\" style=\"height: 10%!important;\">\r\n    <nav class=\"navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow h-100 \">\r\n        <div class=\"container\">\r\n            <a class=\"navbar-brand\" asp-area=\"\" asp-controller=\"Home\" asp-action=\"Index\">CEATSii</a>\r\n            <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\".navbar-collapse\" aria-controls=\"navbarSupportedContent\"\r\n                    aria-expanded=\"false\" aria-label=\"Toggle navigation\">\r\n                <span class=\"navbar-toggler-icon\"></span>\r\n            </button>\r\n            <div class=\"navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse\">\r\n                <app-login-menu class=\"navbar-nav\"></app-login-menu>\r\n\r\n                <main-nav-menu class=\"navbar-nav flex-grow-1\"></main-nav-menu>\r\n\r\n            </div>\r\n        </div>\r\n    </nav>\r\n</header>\r\n\r\n<div class=\"mainbody\">\r\n    <main role=\"main\" class=\"clear h-100\" style=\"\">\r\n\r\n        <div class=\"h-100\" style=\"position:relative;\">\r\n            <div class='apparea'>\r\n                <!--<div class='menu-column'>\r\n                  <div class=\"displayInfo\"></div>\r\n                  <side-nav-menu></side-nav-menu>\r\n                </div>-->\r\n                <div class='body-content'>\r\n                    <router-outlet></router-outlet>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </main>\r\n</div>\r\n\r\n<footer class=\"border-top footer text-muted\" style=\"height: 10%!important;\">\r\n    <div class=\"container h-100\">\r\n        &copy; 2021 Solmead Productions - CEATSii - <a asp-area=\"\" asp-controller=\"Home\" asp-action=\"Privacy\">Privacy</a>\r\n    </div>\r\n</footer>\r\n");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/actor/actor-list.component.html":
+/*!**************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/components/actor/actor-list.component.html ***!
+  \**************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"list\">\r\n    <p *ngIf=\"!actors\"><em>Loading...</em></p>\r\n    <div class=\"initiative-list\">\r\n        <h2>\r\n            Actors\r\n        </h2>\r\n        <table class=\"combatants\" *ngIf=\"actors\" >\r\n            <thead class=\"combatants--header\">\r\n                <tr>\r\n                    <th style=\"vertical-align: middle;\">\r\n                        Init\r\n                    </th>\r\n                    <th>\r\n                        Time\r\n                    </th>\r\n                    <th style=\"vertical-align: middle;\">\r\n                        Name\r\n                    </th>\r\n                    <th style=\"vertical-align: middle;\">\r\n                        Hits\r\n                    </th>\r\n                    <th style=\"vertical-align: middle;\">\r\n                        PPs\r\n                    </th>\r\n                    <th style=\"vertical-align: middle;\">\r\n                        Exhs\r\n                    </th>\r\n                    <th style=\"vertical-align: middle;\">\r\n                        Attack\r\n                    </th>\r\n                    <th style=\"vertical-align: middle;\">\r\n                        Armor\r\n                    </th>\r\n                    <th style=\"vertical-align: middle;\">\r\n                        OB\r\n                    </th>\r\n                    <!--<th style=\"vertical-align: middle;\">\r\n                        Base DB\r\n                    </th>-->\r\n                    <th style=\"vertical-align: middle;\">\r\n                        DB\r\n                    </th>\r\n                    <th style=\"vertical-align: middle;\">\r\n                        Mods\r\n                    </th>\r\n                    <th style=\"vertical-align: middle;\">\r\n\r\n                    </th>\r\n                </tr>\r\n            </thead>\r\n            <tbody>\r\n                <tr class=\"combatant\" *ngFor=\"let actor of actors\" (click)=\"selectActor(actor)\" [ngClass]=\"{'selected': actor.isSelected,\r\n                                                                                                            'active': actor.isActive}\">\r\n                    <td>\r\n                        {{actor.rolledInititive}}\r\n                    </td>                                                                                 \r\n                    <td>\r\n                        {{currentTime(actor)}}\r\n                    </td>\r\n                    <td class=\"nameColumn\" style=\"text-align:left;\">\r\n                        {{actor.name}}\r\n                    </td>\r\n                    <td>\r\n                        <span *ngIf=\"isControlledVisible(actor)\">{{actor.hitsRemaining}}/{{actor.hitsTotal}}</span>\r\n                        <span *ngIf=\"!isControlledVisible(actor)\">{{actor.damageString}}</span>\r\n                    </td>\r\n                    <td>\r\n                        <span *ngIf=\"isControlledVisible(actor) && actor.powerPointsTotal>0\">{{actor.powerPointsRemaining}}/{{actor.powerPointsTotal}}</span>\r\n                    </td>\r\n                    <td>\r\n                        <span *ngIf=\"isControlledVisible(actor)\">{{actor.exhaustionRemaining}}/{{actor.exhaustionTotal}}</span>\r\n                    </td>\r\n                    <td>\r\n                        {{currentWeapon(actor)}}\r\n                    </td>\r\n                    <td>\r\n                        {{currentArmor(actor)}}\r\n                    </td>\r\n                    <td>\r\n                        <span *ngIf=\"isControlledVisible(actor)\">{{currentOB(actor)}}</span>\r\n                    </td>\r\n                    <!--<td>\r\n        <span *ngIf=\"isControlledVisible(actor)\">{{baseDB(actor)}}</span>\r\n    </td>-->\r\n                    <td>\r\n                        <span *ngIf=\"isControlledVisible(actor)\">{{currentDB(actor)}}</span>\r\n                    </td>\r\n                    <td>\r\n                        <span *ngIf=\"isControlledVisible(actor)\">{{actor.negatives + currentModifier(actor)}}/{{actor.spellNegatives + currentModifier(actor)}}</span>\r\n                        <div *ngIf=\"actor.criticalModified!=null && actor.criticalModified!=''\">\r\n                            {{actor.criticalModified}}\r\n                        </div>\r\n                        <div *ngIf=\"actor.criticalIgnores!=null && actor.criticalIgnores!=''\">\r\n                            {{actor.criticalIgnores}}\r\n                        </div>\r\n                    </td>\r\n                    <td style=\"padding:0;\">\r\n                        <div class=\"hasteArea\" style=\"display:inline-block;\">\r\n                            <span class=\"hasted iconArea\" *ngIf=\"actor.percentAction > 100\">\r\n                                <i class='material-icons'>directions_run</i>\r\n                            </span>\r\n                            <span class=\"slowed iconArea\" *ngIf=\"actor.percentAction < 100\">\r\n                                <i class='material-icons'>slow_motion_video</i>\r\n                            </span>\r\n                        </div>\r\n                        <div class=\"suprisedArea\" style=\"display:inline-block;\">\r\n                            <span class=\"suprised iconArea\" *ngIf=\"actor.suprised\">\r\n                                <i class='material-icons'>alarm</i>\r\n                            </span>\r\n                        </div>\r\n                        <div class=\"stunArea\" style=\"display:inline-block;\">\r\n                            <span class=\"stun iconAreaText\" *ngIf=\"currentCrits(actor).isStunned\"><i class='material-icons'>emergency</i><span class=\"textMod\">->{{actor.stunRounds}}</span></span>\r\n                        </div>\r\n                        <div class=\"\" style=\"display:inline-block;\">\r\n                            <span class=\"concentrating iconArea\" *ngIf=\"actor.isConcentrating\">\r\n                                <i class='material-icons'>emoji_objects</i>\r\n                            </span>\r\n                        </div>\r\n                        <div class=\"\" style=\"display:inline-block;\">\r\n                            <span class=\"adrenal iconArea\" *ngIf=\"actor.usingAdrenalDB\">\r\n                                <i class='material-icons'>run_circle</i>\r\n                            </span>\r\n                        </div>\r\n                        <div class=\"\" style=\"display:inline-block;\">\r\n                            <span class=\"mustParry iconAreaText\" *ngIf=\"isMustParry(actor)\"><i class='material-icons'>error</i><span class=\"textMod\">->{{actor.parryRounds}}</span></span>\r\n                            <span class=\"noParry iconAreaText\" *ngIf=\"isNoParry(actor)\"><i class='material-icons'>priority_high</i><span class=\"textMod\">->{{actor.parryRounds}}</span></span>\r\n                        </div>\r\n                    </td>\r\n                </tr>\r\n            </tbody>\r\n        </table>\r\n    </div>\r\n</div>");
 
 /***/ }),
 
@@ -201,7 +214,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"ActorAction\" [style.background-color]=\"getColor()\">\r\n    <span>\r\n        {{action.whoIsActing.name}}\r\n    </span><br />\r\n    {{action.name}}<br />\r\n    {{action.note}}<br />\r\n    {{action.actionTypeString}}<br />\r\n    {{action.stateString}}<br />\r\n    {{action.typeString}}<br />\r\n    {{action.reoccuring}}\r\n</div>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"ActorAction\" [style.border-color]=\"currentBorderColor\" [style.background-color]=\"currentBackColor\">\r\n    <div class=\"row\">\r\n        <div class=\"col-2\">{{currentTime}}</div>\r\n        <div class=\"col-6\" style=\"font-weight:bold;\">{{whoIsActing.name}}</div>\r\n        <div class=\"col-1\" *ngIf=\"isCurrent\">{{whoIsActing.level}}</div>\r\n        <div class=\"col-3\" *ngIf=\"isCurrent\">\r\n            <span *ngIf=\"isControlledVisible\">Hits: {{whoIsActing.hitsRemaining}}/{{whoIsActing.hitsTotal}}</span>\r\n            <span *ngIf=\"!isControlledVisible\">{{whoIsActing.damageString}}</span>\r\n        </div>\r\n    </div>\r\n    <div class=\"row\">\r\n        <div class=\"col-3\">\r\n            <span *ngIf=\"isCurrent\">Init: {{whoIsActing.inititive}}</span>\r\n        </div>\r\n        <div class=\"col-6 nameArea\">{{action.name}}</div>\r\n        <div class=\"col-3\" *ngIf=\"isCurrent && isControlledVisible\">Exhs: {{whoIsActing.exhaustionRemaining}}/{{whoIsActing.exhaustionTotal}}</div>\r\n\r\n    </div>\r\n    <div class=\"row\">\r\n        <div class=\"col-2\" style=\"text-align:right;\">Note:</div>\r\n        <div class=\"col-7 noteArea\" style=\"font-style: italic;\">{{action.note}}</div>\r\n        <div class=\"col-3 powerPointsArea\" *ngIf=\"isCurrent && whoIsActing.powerPointsTotal>0 && isControlledVisible\">Ppts: {{whoIsActing.powerPointsRemaining}}/{{whoIsActing.powerPointsTotal}}</div>\r\n    </div>\r\n    <div class=\"row\">\r\n        <div class=\"col-2\">\r\n            &nbsp;\r\n        </div>\r\n        <div class=\"col-5 criticalModifiersArea\">\r\n            <span *ngIf=\"isCurrent\">{{whoIsActing.criticalModified}}</span>\r\n        </div>\r\n        <div class=\"col-5 criticalIgnoresArea\">\r\n            <span *ngIf=\"isCurrent\">{{whoIsActing.criticalIgnores}}</span>\r\n        </div>\r\n    </div>\r\n    <div class=\"row\">\r\n        <div class=\"col-1 hasteArea\">\r\n            <span class=\"hasted iconArea\" *ngIf=\"isCurrent && whoIsActing.percentAction > 100\">\r\n                <i class='material-icons'>directions_run</i>\r\n            </span>\r\n            <span class=\"slowed iconArea\" *ngIf=\"isCurrent && whoIsActing.percentAction < 100\">\r\n                <i class='material-icons'>slow_motion_video</i>\r\n            </span>\r\n        </div>\r\n        <div class=\"col-1 suprisedArea\">\r\n            <span class=\"suprised iconArea\" *ngIf=\"isCurrent && whoIsActing.suprised\">\r\n                <i class='material-icons'>alarm</i>\r\n            </span>\r\n        </div>\r\n        <div class=\"col-2 stunArea\">\r\n            <span class=\"stun iconAreaText\" *ngIf=\"isCurrent && currentCrits.isStunned\"><i class='material-icons'>emergency</i><span class=\"textMod\">->{{whoIsActing.stunRounds}}</span></span>\r\n        </div>\r\n        <div class=\"col-6\">\r\n            <div>\r\n                <span *ngIf=\"isCurrent && isControlledVisible && ((whoIsActing.negatives + action.currentModifier!=0) || (whoIsActing.spellNegatives + action.currentModifier!=0))\">Modifier: {{whoIsActing.negatives + action.currentModifier}}/{{whoIsActing.spellNegatives + action.currentModifier}}</span>\r\n                &nbsp;\r\n            </div>\r\n            <div>\r\n                <span *ngIf=\"isCurrent\">Armor-> {{currentArmor}}</span>\r\n                &nbsp;\r\n            </div>\r\n        </div>\r\n        <div class=\"col-2\">\r\n            <div>\r\n                &nbsp;\r\n            </div>\r\n            <div>\r\n                <span *ngIf=\"isCurrent && isControlledVisible\">DB->{{currentDB}}</span>\r\n            </div>\r\n        </div>\r\n\r\n    </div>\r\n    <div class=\"row\">\r\n        <div class=\"col-1\">\r\n            <span class=\"concentrating iconArea\" *ngIf=\"isCurrent && whoIsActing.isConcentrating\">\r\n                <i class='material-icons'>emoji_objects</i>\r\n            </span>\r\n        </div>\r\n        <div class=\"col-1\">\r\n            <span class=\"adrenal iconArea\" *ngIf=\"isCurrent && whoIsActing.usingAdrenalDB\">\r\n                <i class='material-icons'>run_circle</i>\r\n            </span>\r\n        </div>\r\n        <div class=\"col-2\">\r\n            <span class=\"mustParry iconAreaText\" *ngIf=\"isCurrent && isMustParry\"><i class='material-icons'>error</i><span class=\"textMod\">->{{whoIsActing.parryRounds}}</span></span>\r\n            <span class=\"noParry iconAreaText\" *ngIf=\"isCurrent && isNoParry\"><i class='material-icons'>priority_high</i><span class=\"textMod\">->{{whoIsActing.parryRounds}}</span></span>\r\n        </div>\r\n        <div class=\"col-6\">\r\n            <div *ngIf=\"isCurrent\">Weapon-> {{currentWeapon}}</div>\r\n        </div>\r\n        <div class=\"col-2\">\r\n            <div>\r\n                <span *ngIf=\"isCurrent && isControlledVisible\">OB->{{currentOB}}</span>\r\n            </div>\r\n        </div>\r\n\r\n    </div>\r\n    <!--{{action.actionTypeString}}<br />\r\n    {{action.stateString}}<br />\r\n    {{action.typeString}}<br />\r\n    {{action.reoccuring}}-->\r\n</div>\r\n");
 
 /***/ }),
 
@@ -214,7 +227,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\r\n<div class=\"list\">\r\n    <p *ngIf=\"!actions\"><em>Loading...</em></p>\r\n    <div class=\"mainActionList\">\r\n        <div class=\"ActorActionBack\" *ngFor=\"let action of actions\" [style.margin-left]=\"getLeft(action)\" >\r\n            <action-view [action]=\"action\" [isSelectable]=\"isSelectable\"  (onSelect)=\"selectAction($event)\"></action-view>\r\n        </div>\r\n    </div>\r\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("\r\n<div class=\"list\">\r\n    <p *ngIf=\"!actions\"><em>Loading...</em></p>\r\n    <div class=\"mainActionList\">\r\n        <div class=\"ActorActionBack\" *ngFor=\"let action of actions\" [style.margin-left]=\"getLeft(action)\" >\r\n            <action-view [action]=\"action\" [isSelectable]=\"isSelectable\"  (onSelect)=\"selectAction($event)\" [viewType]=\"viewType\"></action-view>\r\n        </div>\r\n    </div>\r\n</div>");
 
 /***/ }),
 
@@ -305,7 +318,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ul class=\"navbar-nav flex-grow-1\">\r\n  <li class=\"nav-item\">\r\n    <a class=\"nav-link text-dark\" [routerLink]=\"['/home']\">Home</a>\r\n  </li>\r\n  <li class=\"nav-item\" *ngIf=\"currentUser\">\r\n    <a class=\"nav-link text-dark\" [routerLink]=\"['/creatures']\">Creature Compendium</a>\r\n  </li>\r\n  <li class=\"nav-item\" *ngIf=\"currentUser\">\r\n    <a class=\"nav-link text-dark\" [routerLink]=\"['/mycreatures']\">My Creatures</a>\r\n  </li>\r\n  <!--<li class=\"nav-item\" *ngIf=\"currentUser\">\r\n      <select name=\"gameSystem\" class=\"form-control\"\r\n              [(ngModel)]=\"systemSettings.gameSystem\" (ngModelChange)=\"onChange($event)\">\r\n          <option *ngFor=\"let gtype of gameTypes\" [value]=\"gtype.value\">{{gtype.name}}</option>\r\n      </select>\r\n  </li>-->\r\n  <!--<li class=\"nav-item\">\r\n    <a class=\"nav-link text-dark\" asp-area=\"\" asp-controller=\"Home\" asp-action=\"Privacy\">Privacy</a>\r\n  </li>-->\r\n</ul>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<ul class=\"navbar-nav flex-grow-1\">\r\n    <li class=\"nav-item\">\r\n        <a class=\"nav-link text-dark\" [routerLink]=\"['/home']\">Home</a>\r\n    </li>\r\n    <li class=\"nav-item\" *ngIf=\"currentUser\">\r\n        <a class=\"nav-link dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\">\r\n            Encounters</a>\r\n        <ul class=\"dropdown-menu\">\r\n            <li class=\"dropdown-item\" >\r\n                <a class=\"nav-link text-dark\" [routerLink]=\"['/creatures']\">Create New Encounter</a>\r\n            </li>\r\n            <li class=\"dropdown-item\" *ngFor=\"let game of games\">\r\n                <a class=\"nav-link text-dark\" [routerLink]=\"['/encountor', game.id]\">{{game.name}} - {{game.gameTypeString}}</a>\r\n            </li>\r\n        </ul>\r\n    </li>\r\n    <li class=\"nav-item\" *ngIf=\"currentUser\">\r\n        <a class=\"nav-link text-dark\" [routerLink]=\"['/creatures']\">Creature Compendium</a>\r\n    </li>\r\n    <li class=\"nav-item\" *ngIf=\"currentUser\">\r\n        <a class=\"nav-link text-dark\" [routerLink]=\"['/mycreatures']\">My Creatures</a>\r\n    </li>\r\n    <!--<li class=\"nav-item\" *ngIf=\"currentUser\">\r\n        <select name=\"gameSystem\" class=\"form-control\"\r\n                [(ngModel)]=\"systemSettings.gameSystem\" (ngModelChange)=\"onChange($event)\">\r\n            <option *ngFor=\"let gtype of gameTypes\" [value]=\"gtype.value\">{{gtype.name}}</option>\r\n        </select>\r\n    </li>-->\r\n    <!--<li class=\"nav-item\">\r\n      <a class=\"nav-link text-dark\" asp-area=\"\" asp-controller=\"Home\" asp-action=\"Privacy\">Privacy</a>\r\n    </li>-->\r\n</ul>\r\n");
 
 /***/ }),
 
@@ -357,7 +370,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div style=\"border: 1px solid red; height: 100%;\">\r\n    <div class=\"row\">\r\n        <div class=\"list\">\r\n            encounter Component\r\n        </div>\r\n        <div class=\"edit\">\r\n            <actions-list [actions]=\"actions\"></actions-list>\r\n        </div>\r\n\r\n\r\n    </div>\r\n    \r\n    \r\n    \r\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"h-100\">\r\n    <div class=\"row h-100\">\r\n        <div class=\"col-2 h-100\" *ngIf=\"isGM\">\r\n            <div class=\"encounter-box\">\r\n                <h2>Library</h2>\r\n                encounter Component\r\n            </div>\r\n        </div>\r\n        <div class=\"h-100\" [ngClass]=\"{'col-6': isGM,\r\n                                       'col-7': !isGM}\">\r\n            <actor-list [actors]=\"actors\" [viewType]=\"viewType\" (onSelect)=\"selectActor($event)\"></actor-list>\r\n        </div>\r\n        <div class=\"h-100\" [ngClass]=\"{'col-4': isGM,\r\n                                       'col-5': !isGM}\">\r\n            <div class=\"encounter-box actionsList\">\r\n                <h2>Actions</h2>\r\n                <actions-list [actions]=\"actions\" [viewType]=\"viewType\" (onSelect)=\"selectAction($event)\"></actions-list>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>");
 
 /***/ }),
 
@@ -370,7 +383,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<h1>Combat Environment Activity Tracking System</h1>\r\n<h2>Hello {{name}}</h2>\r\n<p>CEATSii second by second, threaded combat system</p>\r\n\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container\">\r\n    <h1>Combat Environment Activity Tracking System</h1>\r\n    <h2>Hello {{name}}</h2>\r\n    <p>CEATSii second by second, threaded combat system</p>\r\n</div>\r\n");
 
 /***/ }),
 
@@ -646,11 +659,17 @@ let ApiPathInterceptor = class ApiPathInterceptor {
     constructor() {
     }
     intercept(req, next) {
-        var bUrl = ''; //this.getBaseUrl();
+        var bUrl = this.getBaseUrl();
+        if (bUrl == "/") {
+            bUrl = "";
+        }
         var rUrl = req.url;
-        ////debugger;
+        //debugger;
         const apiReq = req.clone({ url: bUrl + `/${rUrl}` });
         return next.handle(apiReq);
+    }
+    getBaseUrl() {
+        return document.getElementsByTagName('baseapi')[0].attributes[0].nodeValue;
     }
 };
 ApiPathInterceptor = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -1099,7 +1118,7 @@ const LoginActions = {
 };
 let applicationPaths = {
     DefaultLoginRedirectPath: '/',
-    ApiAuthorizationClientConfigurationUrl: `_configuration/${ApplicationName}`,
+    ApiAuthorizationClientConfigurationUrl: `/_configuration/${ApplicationName}`,
     Login: `authentication/${LoginActions.Login}`,
     LoginFailed: `authentication/${LoginActions.LoginFailed}`,
     LoginCallback: `authentication/${LoginActions.LoginCallback}`,
@@ -1967,7 +1986,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_attack__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @/components/attack */ "./src/app/components/attack/index.ts");
 /* harmony import */ var _components_weapon__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @/components/weapon */ "./src/app/components/weapon/index.ts");
 /* harmony import */ var _components_encounter__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @/components/encounter */ "./src/app/components/encounter/index.ts");
-/* harmony import */ var _components_actor_actor_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/actor/actor.component */ "./src/app/components/actor/actor.component.ts");
+/* harmony import */ var _components_actor___WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! @/components/actor/ */ "./src/app/components/actor/index.ts");
 /* harmony import */ var _elements__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! @/elements */ "./src/app/elements/index.ts");
 /* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
 /* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! @/_helpers */ "./src/app/_helpers/index.ts");
@@ -2027,7 +2046,8 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _components_character__WEBPACK_IMPORTED_MODULE_13__["CharacterListComponent"],
             _components_creature__WEBPACK_IMPORTED_MODULE_14__["CreatureListComponent"],
             _components_creature__WEBPACK_IMPORTED_MODULE_14__["CreatureEditComponent"],
-            _components_actor_actor_component__WEBPACK_IMPORTED_MODULE_19__["ActorComponent"],
+            _components_actor___WEBPACK_IMPORTED_MODULE_19__["ActorComponent"],
+            _components_actor___WEBPACK_IMPORTED_MODULE_19__["ActorListComponent"],
             _top_encounter__WEBPACK_IMPORTED_MODULE_8__["EncounterComponent"],
             _components_armor__WEBPACK_IMPORTED_MODULE_15__["ArmorListComponent"],
             _components_armor__WEBPACK_IMPORTED_MODULE_15__["ArmorEditComponent"],
@@ -2054,6 +2074,10 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _app_routing_module__WEBPACK_IMPORTED_MODULE_21__["AppRoutingModule"]
         ],
         providers: [
+            //{
+            //    provide: 'BASE_URL',
+            //    useFactory: getBaseUrl
+            //},
             //{
             //  provide: 'BASE_URL',
             //  useFactory: getBaseUrl
@@ -2089,7 +2113,7 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 ], AppModule);
 
 //export function getBaseUrl() {
-//  return document.getElementsByTagName('base')[0].href;
+//    return (<any>document.getElementsByTagName('baseAction')[0]).href;
 //}
 
 
@@ -2174,6 +2198,198 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./src/app/components/actor/actor-list.component.less":
+/*!************************************************************!*\
+  !*** ./src/app/components/actor/actor-list.component.less ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvYWN0b3IvYWN0b3ItbGlzdC5jb21wb25lbnQubGVzcyJ9 */");
+
+/***/ }),
+
+/***/ "./src/app/components/actor/actor-list.component.ts":
+/*!**********************************************************!*\
+  !*** ./src/app/components/actor/actor-list.component.ts ***!
+  \**********************************************************/
+/*! exports provided: ActorListComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ActorListComponent", function() { return ActorListComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _entities_EnumDefinitions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/entities/EnumDefinitions */ "./src/app/entities/EnumDefinitions.ts");
+/* harmony import */ var _entities__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/entities */ "./src/app/entities/index.ts");
+/* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/services */ "./src/app/services/index.ts");
+
+
+
+
+var ParryType = _entities_EnumDefinitions__WEBPACK_IMPORTED_MODULE_2__["EnumDefinitions"].ParryType;
+var ViewTypeEnum = _entities_EnumDefinitions__WEBPACK_IMPORTED_MODULE_2__["EnumDefinitions"].ViewTypeEnum;
+var CharacterType = _entities_EnumDefinitions__WEBPACK_IMPORTED_MODULE_2__["EnumDefinitions"].CharacterType;
+
+let ActorListComponent = 
+/** Actor-List component*/
+class ActorListComponent {
+    //public selectedActor: Actor = null;
+    /** Actor-List ctor */
+    constructor(gameView) {
+        this.gameView = gameView;
+        this.actors = new Array();
+        //@Input() actions: Array<BaseAction> = new Array<BaseAction>();
+        this.isSelectable = false;
+        this.viewType = ViewTypeEnum.Overview;
+        this.onSelect = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        this.selectActor = (actor) => tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            if (this.isSelectable) {
+                this.onSelect.next(actor);
+            }
+        });
+        this.curAction = (actor) => {
+            var act = actor.currentAction;
+            return act;
+        };
+        this.currentArmor = (actor) => {
+            if (actor != null && actor.currentArmor != null) {
+                return '' + actor.currentArmor.type;
+            }
+            return "";
+        };
+        this.currentWeapon = (actor) => {
+            var ac = this.curAction(actor);
+            //debugger;
+            if (ac != null && ac.currentAttack != null && ac.currentAttack.attackType != null) {
+                if (ac.currentAttack.attackType.name == "Weapon") {
+                    if (ac.currentAttack.weaponUsed != null) {
+                        return ac.currentAttack.weaponUsed.name;
+                    }
+                }
+                else {
+                    return ac.currentAttack.sizeRating.name + " " + ac.currentAttack.attackType.name;
+                }
+            }
+            return "None";
+        };
+        this.currentModifier = (actor) => {
+            var ac = this.curAction(actor);
+            if (ac != null) {
+                return this.curAction(actor).currentModifier;
+            }
+            return 0;
+        };
+        this.isMustParry = (actor) => {
+            return this.currentCrits(actor).parry == ParryType.Must_Parry;
+        };
+        this.isNoParry = (actor) => {
+            return this.currentCrits(actor).parry == ParryType.No_Parry;
+        };
+        this.currentCrits = (actor) => {
+            if (actor.currentCrits == null) {
+                return new _entities__WEBPACK_IMPORTED_MODULE_3__["CriticalEffect"]();
+            }
+            return actor.currentCrits;
+        };
+        this.currentOB = (actor) => {
+            var ac = this.curAction(actor);
+            if (ac != null && ac.currentAttack != null) {
+                var i = 0;
+                if (actor.currentCrits != null) {
+                    i = actor.currentCrits.parryNegative;
+                }
+                return '' + ac.currentAttack.ob + i;
+            }
+            return "";
+        };
+        this.baseDB = (actor) => {
+            var ac = this.curAction(actor);
+            if (ac != null && actor != null && actor.currentArmor != null) {
+                return '' + actor.currentArmor.db;
+            }
+            return "";
+        };
+        this.currentDB = (actor) => {
+            var ac = this.curAction(actor);
+            if (ac != null && actor != null && actor.currentArmor != null) {
+                if (ac.currentAttack != null) {
+                    return '' + (actor.currentArmor.db);
+                }
+                return '' + actor.currentArmor.db;
+            }
+            return "";
+        };
+        this.currentBackColor = (actor) => {
+            //var ac = this.curAction(actor);
+            return "rgba(" + actor.color + ")";
+        };
+    }
+    get isGM() {
+        return this.viewType == ViewTypeEnum.GM;
+    }
+    get isPlayer() {
+        return this.viewType == ViewTypeEnum.Player;
+    }
+    get isViewOnly() {
+        return this.viewType == ViewTypeEnum.Overview;
+    }
+    isPC(actor) {
+        if (actor != null) {
+            return actor.type == CharacterType.PC;
+        }
+        return false;
+    }
+    get isCurrentUser() {
+        return false;
+    }
+    isControlledVisible(actor) {
+        return this.isGM || (this.isViewOnly && this.isPC(actor)) || (this.isPlayer && this.isCurrentUser);
+    }
+    currentTime(actor) {
+        if (actor.currentAction != null) {
+            return '' + Math.floor(actor.currentAction.endTime * 100) / 100;
+        }
+        return "";
+    }
+};
+ActorListComponent.ctorParameters = () => [
+    { type: _services__WEBPACK_IMPORTED_MODULE_4__["EncounterService"] }
+];
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Array)
+], ActorListComponent.prototype, "actors", void 0);
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Boolean)
+], ActorListComponent.prototype, "isSelectable", void 0);
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Number)
+], ActorListComponent.prototype, "viewType", void 0);
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
+], ActorListComponent.prototype, "onSelect", void 0);
+ActorListComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'actor-list',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./actor-list.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/actor/actor-list.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./actor-list.component.less */ "./src/app/components/actor/actor-list.component.less")).default]
+    })
+    /** Actor-List component*/
+    ,
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services__WEBPACK_IMPORTED_MODULE_4__["EncounterService"]])
+], ActorListComponent);
+
+
+
+/***/ }),
+
 /***/ "./src/app/components/actor/actor.component.css":
 /*!******************************************************!*\
   !*** ./src/app/components/actor/actor.component.css ***!
@@ -2236,6 +2452,29 @@ ActorComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
         _services__WEBPACK_IMPORTED_MODULE_3__["EncounterService"]])
 ], ActorComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/actor/index.ts":
+/*!*******************************************!*\
+  !*** ./src/app/components/actor/index.ts ***!
+  \*******************************************/
+/*! exports provided: ActorListComponent, ActorComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _actor_list_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./actor-list.component */ "./src/app/components/actor/actor-list.component.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ActorListComponent", function() { return _actor_list_component__WEBPACK_IMPORTED_MODULE_1__["ActorListComponent"]; });
+
+/* harmony import */ var _actor_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./actor.component */ "./src/app/components/actor/actor.component.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ActorComponent", function() { return _actor_component__WEBPACK_IMPORTED_MODULE_2__["ActorComponent"]; });
+
+
+
 
 
 
@@ -3140,7 +3379,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("/*\r\n    279,97\r\n    280,98\r\n*/\r\n.ActorAction {\r\n    border: 1px solid red;\r\n    width: 134px;\r\n    height: 49px;\r\n\r\n    width: 262px;\r\n    height: 90px;\r\n    padding: 3px 8px 3px 8px;\r\n    overflow: hidden;\r\n    font-size: .73em;\r\n    white-space: nowrap;\r\n    color: Black;\r\n    border-radius: 5px;\r\n    line-height: 1em;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9lbmNvdW50ZXIvYWN0aW9uLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7OztDQUdDO0FBQ0Q7SUFDSSxxQkFBcUI7SUFDckIsWUFBWTtJQUNaLFlBQVk7O0lBRVosWUFBWTtJQUNaLFlBQVk7SUFDWix3QkFBd0I7SUFDeEIsZ0JBQWdCO0lBQ2hCLGdCQUFnQjtJQUNoQixtQkFBbUI7SUFDbkIsWUFBWTtJQUNaLGtCQUFrQjtJQUNsQixnQkFBZ0I7QUFDcEIiLCJmaWxlIjoic3JjL2FwcC9jb21wb25lbnRzL2VuY291bnRlci9hY3Rpb24uY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi8qXHJcbiAgICAyNzksOTdcclxuICAgIDI4MCw5OFxyXG4qL1xyXG4uQWN0b3JBY3Rpb24ge1xyXG4gICAgYm9yZGVyOiAxcHggc29saWQgcmVkO1xyXG4gICAgd2lkdGg6IDEzNHB4O1xyXG4gICAgaGVpZ2h0OiA0OXB4O1xyXG5cclxuICAgIHdpZHRoOiAyNjJweDtcclxuICAgIGhlaWdodDogOTBweDtcclxuICAgIHBhZGRpbmc6IDNweCA4cHggM3B4IDhweDtcclxuICAgIG92ZXJmbG93OiBoaWRkZW47XHJcbiAgICBmb250LXNpemU6IC43M2VtO1xyXG4gICAgd2hpdGUtc3BhY2U6IG5vd3JhcDtcclxuICAgIGNvbG9yOiBCbGFjaztcclxuICAgIGJvcmRlci1yYWRpdXM6IDVweDtcclxuICAgIGxpbmUtaGVpZ2h0OiAxZW07XHJcbn1cclxuIl19 */");
+/* harmony default export */ __webpack_exports__["default"] = ("/*\r\n    279,97\r\n    280,98\r\n*/\r\n\r\n.col, .col-1, .col-10, .col-11, .col-12, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-auto, .col-lg, .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-auto, .col-md, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-auto, .col-sm, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-auto, .col-xl, .col-xl-1, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-auto {\r\n    padding-left: 0px;\r\n    padding-right: 0px;\r\n    overflow:hidden;\r\n}\r\n\r\n.nameArea {\r\n\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9lbmNvdW50ZXIvYWN0aW9uLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7OztDQUdDOztBQUVEO0lBQ0ksaUJBQWlCO0lBQ2pCLGtCQUFrQjtJQUNsQixlQUFlO0FBQ25COztBQUNBOztBQUVBIiwiZmlsZSI6InNyYy9hcHAvY29tcG9uZW50cy9lbmNvdW50ZXIvYWN0aW9uLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIvKlxyXG4gICAgMjc5LDk3XHJcbiAgICAyODAsOThcclxuKi9cclxuXHJcbi5jb2wsIC5jb2wtMSwgLmNvbC0xMCwgLmNvbC0xMSwgLmNvbC0xMiwgLmNvbC0yLCAuY29sLTMsIC5jb2wtNCwgLmNvbC01LCAuY29sLTYsIC5jb2wtNywgLmNvbC04LCAuY29sLTksIC5jb2wtYXV0bywgLmNvbC1sZywgLmNvbC1sZy0xLCAuY29sLWxnLTEwLCAuY29sLWxnLTExLCAuY29sLWxnLTEyLCAuY29sLWxnLTIsIC5jb2wtbGctMywgLmNvbC1sZy00LCAuY29sLWxnLTUsIC5jb2wtbGctNiwgLmNvbC1sZy03LCAuY29sLWxnLTgsIC5jb2wtbGctOSwgLmNvbC1sZy1hdXRvLCAuY29sLW1kLCAuY29sLW1kLTEsIC5jb2wtbWQtMTAsIC5jb2wtbWQtMTEsIC5jb2wtbWQtMTIsIC5jb2wtbWQtMiwgLmNvbC1tZC0zLCAuY29sLW1kLTQsIC5jb2wtbWQtNSwgLmNvbC1tZC02LCAuY29sLW1kLTcsIC5jb2wtbWQtOCwgLmNvbC1tZC05LCAuY29sLW1kLWF1dG8sIC5jb2wtc20sIC5jb2wtc20tMSwgLmNvbC1zbS0xMCwgLmNvbC1zbS0xMSwgLmNvbC1zbS0xMiwgLmNvbC1zbS0yLCAuY29sLXNtLTMsIC5jb2wtc20tNCwgLmNvbC1zbS01LCAuY29sLXNtLTYsIC5jb2wtc20tNywgLmNvbC1zbS04LCAuY29sLXNtLTksIC5jb2wtc20tYXV0bywgLmNvbC14bCwgLmNvbC14bC0xLCAuY29sLXhsLTEwLCAuY29sLXhsLTExLCAuY29sLXhsLTEyLCAuY29sLXhsLTIsIC5jb2wteGwtMywgLmNvbC14bC00LCAuY29sLXhsLTUsIC5jb2wteGwtNiwgLmNvbC14bC03LCAuY29sLXhsLTgsIC5jb2wteGwtOSwgLmNvbC14bC1hdXRvIHtcclxuICAgIHBhZGRpbmctbGVmdDogMHB4O1xyXG4gICAgcGFkZGluZy1yaWdodDogMHB4O1xyXG4gICAgb3ZlcmZsb3c6aGlkZGVuO1xyXG59XHJcbi5uYW1lQXJlYSB7XHJcblxyXG59Il19 */");
 
 /***/ }),
 
@@ -3157,9 +3396,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _entities__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/entities */ "./src/app/entities/index.ts");
+/* harmony import */ var _entities_EnumDefinitions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/entities/EnumDefinitions */ "./src/app/entities/EnumDefinitions.ts");
 
 
 
+
+var ParryType = _entities_EnumDefinitions__WEBPACK_IMPORTED_MODULE_3__["EnumDefinitions"].ParryType;
+var ActionTypeEnum = _entities_EnumDefinitions__WEBPACK_IMPORTED_MODULE_3__["EnumDefinitions"].ActionTypeEnum;
+var ViewTypeEnum = _entities_EnumDefinitions__WEBPACK_IMPORTED_MODULE_3__["EnumDefinitions"].ViewTypeEnum;
+var CharacterType = _entities_EnumDefinitions__WEBPACK_IMPORTED_MODULE_3__["EnumDefinitions"].CharacterType;
+//ParryType
 let ActionComponent = 
 /** action component*/
 class ActionComponent {
@@ -3167,14 +3413,101 @@ class ActionComponent {
     constructor() {
         //this.action.note
         this.isSelectable = false;
+        this.viewType = ViewTypeEnum.Overview;
         this.onSelect = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
         //this.action.actionTypeString
         //this.action.stateString
         //this.action.typeString
         //this.action.reoccuring
+        //this.action.whoIsActing.
+        //this.action.currentAttack.
     }
-    getColor() {
-        return "rgba(" + this.action.color + ")";
+    get isGM() {
+        return this.viewType == ViewTypeEnum.GM;
+    }
+    get isPlayer() {
+        return this.viewType == ViewTypeEnum.Player;
+    }
+    get isViewOnly() {
+        return this.viewType == ViewTypeEnum.Overview;
+    }
+    get isPC() {
+        if (this.action != null && this.action.whoIsActing != null) {
+            return this.action.whoIsActing.type == CharacterType.PC;
+        }
+        return false;
+    }
+    get isCurrentUser() {
+        return false;
+    }
+    get isControlledVisible() {
+        return this.isGM || (this.isViewOnly && this.isPC) || (this.isPlayer && this.isCurrentUser);
+    }
+    get isCurrent() {
+        //return true;
+        return this.action.actionType == ActionTypeEnum.Current;
+    }
+    get whoIsActing() {
+        return this.action.whoIsActing;
+    }
+    get currentTime() {
+        return '' + Math.floor(this.action.endTime * 100) / 100;
+    }
+    get currentCrits() {
+        var cc = this.action.whoIsActing.currentCrits;
+        if (cc == null) {
+            cc = new _entities__WEBPACK_IMPORTED_MODULE_2__["CriticalEffect"]();
+        }
+        return cc;
+    }
+    get currentArmor() {
+        if (this.action != null && this.action.whoIsActing != null && this.action.whoIsActing.currentArmor != null) {
+            return '' + this.action.whoIsActing.currentArmor.type;
+        }
+        return "";
+    }
+    get currentWeapon() {
+        var ac = this.action;
+        //debugger;
+        if (this.action.currentAttack != null && this.action.currentAttack.attackType != null) {
+            if (this.action.currentAttack.attackType.name == "Weapon") {
+                if (this.action.currentAttack.weaponUsed != null) {
+                    return this.action.currentAttack.weaponUsed.name;
+                }
+            }
+            else {
+                return ac.currentAttack.sizeRating.name + " " + ac.currentAttack.attackType.name;
+            }
+        }
+        return "None";
+    }
+    get isMustParry() {
+        return this.currentCrits.parry == ParryType.Must_Parry;
+    }
+    get isNoParry() {
+        return this.currentCrits.parry == ParryType.No_Parry;
+    }
+    get currentOB() {
+        if (this.action != null && this.action.currentAttack != null) {
+            var i = 0;
+            if (this.action.whoIsActing.currentCrits != null) {
+                i = this.action.whoIsActing.currentCrits.parryNegative;
+            }
+            return '' + this.action.currentAttack.ob + i;
+        }
+        return "";
+    }
+    get currentDB() {
+        if (this.action != null && this.action.whoIsActing != null && this.action.whoIsActing.currentArmor != null) {
+            return '' + this.action.whoIsActing.currentArmor.db;
+        }
+        return "";
+    }
+    get currentBorderColor() {
+        return "rgb(" + this.action.whoIsActing.color + ")";
+    }
+    get currentBackColor() {
+        return "rgba(" + this.action.whoIsActing.color + ", 0.25)";
     }
 };
 tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -3185,6 +3518,10 @@ tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
     tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Boolean)
 ], ActionComponent.prototype, "isSelectable", void 0);
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Number)
+], ActionComponent.prototype, "viewType", void 0);
 tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
     tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
@@ -3213,7 +3550,7 @@ ActionComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\r\n/*\r\n    280,98\r\n*/\r\n.mainActionList {\r\n    padding-right: 150px;\r\n\r\n    padding-right: 280px;\r\n    overflow-x: visible;\r\n    overflow-y: auto;\r\n    height: 100%;\r\n}\r\n.list {\r\n    height: 100%;\r\n    border: 2px solid grey;\r\n    border-radius: 5px;\r\n}\r\n.ActorActionBack {\r\n    background: #fff;\r\n    width: 150px;\r\n    height: 55px;\r\n    width: 280px;\r\n    height: 98px;\r\n    overflow: hidden;\r\n    white-space: nowrap;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9lbmNvdW50ZXIvYWN0aW9ucy1saXN0LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IjtBQUNBOztDQUVDO0FBQ0Q7SUFDSSxvQkFBb0I7O0lBRXBCLG9CQUFvQjtJQUNwQixtQkFBbUI7SUFDbkIsZ0JBQWdCO0lBQ2hCLFlBQVk7QUFDaEI7QUFDQTtJQUNJLFlBQVk7SUFDWixzQkFBc0I7SUFDdEIsa0JBQWtCO0FBQ3RCO0FBRUE7SUFDSSxnQkFBZ0I7SUFDaEIsWUFBWTtJQUNaLFlBQVk7SUFDWixZQUFZO0lBQ1osWUFBWTtJQUNaLGdCQUFnQjtJQUNoQixtQkFBbUI7QUFDdkIiLCJmaWxlIjoic3JjL2FwcC9jb21wb25lbnRzL2VuY291bnRlci9hY3Rpb25zLWxpc3QuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIlxyXG4vKlxyXG4gICAgMjgwLDk4XHJcbiovXHJcbi5tYWluQWN0aW9uTGlzdCB7XHJcbiAgICBwYWRkaW5nLXJpZ2h0OiAxNTBweDtcclxuXHJcbiAgICBwYWRkaW5nLXJpZ2h0OiAyODBweDtcclxuICAgIG92ZXJmbG93LXg6IHZpc2libGU7XHJcbiAgICBvdmVyZmxvdy15OiBhdXRvO1xyXG4gICAgaGVpZ2h0OiAxMDAlO1xyXG59XHJcbi5saXN0IHtcclxuICAgIGhlaWdodDogMTAwJTtcclxuICAgIGJvcmRlcjogMnB4IHNvbGlkIGdyZXk7XHJcbiAgICBib3JkZXItcmFkaXVzOiA1cHg7XHJcbn1cclxuXHJcbi5BY3RvckFjdGlvbkJhY2sge1xyXG4gICAgYmFja2dyb3VuZDogI2ZmZjtcclxuICAgIHdpZHRoOiAxNTBweDtcclxuICAgIGhlaWdodDogNTVweDtcclxuICAgIHdpZHRoOiAyODBweDtcclxuICAgIGhlaWdodDogOThweDtcclxuICAgIG92ZXJmbG93OiBoaWRkZW47XHJcbiAgICB3aGl0ZS1zcGFjZTogbm93cmFwO1xyXG59Il19 */");
+/* harmony default export */ __webpack_exports__["default"] = ("\r\n/*\r\n    280,98\r\n*/\r\n.mainActionList {\r\n    padding-right: 160px;\r\n\r\n    padding-right: 300px;\r\n    overflow-x: visible;\r\n    overflow-y: auto;\r\n    height: 98%;\r\n    margin: 5px;\r\n}\r\n.list {\r\n    height: 90%;\r\n    /*border: 2px solid grey;*/\r\n    border-radius: 5px;\r\n    border: 1px solid rgb(100,100,100);\r\n    background: whitesmoke;\r\n}\r\n.ActorActionBack {\r\n    background: transparent;\r\n    width: 150px;\r\n    height: 55px;\r\n    width: 300px;\r\n    height: 98px;\r\n    overflow: hidden;\r\n    white-space: nowrap;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9lbmNvdW50ZXIvYWN0aW9ucy1saXN0LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IjtBQUNBOztDQUVDO0FBQ0Q7SUFDSSxvQkFBb0I7O0lBRXBCLG9CQUFvQjtJQUNwQixtQkFBbUI7SUFDbkIsZ0JBQWdCO0lBQ2hCLFdBQVc7SUFDWCxXQUFXO0FBQ2Y7QUFDQTtJQUNJLFdBQVc7SUFDWCwwQkFBMEI7SUFDMUIsa0JBQWtCO0lBQ2xCLGtDQUFrQztJQUNsQyxzQkFBc0I7QUFDMUI7QUFFQTtJQUNJLHVCQUF1QjtJQUN2QixZQUFZO0lBQ1osWUFBWTtJQUNaLFlBQVk7SUFDWixZQUFZO0lBQ1osZ0JBQWdCO0lBQ2hCLG1CQUFtQjtBQUN2QiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvZW5jb3VudGVyL2FjdGlvbnMtbGlzdC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiXHJcbi8qXHJcbiAgICAyODAsOThcclxuKi9cclxuLm1haW5BY3Rpb25MaXN0IHtcclxuICAgIHBhZGRpbmctcmlnaHQ6IDE2MHB4O1xyXG5cclxuICAgIHBhZGRpbmctcmlnaHQ6IDMwMHB4O1xyXG4gICAgb3ZlcmZsb3cteDogdmlzaWJsZTtcclxuICAgIG92ZXJmbG93LXk6IGF1dG87XHJcbiAgICBoZWlnaHQ6IDk4JTtcclxuICAgIG1hcmdpbjogNXB4O1xyXG59XHJcbi5saXN0IHtcclxuICAgIGhlaWdodDogOTAlO1xyXG4gICAgLypib3JkZXI6IDJweCBzb2xpZCBncmV5OyovXHJcbiAgICBib3JkZXItcmFkaXVzOiA1cHg7XHJcbiAgICBib3JkZXI6IDFweCBzb2xpZCByZ2IoMTAwLDEwMCwxMDApO1xyXG4gICAgYmFja2dyb3VuZDogd2hpdGVzbW9rZTtcclxufVxyXG5cclxuLkFjdG9yQWN0aW9uQmFjayB7XHJcbiAgICBiYWNrZ3JvdW5kOiB0cmFuc3BhcmVudDtcclxuICAgIHdpZHRoOiAxNTBweDtcclxuICAgIGhlaWdodDogNTVweDtcclxuICAgIHdpZHRoOiAzMDBweDtcclxuICAgIGhlaWdodDogOThweDtcclxuICAgIG92ZXJmbG93OiBoaWRkZW47XHJcbiAgICB3aGl0ZS1zcGFjZTogbm93cmFwO1xyXG59Il19 */");
 
 /***/ }),
 
@@ -3229,24 +3566,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ActionsListComponent", function() { return ActionsListComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _entities_EnumDefinitions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/entities/EnumDefinitions */ "./src/app/entities/EnumDefinitions.ts");
 
 
+
+var ViewTypeEnum = _entities_EnumDefinitions__WEBPACK_IMPORTED_MODULE_2__["EnumDefinitions"].ViewTypeEnum;
 let ActionsListComponent = 
 /** actions-list component*/
 class ActionsListComponent {
+    //public selectedAction: BaseAction = null;
     /** actions-list ctor */
     constructor() {
         this.actions = new Array();
         this.isSelectable = false;
+        this.viewType = ViewTypeEnum.Overview;
         this.onSelect = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
-        this.selectedAction = null;
     }
     ngOnInit() { }
     ngOnChanges() {
         //this.cdr.detectChanges();
     }
     selectAction(action) {
-        this.selectedAction = action;
         if (this.isSelectable) {
             this.onSelect.next(action);
         }
@@ -3264,6 +3604,10 @@ tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
     tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Boolean)
 ], ActionsListComponent.prototype, "isSelectable", void 0);
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Number)
+], ActionsListComponent.prototype, "viewType", void 0);
 tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
     tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
@@ -4385,6 +4729,12 @@ __webpack_require__.r(__webpack_exports__);
 
 var EnumDefinitions;
 (function (EnumDefinitions) {
+    let ViewTypeEnum;
+    (function (ViewTypeEnum) {
+        ViewTypeEnum[ViewTypeEnum["Overview"] = 0] = "Overview";
+        ViewTypeEnum[ViewTypeEnum["Player"] = 1] = "Player";
+        ViewTypeEnum[ViewTypeEnum["GM"] = 2] = "GM";
+    })(ViewTypeEnum = EnumDefinitions.ViewTypeEnum || (EnumDefinitions.ViewTypeEnum = {}));
     let SecurityRoles;
     (function (SecurityRoles) {
         SecurityRoles[SecurityRoles["None"] = 0] = "None";
@@ -4403,6 +4753,14 @@ var EnumDefinitions;
         GameType[GameType["RMSS"] = 0] = "RMSS";
         GameType[GameType["DnD5e"] = 1] = "DnD5e";
     })(GameType = EnumDefinitions.GameType || (EnumDefinitions.GameType = {}));
+    let DamageLevel;
+    (function (DamageLevel) {
+        DamageLevel[DamageLevel["Healthy"] = 0] = "Healthy";
+        DamageLevel[DamageLevel["Winded"] = 1] = "Winded";
+        DamageLevel[DamageLevel["Bloodied"] = 2] = "Bloodied";
+        DamageLevel[DamageLevel["Rough"] = 3] = "Rough";
+        DamageLevel[DamageLevel["Dead"] = 4] = "Dead";
+    })(DamageLevel = EnumDefinitions.DamageLevel || (EnumDefinitions.DamageLevel = {}));
     let CriticalLevels;
     (function (CriticalLevels) {
         CriticalLevels[CriticalLevels["Same"] = 0] = "Same";
@@ -4817,71 +5175,69 @@ class WeaponType {
 /*!***********************************!*\
   !*** ./src/app/entities/index.ts ***!
   \***********************************/
-/*! exports provided: EnumDefinitions, ActionDefinition, ActionGroup, Actor, ApplicationUser, Armor, Attack, AttackType, AuthenticateModel, BaseAction, Book, Character, ConstitutionBonusChart, ConstitutionBonusChartValues, Creature, CriticalCode, CriticalEffect, CriticalIgnore, CriticalType, Dice, Game, IQ, LevelChart, LevelChartValue, MoveNextResult, MySettings, Outlook, Pace, PsychicRefractoryPeriodEntry, ReferenceEntry, RegisterModel, SizeRating, SpeedChart, UpdateModel, UserModel, Weapon, WeaponType */
+/*! exports provided: EnumDefinitions, Actor, BaseAction, ActionDefinition, ActionGroup, ApplicationUser, Armor, Attack, AttackType, AuthenticateModel, Book, Character, ConstitutionBonusChart, ConstitutionBonusChartValues, Creature, CriticalCode, CriticalEffect, CriticalIgnore, CriticalType, Dice, Game, IQ, LevelChart, LevelChartValue, MoveNextResult, MySettings, Outlook, Pace, PsychicRefractoryPeriodEntry, ReferenceEntry, RegisterModel, SizeRating, SpeedChart, UpdateModel, UserModel, Weapon, WeaponType */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Actor", function() { return Actor; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BaseAction", function() { return BaseAction; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _ActionDefinition__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ActionDefinition */ "./src/app/entities/ActionDefinition.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ActionDefinition", function() { return _ActionDefinition__WEBPACK_IMPORTED_MODULE_1__["ActionDefinition"]; });
+/* harmony import */ var _Actor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Actor */ "./src/app/entities/Actor.ts");
+/* harmony import */ var _BaseAction__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./BaseAction */ "./src/app/entities/BaseAction.ts");
+/* harmony import */ var _EnumDefinitions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./EnumDefinitions */ "./src/app/entities/EnumDefinitions.ts");
+/* harmony import */ var _ActionDefinition__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ActionDefinition */ "./src/app/entities/ActionDefinition.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ActionDefinition", function() { return _ActionDefinition__WEBPACK_IMPORTED_MODULE_4__["ActionDefinition"]; });
 
-/* harmony import */ var _ActionGroup__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ActionGroup */ "./src/app/entities/ActionGroup.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ActionGroup", function() { return _ActionGroup__WEBPACK_IMPORTED_MODULE_2__["ActionGroup"]; });
+/* harmony import */ var _ActionGroup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ActionGroup */ "./src/app/entities/ActionGroup.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ActionGroup", function() { return _ActionGroup__WEBPACK_IMPORTED_MODULE_5__["ActionGroup"]; });
 
-/* harmony import */ var _Actor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Actor */ "./src/app/entities/Actor.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Actor", function() { return _Actor__WEBPACK_IMPORTED_MODULE_3__["Actor"]; });
+/* harmony import */ var _ApplicationUser__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ApplicationUser */ "./src/app/entities/ApplicationUser.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ApplicationUser", function() { return _ApplicationUser__WEBPACK_IMPORTED_MODULE_6__["ApplicationUser"]; });
 
-/* harmony import */ var _ApplicationUser__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ApplicationUser */ "./src/app/entities/ApplicationUser.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ApplicationUser", function() { return _ApplicationUser__WEBPACK_IMPORTED_MODULE_4__["ApplicationUser"]; });
+/* harmony import */ var _Armor__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Armor */ "./src/app/entities/Armor.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Armor", function() { return _Armor__WEBPACK_IMPORTED_MODULE_7__["Armor"]; });
 
-/* harmony import */ var _Armor__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Armor */ "./src/app/entities/Armor.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Armor", function() { return _Armor__WEBPACK_IMPORTED_MODULE_5__["Armor"]; });
+/* harmony import */ var _Attack__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Attack */ "./src/app/entities/Attack.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Attack", function() { return _Attack__WEBPACK_IMPORTED_MODULE_8__["Attack"]; });
 
-/* harmony import */ var _Attack__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Attack */ "./src/app/entities/Attack.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Attack", function() { return _Attack__WEBPACK_IMPORTED_MODULE_6__["Attack"]; });
+/* harmony import */ var _AttackType__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./AttackType */ "./src/app/entities/AttackType.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AttackType", function() { return _AttackType__WEBPACK_IMPORTED_MODULE_9__["AttackType"]; });
 
-/* harmony import */ var _AttackType__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./AttackType */ "./src/app/entities/AttackType.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AttackType", function() { return _AttackType__WEBPACK_IMPORTED_MODULE_7__["AttackType"]; });
+/* harmony import */ var _AuthenticateModel__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./AuthenticateModel */ "./src/app/entities/AuthenticateModel.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AuthenticateModel", function() { return _AuthenticateModel__WEBPACK_IMPORTED_MODULE_10__["AuthenticateModel"]; });
 
-/* harmony import */ var _AuthenticateModel__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./AuthenticateModel */ "./src/app/entities/AuthenticateModel.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AuthenticateModel", function() { return _AuthenticateModel__WEBPACK_IMPORTED_MODULE_8__["AuthenticateModel"]; });
+/* harmony import */ var _Book__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./Book */ "./src/app/entities/Book.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Book", function() { return _Book__WEBPACK_IMPORTED_MODULE_11__["Book"]; });
 
-/* harmony import */ var _BaseAction__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./BaseAction */ "./src/app/entities/BaseAction.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "BaseAction", function() { return _BaseAction__WEBPACK_IMPORTED_MODULE_9__["BaseAction"]; });
+/* harmony import */ var _Character__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./Character */ "./src/app/entities/Character.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Character", function() { return _Character__WEBPACK_IMPORTED_MODULE_12__["Character"]; });
 
-/* harmony import */ var _Book__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./Book */ "./src/app/entities/Book.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Book", function() { return _Book__WEBPACK_IMPORTED_MODULE_10__["Book"]; });
+/* harmony import */ var _ConstitutionBonusChart__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./ConstitutionBonusChart */ "./src/app/entities/ConstitutionBonusChart.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ConstitutionBonusChart", function() { return _ConstitutionBonusChart__WEBPACK_IMPORTED_MODULE_13__["ConstitutionBonusChart"]; });
 
-/* harmony import */ var _Character__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./Character */ "./src/app/entities/Character.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Character", function() { return _Character__WEBPACK_IMPORTED_MODULE_11__["Character"]; });
+/* harmony import */ var _ConstitutionBonusChartValues__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./ConstitutionBonusChartValues */ "./src/app/entities/ConstitutionBonusChartValues.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ConstitutionBonusChartValues", function() { return _ConstitutionBonusChartValues__WEBPACK_IMPORTED_MODULE_14__["ConstitutionBonusChartValues"]; });
 
-/* harmony import */ var _ConstitutionBonusChart__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./ConstitutionBonusChart */ "./src/app/entities/ConstitutionBonusChart.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ConstitutionBonusChart", function() { return _ConstitutionBonusChart__WEBPACK_IMPORTED_MODULE_12__["ConstitutionBonusChart"]; });
+/* harmony import */ var _Creature__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./Creature */ "./src/app/entities/Creature.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Creature", function() { return _Creature__WEBPACK_IMPORTED_MODULE_15__["Creature"]; });
 
-/* harmony import */ var _ConstitutionBonusChartValues__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./ConstitutionBonusChartValues */ "./src/app/entities/ConstitutionBonusChartValues.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ConstitutionBonusChartValues", function() { return _ConstitutionBonusChartValues__WEBPACK_IMPORTED_MODULE_13__["ConstitutionBonusChartValues"]; });
+/* harmony import */ var _CriticalCode__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./CriticalCode */ "./src/app/entities/CriticalCode.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "CriticalCode", function() { return _CriticalCode__WEBPACK_IMPORTED_MODULE_16__["CriticalCode"]; });
 
-/* harmony import */ var _Creature__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./Creature */ "./src/app/entities/Creature.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Creature", function() { return _Creature__WEBPACK_IMPORTED_MODULE_14__["Creature"]; });
+/* harmony import */ var _CriticalEffect__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./CriticalEffect */ "./src/app/entities/CriticalEffect.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "CriticalEffect", function() { return _CriticalEffect__WEBPACK_IMPORTED_MODULE_17__["CriticalEffect"]; });
 
-/* harmony import */ var _CriticalCode__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./CriticalCode */ "./src/app/entities/CriticalCode.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "CriticalCode", function() { return _CriticalCode__WEBPACK_IMPORTED_MODULE_15__["CriticalCode"]; });
+/* harmony import */ var _CriticalIgnore__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./CriticalIgnore */ "./src/app/entities/CriticalIgnore.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "CriticalIgnore", function() { return _CriticalIgnore__WEBPACK_IMPORTED_MODULE_18__["CriticalIgnore"]; });
 
-/* harmony import */ var _CriticalEffect__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./CriticalEffect */ "./src/app/entities/CriticalEffect.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "CriticalEffect", function() { return _CriticalEffect__WEBPACK_IMPORTED_MODULE_16__["CriticalEffect"]; });
+/* harmony import */ var _CriticalType__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./CriticalType */ "./src/app/entities/CriticalType.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "CriticalType", function() { return _CriticalType__WEBPACK_IMPORTED_MODULE_19__["CriticalType"]; });
 
-/* harmony import */ var _CriticalIgnore__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./CriticalIgnore */ "./src/app/entities/CriticalIgnore.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "CriticalIgnore", function() { return _CriticalIgnore__WEBPACK_IMPORTED_MODULE_17__["CriticalIgnore"]; });
+/* harmony import */ var _Dice__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./Dice */ "./src/app/entities/Dice.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Dice", function() { return _Dice__WEBPACK_IMPORTED_MODULE_20__["Dice"]; });
 
-/* harmony import */ var _CriticalType__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./CriticalType */ "./src/app/entities/CriticalType.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "CriticalType", function() { return _CriticalType__WEBPACK_IMPORTED_MODULE_18__["CriticalType"]; });
-
-/* harmony import */ var _Dice__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./Dice */ "./src/app/entities/Dice.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Dice", function() { return _Dice__WEBPACK_IMPORTED_MODULE_19__["Dice"]; });
-
-/* harmony import */ var _EnumDefinitions__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./EnumDefinitions */ "./src/app/entities/EnumDefinitions.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "EnumDefinitions", function() { return _EnumDefinitions__WEBPACK_IMPORTED_MODULE_20__["EnumDefinitions"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "EnumDefinitions", function() { return _EnumDefinitions__WEBPACK_IMPORTED_MODULE_3__["EnumDefinitions"]; });
 
 /* harmony import */ var _Game__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./Game */ "./src/app/entities/Game.ts");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Game", function() { return _Game__WEBPACK_IMPORTED_MODULE_21__["Game"]; });
@@ -4938,6 +5294,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+var ActionTypeEnum = _EnumDefinitions__WEBPACK_IMPORTED_MODULE_3__["EnumDefinitions"].ActionTypeEnum;
+
+
+
+
+
+
+
+//export * from './BaseAction';
 
 
 
@@ -4966,12 +5331,38 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-
-
-
-
-
+class Actor extends _Actor__WEBPACK_IMPORTED_MODULE_1__["Actor"] {
+    get currentAction() {
+        //debugger;
+        if (this.actions != null && this.actions.length > 0) {
+            var ac = this.actions.find((act) => {
+                return act.actionType == ActionTypeEnum.Current;
+            });
+            return ac;
+        }
+        return null;
+    }
+    get nextAction() {
+        if (this.actions != null && this.actions.length > 0) {
+            var ac = this.actions.find((act) => {
+                return act.actionType == ActionTypeEnum.Next;
+            });
+            return ac;
+        }
+        return null;
+    }
+    get proposedAction() {
+        if (this.actions != null && this.actions.length > 0) {
+            var ac = this.actions.find((act) => {
+                return act.actionType == ActionTypeEnum.Proposed;
+            });
+            return ac;
+        }
+        return null;
+    }
+}
+class BaseAction extends _BaseAction__WEBPACK_IMPORTED_MODULE_2__["BaseAction"] {
+}
 
 
 /***/ }),
@@ -5046,27 +5437,42 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/services */ "./src/app/services/index.ts");
 /* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/_helpers */ "./src/app/_helpers/index.ts");
 /* harmony import */ var _entities_EnumDefinitions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/entities/EnumDefinitions */ "./src/app/entities/EnumDefinitions.ts");
+/* harmony import */ var _repositories__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/repositories */ "./src/app/repositories/index.ts");
 
 
 
 
 
 var GameType = _entities_EnumDefinitions__WEBPACK_IMPORTED_MODULE_4__["EnumDefinitions"].GameType;
+
 let MainNavMenuComponent = 
 /** mainNavMenu component*/
 class MainNavMenuComponent {
     /** mainNavMenu ctor */
-    constructor(authenticationService) {
+    constructor(authenticationService, gameRepository) {
         this.authenticationService = authenticationService;
-        this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
+        this.gameRepository = gameRepository;
+        this.init();
     }
     get gameTypes() {
         var lst = _helpers__WEBPACK_IMPORTED_MODULE_3__["EnumEx"].getNamesAndValues(GameType);
         return lst;
     }
+    init() {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            var u = yield this.authenticationService.currentUserAsync();
+            this.currentUser = u;
+            var gms = yield this.gameRepository.getGamesAsync();
+            gms = gms.filter((gm) => {
+                gm.gM_ID == this.currentUser.id;
+            });
+            this.games = gms;
+        });
+    }
 };
 MainNavMenuComponent.ctorParameters = () => [
-    { type: _services__WEBPACK_IMPORTED_MODULE_2__["AuthenticationService"] }
+    { type: _services__WEBPACK_IMPORTED_MODULE_2__["AuthenticationService"] },
+    { type: _repositories__WEBPACK_IMPORTED_MODULE_5__["GamesRepository"] }
 ];
 MainNavMenuComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -5076,7 +5482,7 @@ MainNavMenuComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     })
     /** mainNavMenu component*/
     ,
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services__WEBPACK_IMPORTED_MODULE_2__["AuthenticationService"]])
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services__WEBPACK_IMPORTED_MODULE_2__["AuthenticationService"], _repositories__WEBPACK_IMPORTED_MODULE_5__["GamesRepository"]])
 ], MainNavMenuComponent);
 
 
@@ -5178,6 +5584,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+/* harmony import */ var _entities__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/entities */ "./src/app/entities/index.ts");
 
 //*************************DO NOT MODIFY**************************
 //
@@ -5185,6 +5592,7 @@ __webpack_require__.r(__webpack_exports__);
 //PLEASE VISIT http://frhagn.github.io/Typewriter/ TO LEARN MORE ABOUT THIS VISUAL STUDIO EXTENSION
 //
 //*************************DO NOT MODIFY**************************
+
 
 
 
@@ -5209,7 +5617,11 @@ let ActionsRepository = class ActionsRepository {
             actorId = (actorId == null ? "" : actorId);
             var _Url = `api/v${version}/Actions/getActionsOnActor/${actorId}`;
             return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                if (data != null)
+                    data = data.map((dt) => Object.assign(new _entities__WEBPACK_IMPORTED_MODULE_5__["BaseAction"](), dt));
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
         // get: api/v${version}/Actions/getActionsInGame/${gameId}
         //public getActionsInGame = (gameId: number, callback: (data: BaseAction[])=>void) : void => {
@@ -5227,7 +5639,11 @@ let ActionsRepository = class ActionsRepository {
             gameId = (gameId == null ? "" : gameId);
             var _Url = `api/v${version}/Actions/getActionsInGame/${gameId}`;
             return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                if (data != null)
+                    data = data.map((dt) => Object.assign(new _entities__WEBPACK_IMPORTED_MODULE_5__["BaseAction"](), dt));
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
         // get: api/v${version}/Actions/getAction/${id}
         //public getAction = (id: number, callback: (data: BaseAction)=>void) : void => {
@@ -5245,7 +5661,11 @@ let ActionsRepository = class ActionsRepository {
             id = (id == null ? "" : id);
             var _Url = `api/v${version}/Actions/getAction/${id}`;
             return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                if (data != null)
+                    data = Object.assign(new _entities__WEBPACK_IMPORTED_MODULE_5__["BaseAction"](), data);
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
         // post: api/v${version}/Actions/SaveAction
         //public saveAction = (action: BaseAction, callback: (data: BaseAction)=>void) : void => {
@@ -5263,7 +5683,11 @@ let ActionsRepository = class ActionsRepository {
             action = (action == null ? "" : action);
             var _Url = `api/v${version}/Actions/SaveAction`;
             return this._httpClient.post(_Url, action)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                if (data != null)
+                    data = Object.assign(new _entities__WEBPACK_IMPORTED_MODULE_5__["BaseAction"](), data);
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
         // delete: api/v${version}/Actions/deleteAction/${id}
         //public deleteAction = (id: number, callback: (data: void)=>void) : void => {
@@ -5281,7 +5705,9 @@ let ActionsRepository = class ActionsRepository {
             id = (id == null ? "" : id);
             var _Url = `api/v${version}/Actions/deleteAction/${id}`;
             return this._httpClient.delete(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
     }
     // Utility
@@ -5321,6 +5747,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+/* harmony import */ var _entities__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/entities */ "./src/app/entities/index.ts");
 
 //*************************DO NOT MODIFY**************************
 //
@@ -5328,6 +5755,7 @@ __webpack_require__.r(__webpack_exports__);
 //PLEASE VISIT http://frhagn.github.io/Typewriter/ TO LEARN MORE ABOUT THIS VISUAL STUDIO EXTENSION
 //
 //*************************DO NOT MODIFY**************************
+
 
 
 
@@ -5352,7 +5780,11 @@ let ActorsRepository = class ActorsRepository {
             gameId = (gameId == null ? "" : gameId);
             var _Url = `api/v${version}/Actors/getActorsInGame/${gameId}`;
             return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                if (data != null)
+                    data = data.map((dt) => Object.assign(new _entities__WEBPACK_IMPORTED_MODULE_5__["Actor"](), dt));
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
         // get: api/v${version}/Actors/getActor/${id}
         //public getActor = (id: number, callback: (data: Actor)=>void) : void => {
@@ -5370,7 +5802,11 @@ let ActorsRepository = class ActorsRepository {
             id = (id == null ? "" : id);
             var _Url = `api/v${version}/Actors/getActor/${id}`;
             return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                if (data != null)
+                    data = Object.assign(new _entities__WEBPACK_IMPORTED_MODULE_5__["Actor"](), data);
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
         // post: api/v${version}/Actors/SaveActor
         //public saveActor = (actor: Actor, callback: (data: Actor)=>void) : void => {
@@ -5388,7 +5824,11 @@ let ActorsRepository = class ActorsRepository {
             actor = (actor == null ? "" : actor);
             var _Url = `api/v${version}/Actors/SaveActor`;
             return this._httpClient.post(_Url, actor)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                if (data != null)
+                    data = Object.assign(new _entities__WEBPACK_IMPORTED_MODULE_5__["Actor"](), data);
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
         // delete: api/v${version}/Actors/deleteActor/${id}
         //public deleteActor = (id: number, callback: (data: void)=>void) : void => {
@@ -5406,7 +5846,9 @@ let ActorsRepository = class ActorsRepository {
             id = (id == null ? "" : id);
             var _Url = `api/v${version}/Actors/deleteActor/${id}`;
             return this._httpClient.delete(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
     }
     // Utility
@@ -5446,6 +5888,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+/* harmony import */ var _entities__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/entities */ "./src/app/entities/index.ts");
 
 //*************************DO NOT MODIFY**************************
 //
@@ -5453,6 +5896,7 @@ __webpack_require__.r(__webpack_exports__);
 //PLEASE VISIT http://frhagn.github.io/Typewriter/ TO LEARN MORE ABOUT THIS VISUAL STUDIO EXTENSION
 //
 //*************************DO NOT MODIFY**************************
+
 
 
 
@@ -5476,7 +5920,11 @@ let CharactersRepository = class CharactersRepository {
         this.getCharacters = () => {
             var _Url = `api/v${version}/Characters/getCharacters`;
             return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                if (data != null)
+                    data = data.map((dt) => Object.assign(new _entities__WEBPACK_IMPORTED_MODULE_5__["Character"](), dt));
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
         // get: api/v${version}/Characters/getCharacter/${id}
         //public getCharacter = (id: number, callback: (data: Character)=>void) : void => {
@@ -5494,7 +5942,11 @@ let CharactersRepository = class CharactersRepository {
             id = (id == null ? "" : id);
             var _Url = `api/v${version}/Characters/getCharacter/${id}`;
             return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                if (data != null)
+                    data = Object.assign(new _entities__WEBPACK_IMPORTED_MODULE_5__["Character"](), data);
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
         // post: api/v${version}/Characters/SaveCharacter
         //public saveCharacter = (character: Character, callback: (data: Character)=>void) : void => {
@@ -5512,7 +5964,11 @@ let CharactersRepository = class CharactersRepository {
             character = (character == null ? "" : character);
             var _Url = `api/v${version}/Characters/SaveCharacter`;
             return this._httpClient.post(_Url, character)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                if (data != null)
+                    data = Object.assign(new _entities__WEBPACK_IMPORTED_MODULE_5__["Character"](), data);
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
         // delete: api/v${version}/Characters/deleteCharacter/${id}
         //public deleteCharacter = (id: number, callback: (data: void)=>void) : void => {
@@ -5530,7 +5986,9 @@ let CharactersRepository = class CharactersRepository {
             id = (id == null ? "" : id);
             var _Url = `api/v${version}/Characters/deleteCharacter/${id}`;
             return this._httpClient.delete(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
     }
     // Utility
@@ -5570,6 +6028,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+/* harmony import */ var _entities__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/entities */ "./src/app/entities/index.ts");
 
 //*************************DO NOT MODIFY**************************
 //
@@ -5577,6 +6036,9 @@ __webpack_require__.r(__webpack_exports__);
 //PLEASE VISIT http://frhagn.github.io/Typewriter/ TO LEARN MORE ABOUT THIS VISUAL STUDIO EXTENSION
 //
 //*************************DO NOT MODIFY**************************
+
+
+
 
 
 
@@ -5601,7 +6063,9 @@ let CombatRepository = class CombatRepository {
             id = (id == null ? "" : id);
             var _Url = `api/v${version}/Combat/deleteArmor/${id}`;
             return this._httpClient.delete(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
         // delete: api/v${version}/Combat/deleteAttack/${id}
         //public deleteAttack = (id: number, callback: (data: void)=>void) : void => {
@@ -5619,7 +6083,9 @@ let CombatRepository = class CombatRepository {
             id = (id == null ? "" : id);
             var _Url = `api/v${version}/Combat/deleteAttack/${id}`;
             return this._httpClient.delete(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
         // delete: api/v${version}/Combat/deleteWeapon/${id}
         //public deleteWeapon = (id: number, callback: (data: void)=>void) : void => {
@@ -5637,7 +6103,9 @@ let CombatRepository = class CombatRepository {
             id = (id == null ? "" : id);
             var _Url = `api/v${version}/Combat/deleteWeapon/${id}`;
             return this._httpClient.delete(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
         // get: api/v${version}/Combat/getArmor/${id}
         //public getArmor = (id: number, callback: (data: Armor)=>void) : void => {
@@ -5655,7 +6123,11 @@ let CombatRepository = class CombatRepository {
             id = (id == null ? "" : id);
             var _Url = `api/v${version}/Combat/getArmor/${id}`;
             return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                if (data != null)
+                    data = Object.assign(new _entities__WEBPACK_IMPORTED_MODULE_5__["Armor"](), data);
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
         // get: api/v${version}/Combat/getArmors
         //public getArmors = (, callback: (data: Armor[])=>void) : void => {
@@ -5672,7 +6144,11 @@ let CombatRepository = class CombatRepository {
         this.getArmors = () => {
             var _Url = `api/v${version}/Combat/getArmors`;
             return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                if (data != null)
+                    data = data.map((dt) => Object.assign(new _entities__WEBPACK_IMPORTED_MODULE_5__["Armor"](), dt));
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
         // get: api/v${version}/Combat/getArmorsOnCharacter/${characterId}
         //public getArmorsOnCharacter = (characterId: number, callback: (data: Armor[])=>void) : void => {
@@ -5690,7 +6166,11 @@ let CombatRepository = class CombatRepository {
             characterId = (characterId == null ? "" : characterId);
             var _Url = `api/v${version}/Combat/getArmorsOnCharacter/${characterId}`;
             return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                if (data != null)
+                    data = data.map((dt) => Object.assign(new _entities__WEBPACK_IMPORTED_MODULE_5__["Armor"](), dt));
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
         // get: api/v${version}/Combat/getAttack/${id}
         //public getAttack = (id: number, callback: (data: Attack)=>void) : void => {
@@ -5708,7 +6188,11 @@ let CombatRepository = class CombatRepository {
             id = (id == null ? "" : id);
             var _Url = `api/v${version}/Combat/getAttack/${id}`;
             return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                if (data != null)
+                    data = Object.assign(new _entities__WEBPACK_IMPORTED_MODULE_5__["Attack"](), data);
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
         // get: api/v${version}/Combat/getAttacks
         //public getAttacks = (, callback: (data: Attack[])=>void) : void => {
@@ -5725,7 +6209,11 @@ let CombatRepository = class CombatRepository {
         this.getAttacks = () => {
             var _Url = `api/v${version}/Combat/getAttacks`;
             return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                if (data != null)
+                    data = data.map((dt) => Object.assign(new _entities__WEBPACK_IMPORTED_MODULE_5__["Attack"](), dt));
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
         // get: api/v${version}/Combat/getAttacksOnActor/${actorId}
         //public getAttacksOnActor = (actorId: number, callback: (data: Attack[])=>void) : void => {
@@ -5743,7 +6231,11 @@ let CombatRepository = class CombatRepository {
             actorId = (actorId == null ? "" : actorId);
             var _Url = `api/v${version}/Combat/getAttacksOnActor/${actorId}`;
             return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                if (data != null)
+                    data = data.map((dt) => Object.assign(new _entities__WEBPACK_IMPORTED_MODULE_5__["Attack"](), dt));
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
         // get: api/v${version}/Combat/getAttacksOnCreature/${creatureId}
         //public getAttacksOnCreature = (creatureId: number, callback: (data: Attack[])=>void) : void => {
@@ -5761,7 +6253,11 @@ let CombatRepository = class CombatRepository {
             creatureId = (creatureId == null ? "" : creatureId);
             var _Url = `api/v${version}/Combat/getAttacksOnCreature/${creatureId}`;
             return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                if (data != null)
+                    data = data.map((dt) => Object.assign(new _entities__WEBPACK_IMPORTED_MODULE_5__["Attack"](), dt));
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
         // get: api/v${version}/Combat/getWeapon/${id}
         //public getWeapon = (id: number, callback: (data: Weapon)=>void) : void => {
@@ -5779,7 +6275,11 @@ let CombatRepository = class CombatRepository {
             id = (id == null ? "" : id);
             var _Url = `api/v${version}/Combat/getWeapon/${id}`;
             return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                if (data != null)
+                    data = Object.assign(new _entities__WEBPACK_IMPORTED_MODULE_5__["Weapon"](), data);
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
         // get: api/v${version}/Combat/getWeapons
         //public getWeapons = (, callback: (data: Weapon[])=>void) : void => {
@@ -5796,7 +6296,11 @@ let CombatRepository = class CombatRepository {
         this.getWeapons = () => {
             var _Url = `api/v${version}/Combat/getWeapons`;
             return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                if (data != null)
+                    data = data.map((dt) => Object.assign(new _entities__WEBPACK_IMPORTED_MODULE_5__["Weapon"](), dt));
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
         // get: api/v${version}/Combat/getWeaponsOnCharacter/${characterId}
         //public getWeaponsOnCharacter = (characterId: number, callback: (data: Weapon[])=>void) : void => {
@@ -5814,7 +6318,11 @@ let CombatRepository = class CombatRepository {
             characterId = (characterId == null ? "" : characterId);
             var _Url = `api/v${version}/Combat/getWeaponsOnCharacter/${characterId}`;
             return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                if (data != null)
+                    data = data.map((dt) => Object.assign(new _entities__WEBPACK_IMPORTED_MODULE_5__["Weapon"](), dt));
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
         // post: api/v${version}/Combat/SaveArmor
         //public saveArmor = (armor: Armor, callback: (data: Armor)=>void) : void => {
@@ -5832,7 +6340,11 @@ let CombatRepository = class CombatRepository {
             armor = (armor == null ? "" : armor);
             var _Url = `api/v${version}/Combat/SaveArmor`;
             return this._httpClient.post(_Url, armor)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                if (data != null)
+                    data = Object.assign(new _entities__WEBPACK_IMPORTED_MODULE_5__["Armor"](), data);
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
         // post: api/v${version}/Combat/SaveAttack
         //public saveAttack = (attack: Attack, callback: (data: Attack)=>void) : void => {
@@ -5850,7 +6362,11 @@ let CombatRepository = class CombatRepository {
             attack = (attack == null ? "" : attack);
             var _Url = `api/v${version}/Combat/SaveAttack`;
             return this._httpClient.post(_Url, attack)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                if (data != null)
+                    data = Object.assign(new _entities__WEBPACK_IMPORTED_MODULE_5__["Attack"](), data);
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
         // post: api/v${version}/Combat/SaveAttackOnActor/${actorId}
         //public saveAttackOnActor = (actorId: number, attack: Attack, callback: (data: Attack)=>void) : void => {
@@ -5869,7 +6385,11 @@ let CombatRepository = class CombatRepository {
             attack = (attack == null ? "" : attack);
             var _Url = `api/v${version}/Combat/SaveAttackOnActor/${actorId}`;
             return this._httpClient.post(_Url, actorId)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                if (data != null)
+                    data = Object.assign(new _entities__WEBPACK_IMPORTED_MODULE_5__["Attack"](), data);
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
         // post: api/v${version}/Combat/SaveWeapon
         //public saveWeapon = (weapon: Weapon, callback: (data: Weapon)=>void) : void => {
@@ -5887,7 +6407,11 @@ let CombatRepository = class CombatRepository {
             weapon = (weapon == null ? "" : weapon);
             var _Url = `api/v${version}/Combat/SaveWeapon`;
             return this._httpClient.post(_Url, weapon)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                if (data != null)
+                    data = Object.assign(new _entities__WEBPACK_IMPORTED_MODULE_5__["Weapon"](), data);
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
     }
     // Utility
@@ -5927,6 +6451,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+/* harmony import */ var _entities__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/entities */ "./src/app/entities/index.ts");
 
 //*************************DO NOT MODIFY**************************
 //
@@ -5934,6 +6459,7 @@ __webpack_require__.r(__webpack_exports__);
 //PLEASE VISIT http://frhagn.github.io/Typewriter/ TO LEARN MORE ABOUT THIS VISUAL STUDIO EXTENSION
 //
 //*************************DO NOT MODIFY**************************
+
 
 
 
@@ -5957,7 +6483,11 @@ let CreaturesRepository = class CreaturesRepository {
         this.getCreatures = () => {
             var _Url = `api/v${version}/Creatures/getCreatures`;
             return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                if (data != null)
+                    data = data.map((dt) => Object.assign(new _entities__WEBPACK_IMPORTED_MODULE_5__["Creature"](), dt));
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
         // get: api/v${version}/Creatures/getCreature/${id}
         //public getCreature = (id: number, callback: (data: Creature)=>void) : void => {
@@ -5975,7 +6505,11 @@ let CreaturesRepository = class CreaturesRepository {
             id = (id == null ? "" : id);
             var _Url = `api/v${version}/Creatures/getCreature/${id}`;
             return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                if (data != null)
+                    data = Object.assign(new _entities__WEBPACK_IMPORTED_MODULE_5__["Creature"](), data);
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
         // post: api/v${version}/Creatures/SaveCreature
         //public saveCreature = (creature: Creature, callback: (data: Creature)=>void) : void => {
@@ -5993,7 +6527,11 @@ let CreaturesRepository = class CreaturesRepository {
             creature = (creature == null ? "" : creature);
             var _Url = `api/v${version}/Creatures/SaveCreature`;
             return this._httpClient.post(_Url, creature)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                if (data != null)
+                    data = Object.assign(new _entities__WEBPACK_IMPORTED_MODULE_5__["Creature"](), data);
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
         // delete: api/v${version}/Creatures/deleteCreature/${id}
         //public deleteCreature = (id: number, callback: (data: void)=>void) : void => {
@@ -6011,7 +6549,9 @@ let CreaturesRepository = class CreaturesRepository {
             id = (id == null ? "" : id);
             var _Url = `api/v${version}/Creatures/deleteCreature/${id}`;
             return this._httpClient.delete(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
     }
     // Utility
@@ -6051,6 +6591,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+/* harmony import */ var _entities__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/entities */ "./src/app/entities/index.ts");
 
 //*************************DO NOT MODIFY**************************
 //
@@ -6058,6 +6599,7 @@ __webpack_require__.r(__webpack_exports__);
 //PLEASE VISIT http://frhagn.github.io/Typewriter/ TO LEARN MORE ABOUT THIS VISUAL STUDIO EXTENSION
 //
 //*************************DO NOT MODIFY**************************
+
 
 
 
@@ -6082,7 +6624,11 @@ let CriticalEffectsRepository = class CriticalEffectsRepository {
             actorId = (actorId == null ? "" : actorId);
             var _Url = `api/v${version}/CriticalEffects/getCriticalEffects/${actorId}`;
             return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                if (data != null)
+                    data = data.map((dt) => Object.assign(new _entities__WEBPACK_IMPORTED_MODULE_5__["CriticalEffect"](), dt));
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
         // get: api/v${version}/CriticalEffects/getCriticalEffect/${id}
         //public getCriticalEffect = (id: number, callback: (data: CriticalEffect)=>void) : void => {
@@ -6100,7 +6646,11 @@ let CriticalEffectsRepository = class CriticalEffectsRepository {
             id = (id == null ? "" : id);
             var _Url = `api/v${version}/CriticalEffects/getCriticalEffect/${id}`;
             return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                if (data != null)
+                    data = Object.assign(new _entities__WEBPACK_IMPORTED_MODULE_5__["CriticalEffect"](), data);
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
         // post: api/v${version}/CriticalEffects/SaveCriticalEffect
         //public saveCriticalEffect = (criticalEffect: CriticalEffect, callback: (data: CriticalEffect)=>void) : void => {
@@ -6118,7 +6668,11 @@ let CriticalEffectsRepository = class CriticalEffectsRepository {
             criticalEffect = (criticalEffect == null ? "" : criticalEffect);
             var _Url = `api/v${version}/CriticalEffects/SaveCriticalEffect`;
             return this._httpClient.post(_Url, criticalEffect)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                if (data != null)
+                    data = Object.assign(new _entities__WEBPACK_IMPORTED_MODULE_5__["CriticalEffect"](), data);
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
         // delete: api/v${version}/CriticalEffects/deleteCriticalEffect/${id}
         //public deleteCriticalEffect = (id: number, callback: (data: void)=>void) : void => {
@@ -6136,7 +6690,9 @@ let CriticalEffectsRepository = class CriticalEffectsRepository {
             id = (id == null ? "" : id);
             var _Url = `api/v${version}/CriticalEffects/deleteCriticalEffect/${id}`;
             return this._httpClient.delete(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
     }
     // Utility
@@ -6176,6 +6732,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+/* harmony import */ var _entities__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/entities */ "./src/app/entities/index.ts");
 
 //*************************DO NOT MODIFY**************************
 //
@@ -6183,6 +6740,10 @@ __webpack_require__.r(__webpack_exports__);
 //PLEASE VISIT http://frhagn.github.io/Typewriter/ TO LEARN MORE ABOUT THIS VISUAL STUDIO EXTENSION
 //
 //*************************DO NOT MODIFY**************************
+
+
+
+
 
 
 
@@ -6206,7 +6767,11 @@ let EncounterRepository = class EncounterRepository {
         this.getCurrentGame = () => {
             var _Url = `api/v${version}/Encounter/getCurrentGame`;
             return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                if (data != null)
+                    data = Object.assign(new _entities__WEBPACK_IMPORTED_MODULE_5__["Game"](), data);
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
         // post: api/v${version}/Encounter/SetCurrentGame/${gameId}
         //public setCurrentGame = (gameId: number, callback: (data: Game)=>void) : void => {
@@ -6224,7 +6789,11 @@ let EncounterRepository = class EncounterRepository {
             gameId = (gameId == null ? "" : gameId);
             var _Url = `api/v${version}/Encounter/SetCurrentGame/${gameId}`;
             return this._httpClient.post(_Url, gameId)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                if (data != null)
+                    data = Object.assign(new _entities__WEBPACK_IMPORTED_MODULE_5__["Game"](), data);
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
         // post: api/v${version}/Encounter/CreateActorFromCreature/${creatureId}
         //public createActorFromCreature = (creatureId: number, callback: (data: Actor)=>void) : void => {
@@ -6242,7 +6811,11 @@ let EncounterRepository = class EncounterRepository {
             creatureId = (creatureId == null ? "" : creatureId);
             var _Url = `api/v${version}/Encounter/CreateActorFromCreature/${creatureId}`;
             return this._httpClient.post(_Url, creatureId)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                if (data != null)
+                    data = Object.assign(new _entities__WEBPACK_IMPORTED_MODULE_5__["Actor"](), data);
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
         // post: api/v${version}/Encounter/CreateActorFromCharacter/${characterId}?rolledInit=${rolledInit}
         //public createActorFromCharacter = (characterId: number, rolledInit: number, callback: (data: Actor)=>void) : void => {
@@ -6261,7 +6834,11 @@ let EncounterRepository = class EncounterRepository {
             rolledInit = (rolledInit == null ? "" : rolledInit);
             var _Url = `api/v${version}/Encounter/CreateActorFromCharacter/${characterId}?rolledInit=${rolledInit}`;
             return this._httpClient.post(_Url, characterId)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                if (data != null)
+                    data = Object.assign(new _entities__WEBPACK_IMPORTED_MODULE_5__["Actor"](), data);
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
         // post: api/v${version}/Encounter/MoveToNext?none=${none}
         //public moveToNext = (none: boolean, callback: (data: MoveNextResult)=>void) : void => {
@@ -6279,7 +6856,11 @@ let EncounterRepository = class EncounterRepository {
             none = (none == null ? "" : none);
             var _Url = `api/v${version}/Encounter/MoveToNext?none=${none}`;
             return this._httpClient.post(_Url, none)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                if (data != null)
+                    data = Object.assign(new _entities__WEBPACK_IMPORTED_MODULE_5__["MoveNextResult"](), data);
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
         // post: api/v${version}/Encounter/ProposeActionUnconscious?actorId=${actorId}
         //public proposeActionUnconscious = (actorId: number, callback: (data: BaseAction)=>void) : void => {
@@ -6297,7 +6878,11 @@ let EncounterRepository = class EncounterRepository {
             actorId = (actorId == null ? "" : actorId);
             var _Url = `api/v${version}/Encounter/ProposeActionUnconscious?actorId=${actorId}`;
             return this._httpClient.post(_Url, actorId)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                if (data != null)
+                    data = Object.assign(new _entities__WEBPACK_IMPORTED_MODULE_5__["BaseAction"](), data);
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
         // post: api/v${version}/Encounter/ProposeAction?actionDefId=${actionDefId}&whomId=${whomId}&modifier=${modifier}&attackId=${attackId}
         //public proposeAction = (actionDefId: number, whomId: number, modifier: number, attackId: number, callback: (data: BaseAction)=>void) : void => {
@@ -6318,7 +6903,11 @@ let EncounterRepository = class EncounterRepository {
             attackId = (attackId == null ? "" : attackId);
             var _Url = `api/v${version}/Encounter/ProposeAction?actionDefId=${actionDefId}&whomId=${whomId}&modifier=${modifier}&attackId=${attackId}`;
             return this._httpClient.post(_Url, actionDefId)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                if (data != null)
+                    data = Object.assign(new _entities__WEBPACK_IMPORTED_MODULE_5__["BaseAction"](), data);
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
         // post: api/v${version}/Encounter/ProposeActionContinue?previousActionId=${previousActionId}&whomId=${whomId}
         //public proposeActionContinue = (previousActionId: number, whomId: number, callback: (data: BaseAction)=>void) : void => {
@@ -6337,7 +6926,11 @@ let EncounterRepository = class EncounterRepository {
             whomId = (whomId == null ? "" : whomId);
             var _Url = `api/v${version}/Encounter/ProposeActionContinue?previousActionId=${previousActionId}&whomId=${whomId}`;
             return this._httpClient.post(_Url, previousActionId)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                if (data != null)
+                    data = Object.assign(new _entities__WEBPACK_IMPORTED_MODULE_5__["BaseAction"](), data);
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
         // post: api/v${version}/Encounter/AddBleedEffect?whomId=${whomId}&bleedRate=${bleedRate}
         //public addBleedEffect = (whomId: number, bleedRate: number, callback: (data: BaseAction)=>void) : void => {
@@ -6356,7 +6949,11 @@ let EncounterRepository = class EncounterRepository {
             bleedRate = (bleedRate == null ? "" : bleedRate);
             var _Url = `api/v${version}/Encounter/AddBleedEffect?whomId=${whomId}&bleedRate=${bleedRate}`;
             return this._httpClient.post(_Url, whomId)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                if (data != null)
+                    data = Object.assign(new _entities__WEBPACK_IMPORTED_MODULE_5__["BaseAction"](), data);
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
         // post: api/v${version}/Encounter/AddCriticalEffect?whomId=${whomId}&rounds=${rounds}
         //public addCriticalEffect = (whomId: number, crit: CriticalEffect, rounds: number, callback: (data: BaseAction)=>void) : void => {
@@ -6376,7 +6973,11 @@ let EncounterRepository = class EncounterRepository {
             rounds = (rounds == null ? "" : rounds);
             var _Url = `api/v${version}/Encounter/AddCriticalEffect?whomId=${whomId}&rounds=${rounds}`;
             return this._httpClient.post(_Url, whomId)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                if (data != null)
+                    data = Object.assign(new _entities__WEBPACK_IMPORTED_MODULE_5__["BaseAction"](), data);
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
         // post: api/v${version}/Encounter/AddPsychicEffect?whomId=${whomId}&psychicLevel=${psychicLevel}
         //public addPsychicEffect = (whomId: number, psychicLevel: number, callback: (data: BaseAction)=>void) : void => {
@@ -6395,7 +6996,11 @@ let EncounterRepository = class EncounterRepository {
             psychicLevel = (psychicLevel == null ? "" : psychicLevel);
             var _Url = `api/v${version}/Encounter/AddPsychicEffect?whomId=${whomId}&psychicLevel=${psychicLevel}`;
             return this._httpClient.post(_Url, whomId)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                if (data != null)
+                    data = Object.assign(new _entities__WEBPACK_IMPORTED_MODULE_5__["BaseAction"](), data);
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
         // post: api/v${version}/Encounter/AddSpellEffect?effectedActorId=${effectedActorId}&casterId=${casterId}&spellName=${encodeURIComponent(spellName)}&rounds=${rounds}&hastePercent=${hastePercent}
         //public addSpellEffect = (effectedActorId: number, casterId: number, spellName: string, rounds: number, hastePercent: number, callback: (data: BaseAction)=>void) : void => {
@@ -6417,7 +7022,11 @@ let EncounterRepository = class EncounterRepository {
             hastePercent = (hastePercent == null ? "" : hastePercent);
             var _Url = `api/v${version}/Encounter/AddSpellEffect?effectedActorId=${effectedActorId}&casterId=${casterId}&spellName=${encodeURIComponent(spellName)}&rounds=${rounds}&hastePercent=${hastePercent}`;
             return this._httpClient.post(_Url, effectedActorId)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                if (data != null)
+                    data = Object.assign(new _entities__WEBPACK_IMPORTED_MODULE_5__["BaseAction"](), data);
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
         // post: api/v${version}/Encounter/RemoveEffect/${actionId}
         //public removeEffect = (actionId: number, callback: (data: void)=>void) : void => {
@@ -6435,7 +7044,9 @@ let EncounterRepository = class EncounterRepository {
             actionId = (actionId == null ? "" : actionId);
             var _Url = `api/v${version}/Encounter/RemoveEffect/${actionId}`;
             return this._httpClient.post(_Url, actionId)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
         // post: api/v${version}/Encounter/RemoveCriticalsFromActor/${whomId}?count=${count}
         //public removeCriticalsFromActor = (whomId: number, count: number, callback: (data: void)=>void) : void => {
@@ -6454,7 +7065,9 @@ let EncounterRepository = class EncounterRepository {
             count = (count == null ? "" : count);
             var _Url = `api/v${version}/Encounter/RemoveCriticalsFromActor/${whomId}?count=${count}`;
             return this._httpClient.post(_Url, whomId)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
         // post: api/v${version}/Encounter/DoProposedAction/${whomId}
         //public doProposedAction = (whomId: number, callback: (data: void)=>void) : void => {
@@ -6472,7 +7085,9 @@ let EncounterRepository = class EncounterRepository {
             whomId = (whomId == null ? "" : whomId);
             var _Url = `api/v${version}/Encounter/DoProposedAction/${whomId}`;
             return this._httpClient.post(_Url, whomId)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
         // post: api/v${version}/Encounter/SetModifierOnAction?actionId=${actionId}&modifier=${modifier}
         //public setModifierOnAction = (actionId: number, modifier: number, callback: (data: void)=>void) : void => {
@@ -6491,7 +7106,9 @@ let EncounterRepository = class EncounterRepository {
             modifier = (modifier == null ? "" : modifier);
             var _Url = `api/v${version}/Encounter/SetModifierOnAction?actionId=${actionId}&modifier=${modifier}`;
             return this._httpClient.post(_Url, actionId)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
         // post: api/v${version}/Encounter/SetAttackOnAction?actionId=${actionId}&attackId=${attackId}
         //public setAttackOnAction = (actionId: number, attackId: number, callback: (data: void)=>void) : void => {
@@ -6510,7 +7127,9 @@ let EncounterRepository = class EncounterRepository {
             attackId = (attackId == null ? "" : attackId);
             var _Url = `api/v${version}/Encounter/SetAttackOnAction?actionId=${actionId}&attackId=${attackId}`;
             return this._httpClient.post(_Url, actionId)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
     }
     // Utility
@@ -6550,6 +7169,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+/* harmony import */ var _entities__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/entities */ "./src/app/entities/index.ts");
 
 //*************************DO NOT MODIFY**************************
 //
@@ -6557,6 +7177,7 @@ __webpack_require__.r(__webpack_exports__);
 //PLEASE VISIT http://frhagn.github.io/Typewriter/ TO LEARN MORE ABOUT THIS VISUAL STUDIO EXTENSION
 //
 //*************************DO NOT MODIFY**************************
+
 
 
 
@@ -6580,7 +7201,11 @@ let GamesRepository = class GamesRepository {
         this.getGames = () => {
             var _Url = `api/v${version}/Games/getGames`;
             return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                if (data != null)
+                    data = data.map((dt) => Object.assign(new _entities__WEBPACK_IMPORTED_MODULE_5__["Game"](), dt));
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
         // get: api/v${version}/Games/getGame/${id}
         //public getGame = (id: number, callback: (data: Game)=>void) : void => {
@@ -6598,7 +7223,11 @@ let GamesRepository = class GamesRepository {
             id = (id == null ? "" : id);
             var _Url = `api/v${version}/Games/getGame/${id}`;
             return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                if (data != null)
+                    data = Object.assign(new _entities__WEBPACK_IMPORTED_MODULE_5__["Game"](), data);
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
         // post: api/v${version}/Games/SaveGame
         //public saveGame = (game: Game, callback: (data: Game)=>void) : void => {
@@ -6616,7 +7245,11 @@ let GamesRepository = class GamesRepository {
             game = (game == null ? "" : game);
             var _Url = `api/v${version}/Games/SaveGame`;
             return this._httpClient.post(_Url, game)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                if (data != null)
+                    data = Object.assign(new _entities__WEBPACK_IMPORTED_MODULE_5__["Game"](), data);
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
         // delete: api/v${version}/Games/deleteGame/${id}
         //public deleteGame = (id: number, callback: (data: void)=>void) : void => {
@@ -6634,7 +7267,9 @@ let GamesRepository = class GamesRepository {
             id = (id == null ? "" : id);
             var _Url = `api/v${version}/Games/deleteGame/${id}`;
             return this._httpClient.delete(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
     }
     // Utility
@@ -6674,6 +7309,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+/* harmony import */ var _entities__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/entities */ "./src/app/entities/index.ts");
 
 //*************************DO NOT MODIFY**************************
 //
@@ -6681,6 +7317,22 @@ __webpack_require__.r(__webpack_exports__);
 //PLEASE VISIT http://frhagn.github.io/Typewriter/ TO LEARN MORE ABOUT THIS VISUAL STUDIO EXTENSION
 //
 //*************************DO NOT MODIFY**************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -6704,7 +7356,11 @@ let ReferenceRepository = class ReferenceRepository {
         this.getActionGroups = () => {
             var _Url = `api/v${version}/Reference/getActionGroups`;
             return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                if (data != null)
+                    data = data.map((dt) => Object.assign(new _entities__WEBPACK_IMPORTED_MODULE_5__["ActionGroup"](), dt));
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
         // get: api/v${version}/Reference/getActions?groupId=${groupId}
         //public getActions = (groupId: number, callback: (data: ActionDefinition[])=>void) : void => {
@@ -6722,7 +7378,11 @@ let ReferenceRepository = class ReferenceRepository {
             groupId = (groupId == null ? "" : groupId);
             var _Url = `api/v${version}/Reference/getActions?groupId=${groupId}`;
             return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                if (data != null)
+                    data = data.map((dt) => Object.assign(new _entities__WEBPACK_IMPORTED_MODULE_5__["ActionDefinition"](), dt));
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
         // get: api/v${version}/Reference/getConstitutionBonusCharts
         //public getConstitutionBonusCharts = (, callback: (data: ConstitutionBonusChart[])=>void) : void => {
@@ -6739,7 +7399,11 @@ let ReferenceRepository = class ReferenceRepository {
         this.getConstitutionBonusCharts = () => {
             var _Url = `api/v${version}/Reference/getConstitutionBonusCharts`;
             return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                if (data != null)
+                    data = data.map((dt) => Object.assign(new _entities__WEBPACK_IMPORTED_MODULE_5__["ConstitutionBonusChart"](), dt));
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
         // get: api/v${version}/Reference/getCriticalCodes
         //public getCriticalCodes = (, callback: (data: CriticalCode[])=>void) : void => {
@@ -6756,7 +7420,11 @@ let ReferenceRepository = class ReferenceRepository {
         this.getCriticalCodes = () => {
             var _Url = `api/v${version}/Reference/getCriticalCodes`;
             return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                if (data != null)
+                    data = data.map((dt) => Object.assign(new _entities__WEBPACK_IMPORTED_MODULE_5__["CriticalCode"](), dt));
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
         // get: api/v${version}/Reference/getCriticalIgnores
         //public getCriticalIgnores = (, callback: (data: CriticalIgnore[])=>void) : void => {
@@ -6773,7 +7441,11 @@ let ReferenceRepository = class ReferenceRepository {
         this.getCriticalIgnores = () => {
             var _Url = `api/v${version}/Reference/getCriticalIgnores`;
             return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                if (data != null)
+                    data = data.map((dt) => Object.assign(new _entities__WEBPACK_IMPORTED_MODULE_5__["CriticalIgnore"](), dt));
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
         // get: api/v${version}/Reference/getIQs
         //public getIQs = (, callback: (data: IQ[])=>void) : void => {
@@ -6790,7 +7462,11 @@ let ReferenceRepository = class ReferenceRepository {
         this.getIQs = () => {
             var _Url = `api/v${version}/Reference/getIQs`;
             return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                if (data != null)
+                    data = data.map((dt) => Object.assign(new _entities__WEBPACK_IMPORTED_MODULE_5__["IQ"](), dt));
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
         // get: api/v${version}/Reference/getLevelCharts
         //public getLevelCharts = (, callback: (data: LevelChart[])=>void) : void => {
@@ -6807,7 +7483,11 @@ let ReferenceRepository = class ReferenceRepository {
         this.getLevelCharts = () => {
             var _Url = `api/v${version}/Reference/getLevelCharts`;
             return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                if (data != null)
+                    data = data.map((dt) => Object.assign(new _entities__WEBPACK_IMPORTED_MODULE_5__["LevelChart"](), dt));
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
         // get: api/v${version}/Reference/getOutlooks
         //public getOutlooks = (, callback: (data: Outlook[])=>void) : void => {
@@ -6824,7 +7504,11 @@ let ReferenceRepository = class ReferenceRepository {
         this.getOutlooks = () => {
             var _Url = `api/v${version}/Reference/getOutlooks`;
             return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                if (data != null)
+                    data = data.map((dt) => Object.assign(new _entities__WEBPACK_IMPORTED_MODULE_5__["Outlook"](), dt));
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
         // get: api/v${version}/Reference/getPaces
         //public getPaces = (, callback: (data: Pace[])=>void) : void => {
@@ -6841,7 +7525,11 @@ let ReferenceRepository = class ReferenceRepository {
         this.getPaces = () => {
             var _Url = `api/v${version}/Reference/getPaces`;
             return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                if (data != null)
+                    data = data.map((dt) => Object.assign(new _entities__WEBPACK_IMPORTED_MODULE_5__["Pace"](), dt));
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
         // get: api/v${version}/Reference/getSizeRatings
         //public getSizeRatings = (, callback: (data: SizeRating[])=>void) : void => {
@@ -6858,7 +7546,11 @@ let ReferenceRepository = class ReferenceRepository {
         this.getSizeRatings = () => {
             var _Url = `api/v${version}/Reference/getSizeRatings`;
             return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                if (data != null)
+                    data = data.map((dt) => Object.assign(new _entities__WEBPACK_IMPORTED_MODULE_5__["SizeRating"](), dt));
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
         // get: api/v${version}/Reference/getSpeedCharts
         //public getSpeedCharts = (, callback: (data: SpeedChart[])=>void) : void => {
@@ -6875,7 +7567,11 @@ let ReferenceRepository = class ReferenceRepository {
         this.getSpeedCharts = () => {
             var _Url = `api/v${version}/Reference/getSpeedCharts`;
             return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                if (data != null)
+                    data = data.map((dt) => Object.assign(new _entities__WEBPACK_IMPORTED_MODULE_5__["SpeedChart"](), dt));
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
         // get: api/v${version}/Reference/getAttackTypes
         //public getAttackTypes = (, callback: (data: AttackType[])=>void) : void => {
@@ -6892,7 +7588,11 @@ let ReferenceRepository = class ReferenceRepository {
         this.getAttackTypes = () => {
             var _Url = `api/v${version}/Reference/getAttackTypes`;
             return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                if (data != null)
+                    data = data.map((dt) => Object.assign(new _entities__WEBPACK_IMPORTED_MODULE_5__["AttackType"](), dt));
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
         // get: api/v${version}/Reference/getCriticalTypes
         //public getCriticalTypes = (, callback: (data: CriticalType[])=>void) : void => {
@@ -6909,7 +7609,11 @@ let ReferenceRepository = class ReferenceRepository {
         this.getCriticalTypes = () => {
             var _Url = `api/v${version}/Reference/getCriticalTypes`;
             return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                if (data != null)
+                    data = data.map((dt) => Object.assign(new _entities__WEBPACK_IMPORTED_MODULE_5__["CriticalType"](), dt));
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
         // get: api/v${version}/Reference/getWeaponTypes
         //public getWeaponTypes = (, callback: (data: WeaponType[])=>void) : void => {
@@ -6926,7 +7630,11 @@ let ReferenceRepository = class ReferenceRepository {
         this.getWeaponTypes = () => {
             var _Url = `api/v${version}/Reference/getWeaponTypes`;
             return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                if (data != null)
+                    data = data.map((dt) => Object.assign(new _entities__WEBPACK_IMPORTED_MODULE_5__["WeaponType"](), dt));
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
         // get: api/v${version}/Reference/getBooks
         //public getBooks = (, callback: (data: Book[])=>void) : void => {
@@ -6943,7 +7651,11 @@ let ReferenceRepository = class ReferenceRepository {
         this.getBooks = () => {
             var _Url = `api/v${version}/Reference/getBooks`;
             return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                if (data != null)
+                    data = data.map((dt) => Object.assign(new _entities__WEBPACK_IMPORTED_MODULE_5__["Book"](), dt));
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
         // get: api/v${version}/Reference/getPsychicRefractoryPeriodEntries
         //public getPsychicRefractoryPeriodEntries = (, callback: (data: PsychicRefractoryPeriodEntry[])=>void) : void => {
@@ -6960,7 +7672,11 @@ let ReferenceRepository = class ReferenceRepository {
         this.getPsychicRefractoryPeriodEntries = () => {
             var _Url = `api/v${version}/Reference/getPsychicRefractoryPeriodEntries`;
             return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                if (data != null)
+                    data = data.map((dt) => Object.assign(new _entities__WEBPACK_IMPORTED_MODULE_5__["PsychicRefractoryPeriodEntry"](), dt));
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
     }
     // Utility
@@ -7051,6 +7767,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+/* harmony import */ var _entities__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/entities */ "./src/app/entities/index.ts");
 
 //*************************DO NOT MODIFY**************************
 //
@@ -7058,6 +7775,7 @@ __webpack_require__.r(__webpack_exports__);
 //PLEASE VISIT http://frhagn.github.io/Typewriter/ TO LEARN MORE ABOUT THIS VISUAL STUDIO EXTENSION
 //
 //*************************DO NOT MODIFY**************************
+
 
 
 
@@ -7081,7 +7799,11 @@ let UsersRepository = class UsersRepository {
         this.currentUser = () => {
             var _Url = `api/v${version}/Users/CurrentUser`;
             return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                if (data != null)
+                    data = Object.assign(new _entities__WEBPACK_IMPORTED_MODULE_5__["ApplicationUser"](), data);
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
         // post: api/v${version}/Users/logout
         //public logout = (, callback: (data: boolean)=>void) : void => {
@@ -7098,7 +7820,9 @@ let UsersRepository = class UsersRepository {
         this.logout = () => {
             var _Url = `api/v${version}/Users/logout`;
             return this._httpClient.post(_Url, null)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
         // post: api/v${version}/Users/authenticate
         //public authenticate = (model: AuthenticateModel, callback: (data: ApplicationUser)=>void) : void => {
@@ -7116,7 +7840,11 @@ let UsersRepository = class UsersRepository {
             model = (model == null ? "" : model);
             var _Url = `api/v${version}/Users/authenticate`;
             return this._httpClient.post(_Url, model)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                if (data != null)
+                    data = Object.assign(new _entities__WEBPACK_IMPORTED_MODULE_5__["ApplicationUser"](), data);
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
         // post: api/v${version}/Users/register
         //public register = (model: RegisterModel, callback: (data: ApplicationUser)=>void) : void => {
@@ -7134,7 +7862,11 @@ let UsersRepository = class UsersRepository {
             model = (model == null ? "" : model);
             var _Url = `api/v${version}/Users/register`;
             return this._httpClient.post(_Url, model)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                if (data != null)
+                    data = Object.assign(new _entities__WEBPACK_IMPORTED_MODULE_5__["ApplicationUser"](), data);
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
         // get: api/v${version}/Users/GetAll
         //public getAll = (, callback: (data: ApplicationUser[])=>void) : void => {
@@ -7151,7 +7883,11 @@ let UsersRepository = class UsersRepository {
         this.getAll = () => {
             var _Url = `api/v${version}/Users/GetAll`;
             return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                if (data != null)
+                    data = data.map((dt) => Object.assign(new _entities__WEBPACK_IMPORTED_MODULE_5__["ApplicationUser"](), dt));
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
         // get: api/v${version}/Users/GetById/${encodeURIComponent(id)}
         //public getById = (id: string, callback: (data: ApplicationUser)=>void) : void => {
@@ -7169,7 +7905,11 @@ let UsersRepository = class UsersRepository {
             id = (id == null ? "" : id);
             var _Url = `api/v${version}/Users/GetById/${encodeURIComponent(id)}`;
             return this._httpClient.get(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                if (data != null)
+                    data = Object.assign(new _entities__WEBPACK_IMPORTED_MODULE_5__["ApplicationUser"](), data);
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
         // put: api/v${version}/Users/Update/${encodeURIComponent(id)}
         //public update = (id: string, model: UpdateModel, callback: (data: ApplicationUser)=>void) : void => {
@@ -7188,7 +7928,11 @@ let UsersRepository = class UsersRepository {
             model = (model == null ? "" : model);
             var _Url = `api/v${version}/Users/Update/${encodeURIComponent(id)}`;
             return this._httpClient.put(_Url, id)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                if (data != null)
+                    data = Object.assign(new _entities__WEBPACK_IMPORTED_MODULE_5__["ApplicationUser"](), data);
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
         // delete: api/v${version}/Users/Delete/${encodeURIComponent(id)}
         //public delete = (id: string, callback: (data: void)=>void) : void => {
@@ -7206,7 +7950,9 @@ let UsersRepository = class UsersRepository {
             id = (id == null ? "" : id);
             var _Url = `api/v${version}/Users/Delete/${encodeURIComponent(id)}`;
             return this._httpClient.delete(_Url)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
         // post: api/v${version}/Users/ForgotPassword?email=${encodeURIComponent(email)}
         //public forgotPassword = (email: string, callback: (data: boolean)=>void) : void => {
@@ -7224,7 +7970,9 @@ let UsersRepository = class UsersRepository {
             email = (email == null ? "" : email);
             var _Url = `api/v${version}/Users/ForgotPassword?email=${encodeURIComponent(email)}`;
             return this._httpClient.post(_Url, email)
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
     }
     // Utility
@@ -7411,6 +8159,16 @@ let AuthenticationService = class AuthenticationService {
         ////debugger;
         this.refreshUserAsync();
     }
+    currentUserAsync() {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            var p = new Promise((resolve, reject) => {
+                this.currentUser.subscribe((user) => {
+                    resolve(user);
+                });
+            });
+            return p;
+        });
+    }
     refreshUserAsync() {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
             yield Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["delay"])(10);
@@ -7533,6 +8291,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _entities_EnumDefinitions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/entities/EnumDefinitions */ "./src/app/entities/EnumDefinitions.ts");
 /* harmony import */ var _repositories__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/repositories */ "./src/app/repositories/index.ts");
 /* harmony import */ var _Authentication_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Authentication.service */ "./src/app/services/Authentication.service.ts");
+/* harmony import */ var _helpers_Tasks__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/_helpers/Tasks */ "./src/app/_helpers/Tasks.ts");
 
 
 
@@ -7544,6 +8303,8 @@ __webpack_require__.r(__webpack_exports__);
 var ActionTypeEnum = _entities_EnumDefinitions__WEBPACK_IMPORTED_MODULE_2__["EnumDefinitions"].ActionTypeEnum;
 var ActorActionType = _entities_EnumDefinitions__WEBPACK_IMPORTED_MODULE_2__["EnumDefinitions"].ActorActionType;
 var CharacterType = _entities_EnumDefinitions__WEBPACK_IMPORTED_MODULE_2__["EnumDefinitions"].CharacterType;
+var ViewTypeEnum = _entities_EnumDefinitions__WEBPACK_IMPORTED_MODULE_2__["EnumDefinitions"].ViewTypeEnum;
+
 let EncounterService = class EncounterService {
     constructor(authService, gameRepo, actorRepo, actionRepo, encounterRepo) {
         //authService.currentUser.subscribe((user) => {
@@ -7563,8 +8324,16 @@ let EncounterService = class EncounterService {
         this.actorRepo = actorRepo;
         this.actionRepo = actionRepo;
         this.encounterRepo = encounterRepo;
-        this.actors = new Array();
+        this.allActors = new Array();
         this.allActions = new Array();
+        //public selectedAction: BaseAction;
+        //private _selectedActor: Actor;
+        //private _selectedAction: BaseAction;
+        this._timedService = new _helpers_Tasks__WEBPACK_IMPORTED_MODULE_5__["RecurringTask"](() => tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            this._timedService.lock();
+            yield this.refresh();
+            this._timedService.unLock();
+        }), 15000, 60000);
         this.selectGame = (gameId) => tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
             yield this.encounterRepo.setCurrentGameAsync(gameId);
             yield this.refresh();
@@ -7577,10 +8346,35 @@ let EncounterService = class EncounterService {
             }
             if (this.currentGame != null) {
                 //this._currentGame = await this.gameRepo.getGameAsync(this._currentGame.id);
-                this.actors = yield this.actorRepo.getActorsInGameAsync(this.currentGame.id);
-                this.allActions = yield this.actionRepo.getActionsInGameAsync(this.currentGame.id);
-                if (this.selectedActor == null) {
-                    this.selectedAction = this.actions[0];
+                var actors = null;
+                var actions = null;
+                this.actorRepo.getActorsInGame(this.currentGame.id).subscribe((acts) => {
+                    actors = acts;
+                });
+                this.actionRepo.getActionsInGame(this.currentGame.id).subscribe((acts) => {
+                    actions = acts;
+                });
+                yield Object(_helpers_Tasks__WEBPACK_IMPORTED_MODULE_5__["whenTrue"])(() => {
+                    return actors != null && actions != null;
+                });
+                actors.forEach((act) => {
+                    act.actions = actions.filter((action) => {
+                        return action.whoIsActing_ID == act.id;
+                    });
+                    act.actions.forEach((action) => {
+                        action.whoIsActing = act;
+                    });
+                });
+                actions[0].whoIsActing.isActive = true;
+                this.allActors = actors;
+                this.allActions = actions;
+                if (this.isGM) {
+                    if (this.selectedAction == null) {
+                        this.selectedAction = this.actions[0];
+                    }
+                    if (this.selectedActor == null) {
+                        this.selectedActor = this.selectedAction.whoIsActing;
+                    }
                 }
             }
         });
@@ -7592,16 +8386,79 @@ let EncounterService = class EncounterService {
             yield this.encounterRepo.createActorFromCharacterAsync(character.id, rolledInit);
             yield this.refresh();
         });
-        this.refresh();
+        this.init();
+    }
+    init() {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            yield this.refresh();
+            debugger;
+            this._timedService.start();
+        });
+    }
+    get isGM() {
+        if (this.authService.currentUserValue != null && this.currentGame != null) {
+            return this.authService.currentUserValue.id == this.currentGame.gM_ID;
+        }
+        return false;
+    }
+    get isPlayer() {
+        if (this.authService.currentUserValue != null && this.currentGame != null) {
+            return this.authService.currentUserValue.id != this.currentGame.gM_ID;
+        }
+        return false;
+    }
+    get isViewOnly() {
+        return this.authService.currentUserValue == null;
+    }
+    get viewType() {
+        if (this.isViewOnly) {
+            return ViewTypeEnum.Overview;
+        }
+        if (this.isPlayer) {
+            return ViewTypeEnum.Player;
+        }
+        if (this.isGM) {
+            return ViewTypeEnum.GM;
+        }
+        return ViewTypeEnum.Overview;
+    }
+    get actors() {
+        var acts = this.allActors;
+        acts.sort((a, b) => {
+            var CAa = a.currentAction;
+            var CAb = b.currentAction;
+            if (CAa == null || CAb == null) {
+                return 0;
+            }
+            if (CAa.endTime < CAb.endTime) {
+                return -1;
+            }
+            if (CAa.endTime > CAb.endTime) {
+                return 1;
+            }
+            return 0;
+        });
+        return acts;
     }
     get actions() {
         var acts = this.allActions;
-        if (this.authService.currentUser == null) {
+        //debugger;
+        if (this.isViewOnly && acts.length > 0) {
             acts = acts.filter((element, index, array) => {
-                var isNext = element.actionType == ActionTypeEnum.Next;
+                //element.actionType == ActionTypeEnum.Next && 
+                var isCurrent = element.actionType == ActionTypeEnum.Current || (element.actionType == ActionTypeEnum.Proposed && element.whoIsActing.type == CharacterType.PC);
+                var isForPC = element.whoIsActing.type == CharacterType.PC;
                 var isEffect = element.actionType == ActionTypeEnum.Effect && element.type != ActorActionType.SpellEffect;
                 var isSpellOnNPC = element.actionType == ActionTypeEnum.Effect && element.type == ActorActionType.SpellEffect && element.whoIsActing.type == CharacterType.NPC;
-                return !isNext && !isEffect;
+                return isCurrent || (isForPC && !isEffect) || (isSpellOnNPC);
+            });
+        }
+        if (acts.length > 0) {
+            var min = acts[0].endTime;
+            var max = acts[acts.length - 1].endTime;
+            var range = max - min;
+            acts.forEach((act) => {
+                act.leftPercent = (act.endTime - min) / range;
             });
         }
         return acts;
@@ -7612,21 +8469,45 @@ let EncounterService = class EncounterService {
     //public setGameType(value: GameType) {
     //    this.settings.setGameType(value);
     //}
-    get selectedAction() {
-        return this._selectedAction;
+    get selectedActions() {
+        var acts = this.actions.filter(item => item.isSelected);
+        return acts;
     }
     set selectedAction(action) {
-        this._selectedAction = action;
-        var who = this.actors.find(item => item.id === action.whoIsActing_ID);
-        this._selectedActor = who;
+        var acts = this.actions.filter(item => item.isSelected);
+        if (acts != null) {
+            acts.forEach((act) => {
+                act.isSelected = false;
+            });
+        }
+        var ac = this.actors.find(item => item.isSelected);
+        if (ac != null) {
+            ac.isSelected = false;
+        }
+        action.isSelected = true;
+        action.whoIsActing.isSelected = true;
     }
     get selectedActor() {
-        return this._selectedActor;
+        var ac = this.actors.find(item => item.isSelected);
+        return ac;
     }
     set selectedActor(actor) {
-        var act = this.actions.find(item => item.whoIsActing_ID === actor.id && item.actionType == _entities_EnumDefinitions__WEBPACK_IMPORTED_MODULE_2__["EnumDefinitions"].ActionTypeEnum.Current);
-        this._selectedAction = act;
-        this._selectedActor = actor;
+        var acts = this.actions.filter(item => item.isSelected);
+        if (acts != null) {
+            acts.forEach((act) => {
+                act.isSelected = false;
+            });
+        }
+        var ac = this.actors.find(item => item.isSelected);
+        if (ac != null) {
+            ac.isSelected = false;
+        }
+        actor.isSelected = true;
+        actor.actions.forEach((action) => {
+            if (action.actionType == ActionTypeEnum.Current || action.actionType == ActionTypeEnum.Next || action.actionType == ActionTypeEnum.Proposed) {
+                action.isSelected = true;
+            }
+        });
     }
     selectActor(actorId) {
         this.selectedActor = this.actors.find((a) => a.id == actorId);
@@ -7950,10 +8831,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/services */ "./src/app/services/index.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _entities_EnumDefinitions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/entities/EnumDefinitions */ "./src/app/entities/EnumDefinitions.ts");
 
 
 
 
+
+var ViewTypeEnum = _entities_EnumDefinitions__WEBPACK_IMPORTED_MODULE_4__["EnumDefinitions"].ViewTypeEnum;
 let EncounterComponent = 
 /** encounter component*/
 class EncounterComponent {
@@ -7974,9 +8858,35 @@ class EncounterComponent {
     }
     ngOnInit() {
     }
+    get viewType() {
+        return this.gameView.viewType;
+    }
     get actions() {
         var acts = this.gameView.actions;
         return acts;
+    }
+    get actors() {
+        var acts = this.gameView.actors;
+        return acts;
+    }
+    selectActor(actor) {
+        if (this.isGM) {
+            this.gameView.selectedActor = actor;
+        }
+    }
+    selectAction(action) {
+        if (this.isGM) {
+            this.gameView.selectedAction = action;
+        }
+    }
+    get isGM() {
+        return this.viewType == ViewTypeEnum.GM;
+    }
+    get isPlayer() {
+        return this.viewType == ViewTypeEnum.Player;
+    }
+    get isViewOnly() {
+        return this.viewType == ViewTypeEnum.Overview;
     }
 };
 EncounterComponent.ctorParameters = () => [
@@ -8104,12 +9014,11 @@ const environment = {
 /*!*********************!*\
   !*** ./src/main.ts ***!
   \*********************/
-/*! exports provided: getBaseUrl */
+/*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getBaseUrl", function() { return getBaseUrl; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/platform-browser-dynamic */ "./node_modules/@angular/platform-browser-dynamic/fesm2015/platform-browser-dynamic.js");
@@ -8120,17 +9029,19 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function getBaseUrl() {
-    return document.getElementsByTagName('base')[0].href;
-}
-const providers = [
-    { provide: 'BASE_URL', useFactory: getBaseUrl, deps: [] }
-];
+//export function getBaseUrl() {
+//  return document.getElementsByTagName('base')[0].href;
+//}
+//const providers = [
+//  { provide: 'BASE_URL', useFactory: getBaseUrl, deps: <Array<any>>[] }
+//];
 if (_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].production) {
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["enableProdMode"])();
 }
-Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_2__["platformBrowserDynamic"])(providers).bootstrapModule(_app_app_module__WEBPACK_IMPORTED_MODULE_3__["AppModule"])
+Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_2__["platformBrowserDynamic"])().bootstrapModule(_app_app_module__WEBPACK_IMPORTED_MODULE_3__["AppModule"])
     .catch(err => console.log(err));
+//platformBrowserDynamic(providers).bootstrapModule(AppModule)
+//  .catch(err => console.log(err));
 
 
 /***/ }),

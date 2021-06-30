@@ -48,6 +48,8 @@ namespace CombatTracker.Authorization
                 user = new ApplicationUser
                 {
                     UserName = UserName,
+                    Email = UserName + "@solmead.com",
+                    NormalizedEmail = UserName + "@solmead.com",
                     EmailConfirmed = true
                 };
                 await userManager.CreateAsync(user, testUserPw);

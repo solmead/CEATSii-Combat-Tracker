@@ -1,0 +1,42 @@
+{
+  "VisibilityConfig": {
+    "Conditions": [
+      {
+        "Comparisons": [
+          {
+            "Comparison": "Equal",
+            "QuestionCode": "OnlineTreasuryPayFlag",
+            "QuestionValue": "True"
+          }
+        ]
+      },
+      {
+        "Comparisons": [
+          {
+            "Comparison": "Equal",
+            "QuestionCode": "OnlineOtherPayFlag",
+            "QuestionValue": "True"
+          }
+        ]
+      },
+      {
+        "Comparisons": [
+          {
+            "Comparison": "Equal",
+            "QuestionCode": "OnlineTreasurySWPayFlag",
+            "QuestionValue": "True"
+          }
+        ]
+      },
+      {
+        "Comparisons": [
+          {
+            "Comparison": "Equal",
+            "QuestionCode": "OnlineOtherSWPayFlag",
+            "QuestionValue": "True"
+          }
+        ]
+      }
+    ]
+  }
+}

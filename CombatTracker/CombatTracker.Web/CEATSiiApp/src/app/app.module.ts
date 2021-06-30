@@ -33,7 +33,7 @@ import { WeaponListComponent } from '@/components/weapon';
 import { WeaponEditComponent } from '@/components/weapon';
 import { ActionsListComponent } from '@/components/encounter';
 import { ActionComponent } from '@/components/encounter';
-import { ActorComponent } from './components/actor/actor.component';
+import { ActorComponent, ActorListComponent } from '@/components/actor/';
 import { ModalComponent } from '@/elements';
 import { AlertComponent } from '@/elements';
 
@@ -60,6 +60,7 @@ import { ApiAuthorizationModule } from './api-authorization/api-authorization.mo
         CreatureListComponent,
         CreatureEditComponent,
         ActorComponent,
+        ActorListComponent,
         EncounterComponent,
         ArmorListComponent,
         ArmorEditComponent,
@@ -86,6 +87,10 @@ import { ApiAuthorizationModule } from './api-authorization/api-authorization.mo
         AppRoutingModule
     ],
     providers: [
+        //{
+        //    provide: 'BASE_URL',
+        //    useFactory: getBaseUrl
+        //},
         //{
         //  provide: 'BASE_URL',
         //  useFactory: getBaseUrl
@@ -136,6 +141,7 @@ import { ApiAuthorizationModule } from './api-authorization/api-authorization.mo
 })
 export class AppModule { }
 
+
 //export function getBaseUrl() {
-//  return document.getElementsByTagName('base')[0].href;
+//    return (<any>document.getElementsByTagName('baseAction')[0]).href;
 //}

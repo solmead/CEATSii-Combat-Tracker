@@ -131,6 +131,16 @@ namespace CombatTracker.Entities.Reference
         {
             return WalkSpeed;
         }
+
+        public string GetCriticalIgnores()
+        {
+            return null;
+        }
+
+        public string GetCriticalModified()
+        {
+            return null;
+        }
     }
     
 }

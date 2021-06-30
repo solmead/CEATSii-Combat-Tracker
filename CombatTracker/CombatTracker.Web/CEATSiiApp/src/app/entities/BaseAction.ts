@@ -1,10 +1,8 @@
 ﻿
 
 
-
     import * as Enums from './EnumDefinitions'
     import { ActionDefinition } from './ActionDefinition';
-import { Actor } from './Actor';
 import { Attack } from './Attack';
 import ActorActionType = Enums.EnumDefinitions.ActorActionType;
 import ActionProblem = Enums.EnumDefinitions.ActionProblem;
@@ -36,14 +34,12 @@ import ActionTypeEnum = Enums.EnumDefinitions.ActionTypeEnum;
         reoccuring: boolean;
         characterAction: boolean;
         base: ActionDefinition;
-        whoIsActing: Actor;
         currentAttack: Attack;
         game_ID: number;
         whoIsActing_ID: number;
         baseAction_ID?: number;
         currentAttack_ID?: number;
         critical_ID?: number;
-        color: string;
 
 
         constructor() {

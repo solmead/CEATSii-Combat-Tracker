@@ -82,7 +82,7 @@ namespace CombatTracker.Entities.Current
         public bool CharacterAction { get; set; }
 
         public ActionDefinition Base { get; set; }
-        public Actor WhoIsActing { get; set; }
+        //public Actor WhoIsActing { get; set; }
         public Attack CurrentAttack { get; set; }
 
 
@@ -97,33 +97,33 @@ namespace CombatTracker.Entities.Current
 
 
 
-        public String Color
-        {
-            get
-            {
-                var col = "";
-                col = col + WhoIsActing.Color;
-                if (ActionType == ActionTypeEnum.Current)
-                {
-                    col = col + ",1";
-                }
-                if (ActionType == ActionTypeEnum.Next)
-                {
-                    col = col + ",0.5";
-                }
-                if (ActionType == ActionTypeEnum.Proposed)
-                {
-                    col = col + ",0.33";
-                }
-                if (ActionType == ActionTypeEnum.None)
-                {
-                    col = col + ",0";
-                }
+        //public String Color
+        //{
+        //    get
+        //    {
+        //        var col = "";
+        //        col = col + WhoIsActing.Color;
+        //        //if (ActionType == ActionTypeEnum.Current)
+        //        //{
+        //        //    col = col + ",1";
+        //        //}
+        //        //if (ActionType == ActionTypeEnum.Next)
+        //        //{
+        //        //    col = col + ",0.5";
+        //        //}
+        //        //if (ActionType == ActionTypeEnum.Proposed)
+        //        //{
+        //        //    col = col + ",0.33";
+        //        //}
+        //        //if (ActionType == ActionTypeEnum.None)
+        //        //{
+        //        //    col = col + ",0";
+        //        //}
 
 
-                return col;
-            }
-        }
+        //        return col;
+        //    }
+        //}
 
 
         public double PercentageCompleted(double currentTime)

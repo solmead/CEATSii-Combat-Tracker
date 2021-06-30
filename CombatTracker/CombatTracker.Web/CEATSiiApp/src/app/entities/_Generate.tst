@@ -186,7 +186,6 @@ ${
 
 }
 
-
 $Classes(CombatTracker.Entities.Current.*)[
     import * as Enums from './EnumDefinitions'
     $ImportsListProperties

@@ -20,7 +20,7 @@ namespace CombatTracker.Entities.Current
 
         public int ID { get; set; }
         public string Name { get; set; }
-        //public Guid? GM_ID { get; set; }
+        public Guid? GM_ID { get; set; }
         public double CurrentTime { get; set; }
         
         public GameType GameType { get; set; }

@@ -41,9 +41,16 @@ export class GamesRepository {
 
 	public getGames = () : Observable<Game[]> => {
         
-        var _Url = `api/v${version}/Games/getGames`;
+            var _Url = `api/v${version}/Games/getGames`;
+
             return this._httpClient.get<Game[]>(_Url)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            if (data != null) data = data.map((dt) => Object.assign(new Game(), dt));
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     
@@ -67,9 +74,16 @@ export class GamesRepository {
 	public getGame = (id: number) : Observable<Game> => {
         id = (id == null ? <number><any>"" : id);
         
-        var _Url = `api/v${version}/Games/getGame/${id}`;
+            var _Url = `api/v${version}/Games/getGame/${id}`;
+
             return this._httpClient.get<Game>(_Url)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            if (data != null) data = Object.assign(new Game(), data);
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     
@@ -93,9 +107,16 @@ export class GamesRepository {
 	public saveGame = (game: Game) : Observable<Game> => {
         game = (game == null ? <Game><any>"" : game);
         
-        var _Url = `api/v${version}/Games/SaveGame`;
+            var _Url = `api/v${version}/Games/SaveGame`;
+
             return this._httpClient.post<Game>(_Url, game)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            if (data != null) data = Object.assign(new Game(), data);
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     
@@ -119,9 +140,16 @@ export class GamesRepository {
 	public deleteGame = (id: number) : Observable<void> => {
         id = (id == null ? <number><any>"" : id);
         
-        var _Url = `api/v${version}/Games/deleteGame/${id}`;
+            var _Url = `api/v${version}/Games/deleteGame/${id}`;
+
             return this._httpClient.delete<void>(_Url)
-                .pipe(catchError(this.handleError));
+                .pipe(
+                        map((data) => {
+                            
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
 	};
 
     

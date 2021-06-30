@@ -45,7 +45,8 @@ namespace CombatTracker.Domain.Repositories
                                 ID = a.ID,
                                 CurrentTime = a.CurrentTime,
                                 Name = a.Name,
-                                GameTypeString = a.GameType
+                                GameTypeString = a.GameType,
+                                GM_ID = a.GM_ID
                             }).ToList();
 
 
@@ -70,7 +71,8 @@ namespace CombatTracker.Domain.Repositories
                                 ID = a.ID,
                                 CurrentTime = a.CurrentTime,
                                 Name = a.Name,
-                                GameTypeString = a.GameType
+                                GameTypeString = a.GameType,
+                                GM_ID = a.GM_ID
                             }).FirstOrDefault();
                     //g.Actors = GetActors(g.ID);
                     //g.GameActions = GetActionsInGame(g.ID);
@@ -95,6 +97,7 @@ namespace CombatTracker.Domain.Repositories
             item.CurrentTime = game.CurrentTime;
             item.Name = game.Name;
             item.GameType = game.GameTypeString;
+            item.GM_ID = game.GM_ID;
 
             db.SaveChanges();
             game.ID = item.ID;
@@ -197,6 +200,15 @@ namespace CombatTracker.Domain.Repositories
                     {
                         act.CurrentArmor = _combatRepository.GetArmor(act.CurrentArmor_ID.Value);
                     }
+
+                    if (act.BaseCreature_ID.HasValue)
+                    {
+                        var creature = _creatureRepository.GetCreature(act.BaseCreature_ID ?? 0);
+                        act.CriticalIgnores = creature.GetCriticalIgnores();
+                        act.CriticalModified = creature.GetCriticalModified();
+                    }
+
+
                     Cache.SetItem<Actor>(CacheArea.Global, "Actor_" + act.ID, act);
                 });
                 return list;
@@ -224,9 +236,17 @@ namespace CombatTracker.Domain.Repositories
                 //{
                 //    act.Base = _characterRepository.GetCharacter(act.BaseCharacter_ID.Value);
                 //}
+                act.CriticalEffects = new Stack<CriticalEffect>(GetCriticalEffects(act.ID));
+
                 if (act.CurrentArmor_ID.HasValue)
                 {
                     act.CurrentArmor = _combatRepository.GetArmor(act.CurrentArmor_ID.Value);
+                }
+                if (act.BaseCreature_ID.HasValue)
+                {
+                    var creature = _creatureRepository.GetCreature(act.BaseCreature_ID ?? 0);
+                    act.CriticalIgnores = creature.GetCriticalIgnores();
+                    act.CriticalModified = creature.GetCriticalModified();
                 }
 
                 return act;
@@ -269,7 +289,7 @@ namespace CombatTracker.Domain.Repositories
             item.Suprised = actor.Suprised;
             item.Type = actor.TypeString;
             item.UsingAdrenalDB = actor.UsingAdrenalDB;
-
+            
 
 
             db.SaveChanges();
@@ -318,9 +338,11 @@ namespace CombatTracker.Domain.Repositories
                          where a.Actor_ID == actorId
                          select a);
                 var list = (from a in q
+                            orderby a.SortOrder
                             select new CriticalEffect()
                             {
                                 ID = a.ID,
+                                SortOrder = a.SortOrder,
                                 IsStunned = a.IsStunned,
                                 Negative = a.Negative,
                                 ParryString = a.Parry,
@@ -347,6 +369,7 @@ namespace CombatTracker.Domain.Repositories
                          select new CriticalEffect()
                          {
                              ID = a.ID,
+                             SortOrder = a.SortOrder,
                              IsStunned = a.IsStunned,
                              Negative = a.Negative,
                              ParryString = a.Parry,
@@ -369,6 +392,7 @@ namespace CombatTracker.Domain.Repositories
                 item = new DbCriticalAffect();
                 db.CriticalAffects.Add(item);
             }
+            item.SortOrder = item.SortOrder;
             item.IsStunned = criticalEffect.IsStunned;
             item.Negative = criticalEffect.Negative;
             item.Parry = criticalEffect.ParryString;
@@ -480,7 +504,7 @@ namespace CombatTracker.Domain.Repositories
                     if (g.CurrentAttack_ID.HasValue) {
                         g.CurrentAttack = _combatRepository.GetAttack(g.CurrentAttack_ID.Value);
                     }
-                    g.WhoIsActing = GetActor(g.WhoIsActing_ID);
+                    //g.WhoIsActing = GetActor(g.WhoIsActing_ID);
 
                     if (g.Critical_ID.HasValue)
                     {

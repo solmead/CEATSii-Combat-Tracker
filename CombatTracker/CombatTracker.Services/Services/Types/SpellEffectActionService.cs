@@ -16,7 +16,7 @@ namespace CombatTracker.Services.Services.Types
             sa.Name = null;
             sa.Note = null;
             sa.BasePercent = 1;
-            sa.WhoIsActing = whom;
+            //sa.WhoIsActing = whom;
             sa.WhoIsActing_ID = whom.ID;
             sa.Type = ActorActionType.SpellEffect;
             sa.ActionType = ActionTypeEnum.Effect;

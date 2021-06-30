@@ -1,15 +1,21 @@
-﻿<div style="border: 1px solid red; height: 100%;">
-    <div class="row">
-        <div class="list">
-            encounter Component
+﻿<div class="h-100">
+    <div class="row h-100">
+        <div class="col-2 h-100" *ngIf="isGM">
+            <div class="encounter-box">
+                <h2>Library</h2>
+                encounter Component
+            </div>
         </div>
-        <div class="edit">
-            <actions-list [actions]="actions"></actions-list>
+        <div class="h-100" [ngClass]="{'col-6': isGM,
+                                       'col-7': !isGM}">
+            <actor-list [actors]="actors" [viewType]="viewType" (onSelect)="selectActor($event)"></actor-list>
         </div>
-
-
+        <div class="h-100" [ngClass]="{'col-4': isGM,
+                                       'col-5': !isGM}">
+            <div class="encounter-box actionsList">
+                <h2>Actions</h2>
+                <actions-list [actions]="actions" [viewType]="viewType" (onSelect)="selectAction($event)"></actions-list>
+            </div>
+        </div>
     </div>
-    
-    
-    
 </div>
