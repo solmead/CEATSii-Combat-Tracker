@@ -29,7 +29,7 @@ namespace CombatTracker.Web.Controllers.Api
         }
         
         // GET: /<controller>/
-        [HttpGet("[action]")]
+        [HttpGet("GetGames")]
         public List<Game> GetGames()
         {
             var list = _gameRepository.GetGames();
@@ -39,7 +39,7 @@ namespace CombatTracker.Web.Controllers.Api
 
         }
 
-        [HttpGet("[action]/{id}")]
+        [HttpGet("GetGame/{id}")]
         public Game GetGame(int id)
         {
             return _gameRepository.GetGame(id);
@@ -51,7 +51,7 @@ namespace CombatTracker.Web.Controllers.Api
             return _gameRepository.SaveGame(game);
         }
 
-        [HttpDelete("[action]/{id}")]
+        [HttpDelete("DeleteGame/{id}")]
         public void DeleteGame(int id)
         {
             _gameRepository.DeleteGame(id);

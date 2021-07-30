@@ -60,21 +60,43 @@ namespace CombatTracker.Web.Configuration
                 // Ensure the routes are added to the right Swagger doc
                 c.DocInclusionPredicate((version, desc) =>
                 {
-                    if (!desc.TryGetMethodInfo(out MethodInfo methodInfo))                        return false;
+                    if (!desc.TryGetMethodInfo(out MethodInfo methodInfo))
+                        return false;
 
 
-                    var versions = methodInfo.DeclaringType                    .GetCustomAttributes(true)                    .OfType<ApiExplorerSettingsAttribute>()                    .Select(attr => attr.GroupName);
+                    var versions = methodInfo.DeclaringType
+                    .GetCustomAttributes(true)
+                    .OfType<ApiExplorerSettingsAttribute>()
+                    .Select(attr => attr.GroupName);
 
-                    var maps = methodInfo                    .GetCustomAttributes(true)                    .OfType<ApiExplorerSettingsAttribute>()                    .Select(attr => attr.GroupName)                    .ToArray();                    if (versions.Any() || maps.Any())
+                    var maps = methodInfo
+                    .GetCustomAttributes(true)
+                    .OfType<ApiExplorerSettingsAttribute>()
+                    .Select(attr => attr.GroupName)
+                    .ToArray();
+
+
+                    if (versions.Any() || maps.Any())
                     {
                         return (maps.Any() && maps.Any(v => $"{v.ToString()}" == version) || (!versions.Any() || versions.Any(v => $"{v.ToString()}" == version)));
-                    }                    var versions2 = methodInfo.DeclaringType                    .GetCustomAttributes(true)                    .OfType<ApiVersionAttribute>()                    .SelectMany(attr => attr.Versions);
+                    }
+
+
+
+                    var versions2 = methodInfo.DeclaringType
+                    .GetCustomAttributes(true)
+                    .OfType<ApiVersionAttribute>()
+                    .SelectMany(attr => attr.Versions);
 
 
 
                     //ApiExplorerSettings
 
-                    var maps2 = methodInfo                    .GetCustomAttributes(true)                    .OfType<MapToApiVersionAttribute>()                    .SelectMany(attr => attr.Versions)                    .ToArray();
+                    var maps2 = methodInfo
+                    .GetCustomAttributes(true)
+                    .OfType<MapToApiVersionAttribute>()
+                    .SelectMany(attr => attr.Versions)
+                    .ToArray();
 
                     return versions2.Any(v => $"v{v.ToString()}" == version)
                                   && (!maps2.Any() || maps2.Any(v => $"v{v.ToString()}" == version));

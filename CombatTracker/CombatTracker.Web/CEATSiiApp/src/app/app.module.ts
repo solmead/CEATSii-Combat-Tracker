@@ -31,16 +31,16 @@ import { AttackListComponent } from '@/components/attack';
 import { AttackEditComponent } from '@/components/attack';
 import { WeaponListComponent } from '@/components/weapon';
 import { WeaponEditComponent } from '@/components/weapon';
-import { ActionsListComponent } from '@/components/encounter';
+import { ActionEditComponent, ActionsListComponent } from '@/components/encounter';
 import { ActionComponent } from '@/components/encounter';
 import { ActorComponent, ActorListComponent } from '@/components/actor/';
-import { ModalComponent } from '@/elements';
+import { ModalComponent, TreeviewComponent } from '@/elements';
 import { AlertComponent } from '@/elements';
 
 import { AppRoutingModule } from './app-routing.module';
 import { JwtInterceptor, ErrorInterceptor, ApiPathInterceptor } from '@/_helpers';
 
-import { AuthenticationService, EncounterService, AlertService, ReferencesService } from '@/services';
+import { AuthenticationService, EncounterService, EncounterHubService, AlertService, ReferencesService } from '@/services';
 
 import { AuthorizeInterceptor } from './api-authorization/authorize.interceptor';
 import { ApiAuthorizationModule } from './api-authorization/api-authorization.module';
@@ -67,9 +67,11 @@ import { ApiAuthorizationModule } from './api-authorization/api-authorization.mo
         WeaponListComponent,
         WeaponEditComponent,
         ModalComponent,
+        TreeviewComponent,
         AttackListComponent,
         AttackEditComponent,
         ActionsListComponent,
+        ActionEditComponent,
         ActionComponent,
         AlertComponent,
         MainNavMenuComponent,
@@ -118,6 +120,7 @@ import { ApiAuthorizationModule } from './api-authorization/api-authorization.mo
             deps: [AuthenticationService]
         },
         EncounterService,
+        EncounterHubService,
         AlertService,
         ReferencesService,
         //Services.AlertService,

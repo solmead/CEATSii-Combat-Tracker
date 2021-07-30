@@ -1,4 +1,6 @@
-﻿using CombatTracker.Web.Models.Conventions;
+﻿using CombatTracker.Services.Abstract;
+using CombatTracker.Web.Hubs;
+using CombatTracker.Web.Models.Conventions;
 using CombatTracker.Web.Models.Settings;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -49,7 +51,9 @@ namespace CombatTracker.Web.Configuration
                 options.Cookie.IsEssential = true;
             });
 
+            services.AddSingleton<IEncounterNotification, EncounterNotification>();
 
+            services.AddSignalR();
 
             services.AddCors();
 

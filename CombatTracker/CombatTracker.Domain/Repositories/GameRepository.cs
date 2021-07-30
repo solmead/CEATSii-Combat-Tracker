@@ -195,6 +195,7 @@ namespace CombatTracker.Domain.Repositories
                     //}
 
                     act.CriticalEffects = new Stack<CriticalEffect>(GetCriticalEffects(act.ID));
+                    act.Attacks = _combatRepository.GetAttacksOnActor(act.ID);
 
                     if (act.CurrentArmor_ID.HasValue)
                     {
@@ -207,6 +208,8 @@ namespace CombatTracker.Domain.Repositories
                         act.CriticalIgnores = creature.GetCriticalIgnores();
                         act.CriticalModified = creature.GetCriticalModified();
                     }
+                    
+
 
 
                     Cache.SetItem<Actor>(CacheArea.Global, "Actor_" + act.ID, act);
@@ -237,6 +240,7 @@ namespace CombatTracker.Domain.Repositories
                 //    act.Base = _characterRepository.GetCharacter(act.BaseCharacter_ID.Value);
                 //}
                 act.CriticalEffects = new Stack<CriticalEffect>(GetCriticalEffects(act.ID));
+                act.Attacks = _combatRepository.GetAttacksOnActor(act.ID);
 
                 if (act.CurrentArmor_ID.HasValue)
                 {
@@ -316,6 +320,18 @@ namespace CombatTracker.Domain.Repositories
             var item = (from c in db.Actors where c.ID == actor.ID select c).FirstOrDefault();
             if (item != null)
             {
+                foreach (var aa in item.Attacks)
+                {
+                    db.ActorsAttacks.Remove(aa);
+                }
+                foreach (var aa in item.CriticalAffects)
+                {
+                    db.CriticalAffects.Remove(aa);
+                }
+                foreach (var aa in item.Actions)
+                {
+                    db.ActorsActions.Remove(aa);
+                }
                 db.Actors.Remove(item);
                 db.SaveChanges();
             }
@@ -496,6 +512,7 @@ namespace CombatTracker.Domain.Repositories
 
                 list.ForEach((g) =>
                 {
+                    
                     g.LeftPercent = (g.EndTime-min) / range;
                     if (g.BaseAction_ID.HasValue)
                     {
@@ -581,8 +598,12 @@ namespace CombatTracker.Domain.Repositories
         public BaseAction GetAction(int id)
         {
             var act = db.ActorsActions.FirstOrDefault((a) => a.ID == id);
-            var lst = GetActionsInGame(act.Game_ID);
-            return lst.FirstOrDefault((a) => a.ID == id);
+            if (act != null)
+            {
+                var lst = GetActionsInGame(act.Game_ID);
+                return lst.FirstOrDefault((a) => a.ID == id);
+            }
+            return null;
         }
 
         public BaseAction SaveAction(BaseAction action)

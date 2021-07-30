@@ -245,7 +245,14 @@ h4 {
     font-size: 1.15rem;
 }
 
-
+.subText {
+    font-style: italic;
+    font-size: 14px;
+    font-weight: normal;
+    color: grey;
+    text-transform: none;
+    display: block;
+}
 
 
 
@@ -262,7 +269,11 @@ code {
     background-color: #1b6ec2;
     border-color: #1861ac;
 }
-
+.btn {
+    .material-icons {
+        font-size: 1em;
+    }
+}
 
 
 
@@ -302,12 +313,59 @@ code {
     }
 }
 
-
-.initiative-list {
+.h-90 {
+    height: 90%;
+}
+.actorListArea {
     flex-shrink: 1;
-    overflow: hidden auto;
     min-height: 6rem;
-    margin: 5px 0 5px 5px;
+    margin: 0px 0 0px 5px;
+}
+.actorListHeader {
+    max-height: 10%;
+    margin: 0;
+
+    .btn-sm {
+        font-size: 12px;
+        padding: 2px;
+        line-height: 1em;
+        margin: 2px;
+
+        .material-icons {
+            font-size: 1em;
+        }
+    }
+}
+.initiative-list {
+    //overflow: hidden auto;
+
+
+    .combatantsTableOuter {
+        border: 1px solid black;
+        border-radius: 5px;
+        padding: 2px;
+        background: white;
+        //height: auto !important;
+        max-height: 100%;
+    }
+
+    .combatantsTable {
+        overflow: hidden auto;
+        padding: 5px;
+        //height: auto !important;
+        //max-height: 100%;
+
+        .btn-sm {
+            font-size: 12px;
+            padding: 2px;
+            line-height: 1em;
+            margin: 2px;
+
+            .material-icons {
+                font-size: 1em;
+            }
+        }
+    }
 }
 /*combatants, .combatants * {
     position: static;
@@ -319,6 +377,9 @@ code {
     border-spacing: 0;
     border-collapse: collapse;
     position: static;
+    border-radius: 10px;
+    border-collapse: inherit;
+
 
     * {
         position: static;
@@ -327,11 +388,60 @@ code {
     th, td {
         vertical-align: middle;
         text-align: center;
+        padding: 0 5px;
     }
 
     th {
         padding: 8px 5px;
         font-weight: normal;
+        padding: 2px 5px;
+    }
+
+    td {
+        //border-left: 1px solid rgb(200, 200, 200);
+        //border-right: 1px solid rgb(230, 230, 230);
+        border-right: 1px solid rgb(200, 200, 200);
+        &:last-child {
+            border-right: 0px;
+        }
+    }
+
+    thead {
+        border-radius: 10px 10px 0px 0px;
+
+        > tr:first-child {
+            border-radius: 10px 10px 0px 0px;
+            //border: 1px solid red;
+
+            > th:first-child {
+                border-radius: 10px 0 0 0;
+                //border: 1px solid purple;
+            }
+
+            > th:last-child {
+                border-radius: 0px 10px 0 0;
+                //border: 1px solid purple;
+            }
+        }
+    }
+
+    tbody {
+        border-radius: 0px 0px 10px 10px;
+
+        > tr:last-child {
+            border-radius: 0px 0px 10px 10px;
+            //border: 1px solid red;
+
+            > td:first-child {
+                border-radius: 0px 0 0 10px;
+                //border: 1px solid purple;
+            }
+
+            > td:last-child {
+                border-radius: 0px 0px 10px 0;
+                //border: 1px solid purple;
+            }
+        }
     }
 }
 
@@ -341,6 +451,7 @@ code {
     border-color: #212121;
     padding: 0.5rem;
 }
+
 
 .combatant {
     padding: 0.5rem;
@@ -353,9 +464,6 @@ code {
         background-color: #f5f1eb;
     }
 
-    &.selected {
-        box-shadow: inset 0 0 0 3px #00643c;
-    }
 
     &.active {
         td:first-child {
@@ -433,11 +541,11 @@ code {
 .combatant {
     .iconArea,
     .iconAreaText {
-        margin: 0 3px;
+        margin: 2px 3px;
         border: 1px solid black;
         background: black;
         color: white;
-
+        
 
 
 
@@ -482,10 +590,29 @@ code {
         }
     }
 }
+.ActorActionBack {
+    background: transparent;
+    //width: 150px;
+    //height: 55px;
+    width: 300px;
+    //height: 98px;
+    height: auto;
+    overflow: hidden;
+    white-space: nowrap;
+    //margin: 5px 0;
+    padding: 5px;
+}
+.combatant {
 
+    &.selected {
+        box-shadow: inset 0 0 10px 3px rgba(0, 100, 60, 0.75);
+        box-shadow: 0px 0px 6px 1px rgba(8, 50, 94, 75%), inset 0px 0px 5px 2px rgba(0, 0, 0, 51%);
+        box-shadow: 0px 0px 6px 1px rgba(8, 50, 94, 75%), inset 0px 0px 5px 2px rgba(0, 100, 60, 0.75);
+    }
+}
 .ActorAction {
     position: relative;
-    border: 2px solid red;
+    border: 2px solid black;
     width: 134px;
     height: 49px;
     width: 288px;
@@ -499,4 +626,248 @@ code {
     line-height: 1em;
     padding: 3px 17px;
     background: white;
+
+    .btn-sm {
+        font-size: 12px;
+        padding: 2px;
+        line-height: 1em;
+        margin: 2px;
+
+        .material-icons {
+            font-size: 1em;
+        }
+    }
+
+    &.selected {
+        box-shadow: 0 0 4px 1px rgba(0, 100, 60, 0.75);
+        box-shadow: inset -1px 3px 6px 0px rgb(0, 100, 60), 0px 0px 6px 1px rgba(8, 50, 94, 0.75), inset 5px 5px 5px 0px rgba(0,0,0,0.51);
+        box-shadow: 0px 0px 6px 1px rgba(8, 50, 94, 75%), inset 0px 0px 5px 2px rgba(0, 0, 0, 51%);
+        box-shadow: 0px 0px 6px 1px rgba(8, 50, 94, 75%), inset 0px 0px 5px 2px rgba(0, 100, 60, 0.75);
+    }
+
+    &.Current {
+    }
+
+    &.Next {
+        border: 2px solid rgba(0, 0, 0, 0.35);
+        height: 50px;
+    }
+
+    &.Proposed {
+        border: 2px dashed rgba(0, 0, 0, 0.65);
+        //height: 70px;
+    }
+
+    &.Effect {
+        border: 2px dashed black;
+        height: 40px;
+    }
+
+    &.SpellEffect {
+        border: 3px dotted rgb(148,0,211);
+    }
+
+    &.Critical {
+        border: 3px dotted rgb(220,20,60);
+    }
+
+    &.Bleed {
+        border: 2px dashed red;
+        //background: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(121,9,9,0.5) 35%, rgba(255,0,0,1) 100%);
+    }
+
+    &.Psychic {
+        border: 3px dotted rgb(255,215,0);
+        //background: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(121,84,9,0.5) 35%, rgba(255,136,0,1) 100%);
+    }
+}
+
+    .actorColumn {
+        color: green;
+        /*Healthy, Winded, Bloodied, Rough, Dead*/
+
+
+
+        .Winded {
+            color: blue;
+        }
+
+        .Bloodied {
+            color: orange;
+        }
+
+        .Rough {
+            color: red;
+        }
+
+        .Dead {
+            color: black;
+        }
+    }
+
+    .nameColumn {
+        white-space: nowrap;
+    }
+
+    .fullView {
+        .columnLeft {
+            flex: 0 0 20%;
+            max-width: 20%;
+            padding-right: 0;
+        }
+
+        .columnCenter {
+            flex: 0 0 55%;
+            max-width: 55%;
+            padding: 0;
+        }
+
+        .columnRight {
+            padding-left: 0;
+            padding-right: 4px;
+        }
+    }
+
+    .actorListArea {
+    }
+
+    alert {
+        display: inline-block;
+    }
+
+
+
+
+.actionEditArea {
+    margin: 1%;
+    height: 92%;
+    padding: 1%;
+
+    > h2 {
+        height: 10%;
+        padding: 0;
+        margin: 0;
+    }
+
+    .actionEditControl {
+        height: 90%;
+        padding: 0;
+        margin: 0;
+    }
+
+    select.form-control {
+        font-size: 12px;
+        padding: 5px;
+        option {
+            padding: 2px;
+            border-radius: 2px;
+            &:hover {
+                background: whitesmoke;
+            }
+        }
+    }
+}
+
+.tree-view {
+    font-size: 10px;
+    border: 1px solid grey;
+    border-radius: 5px;
+    overflow: auto;
+    height: 100% !important;
+    padding: 5px;
+
+    .tree-view-inner {
+        height: 100% !important;
+        overflow: auto;
+
+
+        > ul {
+        }
+    }
+
+
+    ul {
+        list-style-type: none;
+
+        li {
+            padding: 6px 12px;
+            cursor: pointer;
+            padding: 0px 15px;
+
+
+            li {
+                i {
+                    //font-size: 12px;
+                    line-height: 0.8em;
+                }
+
+                span {
+                    &.tree-item-label {
+                        font-size: 12px;
+                        line-height: 1.5em;
+                    }
+                }
+            }
+
+            &[role="treeitem"][aria-expanded="false"] > ul {
+                display: none;
+            }
+
+            &[role="treeitem"][aria-expanded="true"] > ul {
+                display: block;
+            }
+
+            .treeNodeText {
+                white-space: nowrap;
+                border-radius: 5px;
+            }
+
+            span {
+                &.tree-item-label {
+                    padding: 6px 12px;
+                    padding: 0;
+                    margin-left: 21px;
+                    font-size: 16px;
+                    line-height: 1.5em;
+                }
+            }
+
+            i {
+                margin-left: -1.15rem;
+                //font-size: 10px;
+                margin-left: 0;
+                font-size: 21px;
+                line-height: 1.2em;
+                overflow: hidden;
+                position: absolute;
+                left: -4px;
+                top: 0px;
+            }
+
+            &:focus {
+                outline: none;
+
+                > span {
+                    outline: none;
+                    font-weight: bold;
+                    text-decoration: underline;
+                    cursor: pointer;
+                }
+            }
+
+            &:hover {
+                > .treeNodeText {
+                    background: rgb(200,200,200);
+                }
+            }
+
+            &[data-isSelected="true"] {
+
+                > .treeNodeText {
+                    border: 1px solid black;
+                    background: whitesmoke;
+                }
+            }
+        }
+    }
 }

@@ -1,6 +1,54 @@
 import { Lock } from "./Lock";
 
 
+export class MutexLock {
+
+    private refreshLock:Lock.Locker = null;
+
+    constructor(maxLockTime?:number) {
+        this.refreshLock = new Lock.Locker(maxLockTime);
+    }
+
+    get isLocked(): boolean {
+        return this.refreshLock.isLocked();
+    }
+
+    async LockAreaAsync(func: () => Promise<void>): Promise<void> {
+        await this.BeginLock();
+
+        await func();
+
+        await this.EndLock();
+    }
+
+    async WaitTillUnlocked(): Promise<void> {
+        await whenTrue(() => {
+            return !this.refreshLock.isLocked();
+        });
+        return;
+    }
+
+
+    async BeginLock(): Promise<void> {
+        await whenTrue(() => {
+            return !this.refreshLock.isLocked();
+        });
+
+        if (this.refreshLock.isLocked()) {
+            return;
+        }
+
+        this.refreshLock.lock();
+    }
+
+    async EndLock(): Promise<void> {
+        this.refreshLock.unLock();
+    }
+
+}
+
+
+
     export class RecurringTask {
 
         private _isRunning: boolean = false;

@@ -11,6 +11,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import {Observable, throwError} from "rxjs";
 import { map, catchError } from "rxjs/operators";
+import { AlertService } from '@/services/Alert.service';
 
     import * as Enums from '@/entities/EnumDefinitions'
     import { Armor } from '@/entities';
@@ -22,7 +23,7 @@ var version = "1";
 @Injectable({ providedIn: 'root' })
 export class CombatRepository {
 
-    constructor(private _httpClient: HttpClient) { }
+    constructor(private _httpClient: HttpClient, private _alertService: AlertService) { }
     
     // delete: api/v${version}/Combat/deleteArmor/${id}
 
@@ -36,6 +37,9 @@ export class CombatRepository {
             this.deleteArmor(id)
             .subscribe((res) => {
                     resolve(res);
+                }, (error: string) => {
+                    this._alertService.error(error);
+                    resolve(null);
                 });
 
         });
@@ -69,6 +73,9 @@ export class CombatRepository {
             this.deleteAttack(id)
             .subscribe((res) => {
                     resolve(res);
+                }, (error: string) => {
+                    this._alertService.error(error);
+                    resolve(null);
                 });
 
         });
@@ -102,6 +109,9 @@ export class CombatRepository {
             this.deleteWeapon(id)
             .subscribe((res) => {
                     resolve(res);
+                }, (error: string) => {
+                    this._alertService.error(error);
+                    resolve(null);
                 });
 
         });
@@ -135,6 +145,9 @@ export class CombatRepository {
             this.getArmor(id)
             .subscribe((res) => {
                     resolve(res);
+                }, (error: string) => {
+                    this._alertService.error(error);
+                    resolve(null);
                 });
 
         });
@@ -168,6 +181,9 @@ export class CombatRepository {
             this.getArmors()
             .subscribe((res) => {
                     resolve(res);
+                }, (error: string) => {
+                    this._alertService.error(error);
+                    resolve(null);
                 });
 
         });
@@ -200,6 +216,9 @@ export class CombatRepository {
             this.getArmorsOnCharacter(characterId)
             .subscribe((res) => {
                     resolve(res);
+                }, (error: string) => {
+                    this._alertService.error(error);
+                    resolve(null);
                 });
 
         });
@@ -233,6 +252,9 @@ export class CombatRepository {
             this.getAttack(id)
             .subscribe((res) => {
                     resolve(res);
+                }, (error: string) => {
+                    this._alertService.error(error);
+                    resolve(null);
                 });
 
         });
@@ -266,6 +288,9 @@ export class CombatRepository {
             this.getAttacks()
             .subscribe((res) => {
                     resolve(res);
+                }, (error: string) => {
+                    this._alertService.error(error);
+                    resolve(null);
                 });
 
         });
@@ -298,6 +323,9 @@ export class CombatRepository {
             this.getAttacksOnActor(actorId)
             .subscribe((res) => {
                     resolve(res);
+                }, (error: string) => {
+                    this._alertService.error(error);
+                    resolve(null);
                 });
 
         });
@@ -331,6 +359,9 @@ export class CombatRepository {
             this.getAttacksOnCreature(creatureId)
             .subscribe((res) => {
                     resolve(res);
+                }, (error: string) => {
+                    this._alertService.error(error);
+                    resolve(null);
                 });
 
         });
@@ -364,6 +395,9 @@ export class CombatRepository {
             this.getWeapon(id)
             .subscribe((res) => {
                     resolve(res);
+                }, (error: string) => {
+                    this._alertService.error(error);
+                    resolve(null);
                 });
 
         });
@@ -397,6 +431,9 @@ export class CombatRepository {
             this.getWeapons()
             .subscribe((res) => {
                     resolve(res);
+                }, (error: string) => {
+                    this._alertService.error(error);
+                    resolve(null);
                 });
 
         });
@@ -429,6 +466,9 @@ export class CombatRepository {
             this.getWeaponsOnCharacter(characterId)
             .subscribe((res) => {
                     resolve(res);
+                }, (error: string) => {
+                    this._alertService.error(error);
+                    resolve(null);
                 });
 
         });
@@ -462,6 +502,9 @@ export class CombatRepository {
             this.saveArmor(armor)
             .subscribe((res) => {
                     resolve(res);
+                }, (error: string) => {
+                    this._alertService.error(error);
+                    resolve(null);
                 });
 
         });
@@ -495,6 +538,9 @@ export class CombatRepository {
             this.saveAttack(attack)
             .subscribe((res) => {
                     resolve(res);
+                }, (error: string) => {
+                    this._alertService.error(error);
+                    resolve(null);
                 });
 
         });
@@ -528,6 +574,9 @@ export class CombatRepository {
             this.saveAttackOnActor(actorId, attack)
             .subscribe((res) => {
                     resolve(res);
+                }, (error: string) => {
+                    this._alertService.error(error);
+                    resolve(null);
                 });
 
         });
@@ -562,6 +611,9 @@ export class CombatRepository {
             this.saveWeapon(weapon)
             .subscribe((res) => {
                     resolve(res);
+                }, (error: string) => {
+                    this._alertService.error(error);
+                    resolve(null);
                 });
 
         });
@@ -585,14 +637,20 @@ export class CombatRepository {
     
     // Utility
     private handleError(error: HttpErrorResponse) {
-        console.error(error);
+        
+        //debugger;
+        console.debug("handleError:" + error);
+        //console.error(error);
         let customError: string = "";
-        if (error.error) {
-            customError = error.status === 400 ? error.error : error.statusText
+        if (error.message) {
+            customError = error.message; // error.status === 400 ? error.error : error.statusText
         }
-        return Observable.throw(customError || 'Server error');
+        return throwError(customError || 'Server error');
+        //return Observable.throw(customError || 'Server error');
     }
 }
+
+
 
 
 

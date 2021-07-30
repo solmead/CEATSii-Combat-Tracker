@@ -11,6 +11,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import {Observable, throwError} from "rxjs";
 import { map, catchError } from "rxjs/operators";
+import { AlertService } from '@/services/Alert.service';
 
     import * as Enums from '@/entities/EnumDefinitions'
     import { ApplicationUser } from '@/entities';
@@ -23,7 +24,7 @@ var version = "1";
 @Injectable({ providedIn: 'root' })
 export class UsersRepository {
 
-    constructor(private _httpClient: HttpClient) { }
+    constructor(private _httpClient: HttpClient, private _alertService: AlertService) { }
     
     // get: api/v${version}/Users/CurrentUser
 
@@ -37,6 +38,9 @@ export class UsersRepository {
             this.currentUser()
             .subscribe((res) => {
                     resolve(res);
+                }, (error: string) => {
+                    this._alertService.error(error);
+                    resolve(null);
                 });
 
         });
@@ -69,6 +73,9 @@ export class UsersRepository {
             this.logout()
             .subscribe((res) => {
                     resolve(res);
+                }, (error: string) => {
+                    this._alertService.error(error);
+                    resolve(null);
                 });
 
         });
@@ -101,6 +108,9 @@ export class UsersRepository {
             this.authenticate(model)
             .subscribe((res) => {
                     resolve(res);
+                }, (error: string) => {
+                    this._alertService.error(error);
+                    resolve(null);
                 });
 
         });
@@ -134,6 +144,9 @@ export class UsersRepository {
             this.register(model)
             .subscribe((res) => {
                     resolve(res);
+                }, (error: string) => {
+                    this._alertService.error(error);
+                    resolve(null);
                 });
 
         });
@@ -167,6 +180,9 @@ export class UsersRepository {
             this.getAll()
             .subscribe((res) => {
                     resolve(res);
+                }, (error: string) => {
+                    this._alertService.error(error);
+                    resolve(null);
                 });
 
         });
@@ -199,6 +215,9 @@ export class UsersRepository {
             this.getById(id)
             .subscribe((res) => {
                     resolve(res);
+                }, (error: string) => {
+                    this._alertService.error(error);
+                    resolve(null);
                 });
 
         });
@@ -232,6 +251,9 @@ export class UsersRepository {
             this.update(id, model)
             .subscribe((res) => {
                     resolve(res);
+                }, (error: string) => {
+                    this._alertService.error(error);
+                    resolve(null);
                 });
 
         });
@@ -266,6 +288,9 @@ export class UsersRepository {
             this.delete(id)
             .subscribe((res) => {
                     resolve(res);
+                }, (error: string) => {
+                    this._alertService.error(error);
+                    resolve(null);
                 });
 
         });
@@ -299,6 +324,9 @@ export class UsersRepository {
             this.forgotPassword(email)
             .subscribe((res) => {
                     resolve(res);
+                }, (error: string) => {
+                    this._alertService.error(error);
+                    resolve(null);
                 });
 
         });
@@ -322,14 +350,20 @@ export class UsersRepository {
     
     // Utility
     private handleError(error: HttpErrorResponse) {
-        console.error(error);
+        
+        //debugger;
+        console.debug("handleError:" + error);
+        //console.error(error);
         let customError: string = "";
-        if (error.error) {
-            customError = error.status === 400 ? error.error : error.statusText
+        if (error.message) {
+            customError = error.message; // error.status === 400 ? error.error : error.statusText
         }
-        return Observable.throw(customError || 'Server error');
+        return throwError(customError || 'Server error');
+        //return Observable.throw(customError || 'Server error');
     }
 }
+
+
 
 
 

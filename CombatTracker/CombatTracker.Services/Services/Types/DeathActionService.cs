@@ -24,6 +24,12 @@ namespace CombatTracker.Services.Services.Types
             return sa;
         }
 
+
+        public void CheckActionValid(BaseAction action)
+        {
+            action.CharacterAction = true;
+            action.Reoccuring = false;
+        }
         public BaseAction GetStandardAction(ActionDefinition action, BaseAction prevAction, Actor whom, Game game)
         {
             throw new Exception("Should never be called");

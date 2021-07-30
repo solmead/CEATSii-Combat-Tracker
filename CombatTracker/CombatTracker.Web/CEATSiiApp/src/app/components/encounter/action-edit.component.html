@@ -1,0 +1,16 @@
+﻿<div class="row h-100">
+    <div class="col-7 h-100">
+        <app-treeview [treeModel]="treeModel" (onSelect)="onTreeSelect($event)"></app-treeview>
+    </div>
+    <div class="col-2 h-100">
+        <!--<label for="modSelect">Modifier</label>-->
+        <select id="modSelect" class="form-control" [attr.size]="mods.length" (change)='onModSelected()'  [(ngModel)]="currentModifier" >
+            <option *ngFor="let mod of mods" [value]="mod">{{mod}}</option>
+        </select>
+    </div>
+    <div class="col-3 h-100">
+        <button class="btn btn-warning btn-sm" (click)="doAction()">
+            <i class='material-icons'>stars</i> Do Action
+        </button>
+    </div>
+</div>

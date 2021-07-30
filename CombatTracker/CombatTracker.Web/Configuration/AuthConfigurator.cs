@@ -18,7 +18,7 @@ namespace CombatTracker.Web.Configuration
     {
         public static IServiceCollection RegisterAuthServices(this IServiceCollection services, SiteSettings settings)
         {
-            services.TryAddTransient<IClaimsService, CustomClaimsService>();
+            //services.TryAddTransient<IClaimsService, CustomClaimsService>();
 
 
             services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
@@ -27,11 +27,11 @@ namespace CombatTracker.Web.Configuration
 
 
 
-            services.AddIdentityServer()
-                .AddApiAuthorization<ApplicationUser, TrackerContext>();
+            //services.AddIdentityServer()
+            //    .AddApiAuthorization<ApplicationUser, TrackerContext>();
 
-            services.AddAuthentication()
-                .AddIdentityServerJwt();
+            //services.AddAuthentication()
+            //    .AddIdentityServerJwt();
 
 
             return services;

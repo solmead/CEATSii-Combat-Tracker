@@ -55,7 +55,7 @@ export class CharacterEditComponent {
         if (this.character.type == CharacterType.PC) {
             this.modalService.open('custom-modal-2');
         } else {
-            this.encounterService.addCharacterToEncounter(this.character);
+            this.encounterService.addCharacterToEncounterAsync(this.character);
         }
     }
     saveCharacter = async () => {
@@ -78,6 +78,6 @@ export class CharacterEditComponent {
 
     closeModal(id: string) {
         this.modalService.close(id);
-        this.encounterService.addCharacterToEncounter(this.character, this.rolledInit);
+        this.encounterService.addCharacterToEncounterAsync(this.character, this.rolledInit);
     }
 }

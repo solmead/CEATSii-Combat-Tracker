@@ -15,6 +15,7 @@ export class ActionsListComponent implements OnInit, OnChanges {
 
     @Input() actions: Array<BaseAction> = new Array<BaseAction>();
 
+
     @Input() isSelectable: boolean = false;
 
     @Input() viewType: ViewTypeEnum = ViewTypeEnum.Overview;
@@ -33,6 +34,9 @@ export class ActionsListComponent implements OnInit, OnChanges {
     ngOnChanges() {
         //this.cdr.detectChanges();
     }
+
+
+    
 
     selectAction(action: BaseAction) {
         if (this.isSelectable) {

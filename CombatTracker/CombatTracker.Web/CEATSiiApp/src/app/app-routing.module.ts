@@ -24,7 +24,7 @@ const routes: Routes = [
     //{ path: 'character', component: CharacterComponent, canActivate: [AuthorizeGuard] },
     //
     //{ path: 'actor/:id', component: ActorComponent, canActivate: [AuthorizeGuard] },
-    { path: '**', redirectTo: '' }
+    //{ path: '**', redirectTo: '' }
 ];
 
 @NgModule({

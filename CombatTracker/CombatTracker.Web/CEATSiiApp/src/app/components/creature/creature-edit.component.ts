@@ -48,7 +48,7 @@ export class CreatureEditComponent {
 
 
     addToEncounter() {
-        this.encounterService.addCreatureToEncounter(this.creature);
+        this.encounterService.addCreatureToEncounterAsync(this.creature);
     }
     saveCreature = async () => {
         //this.creature.gameType = this.encounterService.systemSettings.gameSystem;

@@ -9,6 +9,8 @@ namespace CombatTracker.Entities.Abstract.Services
 {
     public interface IActionServices
     {
+
+        void CheckActionValid(BaseAction action);
         BaseAction GetStandardAction(ActionDefinition action, BaseAction prevAction, Actor whom, Game game);
         BaseAction GetSpecialAction(ActorActionType action, Actor whom, Game game, int count = 0);
 

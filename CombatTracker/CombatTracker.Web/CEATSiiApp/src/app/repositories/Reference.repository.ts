@@ -11,6 +11,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import {Observable, throwError} from "rxjs";
 import { map, catchError } from "rxjs/operators";
+import { AlertService } from '@/services/Alert.service';
 
     import * as Enums from '@/entities/EnumDefinitions'
     import { ActionGroup } from '@/entities';
@@ -35,7 +36,7 @@ var version = "1";
 @Injectable({ providedIn: 'root' })
 export class ReferenceRepository {
 
-    constructor(private _httpClient: HttpClient) { }
+    constructor(private _httpClient: HttpClient, private _alertService: AlertService) { }
     
     // get: api/v${version}/Reference/getActionGroups
 
@@ -49,6 +50,9 @@ export class ReferenceRepository {
             this.getActionGroups()
             .subscribe((res) => {
                     resolve(res);
+                }, (error: string) => {
+                    this._alertService.error(error);
+                    resolve(null);
                 });
 
         });
@@ -81,6 +85,9 @@ export class ReferenceRepository {
             this.getActions(groupId)
             .subscribe((res) => {
                     resolve(res);
+                }, (error: string) => {
+                    this._alertService.error(error);
+                    resolve(null);
                 });
 
         });
@@ -114,6 +121,9 @@ export class ReferenceRepository {
             this.getConstitutionBonusCharts()
             .subscribe((res) => {
                     resolve(res);
+                }, (error: string) => {
+                    this._alertService.error(error);
+                    resolve(null);
                 });
 
         });
@@ -146,6 +156,9 @@ export class ReferenceRepository {
             this.getCriticalCodes()
             .subscribe((res) => {
                     resolve(res);
+                }, (error: string) => {
+                    this._alertService.error(error);
+                    resolve(null);
                 });
 
         });
@@ -178,6 +191,9 @@ export class ReferenceRepository {
             this.getCriticalIgnores()
             .subscribe((res) => {
                     resolve(res);
+                }, (error: string) => {
+                    this._alertService.error(error);
+                    resolve(null);
                 });
 
         });
@@ -210,6 +226,9 @@ export class ReferenceRepository {
             this.getIQs()
             .subscribe((res) => {
                     resolve(res);
+                }, (error: string) => {
+                    this._alertService.error(error);
+                    resolve(null);
                 });
 
         });
@@ -242,6 +261,9 @@ export class ReferenceRepository {
             this.getLevelCharts()
             .subscribe((res) => {
                     resolve(res);
+                }, (error: string) => {
+                    this._alertService.error(error);
+                    resolve(null);
                 });
 
         });
@@ -274,6 +296,9 @@ export class ReferenceRepository {
             this.getOutlooks()
             .subscribe((res) => {
                     resolve(res);
+                }, (error: string) => {
+                    this._alertService.error(error);
+                    resolve(null);
                 });
 
         });
@@ -306,6 +331,9 @@ export class ReferenceRepository {
             this.getPaces()
             .subscribe((res) => {
                     resolve(res);
+                }, (error: string) => {
+                    this._alertService.error(error);
+                    resolve(null);
                 });
 
         });
@@ -338,6 +366,9 @@ export class ReferenceRepository {
             this.getSizeRatings()
             .subscribe((res) => {
                     resolve(res);
+                }, (error: string) => {
+                    this._alertService.error(error);
+                    resolve(null);
                 });
 
         });
@@ -370,6 +401,9 @@ export class ReferenceRepository {
             this.getSpeedCharts()
             .subscribe((res) => {
                     resolve(res);
+                }, (error: string) => {
+                    this._alertService.error(error);
+                    resolve(null);
                 });
 
         });
@@ -402,6 +436,9 @@ export class ReferenceRepository {
             this.getAttackTypes()
             .subscribe((res) => {
                     resolve(res);
+                }, (error: string) => {
+                    this._alertService.error(error);
+                    resolve(null);
                 });
 
         });
@@ -434,6 +471,9 @@ export class ReferenceRepository {
             this.getCriticalTypes()
             .subscribe((res) => {
                     resolve(res);
+                }, (error: string) => {
+                    this._alertService.error(error);
+                    resolve(null);
                 });
 
         });
@@ -466,6 +506,9 @@ export class ReferenceRepository {
             this.getWeaponTypes()
             .subscribe((res) => {
                     resolve(res);
+                }, (error: string) => {
+                    this._alertService.error(error);
+                    resolve(null);
                 });
 
         });
@@ -498,6 +541,9 @@ export class ReferenceRepository {
             this.getBooks()
             .subscribe((res) => {
                     resolve(res);
+                }, (error: string) => {
+                    this._alertService.error(error);
+                    resolve(null);
                 });
 
         });
@@ -530,6 +576,9 @@ export class ReferenceRepository {
             this.getPsychicRefractoryPeriodEntries()
             .subscribe((res) => {
                     resolve(res);
+                }, (error: string) => {
+                    this._alertService.error(error);
+                    resolve(null);
                 });
 
         });
@@ -552,14 +601,20 @@ export class ReferenceRepository {
     
     // Utility
     private handleError(error: HttpErrorResponse) {
-        console.error(error);
+        
+        //debugger;
+        console.debug("handleError:" + error);
+        //console.error(error);
         let customError: string = "";
-        if (error.error) {
-            customError = error.status === 400 ? error.error : error.statusText
+        if (error.message) {
+            customError = error.message; // error.status === 400 ? error.error : error.statusText
         }
-        return Observable.throw(customError || 'Server error');
+        return throwError(customError || 'Server error');
+        //return Observable.throw(customError || 'Server error');
     }
 }
+
+
 
 
 

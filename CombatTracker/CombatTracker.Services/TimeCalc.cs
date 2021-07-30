@@ -36,7 +36,7 @@ namespace CombatTracker.Services
             action.EndTime = referenceTime.Value + GetActionTime(actor, action, game);
         }
 
-        public static double GetActionTime(Actor actor, ActionTypeEnum actionType, Game game)
+        public static double GetFullRoundActionTime(Actor actor, ActionTypeEnum actionType, Game game)
         {
             if (actionType == ActionTypeEnum.Effect)
             {
@@ -59,44 +59,46 @@ namespace CombatTracker.Services
             }
         }
 
-        public static double GetTimeRequired(Actor actor, double baseTime, int modifier, bool isAttack, Attack currentAttack)
+        public static double GetTimeRequired(Actor actor, double baseTime, double modifier, bool isAttack, Attack currentAttack)
         {
             var init = 0.0;
             init = actor.Inititive;
 
             if (actor.HitsRemaining < actor.HitsTotal / 2)
             {
-                init -= 8;
+                init -= 8.0;
             }
             if (actor.IsConcentrating)
             {
-                init -= 30;
+                init -= 30.0;
             }
             if (actor.Suprised)
             {
-                init -= 30;
+                init -= 30.0;
             }
-            init += 3 * (actor.CurrentArmor?.MovingManeuverMod ?? 0) / 10;
+            init += 3.0 * (actor.CurrentArmor?.MovingManeuverMod ?? 0) / 10.0;
             if (isAttack && currentAttack != null && currentAttack.WeaponUsed != null)
             {
-                init += 3 * currentAttack.WeaponUsed.Bonus / 5;
+                init += 3.0 * currentAttack.WeaponUsed.Bonus / 5.0;
                 if (!(currentAttack.WeaponUsed?.Is2Handed ?? false))
                 {
                     init += actor.StrengthBonus - currentAttack.WeaponUsed.Weight;
                 }
                 else
                 {
-                    init += actor.StrengthBonus - currentAttack.WeaponUsed.Weight / 2;
+                    init += actor.StrengthBonus - currentAttack.WeaponUsed.Weight / 2.0;
                 }
             }
 
             if (actor.UsingAdrenalDB)
             {
-                init += (100 + init) * (1 / ((100 + (actor.PercentRequiredAdrenalDB * 100)) / 100) - 1);
+                init += (100.0 + init) * (1.0 / ((100.0 + (actor.PercentRequiredAdrenalDB * 100.0)) / 100.0) - 1.0);
             }
-            init += (100 + init) * (1 / ((100 + modifier) / 100) - 1);
-            baseTime = baseTime / (actor.PercentAction / 100);
-            return baseTime * (100 / (100 + (init)));
+            //modifier modification
+            init += (100.0 + init) * (1.0 / ((100.0 + modifier) / 100.0) - 1.0);
+            //haste modification
+            baseTime = baseTime / (actor.PercentAction / 100.0);
+            return baseTime * (100.0 / (100.0 + (init)));
 
         }
 

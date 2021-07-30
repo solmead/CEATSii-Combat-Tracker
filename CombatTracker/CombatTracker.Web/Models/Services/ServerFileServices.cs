@@ -66,14 +66,19 @@ namespace CombatTracker.Web.Models.Services
         public string MapPath(string path)
         {
             path = path.Trim();
-            path = path.Replace("/", "\\");
+            path = path.Replace('\\', Path.DirectorySeparatorChar);
+            path = path.Replace('/', Path.DirectorySeparatorChar);
 
-            if (path.StartsWith("\\\\") || path.Contains(":\\"))
+            var dirPath = "" + Path.PathSeparator + Path.DirectorySeparatorChar;
+            var netPath = "" + Path.DirectorySeparatorChar + Path.DirectorySeparatorChar;
+
+
+            if (path.StartsWith(netPath) || path.Contains(dirPath))
             {
                 return path;
             }
 
-            path = path.Replace("\\\\", "\\");
+            path = path.Replace(netPath, "" + Path.DirectorySeparatorChar);
 
 
             if (path.First() == '~')
@@ -81,13 +86,13 @@ namespace CombatTracker.Web.Models.Services
                 path = path.Substring(1);
             }
 
-            if (path.First() != '\\')
+            if (path.First() != Path.DirectorySeparatorChar)
             {
-                path = "\\" + path;
+                path = Path.DirectorySeparatorChar + path;
             }
-            if (path.ToUpper().StartsWith("\\DOCUMENTS"))
+            if (path.ToUpper().StartsWith(Path.DirectorySeparatorChar + "DOCUMENTS"))
             {
-                if (_siteSettings.DocumentsDirectory.Contains("\\\\") || _siteSettings.DocumentsDirectory.Contains(".\\") || _siteSettings.DocumentsDirectory.Contains(":\\"))
+                if (_siteSettings.DocumentsDirectory.Contains(netPath) || _siteSettings.DocumentsDirectory.Contains("." + Path.DirectorySeparatorChar) || _siteSettings.DocumentsDirectory.Contains(dirPath))
                 {
                     path = path.Substring(10);
                     var finPath = Path.Join(_siteSettings.DocumentsDirectory, path);

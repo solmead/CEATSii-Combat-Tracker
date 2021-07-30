@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <Folder Include="Models\" />
+    <Folder Include="Abstract\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -17,4 +18,7 @@
     <PackageReference Include="Utilities.Caching" Version="7.1.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="Abstract\" />
+  </ItemGroup>
 </Project>

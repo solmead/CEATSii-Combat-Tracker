@@ -17,24 +17,38 @@ namespace CombatTracker.Web.Controllers.Api
     {
 
         public readonly IGameRepository _gameRepository;
+        private readonly IActionServices _actionServices;
 
         public ActionsController(IGameRepository gameRepository, 
-            ISessionContext sessionContext) : base(sessionContext)
+            ISessionContext sessionContext,
+            IActionServices actionServices) : base(sessionContext)
         {
             _gameRepository = gameRepository;
+            _actionServices = actionServices;
         }
 
 
         [HttpGet("[action]/{actorId}")]
         public List<BaseAction> GetActionsOnActor(int actorId)
         {
-            return _gameRepository.GetActionsOnActor(actorId);
+            var lst =  _gameRepository.GetActionsOnActor(actorId);
+
+            lst.ForEach((act) =>
+            {
+                _actionServices.CheckActionValid(act);
+            });
+
+            return lst;
         }
         [HttpGet("[action]/{gameId}")]
         public List<BaseAction> GetActionsInGame(int gameId)
         {
             var lst = _gameRepository.GetActionsInGame(gameId);
-            var s = Newtonsoft.Json.JsonConvert.SerializeObject(lst);
+            lst.ForEach((act) =>
+            {
+                _actionServices.CheckActionValid(act);
+            });
+            //var s = Newtonsoft.Json.JsonConvert.SerializeObject(lst);
             return lst;
         }
         [HttpGet("[action]/{id}")]

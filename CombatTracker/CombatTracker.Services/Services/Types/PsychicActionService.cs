@@ -98,6 +98,12 @@ namespace CombatTracker.Services.Services.Types
             return sa;
         }
 
+        public void CheckActionValid(BaseAction action)
+        {
+            action.CharacterAction = false;
+            action.Reoccuring = action.Count <= action.TotalRounds;
+        }
+
         public BaseAction GetStandardAction(ActionDefinition action, BaseAction prevAction, Actor whom, Game game)
         {
             throw new NotImplementedException();

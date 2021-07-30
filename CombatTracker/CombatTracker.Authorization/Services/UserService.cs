@@ -60,7 +60,8 @@ namespace CombatTracker.Authorization.Services
             }
             else
             {
-                throw new Exception("Invalid login attempt.");
+                //throw new Exception("Invalid login attempt.");
+                return null;
                 //ModelState.AddModelError(string.Empty, "Invalid login attempt.");
                 //return Page();
             }

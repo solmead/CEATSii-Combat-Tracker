@@ -7,6 +7,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Utilities.Caching.AspNetCore.Configuration;
+using Microsoft.AspNetCore.SignalR;
+using CombatTracker.Web.Hubs;
 
 namespace CombatTracker.Web
 {
@@ -49,6 +51,7 @@ namespace CombatTracker.Web
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILogger _logger)
         {
+            _logger.LogInformation("Beginning app Configure");
             //Database.Initilize();
             if (env.IsDevelopment())
             {
@@ -56,14 +59,6 @@ namespace CombatTracker.Web
                 app.UseMigrationsEndPoint();
                 //app.UseSwagger();
                 //app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "CombatTracker.Web v1"));
-                app.UseSwagger();
-                app.UseSwaggerUI(c =>
-                {
-                    //c.SwaggerEndpoint("/swagger/v2/swagger.json", "CombatTracker.Web API v2");
-                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "CombatTracker.Web API v1");
-                    c.DisplayOperationId();
-                    c.DisplayRequestDuration();
-                });
             }
             else
             {
@@ -71,8 +66,20 @@ namespace CombatTracker.Web
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                //c.SwaggerEndpoint("/swagger/v2/swagger.json", "CombatTracker.Web API v2");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "CombatTracker.Web API v1");
+                c.DisplayOperationId();
+                c.DisplayRequestDuration();
+            });
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+
+            app.UseRouting();
 
             //if (!env.IsDevelopment())
             //{
@@ -80,21 +87,31 @@ namespace CombatTracker.Web
             //}
 
 
-            app.UseRouting();
-
             app.UseCors(x => x
                 .AllowAnyOrigin()
                 .AllowAnyMethod()
                 .AllowAnyHeader());
 
+
+
             app.UseAuthentication();
-            app.UseIdentityServer();
             app.UseAuthorization();
+
 
             app.UseSession();
 
+
+
+            //app.UseIdentityServer();
+
+
+
+
+
+
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapHub<EncounterHub>("/hubs/EncounterHub");
                 endpoints.MapControllers();
                 endpoints.MapControllerRoute(
                     name: "default",

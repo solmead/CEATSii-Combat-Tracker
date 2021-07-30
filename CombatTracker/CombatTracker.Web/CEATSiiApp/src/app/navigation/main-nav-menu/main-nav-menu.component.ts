@@ -6,7 +6,6 @@ import * as Enums from '@/entities/EnumDefinitions'
 import GameType = Enums.EnumDefinitions.GameType;
 import { GamesRepository } from '@/repositories';
 
-
 @Component({
     selector: 'main-nav-menu',
     templateUrl: './main-nav-menu.component.html',
@@ -14,9 +13,8 @@ import { GamesRepository } from '@/repositories';
 })
 /** mainNavMenu component*/
 export class MainNavMenuComponent {
-    currentUser: ApplicationUser;
 
-    games: Array<Game>;
+    public games: Array<Game>;
 
     /** mainNavMenu ctor */
     constructor(private authenticationService: AuthenticationService, private gameRepository: GamesRepository) {
@@ -24,25 +22,24 @@ export class MainNavMenuComponent {
         this.init();
     }
 
-
-    get gameTypes(): Array<any> {
-        var lst = EnumEx.getNamesAndValues(GameType);
-        return lst;
+    get currentUser(): ApplicationUser {
+        return this.authenticationService.currentUserValue;
     }
 
     private async init(): Promise<void> {
 
-        var u = await this.authenticationService.currentUserAsync();
-        this.currentUser = u;
-
-        var gms =await this.gameRepository.getGamesAsync();
-
-        gms = gms.filter((gm) => {
-            gm.gM_ID == this.currentUser.id;
+        this.authenticationService.currentUser.subscribe(async (user): Promise<void> => {
+            if (user == null) {
+                this.games = new Array<Game>();
+                return;
+            }
+            //debugger;
+            var gms = await this.gameRepository.getGamesAsync();
+            gms = gms.filter((gm) => {
+                return gm.gM_ID == user.id;
+            });
+            this.games = gms;
         });
-
-        this.games = gms;
-
     }
 
 }

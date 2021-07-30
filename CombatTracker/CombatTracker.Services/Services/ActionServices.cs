@@ -82,6 +82,11 @@ namespace CombatTracker.Services.Services
         }
 
 
+        public void CheckActionValid(BaseAction action)
+        {
+            GetBasedOnType(action.Type).CheckActionValid(action);
+        }
+
         public BaseAction GetStandardAction(ActionDefinition action, BaseAction prevAction, Actor whom, Game game)
         {
             return GetBasedOnType(action.Type).GetStandardAction(action, prevAction, whom,  game);

@@ -1,4 +1,4 @@
-﻿<div class="ActorAction" [style.border-color]="currentBorderColor" [style.background-color]="currentBackColor">
+﻿<div [class]="cssClasses"  [style.background-color]="currentBackColor"  [ngClass]="{'selected': action.isSelected}"  (click)="selectAction()">
     <div class="row">
         <div class="col-2">{{currentTime}}</div>
         <div class="col-6" style="font-weight:bold;">{{whoIsActing.name}}</div>

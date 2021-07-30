@@ -331,6 +331,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import {Observable, throwError} from "rxjs";
 import { map, catchError } from "rxjs/operators";
+import { AlertService } from '@/services/Alert.service';
 $Classes(*Api.*Controller)[
     import * as Enums from '@/entities/EnumDefinitions'
     $ImportsListMethods
@@ -340,7 +341,7 @@ var version = "1";
 @Injectable({ providedIn: 'root' })
 export class $ServiceName {
 
-    constructor(private _httpClient: HttpClient) { }
+    constructor(private _httpClient: HttpClient, private _alertService: AlertService) { }
     $Methods[
     // $HttpMethod: $Url
 
@@ -354,6 +355,9 @@ export class $ServiceName {
             this.$name($Parameters[$name][, ])
             .subscribe((res) => {
                     resolve(res);
+                }, (error: string) => {
+                    this._alertService.error(error);
+                    resolve(null);
                 });
 
         });
@@ -377,14 +381,20 @@ export class $ServiceName {
     ]
     // Utility
     private handleError(error: HttpErrorResponse) {
-        console.error(error);
+        
+        //debugger;
+        console.debug("handleError:" + error);
+        //console.error(error);
         let customError: string = "";
-        if (error.error) {
-            customError = error.status === 400 ? error.error : error.statusText
+        if (error.message) {
+            customError = error.message; // error.status === 400 ? error.error : error.statusText
         }
-        return Observable.throw(customError || 'Server error');
+        return throwError(customError || 'Server error');
+        //return Observable.throw(customError || 'Server error');
     }
 }]
+
+
 
 
 

@@ -111,7 +111,10 @@ export class ActorListComponent {
         }
         return 0;
     }
-    
+
+    isNaN(num: number): boolean {
+        return isNaN(num);
+    }
 
     isMustParry = (actor: Actor): boolean => {
         return this.currentCrits(actor).parry == ParryType.Must_Parry;
@@ -126,6 +129,13 @@ export class ActorListComponent {
         }
         return actor.currentCrits;
     }
+    baseOB = (actor: Actor): string => {
+        var ac = this.curAction(actor);
+        if (ac != null && ac.currentAttack != null) {
+            return '' + (ac.currentAttack.ob);
+        }
+        return "";
+    }
     currentOB = (actor: Actor): string => {
         var ac = this.curAction(actor);
         if (ac != null && ac.currentAttack != null) {
@@ -133,7 +143,7 @@ export class ActorListComponent {
             if (actor.currentCrits != null) {
                 i = actor.currentCrits.parryNegative;
             }
-            return '' + ac.currentAttack.ob + i;
+            return '' + (ac.currentAttack.ob + i);
         }
         return "";
     }

@@ -33,6 +33,12 @@ namespace CombatTracker.Services.Services.Types
             return sa;
         }
 
+        public void CheckActionValid(BaseAction action)
+        {
+            action.CharacterAction = true;
+            action.Reoccuring = false;
+        }
+
         public MoveNextResult ProcessAction(BaseAction action, Actor whom, IGameService gameService)
         {
             return new MoveNextResult()

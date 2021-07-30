@@ -33,6 +33,8 @@ namespace CombatTracker.Entities.Abstract.Services
         //void RemoveFirstCriticalEffect(Actor whom);
         //void RemoveAllCriticalEffects(Actor whom);
         void RemoveCriticalsFromActor(Actor whom, int count);
+        void RemoveActor(Actor actor);
+        void RemoveAction(BaseAction action);
         BaseAction DoProposedAction(Actor whom);
 
         void RecalculateActionsTime(Actor actor);

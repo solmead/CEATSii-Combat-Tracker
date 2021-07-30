@@ -11,6 +11,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import {Observable, throwError} from "rxjs";
 import { map, catchError } from "rxjs/operators";
+import { AlertService } from '@/services/Alert.service';
 
     import * as Enums from '@/entities/EnumDefinitions'
     import { Game } from '@/entities';
@@ -24,9 +25,9 @@ var version = "1";
 @Injectable({ providedIn: 'root' })
 export class EncounterRepository {
 
-    constructor(private _httpClient: HttpClient) { }
+    constructor(private _httpClient: HttpClient, private _alertService: AlertService) { }
     
-    // get: api/v${version}/Encounter/getCurrentGame
+    // get: api/v${version}/Encounter/GetCurrentGame
 
 	//public getCurrentGame = (, callback: (data: Game)=>void) : void => {
 	//	this.getCurrentGameObserve().subscribe(response => callback(response));
@@ -38,6 +39,9 @@ export class EncounterRepository {
             this.getCurrentGame()
             .subscribe((res) => {
                     resolve(res);
+                }, (error: string) => {
+                    this._alertService.error(error);
+                    resolve(null);
                 });
 
         });
@@ -45,7 +49,7 @@ export class EncounterRepository {
 
 	public getCurrentGame = () : Observable<Game> => {
         
-            var _Url = `api/v${version}/Encounter/getCurrentGame`;
+            var _Url = `api/v${version}/Encounter/GetCurrentGame`;
 
             return this._httpClient.get<Game>(_Url)
                 .pipe(
@@ -70,6 +74,9 @@ export class EncounterRepository {
             this.setCurrentGame(gameId)
             .subscribe((res) => {
                     resolve(res);
+                }, (error: string) => {
+                    this._alertService.error(error);
+                    resolve(null);
                 });
 
         });
@@ -103,6 +110,9 @@ export class EncounterRepository {
             this.createActorFromCreature(creatureId)
             .subscribe((res) => {
                     resolve(res);
+                }, (error: string) => {
+                    this._alertService.error(error);
+                    resolve(null);
                 });
 
         });
@@ -136,6 +146,9 @@ export class EncounterRepository {
             this.createActorFromCharacter(characterId, rolledInit)
             .subscribe((res) => {
                     resolve(res);
+                }, (error: string) => {
+                    this._alertService.error(error);
+                    resolve(null);
                 });
 
         });
@@ -170,6 +183,9 @@ export class EncounterRepository {
             this.moveToNext(none)
             .subscribe((res) => {
                     resolve(res);
+                }, (error: string) => {
+                    this._alertService.error(error);
+                    resolve(null);
                 });
 
         });
@@ -203,6 +219,9 @@ export class EncounterRepository {
             this.proposeActionUnconscious(actorId)
             .subscribe((res) => {
                     resolve(res);
+                }, (error: string) => {
+                    this._alertService.error(error);
+                    resolve(null);
                 });
 
         });
@@ -236,6 +255,9 @@ export class EncounterRepository {
             this.proposeAction(actionDefId, whomId, modifier, attackId)
             .subscribe((res) => {
                     resolve(res);
+                }, (error: string) => {
+                    this._alertService.error(error);
+                    resolve(null);
                 });
 
         });
@@ -272,6 +294,9 @@ export class EncounterRepository {
             this.proposeActionContinue(previousActionId, whomId)
             .subscribe((res) => {
                     resolve(res);
+                }, (error: string) => {
+                    this._alertService.error(error);
+                    resolve(null);
                 });
 
         });
@@ -306,6 +331,9 @@ export class EncounterRepository {
             this.addBleedEffect(whomId, bleedRate)
             .subscribe((res) => {
                     resolve(res);
+                }, (error: string) => {
+                    this._alertService.error(error);
+                    resolve(null);
                 });
 
         });
@@ -340,6 +368,9 @@ export class EncounterRepository {
             this.addCriticalEffect(whomId, crit, rounds)
             .subscribe((res) => {
                     resolve(res);
+                }, (error: string) => {
+                    this._alertService.error(error);
+                    resolve(null);
                 });
 
         });
@@ -375,6 +406,9 @@ export class EncounterRepository {
             this.addPsychicEffect(whomId, psychicLevel)
             .subscribe((res) => {
                     resolve(res);
+                }, (error: string) => {
+                    this._alertService.error(error);
+                    resolve(null);
                 });
 
         });
@@ -409,6 +443,9 @@ export class EncounterRepository {
             this.addSpellEffect(effectedActorId, casterId, spellName, rounds, hastePercent)
             .subscribe((res) => {
                     resolve(res);
+                }, (error: string) => {
+                    this._alertService.error(error);
+                    resolve(null);
                 });
 
         });
@@ -434,7 +471,7 @@ export class EncounterRepository {
 	};
 
     
-    // post: api/v${version}/Encounter/RemoveEffect/${actionId}
+    // delete: api/v${version}/Encounter/RemoveEffect/${actionId}
 
 	//public removeEffect = (actionId: number, callback: (data: void)=>void) : void => {
 	//	this.removeEffectObserve(actionId).subscribe(response => callback(response));
@@ -446,6 +483,9 @@ export class EncounterRepository {
             this.removeEffect(actionId)
             .subscribe((res) => {
                     resolve(res);
+                }, (error: string) => {
+                    this._alertService.error(error);
+                    resolve(null);
                 });
 
         });
@@ -456,7 +496,7 @@ export class EncounterRepository {
         
             var _Url = `api/v${version}/Encounter/RemoveEffect/${actionId}`;
 
-            return this._httpClient.post<void>(_Url, actionId)
+            return this._httpClient.delete<void>(_Url)
                 .pipe(
                         map((data) => {
                             
@@ -467,7 +507,79 @@ export class EncounterRepository {
 	};
 
     
-    // post: api/v${version}/Encounter/RemoveCriticalsFromActor/${whomId}?count=${count}
+    // delete: api/v${version}/Encounter/RemoveActor/${actorId}
+
+	//public removeActor = (actorId: number, callback: (data: void)=>void) : void => {
+	//	this.removeActorObserve(actorId).subscribe(response => callback(response));
+	//}
+
+	public removeActorAsync = (actorId: number) : Promise<void> => {
+
+        return new Promise<void>((resolve, reject) => {
+            this.removeActor(actorId)
+            .subscribe((res) => {
+                    resolve(res);
+                }, (error: string) => {
+                    this._alertService.error(error);
+                    resolve(null);
+                });
+
+        });
+	}
+
+	public removeActor = (actorId: number) : Observable<void> => {
+        actorId = (actorId == null ? <number><any>"" : actorId);
+        
+            var _Url = `api/v${version}/Encounter/RemoveActor/${actorId}`;
+
+            return this._httpClient.delete<void>(_Url)
+                .pipe(
+                        map((data) => {
+                            
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
+	};
+
+    
+    // delete: api/v${version}/Encounter/RemoveAction/${actionId}
+
+	//public removeAction = (actionId: number, callback: (data: void)=>void) : void => {
+	//	this.removeActionObserve(actionId).subscribe(response => callback(response));
+	//}
+
+	public removeActionAsync = (actionId: number) : Promise<void> => {
+
+        return new Promise<void>((resolve, reject) => {
+            this.removeAction(actionId)
+            .subscribe((res) => {
+                    resolve(res);
+                }, (error: string) => {
+                    this._alertService.error(error);
+                    resolve(null);
+                });
+
+        });
+	}
+
+	public removeAction = (actionId: number) : Observable<void> => {
+        actionId = (actionId == null ? <number><any>"" : actionId);
+        
+            var _Url = `api/v${version}/Encounter/RemoveAction/${actionId}`;
+
+            return this._httpClient.delete<void>(_Url)
+                .pipe(
+                        map((data) => {
+                            
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
+	};
+
+    
+    // delete: api/v${version}/Encounter/RemoveCriticalsFromActor/${whomId}?count=${count}
 
 	//public removeCriticalsFromActor = (whomId: number, count: number, callback: (data: void)=>void) : void => {
 	//	this.removeCriticalsFromActorObserve(whomId, count).subscribe(response => callback(response));
@@ -479,6 +591,9 @@ export class EncounterRepository {
             this.removeCriticalsFromActor(whomId, count)
             .subscribe((res) => {
                     resolve(res);
+                }, (error: string) => {
+                    this._alertService.error(error);
+                    resolve(null);
                 });
 
         });
@@ -490,7 +605,7 @@ export class EncounterRepository {
         
             var _Url = `api/v${version}/Encounter/RemoveCriticalsFromActor/${whomId}?count=${count}`;
 
-            return this._httpClient.post<void>(_Url, whomId)
+            return this._httpClient.delete<void>(_Url)
                 .pipe(
                         map((data) => {
                             
@@ -513,6 +628,9 @@ export class EncounterRepository {
             this.doProposedAction(whomId)
             .subscribe((res) => {
                     resolve(res);
+                }, (error: string) => {
+                    this._alertService.error(error);
+                    resolve(null);
                 });
 
         });
@@ -546,6 +664,9 @@ export class EncounterRepository {
             this.setModifierOnAction(actionId, modifier)
             .subscribe((res) => {
                     resolve(res);
+                }, (error: string) => {
+                    this._alertService.error(error);
+                    resolve(null);
                 });
 
         });
@@ -580,6 +701,9 @@ export class EncounterRepository {
             this.setAttackOnAction(actionId, attackId)
             .subscribe((res) => {
                     resolve(res);
+                }, (error: string) => {
+                    this._alertService.error(error);
+                    resolve(null);
                 });
 
         });
@@ -604,14 +728,20 @@ export class EncounterRepository {
     
     // Utility
     private handleError(error: HttpErrorResponse) {
-        console.error(error);
+        
+        //debugger;
+        console.debug("handleError:" + error);
+        //console.error(error);
         let customError: string = "";
-        if (error.error) {
-            customError = error.status === 400 ? error.error : error.statusText
+        if (error.message) {
+            customError = error.message; // error.status === 400 ? error.error : error.statusText
         }
-        return Observable.throw(customError || 'Server error');
+        return throwError(customError || 'Server error');
+        //return Observable.throw(customError || 'Server error');
     }
 }
+
+
 
 
 

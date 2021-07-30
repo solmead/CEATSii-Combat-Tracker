@@ -11,6 +11,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import {Observable, throwError} from "rxjs";
 import { map, catchError } from "rxjs/operators";
+import { AlertService } from '@/services/Alert.service';
 
     import * as Enums from '@/entities/EnumDefinitions'
     import { CriticalEffect } from '@/entities';
@@ -20,7 +21,7 @@ var version = "1";
 @Injectable({ providedIn: 'root' })
 export class CriticalEffectsRepository {
 
-    constructor(private _httpClient: HttpClient) { }
+    constructor(private _httpClient: HttpClient, private _alertService: AlertService) { }
     
     // get: api/v${version}/CriticalEffects/getCriticalEffects/${actorId}
 
@@ -34,6 +35,9 @@ export class CriticalEffectsRepository {
             this.getCriticalEffects(actorId)
             .subscribe((res) => {
                     resolve(res);
+                }, (error: string) => {
+                    this._alertService.error(error);
+                    resolve(null);
                 });
 
         });
@@ -67,6 +71,9 @@ export class CriticalEffectsRepository {
             this.getCriticalEffect(id)
             .subscribe((res) => {
                     resolve(res);
+                }, (error: string) => {
+                    this._alertService.error(error);
+                    resolve(null);
                 });
 
         });
@@ -100,6 +107,9 @@ export class CriticalEffectsRepository {
             this.saveCriticalEffect(criticalEffect)
             .subscribe((res) => {
                     resolve(res);
+                }, (error: string) => {
+                    this._alertService.error(error);
+                    resolve(null);
                 });
 
         });
@@ -133,6 +143,9 @@ export class CriticalEffectsRepository {
             this.deleteCriticalEffect(id)
             .subscribe((res) => {
                     resolve(res);
+                }, (error: string) => {
+                    this._alertService.error(error);
+                    resolve(null);
                 });
 
         });
@@ -156,14 +169,20 @@ export class CriticalEffectsRepository {
     
     // Utility
     private handleError(error: HttpErrorResponse) {
-        console.error(error);
+        
+        //debugger;
+        console.debug("handleError:" + error);
+        //console.error(error);
         let customError: string = "";
-        if (error.error) {
-            customError = error.status === 400 ? error.error : error.statusText
+        if (error.message) {
+            customError = error.message; // error.status === 400 ? error.error : error.statusText
         }
-        return Observable.throw(customError || 'Server error');
+        return throwError(customError || 'Server error');
+        //return Observable.throw(customError || 'Server error');
     }
 }
+
+
 
 
 

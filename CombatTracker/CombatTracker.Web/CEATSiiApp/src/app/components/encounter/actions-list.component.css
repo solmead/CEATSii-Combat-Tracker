@@ -4,12 +4,14 @@
 */
 .mainActionList {
     padding-right: 160px;
-
     padding-right: 300px;
-    overflow-x: visible;
+    padding-right: 0px;
+    padding-right: 20%;
+    overflow-x: hidden;
     overflow-y: auto;
     height: 98%;
     margin: 5px;
+
 }
 .list {
     height: 90%;
@@ -19,12 +21,3 @@
     background: whitesmoke;
 }
 
-.ActorActionBack {
-    background: transparent;
-    width: 150px;
-    height: 55px;
-    width: 300px;
-    height: 98px;
-    overflow: hidden;
-    white-space: nowrap;
-}

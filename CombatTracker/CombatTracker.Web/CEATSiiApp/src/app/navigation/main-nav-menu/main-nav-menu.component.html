@@ -10,7 +10,7 @@
                 <a class="nav-link text-dark" [routerLink]="['/creatures']">Create New Encounter</a>
             </li>
             <li class="dropdown-item" *ngFor="let game of games">
-                <a class="nav-link text-dark" [routerLink]="['/encountor', game.id]">{{game.name}} - {{game.gameTypeString}}</a>
+                <a class="nav-link text-dark" [routerLink]="['/encounter', game.id]">{{game.gameTypeString}} - {{game.name}}</a>
             </li>
         </ul>
     </li>

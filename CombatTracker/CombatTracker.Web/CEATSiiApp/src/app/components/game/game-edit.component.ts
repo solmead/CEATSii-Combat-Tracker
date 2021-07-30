@@ -35,7 +35,7 @@ export class GameEditComponent {
             this.game.id = g.id;
 
         }
-        await this.encounterService.refresh();
+        await this.encounterService.refreshAsync();
 
         this.onSave.emit(this.game);
     }

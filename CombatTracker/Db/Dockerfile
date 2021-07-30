@@ -1,5 +1,6 @@
 # We choose exact tag (not 'latest'), to be sure that new version won't break creating image
-FROM mcr.microsoft.com/mssql/server:2019-CU10-ubuntu-20.04
+FROM mcr.microsoft.com/mssql/server:2019-latest
+#docker run -d --name sql_server -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=someThingComplicated1234' -p 1433:1433 mcr.microsoft.com/mssql/server:2019-latest
 
 # Create app directory
 #RUN mkdir -p /usr/src/app
@@ -14,7 +15,7 @@ COPY . /
 
 # Set environment variables, not to have to write them with docker run command
 # Note: make sure that your password matches what is in the run-initialization script 
-ENV SA_PASSWORD CorrectHorseBatteryStapleFor$
+ENV SA_PASSWORD Fair1dale!
 ENV ACCEPT_EULA Y
 ENV MSSQL_PID Express
 

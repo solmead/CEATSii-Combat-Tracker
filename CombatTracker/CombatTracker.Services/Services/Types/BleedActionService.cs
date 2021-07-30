@@ -27,6 +27,12 @@ namespace CombatTracker.Services.Services.Types
             return sa;
         }
 
+        public void CheckActionValid(BaseAction action)
+        {
+            action.CharacterAction = false;
+            action.Reoccuring = true;
+        }
+
         public BaseAction GetStandardAction(ActionDefinition action, BaseAction prevAction, Actor whom, Game game)
         {
             throw new Exception("Should never be called");
@@ -35,6 +41,7 @@ namespace CombatTracker.Services.Services.Types
         public MoveNextResult ProcessAction(BaseAction action, Actor whom, IGameService gameService)
         {
             whom.HitsRemaining -= action.Bleeder;
+
             action.Count += 1;
             action.Note = "Rounds of Bleeding:" + action.Count;
             TimeCalc.SetActionTime(whom, action, gameService.CurrentGame);

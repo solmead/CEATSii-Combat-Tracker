@@ -79,7 +79,8 @@ namespace CombatTracker.Web.Controllers.Api
             {
                 // create user
                 var user = await _userService.CreateAsync(model, model.Password);
-                return Ok();
+                _sessionContext.SetCurrentUser(user);
+                return Ok(user);
             }
             catch (Exception ex)
             {

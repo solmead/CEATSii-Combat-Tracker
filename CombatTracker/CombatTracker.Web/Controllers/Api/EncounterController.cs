@@ -37,7 +37,7 @@ namespace CombatTracker.Web.Controllers.Api
         }
 
         [AllowAnonymous]
-        [HttpGet("[action]")]
+        [HttpGet("GetCurrentGame")]
         public Game GetCurrentGame()
         {
             return _gameService.CurrentGame;
@@ -131,7 +131,7 @@ namespace CombatTracker.Web.Controllers.Api
             return _gameService.AddSpellEffect(effected, caster, spellName, rounds, hastePercent);
         }
 
-        [HttpPost("RemoveEffect/{actionId}")]
+        [HttpDelete("RemoveEffect/{actionId}")]
         public void RemoveEffect(int actionId)
         {
 
@@ -139,14 +139,29 @@ namespace CombatTracker.Web.Controllers.Api
             _gameService.RemoveEffect(action);
         }
 
-        [HttpPost("RemoveCriticalsFromActor/{whomId}")]
+        [HttpDelete("RemoveActor/{actorId}")]
+        public void RemoveActor(int actorId)
+        {
+
+            var actor = _gameRepository.GetActor(actorId);
+            _gameService.RemoveActor(actor);
+        }
+
+        [HttpDelete("RemoveAction/{actionId}")]
+        public void RemoveAction(int actionId)
+        {
+
+            var action = _gameRepository.GetAction(actionId);
+            _gameService.RemoveAction(action);
+        }
+
+        [HttpDelete("RemoveCriticalsFromActor/{whomId}")]
         public void RemoveCriticalsFromActor(int whomId, int count = 1)
         {
             var actor = _gameRepository.GetActor(whomId);
             _gameService.RemoveCriticalsFromActor(actor, count);
         }
         
-
         [HttpPost("DoProposedAction/{whomId}")]
         public void DoProposedAction(int whomId)
         {

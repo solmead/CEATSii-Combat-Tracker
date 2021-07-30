@@ -1,20 +1,70 @@
-﻿<div class="h-100">
+﻿<div class="h-100"  [ngClass]="{'fullView': isGM}">
     <div class="row h-100">
-        <div class="col-2 h-100" *ngIf="isGM">
+        <div class="col-3 h-100 columnLeft" *ngIf="isGM">
             <div class="encounter-box">
                 <h2>Library</h2>
                 encounter Component
             </div>
         </div>
-        <div class="h-100" [ngClass]="{'col-6': isGM,
+        <div class="h-100 columnCenter" [ngClass]="{'col-6': isGM,
                                        'col-7': !isGM}">
-            <actor-list [actors]="actors" [viewType]="viewType" (onSelect)="selectActor($event)"></actor-list>
+            <div class=" actorListArea" [ngClass]="{'h-50': isGM,
+                                       'h-100': !isGM}">
+                <h2 class="actorListHeader">
+                    <span *ngIf="isGM" style="float:right; display:block;">
+                        <button class="btn btn-warning btn-sm" (click)="addDamage()">
+                            <i class='material-icons'>stars</i> Add Damage
+                        </button>
+                        <button class="btn btn-success btn-sm" (click)="addSpell()">
+                            <i class='material-icons'>supervised_user_circle</i> Cast Spell/Psychic
+                        </button>
+                        <button class="btn btn-success btn-sm" (click)="addStunned()">
+                            <i class='material-icons'>run_circle</i> Add Stunned Maneuvering
+                        </button>
+                        <button class="btn btn-info btn-sm" (click)="rollD100Open()">
+                            <i class='material-icons'>auto_awesome</i> Roll D100 Open
+                        </button>
+                        <button class="btn btn-info btn-sm" (click)="rollD100()">
+                            <i class='material-icons'>auto_awesome</i> Roll D100
+                        </button>
+                        <button class="btn btn-danger btn-sm" (click)="resetEncounter()">
+                            <i class='material-icons'>settings_backup_restore</i> Reset Encounter
+                        </button>
+                    </span>
+                    Actors
+                </h2>
+                <div class="h-90">
+                    <actor-list [actors]="actors" [viewType]="viewType" [isSelectable]="isGM" (onSelect)="selectActor($event)" (onDeleteClick)="deleteActor($event)"></actor-list>
+                </div>
+            </div>
+            <div class="h-50 row" *ngIf="isGM">
+                <div class="col-5 h-100">
+
+                </div>
+                <div class=" col-7 h-100">
+                    <div class="encounter-box actionEditArea" *ngIf="selectedAction!=null">
+                        <h2>
+                            Action
+                        </h2>
+                        <div class="actionEditControl">
+                            <action-edit [selectedAction]="selectedAction" [actionTree]="currentActionTree" (onProposeAction)="onProposeAction($event)" (onDoAction)="onDoAction($event)"></action-edit>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="h-100" [ngClass]="{'col-4': isGM,
+        <div class="h-100 columnRight" [ngClass]="{'col-3': isGM,
                                        'col-5': !isGM}">
             <div class="encounter-box actionsList">
-                <h2>Actions</h2>
-                <actions-list [actions]="actions" [viewType]="viewType" (onSelect)="selectAction($event)"></actions-list>
+                <h2>
+                    <span *ngIf="isGM" style="float:right; display:block;">
+                        <button class="btn btn-primary btn-sm" (click)="moveToNext()">
+                            <i class='material-icons'>navigate_next</i> Move Next
+                        </button>
+                    </span>
+                    Actions <span class="subText">Current Time: {{currentTime}}</span>
+                </h2>
+                <actions-list [actions]="actions" [viewType]="viewType" [isSelectable]="isGM" (onSelect)="selectAction($event)" (onDeleteClick)="deleteAction($event)" ></actions-list>
             </div>
         </div>
     </div>

@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, concat, from, Observable } from 'rxjs';
+import { BehaviorSubject, concat, from, Observable, Subscriber, TeardownLogic } from 'rxjs';
 import { filter, map, mergeMap, take, tap } from 'rxjs/operators';
-import { User, UserManager, WebStorageStateStore } from 'oidc-client';
+//import { User, UserManager, WebStorageStateStore } from 'oidc-client';
 
 import { UsersRepository } from '@/repositories';
-import { AuthenticateModel } from '@/entities';
+import { AuthenticateModel, RegisterModel } from '@/entities';
 import { ApplicationUser } from '@/entities';
 import { delay } from 'rxjs/operators';
-import { AuthorizeService, AuthenticationResultStatus } from '../api-authorization/authorize.service';
+//import { AuthorizeService, AuthenticationResultStatus } from '../api-authorization/authorize.service';
 
 
 export interface IUser {
@@ -20,21 +20,28 @@ export const ApplicationName = 'CEATSiiApp';
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
 
-    private userManager: UserManager;
+    //private userManager: UserManager;
     private currentUserSubject: BehaviorSubject<ApplicationUser>;
     public currentUser: Observable<ApplicationUser>;
 
 
     constructor(private http: HttpClient,
-        private userRepository: UsersRepository,
-        private authorizeService: AuthorizeService) {
-        this.currentUserSubject = new BehaviorSubject<ApplicationUser>(JSON.parse(localStorage.getItem('currentUser')));
+        private userRepository: UsersRepository) {
+        this.currentUserSubject = new BehaviorSubject<ApplicationUser>(null);
         this.currentUser = this.currentUserSubject.asObservable();
 
         ////debugger;
         this.refreshUserAsync();
     }
-
+    public isAuthenticated(): Observable<boolean> {
+        return this.currentUser.pipe(map(u => !!u));
+    }
+    public getAccessToken(): string {
+        //var obs = new Observable<string>();
+        //obs.
+        //obs.next()
+        return "";
+      }
 
     public async currentUserAsync():Promise<ApplicationUser> {
         var p = new Promise<ApplicationUser>((resolve, reject) => {
@@ -49,12 +56,12 @@ export class AuthenticationService {
         await delay(10);
 
         var user = await this.userRepository.currentUserAsync();
-        localStorage.setItem('currentUser', JSON.stringify(user));
-        if (user) {
-            await this.loginAuthAsync();
-        } else {
-            //await this.logoutAuthAsync();
-        }
+        //localStorage.setItem('currentUser', JSON.stringify(user));
+        //if (user) {
+        //    await this.loginAuthAsync();
+        //} else {
+        //    //await this.logoutAuthAsync();
+        //}
 
         this.currentUserSubject.next(user);
     }
@@ -64,17 +71,26 @@ export class AuthenticationService {
         return this.currentUserSubject.value;
     }
 
+    async registerAsync(data: RegisterModel): Promise<ApplicationUser> {
+
+        var user = await this.userRepository.registerAsync(data);
+        this.currentUserSubject.next(user);
+
+        return user;
+
+    }
+
     async loginAsync(username: string, password: string): Promise<ApplicationUser> {
         var auth = new AuthenticateModel();
         auth.username = username;
         auth.password = password;
         var user = await this.userRepository.authenticateAsync(auth);
-        localStorage.setItem('currentUser', JSON.stringify(user));
-        if (user) {
-            await this.loginAuthAsync();
-        } else {
-            //await this.logoutAuthAsync();
-        }
+        //localStorage.setItem('currentUser', JSON.stringify(user));
+        //if (user) {
+        //    await this.loginAuthAsync();
+        //} else {
+        //    //await this.logoutAuthAsync();
+        //}
 
 
         this.currentUserSubject.next(user);
@@ -83,58 +99,58 @@ export class AuthenticationService {
         //return null;
     }
 
-    private async loginAuthAsync(): Promise<void> {
+    //private async loginAuthAsync(): Promise<void> {
 
-        const state = {};
-        //const result = await this.authorizeService.signIn(state);
-        const url = window.location.href;
-        const result = await this.authorizeService.completeSignIn(url);
+    //    const state = {};
+    //    //const result = await this.authorizeService.signIn(state);
+    //    const url = window.location.href;
+    //    const result = await this.authorizeService.completeSignIn(url);
 
-        switch (result.status) {
-            case AuthenticationResultStatus.Redirect:
-                //debugger;
-                break;
-            case AuthenticationResultStatus.Success:
-                //await this.navigateToReturnUrl(returnUrl);
-                break;
-            case AuthenticationResultStatus.Fail:
-                //await this.router.navigate(ApplicationPaths.LoginFailedPathComponents, {
-                //  queryParams: { [QueryParameterNames.Message]: result.message }
-                //});
-                //debugger;
-                break;
-            default:
-                //debugger;
-                throw new Error(`Invalid status result ${(result as any).status}.`);
-        }
-    }
-    private async logoutAuthAsync(): Promise<void> {
+    //    switch (result.status) {
+    //        case AuthenticationResultStatus.Redirect:
+    //            //debugger;
+    //            break;
+    //        case AuthenticationResultStatus.Success:
+    //            //await this.navigateToReturnUrl(returnUrl);
+    //            break;
+    //        case AuthenticationResultStatus.Fail:
+    //            //await this.router.navigate(ApplicationPaths.LoginFailedPathComponents, {
+    //            //  queryParams: { [QueryParameterNames.Message]: result.message }
+    //            //});
+    //            //debugger;
+    //            break;
+    //        default:
+    //            //debugger;
+    //            throw new Error(`Invalid status result ${(result as any).status}.`);
+    //    }
+    //}
+    //private async logoutAuthAsync(): Promise<void> {
 
-        const state = {};
-        const result = await this.authorizeService.signOut(state);
-        switch (result.status) {
-            case AuthenticationResultStatus.Redirect:
-                //debugger;
-                break;
-            case AuthenticationResultStatus.Success:
-                //await this.navigateToReturnUrl(returnUrl);
-                break;
-            case AuthenticationResultStatus.Fail:
-                //debugger;
-                //this.message.next(result.message);
-                break;
-            default:
-                //debugger;
-                throw new Error('Invalid authentication result status.');
-        }
-    }
+    //    const state = {};
+    //    const result = await this.authorizeService.signOut(state);
+    //    switch (result.status) {
+    //        case AuthenticationResultStatus.Redirect:
+    //            //debugger;
+    //            break;
+    //        case AuthenticationResultStatus.Success:
+    //            //await this.navigateToReturnUrl(returnUrl);
+    //            break;
+    //        case AuthenticationResultStatus.Fail:
+    //            //debugger;
+    //            //this.message.next(result.message);
+    //            break;
+    //        default:
+    //            //debugger;
+    //            throw new Error('Invalid authentication result status.');
+    //    }
+    //}
 
     async logoutAsync(): Promise<void> {
         this.userRepository.logout();
         // remove user from local storage and set current user to null
-        localStorage.removeItem('currentUser');
+        //localStorage.removeItem('currentUser');
 
-        await this.logoutAuthAsync();
+        //await this.logoutAuthAsync();
 
 
 

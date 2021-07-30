@@ -51,6 +51,9 @@ export * from './WeaponType';
 
 export class Actor extends ActorBase {
 
+
+    // starts as unknown until initilized in refresh functions
+
     public actions: BaseAction[];
 
     public isSelected: boolean;
@@ -90,9 +93,12 @@ export class Actor extends ActorBase {
 }
 
 export class BaseAction extends ActionBase {
+    // starts as unknown until initilized in refresh functions
     public whoIsActing: Actor;
 
     public isSelected: boolean;
+
+    public isActive: boolean;
 
 
 }

@@ -11,6 +11,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import {Observable, throwError} from "rxjs";
 import { map, catchError } from "rxjs/operators";
+import { AlertService } from '@/services/Alert.service';
 
     import * as Enums from '@/entities/EnumDefinitions'
     import { Game } from '@/entities';
@@ -20,9 +21,9 @@ var version = "1";
 @Injectable({ providedIn: 'root' })
 export class GamesRepository {
 
-    constructor(private _httpClient: HttpClient) { }
+    constructor(private _httpClient: HttpClient, private _alertService: AlertService) { }
     
-    // get: api/v${version}/Games/getGames
+    // get: api/v${version}/Games/GetGames
 
 	//public getGames = (, callback: (data: Game[])=>void) : void => {
 	//	this.getGamesObserve().subscribe(response => callback(response));
@@ -34,6 +35,9 @@ export class GamesRepository {
             this.getGames()
             .subscribe((res) => {
                     resolve(res);
+                }, (error: string) => {
+                    this._alertService.error(error);
+                    resolve(null);
                 });
 
         });
@@ -41,7 +45,7 @@ export class GamesRepository {
 
 	public getGames = () : Observable<Game[]> => {
         
-            var _Url = `api/v${version}/Games/getGames`;
+            var _Url = `api/v${version}/Games/GetGames`;
 
             return this._httpClient.get<Game[]>(_Url)
                 .pipe(
@@ -54,7 +58,7 @@ export class GamesRepository {
 	};
 
     
-    // get: api/v${version}/Games/getGame/${id}
+    // get: api/v${version}/Games/GetGame/${id}
 
 	//public getGame = (id: number, callback: (data: Game)=>void) : void => {
 	//	this.getGameObserve(id).subscribe(response => callback(response));
@@ -66,6 +70,9 @@ export class GamesRepository {
             this.getGame(id)
             .subscribe((res) => {
                     resolve(res);
+                }, (error: string) => {
+                    this._alertService.error(error);
+                    resolve(null);
                 });
 
         });
@@ -74,7 +81,7 @@ export class GamesRepository {
 	public getGame = (id: number) : Observable<Game> => {
         id = (id == null ? <number><any>"" : id);
         
-            var _Url = `api/v${version}/Games/getGame/${id}`;
+            var _Url = `api/v${version}/Games/GetGame/${id}`;
 
             return this._httpClient.get<Game>(_Url)
                 .pipe(
@@ -99,6 +106,9 @@ export class GamesRepository {
             this.saveGame(game)
             .subscribe((res) => {
                     resolve(res);
+                }, (error: string) => {
+                    this._alertService.error(error);
+                    resolve(null);
                 });
 
         });
@@ -120,7 +130,7 @@ export class GamesRepository {
 	};
 
     
-    // delete: api/v${version}/Games/deleteGame/${id}
+    // delete: api/v${version}/Games/DeleteGame/${id}
 
 	//public deleteGame = (id: number, callback: (data: void)=>void) : void => {
 	//	this.deleteGameObserve(id).subscribe(response => callback(response));
@@ -132,6 +142,9 @@ export class GamesRepository {
             this.deleteGame(id)
             .subscribe((res) => {
                     resolve(res);
+                }, (error: string) => {
+                    this._alertService.error(error);
+                    resolve(null);
                 });
 
         });
@@ -140,7 +153,7 @@ export class GamesRepository {
 	public deleteGame = (id: number) : Observable<void> => {
         id = (id == null ? <number><any>"" : id);
         
-            var _Url = `api/v${version}/Games/deleteGame/${id}`;
+            var _Url = `api/v${version}/Games/DeleteGame/${id}`;
 
             return this._httpClient.delete<void>(_Url)
                 .pipe(
@@ -155,14 +168,20 @@ export class GamesRepository {
     
     // Utility
     private handleError(error: HttpErrorResponse) {
-        console.error(error);
+        
+        //debugger;
+        console.debug("handleError:" + error);
+        //console.error(error);
         let customError: string = "";
-        if (error.error) {
-            customError = error.status === 400 ? error.error : error.statusText
+        if (error.message) {
+            customError = error.message; // error.status === 400 ? error.error : error.statusText
         }
-        return Observable.throw(customError || 'Server error');
+        return throwError(customError || 'Server error');
+        //return Observable.throw(customError || 'Server error');
     }
 }
+
+
 
 
 

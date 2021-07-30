@@ -28,7 +28,12 @@ public class HomeController : BaseController
             //
             //return Redirect("/dist/CEATSiiApp");
         }
-        public IActionResult Privacy()
+        [AllowAnonymous]
+        public IActionResult Test()
+        {
+            return View();
+        }
+         public IActionResult Privacy()
         {
             return View();
         }

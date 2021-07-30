@@ -1,133 +1,156 @@
-﻿<div class="list">
+﻿<div class="list h-100">
     <p *ngIf="!actors"><em>Loading...</em></p>
-    <div class="initiative-list">
-        <h2>
-            Actors
-        </h2>
-        <table class="combatants" *ngIf="actors" >
-            <thead class="combatants--header">
-                <tr>
-                    <th style="vertical-align: middle;">
-                        Init
-                    </th>
-                    <th>
-                        Time
-                    </th>
-                    <th style="vertical-align: middle;">
-                        Name
-                    </th>
-                    <th style="vertical-align: middle;">
-                        Hits
-                    </th>
-                    <th style="vertical-align: middle;">
-                        PPs
-                    </th>
-                    <th style="vertical-align: middle;">
-                        Exhs
-                    </th>
-                    <th style="vertical-align: middle;">
-                        Attack
-                    </th>
-                    <th style="vertical-align: middle;">
-                        Armor
-                    </th>
-                    <th style="vertical-align: middle;">
-                        OB
-                    </th>
-                    <!--<th style="vertical-align: middle;">
-                        Base DB
-                    </th>-->
-                    <th style="vertical-align: middle;">
-                        DB
-                    </th>
-                    <th style="vertical-align: middle;">
-                        Mods
-                    </th>
-                    <th style="vertical-align: middle;">
+    <div class="initiative-list h-100">
+        <div class="combatantsTableOuter h-100" style="">
+            <div class="combatantsTable h-100" style="">
+                <table class="combatants" *ngIf="actors">
+                    <thead class="combatants--header">
+                        <tr>
+                            <th style="vertical-align: middle;" rowspan="2">
+                                Init
+                            </th>
+                            <th rowspan="2">
+                                Time
+                            </th>
+                            <th style="vertical-align: middle;" rowspan="2">
+                                Name
+                            </th>
+                            <th style="vertical-align: middle;" rowspan="2">
+                                Hits
+                            </th>
+                            <th style="vertical-align: middle;" rowspan="2">
+                                PPs
+                            </th>
+                            <th style="vertical-align: middle;" rowspan="2">
+                                Exhs
+                            </th>
+                            <th style="vertical-align: middle;" rowspan="2">
+                                Attack
+                            </th>
+                            <th style="vertical-align: middle;" rowspan="2">
+                                Armor
+                            </th>
+                            <th style="vertical-align: middle;" rowspan="2">
+                                OB
+                            </th>
+                            <!--<th style="vertical-align: middle;">
+                            Base DB
+                        </th>-->
+                            <th style="vertical-align: middle;" rowspan="2">
+                                DB
+                            </th>
+                            <th style="vertical-align: middle;" colspan="3">
+                                Mods
+                            </th>
+                            <th style="vertical-align: middle;" rowspan="2">
 
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="combatant" *ngFor="let actor of actors" (click)="selectActor(actor)" [ngClass]="{'selected': actor.isSelected,
+                            </th>
+                            <th style="vertical-align: middle;" rowspan="2">
+
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                All
+                            </th>
+                            <th>
+                                Spell
+                            </th>
+                            <th>
+                                OB
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="combatant" *ngFor="let actor of actors" (click)="selectActor(actor)" [ngClass]="{'selected': actor.isSelected,
                                                                                                             'active': actor.isActive}">
-                    <td>
-                        {{actor.rolledInititive}}
-                    </td>                                                                                 
-                    <td>
-                        {{currentTime(actor)}}
-                    </td>
-                    <td class="nameColumn" style="text-align:left;">
-                        {{actor.name}}
-                    </td>
-                    <td>
-                        <span *ngIf="isControlledVisible(actor)">{{actor.hitsRemaining}}/{{actor.hitsTotal}}</span>
-                        <span *ngIf="!isControlledVisible(actor)">{{actor.damageString}}</span>
-                    </td>
-                    <td>
-                        <span *ngIf="isControlledVisible(actor) && actor.powerPointsTotal>0">{{actor.powerPointsRemaining}}/{{actor.powerPointsTotal}}</span>
-                    </td>
-                    <td>
-                        <span *ngIf="isControlledVisible(actor)">{{actor.exhaustionRemaining}}/{{actor.exhaustionTotal}}</span>
-                    </td>
-                    <td>
-                        {{currentWeapon(actor)}}
-                    </td>
-                    <td>
-                        {{currentArmor(actor)}}
-                    </td>
-                    <td>
-                        <span *ngIf="isControlledVisible(actor)">{{currentOB(actor)}}</span>
-                    </td>
-                    <!--<td>
-        <span *ngIf="isControlledVisible(actor)">{{baseDB(actor)}}</span>
-    </td>-->
-                    <td>
-                        <span *ngIf="isControlledVisible(actor)">{{currentDB(actor)}}</span>
-                    </td>
-                    <td>
-                        <span *ngIf="isControlledVisible(actor)">{{actor.negatives + currentModifier(actor)}}/{{actor.spellNegatives + currentModifier(actor)}}</span>
-                        <div *ngIf="actor.criticalModified!=null && actor.criticalModified!=''">
-                            {{actor.criticalModified}}
-                        </div>
-                        <div *ngIf="actor.criticalIgnores!=null && actor.criticalIgnores!=''">
-                            {{actor.criticalIgnores}}
-                        </div>
-                    </td>
-                    <td style="padding:0;">
-                        <div class="hasteArea" style="display:inline-block;">
-                            <span class="hasted iconArea" *ngIf="actor.percentAction > 100">
-                                <i class='material-icons'>directions_run</i>
-                            </span>
-                            <span class="slowed iconArea" *ngIf="actor.percentAction < 100">
-                                <i class='material-icons'>slow_motion_video</i>
-                            </span>
-                        </div>
-                        <div class="suprisedArea" style="display:inline-block;">
-                            <span class="suprised iconArea" *ngIf="actor.suprised">
-                                <i class='material-icons'>alarm</i>
-                            </span>
-                        </div>
-                        <div class="stunArea" style="display:inline-block;">
-                            <span class="stun iconAreaText" *ngIf="currentCrits(actor).isStunned"><i class='material-icons'>emergency</i><span class="textMod">->{{actor.stunRounds}}</span></span>
-                        </div>
-                        <div class="" style="display:inline-block;">
-                            <span class="concentrating iconArea" *ngIf="actor.isConcentrating">
-                                <i class='material-icons'>emoji_objects</i>
-                            </span>
-                        </div>
-                        <div class="" style="display:inline-block;">
-                            <span class="adrenal iconArea" *ngIf="actor.usingAdrenalDB">
-                                <i class='material-icons'>run_circle</i>
-                            </span>
-                        </div>
-                        <div class="" style="display:inline-block;">
-                            <span class="mustParry iconAreaText" *ngIf="isMustParry(actor)"><i class='material-icons'>error</i><span class="textMod">->{{actor.parryRounds}}</span></span>
-                            <span class="noParry iconAreaText" *ngIf="isNoParry(actor)"><i class='material-icons'>priority_high</i><span class="textMod">->{{actor.parryRounds}}</span></span>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+                            <td>
+                                {{actor.rolledInititive}}
+                            </td>
+                            <td>
+                                {{currentTime(actor)}}
+                            </td>
+                            <td class="nameColumn" style="text-align:left;">
+                                {{actor.name}}
+                            </td>
+                            <td class="actorColumn">
+                                <span *ngIf="isControlledVisible(actor)"><span [class]="actor.damageString">{{actor.hitsRemaining}}</span>/{{actor.hitsTotal}}</span>
+                                <span *ngIf="!isControlledVisible(actor)"><span [class]="actor.damageString">{{actor.damageString}}</span></span>
+                            </td>
+                            <td>
+                                <span *ngIf="isControlledVisible(actor) && actor.powerPointsTotal>0">{{actor.powerPointsRemaining}}/{{actor.powerPointsTotal}}</span>
+                            </td>
+                            <td>
+                                <span *ngIf="isControlledVisible(actor)">{{actor.exhaustionRemaining}}/{{actor.exhaustionTotal}}</span>
+                            </td>
+                            <td>
+                                {{currentWeapon(actor)}}
+                            </td>
+                            <td>
+                                {{currentArmor(actor)}}
+                            </td>
+                            <td>
+                                <span *ngIf="isControlledVisible(actor) && (currentOB(actor)!='' || baseOB(actor))!=''">{{currentOB(actor)}}/{{baseOB(actor)}}</span>
+                            </td>
+                            <!--<td>
+                            <span *ngIf="isControlledVisible(actor)">{{baseDB(actor)}}</span>
+                        </td>-->
+                            <td>
+                                <span *ngIf="isControlledVisible(actor)">{{currentDB(actor)}}</span>
+                            </td>
+                            <td>
+                                <span *ngIf="isControlledVisible(actor) && (actor.negatives + currentModifier(actor) != 0) && !isNaN(actor.negatives + currentModifier(actor))">{{actor.negatives + currentModifier(actor)}}</span>
+                            </td>
+                            <td>
+                                <span *ngIf="isControlledVisible(actor) && (actor.spellNegatives + currentModifier(actor) != 0) && !isNaN(actor.spellNegatives + currentModifier(actor))">{{actor.spellNegatives + currentModifier(actor)}}</span>
+                            </td>
+                            <td>
+                                <span *ngIf="isControlledVisible(actor) && (actor.negatives + currentModifier(actor) + currentCrits(actor).parryNegative != 0) && !isNaN(actor.negatives + currentModifier(actor) + currentCrits(actor).parryNegative)">{{actor.negatives + currentModifier(actor) + currentCrits(actor).parryNegative}}</span>
+                            </td>
+                            <td>
+                                <div *ngIf="actor.criticalModified!=null && actor.criticalModified!=''">
+                                    {{actor.criticalModified}}
+                                </div>
+                                <div *ngIf="actor.criticalIgnores!=null && actor.criticalIgnores!=''">
+                                    {{actor.criticalIgnores}}
+                                </div>
+                            </td>
+                            <td style="padding:0;">
+                                <div class="hasteArea" style="display:inline-block;">
+                                    <span class="hasted iconArea" *ngIf="actor.percentAction > 100">
+                                        <i class='material-icons'>directions_run</i>
+                                    </span>
+                                    <span class="slowed iconArea" *ngIf="actor.percentAction < 100">
+                                        <i class='material-icons'>slow_motion_video</i>
+                                    </span>
+                                </div>
+                                <div class="suprisedArea" style="display:inline-block;">
+                                    <span class="suprised iconArea" *ngIf="actor.suprised">
+                                        <i class='material-icons'>alarm</i>
+                                    </span>
+                                </div>
+                                <div class="stunArea" style="display:inline-block;">
+                                    <span class="stun iconAreaText" *ngIf="currentCrits(actor).isStunned"><i class='material-icons'>emergency</i><span class="textMod">->{{actor.stunRounds}}</span></span>
+                                </div>
+                                <div class="" style="display:inline-block;">
+                                    <span class="concentrating iconArea" *ngIf="actor.isConcentrating">
+                                        <i class='material-icons'>emoji_objects</i>
+                                    </span>
+                                </div>
+                                <div class="" style="display:inline-block;">
+                                    <span class="adrenal iconArea" *ngIf="actor.usingAdrenalDB">
+                                        <i class='material-icons'>run_circle</i>
+                                    </span>
+                                </div>
+                                <div class="" style="display:inline-block;">
+                                    <span class="mustParry iconAreaText" *ngIf="isMustParry(actor)"><i class='material-icons'>error</i><span class="textMod">->{{actor.parryRounds}}</span></span>
+                                    <span class="noParry iconAreaText" *ngIf="isNoParry(actor)"><i class='material-icons'>priority_high</i><span class="textMod">->{{actor.parryRounds}}</span></span>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </div>
