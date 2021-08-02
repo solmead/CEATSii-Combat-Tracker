@@ -5,10 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Authorization" Version="5.0.6" />
+    <PackageReference Include="Microsoft.AspNetCore.Authorization" Version="5.0.8" />
     <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
-    <PackageReference Include="Microsoft.Extensions.Identity.Core" Version="5.0.6" />
-    <PackageReference Include="Microsoft.Extensions.Identity.Stores" Version="5.0.6" />
+    <PackageReference Include="Microsoft.Extensions.Identity.Core" Version="5.0.8" />
+    <PackageReference Include="Microsoft.Extensions.Identity.Stores" Version="5.0.8" />
     <PackageReference Include="Utilities.Caching" Version="7.1.1" />
     <PackageReference Include="Utilities.EnumExtensions" Version="6.3.0" />
   </ItemGroup>

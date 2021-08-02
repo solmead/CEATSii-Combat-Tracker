@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.SignalR;
 using System;
 
 namespace CombatTracker.Web.Configuration
@@ -53,7 +54,11 @@ namespace CombatTracker.Web.Configuration
 
             services.AddSingleton<IEncounterNotification, EncounterNotification>();
 
-            services.AddSignalR();
+            
+
+
+            services.AddSignalR()
+                    .AddNewtonsoftJsonProtocol();
 
             services.AddCors();
 

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using CombatTracker.Entities.Abstract.Repos;
 using CombatTracker.Entities.Abstract.Services;
 using CombatTracker.Entities.Current;
+using CombatTracker.Entities.Reference;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -91,7 +92,9 @@ namespace CombatTracker.Web.Controllers.Api
         {
             var actor = _gameRepository.GetActor(whomId);
             var actionDef = _chartRepository.GetAction(actionDefId);
-            return _gameService.ProposeAction(actionDef, actor, modifier, attackId);
+            var acts = _gameRepository.GetActionsOnActor(whomId);
+            var curact = (from act in acts where act.ActionType == ActionTypeEnum.Current select act).FirstOrDefault();
+            return _gameService.ProposeAction(curact, actionDef, actor, modifier, attackId);
         }
 
         [HttpPost("ProposeActionContinue")]

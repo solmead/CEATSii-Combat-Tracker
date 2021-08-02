@@ -23,7 +23,7 @@ namespace CombatTracker.Entities.Abstract.Services
         void SetAttackOnAction(BaseAction action, int attackId);
 
         BaseAction ProposeActionUnconscious(Actor actor);
-        BaseAction ProposeAction(ActionDefinition action, Actor whom, int modifier = 0, int? attackId = null);
+        BaseAction ProposeAction(BaseAction previousAction, ActionDefinition action, Actor whom, int modifier = 0, int? attackId = null);
         BaseAction ProposeActionContinue(BaseAction previousAction, Actor whom);
         BaseAction AddBleedEffect(Actor whom, int bleedRate);
         BaseAction AddCriticalEffect(Actor whom, CriticalEffect crit, int rounds);

@@ -109,7 +109,10 @@ namespace CombatTracker.Services.Services
 
         public void SetCurrentAction(Actor actor, BaseAction action)
         {
-
+            if (action==null)
+            {
+                return;
+            }
             var CurAction = GetCurrentAction(actor);
             if (CurAction != null && ((CurAction.EndTime >= CurrentGame.CurrentTime)
                             && CurAction != action)) { 
@@ -332,9 +335,9 @@ namespace CombatTracker.Services.Services
             return act;
         }
 
-        public BaseAction ProposeAction(ActionDefinition action, Actor whom, int modifier = 0, int? attackId = null)
+        public BaseAction ProposeAction(BaseAction previousAction, ActionDefinition action, Actor whom, int modifier = 0, int? attackId = null)
         {
-            var act = _actionServices.GetStandardAction(action, null, whom, CurrentGame);
+            var act = _actionServices.GetStandardAction(action, previousAction, whom, CurrentGame);
             act.CurrentModifier = modifier;
             if (attackId != null)
             {
@@ -603,6 +606,10 @@ namespace CombatTracker.Services.Services
         public BaseAction DoProposedAction(Actor whom)
         {
             var act = GetProposedAction(whom);
+            if (act==null)
+            {
+                throw new Exception("No Proposed Action Found");
+            }
             SetCurrentAction(whom, act);
             return act;
         }
@@ -656,44 +663,90 @@ namespace CombatTracker.Services.Services
             RecalculateActionsTime(who);
         }
 
-
-
-        public MoveNextResult MoveToNextAction()
+        private MoveNextResult PulseEvent()
         {
             var game = CurrentGame;
             var actions = _gameRepository.GetActionsInGame(game);
+            actions = actions.OrderBy((a) => a.EndTime).ToList();
 
             actions.ForEach((act) => _actionServices.CheckActionValid(act));
 
+            MoveNextResult result = null;
 
-            var next = actions.First();
-
-            game.CurrentTime = next.EndTime;
-            _gameRepository.SaveGame(game);
-            _encounterNotification.EventUpdateGame(game.ID, game);
-            var who = _gameRepository.GetActor(next.WhoIsActing_ID);
-            if (next.Type == ActorActionType.Spell)
+            var next = actions.FirstOrDefault();
+            if (next != null)
             {
-                who.NextSpellTime = game.CurrentTime + TimeCalc.GetFullRoundActionTime(who, ActionTypeEnum.Current, game);
-            }
-            
-            var result = _actionServices.ProcessAction(next, who, this);
-            _gameRepository.SaveActor(who);
-            _encounterNotification.EventUpdatedActorAsync(CurrentGame.ID, who);
+                game.CurrentTime = next.EndTime;
+                _gameRepository.SaveGame(game);
+                _encounterNotification.EventUpdateGame(game.ID, game);
 
-            if (!next.CharacterAction && !next.Reoccuring)
-            {
-                _gameRepository.DeleteAction(next);
-                //_encounterNotification.EventUpdatedActorAsync(CurrentGame.ID, actor);
-                _encounterNotification.EventRemovedActionAsync(CurrentGame.ID, next);
-            }
+                var who = _gameRepository.GetActor(next.WhoIsActing_ID);
+                if (next.Type == ActorActionType.Spell)
+                {
+                    who.NextSpellTime = game.CurrentTime + TimeCalc.GetFullRoundActionTime(who, ActionTypeEnum.Current, game);
+                }
 
+                result = _actionServices.ProcessAction(next, who, this);
+                _gameRepository.SaveActor(who);
+                _encounterNotification.EventUpdatedActorAsync(CurrentGame.ID, who);
+
+                if (!next.CharacterAction && !next.Reoccuring)
+                {
+                    _gameRepository.DeleteAction(next);
+                    //_encounterNotification.EventUpdatedActorAsync(CurrentGame.ID, actor);
+                    _encounterNotification.EventRemovedActionAsync(CurrentGame.ID, next);
+                }
+            }
 
             actions = _gameRepository.GetActionsInGame(game);
-            next = actions.First();
+            next = actions.FirstOrDefault();
             game.CurrentTime = next.EndTime;
             _gameRepository.SaveGame(game);
             _encounterNotification.EventUpdateGame(game.ID, game);
+
+            return result;
+        }
+
+        private void HandleCurrentActor()
+        {
+            var game = CurrentGame;
+
+            var actions = _gameRepository.GetActionsInGame(game);
+            actions = actions.OrderBy((a) => a.EndTime).ToList();
+            var next = actions.First();
+
+            var who = _gameRepository.GetActor(next.WhoIsActing_ID);
+
+            var fAct = GetFutureAction(who);
+            var pAct = GetProposedAction(who);
+            if (fAct != null)
+            {
+                if (pAct != null)
+                {
+                    _gameRepository.DeleteAction(pAct);
+                    _encounterNotification.EventRemovedActionAsync(CurrentGame.ID, pAct);
+
+                }
+                fAct.ActionType = ActionTypeEnum.Proposed;
+                _gameRepository.SaveAction(fAct);
+                _encounterNotification.EventUpdatedActionAsync(CurrentGame.ID, fAct);
+
+            }
+
+            fAct = GetFutureAction(who);
+            if (fAct!=null)
+            {
+                _gameRepository.DeleteAction(fAct);
+                _encounterNotification.EventRemovedActionAsync(CurrentGame.ID, fAct);
+            }
+
+        }
+
+        public MoveNextResult MoveToNextAction()
+        {
+            var result = PulseEvent();
+            HandleCurrentActor();
+
 
             return result;
         }
@@ -726,6 +779,10 @@ namespace CombatTracker.Services.Services
         }
         public void RemoveAction(BaseAction action)
         {
+            if (action == null)
+            {
+                return;
+            }
             var game = CurrentGame;
             var actions = _gameRepository.GetActionsInGame(game);
 

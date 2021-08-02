@@ -3373,7 +3373,6 @@ class ActionEditComponent {
         return this._treeTop;
     }
     refreshTree() {
-        //this._treeModel = null;
         if (this.actionTree == null) {
             this._treeTop = null;
         }
@@ -3383,10 +3382,14 @@ class ActionEditComponent {
             }
             else {
                 this._treeTop.check();
+                if (this._treeModel != null) {
+                    this._treeModel = new _elements_treeview__WEBPACK_IMPORTED_MODULE_4__["TreeModel"](this._treeTop);
+                    this._treeModel.lastChecked = this._treeTop.lastChecked;
+                }
             }
             //this._treeTop = new TreeNode(this.actionTree);
             var attack = null;
-            if (this.selectedAction != null) {
+            if (this.selectedAction != null && this.selectedAction.base != null) {
                 if (this.selectedAction.base.isAttack) {
                     attack = this.selectedAction.currentAttack;
                 }
@@ -4548,6 +4551,7 @@ class TreeNode {
         this.parent = parent;
         this._isSelected = false;
         this.isOpen = false;
+        this.lastChecked = new Date();
         this.children = new Array();
         node.children.forEach((child) => {
             this.children.push(new TreeNode(child, this));
@@ -4571,6 +4575,7 @@ class TreeNode {
                 this.children.push(new TreeNode(child, this));
             });
         }
+        this.lastChecked = new Date();
     }
     get text() {
         return this.node.text;
@@ -4638,6 +4643,7 @@ class TreeModel {
         this.iconExpand = "keyboard_arrow_right";
         this.iconCollapse = "keyboard_arrow_down";
         this.iconNeutral = "";
+        this.lastChecked = new Date();
     }
     findNode(code) {
         return this.treeTop.findNode(code);
@@ -9321,6 +9327,9 @@ let EncounterService = class EncounterService {
             action.isSelected = true;
             if (action.whoIsActing != null) {
                 action.whoIsActing.isSelected = true;
+                if (action.actionType == ActionTypeEnum.Current) {
+                    this.checkAction(action.whoIsActing);
+                }
             }
         }
         this.currentActionTreeAsync();
@@ -9366,8 +9375,15 @@ let EncounterService = class EncounterService {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
             if (actor != null && actor.proposedAction == null) {
                 var action = actor.nextAction || actor.currentAction;
-                var act = yield this.encounterRepo.proposeActionAsync(action.base.id, actor.id, action.currentModifier, action.currentAttack_ID);
-                this.refreshAction(act);
+                var act = action;
+                if (action.base != null) {
+                    act = yield this.encounterRepo.proposeActionAsync(action.base.id, actor.id, action.currentModifier, action.currentAttack_ID);
+                    this.refreshAction(act);
+                }
+                else {
+                    act = yield this.encounterRepo.proposeActionAsync(this.referenceService.ActionGroups[0].actions[0].id, actor.id, action.currentModifier, action.currentAttack_ID);
+                    this.refreshAction(act);
+                }
                 act = this.allActions.find((a) => a.id == act.id);
                 act.isSelected = true;
             }
@@ -9591,6 +9607,7 @@ let EncounterService = class EncounterService {
             var act = yield this.encounterRepo.proposeActionAsync(action.id, actor.id, modifier, (attack != null ? attack.id : null));
             yield this.refreshAsync();
             act = this.allActions.find((a) => a.id == act.id);
+            act.isSelected = true;
             return act;
         });
     }
@@ -9638,6 +9655,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _microsoft_signalr__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @microsoft/signalr */ "./node_modules/@microsoft/signalr/dist/esm/index.js");
+/* harmony import */ var _helpers_Tasks__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/_helpers/Tasks */ "./src/app/_helpers/Tasks.ts");
+
 
 
 
@@ -9659,6 +9678,7 @@ let EncounterHubService = class EncounterHubService {
     }
     registerForGame(gameId) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            yield Object(_helpers_Tasks__WEBPACK_IMPORTED_MODULE_3__["whenTrue"])(() => this.connectionIsEstablished);
             yield this._hubConnection.invoke('registerForGame', gameId);
         });
     }
@@ -10207,7 +10227,7 @@ class EncounterComponent {
                 return null;
             }
             if (action == null || action.actionType == ActionTypeEnum.Current) {
-                if (actor.currentAction.isActive) {
+                if (actor.currentAction == null || actor.currentAction.isActive) {
                     action = actor.proposedAction || actor.nextAction;
                 }
                 else {

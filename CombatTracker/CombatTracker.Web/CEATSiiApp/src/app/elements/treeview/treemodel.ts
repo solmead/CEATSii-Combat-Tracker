@@ -5,6 +5,7 @@ export class TreeNode {
 
     private _isSelected: boolean = false;
     public isOpen: boolean = false;
+    public lastChecked: Date = new Date();
 
     public children = new Array<TreeNode>();
 
@@ -33,7 +34,7 @@ export class TreeNode {
             });
         } 
 
-
+        this.lastChecked = new Date();
 
     }
 
@@ -116,9 +117,13 @@ export class TreeModel {
     public iconCollapse: string = "keyboard_arrow_down";
     public iconNeutral: string = "";
 
+
+    public lastChecked: Date = new Date();
+
     public constructor(public treeTop: TreeNode) {
 
     }
+
 
 
     public findNode(code: string): TreeNode {

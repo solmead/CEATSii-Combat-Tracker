@@ -2,6 +2,7 @@
 import { HubConnection, HubConnectionBuilder } from '@microsoft/signalr';
 import { Actor, BaseAction, Game } from '@/entities';
 import * as signalR from '@microsoft/signalr';
+import { whenTrue } from '@/_helpers/Tasks';
 
 @Injectable()
 export class EncounterHubService {
@@ -24,7 +25,10 @@ export class EncounterHubService {
         this.startConnection();
     }
 
-    public async registerForGame(gameId: number):Promise<void> {
+    public async registerForGame(gameId: number): Promise<void> {
+
+        await whenTrue(() => this.connectionIsEstablished);
+
         await this._hubConnection.invoke('registerForGame', gameId);
     }
 

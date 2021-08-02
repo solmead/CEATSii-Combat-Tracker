@@ -183,6 +183,7 @@ Partial Class Creature
 
         Dim Ac As New StandardAction
         Ac.Name = "Wait"
+        Ac.ActionType = ActionTypeEnum.Current
         Ac.WhoIsActing = MyChar
         MyChar.SetActionTime(Ac, GI.CurrentTime)
         Ac.Game = GI

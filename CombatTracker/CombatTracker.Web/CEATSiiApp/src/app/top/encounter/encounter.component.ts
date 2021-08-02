@@ -89,7 +89,7 @@ export class EncounterComponent implements OnInit, OnChanges {
             }
 
             if (action == null  || action.actionType == ActionTypeEnum.Current) {
-                if (actor.currentAction.isActive) {
+                if (actor.currentAction == null || actor.currentAction.isActive) {
                     action = actor.proposedAction || actor.nextAction;
                 } else {
                     action = actor.proposedAction || actor.currentAction;

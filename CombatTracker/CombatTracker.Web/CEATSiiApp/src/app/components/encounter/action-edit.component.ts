@@ -92,7 +92,6 @@ export class ActionEditComponent implements OnInit, OnChanges {
     }
 
     private refreshTree() {
-        //this._treeModel = null;
         if (this.actionTree == null) {
             this._treeTop = null;
         } else {
@@ -100,12 +99,16 @@ export class ActionEditComponent implements OnInit, OnChanges {
                 this._treeTop = new TreeNode(this.actionTree);
             } else {
                 this._treeTop.check();
+                if (this._treeModel != null) {
+                    this._treeModel = new TreeModel(this._treeTop);
+                    this._treeModel.lastChecked = this._treeTop.lastChecked;
+                }
             }
             //this._treeTop = new TreeNode(this.actionTree);
 
 
             var attack: Attack = null;
-            if (this.selectedAction != null) {
+            if (this.selectedAction != null && this.selectedAction.base != null) {
                 if (this.selectedAction.base.isAttack) {
                     attack = this.selectedAction.currentAttack;
                 }

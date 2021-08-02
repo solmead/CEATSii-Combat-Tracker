@@ -233,6 +233,9 @@ export class EncounterService {
             action.isSelected = true;
             if (action.whoIsActing != null) {
                 action.whoIsActing.isSelected = true;
+                if (action.actionType == ActionTypeEnum.Current) {
+                    this.checkAction(action.whoIsActing);
+                }
             }
         }
 
@@ -290,8 +293,14 @@ export class EncounterService {
     async checkAction(actor: Actor): Promise<void> {
         if (actor != null && actor.proposedAction == null) {
             var action = actor.nextAction || actor.currentAction;
-            var act = await this.encounterRepo.proposeActionAsync(action.base.id, actor.id, action.currentModifier, action.currentAttack_ID);
-            this.refreshAction(act);
+            var act = action;
+            if (action.base != null) {
+                act = await this.encounterRepo.proposeActionAsync(action.base.id, actor.id, action.currentModifier, action.currentAttack_ID);
+                this.refreshAction(act);
+            } else {
+                act = await this.encounterRepo.proposeActionAsync(this.referenceService.ActionGroups[0].actions[0].id, actor.id, action.currentModifier, action.currentAttack_ID);
+                this.refreshAction(act);
+            }
             act = this.allActions.find((a) => a.id == act.id);
 
             act.isSelected = true;
@@ -547,6 +556,7 @@ export class EncounterService {
         await this.refreshAsync();
 
         act = this.allActions.find((a) => a.id == act.id);
+        act.isSelected = true;
         return act;
     }
 
