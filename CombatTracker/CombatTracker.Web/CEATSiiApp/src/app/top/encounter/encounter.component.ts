@@ -54,8 +54,6 @@ export class EncounterComponent implements OnInit, OnChanges {
 
     get currentTime(): string {
         if (this.gameView != null && this.gameView.currentGame != null) {
-
-
             return '' + Math.floor(this.gameView.currentGame.currentTime * 100) / 100;
         }
         return "";

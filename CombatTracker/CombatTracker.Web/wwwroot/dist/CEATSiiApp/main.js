@@ -733,6 +733,90 @@ ApiPathInterceptor = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 /***/ }),
 
+/***/ "./src/app/_helpers/DateEx.ts":
+/*!************************************!*\
+  !*** ./src/app/_helpers/DateEx.ts ***!
+  \************************************/
+/*! exports provided: formatTimeSpan, formatDate, formatTime */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "formatTimeSpan", function() { return formatTimeSpan; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "formatDate", function() { return formatDate; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "formatTime", function() { return formatTime; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+
+function formatTimeSpan(ts) {
+    if (ts <= 0) {
+        return "";
+    }
+    var ms = ts - Math.floor(ts);
+    ts = ts - ms;
+    var second = ts % 60;
+    ts = ts - second;
+    second = second + ms;
+    ts = ts / 60;
+    var minute = ts % 60;
+    ts = ts - minute;
+    ts = ts / 60;
+    var hour = Math.floor(ts);
+    var shour = "" + hour;
+    var sminute = "" + minute;
+    var ssecond = "" + Math.round(second * 1000) / 1000;
+    if (hour < 10) {
+        shour = "0" + shour;
+    }
+    if (minute < 10) {
+        sminute = "0" + sminute;
+    }
+    if (second < 10) {
+        ssecond = "0" + ssecond;
+    }
+    return shour + ":" + sminute + ":" + ssecond;
+}
+function formatDate(dt) {
+    var curr_date = dt.getDate();
+    var curr_month = dt.getMonth() + 1; //Months are zero based
+    var curr_year = dt.getFullYear();
+    return '' + curr_month + "/" + curr_date + "/" + curr_year;
+}
+;
+function formatTime(dt, hideMs) {
+    hideMs = !!hideMs;
+    var hour = dt.getHours();
+    var minute = dt.getMinutes();
+    var second = dt.getSeconds();
+    var ms = dt.getMilliseconds();
+    var ampm = "AM";
+    if (hour > 11) {
+        hour = hour - 12;
+        ampm = "PM";
+    }
+    if (hour == 0) {
+        hour = 12;
+    }
+    var sminute = "" + minute;
+    var ssecond = "" + second;
+    if (minute < 10) {
+        sminute = "0" + sminute;
+    }
+    if (second < 10) {
+        ssecond = "0" + ssecond;
+    }
+    return hour + ":" + sminute + (hideMs ? "" : ":" + ssecond) + " " + ampm + (hideMs ? "" : ":" + ms);
+}
+;
+Date.prototype.formatDate = function () {
+    return formatDate(this);
+};
+Date.prototype.formatTime = function (hideMs) {
+    return formatTime(this, hideMs);
+};
+
+
+/***/ }),
+
 /***/ "./src/app/_helpers/EnumEx.ts":
 /*!************************************!*\
   !*** ./src/app/_helpers/EnumEx.ts ***!
@@ -766,46 +850,403 @@ class EnumEx {
 
 /***/ }),
 
-/***/ "./src/app/_helpers/Lock.ts":
-/*!**********************************!*\
-  !*** ./src/app/_helpers/Lock.ts ***!
-  \**********************************/
-/*! exports provided: Lock */
+/***/ "./src/app/_helpers/LinqToJs.ts":
+/*!**************************************!*\
+  !*** ./src/app/_helpers/LinqToJs.ts ***!
+  \**************************************/
+/*! exports provided: Queryable */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Lock", function() { return Lock; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Queryable", function() { return Queryable; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 
-var Lock;
-(function (Lock) {
-    class Locker {
-        constructor(maxLockTime) {
-            this.maxLockTime = maxLockTime;
-            this.locked = false;
-            this.lastCalled = null;
-            this.isLocked = () => {
-                var seconds = 0;
-                if (this.lastCalled) {
-                    seconds = ((new Date()).getTime() - this.lastCalled.getTime()) / 1000;
+//module Linq {
+class Queryable {
+    constructor(array) {
+        this.array = array;
+        this.add = (item) => {
+            this.array.push(item);
+        };
+        this.remove = (item) => {
+            this.array.remove(item);
+        };
+        this.push = (item) => {
+            this.array.push(item);
+        };
+        this.toArray = () => {
+            return this.array.slice(0);
+        };
+        this.distinct = (compareFunction) => {
+            var lst = new Queryable();
+            this.forEach((t) => {
+                if (!lst.contains(t, compareFunction)) {
+                    lst.add(t);
                 }
-                return this.locked && seconds < this.maxLockTime;
-            };
-            this.lock = () => {
-                this.locked = true;
-                this.lastCalled = new Date();
-            };
-            this.unLock = () => {
-                this.locked = false;
-            };
-            if (!this.maxLockTime) {
-                this.maxLockTime = 30.0;
+            });
+            return lst;
+        };
+        this.where = (whereClause) => {
+            if (!whereClause) {
+                return new Queryable(this.array.slice(0));
             }
+            var lst2 = [];
+            this.array.forEach(item => {
+                if (whereClause(item)) {
+                    lst2.push(item);
+                }
+            });
+            return new Queryable(lst2);
+        };
+        this.any = (whereClause) => {
+            if (!whereClause) {
+                return this.array.length > 0;
+            }
+            return this.where(whereClause).any();
+        };
+        this.forEach = (func) => {
+            var list = this.array;
+            if (func == null) {
+                return false;
+            }
+            $.each(list, (i, item) => {
+                func(item);
+            });
+            return true;
+        };
+        this.sum = (func) => {
+            if (!func) {
+                func = (obj) => {
+                    return obj;
+                };
+            }
+            var cnt = 0;
+            this.forEach(item => { cnt = cnt + func(item); });
+            return cnt;
+        };
+        this.max = (func) => {
+            if (!func) {
+                func = (obj) => {
+                    return obj;
+                };
+            }
+            var mx = func(this.first());
+            this.forEach(item => {
+                var v = func(item);
+                if (mx < v) {
+                    mx = v;
+                }
+            });
+            return mx;
+        };
+        this.min = (func) => {
+            if (!func) {
+                func = (obj) => {
+                    return obj;
+                };
+            }
+            var mx = func(this.first());
+            this.forEach(item => {
+                var v = func(item);
+                if (mx > v) {
+                    mx = v;
+                }
+            });
+            return mx;
+        };
+        this.select = (selectItem) => {
+            if (selectItem == null) {
+                return new Queryable(this.array.slice(0));
+            }
+            return new Queryable(this.array.map(selectItem));
+        };
+        this.sortBy = (orderBy, isDescending = false) => {
+            this.sortByFunction((ob1, ob2) => {
+                var v1 = orderBy(ob1);
+                var v2 = orderBy(ob2);
+                if (v1 > v2) {
+                    return 1;
+                }
+                if (v1 < v2) {
+                    return -1;
+                }
+                return 0;
+            }, isDescending);
+        };
+        this.sortByFunction = (orderBy, isDescending = false) => {
+            isDescending = !!isDescending;
+            if (orderBy == null) {
+                return; // new Queryable<T>(this.array.slice(0));
+            }
+            //var clone = this.array.slice(0);
+            this.array.sort(orderBy);
+            if (isDescending) {
+                this.array = this.array.reverse();
+            }
+            return; // (new Queryable<T>(clone));
+        };
+        this.orderBy = (orderBy, isDescending = false) => {
+            return this.orderByFunction((ob1, ob2) => {
+                var v1 = orderBy(ob1);
+                var v2 = orderBy(ob2);
+                if (v1 > v2) {
+                    return 1;
+                }
+                if (v1 < v2) {
+                    return -1;
+                }
+                return 0;
+            }, isDescending);
+        };
+        this.orderByFunction = (orderBy, isDescending = false) => {
+            isDescending = !!isDescending;
+            if (orderBy == null) {
+                return new Queryable(this.array.slice(0));
+            }
+            var clone = this.array.slice(0);
+            clone.sort(orderBy);
+            if (isDescending) {
+                clone = clone.reverse();
+            }
+            return (new Queryable(clone));
+        };
+        this.reverse = () => {
+            return new Queryable(this.array.reverse());
+        };
+        this.skip = (count) => {
+            if (this.length < count) {
+                return new Queryable([]);
+            }
+            this.array.splice(0, count);
+            return new Queryable(this.array.slice(0));
+        };
+        this.take = (count) => {
+            if (this.length == 0) {
+                return new Queryable([]);
+            }
+            if (count > this.length) {
+                count = this.length;
+            }
+            this.array.splice(count - 1, this.length - count);
+            return new Queryable(this.array.slice(0));
+        };
+        this.first = () => {
+            if (this.length == 0) {
+                return null;
+            }
+            return this.array[0];
+        };
+        this.last = () => {
+            if (this.length == 0) {
+                return null;
+            }
+            return this.array[this.length - 1];
+        };
+        this.findItem = (selectItem) => {
+            return this.where(selectItem).first();
+        };
+        this.find = (selectItem) => {
+            return this.where(selectItem).first();
+        };
+        this.contains = (item, compareFunction) => {
+            if (!compareFunction) {
+                compareFunction = this.equals;
+            }
+            return this.where((item2) => compareFunction(item, item2)).any();
+        };
+        this.union = (arr) => {
+            if (arr instanceof Queryable) {
+                return new Queryable(this.array.concat(arr.toArray()));
+            }
+            else {
+                return new Queryable(this.array.concat(arr));
+            }
+        };
+        this.intersect = (arr, compareFunction) => {
+            if (!compareFunction) {
+                compareFunction = this.equals;
+            }
+            var q = null;
+            if (arr instanceof Queryable) {
+                q = arr;
+            }
+            else {
+                q = new Queryable(this.array.concat(arr));
+            }
+            var lst2 = [];
+            this.forEach((item) => {
+                if (q.contains(item, compareFunction)) {
+                    lst2.push(item);
+                }
+            });
+            return new Queryable(lst2);
+        };
+        this.difference = (arr, compareFunction) => {
+            if (!compareFunction) {
+                compareFunction = this.equals;
+            }
+            var q = null;
+            if (arr instanceof Queryable) {
+                q = arr;
+            }
+            else {
+                q = new Queryable(this.array.concat(arr));
+            }
+            var lst2 = [];
+            this.forEach((item) => {
+                if (!q.contains(item, compareFunction)) {
+                    lst2.push(item);
+                }
+            });
+            return new Queryable(lst2);
+        };
+        this.copy = () => {
+            return new Queryable(this.array.slice(0));
+        };
+        this.asQueryable = () => {
+            return new Queryable(this.array.slice(0));
+        };
+        if (this.array == null) {
+            this.array = new Array();
         }
     }
-    Lock.Locker = Locker;
-})(Lock || (Lock = {}));
+    equals(x, y) {
+        if (x === y)
+            return true;
+        // if both x and y are null or undefined and exactly the same
+        if (!(x instanceof Object) || !(y instanceof Object))
+            return false;
+        // if they are not strictly equal, they both need to be Objects
+        if (x.constructor !== y.constructor)
+            return false;
+        // they must have the exact same prototype chain, the closest we can do is
+        // test there constructor.
+        for (var p in x) {
+            if (!x.hasOwnProperty(p))
+                continue;
+            // other properties were tested using x.constructor === y.constructor
+            if (!y.hasOwnProperty(p))
+                return false;
+            // allows to compare x[ p ] and y[ p ] when set to undefined
+            if (x[p] === y[p])
+                continue;
+            // if they have the same strict value or identity then they are equal
+            if (typeof (x[p]) !== "object")
+                return false;
+            // Numbers, Strings, Functions, Booleans must be strictly equal
+            if (!this.equals(x[p], y[p]))
+                return false;
+            // Objects and Arrays must be tested recursively
+        }
+        for (p in y) {
+            if (y.hasOwnProperty(p) && !x.hasOwnProperty(p))
+                return false;
+            // allows x[ p ] to be set to undefined
+        }
+        return true;
+    }
+    get length() {
+        return this.array.length;
+    }
+    get count() {
+        return this.array.length;
+    }
+}
+//}
+Array.prototype.asQueryable = function () {
+    return new Queryable(this);
+};
+Array.prototype.remove = function (item) {
+    var index = this.indexOf(item);
+    if (index > -1) {
+        this.splice(index, 1);
+    }
+};
+//where: (func: (obj: T) => boolean) => Array<T>;
+//any: (func: (obj: T) => boolean) => boolean;
+////ForEach: (func: (obj: T) => void) => void;
+//sum: (func: (obj: T) => number) => number;
+//select: (func: (obj: T) => any) => Array<any>;
+//orderBy: (func: (obj: T) => number, isDescending: boolean) => Array<T>;
+//skip: (count: number) => Array<T>;
+//take: (count: number) => Array<T>;
+//first: () => T;
+//last: () => T;
+////FindItem: (func: (obj: T) => boolean) => T;
+////Find: (func: (obj: T) => boolean) => T;
+//contains: (item: T, func: (obj: T, obj2: T) => boolean) => T;
+//union: (arr: Array<T>) => Array<T>;
+//intersect: (arr: Array<T>, func: (obj: T, obj2: T) => boolean) => Array<T>;
+//difference: (arr: Array<T>, func: (obj: T, obj2: T) => boolean) => Array<T>;
+Array.prototype.sortBy = function (orderBy, isDescending) {
+    var arr = this;
+    arr.asQueryable().sortBy(orderBy, isDescending);
+};
+Array.prototype.where = function (where) {
+    var arr = this;
+    return arr.asQueryable().where(where).toArray();
+};
+Array.prototype.any = function (where) {
+    var arr = this;
+    return arr.asQueryable().any(where);
+};
+//Array.prototype.ForEach = function (func) {
+//    var arr = <Array<any>>this;
+//    arr.asQueryable().forEach(func);
+//};
+Array.prototype.sum = function (func) {
+    var arr = this;
+    return arr.asQueryable().sum(func);
+};
+Array.prototype.select = function (func) {
+    var arr = this;
+    return arr.asQueryable().select(func).toArray();
+};
+Array.prototype.orderBy = function (orderBy, isDescending) {
+    var arr = this;
+    return arr.asQueryable().orderBy(orderBy, isDescending).toArray();
+};
+Array.prototype.skip = function (count) {
+    var arr = this;
+    return arr.asQueryable().skip(count).toArray();
+};
+Array.prototype.take = function (count) {
+    var arr = this;
+    return arr.asQueryable().take(count).toArray();
+};
+Array.prototype.first = function () {
+    var arr = this;
+    return arr.asQueryable().first();
+};
+Array.prototype.last = function () {
+    var arr = this;
+    return arr.asQueryable().last();
+};
+//Array.prototype.FindItem = function (select) {
+//    var arr = <Array<any>>this;
+//    return arr.asQueryable().findItem(select);
+//};
+//Array.prototype.Find = function (select) {
+//    var arr = <Array<any>>this;
+//    return arr.asQueryable().findItem(select);
+//};
+Array.prototype.contains = function (item, compareFunction) {
+    var arr = this;
+    return arr.asQueryable().contains(item, compareFunction);
+};
+Array.prototype.union = function (arr) {
+    var arr2 = this;
+    return arr2.asQueryable().union(arr).toArray();
+};
+Array.prototype.intersect = function (arr, compareFunction) {
+    var arr2 = this;
+    return arr2.asQueryable().intersect(arr, compareFunction).toArray();
+};
+Array.prototype.difference = function (arr, compareFunction) {
+    var arr2 = this;
+    return arr2.asQueryable().difference(arr, compareFunction).toArray();
+};
 
 
 /***/ }),
@@ -825,16 +1266,53 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "whenTrue", function() { return whenTrue; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WhenAll", function() { return WhenAll; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _Lock__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Lock */ "./src/app/_helpers/Lock.ts");
-
 
 class MutexLock {
+    //private refreshLock:Lock.Locker = null;
     constructor(maxLockTime) {
-        this.refreshLock = null;
-        this.refreshLock = new _Lock__WEBPACK_IMPORTED_MODULE_1__["Lock"].Locker(maxLockTime);
+        this.maxLockTime = maxLockTime;
+        this.locked = false;
+        this.lastCalled = null;
+        //this.refreshLock = new Lock.Locker(maxLockTime);
     }
     get isLocked() {
-        return this.refreshLock.isLocked();
+        var seconds = 0;
+        if (this.lastCalled) {
+            seconds = ((new Date()).getTime() - this.lastCalled.getTime()) / 1000;
+        }
+        return this.locked && seconds < this.maxLockTime;
+    }
+    WhenTrueAsync(func) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            var p = new Promise((resolve, reject) => {
+                var startTime = new Date();
+                var check = () => {
+                    if (func) {
+                        var t = func();
+                        if (t) {
+                            resolve();
+                            return;
+                        }
+                    }
+                    var seconds = ((new Date()).getTime() - startTime.getTime()) / 1000;
+                    if (seconds >= this.maxLockTime) {
+                        reject("Max Wait Time for lock hit");
+                        return;
+                    }
+                    setTimeout(check, 100);
+                };
+                setTimeout(check, 100);
+            });
+            return p;
+        });
+    }
+    WaitTillUnlocked() {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            yield this.WhenTrueAsync(() => {
+                return !this.isLocked;
+            });
+            return;
+        });
     }
     LockAreaAsync(func) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
@@ -843,28 +1321,22 @@ class MutexLock {
             yield this.EndLock();
         });
     }
-    WaitTillUnlocked() {
-        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
-            yield whenTrue(() => {
-                return !this.refreshLock.isLocked();
-            });
-            return;
-        });
-    }
     BeginLock() {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
-            yield whenTrue(() => {
-                return !this.refreshLock.isLocked();
-            });
-            if (this.refreshLock.isLocked()) {
+            yield this.WaitTillUnlocked();
+            //await this.WhenTrueAsync(() => {
+            //    return !this.isLocked;
+            //});
+            if (this.isLocked) {
                 return;
             }
-            this.refreshLock.lock();
+            this.locked = true;
+            this.lastCalled = new Date();
         });
     }
     EndLock() {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
-            this.refreshLock.unLock();
+            this.locked = false;
         });
     }
 }
@@ -874,30 +1346,22 @@ class RecurringTask {
         this.timeout = timeout;
         this.maxLockTime = maxLockTime;
         this._isRunning = false;
-        this.locker = new _Lock__WEBPACK_IMPORTED_MODULE_1__["Lock"].Locker();
-        this.timedCall = () => {
-            if (!this.isLocked() && this.callback) {
-                this.callback();
-            }
-            if (this.isRunning) {
-                setTimeout(() => { this.timedCall(); }, this.timeout);
-            }
-        };
+        this.refreshLock = new MutexLock(30000);
         //private set isRunning(value: boolean) {
         //    this._isRunning = value;
         //}
         this.setTimeOut = (time) => {
             this.timeout = time;
         };
-        this.lock = () => {
-            this.locker.lock();
-        };
-        this.unLock = () => {
-            this.locker.unLock();
-        };
-        this.isLocked = () => {
-            return this.locker.isLocked();
-        };
+        //lock = (): void => {
+        //    this.locker.lock();
+        //}
+        //unLock = (): void => {
+        //    this.locker.unLock();
+        //}
+        //isLocked = (): boolean => {
+        //    return this.locker.isLocked();
+        //}
         this.start = () => {
             if (!this.isRunning) {
                 this._isRunning = true;
@@ -907,6 +1371,22 @@ class RecurringTask {
         this.stop = () => {
             this._isRunning = false;
         };
+    }
+    //private locker = new Lock.Locker();
+    timedCall() {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            if (this.callback) {
+                yield this.refreshLock.LockAreaAsync(() => tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+                    yield this.callback();
+                }));
+                //await this.refreshLock.BeginLock();
+                //this.callback();
+                //await this.refreshLock.EndLock();
+            }
+            if (this.isRunning) {
+                setTimeout(() => { this.timedCall(); }, this.timeout);
+            }
+        });
     }
     get isRunning() {
         return this._isRunning;
@@ -924,14 +1404,14 @@ function whenTrue(trueFunc) {
         });
     }
     return new Promise((resolve) => {
-        var obj = new RecurringTask(() => {
-            obj.lock();
+        var obj = new RecurringTask(() => tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            //obj.lock();
             if (trueFunc()) {
                 resolve();
                 obj.stop();
             }
-            obj.unLock();
-        }, 100);
+            //obj.unLock();
+        }), 100);
         obj.start();
     });
 }
@@ -1056,7 +1536,7 @@ ErrorInterceptor = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 /*!***********************************!*\
   !*** ./src/app/_helpers/index.ts ***!
   \***********************************/
-/*! exports provided: ApiPathInterceptor, AuthGuard, ErrorInterceptor, JwtInterceptor, EnumEx, Lock, MutexLock, RecurringTask, delay, whenTrue, WhenAll */
+/*! exports provided: ApiPathInterceptor, AuthGuard, ErrorInterceptor, JwtInterceptor, EnumEx, MutexLock, RecurringTask, delay, whenTrue, WhenAll, formatTimeSpan, formatDate, formatTime, Queryable */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1077,25 +1557,34 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _EnumEx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./EnumEx */ "./src/app/_helpers/EnumEx.ts");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "EnumEx", function() { return _EnumEx__WEBPACK_IMPORTED_MODULE_5__["EnumEx"]; });
 
-/* harmony import */ var _Lock__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Lock */ "./src/app/_helpers/Lock.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Lock", function() { return _Lock__WEBPACK_IMPORTED_MODULE_6__["Lock"]; });
+/* harmony import */ var _Tasks__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Tasks */ "./src/app/_helpers/Tasks.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MutexLock", function() { return _Tasks__WEBPACK_IMPORTED_MODULE_6__["MutexLock"]; });
 
-/* harmony import */ var _Tasks__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Tasks */ "./src/app/_helpers/Tasks.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MutexLock", function() { return _Tasks__WEBPACK_IMPORTED_MODULE_7__["MutexLock"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "RecurringTask", function() { return _Tasks__WEBPACK_IMPORTED_MODULE_6__["RecurringTask"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "RecurringTask", function() { return _Tasks__WEBPACK_IMPORTED_MODULE_7__["RecurringTask"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "delay", function() { return _Tasks__WEBPACK_IMPORTED_MODULE_6__["delay"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "delay", function() { return _Tasks__WEBPACK_IMPORTED_MODULE_7__["delay"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "whenTrue", function() { return _Tasks__WEBPACK_IMPORTED_MODULE_6__["whenTrue"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "whenTrue", function() { return _Tasks__WEBPACK_IMPORTED_MODULE_7__["whenTrue"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "WhenAll", function() { return _Tasks__WEBPACK_IMPORTED_MODULE_6__["WhenAll"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "WhenAll", function() { return _Tasks__WEBPACK_IMPORTED_MODULE_7__["WhenAll"]; });
+/* harmony import */ var _DateEx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./DateEx */ "./src/app/_helpers/DateEx.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "formatTimeSpan", function() { return _DateEx__WEBPACK_IMPORTED_MODULE_7__["formatTimeSpan"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "formatDate", function() { return _DateEx__WEBPACK_IMPORTED_MODULE_7__["formatDate"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "formatTime", function() { return _DateEx__WEBPACK_IMPORTED_MODULE_7__["formatTime"]; });
+
+/* harmony import */ var _LinqToJs__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./LinqToJs */ "./src/app/_helpers/LinqToJs.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Queryable", function() { return _LinqToJs__WEBPACK_IMPORTED_MODULE_8__["Queryable"]; });
 
 
 
 
 
 
+
+//export * from './Lock';
 
 
 
@@ -8921,6 +9410,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var _helpers_DateEx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/_helpers/DateEx */ "./src/app/_helpers/DateEx.ts");
+
 
 
 
@@ -8948,10 +9439,12 @@ let AlertService = class AlertService {
         return this.subject.asObservable();
     }
     success(message, keepAfterRouteChange = false) {
+        message = (new Date()).formatDate() + " " + (new Date()).formatTime() + " - " + message;
         this.keepAfterRouteChange = keepAfterRouteChange;
         this.subject.next({ type: 'success', text: message });
     }
     error(message, keepAfterRouteChange = false) {
+        message = (new Date()).formatDate() + " " + (new Date()).formatTime() + " - " + message;
         this.keepAfterRouteChange = keepAfterRouteChange;
         this.subject.next({ type: 'error', text: message });
     }
@@ -9153,6 +9646,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _EncounterHub_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./EncounterHub.service */ "./src/app/services/EncounterHub.service.ts");
 /* harmony import */ var _helpers_Tasks__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/_helpers/Tasks */ "./src/app/_helpers/Tasks.ts");
 /* harmony import */ var _References_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./References.service */ "./src/app/services/References.service.ts");
+/* harmony import */ var _Alert_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Alert.service */ "./src/app/services/Alert.service.ts");
+/* harmony import */ var _helpers_LinqToJs__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @/_helpers/LinqToJs */ "./src/app/_helpers/LinqToJs.ts");
 
 
 
@@ -9165,14 +9660,17 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+var ResponseEnum = _entities_EnumDefinitions__WEBPACK_IMPORTED_MODULE_2__["EnumDefinitions"].ResponseEnum;
 var ActionTypeEnum = _entities_EnumDefinitions__WEBPACK_IMPORTED_MODULE_2__["EnumDefinitions"].ActionTypeEnum;
 var ActorActionType = _entities_EnumDefinitions__WEBPACK_IMPORTED_MODULE_2__["EnumDefinitions"].ActorActionType;
 var CharacterType = _entities_EnumDefinitions__WEBPACK_IMPORTED_MODULE_2__["EnumDefinitions"].CharacterType;
 var ViewTypeEnum = _entities_EnumDefinitions__WEBPACK_IMPORTED_MODULE_2__["EnumDefinitions"].ViewTypeEnum;
 
 
+
+
 let EncounterService = class EncounterService {
-    constructor(authService, gameRepo, actorRepo, actionRepo, encounterRepo, encounterHubService, referenceService) {
+    constructor(authService, gameRepo, actorRepo, actionRepo, encounterRepo, encounterHubService, referenceService, _alertService) {
         //authService.currentUser.subscribe((user) => {
         //    ////debugger;
         //    if (user != null) {
@@ -9192,6 +9690,7 @@ let EncounterService = class EncounterService {
         this.encounterRepo = encounterRepo;
         this.encounterHubService = encounterHubService;
         this.referenceService = referenceService;
+        this._alertService = _alertService;
         this.allActors = new Array();
         this.allActions = new Array();
         this.refreshLock = new _helpers_Tasks__WEBPACK_IMPORTED_MODULE_7__["MutexLock"](30000);
@@ -9200,17 +9699,17 @@ let EncounterService = class EncounterService {
         //private _selectedActor: Actor;
         //private _selectedAction: BaseAction;
         this._timedService = new _helpers_Tasks__WEBPACK_IMPORTED_MODULE_7__["RecurringTask"](() => tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
-            this._timedService.lock();
+            this._alertService.success("Refreshing List");
             yield this.refreshAsync();
-            this._timedService.unLock();
-        }), 120000, 240000);
+            this._alertService.success("List Refreshed");
+        }), 60000, 120000);
         this.init();
     }
     init() {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
             yield this.refreshAsync();
             yield this.setupEventsAsync();
-            yield this.refreshAsync();
+            //await this.refreshAsync();
             //debugger;
             this._timedService.start();
             var cat = yield this.currentActionTreeAsync();
@@ -9245,20 +9744,21 @@ let EncounterService = class EncounterService {
     }
     get actors() {
         var acts = this.allActors;
-        acts.sort((a, b) => {
-            var CAa = a.currentAction;
-            var CAb = b.currentAction;
-            if (CAa == null || CAb == null) {
-                return 0;
-            }
-            if (CAa.endTime < CAb.endTime) {
-                return -1;
-            }
-            if (CAa.endTime > CAb.endTime) {
-                return 1;
-            }
-            return 0;
-        });
+        acts.sortBy((obj) => (obj.currentAction != null ? obj.currentAction.endTime : 0));
+        //acts.sort((a, b) => {
+        //    var CAa = a.currentAction;
+        //    var CAb = b.currentAction;
+        //    if (CAa == null || CAb == null) {
+        //        return 0;
+        //    }
+        //    if (CAa.endTime < CAb.endTime) {
+        //        return -1;
+        //    }
+        //    if (CAa.endTime > CAb.endTime) {
+        //        return 1;
+        //    }
+        //    return 0;
+        //});
         return acts;
     }
     get actions() {
@@ -9274,20 +9774,7 @@ let EncounterService = class EncounterService {
                 return isCurrent || (isForPC && !isEffect) || (isSpellOnNPC);
             });
         }
-        acts.sort((a, b) => {
-            var CAa = a;
-            var CAb = b;
-            if (CAa == null || CAb == null) {
-                return 0;
-            }
-            if (CAa.endTime < CAb.endTime) {
-                return -1;
-            }
-            if (CAa.endTime > CAb.endTime) {
-                return 1;
-            }
-            return 0;
-        });
+        acts.sortBy((obj) => obj.endTime);
         if (acts.length > 0) {
             var min = acts[0].endTime;
             var max = acts[acts.length - 1].endTime;
@@ -9527,7 +10014,7 @@ let EncounterService = class EncounterService {
             else {
                 this._currentGame = Object.assign(this._currentGame, game);
             }
-            if (this._currentGame.id == 0) {
+            if (this._currentGame != null && this._currentGame.id == 0) {
                 this._currentGame = null;
             }
             if (this.currentGame != null) {
@@ -9585,7 +10072,14 @@ let EncounterService = class EncounterService {
     }
     moveToNextAsync() {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
-            yield this.encounterRepo.moveToNextAsync(false);
+            var result = yield this.encounterRepo.moveToNextAsync(false);
+            if (result.response == ResponseEnum.DisplayMessage) {
+                this._alertService.success(result.message);
+            }
+            if (result.response == ResponseEnum.AutoAdvance) {
+                yield this.moveToNextAsync();
+                return;
+            }
             yield this.refreshAsync();
             this.selectedAction = this.actions[0];
         });
@@ -9625,7 +10119,8 @@ EncounterService.ctorParameters = () => [
     { type: _repositories__WEBPACK_IMPORTED_MODULE_4__["ActionsRepository"] },
     { type: _repositories__WEBPACK_IMPORTED_MODULE_4__["EncounterRepository"] },
     { type: _EncounterHub_service__WEBPACK_IMPORTED_MODULE_6__["EncounterHubService"] },
-    { type: _References_service__WEBPACK_IMPORTED_MODULE_8__["ReferencesService"] }
+    { type: _References_service__WEBPACK_IMPORTED_MODULE_8__["ReferencesService"] },
+    { type: _Alert_service__WEBPACK_IMPORTED_MODULE_9__["AlertService"] }
 ];
 EncounterService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
@@ -9635,7 +10130,8 @@ EncounterService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         _repositories__WEBPACK_IMPORTED_MODULE_4__["ActionsRepository"],
         _repositories__WEBPACK_IMPORTED_MODULE_4__["EncounterRepository"],
         _EncounterHub_service__WEBPACK_IMPORTED_MODULE_6__["EncounterHubService"],
-        _References_service__WEBPACK_IMPORTED_MODULE_8__["ReferencesService"]])
+        _References_service__WEBPACK_IMPORTED_MODULE_8__["ReferencesService"],
+        _Alert_service__WEBPACK_IMPORTED_MODULE_9__["AlertService"]])
 ], EncounterService);
 
 
@@ -9661,6 +10157,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+class retryPolicy {
+    nextRetryDelayInMilliseconds(retryContext) {
+        return 15000;
+    }
+}
 let EncounterHubService = class EncounterHubService {
     constructor() {
         this.actorRemoved = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
@@ -9672,6 +10173,7 @@ let EncounterHubService = class EncounterHubService {
         this.gameUpdated = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
         this.connectionEstablished = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
         this.connectionIsEstablished = false;
+        this.gId = 0;
         this.createConnection();
         this.registerOnServerEvents();
         this.startConnection();
@@ -9680,13 +10182,14 @@ let EncounterHubService = class EncounterHubService {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
             yield Object(_helpers_Tasks__WEBPACK_IMPORTED_MODULE_3__["whenTrue"])(() => this.connectionIsEstablished);
             yield this._hubConnection.invoke('registerForGame', gameId);
+            this.gId = gameId;
         });
     }
     createConnection() {
         this._hubConnection = new _microsoft_signalr__WEBPACK_IMPORTED_MODULE_2__["HubConnectionBuilder"]()
             .configureLogging(_microsoft_signalr__WEBPACK_IMPORTED_MODULE_2__["LogLevel"].Information)
             .withUrl('/hubs/EncounterHub')
-            .withAutomaticReconnect()
+            .withAutomaticReconnect(new retryPolicy())
             .build();
     }
     startConnection() {
@@ -9704,6 +10207,11 @@ let EncounterHubService = class EncounterHubService {
     }
     registerOnServerEvents() {
         //this._hubConnection.
+        this._hubConnection.onreconnected((id) => {
+            if (this.gId > 0) {
+                this.registerForGame(this.gId);
+            }
+        });
         this._hubConnection.on('RemovedAction', (data) => {
             this.actionRemoved.emit(data);
         });

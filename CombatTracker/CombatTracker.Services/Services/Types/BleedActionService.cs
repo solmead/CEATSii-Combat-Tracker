@@ -44,7 +44,9 @@ namespace CombatTracker.Services.Services.Types
 
             action.Count += 1;
             action.Note = "Rounds of Bleeding:" + action.Count;
+            //action.StartTime = gameService.CurrentGame.CurrentTime;
             TimeCalc.SetActionTime(whom, action, gameService.CurrentGame);
+            gameService.SaveAction(action);
 
             gameService.RecalculateActionsTime(whom);
             if (whom.HitsRemaining<=0)

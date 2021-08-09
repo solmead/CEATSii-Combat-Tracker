@@ -36,12 +36,22 @@ namespace CombatTracker.Services.Services
         }
 
 
-        public Game CurrentGame {
-            get => Cache.GetItem<Game>(CacheArea.Session, "CurrentGame", () => new Game());
-            set => Cache.SetItem<Game>(CacheArea.Session, "CurrentGame", value);
+
+        public int? CurrentGameId
+        {
+            get => Cache.GetItem<int?>(CacheArea.Session, "CurrentGameId", () => (int?)null);
+            set => Cache.SetItem<int?>(CacheArea.Session, "CurrentGameId", value);
         }
 
-        
+        public Game CurrentGame
+        {
+            get => Cache.GetItem<Game>(CacheArea.Request, "CurrentGame", () => _gameRepository.GetGame(CurrentGameId ?? 0));
+            set
+            {
+                CurrentGameId = value.ID;
+                Cache.SetItem<Game>(CacheArea.Request, "CurrentGame", value);
+            }
+        }
 
         public Actor CreateActorFrom(IActable person, int? rolledInit = null)
         {
@@ -667,7 +677,6 @@ namespace CombatTracker.Services.Services
         {
             var game = CurrentGame;
             var actions = _gameRepository.GetActionsInGame(game);
-            actions = actions.OrderBy((a) => a.EndTime).ToList();
 
             actions.ForEach((act) => _actionServices.CheckActionValid(act));
 
@@ -793,6 +802,16 @@ namespace CombatTracker.Services.Services
                 _gameRepository.DeleteAction(curact);
                 _encounterNotification.EventRemovedActionAsync(CurrentGame.ID, curact);
             }
+
+        }
+
+        public BaseAction SaveAction(BaseAction action)
+        {
+
+            _gameRepository.SaveAction(action);
+            _encounterNotification.EventUpdatedActionAsync(CurrentGame.ID, action);
+
+            return action;
 
         }
     }

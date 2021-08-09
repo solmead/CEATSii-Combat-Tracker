@@ -22,6 +22,8 @@ namespace CombatTracker.Entities.Abstract.Services
         void SetModifierOnAction(BaseAction action, int modifier);
         void SetAttackOnAction(BaseAction action, int attackId);
 
+        BaseAction SaveAction(BaseAction action);
+
         BaseAction ProposeActionUnconscious(Actor actor);
         BaseAction ProposeAction(BaseAction previousAction, ActionDefinition action, Actor whom, int modifier = 0, int? attackId = null);
         BaseAction ProposeActionContinue(BaseAction previousAction, Actor whom);

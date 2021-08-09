@@ -54,7 +54,7 @@ namespace CombatTracker.Domain.Repositories
                     //g.Actors = GetActors(g.ID);
 
                     //g.GameActions = GetActionsInGame(g.ID);
-                    Cache.SetItem<Game>(CacheArea.Global, "Games_" + g.ID, g);
+                    Cache.SetItem<Game>(CacheArea.Global, "Games_" + g.ID, g, "game");
                 });
                 return list;
             }, "game");
@@ -101,31 +101,33 @@ namespace CombatTracker.Domain.Repositories
 
             db.SaveChanges();
             game.ID = item.ID;
-            Cache.SetItem<Game>(CacheArea.Global, "Games_" + game.ID, game);
+            //Cache.SetItem<Game>(CacheArea.Global, "Games_" + game.ID, game);
 
-            var items = GetGames();
-            if (!items.Contains(game))
-            {
-                items.Add(game);
-            }
+            //var items = GetGames();
+            //if (!items.Contains(game))
+            //{
+            //    items.Add(game);
+            //}
 
+            Cache.Instance.ClearTaggedCache("game");
             return GetGame(game.ID);
         }
 
         public void DeleteGame(Game game)
         {
-            Cache.SetItem<Game>(CacheArea.Global, "Games_" + game.ID, game);
-            var items = GetGames();
-            if (items.Contains(game))
-            {
-                items.Remove(game);
-            }
+            //Cache.SetItem<Game>(CacheArea.Global, "Games_" + game.ID, game);
+            //var items = GetGames();
+            //if (items.Contains(game))
+            //{
+            //    items.Remove(game);
+            //}
             var item = (from c in db.Games where c.ID == game.ID select c).FirstOrDefault();
             if (item != null)
             {
                 db.Games.Remove(item);
                 db.SaveChanges();
             }
+            Cache.Instance.ClearTaggedCache("game");
         }
 
         public void DeleteGame(int id)
@@ -212,7 +214,7 @@ namespace CombatTracker.Domain.Repositories
 
 
 
-                    Cache.SetItem<Actor>(CacheArea.Global, "Actor_" + act.ID, act);
+                    Cache.SetItem<Actor>(CacheArea.Global, "Actor_" + act.ID, act, "game");
                 });
                 return list;
             }, "game");
@@ -298,14 +300,15 @@ namespace CombatTracker.Domain.Repositories
 
             db.SaveChanges();
             actor.ID = item.ID;
-            Cache.SetItem<Actor>(CacheArea.Global, "Actor_" + actor.ID, actor);
+            //Cache.SetItem<Actor>(CacheArea.Global, "Actor_" + actor.ID, actor);
 
-            var items = GetActors(actor.Game_ID);
-            if (!items.Contains(actor))
-            {
-                items.Add(actor);
-            }
+            //var items = GetActors(actor.Game_ID);
+            //if (!items.Contains(actor))
+            //{
+            //    items.Add(actor);
+            //}
 
+            Cache.Instance.ClearTaggedCache("game");
             return GetActor(actor.ID);
         }
 
@@ -335,6 +338,7 @@ namespace CombatTracker.Domain.Repositories
                 db.Actors.Remove(item);
                 db.SaveChanges();
             }
+            Cache.Instance.ClearTaggedCache("game");
         }
 
         public void DeleteActor(int id)
@@ -370,7 +374,7 @@ namespace CombatTracker.Domain.Repositories
 
                 list.ForEach((act) =>
                 {
-                    Cache.SetItem<CriticalEffect>(CacheArea.Global, "CriticalEffect_" + act.ID, act);
+                    Cache.SetItem<CriticalEffect>(CacheArea.Global, "CriticalEffect_" + act.ID, act, actorId, "game");
                 });
                 return list;
             }, "game");
@@ -420,14 +424,15 @@ namespace CombatTracker.Domain.Repositories
 
             db.SaveChanges();
             criticalEffect.ID = item.ID;
-            Cache.SetItem<CriticalEffect>(CacheArea.Global, "CriticalEffect_" + criticalEffect.ID, criticalEffect);
+            //Cache.SetItem<CriticalEffect>(CacheArea.Global, "CriticalEffect_" + criticalEffect.ID, criticalEffect);
 
-            var items = GetCriticalEffects(criticalEffect.Actor_ID);
-            if (!items.Contains(criticalEffect))
-            {
-                items.Add(criticalEffect);
-            }
+            //var items = GetCriticalEffects(criticalEffect.Actor_ID);
+            //if (!items.Contains(criticalEffect))
+            //{
+            //    items.Add(criticalEffect);
+            //}
 
+            Cache.Instance.ClearTaggedCache("game");
             return GetCriticalEffect(criticalEffect.ID);
         }
 
@@ -446,6 +451,7 @@ namespace CombatTracker.Domain.Repositories
                 db.CriticalAffects.Remove(item);
                 db.SaveChanges();
             }
+            Cache.Instance.ClearTaggedCache("game");
         }
 
         public void DeleteCriticalEffect(int id)
@@ -464,6 +470,7 @@ namespace CombatTracker.Domain.Repositories
         {
             return (from a in GetActionsInGame(actor.Game_ID)
                     where a.WhoIsActing_ID == actor.ID
+                    orderby a.EndTime
                     select a).ToList();
         }
 
@@ -503,8 +510,8 @@ namespace CombatTracker.Domain.Repositories
                                 HastedPercent = a.HastedPercent,
                                 Critical_ID = a.Critical_ID
                             }).ToList();
-
-                list.Sort((x, y) => x.EndTime.CompareTo(y.EndTime));
+                list = list.OrderBy((a) => a.EndTime).ToList();
+                //list.Sort((x, y) => x.EndTime.CompareTo(y.EndTime));
 
                 var min = list.First().EndTime;
                 var max = list.Last().EndTime;
@@ -580,13 +587,15 @@ namespace CombatTracker.Domain.Repositories
                     //}
 
 
-                    Cache.SetItem<BaseAction>(CacheArea.Global, "Action_" + g.ID, g);
+                    Cache.SetItem<BaseAction>(CacheArea.Global, "Action_" + g.ID, g, "game");
                 });
                 //list = (from ac in list orderby ac.EndTime select ac).ToList();
                 return list;
             }, "game");
 
-            aList.Sort((x, y) => x.EndTime.CompareTo(y.EndTime));
+            aList = aList.OrderBy((a) => a.EndTime).ToList();
+            //actions = actions.OrderBy((a) => a.EndTime).ToList();
+            //aList.Sort((x, y) => x.EndTime.CompareTo(y.EndTime));
             return aList;
         }
 
@@ -648,11 +657,14 @@ namespace CombatTracker.Domain.Repositories
             db.SaveChanges();
             action.ID = item.ID;
 
-            var items = GetActionsInGame(action.Game_ID);
-            if (!items.Contains(action))
-            {
-                items.Add(action);
-            }
+            //var items = GetActionsInGame(action.Game_ID);
+            //if (!items.Contains(action))
+            //{
+            //    items.Add(action);
+            //}
+
+            Cache.Instance.ClearTaggedCache("game");
+
 
             return GetAction(action.ID);
         }
@@ -673,6 +685,7 @@ namespace CombatTracker.Domain.Repositories
                 db.ActorsActions.Remove(item);
                 db.SaveChanges();
             }
+            Cache.Instance.ClearTaggedCache("game");
         }
 
         public void DeleteAction(int id)

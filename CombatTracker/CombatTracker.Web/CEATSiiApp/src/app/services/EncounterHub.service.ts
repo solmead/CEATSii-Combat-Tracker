@@ -4,6 +4,16 @@ import { Actor, BaseAction, Game } from '@/entities';
 import * as signalR from '@microsoft/signalr';
 import { whenTrue } from '@/_helpers/Tasks';
 
+
+class retryPolicy implements signalR.IRetryPolicy {
+
+    nextRetryDelayInMilliseconds(retryContext: signalR.RetryContext): number {
+        return 15000;
+    }
+
+}
+
+
 @Injectable()
 export class EncounterHubService {
     actorRemoved = new EventEmitter<Actor>();
@@ -19,6 +29,8 @@ export class EncounterHubService {
     private connectionIsEstablished = false;
     private _hubConnection: HubConnection;
 
+    private gId: number = 0;
+
     constructor() {
         this.createConnection();
         this.registerOnServerEvents();
@@ -26,17 +38,17 @@ export class EncounterHubService {
     }
 
     public async registerForGame(gameId: number): Promise<void> {
-
         await whenTrue(() => this.connectionIsEstablished);
 
         await this._hubConnection.invoke('registerForGame', gameId);
+        this.gId = gameId;
     }
 
     private createConnection() {
         this._hubConnection = new HubConnectionBuilder()
             .configureLogging(signalR.LogLevel.Information)
             .withUrl('/hubs/EncounterHub')
-            .withAutomaticReconnect()
+            .withAutomaticReconnect(new retryPolicy())
             .build();
     }
 
@@ -57,7 +69,11 @@ export class EncounterHubService {
     private registerOnServerEvents(): void {
         //this._hubConnection.
 
-
+        this._hubConnection.onreconnected((id) => {
+            if (this.gId > 0) {
+                this.registerForGame(this.gId);
+            }
+        });
 
         this._hubConnection.on('RemovedAction', (data: any) => {
             this.actionRemoved.emit(data);

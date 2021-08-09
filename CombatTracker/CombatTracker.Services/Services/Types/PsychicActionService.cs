@@ -118,6 +118,8 @@ namespace CombatTracker.Services.Services.Types
             action.EndTime = TimeCalc.GetTimeRequiredForSpells(whom, gameService.CurrentGame.BaseRoundTime) + gameService.CurrentGame.CurrentTime;
             action.Note = "Round " + action.Count + " of " + action.TotalRounds;
 
+            gameService.SaveAction(action);
+
             return new MoveNextResult()
             {
                 Response = ResponseEnum.AutoAdvance

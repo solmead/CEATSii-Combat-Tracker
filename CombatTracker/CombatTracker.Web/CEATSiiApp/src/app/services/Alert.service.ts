@@ -1,6 +1,7 @@
 ﻿import { Injectable } from '@angular/core';
 import { Router, NavigationStart } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
+import '@/_helpers/DateEx';
 
 @Injectable({ providedIn: 'root' })
 export class AlertService {
@@ -27,11 +28,13 @@ export class AlertService {
     }
 
     success(message: string, keepAfterRouteChange = false) {
+        message = (new Date()).formatDate() + " " + (new Date()).formatTime() + " - " + message;
         this.keepAfterRouteChange = keepAfterRouteChange;
         this.subject.next({ type: 'success', text: message });
     }
 
     error(message: string, keepAfterRouteChange = false) {
+        message = (new Date()).formatDate() + " " + (new Date()).formatTime() + " - " + message;
         this.keepAfterRouteChange = keepAfterRouteChange;
         this.subject.next({ type: 'error', text: message });
     }

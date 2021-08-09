@@ -13,7 +13,7 @@ import { EncounterRepository } from '@/repositories';
 import { AuthenticationService } from './Authentication.service';
 import { EncounterHubService } from './EncounterHub.service';
 
-
+import ResponseEnum = EnumDefinitions.ResponseEnum;
 import GameType = EnumDefinitions.GameType;
 import ActionTypeEnum = EnumDefinitions.ActionTypeEnum;
 import ActorActionType = EnumDefinitions.ActorActionType;
@@ -21,8 +21,9 @@ import CharacterType = EnumDefinitions.CharacterType;
 import ViewTypeEnum = EnumDefinitions.ViewTypeEnum;
 import { MutexLock, RecurringTask, whenTrue } from '@/_helpers/Tasks';
 import { pipe } from 'rxjs';
-import { Lock } from '@/_helpers';
 import { ReferencesService, treeEntry } from './References.service';
+import { AlertService } from './Alert.service';
+import "@/_helpers/LinqToJs";
 
 @Injectable()
 export class EncounterService {
@@ -41,11 +42,11 @@ export class EncounterService {
     //private _selectedAction: BaseAction;
 
     private _timedService: RecurringTask = new RecurringTask(async () => {
-        this._timedService.lock();
-        await this.refreshAsync();
-        this._timedService.unLock();
 
-    }, 120000, 240000);
+        this._alertService.success("Refreshing List");
+        await this.refreshAsync();
+        this._alertService.success("List Refreshed");
+    }, 60000, 120000);
 
 
 
@@ -55,7 +56,8 @@ export class EncounterService {
         private actionRepo: ActionsRepository,
         private encounterRepo: EncounterRepository,
         private encounterHubService: EncounterHubService,
-        private referenceService: ReferencesService) {
+        private referenceService: ReferencesService,
+        private _alertService: AlertService    ) {
 
         //authService.currentUser.subscribe((user) => {
         //    ////debugger;
@@ -81,7 +83,7 @@ export class EncounterService {
 
         await this.setupEventsAsync();
 
-        await this.refreshAsync();
+        //await this.refreshAsync();
 
         //debugger;
         this._timedService.start();
@@ -123,23 +125,26 @@ export class EncounterService {
     get actors(): Array<Actor> {
         var acts = this.allActors;
 
-        acts.sort((a, b) => {
-            var CAa = a.currentAction;
-            var CAb = b.currentAction;
+
+        acts.sortBy((obj) => (obj.currentAction !=null ? obj.currentAction.endTime : 0));
+
+        //acts.sort((a, b) => {
+        //    var CAa = a.currentAction;
+        //    var CAb = b.currentAction;
 
 
 
-            if (CAa == null || CAb == null) {
-                return 0;
-            }
-            if (CAa.endTime < CAb.endTime) {
-                return -1;
-            }
-            if (CAa.endTime > CAb.endTime) {
-                return 1;
-            }
-            return 0;
-        });
+        //    if (CAa == null || CAb == null) {
+        //        return 0;
+        //    }
+        //    if (CAa.endTime < CAb.endTime) {
+        //        return -1;
+        //    }
+        //    if (CAa.endTime > CAb.endTime) {
+        //        return 1;
+        //    }
+        //    return 0;
+        //});
 
 
         return acts;
@@ -164,25 +169,7 @@ export class EncounterService {
 
         }
 
-        acts.sort((a, b) => {
-            var CAa = a;
-            var CAb = b;
-
-
-
-            if (CAa == null || CAb == null) {
-                return 0;
-            }
-            if (CAa.endTime < CAb.endTime) {
-                return -1;
-            }
-            if (CAa.endTime > CAb.endTime) {
-                return 1;
-            }
-            return 0;
-        });
-
-
+        acts.sortBy((obj) => obj.endTime);
 
 
         if (acts.length > 0) {
@@ -462,7 +449,7 @@ export class EncounterService {
         } else {
             this._currentGame = Object.assign(this._currentGame, game);
         }
-        if (this._currentGame.id == 0) {
+        if (this._currentGame!=null && this._currentGame.id == 0) {
             this._currentGame = null;
         }
         if (this.currentGame != null) {
@@ -536,7 +523,14 @@ export class EncounterService {
     }
 
     public async moveToNextAsync(): Promise<void> {
-        await this.encounterRepo.moveToNextAsync(false);
+        var result = await this.encounterRepo.moveToNextAsync(false);
+        if (result.response == ResponseEnum.DisplayMessage) {
+            this._alertService.success(result.message);
+        }
+        if (result.response == ResponseEnum.AutoAdvance) {
+            await this.moveToNextAsync();
+            return;
+        }
         await this.refreshAsync();
         this.selectedAction = this.actions[0];
     }

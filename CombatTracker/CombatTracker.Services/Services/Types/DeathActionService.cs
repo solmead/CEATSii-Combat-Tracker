@@ -45,6 +45,7 @@ namespace CombatTracker.Services.Services.Types
             }
 
             TimeCalc.SetActionTime(whom, action, gameService.CurrentGame);
+            gameService.SaveAction(action);
 
             return new MoveNextResult()
             {

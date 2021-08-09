@@ -76,7 +76,6 @@ namespace CombatTracker.Web.Controllers.Api
         [HttpPost("MoveToNext")]
         public MoveNextResult MoveToNext(bool none = false)
         {
-
             return _gameService.MoveToNextAction();
         }
 

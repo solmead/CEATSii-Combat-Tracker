@@ -1,34 +1,34 @@
 ﻿
 
-export module Lock {
+//export module Lock {
 
-    export class Locker {
+//    export class Locker {
 
-        private locked = false;
-        private lastCalled: Date = null;
+//        private locked = false;
+//        private lastCalled: Date = null;
 
-        constructor(public maxLockTime?: number) {
-            if (!this.maxLockTime) {
-                this.maxLockTime = 30.0;
-            }
-        }
+//        constructor(public maxLockTime?: number) {
+//            if (!this.maxLockTime) {
+//                this.maxLockTime = 30.0;
+//            }
+//        }
 
-        public isLocked = (): boolean => {
-            var seconds = 0;
-            if (this.lastCalled) {
-                seconds = ((new Date()).getTime() - this.lastCalled.getTime()) / 1000;
-            }
-            return this.locked && seconds < this.maxLockTime;
-        }
+//        public isLocked = (): boolean => {
+//            var seconds = 0;
+//            if (this.lastCalled) {
+//                seconds = ((new Date()).getTime() - this.lastCalled.getTime()) / 1000;
+//            }
+//            return this.locked && seconds < this.maxLockTime;
+//        }
 
-        public lock = (): void => {
-            this.locked = true;
-            this.lastCalled = new Date();
-        }
+//        public lock = (): void => {
+//            this.locked = true;
+//            this.lastCalled = new Date();
+//        }
 
-        public unLock = (): void => {
-            this.locked = false;
-        }
-    }
+//        public unLock = (): void => {
+//            this.locked = false;
+//        }
+//    }
 
-}
+//}
