@@ -38,12 +38,13 @@ import { ModalComponent, TreeviewComponent } from '@/elements';
 import { AlertComponent } from '@/elements';
 
 import { AppRoutingModule } from './app-routing.module';
-import { JwtInterceptor, ErrorInterceptor, ApiPathInterceptor } from '@/_helpers';
+import { JwtInterceptor, ErrorInterceptor, ApiPathInterceptor, Safe } from '@/_helpers';
 
 import { AuthenticationService, EncounterService, EncounterHubService, AlertService, ReferencesService } from '@/services';
 
 import { AuthorizeInterceptor } from './api-authorization/authorize.interceptor';
 import { ApiAuthorizationModule } from './api-authorization/api-authorization.module';
+import { MessageListComponent } from './components/messages';
 
 
 @NgModule({
@@ -68,6 +69,7 @@ import { ApiAuthorizationModule } from './api-authorization/api-authorization.mo
         WeaponEditComponent,
         ModalComponent,
         TreeviewComponent,
+        MessageListComponent,
         AttackListComponent,
         AttackEditComponent,
         ActionsListComponent,
@@ -75,7 +77,8 @@ import { ApiAuthorizationModule } from './api-authorization/api-authorization.mo
         ActionComponent,
         AlertComponent,
         MainNavMenuComponent,
-        SideNavMenuComponent
+        SideNavMenuComponent,
+        Safe
     ],
     imports: [
         BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

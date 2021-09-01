@@ -32,6 +32,7 @@ export * from './Game';
 export * from './IQ';
 export * from './LevelChart';
 export * from './LevelChartValue';
+export * from './Message';
 export * from './MoveNextResult';
 export * from './MySettings';
 export * from './Outlook';

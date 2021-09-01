@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using CombatTracker.Entities.Abstract.Repos;
 using CombatTracker.Entities.Abstract.Services;
 using CombatTracker.Entities.Current;
+using CombatTracker.Entities.Utilities;
 using CombatTracker.Services.Abstract;
 using Microsoft.AspNetCore.SignalR;
 
@@ -77,6 +78,11 @@ namespace CombatTracker.Web.Hubs
         public async Task EventUpdatedActorsAsync(int gameId, Actor[] actors)
         {
             await HubContext.Clients.Group("GAME_" + gameId).SendAsync("UpdatedActors", actors);
+        }
+
+        public async Task MessageAddedEventAsync(int gameId, Message message)
+        {
+            await HubContext.Clients.Group("GAME_" + gameId).SendAsync("MessageAdded", message);
         }
     }
 }

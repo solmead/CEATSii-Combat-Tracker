@@ -576,6 +576,28 @@ code {
 alert {
   display: inline-block;
 }
+.messageListArea {
+  margin: 1%;
+  height: 92%;
+  padding: 1%;
+}
+.messageListArea .list {
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.messageListArea .MessageEntry {
+  padding: 2px;
+}
+.messageListArea .MessageEntry span {
+  padding: 0 2px;
+}
+.messageListArea .whomName {
+  font-weight: bold;
+}
+.messageListArea .actionName {
+  font-weight: bold;
+}
 .actionEditArea {
   margin: 1%;
   height: 92%;

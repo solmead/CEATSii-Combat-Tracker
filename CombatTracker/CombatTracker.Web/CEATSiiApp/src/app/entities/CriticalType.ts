@@ -2,6 +2,8 @@
 
 
 
+
+
     import * as Enums from './EnumDefinitions'
     
     export class CriticalType {

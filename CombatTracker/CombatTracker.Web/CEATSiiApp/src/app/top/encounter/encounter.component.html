@@ -8,8 +8,7 @@
         </div>
         <div class="h-100 columnCenter" [ngClass]="{'col-6': isGM,
                                        'col-7': !isGM}">
-            <div class=" actorListArea" [ngClass]="{'h-50': isGM,
-                                       'h-100': !isGM}">
+            <div class=" actorListArea h-50">
                 <h2 class="actorListHeader">
                     <span *ngIf="isGM" style="float:right; display:block;">
                         <button class="btn btn-warning btn-sm" (click)="addDamage()">
@@ -37,11 +36,13 @@
                     <actor-list [actors]="actors" [viewType]="viewType" [isSelectable]="isGM" (onSelect)="selectActor($event)" (onDeleteClick)="deleteActor($event)"></actor-list>
                 </div>
             </div>
-            <div class="h-50 row" *ngIf="isGM">
+            <div class="h-50 row">
                 <div class="col-5 h-100">
-
+                    <div class="encounter-box messageListArea">
+                        <message-list [messages]="messages"></message-list>
+                    </div>
                 </div>
-                <div class=" col-7 h-100">
+                <div class=" col-7 h-100" *ngIf="isGM">
                     <div class="encounter-box actionEditArea" *ngIf="selectedAction!=null">
                         <h2>
                             Action

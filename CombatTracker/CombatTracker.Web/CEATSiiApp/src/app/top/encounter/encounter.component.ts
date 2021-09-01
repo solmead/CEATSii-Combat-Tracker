@@ -1,5 +1,5 @@
 ﻿import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { Actor, Attack, BaseAction } from '@/entities';
+import { Actor, Attack, BaseAction, Message } from '@/entities';
 import { AuthenticationService, EncounterService, treeEntry } from '@/services';
 import { ActivatedRoute } from '@angular/router';
 import { EnumDefinitions } from '@/entities/EnumDefinitions';
@@ -60,6 +60,9 @@ export class EncounterComponent implements OnInit, OnChanges {
     }
     get viewType(): ViewTypeEnum {
         return this.gameView.viewType;
+    }
+    get messages(): Array<Message> {
+        return this.gameView.allMessages;
     }
     get actions(): Array<BaseAction> {
         var acts = this.gameView.actions;

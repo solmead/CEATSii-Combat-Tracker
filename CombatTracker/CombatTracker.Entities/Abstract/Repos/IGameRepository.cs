@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using CombatTracker.Entities.Current;
 using CombatTracker.Entities.Reference.Attacks;
+using CombatTracker.Entities.Utilities;
 
 namespace CombatTracker.Entities.Abstract.Repos
 {
@@ -43,6 +44,9 @@ namespace CombatTracker.Entities.Abstract.Repos
         void DeleteAction(int id);
 
 
+
+        List<Message> GetMessages(int gameId);
+        Message SaveMessage(Message message);
 
 
     }

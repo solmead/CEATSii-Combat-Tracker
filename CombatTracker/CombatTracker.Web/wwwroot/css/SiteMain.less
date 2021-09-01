@@ -735,7 +735,37 @@ code {
         display: inline-block;
     }
 
+.messageListArea {
+    margin: 1%;
+    height: 92%;
+    padding: 1%;
 
+    .list {
+        height: 100%;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    .mainMessagesList {
+    }
+
+    .MessageEntry {
+        padding: 2px;
+
+        span {
+            padding: 0 2px;
+        }
+    }
+
+
+    .whomName {
+        font-weight: bold;
+    }
+
+    .actionName {
+        font-weight: bold;
+    }
+}
 
 
 .actionEditArea {
@@ -758,9 +788,11 @@ code {
     select.form-control {
         font-size: 12px;
         padding: 5px;
+
         option {
             padding: 2px;
             border-radius: 2px;
+
             &:hover {
                 background: whitesmoke;
             }

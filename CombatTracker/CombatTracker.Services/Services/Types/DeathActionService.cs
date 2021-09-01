@@ -28,7 +28,7 @@ namespace CombatTracker.Services.Services.Types
         public void CheckActionValid(BaseAction action)
         {
             action.CharacterAction = true;
-            action.Reoccuring = false;
+            action.Reoccuring = true;
         }
         public BaseAction GetStandardAction(ActionDefinition action, BaseAction prevAction, Actor whom, Game game)
         {

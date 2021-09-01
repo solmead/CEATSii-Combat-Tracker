@@ -296,6 +296,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/messages/message-list.component.html":
+/*!*******************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/components/messages/message-list.component.html ***!
+  \*******************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"list\">\r\n    <p *ngIf=\"!messages\"><em>Loading...</em></p>\r\n    <ul class=\"mainMessagesList\">\r\n        <li *ngFor=\"let msg of messages\" [class]=\"cssClasses(msg)\">\r\n            <span class='currentTimeArea'>{{currentTime(msg)}}</span>\r\n            <span *ngIf=\"msg.beginText != '' \">{{msg.beginText}}</span>\r\n            <span class='whomName' *ngIf=\"!msg.reverseOrder \" [style.color]=\"msgColor(msg)\">{{msg.whom}}</span>\r\n            <span class='actionName' *ngIf=\"msg.reverseOrder \">{{msg.action}}</span>\r\n            <span *ngIf=\"msg.betweenText != '' \">{{msg.betweenText}}</span>\r\n            <span class='whomName' *ngIf=\"msg.reverseOrder \" [style.color]=\"msgColor(msg)\">{{msg.whom}}</span>\r\n            <span class='actionName' *ngIf=\"!msg.reverseOrder \">{{msg.action}}</span>\r\n            <span *ngIf=\"msg.endText != '' \">{{msg.endText}}</span>\r\n        </li>\r\n    </ul>\r\n</div>");
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/weapon/weapon-edit.component.html":
 /*!****************************************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/components/weapon/weapon-edit.component.html ***!
@@ -422,7 +435,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"h-100\"  [ngClass]=\"{'fullView': isGM}\">\r\n    <div class=\"row h-100\">\r\n        <div class=\"col-3 h-100 columnLeft\" *ngIf=\"isGM\">\r\n            <div class=\"encounter-box\">\r\n                <h2>Library</h2>\r\n                encounter Component\r\n            </div>\r\n        </div>\r\n        <div class=\"h-100 columnCenter\" [ngClass]=\"{'col-6': isGM,\r\n                                       'col-7': !isGM}\">\r\n            <div class=\" actorListArea\" [ngClass]=\"{'h-50': isGM,\r\n                                       'h-100': !isGM}\">\r\n                <h2 class=\"actorListHeader\">\r\n                    <span *ngIf=\"isGM\" style=\"float:right; display:block;\">\r\n                        <button class=\"btn btn-warning btn-sm\" (click)=\"addDamage()\">\r\n                            <i class='material-icons'>stars</i> Add Damage\r\n                        </button>\r\n                        <button class=\"btn btn-success btn-sm\" (click)=\"addSpell()\">\r\n                            <i class='material-icons'>supervised_user_circle</i> Cast Spell/Psychic\r\n                        </button>\r\n                        <button class=\"btn btn-success btn-sm\" (click)=\"addStunned()\">\r\n                            <i class='material-icons'>run_circle</i> Add Stunned Maneuvering\r\n                        </button>\r\n                        <button class=\"btn btn-info btn-sm\" (click)=\"rollD100Open()\">\r\n                            <i class='material-icons'>auto_awesome</i> Roll D100 Open\r\n                        </button>\r\n                        <button class=\"btn btn-info btn-sm\" (click)=\"rollD100()\">\r\n                            <i class='material-icons'>auto_awesome</i> Roll D100\r\n                        </button>\r\n                        <button class=\"btn btn-danger btn-sm\" (click)=\"resetEncounter()\">\r\n                            <i class='material-icons'>settings_backup_restore</i> Reset Encounter\r\n                        </button>\r\n                    </span>\r\n                    Actors\r\n                </h2>\r\n                <div class=\"h-90\">\r\n                    <actor-list [actors]=\"actors\" [viewType]=\"viewType\" [isSelectable]=\"isGM\" (onSelect)=\"selectActor($event)\" (onDeleteClick)=\"deleteActor($event)\"></actor-list>\r\n                </div>\r\n            </div>\r\n            <div class=\"h-50 row\" *ngIf=\"isGM\">\r\n                <div class=\"col-5 h-100\">\r\n\r\n                </div>\r\n                <div class=\" col-7 h-100\">\r\n                    <div class=\"encounter-box actionEditArea\" *ngIf=\"selectedAction!=null\">\r\n                        <h2>\r\n                            Action\r\n                        </h2>\r\n                        <div class=\"actionEditControl\">\r\n                            <action-edit [selectedAction]=\"selectedAction\" [actionTree]=\"currentActionTree\" (onProposeAction)=\"onProposeAction($event)\" (onDoAction)=\"onDoAction($event)\"></action-edit>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"h-100 columnRight\" [ngClass]=\"{'col-3': isGM,\r\n                                       'col-5': !isGM}\">\r\n            <div class=\"encounter-box actionsList\">\r\n                <h2>\r\n                    <span *ngIf=\"isGM\" style=\"float:right; display:block;\">\r\n                        <button class=\"btn btn-primary btn-sm\" (click)=\"moveToNext()\">\r\n                            <i class='material-icons'>navigate_next</i> Move Next\r\n                        </button>\r\n                    </span>\r\n                    Actions <span class=\"subText\">Current Time: {{currentTime}}</span>\r\n                </h2>\r\n                <actions-list [actions]=\"actions\" [viewType]=\"viewType\" [isSelectable]=\"isGM\" (onSelect)=\"selectAction($event)\" (onDeleteClick)=\"deleteAction($event)\" ></actions-list>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"h-100\"  [ngClass]=\"{'fullView': isGM}\">\r\n    <div class=\"row h-100\">\r\n        <div class=\"col-3 h-100 columnLeft\" *ngIf=\"isGM\">\r\n            <div class=\"encounter-box\">\r\n                <h2>Library</h2>\r\n                encounter Component\r\n            </div>\r\n        </div>\r\n        <div class=\"h-100 columnCenter\" [ngClass]=\"{'col-6': isGM,\r\n                                       'col-7': !isGM}\">\r\n            <div class=\" actorListArea h-50\">\r\n                <h2 class=\"actorListHeader\">\r\n                    <span *ngIf=\"isGM\" style=\"float:right; display:block;\">\r\n                        <button class=\"btn btn-warning btn-sm\" (click)=\"addDamage()\">\r\n                            <i class='material-icons'>stars</i> Add Damage\r\n                        </button>\r\n                        <button class=\"btn btn-success btn-sm\" (click)=\"addSpell()\">\r\n                            <i class='material-icons'>supervised_user_circle</i> Cast Spell/Psychic\r\n                        </button>\r\n                        <button class=\"btn btn-success btn-sm\" (click)=\"addStunned()\">\r\n                            <i class='material-icons'>run_circle</i> Add Stunned Maneuvering\r\n                        </button>\r\n                        <button class=\"btn btn-info btn-sm\" (click)=\"rollD100Open()\">\r\n                            <i class='material-icons'>auto_awesome</i> Roll D100 Open\r\n                        </button>\r\n                        <button class=\"btn btn-info btn-sm\" (click)=\"rollD100()\">\r\n                            <i class='material-icons'>auto_awesome</i> Roll D100\r\n                        </button>\r\n                        <button class=\"btn btn-danger btn-sm\" (click)=\"resetEncounter()\">\r\n                            <i class='material-icons'>settings_backup_restore</i> Reset Encounter\r\n                        </button>\r\n                    </span>\r\n                    Actors\r\n                </h2>\r\n                <div class=\"h-90\">\r\n                    <actor-list [actors]=\"actors\" [viewType]=\"viewType\" [isSelectable]=\"isGM\" (onSelect)=\"selectActor($event)\" (onDeleteClick)=\"deleteActor($event)\"></actor-list>\r\n                </div>\r\n            </div>\r\n            <div class=\"h-50 row\">\r\n                <div class=\"col-5 h-100\">\r\n                    <div class=\"encounter-box messageListArea\">\r\n                        <message-list [messages]=\"messages\"></message-list>\r\n                    </div>\r\n                </div>\r\n                <div class=\" col-7 h-100\" *ngIf=\"isGM\">\r\n                    <div class=\"encounter-box actionEditArea\" *ngIf=\"selectedAction!=null\">\r\n                        <h2>\r\n                            Action\r\n                        </h2>\r\n                        <div class=\"actionEditControl\">\r\n                            <action-edit [selectedAction]=\"selectedAction\" [actionTree]=\"currentActionTree\" (onProposeAction)=\"onProposeAction($event)\" (onDoAction)=\"onDoAction($event)\"></action-edit>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"h-100 columnRight\" [ngClass]=\"{'col-3': isGM,\r\n                                       'col-5': !isGM}\">\r\n            <div class=\"encounter-box actionsList\">\r\n                <h2>\r\n                    <span *ngIf=\"isGM\" style=\"float:right; display:block;\">\r\n                        <button class=\"btn btn-primary btn-sm\" (click)=\"moveToNext()\">\r\n                            <i class='material-icons'>navigate_next</i> Move Next\r\n                        </button>\r\n                    </span>\r\n                    Actions <span class=\"subText\">Current Time: {{currentTime}}</span>\r\n                </h2>\r\n                <actions-list [actions]=\"actions\" [viewType]=\"viewType\" [isSelectable]=\"isGM\" (onSelect)=\"selectAction($event)\" (onDeleteClick)=\"deleteAction($event)\" ></actions-list>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>");
 
 /***/ }),
 
@@ -1247,6 +1260,50 @@ Array.prototype.difference = function (arr, compareFunction) {
     var arr2 = this;
     return arr2.asQueryable().difference(arr, compareFunction).toArray();
 };
+//insert: (item: T, index?: number) => void
+Array.prototype.insert = function (item, index) {
+    var arr2 = this;
+    index = index || 0;
+    arr2.splice(index, 0, item);
+};
+
+
+/***/ }),
+
+/***/ "./src/app/_helpers/SafeHtml.ts":
+/*!**************************************!*\
+  !*** ./src/app/_helpers/SafeHtml.ts ***!
+  \**************************************/
+/*! exports provided: Safe */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Safe", function() { return Safe; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm2015/platform-browser.js");
+
+
+
+let Safe = class Safe {
+    constructor(sanitizer) {
+        this.sanitizer = sanitizer;
+    }
+    transform(style) {
+        return this.sanitizer.bypassSecurityTrustHtml(style);
+        //return this.sanitizer.bypassSecurityTrustStyle(style);
+        // return this.sanitizer.bypassSecurityTrustXxx(style); - see docs
+    }
+};
+Safe.ctorParameters = () => [
+    { type: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["DomSanitizer"] }
+];
+Safe = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Pipe"])({ name: 'safeHtml' }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["DomSanitizer"]])
+], Safe);
+
 
 
 /***/ }),
@@ -1317,7 +1374,11 @@ class MutexLock {
     LockAreaAsync(func) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
             yield this.BeginLock();
-            yield func();
+            try {
+                yield func();
+            }
+            catch (_a) {
+            }
             yield this.EndLock();
         });
     }
@@ -1380,7 +1441,9 @@ class RecurringTask {
                     yield this.callback();
                 }));
                 //await this.refreshLock.BeginLock();
+                //try {
                 //this.callback();
+                //} catch {}
                 //await this.refreshLock.EndLock();
             }
             if (this.isRunning) {
@@ -1423,7 +1486,11 @@ function WhenAll(list, progressCB) {
             p.then(() => {
                 fin++;
                 if (progressCB) {
-                    progressCB(fin, tot);
+                    try {
+                        progressCB(fin, tot);
+                    }
+                    catch (_a) {
+                    }
                 }
             });
         });
@@ -1536,7 +1603,7 @@ ErrorInterceptor = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 /*!***********************************!*\
   !*** ./src/app/_helpers/index.ts ***!
   \***********************************/
-/*! exports provided: ApiPathInterceptor, AuthGuard, ErrorInterceptor, JwtInterceptor, EnumEx, MutexLock, RecurringTask, delay, whenTrue, WhenAll, formatTimeSpan, formatDate, formatTime, Queryable */
+/*! exports provided: ApiPathInterceptor, AuthGuard, ErrorInterceptor, JwtInterceptor, EnumEx, MutexLock, RecurringTask, delay, whenTrue, WhenAll, formatTimeSpan, formatDate, formatTime, Queryable, Safe */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1578,6 +1645,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _LinqToJs__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./LinqToJs */ "./src/app/_helpers/LinqToJs.ts");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Queryable", function() { return _LinqToJs__WEBPACK_IMPORTED_MODULE_8__["Queryable"]; });
 
+/* harmony import */ var _SafeHtml__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./SafeHtml */ "./src/app/_helpers/SafeHtml.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Safe", function() { return _SafeHtml__WEBPACK_IMPORTED_MODULE_9__["Safe"]; });
+
 
 
 
@@ -1585,6 +1655,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 //export * from './Lock';
+
 
 
 
@@ -2377,6 +2448,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! @/services */ "./src/app/services/index.ts");
 /* harmony import */ var _api_authorization_authorize_interceptor__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./api-authorization/authorize.interceptor */ "./src/app/api-authorization/authorize.interceptor.ts");
 /* harmony import */ var _api_authorization_api_authorization_module__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./api-authorization/api-authorization.module */ "./src/app/api-authorization/api-authorization.module.ts");
+/* harmony import */ var _components_messages__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./components/messages */ "./src/app/components/messages/index.ts");
 
 
 
@@ -2390,6 +2462,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 //import { GameComponent } from '@/top/game';
+
 
 
 
@@ -2439,6 +2512,7 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _components_weapon__WEBPACK_IMPORTED_MODULE_17__["WeaponEditComponent"],
             _elements__WEBPACK_IMPORTED_MODULE_20__["ModalComponent"],
             _elements__WEBPACK_IMPORTED_MODULE_20__["TreeviewComponent"],
+            _components_messages__WEBPACK_IMPORTED_MODULE_26__["MessageListComponent"],
             _components_attack__WEBPACK_IMPORTED_MODULE_16__["AttackListComponent"],
             _components_attack__WEBPACK_IMPORTED_MODULE_16__["AttackEditComponent"],
             _components_encounter__WEBPACK_IMPORTED_MODULE_18__["ActionsListComponent"],
@@ -2446,7 +2520,8 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _components_encounter__WEBPACK_IMPORTED_MODULE_18__["ActionComponent"],
             _elements__WEBPACK_IMPORTED_MODULE_20__["AlertComponent"],
             _navigation__WEBPACK_IMPORTED_MODULE_11__["MainNavMenuComponent"],
-            _navigation__WEBPACK_IMPORTED_MODULE_11__["SideNavMenuComponent"]
+            _navigation__WEBPACK_IMPORTED_MODULE_11__["SideNavMenuComponent"],
+            _helpers__WEBPACK_IMPORTED_MODULE_22__["Safe"]
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"].withServerTransition({ appId: 'ng-cli-universal' }),
@@ -4524,6 +4599,91 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./src/app/components/messages/index.ts":
+/*!**********************************************!*\
+  !*** ./src/app/components/messages/index.ts ***!
+  \**********************************************/
+/*! exports provided: MessageListComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _message_list_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./message-list.component */ "./src/app/components/messages/message-list.component.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MessageListComponent", function() { return _message_list_component__WEBPACK_IMPORTED_MODULE_1__["MessageListComponent"]; });
+
+
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/messages/message-list.component.less":
+/*!*****************************************************************!*\
+  !*** ./src/app/components/messages/message-list.component.less ***!
+  \*****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvbWVzc2FnZXMvbWVzc2FnZS1saXN0LmNvbXBvbmVudC5sZXNzIn0= */");
+
+/***/ }),
+
+/***/ "./src/app/components/messages/message-list.component.ts":
+/*!***************************************************************!*\
+  !*** ./src/app/components/messages/message-list.component.ts ***!
+  \***************************************************************/
+/*! exports provided: MessageListComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MessageListComponent", function() { return MessageListComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _helpers_DateEx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/_helpers/DateEx */ "./src/app/_helpers/DateEx.ts");
+
+
+
+let MessageListComponent = 
+/** MessageList component*/
+class MessageListComponent {
+    /** MessageList ctor */
+    constructor() {
+        this.messages = new Array();
+    }
+    msgColor(msg) {
+        return "rgb(" + msg.whomColor + ")";
+    }
+    currentTime(msg) {
+        return '' + Math.floor(msg.gameTime * 100) / 100;
+    }
+    cssClasses(msg) {
+        var cStr = "MessageEntry " + msg.messageTypeString;
+        return cStr;
+    }
+};
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Array)
+], MessageListComponent.prototype, "messages", void 0);
+MessageListComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'message-list',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./message-list.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/messages/message-list.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./message-list.component.less */ "./src/app/components/messages/message-list.component.less")).default]
+    })
+    /** MessageList component*/
+    ,
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+], MessageListComponent);
+
+
+
+/***/ }),
+
 /***/ "./src/app/components/weapon/index.ts":
 /*!********************************************!*\
   !*** ./src/app/components/weapon/index.ts ***!
@@ -5058,7 +5218,7 @@ class TreeNode {
             }
         });
         if (missing) {
-            debugger;
+            //debugger;
             this.children = new Array();
             this.node.children.forEach((child) => {
                 this.children.push(new TreeNode(child, this));
@@ -5708,6 +5868,12 @@ var EnumDefinitions;
         SecurityRoles[SecurityRoles["Compendium"] = 2] = "Compendium";
         SecurityRoles[SecurityRoles["Admin"] = 3] = "Admin";
     })(SecurityRoles = EnumDefinitions.SecurityRoles || (EnumDefinitions.SecurityRoles = {}));
+    let MessageTypeEnum;
+    (function (MessageTypeEnum) {
+        MessageTypeEnum[MessageTypeEnum["Normal"] = 0] = "Normal";
+        MessageTypeEnum[MessageTypeEnum["Warning"] = 1] = "Warning";
+        MessageTypeEnum[MessageTypeEnum["Alert"] = 2] = "Alert";
+    })(MessageTypeEnum = EnumDefinitions.MessageTypeEnum || (EnumDefinitions.MessageTypeEnum = {}));
     let ResponseEnum;
     (function (ResponseEnum) {
         ResponseEnum[ResponseEnum["ChooseNextAction"] = 0] = "ChooseNextAction";
@@ -5725,7 +5891,8 @@ var EnumDefinitions;
         DamageLevel[DamageLevel["Winded"] = 1] = "Winded";
         DamageLevel[DamageLevel["Bloodied"] = 2] = "Bloodied";
         DamageLevel[DamageLevel["Rough"] = 3] = "Rough";
-        DamageLevel[DamageLevel["Dead"] = 4] = "Dead";
+        DamageLevel[DamageLevel["Unconscious"] = 4] = "Unconscious";
+        DamageLevel[DamageLevel["Dead"] = 5] = "Dead";
     })(DamageLevel = EnumDefinitions.DamageLevel || (EnumDefinitions.DamageLevel = {}));
     let CriticalLevels;
     (function (CriticalLevels) {
@@ -5870,6 +6037,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 
 class LevelChartValue {
+    constructor() {
+    }
+}
+
+
+/***/ }),
+
+/***/ "./src/app/entities/Message.ts":
+/*!*************************************!*\
+  !*** ./src/app/entities/Message.ts ***!
+  \*************************************/
+/*! exports provided: Message */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Message", function() { return Message; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+
+class Message {
     constructor() {
     }
 }
@@ -6141,7 +6328,7 @@ class WeaponType {
 /*!***********************************!*\
   !*** ./src/app/entities/index.ts ***!
   \***********************************/
-/*! exports provided: EnumDefinitions, Actor, BaseAction, ActionDefinition, ActionGroup, ApplicationUser, Armor, Attack, AttackType, AuthenticateModel, Book, Character, ConstitutionBonusChart, ConstitutionBonusChartValues, Creature, CriticalCode, CriticalEffect, CriticalIgnore, CriticalType, Dice, Game, IQ, LevelChart, LevelChartValue, MoveNextResult, MySettings, Outlook, Pace, PsychicRefractoryPeriodEntry, ReferenceEntry, RegisterModel, SizeRating, SpeedChart, UpdateModel, UserModel, Weapon, WeaponType */
+/*! exports provided: EnumDefinitions, Actor, BaseAction, ActionDefinition, ActionGroup, ApplicationUser, Armor, Attack, AttackType, AuthenticateModel, Book, Character, ConstitutionBonusChart, ConstitutionBonusChartValues, Creature, CriticalCode, CriticalEffect, CriticalIgnore, CriticalType, Dice, Game, IQ, LevelChart, LevelChartValue, Message, MoveNextResult, MySettings, Outlook, Pace, PsychicRefractoryPeriodEntry, ReferenceEntry, RegisterModel, SizeRating, SpeedChart, UpdateModel, UserModel, Weapon, WeaponType */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -6217,44 +6404,47 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _LevelChartValue__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./LevelChartValue */ "./src/app/entities/LevelChartValue.ts");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "LevelChartValue", function() { return _LevelChartValue__WEBPACK_IMPORTED_MODULE_24__["LevelChartValue"]; });
 
-/* harmony import */ var _MoveNextResult__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./MoveNextResult */ "./src/app/entities/MoveNextResult.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MoveNextResult", function() { return _MoveNextResult__WEBPACK_IMPORTED_MODULE_25__["MoveNextResult"]; });
+/* harmony import */ var _Message__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./Message */ "./src/app/entities/Message.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Message", function() { return _Message__WEBPACK_IMPORTED_MODULE_25__["Message"]; });
 
-/* harmony import */ var _MySettings__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./MySettings */ "./src/app/entities/MySettings.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MySettings", function() { return _MySettings__WEBPACK_IMPORTED_MODULE_26__["MySettings"]; });
+/* harmony import */ var _MoveNextResult__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./MoveNextResult */ "./src/app/entities/MoveNextResult.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MoveNextResult", function() { return _MoveNextResult__WEBPACK_IMPORTED_MODULE_26__["MoveNextResult"]; });
 
-/* harmony import */ var _Outlook__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./Outlook */ "./src/app/entities/Outlook.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Outlook", function() { return _Outlook__WEBPACK_IMPORTED_MODULE_27__["Outlook"]; });
+/* harmony import */ var _MySettings__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./MySettings */ "./src/app/entities/MySettings.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MySettings", function() { return _MySettings__WEBPACK_IMPORTED_MODULE_27__["MySettings"]; });
 
-/* harmony import */ var _Pace__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./Pace */ "./src/app/entities/Pace.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Pace", function() { return _Pace__WEBPACK_IMPORTED_MODULE_28__["Pace"]; });
+/* harmony import */ var _Outlook__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./Outlook */ "./src/app/entities/Outlook.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Outlook", function() { return _Outlook__WEBPACK_IMPORTED_MODULE_28__["Outlook"]; });
 
-/* harmony import */ var _PsychicRefractoryPeriodEntry__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./PsychicRefractoryPeriodEntry */ "./src/app/entities/PsychicRefractoryPeriodEntry.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PsychicRefractoryPeriodEntry", function() { return _PsychicRefractoryPeriodEntry__WEBPACK_IMPORTED_MODULE_29__["PsychicRefractoryPeriodEntry"]; });
+/* harmony import */ var _Pace__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./Pace */ "./src/app/entities/Pace.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Pace", function() { return _Pace__WEBPACK_IMPORTED_MODULE_29__["Pace"]; });
 
-/* harmony import */ var _ReferenceEntry__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./ReferenceEntry */ "./src/app/entities/ReferenceEntry.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ReferenceEntry", function() { return _ReferenceEntry__WEBPACK_IMPORTED_MODULE_30__["ReferenceEntry"]; });
+/* harmony import */ var _PsychicRefractoryPeriodEntry__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./PsychicRefractoryPeriodEntry */ "./src/app/entities/PsychicRefractoryPeriodEntry.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PsychicRefractoryPeriodEntry", function() { return _PsychicRefractoryPeriodEntry__WEBPACK_IMPORTED_MODULE_30__["PsychicRefractoryPeriodEntry"]; });
 
-/* harmony import */ var _RegisterModel__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./RegisterModel */ "./src/app/entities/RegisterModel.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "RegisterModel", function() { return _RegisterModel__WEBPACK_IMPORTED_MODULE_31__["RegisterModel"]; });
+/* harmony import */ var _ReferenceEntry__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./ReferenceEntry */ "./src/app/entities/ReferenceEntry.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ReferenceEntry", function() { return _ReferenceEntry__WEBPACK_IMPORTED_MODULE_31__["ReferenceEntry"]; });
 
-/* harmony import */ var _SizeRating__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./SizeRating */ "./src/app/entities/SizeRating.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SizeRating", function() { return _SizeRating__WEBPACK_IMPORTED_MODULE_32__["SizeRating"]; });
+/* harmony import */ var _RegisterModel__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./RegisterModel */ "./src/app/entities/RegisterModel.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "RegisterModel", function() { return _RegisterModel__WEBPACK_IMPORTED_MODULE_32__["RegisterModel"]; });
 
-/* harmony import */ var _SpeedChart__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./SpeedChart */ "./src/app/entities/SpeedChart.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SpeedChart", function() { return _SpeedChart__WEBPACK_IMPORTED_MODULE_33__["SpeedChart"]; });
+/* harmony import */ var _SizeRating__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./SizeRating */ "./src/app/entities/SizeRating.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SizeRating", function() { return _SizeRating__WEBPACK_IMPORTED_MODULE_33__["SizeRating"]; });
 
-/* harmony import */ var _UpdateModel__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./UpdateModel */ "./src/app/entities/UpdateModel.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "UpdateModel", function() { return _UpdateModel__WEBPACK_IMPORTED_MODULE_34__["UpdateModel"]; });
+/* harmony import */ var _SpeedChart__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./SpeedChart */ "./src/app/entities/SpeedChart.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SpeedChart", function() { return _SpeedChart__WEBPACK_IMPORTED_MODULE_34__["SpeedChart"]; });
 
-/* harmony import */ var _UserModel__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./UserModel */ "./src/app/entities/UserModel.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "UserModel", function() { return _UserModel__WEBPACK_IMPORTED_MODULE_35__["UserModel"]; });
+/* harmony import */ var _UpdateModel__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./UpdateModel */ "./src/app/entities/UpdateModel.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "UpdateModel", function() { return _UpdateModel__WEBPACK_IMPORTED_MODULE_35__["UpdateModel"]; });
 
-/* harmony import */ var _Weapon__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./Weapon */ "./src/app/entities/Weapon.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Weapon", function() { return _Weapon__WEBPACK_IMPORTED_MODULE_36__["Weapon"]; });
+/* harmony import */ var _UserModel__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./UserModel */ "./src/app/entities/UserModel.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "UserModel", function() { return _UserModel__WEBPACK_IMPORTED_MODULE_36__["UserModel"]; });
 
-/* harmony import */ var _WeaponType__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./WeaponType */ "./src/app/entities/WeaponType.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "WeaponType", function() { return _WeaponType__WEBPACK_IMPORTED_MODULE_37__["WeaponType"]; });
+/* harmony import */ var _Weapon__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./Weapon */ "./src/app/entities/Weapon.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Weapon", function() { return _Weapon__WEBPACK_IMPORTED_MODULE_37__["Weapon"]; });
+
+/* harmony import */ var _WeaponType__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./WeaponType */ "./src/app/entities/WeaponType.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "WeaponType", function() { return _WeaponType__WEBPACK_IMPORTED_MODULE_38__["WeaponType"]; });
 
 
 
@@ -6269,6 +6459,7 @@ var ActionTypeEnum = _EnumDefinitions__WEBPACK_IMPORTED_MODULE_3__["EnumDefiniti
 
 
 //export * from './BaseAction';
+
 
 
 
@@ -7871,6 +8062,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var version = "1";
 let EncounterRepository = class EncounterRepository {
     constructor(_httpClient, _alertService) {
@@ -7922,6 +8114,30 @@ let EncounterRepository = class EncounterRepository {
                 .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
                 if (data != null)
                     data = Object.assign(new _entities__WEBPACK_IMPORTED_MODULE_6__["Game"](), data);
+                return data;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+        };
+        // get: api/v${version}/Encounter/GetMessages
+        //public getMessages = (, callback: (data: Message[])=>void) : void => {
+        //	this.getMessagesObserve().subscribe(response => callback(response));
+        //}
+        this.getMessagesAsync = () => {
+            return new Promise((resolve, reject) => {
+                this.getMessages()
+                    .subscribe((res) => {
+                    resolve(res);
+                }, (error) => {
+                    this._alertService.error(error);
+                    resolve(null);
+                });
+            });
+        };
+        this.getMessages = () => {
+            var _Url = `api/v${version}/Encounter/GetMessages`;
+            return this._httpClient.get(_Url)
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                if (data != null)
+                    data = data.map((dt) => Object.assign(new _entities__WEBPACK_IMPORTED_MODULE_6__["Message"](), dt));
                 return data;
             }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
         };
@@ -9693,6 +9909,7 @@ let EncounterService = class EncounterService {
         this._alertService = _alertService;
         this.allActors = new Array();
         this.allActions = new Array();
+        this.allMessages = new Array();
         this.refreshLock = new _helpers_Tasks__WEBPACK_IMPORTED_MODULE_7__["MutexLock"](30000);
         this._currentActionTree = null;
         //public selectedAction: BaseAction;
@@ -9860,19 +10077,23 @@ let EncounterService = class EncounterService {
     }
     checkAction(actor) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
-            if (actor != null && actor.proposedAction == null) {
-                var action = actor.nextAction || actor.currentAction;
-                var act = action;
-                if (action.base != null) {
-                    act = yield this.encounterRepo.proposeActionAsync(action.base.id, actor.id, action.currentModifier, action.currentAttack_ID);
-                    this.refreshAction(act);
+            try {
+                if (actor != null && actor.proposedAction == null) {
+                    var action = actor.nextAction || actor.currentAction;
+                    var act = action;
+                    if (action.base != null) {
+                        act = yield this.encounterRepo.proposeActionAsync(action.base.id, actor.id, action.currentModifier, action.currentAttack_ID);
+                        this.refreshAction(act);
+                    }
+                    else {
+                        act = yield this.encounterRepo.proposeActionAsync(this.referenceService.ActionGroups[0].actions[0].id, actor.id, action.currentModifier, action.currentAttack_ID);
+                        this.refreshAction(act);
+                    }
+                    act = this.allActions.find((a) => a.id == act.id);
+                    act.isSelected = true;
                 }
-                else {
-                    act = yield this.encounterRepo.proposeActionAsync(this.referenceService.ActionGroups[0].actions[0].id, actor.id, action.currentModifier, action.currentAttack_ID);
-                    this.refreshAction(act);
-                }
-                act = this.allActions.find((a) => a.id == act.id);
-                act.isSelected = true;
+            }
+            catch (_a) {
             }
         });
     }
@@ -9881,8 +10102,12 @@ let EncounterService = class EncounterService {
     }
     currentActionTreeAsync() {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
-            var actor = this.selectedActor;
-            this._currentActionTree = yield this.referenceService.getActionTreeAsync(actor);
+            try {
+                var actor = this.selectedActor;
+                this._currentActionTree = yield this.referenceService.getActionTreeAsync(actor);
+            }
+            catch (_a) {
+            }
             return this._currentActionTree;
         });
     }
@@ -9894,8 +10119,12 @@ let EncounterService = class EncounterService {
     }
     selectGameAsync(gameId) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
-            yield this.encounterRepo.setCurrentGameAsync(gameId);
-            yield this.refreshAsync();
+            try {
+                yield this.encounterRepo.setCurrentGameAsync(gameId);
+                yield this.refreshAsync();
+            }
+            catch (_a) {
+            }
         });
     }
     setupEventsAsync() {
@@ -9940,6 +10169,12 @@ let EncounterService = class EncounterService {
                 actors = actors.map((act) => Object.assign(new _entities__WEBPACK_IMPORTED_MODULE_3__["Actor"](), act));
                 this.refreshActors(actors);
                 this.setActive();
+            });
+            this.encounterHubService.messageAdded.subscribe((msg) => {
+                msg = Object.assign(new _entities__WEBPACK_IMPORTED_MODULE_3__["Message"](), msg);
+                //msg.dateTimeStamp = new Date(msg.dateTimeStamp);
+                this.allMessages.insert(msg);
+                //this.allMessages.push(msg);
             });
         });
     }
@@ -10006,109 +10241,157 @@ let EncounterService = class EncounterService {
     refreshAsync() {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
             yield this.refreshLock.BeginLock();
-            var game = yield this.encounterRepo.getCurrentGameAsync();
-            //debugger;
-            if (this._currentGame == null) {
-                this._currentGame = game;
-            }
-            else {
-                this._currentGame = Object.assign(this._currentGame, game);
-            }
-            if (this._currentGame != null && this._currentGame.id == 0) {
-                this._currentGame = null;
-            }
-            if (this.currentGame != null) {
-                //this._currentGame = await this.gameRepo.getGameAsync(this._currentGame.id);
-                var tempActors = null;
-                var tempActions = null;
-                this.actorRepo.getActorsInGame(this.currentGame.id).subscribe((acts) => {
-                    tempActors = acts;
-                });
-                this.actionRepo.getActionsInGame(this.currentGame.id).subscribe((acts) => {
-                    tempActions = acts;
-                });
-                yield Object(_helpers_Tasks__WEBPACK_IMPORTED_MODULE_7__["whenTrue"])(() => {
-                    return tempActors != null && tempActions != null;
-                });
-                var selectedActor = this.selectedActor;
-                this.refreshActors(tempActors);
-                this.refreshActions(tempActions);
-                var removedActions = this.allActions.filter(item => (this.actions.find((a) => a.id == item.id) == undefined));
-                removedActions.forEach((a) => this.removeAction(a));
-                var removedActors = this.allActors.filter(item => (this.actors.find((a) => a.id == item.id) == undefined));
-                removedActors.forEach((a) => this.removeActor(a));
-                this.setActive();
-                if (this.isGM) {
-                    //debugger;
-                    if (selectedActor != null && (this.selectedActor == null || selectedActor.id != this.selectedActor.id)) {
-                        this.selectActor(selectedActor.id);
-                    }
-                    if (this.selectedActions.length == 0) {
-                        this.selectedAction = this.actions[0];
-                    }
-                    if (this.selectedActions.length > 0 && this.selectedActor == null) {
-                        this.selectedActor = this.selectedActions[0].whoIsActing;
+            try {
+                var game = yield this.encounterRepo.getCurrentGameAsync();
+                if (game == null) {
+                    this._alertService.error("List Refresh Error: Game returned null");
+                    return;
+                }
+                //debugger;
+                if (this._currentGame == null) {
+                    this._currentGame = game;
+                }
+                else {
+                    this._currentGame = Object.assign(this._currentGame, game);
+                }
+                if (this._currentGame != null && this._currentGame.id == 0) {
+                    this._currentGame = null;
+                }
+                if (this.currentGame != null) {
+                    //this._currentGame = await this.gameRepo.getGameAsync(this._currentGame.id);
+                    var tempActors = null;
+                    var tempActions = null;
+                    this.actorRepo.getActorsInGame(this.currentGame.id).subscribe((acts) => {
+                        tempActors = acts;
+                    });
+                    this.actionRepo.getActionsInGame(this.currentGame.id).subscribe((acts) => {
+                        tempActions = acts;
+                    });
+                    this.encounterRepo.getMessages().subscribe((msgs) => {
+                        //debugger;
+                        //msgs.forEach((msg) => {
+                        //    msg.dateTimeStamp = new Date(msg.dateTimeStamp);
+                        //});
+                        this.allMessages = msgs;
+                    });
+                    //allMessages
+                    yield Object(_helpers_Tasks__WEBPACK_IMPORTED_MODULE_7__["whenTrue"])(() => {
+                        return tempActors != null && tempActions != null;
+                    });
+                    var selectedActor = this.selectedActor;
+                    this.refreshActors(tempActors);
+                    this.refreshActions(tempActions);
+                    var removedActions = this.allActions.filter(item => (tempActions.find((a) => a.id == item.id) == undefined));
+                    removedActions.forEach((a) => this.removeAction(a));
+                    var removedActors = this.allActors.filter(item => (tempActors.find((a) => a.id == item.id) == undefined));
+                    removedActors.forEach((a) => this.removeActor(a));
+                    this.setActive();
+                    if (this.isGM) {
+                        //debugger;
+                        if (selectedActor != null && (this.selectedActor == null || selectedActor.id != this.selectedActor.id)) {
+                            this.selectActor(selectedActor.id);
+                        }
+                        if (this.selectedActions.length == 0) {
+                            this.selectedAction = this.actions[0];
+                        }
+                        if (this.selectedActions.length > 0 && this.selectedActor == null) {
+                            this.selectedActor = this.selectedActions[0].whoIsActing;
+                        }
                     }
                 }
+            }
+            catch (e) {
+                setTimeout(() => {
+                    this._alertService.error("List Refresh Error");
+                }, 1000);
             }
             yield this.refreshLock.EndLock();
         });
     }
     addCreatureToEncounterAsync(creature) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
-            yield this.encounterRepo.createActorFromCreatureAsync(creature.id);
-            yield this.refreshAsync();
-            this.selectedActor = this.actors[0];
+            try {
+                yield this.encounterRepo.createActorFromCreatureAsync(creature.id);
+                yield this.refreshAsync();
+                this.selectedActor = this.actors[0];
+            }
+            catch (_a) {
+            }
             //await this.refresh();
         });
     }
     addCharacterToEncounterAsync(character, rolledInit) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
-            yield this.encounterRepo.createActorFromCharacterAsync(character.id, rolledInit);
-            yield this.refreshAsync();
-            this.selectedActor = this.actors[0];
+            try {
+                yield this.encounterRepo.createActorFromCharacterAsync(character.id, rolledInit);
+                yield this.refreshAsync();
+                this.selectedActor = this.actors[0];
+            }
+            catch (_a) {
+            }
             //await this.refresh();
         });
     }
     moveToNextAsync() {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
-            var result = yield this.encounterRepo.moveToNextAsync(false);
-            if (result.response == ResponseEnum.DisplayMessage) {
-                this._alertService.success(result.message);
+            try {
+                var result = yield this.encounterRepo.moveToNextAsync(false);
+                if (result.response == ResponseEnum.DisplayMessage) {
+                    this._alertService.success(result.message);
+                }
+                if (result.response == ResponseEnum.AutoAdvance) {
+                    yield this.moveToNextAsync();
+                    return;
+                }
+                yield this.refreshAsync();
+                this.selectedAction = this.actions[0];
             }
-            if (result.response == ResponseEnum.AutoAdvance) {
-                yield this.moveToNextAsync();
-                return;
+            catch (_a) {
             }
-            yield this.refreshAsync();
-            this.selectedAction = this.actions[0];
         });
     }
     deleteActionAsync(action) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
-            yield this.encounterRepo.removeActionAsync(action.id);
-            yield this.refreshAsync();
+            try {
+                yield this.encounterRepo.removeActionAsync(action.id);
+                yield this.refreshAsync();
+            }
+            catch (_a) {
+            }
         });
     }
     deleteActorAsync(actor) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
-            yield this.encounterRepo.removeActorAsync(actor.id);
-            yield this.refreshAsync();
+            try {
+                yield this.encounterRepo.removeActorAsync(actor.id);
+                yield this.refreshAsync();
+            }
+            catch (_a) {
+            }
         });
     }
     proposeActionAsync(actor, action, attack = null, modifier = 0) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
-            var act = yield this.encounterRepo.proposeActionAsync(action.id, actor.id, modifier, (attack != null ? attack.id : null));
-            yield this.refreshAsync();
-            act = this.allActions.find((a) => a.id == act.id);
-            act.isSelected = true;
+            var act = null;
+            try {
+                act = yield this.encounterRepo.proposeActionAsync(action.id, actor.id, modifier, (attack != null ? attack.id : null));
+                yield this.refreshAsync();
+                act = this.allActions.find((a) => a.id == act.id);
+                act.isSelected = true;
+            }
+            catch (_a) {
+            }
             return act;
         });
     }
     doProposedActionAsync(actor) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
-            yield this.encounterRepo.doProposedActionAsync(actor.id);
-            yield this.refreshAsync();
+            try {
+                yield this.encounterRepo.doProposedActionAsync(actor.id);
+                yield this.refreshAsync();
+            }
+            catch (_a) {
+            }
         });
     }
 };
@@ -10171,6 +10454,7 @@ let EncounterHubService = class EncounterHubService {
         this.actionUpdated = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
         this.actionsUpdated = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
         this.gameUpdated = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        this.messageAdded = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
         this.connectionEstablished = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
         this.connectionIsEstablished = false;
         this.gId = 0;
@@ -10211,6 +10495,10 @@ let EncounterHubService = class EncounterHubService {
             if (this.gId > 0) {
                 this.registerForGame(this.gId);
             }
+        });
+        //MessageAdded
+        this._hubConnection.on('MessageAdded', (data) => {
+            this.messageAdded.emit(data);
         });
         this._hubConnection.on('RemovedAction', (data) => {
             this.actionRemoved.emit(data);
@@ -10714,6 +11002,9 @@ class EncounterComponent {
     }
     get viewType() {
         return this.gameView.viewType;
+    }
+    get messages() {
+        return this.gameView.allMessages;
     }
     get actions() {
         var acts = this.gameView.actions;

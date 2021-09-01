@@ -15,6 +15,7 @@ import { AlertService } from '@/services/Alert.service';
 
     import * as Enums from '@/entities/EnumDefinitions'
     import { Game } from '@/entities';
+import { Message } from '@/entities';
 import { Actor } from '@/entities';
 import { MoveNextResult } from '@/entities';
 import { BaseAction } from '@/entities';
@@ -91,6 +92,41 @@ export class EncounterRepository {
                 .pipe(
                         map((data) => {
                             if (data != null) data = Object.assign(new Game(), data);
+                            return data;
+                        }), 
+                        catchError(this.handleError)
+                );
+	};
+
+    
+    // get: api/v${version}/Encounter/GetMessages
+
+	//public getMessages = (, callback: (data: Message[])=>void) : void => {
+	//	this.getMessagesObserve().subscribe(response => callback(response));
+	//}
+
+	public getMessagesAsync = () : Promise<Message[]> => {
+
+        return new Promise<Message[]>((resolve, reject) => {
+            this.getMessages()
+            .subscribe((res) => {
+                    resolve(res);
+                }, (error: string) => {
+                    this._alertService.error(error);
+                    resolve(null);
+                });
+
+        });
+	}
+
+	public getMessages = () : Observable<Message[]> => {
+        
+            var _Url = `api/v${version}/Encounter/GetMessages`;
+
+            return this._httpClient.get<Message[]>(_Url)
+                .pipe(
+                        map((data) => {
+                            if (data != null) data = data.map((dt) => Object.assign(new Message(), dt));
                             return data;
                         }), 
                         catchError(this.handleError)

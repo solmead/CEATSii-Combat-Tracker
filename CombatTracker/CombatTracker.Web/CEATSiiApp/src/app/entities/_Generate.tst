@@ -25,6 +25,7 @@ ${
     }
 
 
+
     string ImportsListProperties(Class objClass)
     {
     //var t = Typewriter.Extensions.Types.TypeExtensions.Unwrap;
@@ -187,6 +188,19 @@ ${
 }
 
 $Classes(CombatTracker.Entities.Current.*)[
+    import * as Enums from './EnumDefinitions'
+    $ImportsListProperties
+    export class $Name {$BaseClass[$Properties[
+        $name$TypeFormatted: $Type;]]$Properties[
+        $name$TypeFormatted: $Type;]
+
+
+        constructor() {
+        }
+    }
+]
+
+$Classes(CombatTracker.Entities.Utilities.*)[
     import * as Enums from './EnumDefinitions'
     $ImportsListProperties
     export class $Name {$BaseClass[$Properties[

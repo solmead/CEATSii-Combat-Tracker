@@ -1,0 +1,15 @@
+﻿<div class="list">
+    <p *ngIf="!messages"><em>Loading...</em></p>
+    <ul class="mainMessagesList">
+        <li *ngFor="let msg of messages" [class]="cssClasses(msg)">
+            <span class='currentTimeArea'>{{currentTime(msg)}}</span>
+            <span *ngIf="msg.beginText != '' ">{{msg.beginText}}</span>
+            <span class='whomName' *ngIf="!msg.reverseOrder " [style.color]="msgColor(msg)">{{msg.whom}}</span>
+            <span class='actionName' *ngIf="msg.reverseOrder ">{{msg.action}}</span>
+            <span *ngIf="msg.betweenText != '' ">{{msg.betweenText}}</span>
+            <span class='whomName' *ngIf="msg.reverseOrder " [style.color]="msgColor(msg)">{{msg.whom}}</span>
+            <span class='actionName' *ngIf="!msg.reverseOrder ">{{msg.action}}</span>
+            <span *ngIf="msg.endText != '' ">{{msg.endText}}</span>
+        </li>
+    </ul>
+</div>

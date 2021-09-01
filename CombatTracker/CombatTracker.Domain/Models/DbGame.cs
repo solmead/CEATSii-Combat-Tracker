@@ -34,6 +34,8 @@ namespace CombatTracker.Domain.Models
 
         [InverseProperty("Game")]
         public virtual ICollection<DbActorsAction> ActorsActions { get; set; }
-        
+        [InverseProperty("Game")]
+        public virtual ICollection<DbMessage> Messages { get; set; }
+
     }
 }

@@ -16,7 +16,7 @@ namespace CombatTracker.Domain.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.6")
+                .HasAnnotation("ProductVersion", "5.0.9")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("CombatTracker.Domain.DbArmor", b =>
@@ -627,6 +627,50 @@ namespace CombatTracker.Domain.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Games");
+                });
+
+            modelBuilder.Entity("CombatTracker.Domain.Models.DbMessage", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Action")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("BeginText")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("BetweenText")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EndText")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("GameTime")
+                        .HasColumnType("float");
+
+                    b.Property<int>("Game_ID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("MessageType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("ReverseOrder")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Whom")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("WhomColor")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("Game_ID");
+
+                    b.ToTable("Messages");
                 });
 
             modelBuilder.Entity("CombatTracker.Domain.Reference.Actions.DbActionDefinition", b =>
@@ -1513,6 +1557,17 @@ namespace CombatTracker.Domain.Migrations
                     b.Navigation("Actor");
                 });
 
+            modelBuilder.Entity("CombatTracker.Domain.Models.DbMessage", b =>
+                {
+                    b.HasOne("CombatTracker.Domain.Models.DbGame", "Game")
+                        .WithMany("Messages")
+                        .HasForeignKey("Game_ID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Game");
+                });
+
             modelBuilder.Entity("CombatTracker.Domain.Reference.Actions.DbActionDefinition", b =>
                 {
                     b.HasOne("CombatTracker.Domain.Reference.Actions.DbActionGroup", "ActionGroup")
@@ -1777,6 +1832,8 @@ namespace CombatTracker.Domain.Migrations
                     b.Navigation("Actors");
 
                     b.Navigation("ActorsActions");
+
+                    b.Navigation("Messages");
                 });
 
             modelBuilder.Entity("CombatTracker.Domain.Reference.Actions.DbActionGroup", b =>

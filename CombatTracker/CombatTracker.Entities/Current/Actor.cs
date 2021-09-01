@@ -54,9 +54,12 @@ namespace CombatTracker.Entities.Current
                 {
                     return DamageLevel.Bloodied;
                 }
-                
+                if (dmg > ConstitutionStat)
+                {
+                    return DamageLevel.Unconscious;
+                }
                 return DamageLevel.Dead;
-                
+
 
             }
         }

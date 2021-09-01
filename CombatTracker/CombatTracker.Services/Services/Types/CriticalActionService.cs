@@ -68,6 +68,11 @@ namespace CombatTracker.Services.Services.Types
 
             }
 
+            if (string.IsNullOrWhiteSpace( sa.Name))
+            {
+                sa.Name = "";
+            }
+
             return sa;
         }
 
@@ -137,6 +142,10 @@ namespace CombatTracker.Services.Services.Types
                     sa.Name = CriticalAffect.Parry.ToString();
                 }
 
+            }
+            if (string.IsNullOrWhiteSpace(sa.Name))
+            {
+                sa.Name = "";
             }
 
             return sa;

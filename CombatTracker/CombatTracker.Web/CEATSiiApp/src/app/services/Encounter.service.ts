@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { EnumDefinitions } from '@/entities/EnumDefinitions'
-import { ActionDefinition, Attack, Game } from '@/entities';
+import { ActionDefinition, Attack, Game, Message } from '@/entities';
 import { Actor } from '@/entities';
 import { BaseAction } from '@/entities';
 import { GamesRepository } from '@/repositories';
@@ -32,6 +32,8 @@ export class EncounterService {
     public allActors: Array<Actor> = new Array<Actor>();
     public allActions: Array<BaseAction> = new Array<BaseAction>();
 
+    public allMessages: Array<Message> = new Array<Message>();
+
     private refreshLock = new MutexLock(30000);
 
     private _currentActionTree: treeEntry = null;
@@ -42,7 +44,6 @@ export class EncounterService {
     //private _selectedAction: BaseAction;
 
     private _timedService: RecurringTask = new RecurringTask(async () => {
-
         this._alertService.success("Refreshing List");
         await this.refreshAsync();
         this._alertService.success("List Refreshed");
@@ -278,19 +279,23 @@ export class EncounterService {
 
 
     async checkAction(actor: Actor): Promise<void> {
-        if (actor != null && actor.proposedAction == null) {
-            var action = actor.nextAction || actor.currentAction;
-            var act = action;
-            if (action.base != null) {
-                act = await this.encounterRepo.proposeActionAsync(action.base.id, actor.id, action.currentModifier, action.currentAttack_ID);
-                this.refreshAction(act);
-            } else {
-                act = await this.encounterRepo.proposeActionAsync(this.referenceService.ActionGroups[0].actions[0].id, actor.id, action.currentModifier, action.currentAttack_ID);
-                this.refreshAction(act);
-            }
-            act = this.allActions.find((a) => a.id == act.id);
+        try {
+            if (actor != null && actor.proposedAction == null) {
+                var action = actor.nextAction || actor.currentAction;
+                var act = action;
+                if (action.base != null) {
+                    act = await this.encounterRepo.proposeActionAsync(action.base.id, actor.id, action.currentModifier, action.currentAttack_ID);
+                    this.refreshAction(act);
+                } else {
+                    act = await this.encounterRepo.proposeActionAsync(this.referenceService.ActionGroups[0].actions[0].id, actor.id, action.currentModifier, action.currentAttack_ID);
+                    this.refreshAction(act);
+                }
+                act = this.allActions.find((a) => a.id == act.id);
 
-            act.isSelected = true;
+                act.isSelected = true;
+            }
+        } catch {
+
         }
     }
 
@@ -304,8 +309,13 @@ export class EncounterService {
 
 
     async currentActionTreeAsync(): Promise<treeEntry> {
-        var actor = this.selectedActor;
-        this._currentActionTree = await this.referenceService.getActionTreeAsync(actor);
+        try {
+            var actor = this.selectedActor;
+            this._currentActionTree = await this.referenceService.getActionTreeAsync(actor);
+        }
+        catch {
+
+        }
         return this._currentActionTree;
     }
 
@@ -316,9 +326,14 @@ export class EncounterService {
         this.selectGameAsync(game.id);
     }
 
-    public async  selectGameAsync(gameId: number): Promise<void> {
-        await this.encounterRepo.setCurrentGameAsync(gameId);
-        await this.refreshAsync();
+    public async selectGameAsync(gameId: number): Promise<void> {
+        try {
+            await this.encounterRepo.setCurrentGameAsync(gameId);
+            await this.refreshAsync();
+        }
+        catch {
+
+        }
     }
 
     private async setupEventsAsync(): Promise<void> {
@@ -364,6 +379,12 @@ export class EncounterService {
             actors = actors.map((act) => Object.assign(new Actor(), act));
             this.refreshActors(actors);
             this.setActive();
+        });
+        this.encounterHubService.messageAdded.subscribe((msg: Message) => {
+            msg = Object.assign(new Message(), msg);
+            //msg.dateTimeStamp = new Date(msg.dateTimeStamp);
+            this.allMessages.insert(msg);
+            //this.allMessages.push(msg);
         });
     }
 
@@ -441,122 +462,169 @@ export class EncounterService {
 
     public async refreshAsync():Promise<void> {
         await this.refreshLock.BeginLock();
+        try {
+            var game = await this.encounterRepo.getCurrentGameAsync();
+            if (game == null) {
+                this._alertService.error("List Refresh Error: Game returned null");
+                return;
+            }
+            //debugger;
+            if (this._currentGame == null) {
+                this._currentGame = game;
+            } else {
+                this._currentGame = Object.assign(this._currentGame, game);
+            }
+            if (this._currentGame != null && this._currentGame.id == 0) {
+                this._currentGame = null;
+            }
+            if (this.currentGame != null) {
+                //this._currentGame = await this.gameRepo.getGameAsync(this._currentGame.id);
+                var tempActors: Array<Actor> = null;
+                var tempActions: Array<BaseAction> = null;
 
-        var game = await this.encounterRepo.getCurrentGameAsync();
-        //debugger;
-        if (this._currentGame == null) {
-            this._currentGame = game;
-        } else {
-            this._currentGame = Object.assign(this._currentGame, game);
-        }
-        if (this._currentGame!=null && this._currentGame.id == 0) {
-            this._currentGame = null;
-        }
-        if (this.currentGame != null) {
-            //this._currentGame = await this.gameRepo.getGameAsync(this._currentGame.id);
-            var tempActors: Array<Actor> = null;
-            var tempActions: Array<BaseAction> = null;
+                this.actorRepo.getActorsInGame(this.currentGame.id).subscribe((acts) => {
+                    tempActors = acts;
+                });
 
-            this.actorRepo.getActorsInGame(this.currentGame.id).subscribe((acts) => {
-                tempActors = acts;
-            });
-
-            this.actionRepo.getActionsInGame(this.currentGame.id).subscribe((acts) => {
-                tempActions = acts;
-            });
-
-            await whenTrue(() => {
-                return tempActors != null && tempActions != null;
-            });
-
-            var selectedActor = this.selectedActor;
-
-            this.refreshActors(tempActors);
-            this.refreshActions(tempActions);
-
-            var removedActions = this.allActions.filter(item => (this.actions.find((a) => a.id == item.id) == undefined));
-            removedActions.forEach((a) => this.removeAction(a));
+                this.actionRepo.getActionsInGame(this.currentGame.id).subscribe((acts) => {
+                    tempActions = acts;
+                });
 
 
-            var removedActors = this.allActors.filter(item => (this.actors.find((a) => a.id == item.id) == undefined));
-            removedActors.forEach((a) => this.removeActor(a));
+                this.encounterRepo.getMessages().subscribe((msgs) => {
+                    //debugger;
+                    //msgs.forEach((msg) => {
+                    //    msg.dateTimeStamp = new Date(msg.dateTimeStamp);
+                    //});
+                    this.allMessages = msgs;
+                });
+                //allMessages
 
-            this.setActive();
+                await whenTrue(() => {
+                    return tempActors != null && tempActions != null;
+                });
 
-            if (this.isGM) {
-                //debugger;
-                if (selectedActor != null && (this.selectedActor == null ||  selectedActor.id != this.selectedActor.id)) {
-                    this.selectActor(selectedActor.id);
-                }
+                var selectedActor = this.selectedActor;
 
-                if (this.selectedActions.length == 0) {
-                    this.selectedAction = this.actions[0];
-                }
+                this.refreshActors(tempActors);
+                this.refreshActions(tempActions);
 
-                if (this.selectedActions.length>0  && this.selectedActor == null) {
+                var removedActions = this.allActions.filter(item => (tempActions.find((a) => a.id == item.id) == undefined));
+                removedActions.forEach((a) => this.removeAction(a));
 
-                    this.selectedActor = this.selectedActions[0].whoIsActing;
+
+                var removedActors = this.allActors.filter(item => (tempActors.find((a) => a.id == item.id) == undefined));
+                removedActors.forEach((a) => this.removeActor(a));
+
+                this.setActive();
+
+                if (this.isGM) {
+                    //debugger;
+                    if (selectedActor != null && (this.selectedActor == null || selectedActor.id != this.selectedActor.id)) {
+                        this.selectActor(selectedActor.id);
+                    }
+
+                    if (this.selectedActions.length == 0) {
+                        this.selectedAction = this.actions[0];
+                    }
+
+                    if (this.selectedActions.length > 0 && this.selectedActor == null) {
+
+                        this.selectedActor = this.selectedActions[0].whoIsActing;
+                    }
                 }
             }
+        } catch(e) {
+            setTimeout(() => {
+                this._alertService.error("List Refresh Error");
+            }, 1000);
         }
-
 
 
         await this.refreshLock.EndLock();
     }
 
     public async addCreatureToEncounterAsync(creature: Creature): Promise<void> {
-        await this.encounterRepo.createActorFromCreatureAsync(creature.id);
-        await this.refreshAsync();
-        this.selectedActor = this.actors[0];
+        try {
+            await this.encounterRepo.createActorFromCreatureAsync(creature.id);
+            await this.refreshAsync();
+            this.selectedActor = this.actors[0];
+        } catch {
+
+        }
 
         //await this.refresh();
 
     }
     public async addCharacterToEncounterAsync(character: Character, rolledInit?: number): Promise<void> {
-        await this.encounterRepo.createActorFromCharacterAsync(character.id, rolledInit);
-        await this.refreshAsync();
-        this.selectedActor = this.actors[0];
+        try {
+            await this.encounterRepo.createActorFromCharacterAsync(character.id, rolledInit);
+            await this.refreshAsync();
+            this.selectedActor = this.actors[0];
+        } catch {
+
+        }
 
         //await this.refresh();
 
     }
 
     public async moveToNextAsync(): Promise<void> {
-        var result = await this.encounterRepo.moveToNextAsync(false);
-        if (result.response == ResponseEnum.DisplayMessage) {
-            this._alertService.success(result.message);
+        try {
+            var result = await this.encounterRepo.moveToNextAsync(false);
+            if (result.response == ResponseEnum.DisplayMessage) {
+                this._alertService.success(result.message);
+            }
+            if (result.response == ResponseEnum.AutoAdvance) {
+                await this.moveToNextAsync();
+                return;
+            }
+            await this.refreshAsync();
+            this.selectedAction = this.actions[0];
+        } catch {
+
         }
-        if (result.response == ResponseEnum.AutoAdvance) {
-            await this.moveToNextAsync();
-            return;
-        }
-        await this.refreshAsync();
-        this.selectedAction = this.actions[0];
     }
 
     public async deleteActionAsync(action: BaseAction): Promise<void> {
-        await this.encounterRepo.removeActionAsync(action.id);
-        await this.refreshAsync();
+        try {
+            await this.encounterRepo.removeActionAsync(action.id);
+            await this.refreshAsync();
+        } catch {
+
+        }
     }
 
     public async deleteActorAsync(actor: Actor): Promise<void> {
-        await this.encounterRepo.removeActorAsync(actor.id);
-        await this.refreshAsync();
+        try {
+            await this.encounterRepo.removeActorAsync(actor.id);
+            await this.refreshAsync();
+        } catch {
+
+        }
     }
 
     public async proposeActionAsync(actor: Actor, action: ActionDefinition, attack: Attack = null, modifier: number = 0): Promise<BaseAction> {
-        var act = await this.encounterRepo.proposeActionAsync(action.id, actor.id, modifier, (attack != null ? attack.id : null));
-        await this.refreshAsync();
+        var act: BaseAction = null;
+        try {
+            act = await this.encounterRepo.proposeActionAsync(action.id, actor.id, modifier, (attack != null ? attack.id : null));
+            await this.refreshAsync();
 
-        act = this.allActions.find((a) => a.id == act.id);
-        act.isSelected = true;
+            act = this.allActions.find((a) => a.id == act.id);
+            act.isSelected = true;
+        } catch {
+
+        }
         return act;
     }
 
     public async doProposedActionAsync(actor: Actor): Promise<void> {
-        await this.encounterRepo.doProposedActionAsync(actor.id);
-        await this.refreshAsync();
+        try {
+            await this.encounterRepo.doProposedActionAsync(actor.id);
+            await this.refreshAsync();
+        } catch {
+
+        }
     }
 
 }

@@ -7,6 +7,7 @@ using CombatTracker.Entities.Reference.Attacks;
 using Utilities.Caching;
 using CombatTracker.Domain.Models;
 using CombatTracker.Entities.Abstract.Repos;
+using CombatTracker.Entities.Utilities;
 
 namespace CombatTracker.Domain.Repositories
 {
@@ -692,6 +693,75 @@ namespace CombatTracker.Domain.Repositories
         {
             var item = GetAction(id);
             DeleteAction(item);
+        }
+
+        public List<Message> GetMessages(int gameId)
+        {
+            var aList = Cache.GetItem<List<Message>>(CacheArea.Global, "GetMessagesInGame_" + gameId, () =>
+            {
+                var list = (from a in db.Messages
+                            where a.Game_ID == gameId
+                            select new Message()
+                            {
+                                ID = a.ID,
+                                Game_ID = a.Game_ID,
+                                 GameTime = a.GameTime,
+                                MessageTypeString = a.MessageType,
+                                 BeginText = a.BeginText,
+                                 BetweenText = a.BetweenText,
+                                 EndText = a.EndText,
+                                 ReverseOrder = a.ReverseOrder,
+                                  Action = a.Action,
+                                   Whom = a.Whom,
+                                WhomColor = a.WhomColor
+                            }).ToList();
+                list = list.OrderByDescending((a) => a.GameTime).ToList();
+
+                return list;
+            }, "game");
+
+            return aList;
+        }
+
+        public Message GetMessage(int gameId, int messageId)
+        {
+            var msgs = GetMessages(gameId);
+            return (from m in msgs where m.ID == messageId select m).FirstOrDefault();
+        }
+
+        public Message SaveMessage(Message message)
+        {
+            var item = (from c in db.Messages where c.ID == message.ID select c).FirstOrDefault();
+            if (item == null)
+            {
+                item = new DbMessage();
+                db.Messages.Add(item);
+            }
+
+            item.Game_ID = message.Game_ID;
+            item.GameTime = message.GameTime;
+            item.MessageType = message.MessageTypeString;
+            item.BeginText = message.BeginText;
+            item.BetweenText = message.BetweenText;
+            item.EndText = message.EndText;
+            item.ReverseOrder = message.ReverseOrder;
+            item.Action = message.Action;
+            item.Whom = message.Whom;
+            item.WhomColor = message.WhomColor;
+
+            db.SaveChanges();
+            message.ID = item.ID;
+
+            //var items = GetActionsInGame(action.Game_ID);
+            //if (!items.Contains(action))
+            //{
+            //    items.Add(action);
+            //}
+
+            Cache.Instance.ClearTaggedCache("game");
+
+
+            return GetMessage(message.Game_ID, message.ID);
         }
     }
 }

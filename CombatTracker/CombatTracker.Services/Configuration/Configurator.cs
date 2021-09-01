@@ -19,8 +19,9 @@ namespace CombatTracker.Services.Configuration
 
             services.AddTransient<IGameService, GameServices>();
             services.AddTransient<IActionServices, ActionServices>();
+            services.AddTransient<INotificationService, NotificationService>();
 
-
+            //NotificationService : INotificationService
             return services;
         }
     }

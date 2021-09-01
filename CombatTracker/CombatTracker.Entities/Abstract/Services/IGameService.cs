@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using CombatTracker.Entities.Current;
 using CombatTracker.Entities.Reference;
 using CombatTracker.Entities.Reference.Actions;
 using CombatTracker.Entities.Reference.Attacks;
 using CombatTracker.Entities.Reference.Base;
+using CombatTracker.Entities.Utilities;
 
 namespace CombatTracker.Entities.Abstract.Services
 {
@@ -63,6 +65,12 @@ namespace CombatTracker.Entities.Abstract.Services
         BaseAction GetCurrentAction(Actor actor);
         BaseAction GetProposedAction(Actor actor);
         BaseAction GetFutureAction(Actor actor);
+
+
+        //Task AddMessageAsync(int gameId, string text, MessageTypeEnum messageType = MessageTypeEnum.Normal);
+
+        List<Message> GetMessages();
+
 
     }
 }

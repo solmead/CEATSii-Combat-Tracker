@@ -8,3 +8,4 @@ export * from './EnumEx';
 export * from './Tasks';
 export * from './DateEx';
 export * from './LinqToJs';
+export * from './SafeHtml';

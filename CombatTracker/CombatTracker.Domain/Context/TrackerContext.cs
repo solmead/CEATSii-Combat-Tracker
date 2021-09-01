@@ -63,6 +63,8 @@ namespace CombatTracker.Domain
         public virtual DbSet<DbPsychicRefractoryPeriodEntry> PsychicRefractoryPeriodMods { get; set; }
         public virtual DbSet<DbWeapon> Weapons { get; set; }
 
+        public virtual DbSet<DbMessage> Messages { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

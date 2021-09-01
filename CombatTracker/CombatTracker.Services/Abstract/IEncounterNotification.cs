@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using CombatTracker.Entities.Current;
+using CombatTracker.Entities.Utilities;
 
 namespace CombatTracker.Services.Abstract
 {
@@ -16,5 +17,8 @@ namespace CombatTracker.Services.Abstract
         Task EventUpdatedActorsAsync(int gameId, Actor[] actors);
 
         Task EventUpdateGame(int gameId, Game game);
+
+
+        Task MessageAddedEventAsync(int gameId, Message message);
     }
 }

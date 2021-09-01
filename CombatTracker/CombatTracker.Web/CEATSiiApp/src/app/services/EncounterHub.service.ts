@@ -1,6 +1,6 @@
 ﻿import { EventEmitter, Injectable } from '@angular/core';
 import { HubConnection, HubConnectionBuilder } from '@microsoft/signalr';
-import { Actor, BaseAction, Game } from '@/entities';
+import { Actor, BaseAction, Game, Message } from '@/entities';
 import * as signalR from '@microsoft/signalr';
 import { whenTrue } from '@/_helpers/Tasks';
 
@@ -23,6 +23,7 @@ export class EncounterHubService {
     actionUpdated = new EventEmitter<BaseAction>();
     actionsUpdated = new EventEmitter<BaseAction[]>();
     gameUpdated = new EventEmitter<Game>();
+    messageAdded = new EventEmitter<Message>();
 
     connectionEstablished = new EventEmitter<Boolean>();
 
@@ -74,7 +75,10 @@ export class EncounterHubService {
                 this.registerForGame(this.gId);
             }
         });
-
+        //MessageAdded
+        this._hubConnection.on('MessageAdded', (data: any) => {
+            this.messageAdded.emit(data);
+        });
         this._hubConnection.on('RemovedAction', (data: any) => {
             this.actionRemoved.emit(data);
         });

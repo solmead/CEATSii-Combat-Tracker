@@ -15,6 +15,12 @@
                 Admin = 3
             }
     
+            export enum MessageTypeEnum {
+                Normal = 0,
+                Warning = 1,
+                Alert = 2
+            }
+    
             export enum ResponseEnum {
                 ChooseNextAction = 0,
                 DisplayMessage = 1,
@@ -31,7 +37,8 @@
                 Winded = 1,
                 Bloodied = 2,
                 Rough = 3,
-                Dead = 4
+                Unconscious = 4,
+                Dead = 5
             }
     
             export enum CriticalLevels {
@@ -100,4 +107,5 @@
             }
     
     }
+
 

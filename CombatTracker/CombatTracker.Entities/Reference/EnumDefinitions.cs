@@ -20,6 +20,13 @@ namespace CombatTracker.Entities.Reference
         Admin
     }
 
+    public enum MessageTypeEnum
+    {
+        Normal,
+        Warning,
+        Alert
+    }
+
     public enum ResponseEnum
     {
         ChooseNextAction,
@@ -39,6 +46,7 @@ namespace CombatTracker.Entities.Reference
         Winded,
         Bloodied,
         Rough,
+        Unconscious,
         Dead
     }
 

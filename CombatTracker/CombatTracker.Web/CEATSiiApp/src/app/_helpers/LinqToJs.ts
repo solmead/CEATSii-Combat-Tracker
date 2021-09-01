@@ -22,6 +22,7 @@ declare global {
         union: (arr: Array<T>) => Array<T>;
         intersect: (arr: Array<T>, func: (obj: T, obj2: T) => boolean) => Array<T>;
         difference: (arr: Array<T>, func: (obj: T, obj2: T) => boolean) => Array<T>;
+        insert: (item: T, index?: number) => void;
     }
 }
 
@@ -458,5 +459,12 @@ Array.prototype.intersect = function (arr, compareFunction) {
 Array.prototype.difference = function (arr, compareFunction) {
     var arr2 = <Array<any>>this;
     return arr2.asQueryable().difference(arr, compareFunction).toArray();
+};
+//insert: (item: T, index?: number) => void
+Array.prototype.insert = function (item, index) {
+    var arr2 = <Array<any>>this;
+    index = index || 0;
+    arr2.splice(index, 0, item);
+
 };
 

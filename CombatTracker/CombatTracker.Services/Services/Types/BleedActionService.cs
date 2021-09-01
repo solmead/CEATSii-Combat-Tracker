@@ -15,7 +15,8 @@ namespace CombatTracker.Services.Services.Types
 
             var sa = new BaseAction();
             sa.Bleeder = count;
-            sa.Name = whom.Name + " bleeding at " + sa.Bleeder;
+            //sa.Name = whom.Name + " bleeding at " + sa.Bleeder;
+            sa.Name = "Bleeding at " + sa.Bleeder;
             sa.BasePercent = 1;
             //sa.WhoIsActing = whom;
             sa.WhoIsActing_ID = whom.ID;
@@ -43,7 +44,8 @@ namespace CombatTracker.Services.Services.Types
             whom.HitsRemaining -= action.Bleeder;
 
             action.Count += 1;
-            action.Note = "Rounds of Bleeding:" + action.Count;
+            //action.Note = "Rounds of Bleeding:" + action.Count;
+            action.Note = "Rounds:" + action.Count;
             //action.StartTime = gameService.CurrentGame.CurrentTime;
             TimeCalc.SetActionTime(whom, action, gameService.CurrentGame);
             gameService.SaveAction(action);
@@ -64,7 +66,8 @@ namespace CombatTracker.Services.Services.Types
 
         public BaseAction RefreshData(BaseAction action, Actor whom, Game game)
         {
-            action.Name = whom.Name + " bleeding at " + action.Bleeder;
+            //action.Name = whom.Name + " bleeding at " + action.Bleeder;
+            action.Name = "Bleeding at " + action.Bleeder;
             return action;
         }
 

@@ -55,8 +55,11 @@ export class MutexLock {
 
     async LockAreaAsync(func: () => Promise<void>): Promise<void> {
         await this.BeginLock();
+        try {
+            await func();
+        } catch {
 
-        await func();
+        }
 
         await this.EndLock();
     }
@@ -104,7 +107,9 @@ export class MutexLock {
                     await this.callback();
                 });
                 //await this.refreshLock.BeginLock();
+                //try {
                 //this.callback();
+                //} catch {}
                 //await this.refreshLock.EndLock();
             }
             if (this.isRunning) {
@@ -188,7 +193,11 @@ export async function WhenAll<tRet>(list: Array<Promise<tRet>>, progressCB?: ((n
         p.then(() => {
             fin++;
             if (progressCB) {
-                progressCB(fin, tot);
+                try {
+                    progressCB(fin, tot);
+                } catch {
+
+                }
             }
         });
     });

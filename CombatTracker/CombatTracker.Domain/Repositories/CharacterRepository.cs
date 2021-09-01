@@ -8,6 +8,7 @@ using Utilities.Caching;
 using CombatTracker.Domain.Reference.Players;
 using Microsoft.EntityFrameworkCore;
 using CombatTracker.Entities.Abstract.Repos;
+using Utilities.Poco;
 
 namespace CombatTracker.Domain.Repositories
 {
@@ -44,6 +45,7 @@ namespace CombatTracker.Domain.Repositories
                             WalkSpeed = cbc.WalkSpeed,
                             GameTypeString = cbc.GameType
                         }).ToList();
+
 
                 chars.ForEach((c)=>{
                     c.Armors = _combatRepository.GetArmors(c.ID);

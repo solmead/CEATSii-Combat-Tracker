@@ -27,7 +27,7 @@ export class TreeNode {
             }
         });
         if (missing) {
-            debugger;
+            //debugger;
             this.children = new Array<TreeNode>();
             this.node.children.forEach((child) => {
                 this.children.push(new TreeNode(child, this));
