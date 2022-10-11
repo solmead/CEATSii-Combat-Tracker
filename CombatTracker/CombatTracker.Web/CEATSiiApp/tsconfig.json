@@ -9,7 +9,6 @@
     "moduleResolution": "node",
     "downlevelIteration": true,
     "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
     "skipDefaultLibCheck": true,
     "importHelpers": true,
     "target": "es2015",
