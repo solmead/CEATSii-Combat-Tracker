@@ -9,6 +9,10 @@ using Microsoft.Extensions.Logging;
 using Utilities.Caching.AspNetCore.Configuration;
 using Microsoft.AspNetCore.SignalR;
 using CombatTracker.Web.Hubs;
+using System;
+using CombatTracker.Domain;
+using CombatTracker.Authorization;
+using Microsoft.EntityFrameworkCore;
 
 namespace CombatTracker.Web
 {
@@ -134,6 +138,45 @@ namespace CombatTracker.Web
             //});
 
             app.InitCache();
+
+
+            CombatTracker.Domain.Configuration.Configurator.InitilizeDatabase(app, _configuration).Wait();
+
+            //using (var serviceScope = app.ApplicationServices.CreateScope())
+            //{
+            //    var services = serviceScope.ServiceProvider;
+            //    try
+            //    {
+            //        Console.WriteLine("Getting Tracker Context");
+            //        var context = services.GetRequiredService<TrackerContext>();
+            //        Console.WriteLine("Migrating Tracker Context");
+            //        context.Database.Migrate();
+            //        //DbInitializer.Initialize(context);
+
+            //        // requires using Microsoft.Extensions.Configuration;
+            //        Console.WriteLine("Getting Configuration");
+            //        var config = services.GetRequiredService<IConfiguration>();
+            //        // Set password with the Secret Manager tool.
+            //        // dotnet user-secrets set SeedUserPW <pw>
+
+            //        var testUserPw = config["SeedUserPW"];
+            //        testUserPw = testUserPw ?? "testPassword1!";
+
+            //        Console.WriteLine("Seeding Data");
+            //        SeedData.Initialize(services, testUserPw).Wait();
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        Console.WriteLine("Hmm an error has occurred in db initilization");// + ex.ToString());
+            //        Console.WriteLine("");
+            //        var logger = services.GetRequiredService<ILogger<Program>>();
+            //        logger.LogError(ex, "An error occurred while seeding the database.");
+            //    }
+            //}
+
+
+
+
             _logger.LogInformation("Starting App Finished");
         }
     }

@@ -46,7 +46,7 @@ namespace CombatTracker.Services.Services.Types
                 N3 = (Ch.NegativeRounds + " Rnds at Mods");
             }
 
-            sa.Note = (N1 + (" " + (N2 + (" " + N3))));
+            sa.Note = (N1 + (" " + (N2 + (" " + N3)))).Trim(); ;
             sa.BasePercent = 1;
             sa.StartTime = game.CurrentTime;
             sa.EndTime = CriticalAffect.TimeEnd;
@@ -70,7 +70,7 @@ namespace CombatTracker.Services.Services.Types
 
             if (string.IsNullOrWhiteSpace( sa.Name))
             {
-                sa.Name = "";
+                sa.Name = "Modifiers";
             }
 
             return sa;
@@ -122,7 +122,7 @@ namespace CombatTracker.Services.Services.Types
                 N3 = (Ch.NegativeRounds + " Rnds at Mods");
             }
 
-            sa.Note = (N1 + (" " + (N2 + (" " + N3))));
+            sa.Note = (N1 + (" " + (N2 + (" " + N3)))).Trim();
             sa.BasePercent = 1;
             sa.StartTime = game.CurrentTime;
             sa.EndTime = CriticalAffect.TimeEnd;
@@ -145,7 +145,7 @@ namespace CombatTracker.Services.Services.Types
             }
             if (string.IsNullOrWhiteSpace(sa.Name))
             {
-                sa.Name = "";
+                sa.Name = "Modifiers";
             }
 
             return sa;

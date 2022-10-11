@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
 	<PropertyGroup>
-		<TargetFramework>net5.0</TargetFramework>
+		<TargetFramework>net6.0</TargetFramework>
 		<UserSecretsId>aspnet-CombatTracker.Web-0BAC01A8-5A26-41C9-A7B4-D412617FA995</UserSecretsId>
 		<TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
 		<TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
@@ -18,29 +18,29 @@
 	  <WarningLevel>4</WarningLevel>
 	</PropertyGroup>
 	<ItemGroup>
-		<PackageReference Include="Microsoft.AspNetCore.ApiAuthorization.IdentityServer" Version="5.0.9" />
-		<PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="5.0.9" />
-		<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.9" />
-		<PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="5.0.9" />
-		<PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="5.0.9" />
+		<PackageReference Include="Microsoft.AspNetCore.ApiAuthorization.IdentityServer" Version="6.0.10" />
+		<PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="6.0.10" />
+		<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.10" />
+		<PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.10" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.10" />
 		<PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.0.0" />
-		<PackageReference Include="Microsoft.AspNetCore.SignalR.Protocols.NewtonsoftJson" Version="5.0.9" />
-		<PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="5.0.9" />
-		<PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="5.0.9" />
-		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.9" />
-		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.9">
+		<PackageReference Include="Microsoft.AspNetCore.SignalR.Protocols.NewtonsoftJson" Version="6.0.10" />
+		<PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="6.0.10" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="6.0.10" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.10" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.10">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.11.1" />
-		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
+		<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.0" />
+		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.10" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-		<PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.2.1" />
-		<PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.2.1" />
-		<PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="6.2.1" />
-		<PackageReference Include="Utilities.Caching" Version="7.1.3" />
-		<PackageReference Include="Utilities.Caching.AspNetCore" Version="6.6.2" />
-		<PackageReference Include="Utilities.FileExtensions" Version="2.2.2" />
+		<PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.4.0" />
+		<PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.4.0" />
+		<PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="6.4.0" />
+		<PackageReference Include="Utilities.Caching" Version="7.2.8314.39051" />
+		<PackageReference Include="Utilities.Caching.AspNetCore" Version="6.7.8314.39561" />
+		<PackageReference Include="Utilities.FileExtensions" Version="3.5.8236.50077" />
 		<PackageReference Include="Utilities.Logging" Version="6.5.7" />
 		<PackageReference Include="Microsoft.AspNetCore.SignalR" Version="1.1.0" />
 	</ItemGroup>
@@ -63,20 +63,6 @@
 		<None Remove="CEATSiiApp\src\app\top\encounter\" />
 		<None Remove="CEATSiiApp\src\app\top\game\" />
 		<None Remove="Microsoft.AspNetCore.SignalR" />
-		<Content Remove="wwwroot\dist\CEATSiiApp\favicon.ico" />
-		<Content Remove="wwwroot\dist\CEATSiiApp\polyfills.js.map" />
-		<Content Remove="wwwroot\dist\CEATSiiApp\index.html" />
-		<Content Remove="wwwroot\dist\CEATSiiApp\runtime.js" />
-		<Content Remove="wwwroot\dist\CEATSiiApp\main.js.map" />
-		<Content Remove="wwwroot\dist\CEATSiiApp\polyfills.js" />
-		<Content Remove="wwwroot\dist\CEATSiiApp\styles.js.map" />
-		<Content Remove="wwwroot\dist\CEATSiiApp\vendor.js" />
-		<Content Remove="wwwroot\dist\CEATSiiApp\main.js" />
-		<Content Remove="wwwroot\dist\CEATSiiApp\scripts.js" />
-		<Content Remove="wwwroot\dist\CEATSiiApp\runtime.js.map" />
-		<Content Remove="wwwroot\dist\CEATSiiApp\scripts.js.map" />
-		<Content Remove="wwwroot\dist\CEATSiiApp\styles.js" />
-		<Content Remove="wwwroot\dist\CEATSiiApp\vendor.js.map" />
 	</ItemGroup>
 
 
@@ -237,6 +223,12 @@
 	</ItemGroup>
 	<ItemGroup>
 	  <None Include="compilerconfig.json" />
+	  <None Include="wwwroot\dist\CEATSiiApp\main.js.map" />
+	  <None Include="wwwroot\dist\CEATSiiApp\polyfills.js.map" />
+	  <None Include="wwwroot\dist\CEATSiiApp\runtime.js.map" />
+	  <None Include="wwwroot\dist\CEATSiiApp\scripts.js.map" />
+	  <None Include="wwwroot\dist\CEATSiiApp\styles.js.map" />
+	  <None Include="wwwroot\dist\CEATSiiApp\vendor.js.map" />
 	</ItemGroup>
 	<PropertyGroup Condition="'$(Configuration)' == 'Debug'">
 	</PropertyGroup>

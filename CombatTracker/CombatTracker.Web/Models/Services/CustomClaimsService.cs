@@ -1,5 +1,5 @@
-﻿using IdentityModel;
-using IdentityServer4.Services;
+﻿using Duende.IdentityServer.Services;
+using IdentityModel;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;

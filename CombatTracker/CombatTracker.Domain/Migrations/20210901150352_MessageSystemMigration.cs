@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
+using System;
 
 namespace CombatTracker.Domain.Migrations
 {
@@ -6,6 +7,9 @@ namespace CombatTracker.Domain.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+
+            Console.WriteLine("Applying Migration MessageSystemMigration");
+
             migrationBuilder.CreateTable(
                 name: "Messages",
                 columns: table => new

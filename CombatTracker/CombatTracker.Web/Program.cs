@@ -19,31 +19,37 @@ namespace CombatTracker.Web
         {
             var host = CreateHostBuilder(args).Build();
 
-            using (var scope = host.Services.CreateScope())
-            {
-                var services = scope.ServiceProvider;
-                try
-                {
-                    var context = services.GetRequiredService<TrackerContext>();
-                    context.Database.Migrate();
-                    //DbInitializer.Initialize(context);
+            //using (var scope = host.Services.CreateScope())
+            //{
+            //    var services = scope.ServiceProvider;
+            //    try
+            //    {
+            //        Console.WriteLine("Getting Tracker Context");
+            //        var context = services.GetRequiredService<TrackerContext>();
+            //        Console.WriteLine("Migrating Tracker Context");
+            //        context.Database.Migrate();
+            //        //DbInitializer.Initialize(context);
 
-                    // requires using Microsoft.Extensions.Configuration;
-                    var config = host.Services.GetRequiredService<IConfiguration>();
-                    // Set password with the Secret Manager tool.
-                    // dotnet user-secrets set SeedUserPW <pw>
+            //        // requires using Microsoft.Extensions.Configuration;
+            //        Console.WriteLine("Getting Configuration");
+            //        var config = host.Services.GetRequiredService<IConfiguration>();
+            //        // Set password with the Secret Manager tool.
+            //        // dotnet user-secrets set SeedUserPW <pw>
 
-                    var testUserPw = config["SeedUserPW"];
-                    testUserPw = testUserPw ?? "testPassword1!";
+            //        var testUserPw = config["SeedUserPW"];
+            //        testUserPw = testUserPw ?? "testPassword1!";
 
-                    SeedData.Initialize(services, testUserPw).Wait();
-                }
-                catch (Exception ex)
-                {
-                    var logger = services.GetRequiredService<ILogger<Program>>();
-                    logger.LogError(ex, "An error occurred while seeding the database.");
-                }
-            }
+            //        Console.WriteLine("Seeding Data");
+            //        SeedData.Initialize(services, testUserPw).Wait();
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        Console.WriteLine("Hmm an error has occurred in db initilization");// + ex.ToString());
+            //        Console.WriteLine("");
+            //        var logger = services.GetRequiredService<ILogger<Program>>();
+            //        logger.LogError(ex, "An error occurred while seeding the database.");
+            //    }
+            //}
 
             host.Run();
         }

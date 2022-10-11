@@ -1,16 +1,8 @@
 ﻿using CombatTracker.Domain;
 using CombatTracker.Entities.Security;
-using CombatTracker.Web.Models.Services;
 using CombatTracker.Web.Models.Settings;
-using IdentityServer4.Services;
-using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.DependencyInjection.Extensions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace CombatTracker.Web.Configuration
 {

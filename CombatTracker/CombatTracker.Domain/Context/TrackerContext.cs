@@ -10,21 +10,30 @@ using CombatTracker.Domain.Reference.Creatures.Charts;
 using CombatTracker.Domain.Reference.Magic;
 using CombatTracker.Domain.Reference.Players;
 using Microsoft.EntityFrameworkCore;
-using IdentityServer4.EntityFramework.Options;
 using Microsoft.AspNetCore.ApiAuthorization.IdentityServer;
 using Microsoft.Extensions.Options;
 using CombatTracker.Entities.Security;
+using Duende.IdentityServer.EntityFramework.Options;
 
 namespace CombatTracker.Domain
 {
 
     public partial class TrackerContext : ApiAuthorizationDbContext<ApplicationUser>
     {
-        public TrackerContext(
-            DbContextOptions options,
-            IOptions<OperationalStoreOptions> operationalStoreOptions) : base(options, operationalStoreOptions)
+        public TrackerContext(DbContextOptions options, IOptions<OperationalStoreOptions> operationalStoreOptions) : base(options, operationalStoreOptions)
         {
         }
+
+        //public TrackerContext(DbContextOptions options, IOptions<OperationalStoreOptions> operationalStoreOptions) : base(options, operationalStoreOptions)
+        //{
+        //}
+
+        //public TrackerContext(
+        //    DbContextOptions options,
+        //    IOptions<OperationalStoreOptions> operationalStoreOptions) : base(options, operationalStoreOptions)
+        //{
+        //}
+
 
         //public TrackerContext(DbContextOptions<TrackerContext> options)
         //    : base(options)

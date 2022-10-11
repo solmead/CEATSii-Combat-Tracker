@@ -611,7 +611,8 @@ namespace CombatTracker.Services.Services
             act.Name = "Spell: " + act.Name + " cast";
             if (effectedActor != null)
             {
-                act.Note = "on " + effectedActor.Name;
+                //act.Note = "on " + effectedActor.Name;
+                act.Note = "by " + caster.Name;
             }
 
             _gameRepository.SaveAction(act);
