@@ -1,6 +1,6 @@
 ﻿<div *ngIf="creature">
     <fieldset>
-        <legend>{{creature?.name}}</legend>
+        <legend>{{creature?.typeName}}</legend>
         <form #charForm="ngForm">
             <div class="row">
                 <div class="form-group col-sm-6">
@@ -217,7 +217,7 @@
                 </button>
 
                 <button class="btn btn-danger" [disabled]="charForm.invalid"
-                        (click)="saveCharacter()">
+                        (click)="saveCreature()">
                     Save
                 </button>
 

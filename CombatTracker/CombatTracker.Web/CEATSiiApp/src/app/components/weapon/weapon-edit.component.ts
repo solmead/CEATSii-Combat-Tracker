@@ -22,9 +22,9 @@ export class WeaponEditComponent {
 
     }
 
-    //get isRolemaster(): boolean {
-    //    return this.encounterService.systemSettings.gameSystem == GameType.RMSS;
-    //}
+    get isRolemaster(): boolean {
+        return this.encounterService.currentGame?.gameType == GameType.RMSS;
+    }
 
     delete() {
         this.onDelete.emit(this.weapon);

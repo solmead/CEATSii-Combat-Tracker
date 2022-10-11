@@ -31,9 +31,9 @@ export class CreatureEditComponent {
 
     }
 
-    //get isRolemaster(): boolean {
-    //    return this.encounterService.systemSettings.gameSystem == GameType.RMSS;
-    //}
+    get isRolemaster(): boolean {
+        return this.encounterService.currentGame?.gameType == GameType.RMSS;
+    }
 
     get hasCurrentGame(): boolean {
         return (this.encounterService.currentGame != null);

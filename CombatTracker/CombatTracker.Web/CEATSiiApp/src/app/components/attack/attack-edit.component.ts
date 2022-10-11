@@ -21,7 +21,7 @@ export class AttackEditComponent {
     /** ArmorEdit ctor */
     constructor(private combatRepo: CombatRepository,
         private encounterService: EncounterService,
-        private referencesService: ReferencesService) {
+        public referencesService: ReferencesService) {
 
     }
 

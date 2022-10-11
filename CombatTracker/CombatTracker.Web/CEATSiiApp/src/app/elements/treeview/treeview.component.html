@@ -6,7 +6,8 @@
     </div>
 </div>
 <ng-template #treeViewList let-list let-role='role' let-treeid="treeid" let-parentid="parentid" let-lid="lid">
-    <ul [attr.role]="role" id="treeView_ul_{{treeid}}_{{parentid}}" [attr.aria-labelledby]="this['tree_view_'+treeid]" *ngIf="isChildrenExists(list)" #ultags>
+    <!--[attr.aria-labelledby]="this['tree_view_'+treeid]"-->
+    <ul [attr.role]="role" id="treeView_ul_{{treeid}}_{{parentid}}" *ngIf="isChildrenExists(list)" #ultags>
         <li *ngFor="let item of list;let i=index"
             [id]="getTreeItemId(item,treeid)"
             [attr.data-code]="item[model.cid]"
