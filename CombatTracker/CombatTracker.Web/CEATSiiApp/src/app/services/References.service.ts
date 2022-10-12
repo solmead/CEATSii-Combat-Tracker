@@ -18,7 +18,8 @@ import { WeaponType } from '@/entities';
 import { Book } from '@/entities';
 import { PsychicRefractoryPeriodEntry } from '@/entities';
 import { iTreeNode } from '@/elements/treeview/itreenode';
-import { MutexLock, whenTrue } from '../_helpers/Tasks';
+import { MutexLock } from '@/_helpers/Lock';
+import { whenTrue } from '@/_helpers/Tasks';
 
 export class treeEntry implements iTreeNode {
 

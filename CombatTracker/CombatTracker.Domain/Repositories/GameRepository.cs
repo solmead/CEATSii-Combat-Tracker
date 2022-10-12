@@ -513,9 +513,9 @@ namespace CombatTracker.Domain.Repositories
                             }).ToList();
                 list = list.OrderBy((a) => a.EndTime).ToList();
                 //list.Sort((x, y) => x.EndTime.CompareTo(y.EndTime));
-
-                var min = list.First().EndTime;
-                var max = list.Last().EndTime;
+                
+                var min = list?.FirstOrDefault()?.EndTime ?? 0;
+                var max = list?.LastOrDefault()?.EndTime ?? 0;
                 var range = max - min;
 
                 list.ForEach((g) =>

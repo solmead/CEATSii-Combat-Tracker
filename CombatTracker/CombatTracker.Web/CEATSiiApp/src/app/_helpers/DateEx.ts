@@ -6,6 +6,7 @@ declare global {
     interface Date {
         formatDate: () => string;
         formatTime: (hideMs?: boolean) => string;
+        addDays(days: number): Date;
     }
 }
 
@@ -41,6 +42,7 @@ export function formatTimeSpan(ts: number) {
     if (second < 10) {
         ssecond = "0" + ssecond;
     }
+
 
     return shour + ":" + sminute + ":" + ssecond;
 }
@@ -83,9 +85,22 @@ export function formatTime(dt: Date, hideMs?: boolean) {
 
 
 
+export function getTimeCount() {
+    var Now = new Date();
+    var Cnt = Math.round(Now.getTime());
+    return Cnt;
+};
+
+
 Date.prototype.formatDate = function (): string {
     return formatDate(this);
 }
 Date.prototype.formatTime = function (hideMs?: boolean): string  {
     return formatTime(this, hideMs);
+}
+
+Date.prototype.addDays = function (days: number): Date {
+    var dat = new Date(this.valueOf());
+    dat.setDate(dat.getDate() + days);
+    return dat;
 }

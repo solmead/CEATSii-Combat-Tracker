@@ -223,12 +223,7 @@
 	</ItemGroup>
 	<ItemGroup>
 	  <None Include="compilerconfig.json" />
-	  <None Include="wwwroot\dist\CEATSiiApp\main.js.map" />
-	  <None Include="wwwroot\dist\CEATSiiApp\polyfills.js.map" />
-	  <None Include="wwwroot\dist\CEATSiiApp\runtime.js.map" />
-	  <None Include="wwwroot\dist\CEATSiiApp\scripts.js.map" />
 	  <None Include="wwwroot\dist\CEATSiiApp\styles.js.map" />
-	  <None Include="wwwroot\dist\CEATSiiApp\vendor.js.map" />
 	</ItemGroup>
 	<PropertyGroup Condition="'$(Configuration)' == 'Debug'">
 	</PropertyGroup>

@@ -1,189 +1,197 @@
 
-export class MutexLock {
+import * as Locking from './Lock'
 
-    private locked = false;
-    private lastCalled: Date = null;
-    //private refreshLock:Lock.Locker = null;
-
-    constructor(private maxLockTime?:number) {
-        //this.refreshLock = new Lock.Locker(maxLockTime);
-    }
-
-    get isLocked(): boolean {
-        var seconds = 0;
-        if (this.lastCalled) {
-            seconds = ((new Date()).getTime() - this.lastCalled.getTime()) / 1000;
-        }
-        return this.locked && seconds < this.maxLockTime;
-    }
+//module Tasks {
 
 
-    async WhenTrueAsync(func: () => boolean):Promise<void> {
-
-        var p = new Promise<void>((resolve, reject) => {
-            var startTime = new Date();
-            var check = () => {
-                if (func) {
-                    var t = func();
-                    if (t) {
-                        resolve();
-                        return;
-                    }
-                }
-                var seconds = ((new Date()).getTime() - startTime.getTime()) / 1000;
-
-                if (seconds >= this.maxLockTime) {
-                    reject("Max Wait Time for lock hit");
-                    return;
-                }
-
-                setTimeout(check, 100);
-            };
-
-
-            setTimeout(check, 100);
-        });
-        return p;
-    }
-
-    async WaitTillUnlocked(): Promise<void> {
-        await this.WhenTrueAsync(() => {
-            return !this.isLocked;
-        });
-        return;
-    }
-
-    async LockAreaAsync(func: () => Promise<void>): Promise<void> {
-        await this.BeginLock();
-        try {
-            await func();
-        } catch {
-
-        }
-
-        await this.EndLock();
-    }
-
-
-
-
-
-
-
-    async BeginLock(): Promise<void> {
-        await this.WaitTillUnlocked();
-        //await this.WhenTrueAsync(() => {
-        //    return !this.isLocked;
-        //});
-
-        if (this.isLocked) {
-            return;
-        }
-
-        this.locked = true;
-        this.lastCalled = new Date();
-
-
-    }
-
-    async EndLock(): Promise<void> {
-        this.locked = false;
-    }
-
+export interface IException {
+    message: string
 }
 
 
+export class Task<TT> {
 
-    export class RecurringTask {
+    public promise: Promise<TT> = null;
 
-        private _isRunning: boolean = false;
+    private resolveFunc: (value?: TT | PromiseLike<TT>) => void;
 
-        private refreshLock = new MutexLock(30000);
-        //private locker = new Lock.Locker();
-        private async timedCall(): Promise<void> {
-            
-            if (this.callback) {
+    constructor(private func: (cback?: (val?: TT) => void) => void) {
+        //super((resolve, reject) => {
+        //        resolveFunc = resolve;
+        //});
+
+        this.promise = new Promise<TT>((resolve) => {
+            this.resolveFunc = resolve;
+        });
+
+        if (!this.func) {
+            this.func = (rFunc: (val?: TT) => void): void => {
+                return rFunc();
+            };
+        }
+        else if (func.length === 0) {
+            var bfunc = this.func;
+            this.func = (rFunc: (val?: TT) => void) => {
+                bfunc();
+                rFunc();
+            };
+        }
+
+    }
+
+    public then = (onFulfilled: (value?: TT) => TT | PromiseLike<TT>): Promise<TT> => {
+        return this.promise.then(onFulfilled);
+    }
+
+    public start = (): void => {
+        this.func((val?: TT) => {
+            this.resolveFunc(val);
+        });
+    }
+
+
+}
+
+export interface IDebouncedTask<TT> extends Task<TT> {
+    trigger: () => void;
+    call: () => void;
+}
+
+export class RecurringTask {
+
+    private _isRunning: boolean = false;
+
+    private refreshLock: Locking.MutexLock = null; // = new Lock.MutexLock(30000);
+    //private locker = new Lock.Locker();
+    private async timedCall(): Promise<void> {
+
+        if (this.callback) {
+            if (!this.refreshLock.isLocked) {
                 await this.refreshLock.LockAreaAsync(async () => {
                     await this.callback();
                 });
-                //await this.refreshLock.BeginLock();
-                //try {
-                //this.callback();
-                //} catch {}
-                //await this.refreshLock.EndLock();
             }
-            if (this.isRunning) {
-                setTimeout(() => { this.timedCall(); }, this.timeout);
-            }
+            //await this.refreshLock.BeginLock();
+            //this.callback();
+            //await this.refreshLock.EndLock();
         }
-
-
-        constructor(private callback: () => Promise<void>, private timeout: number, private maxLockTime?: number) {
-
+        if (this.isRunning) {
+            setTimeout(() => { this.timedCall(); }, this.timeout);
         }
-
-
-        get isRunning(): boolean {
-            return this._isRunning;
-        }
-        //private set isRunning(value: boolean) {
-        //    this._isRunning = value;
-        //}
-
-        setTimeOut = (time: number): void => {
-            this.timeout = time;
-        }
-        //lock = (): void => {
-        //    this.locker.lock();
-        //}
-        //unLock = (): void => {
-        //    this.locker.unLock();
-        //}
-        //isLocked = (): boolean => {
-        //    return this.locker.isLocked();
-        //}
-        start = (): void => {
-            if (!this.isRunning) {
-                this._isRunning = true;
-                this.timedCall();
-            }
-        }
-        stop = (): void => {
-            this._isRunning = false;
-        }
-
-
-    }
-
-    export function delay(msec: number): Promise<void> {
-        return new Promise<void>((resolve) => {
-            setTimeout(resolve, msec);
-        });
     }
 
 
-
-
-
-export function whenTrue(trueFunc: () => boolean): Promise<void> {
-    if (!trueFunc || trueFunc()) {
-        return new Promise<void>((resolve) => {
-            resolve();
-        });
+    constructor(private callback: () => Promise<void>, private timeout: number, private maxLockTime: number = 30000) {
+        this.refreshLock = new Locking.MutexLock(this.maxLockTime);
     }
+
+
+    get isRunning(): boolean {
+        return this._isRunning;
+    }
+    //private set isRunning(value: boolean) {
+    //    this._isRunning = value;
+    //}
+
+    setTimeOut = (time: number): void => {
+        this.timeout = time;
+    }
+    //lock = (): void => {
+    //    this.locker.lock();
+    //}
+    //unLock = (): void => {
+    //    this.locker.unLock();
+    //}
+    //isLocked = (): boolean => {
+    //    return this.locker.isLocked();
+    //}
+    start = (): void => {
+        if (!this.isRunning) {
+            this._isRunning = true;
+            this.timedCall();
+        }
+    }
+    stop = (): void => {
+        this._isRunning = false;
+    }
+
+
+}
+
+
+
+export function runAfterWait(waitTimeMilliSeconds: number): IDebouncedTask<void> {
+
+    var t = new Task<void>((cback) => {
+        cback();
+    }) as IDebouncedTask<void>;
+
+    var timer:number = null;
+
+    var throttle = (): void => {
+        clearTimeout(timer);
+        timer = window.setTimeout(() => {
+            t.start();
+        },
+            waitTimeMilliSeconds || 500);
+    }
+
+    t.trigger = (): void => {
+        throttle();
+    }
+    t.call = (): void => {
+        clearTimeout(timer);
+        t.start();
+    }
+    return t;
+}
+
+export function debounced(): IDebouncedTask<void> {
+    var t = new Task<void>((cback) => {
+        cback();
+    }) as IDebouncedTask<void>;
+
+    t.trigger = (): void => {
+        t.start();
+    }
+    t.call = (): void => {
+        t.start();
+    }
+    return t;
+}
+//export function debouncedAtEnd(waitTimeMilliSeconds: number): IDebouncedTask<void> {
+//    var t = new Task<void>((cback) => {
+//        setTimeout(cback, waitTimeMilliSeconds);
+//    }) as IDebouncedTask<void>;
+
+
+//    t.trigger = (): void => {
+//        t.start();
+//    }
+//    t.call = (): void => {
+//        t.start();
+//    }
+
+//    return t;
+//}
+
+export function delay(msec: number): Promise<void> {
     return new Promise<void>((resolve) => {
-        var obj = new RecurringTask(async ():Promise<void> => {
-           //obj.lock();
-            if (trueFunc()) {
-                resolve();
-                obj.stop();
-            }
-            //obj.unLock();
-        }, 100);
-        obj.start();
+        setTimeout(resolve, msec);
     });
 }
 
+export function whenReady(): Promise<void> {
+    return new Promise<void>((resolve) => {
+        $(() => {
+            resolve();
+        });
+    });
+}
+
+export function whenTrue(trueFunc: () => boolean, maxLockTime: number = 60 * 60 * 1000): Promise<void> {
+    return Locking.WhenTrueAsync(trueFunc, maxLockTime);
+}
 
 
 export async function WhenAll<tRet>(list: Array<Promise<tRet>>, progressCB?: ((numFinished: number, total: number) => void)): Promise<Array<tRet>> {
@@ -193,11 +201,7 @@ export async function WhenAll<tRet>(list: Array<Promise<tRet>>, progressCB?: ((n
         p.then(() => {
             fin++;
             if (progressCB) {
-                try {
-                    progressCB(fin, tot);
-                } catch {
-
-                }
+                progressCB(fin, tot);
             }
         });
     });
@@ -206,7 +210,5 @@ export async function WhenAll<tRet>(list: Array<Promise<tRet>>, progressCB?: ((n
 
     return await Promise.all(list);
 }
-
-
 
 //}
