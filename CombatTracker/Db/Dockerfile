@@ -3,15 +3,25 @@ FROM mcr.microsoft.com/mssql/server:2019-latest
 #docker run -d --name sql_server -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=someThingComplicated1234' -p 1433:1433 mcr.microsoft.com/mssql/server:2019-latest
 
 # Create app directory
-#RUN mkdir -p /usr/src/app
-#WORKDIR /usr/src/app
+WORKDIR /usr/src/app
+
+
+#CMD /bin/bash  chmod +x entrypoint.sh
+#CMD /bin/bash  chmod 755 entrypoint.sh
+#CMD /bin/bash  chmod +x run-initilization.sh
+#CMD /bin/bash  chmod 755 run-initilization.sh
 
 # Copy initialization scripts
-COPY . / 
-#/usr/src/app
-
+COPY . /usr/src/app
+             
 # Grant permissions for the run-initialization script to be executable
-#RUN chmod +x /run-initialization.sh #/usr/src/app
+#RUN chmod +x /run-initilization.sh
+#CMD /bin/bash  chmod +x /usr/src/app/entrypoint.sh
+#CMD /bin/bash  chmod 755 /usr/src/app/entrypoint.sh
+#CMD /bin/bash  chmod +x /usr/src/app/run-initilization.sh
+#CMD /bin/bash  chmod 755 /usr/src/app/run-initilization.sh
+
+#/usr/src/app
 
 # Set environment variables, not to have to write them with docker run command
 # Note: make sure that your password matches what is in the run-initialization script 

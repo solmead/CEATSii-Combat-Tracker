@@ -1,20 +1,20 @@
-version: '3.4'
+version: '3.8'
+
+name: rmss-ceatsii
 
 services:
   rmss-db-server:
+    container_name: rmss-db-server
     build: ./Db
     volumes:
       - database-data:/var/opt/mssql
   combattracker.web:
-    image: ${DOCKER_REGISTRY-}combattrackerweb
+    image: ${DOCKER_REGISTRY-}combattracker
+    container_name: rmss-ceats
     build:
       context: .
       dockerfile: CombatTracker.Web/Dockerfile
-    ports:
-      - 8080:80
     depends_on:
       - rmss-db-server
-
-      
 volumes:
     database-data:

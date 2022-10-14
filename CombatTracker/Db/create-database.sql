@@ -8,10 +8,10 @@
     Target Database Engine Edition : Microsoft SQL Server Express Edition
     Target Database Engine Type : Standalone SQL Server
 */
-/*
+
 CREATE DATABASE [RMSSNew]
 GO
-*/
+
 USE [RMSSNew]
 GO
 /****** Object:  Table [dbo].[__EFMigrationsHistory]    Script Date: 5/19/2021 1:17:42 PM ******/
