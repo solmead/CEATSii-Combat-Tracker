@@ -6,8 +6,8 @@ services:
   rmss-db-server:
     container_name: rmss-db-server
     build: ./Db
-    volumes:
-      - database-data:/var/opt/mssql
+    ports:
+      - "1433:1433"
   combattracker.web:
     image: ${DOCKER_REGISTRY-}combattracker
     container_name: rmss-ceats
@@ -16,5 +16,3 @@ services:
       dockerfile: CombatTracker.Web/Dockerfile
     depends_on:
       - rmss-db-server
-volumes:
-    database-data:

@@ -1,27 +1,11 @@
 # We choose exact tag (not 'latest'), to be sure that new version won't break creating image
 FROM mcr.microsoft.com/mssql/server:2019-latest
-#docker run -d --name sql_server -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=someThingComplicated1234' -p 1433:1433 mcr.microsoft.com/mssql/server:2019-latest
 
 # Create app directory
 WORKDIR /usr/src/app
 
-
-#CMD /bin/bash  chmod +x entrypoint.sh
-#CMD /bin/bash  chmod 755 entrypoint.sh
-#CMD /bin/bash  chmod +x run-initilization.sh
-#CMD /bin/bash  chmod 755 run-initilization.sh
-
 # Copy initialization scripts
 COPY . /usr/src/app
-             
-# Grant permissions for the run-initialization script to be executable
-#RUN chmod +x /run-initilization.sh
-#CMD /bin/bash  chmod +x /usr/src/app/entrypoint.sh
-#CMD /bin/bash  chmod 755 /usr/src/app/entrypoint.sh
-#CMD /bin/bash  chmod +x /usr/src/app/run-initilization.sh
-#CMD /bin/bash  chmod 755 /usr/src/app/run-initilization.sh
-
-#/usr/src/app
 
 # Set environment variables, not to have to write them with docker run command
 # Note: make sure that your password matches what is in the run-initialization script 
@@ -29,9 +13,9 @@ ENV SA_PASSWORD Fair1dale!
 ENV ACCEPT_EULA Y
 ENV MSSQL_PID Express
 
-# Expose port 1433 in case accesing from other container
+# Expose port 1433 in case accessing from other container
+# Expose port externally from docker-compose.yml
 EXPOSE 1433
 
 # Run Microsoft SQl Server and initialization script (at the same time)
-# Note: If you want to start MsSQL only (without initialization script) you can comment bellow line out, CMD entry from base image will be taken
 CMD /bin/bash ./entrypoint.sh
