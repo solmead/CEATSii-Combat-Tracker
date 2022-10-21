@@ -10,29 +10,36 @@
                     Please enter a name
                 </div>
             </div>
-            <div class="form-group" style="max-width: 100px;">
+            <div class="form-group" style="max-width: 100px;" *ngIf="game.id!=null && game.id!=0">
                 <label>Current Time</label>
                 <input name="currentTime" class="form-control"
                        [(ngModel)]="game.currentTime" />
             </div>
             <div class="form-group" style="max-width: 100px;">
                 <label>System Type</label>
-                <input type="text" class="form-control" id="gameType"
-                       [(ngModel)]="game.gameTypeString" name="gameType" readonly  />
-                
+                <select class="form-control" name="selectedgameType" [(ngModel)]="game.gameType">
+                    <option *ngFor="let gtype of gameTypes" value={{gtype?.value}}>
+                        {{gtype?.name}}
+                    </option>
+                </select>
+                <!--<input type="text" class="form-control" id="gameType"
+                       [(ngModel)]="game.gameTypeString" name="gameType" readonly />-->
+
             </div>
             <div class="text-center pt-2">
-                <button class="btn btn-outline-primary pull-left" (click)="closeEdit()">
+                <!--<button class="btn btn-outline-primary pull-left" (click)="closeEdit()">
                     Back
-                </button>
+                </button>-->
 
                 <button class="btn btn-danger" [disabled]="gameForm.invalid"
                         (click)="saveGame()">
-                    Save
+                    <span *ngIf="game.id!=null && game.id!=0">Save</span>
+                    <span *ngIf="!(game.id!=null && game.id!=0)">Create</span>
                 </button>
 
                 <button class="btn btn-primary pull-right"
-                        (click)="selectEncounter()">
+                        (click)="selectEncounter()" *ngIf="game.id!=null && game.id!=0">
+                    
                     Open Encounter
                 </button>
             </div>

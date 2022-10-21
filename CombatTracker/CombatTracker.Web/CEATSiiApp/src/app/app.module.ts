@@ -34,7 +34,7 @@ import { WeaponEditComponent } from '@/components/weapon';
 import { ActionEditComponent, ActionsListComponent } from '@/components/encounter';
 import { ActionComponent } from '@/components/encounter';
 import { ActorComponent, ActorListComponent } from '@/components/actor/';
-import { ModalComponent, TreeviewComponent } from '@/elements';
+import { ModalComponent, ModalService, TreeviewComponent, TooltipDirective } from '@/elements';
 import { AlertComponent } from '@/elements';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -69,6 +69,7 @@ import { MessageListComponent } from './components/messages';
         WeaponEditComponent,
         ModalComponent,
         TreeviewComponent,
+        TooltipDirective,
         MessageListComponent,
         AttackListComponent,
         AttackEditComponent,
@@ -126,6 +127,7 @@ import { MessageListComponent } from './components/messages';
         EncounterHubService,
         AlertService,
         ReferencesService,
+        ModalService,
         //Services.AlertService,
         //Services.AuthenticationService,
         //Services.EncounterService,

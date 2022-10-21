@@ -19,6 +19,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Db", "Db", "{058799C4-416C-
 		Db\Dockerfile = Db\Dockerfile
 		Db\entrypoint.sh = Db\entrypoint.sh
 		Db\run-initialization.sh = Db\run-initialization.sh
+		Db\create-database-3_with_users.sql = Db\create-database-3_with_users.sql
 	EndProjectSection
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{5D797CC1-7A41-4073-9BF8-FE61E6A9E28F}"

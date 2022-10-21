@@ -47,6 +47,7 @@ export class ModalComponent implements OnInit, OnDestroy {
     // open modal
     open(): void {
         //this.dialog.dialog("open");
+
         this.element.show();
         this.element.children().show();
         $('body').addClass('modal-open');

@@ -3,6 +3,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Game } from '@/entities';
 import { GamesRepository } from '@/repositories';
 import { EncounterService } from "@/services";
+import { EnumEx } from "@/_helpers";
 import * as Enums from '@/entities/EnumDefinitions'
 import GameType = Enums.EnumDefinitions.GameType;
 
@@ -26,10 +27,22 @@ export class GameEditComponent {
 
     }
 
+
+    get gameTypes() {
+
+        var gtype: GameType = GameType.RMSS;
+
+        var dta = EnumEx.getNamesAndValues<number>(GameType);
+        //debugger;
+
+        return dta;
+    }
+
     saveGame = async () => {
         //if (!this.game.id && this.encounterService.systemSettings != null) {
         //    this.game.gameType = this.encounterService.systemSettings.gameSystem;
         //}
+
         var g = await this.gamesRepo.saveGameAsync(this.game);
         if (!this.game.id) {
             this.game.id = g.id;

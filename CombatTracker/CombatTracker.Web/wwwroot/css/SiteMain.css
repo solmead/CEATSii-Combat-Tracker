@@ -385,12 +385,13 @@ code {
 }
 .iconArea,
 .iconAreaText {
-  background: white;
-  border-radius: 3px;
-  display: inline-block;
-  border: 1px solid white;
-  border: 1px solid black;
-  box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.35);
+    background: white;
+    border-radius: 3px;
+    display: inline-block;
+    border: 1px solid white;
+    border: 1px solid black;
+    box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.35);
+    cursor: pointer;
 }
 .iconArea .material-icons,
 .iconAreaText .material-icons {
@@ -438,6 +439,7 @@ code {
   border: 1px solid black;
   background: black;
   color: white;
+  cursor: pointer;
 }
 .combatant .iconArea.hasted,
 .combatant .iconAreaText.hasted {
@@ -693,4 +695,102 @@ alert {
 .tree-view ul li[data-isSelected="true"] > .treeNodeText {
   border: 1px solid black;
   background: whitesmoke;
+}
+
+
+.tooltip-container {
+    text-align: center;
+    z-index: 100;
+    position: fixed;
+    padding: 6px 12px;
+    font-size: 0.86rem;
+    font-weight: 600;
+    line-height: initial;
+    color: white;
+    width: auto;
+    background: #111111ee;
+    box-sizing: border-box;
+    opacity: 0;
+    transform: translate(-50%, -30%);
+    animation: tooltip-slide 0.18s ease-out 0.5s;
+    animation-fill-mode: forwards;
+    pointer-events: none;
+    cursor: default;
+    border-radius: 5px;
+}
+
+
+
+
+@keyframes tooltip-slide {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -30%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+}
+
+/* MODAL STYLES
+-------------------------------*/
+modal {
+    /* modals are hidden by default */
+    display: none;
+}
+
+    modal .modal {
+        /* modal container fixed across whole screen */
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        /* z-index must be higher than .modal-background */
+        z-index: 1000;
+        /* enables scrolling for tall modals */
+        overflow: auto;
+    }
+
+
+        modal .modal .modal-content {
+            /*margin: auto;*/
+            /*margin-top: 40px;*/
+
+            z-index: 1000;
+            /* margin-top: 40px; */
+            position: absolute;
+            top: 50%;
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%) translateX(-50%);
+            /* margin: auto; */
+            left: 50%;
+        }
+
+        modal .modal .modal-body {
+            padding: 20px;
+            background: #fff;
+            /* margin exposes part of the modal background */
+            margin: 40px;
+        }
+
+    modal .modal-background {
+        /* modal background fixed across whole screen */
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        /* semi-transparent black  */
+        background-color: #000;
+        opacity: 0.75;
+        /* z-index must be below .modal and above everything else  */
+        z-index: 900;
+    }
+
+body.modal-open {
+    /* body overflow is hidden to hide main scrollbar when modal window is open */
+    overflow: hidden;
 }

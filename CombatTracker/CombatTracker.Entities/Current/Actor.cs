@@ -38,11 +38,11 @@ namespace CombatTracker.Entities.Current
             get
             {
                 var dmg = ((1.0 * HitsRemaining) / (1.0 * HitsTotal))*100;
-                if (dmg>=100)
+                if (dmg>=75)
                 {
                     return DamageLevel.Healthy;
                 }
-                if (dmg >= 66)
+                if (dmg >= 54)
                 {
                     return DamageLevel.Winded;
                 }

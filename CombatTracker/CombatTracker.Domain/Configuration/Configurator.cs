@@ -80,7 +80,7 @@ namespace CombatTracker.Domain.Configuration
             testUserPw = testUserPw ?? "testPassword1!";
 
             Console.WriteLine("Seeding Data");
-            await InitializeUsers(serviceProvider, testUserPw);
+            //await InitializeUsers(serviceProvider, testUserPw);
 
 
         }

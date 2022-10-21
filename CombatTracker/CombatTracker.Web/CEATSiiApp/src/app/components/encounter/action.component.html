@@ -34,20 +34,20 @@
     </div>
     <div class="row">
         <div class="col-1 hasteArea">
-            <span class="hasted iconArea" *ngIf="isCurrent && whoIsActing.percentAction > 100">
+            <span class="hasted iconArea" *ngIf="isCurrent && whoIsActing.percentAction > 100"[tooltip]="'Hasted'">
                 <i class='material-icons'>directions_run</i>
             </span>
-            <span class="slowed iconArea" *ngIf="isCurrent && whoIsActing.percentAction < 100">
+            <span class="slowed iconArea" *ngIf="isCurrent && whoIsActing.percentAction < 100"[tooltip]="'Slowed'">
                 <i class='material-icons'>slow_motion_video</i>
             </span>
         </div>
         <div class="col-1 suprisedArea">
-            <span class="suprised iconArea" *ngIf="isCurrent && whoIsActing.suprised">
+            <span class="suprised iconArea" *ngIf="isCurrent && whoIsActing.suprised" [tooltip]="'Suprised'">
                 <i class='material-icons'>alarm</i>
             </span>
         </div>
         <div class="col-2 stunArea">
-            <span class="stun iconAreaText" *ngIf="isCurrent && currentCrits.isStunned"><i class='material-icons'>emergency</i><span class="textMod">->{{whoIsActing.stunRounds}}</span></span>
+            <span class="stun iconAreaText" *ngIf="isCurrent && currentCrits.isStunned" [tooltip]="'Stunned'"><i class='material-icons'>emergency</i><span class="textMod">->{{whoIsActing.stunRounds}}</span></span>
         </div>
         <div class="col-6">
             <div>
@@ -71,18 +71,18 @@
     </div>
     <div class="row">
         <div class="col-1">
-            <span class="concentrating iconArea" *ngIf="isCurrent && whoIsActing.isConcentrating">
+            <span class="concentrating iconArea" *ngIf="isCurrent && whoIsActing.isConcentrating" [tooltip]="'Concentrating'">
                 <i class='material-icons'>emoji_objects</i>
             </span>
         </div>
         <div class="col-1">
-            <span class="adrenal iconArea" *ngIf="isCurrent && whoIsActing.usingAdrenalDB">
+            <span class="adrenal iconArea" *ngIf="isCurrent && whoIsActing.usingAdrenalDB" [tooltip]="'Adrenal DB'">
                 <i class='material-icons'>run_circle</i>
             </span>
         </div>
         <div class="col-2">
-            <span class="mustParry iconAreaText" *ngIf="isCurrent && isMustParry"><i class='material-icons'>error</i><span class="textMod">->{{whoIsActing.parryRounds}}</span></span>
-            <span class="noParry iconAreaText" *ngIf="isCurrent && isNoParry"><i class='material-icons'>priority_high</i><span class="textMod">->{{whoIsActing.parryRounds}}</span></span>
+            <span class="mustParry iconAreaText" *ngIf="isCurrent && isMustParry" [tooltip]="'Must Parry'"><i class='material-icons'>error</i><span class="textMod">->{{whoIsActing.parryRounds}}</span></span>
+            <span class="noParry iconAreaText" *ngIf="isCurrent && isNoParry" [tooltip]="'No Parry'"><i class='material-icons'>priority_high</i><span class="textMod">->{{whoIsActing.parryRounds}}</span></span>
         </div>
         <div class="col-6">
             <div *ngIf="isCurrent">Weapon-> {{currentWeapon}}</div>
