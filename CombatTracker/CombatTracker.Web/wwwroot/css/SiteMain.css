@@ -270,11 +270,12 @@ code {
 .actorListArea {
   flex-shrink: 1;
   min-height: 6rem;
-  margin: 0px 0 0px 5px;
+  margin: 0px;
 }
 .actorListHeader {
-  max-height: 10%;
-  margin: 0;
+    max-height: 10%;
+    margin: 0;
+    padding: 5px;
 }
 .actorListHeader .btn-sm {
   font-size: 12px;
@@ -565,6 +566,7 @@ code {
   flex: 0 0 20%;
   max-width: 20%;
   padding-right: 0;
+  padding-left:0;
 }
 .fullView .columnCenter {
   flex: 0 0 55%;
@@ -572,16 +574,16 @@ code {
   padding: 0;
 }
 .fullView .columnRight {
-  padding-left: 0;
-  padding-right: 4px;
+    padding-right: 0;
+    padding-left: 0;
 }
 alert {
   display: inline-block;
 }
 .messageListArea {
-  margin: 1%;
-  height: 92%;
-  padding: 1%;
+    margin: 5px;
+    height: 92%;
+    padding: 5px;
 }
 .messageListArea .list {
   height: 100%;
@@ -601,9 +603,9 @@ alert {
   font-weight: bold;
 }
 .actionEditArea {
-  margin: 1%;
-  height: 92%;
-  padding: 1%;
+    margin: 5px;
+    height: 92%;
+    padding: 5px;
 }
 .actionEditArea > h2 {
   height: 10%;

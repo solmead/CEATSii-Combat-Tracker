@@ -20,7 +20,8 @@
             role="treeitem"
             #options [attr.aria-expanded]="collapsedState(item)">
             <div class="treeNodeText" (click)="toggleSelection($event,item)">
-                <i class='material-icons' [id]="getIconId(item,treeid)">{{getExpandCollapseClass(item)}}</i><span class="tree-item-label">{{item[model.lid]}}</span>
+                <i class='material-icons' [id]="getIconId(item,treeid)">{{getExpandCollapseClass(item)}}</i><span class="tree-item-label">{{item[model.lid]}}<ng-container *ngTemplateOutlet="tmplRef;
+            context: {$implicit: item, item2: model}"></ng-container></span>
             </div>
             <ng-container *ngTemplateOutlet="treeViewList; context:{ $implicit: item.children,role:'group',treeid:model.treeNodeId,parentid:item.code  }">
             </ng-container>

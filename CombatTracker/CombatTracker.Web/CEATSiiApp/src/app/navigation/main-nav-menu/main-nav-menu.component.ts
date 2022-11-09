@@ -38,7 +38,7 @@ export class MainNavMenuComponent {
 
         this.selectedGame = new Game();
         this.selectedGame.gM_ID = this.currentUser.id;
-        debugger;
+        //debugger;
         this.modalService.open('createGame-modal');
 
     }
@@ -61,18 +61,6 @@ export class MainNavMenuComponent {
 
     //(openEvent)="" (closedEvent)="">
     //[game]="selectedGame" (onDelete)="" (onSave)=""
-
-    onOpen(): void {
-
-    }
-
-    onClosed(): void {
-
-    }
-
-    onDelete(): void {
-
-    }
 
     async onSave(): Promise<void> {
         this.modalService.close('createGame-modal');

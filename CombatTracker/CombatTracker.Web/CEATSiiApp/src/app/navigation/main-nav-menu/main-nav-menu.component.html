@@ -30,6 +30,6 @@
       <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
     </li>-->
 </ul>
-<modal id="createGame-modal" title="Create New Encounter" width="30%" (openEvent)="onOpen()" (closedEvent)="onClosed()">
-    <app-game-edit [game]="selectedGame" (onDelete)="onDelete()" (onSave)="onSave()"></app-game-edit>
+<modal id="createGame-modal" title="Create New Encounter" width="30%">
+    <app-game-edit [game]="selectedGame" (onSave)="onSave()"></app-game-edit>
 </modal>

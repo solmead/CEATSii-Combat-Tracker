@@ -1,6 +1,9 @@
 ﻿import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { Actor, Attack, BaseAction, Message } from '@/entities';
+import { ChangeDetectorRef } from '@angular/core';
+import { Router } from '@angular/router';
+import { Actor, Attack, BaseAction, Message, Game } from '@/entities';
 import { AuthenticationService, EncounterService, treeEntry } from '@/services';
+import { ModalService } from '@/elements/modal/modal.service';
 import { ActivatedRoute } from '@angular/router';
 import { EnumDefinitions } from '@/entities/EnumDefinitions';
 import ViewTypeEnum = EnumDefinitions.ViewTypeEnum;
@@ -25,12 +28,14 @@ export class EncounterComponent implements OnInit, OnChanges {
 
     /** encounter ctor */
     constructor(public gameView: EncounterService,
+        private ref: ChangeDetectorRef,
         private _route: ActivatedRoute,
-        private _userService: AuthenticationService    ) {
+        private _userService: AuthenticationService,
+        private modalService: ModalService,
+        private router: Router     ) {
         this._route.paramMap.subscribe(params => {
             let id = params.get('id');
-            //debugger;
-            this.gameView.selectGameAsync(parseInt(id));
+            this.idChangeEvent(id);
         })
         this.ngInit();
 
@@ -41,6 +46,19 @@ export class EncounterComponent implements OnInit, OnChanges {
     ngOnInit(): void {
 
 
+    }
+
+    private async idChangeEvent(id:string): Promise<void> {
+
+        //debugger;
+        await this.gameView.selectGameAsync(parseInt(id));
+        this._currentActionTree = await this.gameView.currentActionTreeAsync();
+        this.ref.markForCheck();
+
+    }
+
+    public get game(): Game {
+        return this.gameView.currentGame;
     }
 
     public get currentActionTree(): treeEntry {
@@ -64,6 +82,20 @@ export class EncounterComponent implements OnInit, OnChanges {
     get messages(): Array<Message> {
         return this.gameView.allMessages;
     }
+
+    get isGM(): boolean {
+        return this.viewType == ViewTypeEnum.GM;
+    }
+
+    get isPlayer(): boolean {
+        return this.viewType == ViewTypeEnum.Player;
+    }
+
+    get isViewOnly(): boolean {
+        return this.viewType == ViewTypeEnum.Overview;
+    }
+
+
     get actions(): Array<BaseAction> {
         var acts = this.gameView.actions;
 
@@ -105,39 +137,13 @@ export class EncounterComponent implements OnInit, OnChanges {
         }
     }
 
-
-
-    async addDamage() {
-
-    }
-
-    async addSpell() {
-
-    }
-
-    async addStunned() {
-
-    }
-
-    async rollD100Open() {
-
-    }
-
-    async rollD100() {
-
-    }
-    async resetEncounter() {
-
-    }
-
-
     async onDoAction(action: BaseAction): Promise<void> {
         if (this.isGM) {
-            var cur = action.whoIsActing.isActive;
-            await this.gameView.doProposedActionAsync(action.whoIsActing);
-            if (cur) {
-                await this.gameView.moveToNextAsync();
-            }
+            //var cur = action.whoIsActing.isActive;
+            //await this.gameView.doProposedActionAsync(action.whoIsActing);
+            //if (cur) {
+            //    await this.gameView.moveToNextAsync();
+            //}
             
             this._currentActionTree = await this.gameView.currentActionTreeAsync();
         }
@@ -145,11 +151,11 @@ export class EncounterComponent implements OnInit, OnChanges {
 
     async onProposeAction(action:ProposeAction): Promise<void> {
         if (this.isGM) {
-            var act = await this.gameView.proposeActionAsync(action.actor, action.action, action.attack, action.modifier);
+            //var act = await this.gameView.proposeActionAsync(action.actor, action.action, action.attack, action.modifier);
 
-            //await delay(100);
+            ////await delay(100);
 
-            this.gameView.selectedAction = act;
+            //this.gameView.selectedAction = act;
 
             this._currentActionTree = await this.gameView.currentActionTreeAsync();
         }
@@ -181,18 +187,6 @@ export class EncounterComponent implements OnInit, OnChanges {
             this.gameView.selectedAction = action;
             this._currentActionTree = await this.gameView.currentActionTreeAsync();
         }
-    }
-
-    get isGM(): boolean {
-        return this.viewType == ViewTypeEnum.GM;
-    }
-
-    get isPlayer(): boolean {
-        return this.viewType == ViewTypeEnum.Player;
-    }
-
-    get isViewOnly(): boolean {
-        return this.viewType == ViewTypeEnum.Overview;
     }
 
 

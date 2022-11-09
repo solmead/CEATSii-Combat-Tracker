@@ -15,19 +15,30 @@
 
             </div>
         </div>
-        <div class="container" style="text-align: center; display: block;"><alert style=""></alert></div>
+        <div class="container" style="text-align: left; display: block; position: relative;">
+
+            <div style="display:inline-block; text-align:left;">
+                <app-encounter-header></app-encounter-header>
+            </div>
+            <div style="display:inline-block; text-align:center;">
+                <alert style=""></alert>
+            </div>
+            <div *ngIf="isGM" style="position: absolute; top: 0; right:0;">
+                <button class="btn btn-info btn-sm" style="margin-right: 10px;" (click)="rollD100Open()">
+                    <i class='material-icons'>auto_awesome</i> Roll D100 Open
+                </button>
+                <button class="btn btn-info btn-sm" (click)="rollD100()">
+                    <i class='material-icons'>auto_awesome</i> Roll D100
+                </button>
+            </div>
+        </div>
     </nav>
 </header>
 
 <div class="mainbody">
     <main role="main" class="clear h-100" style="">
-
         <div class="h-100" style="position:relative;">
             <div class='apparea'>
-                <!--<div class='menu-column'>
-                  <div class="displayInfo"></div>
-                  <side-nav-menu></side-nav-menu>
-                </div>-->
                 <div class='body-content'>
                     <router-outlet></router-outlet>
                 </div>
@@ -38,6 +49,6 @@
 
 <footer class="border-top footer text-muted" style="height: 10%!important;">
     <div class="container h-100">
-        &copy; 2021 Solmead Productions - CEATSii - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        &copy; 2022 Solmead Productions - CEATSii - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
     </div>
 </footer>

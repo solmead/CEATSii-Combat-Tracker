@@ -191,8 +191,8 @@ export class EncounterRepository {
 	}
 
 	public createActorFromCharacter = (characterId: number, rolledInit: number) : Observable<Actor> => {
-        characterId = (characterId == null ? <number><any>"" : characterId);
-        rolledInit = (rolledInit == null ? <number><any>"" : rolledInit);
+        characterId = characterId ?? <number><any>"";
+        rolledInit = rolledInit ?? <number><any>"";
         
             var _Url = `api/v${version}/Encounter/CreateActorFromCharacter/${characterId}?rolledInit=${rolledInit}`;
 
@@ -760,6 +760,67 @@ export class EncounterRepository {
                         catchError(this.handleError)
                 );
 	};
+
+
+
+    //[HttpPost("ResetCurrentEncounter")]
+    //[HttpPost("DeleteCurrentEncounter")]
+
+    public deleteCurrentEncounterAsync = (): Promise<void> => {
+
+        return new Promise<void>((resolve, reject) => {
+            this.deleteCurrentEncounter()
+                .subscribe((res) => {
+                    resolve(res);
+                }, (error: string) => {
+                    this._alertService.error(error);
+                    resolve(null);
+                });
+
+        });
+    }
+
+    public deleteCurrentEncounter = (): Observable<void> => {
+
+        var _Url = `api/v${version}/Encounter/DeleteCurrentEncounter`;
+
+        return this._httpClient.post<void>(_Url, null)
+            .pipe(
+                map((data) => {
+
+                    return data;
+                }),
+                catchError(this.handleError)
+            );
+    };
+    public resetCurrentEncounterAsync = (): Promise<void> => {
+
+        return new Promise<void>((resolve, reject) => {
+            this.resetCurrentEncounter()
+                .subscribe((res) => {
+                    resolve(res);
+                }, (error: string) => {
+                    this._alertService.error(error);
+                    resolve(null);
+                });
+
+        });
+    }
+
+    public resetCurrentEncounter = (): Observable<void> => {
+
+        var _Url = `api/v${version}/Encounter/ResetCurrentEncounter`;
+
+        return this._httpClient.post<void>(_Url, null)
+            .pipe(
+                map((data) => {
+
+                    return data;
+                }),
+                catchError(this.handleError)
+            );
+    };
+
 
     
     // Utility

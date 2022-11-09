@@ -72,5 +72,6 @@ namespace CombatTracker.Entities.Abstract.Services
         List<Message> GetMessages();
 
 
+        void ResetGame();
     }
 }

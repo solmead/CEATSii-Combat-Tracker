@@ -196,6 +196,17 @@ namespace CombatTracker.Web.Controllers.Api
             _gameService.SetAttackOnAction(action, attackId);
         }
 
+        [HttpPost("ResetCurrentEncounter")]
+        public void ResetCurrentEncounter() {
+            _gameService.ResetGame();
+        }
+
+        [HttpPost("DeleteCurrentEncounter")]
+        public void DeleteCurrentEncounter() {
+            _gameRepository.DeleteGame(GetCurrentGame());
+            _gameService.CurrentGame = null;
+
+        }
 
     }
 }

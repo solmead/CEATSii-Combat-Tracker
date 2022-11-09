@@ -1,4 +1,4 @@
-﻿import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnChanges, OnInit, Output, QueryList, SimpleChanges, ViewChildren } from '@angular/core';
+﻿import { AfterViewInit, Component, ElementRef, TemplateRef, EventEmitter, Input, OnChanges, OnInit, Output, ContentChild, QueryList, SimpleChanges, ViewChildren } from '@angular/core';
 import { whenTrue } from '../../_helpers';
 import { iTreeNode } from './itreenode';
 import { TreeModel, TreeNode } from './treemodel';
@@ -16,6 +16,8 @@ export class TreeviewComponent implements OnInit, OnChanges, AfterViewInit {
 
     @Input() treeModel: TreeModel;
     @Output() onSelect = new EventEmitter<TreeNode>();
+
+    @ContentChild('tmpl') tmplRef: TemplateRef<any>;
 
     TREEVIEW_SUFFIX: string = "_treeView";
     ICON_SUFFIX: string = "_icon";

@@ -912,5 +912,22 @@ namespace CombatTracker.Services.Services
             return action;
 
         }
+
+        public void ResetGame()
+        {
+            var game = CurrentGame;
+            var actors = _gameRepository.GetActors(game.ID);
+            foreach(var curact in actors) {
+                var actions = _gameRepository.GetActionsOnActor(curact);
+                foreach (var act in actions)
+                {
+                    _gameRepository.DeleteAction(act);
+                    _notificationService.OnActionRemovedNotification(CurrentGame, curact, act);
+                }
+
+                _gameRepository.DeleteActor(curact);
+                _notificationService.OnActorRemovedNotification(CurrentGame, curact);
+            }
+        }
     }
 }

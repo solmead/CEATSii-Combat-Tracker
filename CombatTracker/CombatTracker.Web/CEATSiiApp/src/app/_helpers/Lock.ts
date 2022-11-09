@@ -73,7 +73,7 @@ export class MutexLock {
 
 
 
-    async BeginLock(): Promise<void> {
+    private async BeginLock(): Promise<void> {
         await this.WaitTillUnlocked();
         //await this.WhenTrueAsync(() => {
         //    return !this.isLocked;
@@ -90,7 +90,7 @@ export class MutexLock {
 
     }
 
-    async EndLock(): Promise<void> {
+    private async EndLock(): Promise<void> {
         this.locked = false;
     }
 

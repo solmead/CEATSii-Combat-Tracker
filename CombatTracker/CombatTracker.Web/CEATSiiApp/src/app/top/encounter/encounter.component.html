@@ -1,48 +1,32 @@
-﻿<div class="h-100"  [ngClass]="{'fullView': isGM}">
-    <div class="row h-100">
+﻿<div class="h-100" [ngClass]="{'fullView': isGM}">
+    <div class="row h-100" style="margin:0;">
+
         <div class="col-3 h-100 columnLeft" *ngIf="isGM">
             <div class="encounter-box">
                 <h2>Library</h2>
-                encounter Component
+                <app-library-list></app-library-list>
             </div>
         </div>
+
         <div class="h-100 columnCenter" [ngClass]="{'col-6': isGM,
                                        'col-7': !isGM}">
+
+
             <div class=" actorListArea h-50">
                 <h2 class="actorListHeader">
-                    <span *ngIf="isGM" style="float:right; display:block;">
-                        <button class="btn btn-warning btn-sm" (click)="addDamage()">
-                            <i class='material-icons'>stars</i> Add Damage
-                        </button>
-                        <button class="btn btn-success btn-sm" (click)="addSpell()">
-                            <i class='material-icons'>supervised_user_circle</i> Cast Spell/Psychic
-                        </button>
-                        <button class="btn btn-success btn-sm" (click)="addStunned()">
-                            <i class='material-icons'>run_circle</i> Add Stunned Maneuvering
-                        </button>
-                        <button class="btn btn-info btn-sm" (click)="rollD100Open()">
-                            <i class='material-icons'>auto_awesome</i> Roll D100 Open
-                        </button>
-                        <button class="btn btn-info btn-sm" (click)="rollD100()">
-                            <i class='material-icons'>auto_awesome</i> Roll D100
-                        </button>
-                        <button class="btn btn-danger btn-sm" (click)="resetEncounter()">
-                            <i class='material-icons'>settings_backup_restore</i> Reset Encounter
-                        </button>
-                    </span>
                     Actors
                 </h2>
                 <div class="h-90">
                     <actor-list [actors]="actors" [viewType]="viewType" [isSelectable]="isGM" (onSelect)="selectActor($event)" (onDeleteClick)="deleteActor($event)"></actor-list>
                 </div>
             </div>
-            <div class="h-50 row">
-                <div class="col-5 h-100">
+            <div class="h-50 row" style="margin-left: 0; margin-right: 0;">
+                <div class="col-5 h-100" style="padding-left: 0; padding-right: 10px;">
                     <div class="encounter-box messageListArea">
                         <message-list [messages]="messages"></message-list>
                     </div>
                 </div>
-                <div class=" col-7 h-100" *ngIf="isGM">
+                <div class=" col-7 h-100" style="padding:0;" *ngIf="isGM">
                     <div class="encounter-box actionEditArea" *ngIf="selectedAction!=null">
                         <h2>
                             Action
@@ -55,7 +39,7 @@
             </div>
         </div>
         <div class="h-100 columnRight" [ngClass]="{'col-3': isGM,
-                                       'col-5': !isGM}">
+                                    'col-5': !isGM}">
             <div class="encounter-box actionsList">
                 <h2>
                     <span *ngIf="isGM" style="float:right; display:block;">
@@ -65,8 +49,9 @@
                     </span>
                     Actions <span class="subText">Current Time: {{currentTime}}</span>
                 </h2>
-                <actions-list [actions]="actions" [viewType]="viewType" [isSelectable]="isGM" (onSelect)="selectAction($event)" (onDeleteClick)="deleteAction($event)" ></actions-list>
+                <actions-list [actions]="actions" [viewType]="viewType" [isSelectable]="isGM" (onSelect)="selectAction($event)" (onDeleteClick)="deleteAction($event)"></actions-list>
             </div>
         </div>
     </div>
 </div>
+

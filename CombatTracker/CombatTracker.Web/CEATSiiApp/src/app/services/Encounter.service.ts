@@ -46,8 +46,10 @@ export class EncounterService {
 
     private _timedService: RecurringTask = new RecurringTask(async () => {
         this._alertService.success("Refreshing List");
-        await this.refreshAsync();
-        this._alertService.success("List Refreshed");
+        var success = await this.refreshAsync();
+        if (success) {
+            this._alertService.success("List Refreshed");
+        }
     }, 60000, 120000);
 
 
@@ -461,88 +463,98 @@ export class EncounterService {
     }
 
 
-    public async refreshAsync():Promise<void> {
-        await this.refreshLock.BeginLock();
-        try {
-            var game = await this.encounterRepo.getCurrentGameAsync();
-            if (game == null) {
-                this._alertService.error("List Refresh Error: Game returned null");
-                return;
-            }
-            //debugger;
-            if (this._currentGame == null) {
-                this._currentGame = game;
-            } else {
-                this._currentGame = Object.assign(this._currentGame, game);
-            }
-            if (this._currentGame != null && this._currentGame.id == 0) {
-                this._currentGame = null;
-            }
-            if (this.currentGame != null) {
-                //this._currentGame = await this.gameRepo.getGameAsync(this._currentGame.id);
-                var tempActors: Array<Actor> = null;
-                var tempActions: Array<BaseAction> = null;
-
-                this.actorRepo.getActorsInGame(this.currentGame.id).subscribe((acts) => {
-                    tempActors = acts;
-                });
-
-                this.actionRepo.getActionsInGame(this.currentGame.id).subscribe((acts) => {
-                    tempActions = acts;
-                });
-
-
-                this.encounterRepo.getMessages().subscribe((msgs) => {
-                    //debugger;
-                    //msgs.forEach((msg) => {
-                    //    msg.dateTimeStamp = new Date(msg.dateTimeStamp);
-                    //});
-                    this.allMessages = msgs;
-                });
-                //allMessages
-
-                await whenTrue(() => {
-                    return tempActors != null && tempActions != null;
-                });
-
-                var selectedActor = this.selectedActor;
-
-                this.refreshActors(tempActors);
-                this.refreshActions(tempActions);
-
-                var removedActions = this.allActions.filter(item => (tempActions.find((a) => a.id == item.id) == undefined));
-                removedActions.forEach((a) => this.removeAction(a));
-
-
-                var removedActors = this.allActors.filter(item => (tempActors.find((a) => a.id == item.id) == undefined));
-                removedActors.forEach((a) => this.removeActor(a));
-
-                this.setActive();
-
-                if (this.isGM) {
-                    //debugger;
-                    if (selectedActor != null && (this.selectedActor == null || selectedActor.id != this.selectedActor.id)) {
-                        this.selectActor(selectedActor.id);
+    public async refreshAsync(): Promise<boolean> {
+        var returnVal = false;
+        await this.refreshLock.LockAreaAsync(async (): Promise<void> => {
+            try {
+                var game = await this.encounterRepo.getCurrentGameAsync();
+                if (game == null) {
+                    this._alertService.error("List Refresh Error: Game returned null");
+                    if (this._currentGame != null) {
+                        await this.encounterRepo.setCurrentGameAsync(this._currentGame.id);
                     }
 
-                    if (this.selectedActions.length == 0) {
-                        this.selectedAction = this.actions[0];
-                    }
+                    returnVal = false;
+                    return;
+                }
+                //debugger;
+                if (this._currentGame == null) {
+                    this._currentGame = game;
+                } else {
+                    this._currentGame = Object.assign(this._currentGame, game);
+                }
+                if (this._currentGame != null && this._currentGame.id == 0) {
+                    this._currentGame = null;
+                }
+                if (this.currentGame != null) {
+                    //this._currentGame = await this.gameRepo.getGameAsync(this._currentGame.id);
+                    var tempActors: Array<Actor> = null;
+                    var tempActions: Array<BaseAction> = null;
 
-                    if (this.selectedActions.length > 0 && this.selectedActor == null) {
+                    this.actorRepo.getActorsInGame(this.currentGame.id).subscribe((acts) => {
+                        tempActors = acts;
+                    });
 
-                        this.selectedActor = this.selectedActions[0].whoIsActing;
+                    this.actionRepo.getActionsInGame(this.currentGame.id).subscribe((acts) => {
+                        tempActions = acts;
+                    });
+
+
+                    this.encounterRepo.getMessages().subscribe((msgs) => {
+                        //debugger;
+                        //msgs.forEach((msg) => {
+                        //    msg.dateTimeStamp = new Date(msg.dateTimeStamp);
+                        //});
+                        this.allMessages = msgs;
+                    });
+                    //allMessages
+
+                    await whenTrue(() => {
+                        return tempActors != null && tempActions != null;
+                    });
+
+                    var selectedActor = this.selectedActor;
+
+                    this.refreshActors(tempActors);
+                    this.refreshActions(tempActions);
+
+                    var removedActions = this.allActions.filter(item => (tempActions.find((a) => a.id == item.id) == undefined));
+                    removedActions.forEach((a) => this.removeAction(a));
+
+
+                    var removedActors = this.allActors.filter(item => (tempActors.find((a) => a.id == item.id) == undefined));
+                    removedActors.forEach((a) => this.removeActor(a));
+
+                    this.setActive();
+
+                    if (this.isGM) {
+                        //debugger;
+                        if (selectedActor != null && (this.selectedActor == null || selectedActor.id != this.selectedActor.id)) {
+                            this.selectActor(selectedActor.id);
+                        }
+
+                        if (this.selectedActions.length == 0) {
+                            this.selectedAction = this.actions[0];
+                        }
+
+                        if (this.selectedActions.length > 0 && this.selectedActor == null) {
+
+                            this.selectedActor = this.selectedActions[0].whoIsActing;
+                        }
                     }
                 }
+            } catch (e) {
+                setTimeout(() => {
+                    this._alertService.error("List Refresh Error");
+                }, 1000);
+                returnVal = false;
+                return;
             }
-        } catch(e) {
-            setTimeout(() => {
-                this._alertService.error("List Refresh Error");
-            }, 1000);
-        }
+            returnVal = true;
+            return;
+        });
 
-
-        await this.refreshLock.EndLock();
+        return returnVal;
     }
 
     public async addCreatureToEncounterAsync(creature: Creature): Promise<void> {
@@ -628,4 +640,12 @@ export class EncounterService {
         }
     }
 
+    public async resetCurrentEncounter(): Promise<void> {
+        await this.encounterRepo.resetCurrentEncounterAsync();
+
+    }
+
+    public async deleteCurrentEncounter(): Promise<void> {
+        await this.encounterRepo.deleteCurrentEncounterAsync();
+    }
 }

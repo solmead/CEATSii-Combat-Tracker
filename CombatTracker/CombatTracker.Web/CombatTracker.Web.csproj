@@ -17,6 +17,16 @@
 
 	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
 	  <WarningLevel>4</WarningLevel>
+	  <CustomCommands>
+	    <CustomCommands>
+	      <Command>
+	        <type>BeforeBuild</type>
+	        <command>ng build</command>
+	        <workingdir>${ProjectDir}/CEATSiiApp</workingdir>
+	        <externalConsole>True</externalConsole>
+	      </Command>
+	    </CustomCommands>
+	  </CustomCommands>
 	</PropertyGroup>
 	<ItemGroup>
 		<PackageReference Include="Microsoft.AspNetCore.ApiAuthorization.IdentityServer" Version="6.0.10" />
@@ -344,6 +354,178 @@
 		<Content Remove="wwwroot\dist\CEATSiiApp\scripts.js.map" />
 		<Content Remove="wwwroot\dist\CEATSiiApp\favicon.ico" />
 		<Content Remove="wwwroot\dist\CEATSiiApp\index.html" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\main.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\polyfills.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\styles.css" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\runtime.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\vendor.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\scripts.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\polyfills.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\styles.css.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\runtime.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\scripts.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\main.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\vendor.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\favicon.ico" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\index.html" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\main.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\polyfills.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\styles.css" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\runtime.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\vendor.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\scripts.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\polyfills.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\styles.css.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\runtime.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\vendor.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\main.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\scripts.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\favicon.ico" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\index.html" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\main.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\styles.css" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\polyfills.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\runtime.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\vendor.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\scripts.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\polyfills.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\styles.css.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\runtime.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\vendor.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\scripts.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\main.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\main.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\polyfills.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\styles.css" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\runtime.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\vendor.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\scripts.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\polyfills.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\styles.css.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\runtime.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\main.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\scripts.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\vendor.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\favicon.ico" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\index.html" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\main.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\polyfills.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\styles.css" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\runtime.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\vendor.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\scripts.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\polyfills.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\styles.css.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\runtime.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\scripts.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\main.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\vendor.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\main.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\polyfills.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\styles.css" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\runtime.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\scripts.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\vendor.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\polyfills.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\styles.css.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\runtime.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\scripts.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\main.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\vendor.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\main.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\polyfills.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\styles.css" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\runtime.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\vendor.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\scripts.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\polyfills.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\styles.css.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\runtime.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\vendor.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\scripts.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\main.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\main.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\polyfills.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\styles.css" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\runtime.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\vendor.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\scripts.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\main.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\polyfills.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\styles.css.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\runtime.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\scripts.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\vendor.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\favicon.ico" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\index.html" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\main.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\polyfills.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\styles.css" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\runtime.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\vendor.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\scripts.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\polyfills.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\styles.css.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\runtime.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\vendor.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\scripts.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\main.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\favicon.ico" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\index.html" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\main.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\polyfills.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\styles.css" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\runtime.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\vendor.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\scripts.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\main.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\polyfills.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\styles.css.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\runtime.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\scripts.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\vendor.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\favicon.ico" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\index.html" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\main.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\polyfills.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\runtime.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\vendor.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\styles.css" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\polyfills.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\styles.css.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\scripts.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\runtime.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\scripts.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\main.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\vendor.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\favicon.ico" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\index.html" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\main.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\polyfills.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\runtime.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\vendor.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\styles.css" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\scripts.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\polyfills.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\styles.css.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\runtime.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\scripts.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\main.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\vendor.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\favicon.ico" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\index.html" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\main.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\polyfills.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\styles.css" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\runtime.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\vendor.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\scripts.js" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\polyfills.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\styles.css.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\runtime.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\scripts.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\main.js.map" />
+		<Content Remove="wwwroot\dist\CEATSiiApp\vendor.js.map" />
 	</ItemGroup>
 
 

@@ -31,7 +31,7 @@ import { AttackListComponent } from '@/components/attack';
 import { AttackEditComponent } from '@/components/attack';
 import { WeaponListComponent } from '@/components/weapon';
 import { WeaponEditComponent } from '@/components/weapon';
-import { ActionEditComponent, ActionsListComponent } from '@/components/encounter';
+import { ActionEditComponent, ActionsListComponent, EncounterHeaderComponent, LibraryListComponent, AddDamageComponent, AddStunnedmaneuveringComponent, AddSpelleffectComponent} from '@/components/encounter';
 import { ActionComponent } from '@/components/encounter';
 import { ActorComponent, ActorListComponent } from '@/components/actor/';
 import { ModalComponent, ModalService, TreeviewComponent, TooltipDirective } from '@/elements';
@@ -44,7 +44,7 @@ import { AuthenticationService, EncounterService, EncounterHubService, AlertServ
 
 import { AuthorizeInterceptor } from './api-authorization/authorize.interceptor';
 import { ApiAuthorizationModule } from './api-authorization/api-authorization.module';
-import { MessageListComponent } from './components/messages';
+import { MessageListComponent } from '@/components/messages';
 
 
 @NgModule({
@@ -79,7 +79,12 @@ import { MessageListComponent } from './components/messages';
         AlertComponent,
         MainNavMenuComponent,
         SideNavMenuComponent,
-        Safe
+        Safe,
+        EncounterHeaderComponent,
+        LibraryListComponent,
+        AddDamageComponent,
+        AddStunnedmaneuveringComponent,
+        AddSpelleffectComponent
     ],
     imports: [
         BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

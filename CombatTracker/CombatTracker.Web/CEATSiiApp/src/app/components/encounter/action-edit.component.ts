@@ -1,6 +1,7 @@
 ﻿import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { ActionDefinition, Attack, BaseAction } from '@/entities';
-import { treeEntry } from '@/services';
+import { AuthenticationService, EncounterService, treeEntry } from '@/services';
+import { ModalService } from '@/elements/modal/modal.service';
 import { TreeModel, iTreeNode, TreeNode } from '@/elements/treeview';
 import { Actor } from '@/entities';
 import { delay, MutexLock } from '@/_helpers';
@@ -9,6 +10,7 @@ import { EnumDefinitions } from '@/entities/EnumDefinitions';
 
 import ActionTypeEnum = EnumDefinitions.ActionTypeEnum;
 import ActorActionType = EnumDefinitions.ActorActionType;
+import ViewTypeEnum = EnumDefinitions.ViewTypeEnum;
 
 export class ProposeAction {
     constructor(public actor: Actor, public action: ActionDefinition, public attack:Attack = null, public modifier: number = 0) {
@@ -33,6 +35,7 @@ export class ActionEditComponent implements OnInit, OnChanges {
 
     @Output() onProposeAction = new EventEmitter<ProposeAction>();
     @Output() onDoAction = new EventEmitter<BaseAction>();
+    @Output() onSaved = new EventEmitter<Actor>();
 
 
     public mods = [-40, -30, -20, -10, 0, 10, 20, 30];
@@ -47,7 +50,8 @@ export class ActionEditComponent implements OnInit, OnChanges {
 
     //selectedAction
     /** action-edit ctor */
-    constructor() {
+    constructor(public gameView: EncounterService,
+        private modalService: ModalService) {
         
     }
 
@@ -158,21 +162,76 @@ export class ActionEditComponent implements OnInit, OnChanges {
         
     }
 
-    
+    get whoIsActing():Actor {
+        return this.selectedAction.whoIsActing;
+    }
 
     doAction() {
-        this.onDoAction.next(this.selectedAction);
+        this.doSelectedAction(this.selectedAction);
     }
 
     onTreeSelect(node: TreeNode) {
-       
         var n2 = <treeEntry><any>(node.node);
-
         var pAction = new ProposeAction(this.selectedAction.whoIsActing, n2.action, n2.attack, this.selectedAction.currentModifier);
-        this.onProposeAction.next(pAction);
+        this.proposeAction(pAction);
     }
     onModSelected() {
         var pAction = new ProposeAction(this.selectedAction.whoIsActing, this.selectedAction.base, this.selectedAction.currentAttack, this.currentModifier);
-        this.onProposeAction.next(pAction);
+        this.proposeAction(pAction);
     }
+
+
+    get viewType(): ViewTypeEnum {
+        return this.gameView.viewType;
+    }
+
+    get isGM(): boolean {
+        return this.viewType == ViewTypeEnum.GM;
+    }
+
+    async doSelectedAction(action: BaseAction): Promise<void> {
+        if (this.isGM) {
+            var cur = action.whoIsActing.isActive;
+            await this.gameView.doProposedActionAsync(action.whoIsActing);
+            if (cur) {
+                await this.gameView.moveToNextAsync();
+            }
+            this.onDoAction.next(action);
+            this.onSaved.next(this.whoIsActing);
+        }
+    }
+
+    async proposeAction(action: ProposeAction): Promise<void> {
+        if (this.isGM) {
+            var act = await this.gameView.proposeActionAsync(action.actor, action.action, action.attack, action.modifier);
+
+            this.gameView.selectedAction = act;
+
+            this.onProposeAction.next(action);
+            this.onSaved.next(this.whoIsActing);
+        }
+    }
+
+    onSave() {
+        this.onSaved.next(this.whoIsActing);
+        this.modalService.close('addDamage-modal');
+        this.modalService.close('addSpell-modal');
+        this.modalService.close('addManeuvering-modal');
+    }
+
+    async addDamage() {
+        this.modalService.open('addDamage-modal');
+    }
+
+    async addSpell() {
+        this.modalService.open('addSpell-modal');
+    }
+
+    async addStunned() {
+        this.modalService.open('addManeuvering-modal');
+    }
+
+
+
+
 }
