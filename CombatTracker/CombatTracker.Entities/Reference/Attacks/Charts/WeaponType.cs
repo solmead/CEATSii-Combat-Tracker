@@ -7,8 +7,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using CombatTracker.Base;
 using System.Linq;
-using CombatTracker.Entities.Reference.Base;
 
 namespace CombatTracker.Entities.Reference.Attacks.Charts
 {

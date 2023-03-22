@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CombatTracker.Entities.Reference
+namespace CombatTracker.Base.Reference
 {
     static public class Dice
     {

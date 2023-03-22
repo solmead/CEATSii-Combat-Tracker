@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CombatTracker.Base.Reference;
 using CombatTracker.Entities.Abstract.Repos;
 using CombatTracker.Entities.Abstract.Services;
 using CombatTracker.Entities.Reference;

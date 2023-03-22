@@ -1,5 +1,5 @@
-﻿using CombatTracker.Entities.Security;
-using CombatTracker.Entities.ViewModels;
+﻿using CombatTracker.Base.Security;
+using CombatTracker.Base.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Text;

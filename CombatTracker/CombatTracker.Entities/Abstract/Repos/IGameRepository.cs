@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using CombatTracker.Entities.Current;
 using CombatTracker.Entities.Reference.Attacks;
-using CombatTracker.Entities.Utilities;
+using CombatTracker.Base.Utilities;
 
 namespace CombatTracker.Entities.Abstract.Repos
 {

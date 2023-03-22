@@ -12,20 +12,6 @@ namespace CombatTracker.Entities.Reference
         GM
     }
 
-    public enum SecurityRoles
-    {
-        None,
-        Normal,
-        Compendium,
-        Admin
-    }
-
-    public enum MessageTypeEnum
-    {
-        Normal,
-        Warning,
-        Alert
-    }
 
     public enum ResponseEnum
     {
@@ -51,12 +37,6 @@ namespace CombatTracker.Entities.Reference
     }
 
 
-    public enum CharacterType
-    {
-
-        NPC,
-        PC
-    }
 
     public enum ActorActionType
     {

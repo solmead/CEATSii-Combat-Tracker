@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using CombatTracker.Entities.Reference.Attacks;
-
-namespace CombatTracker.Entities.Reference.Base
+using CombatTracker.Base.Reference;
+//CombatTracker.Base
+namespace CombatTracker.Base.Abstract
 {
     public interface IActable
     {
@@ -16,11 +16,11 @@ namespace CombatTracker.Entities.Reference.Base
         int GetExaustionTotal(int? roll = null);
         int GetPowerPointsTotal(int? roll = null);
         CharacterType GetActorType();
-        Armor GetArmor();
+        IArmor GetArmor();
         double GetBaseMove();
         int GetStrengthBonus();
         double GetPercentRequiredAdrenalDB();
-        List<Attack> GetAttacks();
+        List<IAttack> GetAttacks();
         double GetWalkSpeed();
 
         string GetCriticalIgnores();

@@ -1,4 +1,5 @@
-﻿using CombatTracker.Entities.Reference;
+﻿using CombatTracker.Base.Reference;
+using CombatTracker.Entities.Reference;
 using CombatTracker.Entities.Reference.Creatures;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authorization.Infrastructure;

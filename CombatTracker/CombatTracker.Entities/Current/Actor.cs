@@ -5,8 +5,9 @@ using System.Text;
 using System.Threading;
 using CombatTracker.Entities.Reference;
 using CombatTracker.Entities.Reference.Attacks;
-using CombatTracker.Entities.Reference.Base;
+using CombatTracker.Base;
 using CombatTracker.Entities.Reference.Creatures;
+using CombatTracker.Base.Reference;
 
 namespace CombatTracker.Entities.Current
 {

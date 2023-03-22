@@ -10,6 +10,7 @@ using Utilities.Caching;
 using CombatTracker.Entities;
 using CombatTracker.Entities.Reference.Actions;
 using CombatTracker.Entities.Abstract.Repos;
+using CombatTracker.Base.Reference;
 
 namespace CombatTracker.Domain.Repositories
 {

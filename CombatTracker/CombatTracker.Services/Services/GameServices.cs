@@ -9,10 +9,12 @@ using CombatTracker.Entities.Current;
 using CombatTracker.Entities.Reference;
 using CombatTracker.Entities.Reference.Actions;
 using CombatTracker.Entities.Reference.Attacks;
-using CombatTracker.Entities.Reference.Base;
-using CombatTracker.Entities.Utilities;
+using CombatTracker.Base;
+using CombatTracker.Base.Utilities;
 using CombatTracker.Services.Abstract;
 using Utilities.Caching;
+using CombatTracker.Base.Abstract;
+using CombatTracker.Base.Reference;
 
 namespace CombatTracker.Services.Services
 {
@@ -84,7 +86,7 @@ namespace CombatTracker.Services.Services
             actor.HitsRemaining = actor.HitsTotal;
             actor.ExhaustionRemaining = actor.ExhaustionTotal;
             actor.PowerPointsRemaining = actor.PowerPointsTotal;
-            var armor = person.GetArmor();
+            var armor = person.GetArmor() as Armor;
             if (armor==null)
             {
                 armor = new Armor()
@@ -99,8 +101,9 @@ namespace CombatTracker.Services.Services
             actor = _gameRepository.SaveActor(actor);
 
             var attacks = person.GetAttacks();
-            foreach(var att in attacks)
+            foreach(var attck in attacks)
             {
+                var att = attck as Attack;
                 if (att.AttackType_ID == 0)
                 {
                     var at = _chartRepository.GetAttackType("Weapon");
@@ -929,5 +932,6 @@ namespace CombatTracker.Services.Services
                 _notificationService.OnActorRemovedNotification(CurrentGame, curact);
             }
         }
+
     }
 }

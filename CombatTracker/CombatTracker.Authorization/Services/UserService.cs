@@ -1,7 +1,7 @@
 ﻿using CombatTracker.Entities.Abstract.Services;
 using CombatTracker.Entities.Reference;
-using CombatTracker.Entities.Security;
-using CombatTracker.Entities.ViewModels;
+using CombatTracker.Base.Security;
+using CombatTracker.Base.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
@@ -12,7 +12,7 @@ using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using Utilities.EnumExtensions;
-
+using CombatTracker.Base.Reference;
 
 namespace CombatTracker.Authorization.Services
 {

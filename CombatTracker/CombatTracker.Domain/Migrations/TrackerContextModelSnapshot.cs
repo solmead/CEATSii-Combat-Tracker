@@ -1135,7 +1135,7 @@ namespace CombatTracker.Domain.Migrations
                     b.ToTable("Characters");
                 });
 
-            modelBuilder.Entity("CombatTracker.Entities.Security.ApplicationUser", b =>
+            modelBuilder.Entity("CombatTracker.Base.Security.ApplicationUser", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -1722,7 +1722,7 @@ namespace CombatTracker.Domain.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("CombatTracker.Entities.Security.ApplicationUser", "Owner")
+                    b.HasOne("CombatTracker.Base.Security.ApplicationUser", "Owner")
                         .WithMany()
                         .HasForeignKey("OwnerID");
 
@@ -1768,7 +1768,7 @@ namespace CombatTracker.Domain.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("CombatTracker.Entities.Security.ApplicationUser", null)
+                    b.HasOne("CombatTracker.Base.Security.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1777,7 +1777,7 @@ namespace CombatTracker.Domain.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("CombatTracker.Entities.Security.ApplicationUser", null)
+                    b.HasOne("CombatTracker.Base.Security.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1792,7 +1792,7 @@ namespace CombatTracker.Domain.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("CombatTracker.Entities.Security.ApplicationUser", null)
+                    b.HasOne("CombatTracker.Base.Security.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1801,7 +1801,7 @@ namespace CombatTracker.Domain.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("CombatTracker.Entities.Security.ApplicationUser", null)
+                    b.HasOne("CombatTracker.Base.Security.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)

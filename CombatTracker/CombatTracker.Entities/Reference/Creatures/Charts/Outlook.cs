@@ -1,4 +1,4 @@
-using CombatTracker.Entities.Reference.Base;
+using CombatTracker.Base;
 
 namespace CombatTracker.Entities.Reference.Creatures.Charts
 {

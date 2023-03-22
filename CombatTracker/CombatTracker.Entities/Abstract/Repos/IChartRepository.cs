@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using CombatTracker.Base.Reference;
 using CombatTracker.Entities.Reference;
 using CombatTracker.Entities.Reference.Actions;
 using CombatTracker.Entities.Reference.Attacks.Charts;

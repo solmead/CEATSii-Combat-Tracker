@@ -1,6 +1,6 @@
 
 using System.Collections.Generic;
-using CombatTracker.Entities.Reference.Base;
+using CombatTracker.Base;
 using CombatTracker.Entities.Reference.Creatures;
 
 namespace CombatTracker.Entities.Reference.Creatures.Charts

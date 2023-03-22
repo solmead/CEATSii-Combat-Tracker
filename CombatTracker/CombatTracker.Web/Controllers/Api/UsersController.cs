@@ -1,6 +1,6 @@
 ﻿using CombatTracker.Entities.Abstract.Services;
-using CombatTracker.Entities.Security;
-using CombatTracker.Entities.ViewModels;
+using CombatTracker.Base.Security;
+using CombatTracker.Base.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;

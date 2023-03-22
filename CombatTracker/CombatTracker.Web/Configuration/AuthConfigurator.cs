@@ -1,5 +1,5 @@
-﻿using CombatTracker.Domain;
-using CombatTracker.Entities.Security;
+﻿using CombatTracker.Base.Security;
+using CombatTracker.Domain;
 using CombatTracker.Web.Models.Settings;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;

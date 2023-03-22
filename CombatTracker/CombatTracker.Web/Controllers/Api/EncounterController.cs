@@ -6,7 +6,7 @@ using CombatTracker.Entities.Abstract.Repos;
 using CombatTracker.Entities.Abstract.Services;
 using CombatTracker.Entities.Current;
 using CombatTracker.Entities.Reference;
-using CombatTracker.Entities.Utilities;
+using CombatTracker.Base.Utilities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;

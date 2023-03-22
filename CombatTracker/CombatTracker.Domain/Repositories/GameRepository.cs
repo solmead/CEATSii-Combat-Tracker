@@ -7,7 +7,7 @@ using CombatTracker.Entities.Reference.Attacks;
 using Utilities.Caching;
 using CombatTracker.Domain.Models;
 using CombatTracker.Entities.Abstract.Repos;
-using CombatTracker.Entities.Utilities;
+using CombatTracker.Base.Utilities;
 
 namespace CombatTracker.Domain.Repositories
 {

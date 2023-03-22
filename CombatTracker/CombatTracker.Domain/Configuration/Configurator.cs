@@ -1,7 +1,7 @@
 ﻿using CombatTracker.Domain.Repositories;
 using CombatTracker.Entities.Abstract.Repos;
 using CombatTracker.Entities.Reference;
-using CombatTracker.Entities.Security;
+using CombatTracker.Base.Security;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CombatTracker.Base.Reference;
 
 namespace CombatTracker.Domain.Configuration
 {

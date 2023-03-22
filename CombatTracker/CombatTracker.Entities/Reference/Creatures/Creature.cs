@@ -2,10 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using CombatTracker.Entities.Reference.Attacks;
-using CombatTracker.Entities.Reference.Base;
+using CombatTracker.Base;
 using CombatTracker.Entities.Reference.Creatures.Charts;
-using CombatTracker.Entities.Security;
 using Utilities.EnumExtensions;
+using CombatTracker.Base.Abstract;
+using CombatTracker.Base.Reference;
 
 namespace CombatTracker.Entities.Reference.Creatures
 {
@@ -115,7 +116,7 @@ namespace CombatTracker.Entities.Reference.Creatures
         {
             return CharacterType.NPC;
         }
-        public Armor GetArmor()
+        public IArmor GetArmor()
         {
             var ar = new Armor {Type = AT, Description = "Unknown", DB = DB};
             return ar;
@@ -135,9 +136,9 @@ namespace CombatTracker.Entities.Reference.Creatures
             return 1;
         }
 
-        public List<Attack> GetAttacks()
+        public List<IAttack> GetAttacks()
         {
-            return Attacks.ToList();
+            return (from att in Attacks select (IAttack)att).ToList();
         }
 
         public double GetWalkSpeed()

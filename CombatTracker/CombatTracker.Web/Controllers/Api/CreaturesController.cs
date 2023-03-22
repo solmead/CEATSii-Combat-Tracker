@@ -9,7 +9,7 @@ using CombatTracker.Entities.Abstract.Repos;
 using CombatTracker.Entities.Abstract.Services;
 using CombatTracker.Entities.Reference;
 using CombatTracker.Entities.Reference.Creatures;
-using CombatTracker.Entities.Security;
+using CombatTracker.Base.Security;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;

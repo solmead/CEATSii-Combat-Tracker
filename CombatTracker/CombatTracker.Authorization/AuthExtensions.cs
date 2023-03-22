@@ -1,4 +1,4 @@
-﻿using CombatTracker.Entities.Security;
+﻿using CombatTracker.Base.Security;
 using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;

@@ -1,9 +1,9 @@
-﻿using CombatTracker.Entities.Reference;
+﻿using CombatTracker.Base.Reference;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace CombatTracker.Entities.Utilities
+namespace CombatTracker.Base.Utilities
 {
     public class Message
     {

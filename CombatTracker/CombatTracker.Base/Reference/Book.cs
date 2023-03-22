@@ -1,8 +1,5 @@
 
-using System.Collections.Generic;
-using CombatTracker.Entities.Reference.Creatures;
-
-namespace CombatTracker.Entities.Reference
+namespace CombatTracker.Base.Reference
 {
     public partial class Book
     {

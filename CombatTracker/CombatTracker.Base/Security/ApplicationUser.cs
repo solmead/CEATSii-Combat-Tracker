@@ -1,11 +1,11 @@
-﻿using CombatTracker.Entities.Reference;
+﻿using CombatTracker.Base.Reference;
 using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
-namespace CombatTracker.Entities.Security
+namespace CombatTracker.Base.Security
 {
     public class ApplicationUser : IdentityUser
     {

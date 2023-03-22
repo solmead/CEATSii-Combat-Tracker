@@ -10,13 +10,14 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using CombatTracker.Base.Abstract;
 using CombatTracker.Entities.Reference.Attacks.Charts;
 using CombatTracker.Entities.Reference.Creatures;
 using CombatTracker.Entities.Reference.Creatures.Charts;
 
 namespace CombatTracker.Entities.Reference.Attacks
 {
-    public partial class Attack
+    public partial class Attack : IAttack
     {
         public Attack()
         {
@@ -78,6 +79,8 @@ namespace CombatTracker.Entities.Reference.Attacks
                 }
             }
         }
+
+        public string Description => Name;
 
         public void ModifyOB(int levelDiff)
         {

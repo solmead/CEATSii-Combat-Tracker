@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using CombatTracker.Entities.Current;
-using CombatTracker.Entities.Utilities;
+using CombatTracker.Base.Utilities;
 
 namespace CombatTracker.Services.Abstract
 {

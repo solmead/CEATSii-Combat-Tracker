@@ -1,6 +1,6 @@
 ﻿using System;
 using CombatTracker.Domain;
-using CombatTracker.Entities.Security;
+using CombatTracker.Base.Security;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;

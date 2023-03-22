@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using CombatTracker.Entities.Abstract.Repos;
 using CombatTracker.Entities.Abstract.Services;
 using CombatTracker.Entities.Current;
-using CombatTracker.Entities.Utilities;
+using CombatTracker.Base.Utilities;
 using CombatTracker.Services.Abstract;
 using Microsoft.AspNetCore.SignalR;
 

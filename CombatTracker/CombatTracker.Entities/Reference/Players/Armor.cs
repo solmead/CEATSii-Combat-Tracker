@@ -1,8 +1,9 @@
 
+using CombatTracker.Base.Abstract;
 using System;
 namespace CombatTracker.Entities.Reference
 {
-    public partial class Armor
+    public partial class Armor : IArmor
     {
         public int ID { get; set; }
         public int Type { get; set; }

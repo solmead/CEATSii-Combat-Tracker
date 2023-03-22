@@ -6,8 +6,9 @@ using CombatTracker.Entities.Current;
 using CombatTracker.Entities.Reference;
 using CombatTracker.Entities.Reference.Actions;
 using CombatTracker.Entities.Reference.Attacks;
-using CombatTracker.Entities.Reference.Base;
-using CombatTracker.Entities.Utilities;
+using CombatTracker.Base;
+using CombatTracker.Base.Utilities;
+using CombatTracker.Base.Abstract;
 
 namespace CombatTracker.Entities.Abstract.Services
 {

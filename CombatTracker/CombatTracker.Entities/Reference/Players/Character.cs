@@ -1,10 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using CombatTracker.Base.Abstract;
 using CombatTracker.Entities.Reference.Attacks;
 using CombatTracker.Entities.Reference.Attacks.Charts;
-using CombatTracker.Entities.Reference.Base;
+using CombatTracker.Base;
 using Utilities.EnumExtensions;
+using CombatTracker.Base.Reference;
 
 namespace CombatTracker.Entities.Reference
 {
@@ -100,7 +102,7 @@ namespace CombatTracker.Entities.Reference
             return Type;
         }
 
-        public Armor GetArmor()
+        public IArmor GetArmor()
         {
             return Armors.FirstOrDefault();
         }
@@ -117,10 +119,10 @@ namespace CombatTracker.Entities.Reference
         {
             return WalkSpeed;
         }
-        public List<Attack> GetAttacks()
+        public List<IAttack> GetAttacks()
         {
             return (from wpn in Weapons
-                    select new Attack()
+                    select (IAttack)new Attack()
                                {
                                    WeaponUsed = wpn,
                                    OB = wpn.OB

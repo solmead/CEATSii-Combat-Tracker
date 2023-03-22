@@ -12,8 +12,8 @@ using CombatTracker.Domain.Reference.Players;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.ApiAuthorization.IdentityServer;
 using Microsoft.Extensions.Options;
-using CombatTracker.Entities.Security;
 using Duende.IdentityServer.EntityFramework.Options;
+using CombatTracker.Base.Security;
 
 namespace CombatTracker.Domain
 {

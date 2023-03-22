@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using CombatTracker.Domain.Reference.Attacks;
 using CombatTracker.Entities.Reference;
-using CombatTracker.Entities.Security;
+using CombatTracker.Base.Security;
 
 namespace CombatTracker.Domain.Reference.Creatures
 {
