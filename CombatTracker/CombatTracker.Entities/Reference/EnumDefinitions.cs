@@ -51,16 +51,6 @@ namespace CombatTracker.Entities.Reference
     }
 
 
-    public enum CriticalLevels
-    {
-        Same,
-        A,
-        B,
-        C,
-        D,
-        E
-    }
-
     public enum CharacterType
     {
 
@@ -125,5 +115,15 @@ namespace CombatTracker.Entities.Reference
         Proposed,
         InCompendium
     }
-    
+
+
+    public enum CriticalLevels
+    {
+        Same,
+        A,
+        B,
+        C,
+        D,
+        E
+    }
 }
