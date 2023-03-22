@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import * as Enums from '@/entities/EnumDefinitions'
+import { EnumDefinitions } from '@/entities/EnumDefinitions';
 import { ReferenceRepository } from '@/repositories';
 import { ActionGroup, Actor, Attack } from '@/entities';
 import { ActionDefinition } from '@/entities';
@@ -20,6 +20,9 @@ import { PsychicRefractoryPeriodEntry } from '@/entities';
 import { iTreeNode } from '@/elements/treeview/itreenode';
 import { MutexLock } from '@/_helpers/Lock';
 import { whenTrue } from '@/_helpers/Tasks';
+
+
+import BaseActionType = EnumDefinitions.BaseActionType;
 
 export class treeEntry implements iTreeNode {
 
@@ -125,6 +128,7 @@ export class ReferencesService {
 
     private _actionTree: treeEntry = null;
     private _attackNodes: Array<treeEntry> = new Array<treeEntry>();
+    private _moveNodes: Array<treeEntry> = new Array<treeEntry>();
     private treeLock = new MutexLock();
 
     constructor(private referenceRepo: ReferenceRepository) {
@@ -148,6 +152,9 @@ export class ReferencesService {
                 agNode.addChild(actNode);
                 if (act.isAttack) {
                     this._attackNodes.push(actNode);
+                }
+                if (act.type == BaseActionType.Movement) {
+                    this._moveNodes.push(actNode);
                 }
             });
         });
@@ -174,6 +181,17 @@ export class ReferencesService {
                     n.attack = att;
                     node.addChild(n);
                 });
+            });
+            this._moveNodes.forEach((node) => {
+                node.children = new Array<treeEntry>();
+
+
+                //actor.attacks.forEach((att) => {
+                //    var n = new treeEntry("attack_" + att.id, att.name);
+                //    n.action = node.action;
+                //    n.attack = att;
+                //    node.addChild(n);
+                //});
             });
         }
         //if (sel != null) {

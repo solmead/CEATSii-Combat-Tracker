@@ -22,6 +22,8 @@ SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
+
+
 IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[__EFMigrationsHistory]') AND type in (N'U'))
 BEGIN
 CREATE TABLE [dbo].[__EFMigrationsHistory](
@@ -879,7 +881,11 @@ CREATE TABLE [dbo].[Weapons](
 ) ON [PRIMARY]
 END
 GO
+EXEC sp_MSforeachtable "ALTER TABLE ? NOCHECK CONSTRAINT all"
+GO
 
+
+PRINT 'Inserting [__EFMigrationsHistory]'
 IF NOT EXISTS (SELECT 1 FROM [dbo].[__EFMigrationsHistory])
 BEGIN
 INSERT [dbo].[__EFMigrationsHistory] ([MigrationId], [ProductVersion]) VALUES (N'20180228013138_InitialCreate', N'2.0.1-rtm-125')
@@ -902,6 +908,7 @@ INSERT [dbo].[__EFMigrationsHistory] ([MigrationId], [ProductVersion]) VALUES (N
 
 INSERT [dbo].[__EFMigrationsHistory] ([MigrationId], [ProductVersion]) VALUES (N'20210625052738_CriticalSorting', N'5.0.8')
 END
+PRINT 'Inserting [ActionGroups]'
 IF NOT EXISTS (SELECT 1 FROM [dbo].[ActionGroups])
 BEGIN
 SET IDENTITY_INSERT [dbo].[ActionGroups] ON 
@@ -917,6 +924,8 @@ INSERT [dbo].[ActionGroups] ([ID], [Name]) VALUES (37, N'Movement')
 INSERT [dbo].[ActionGroups] ([ID], [Name]) VALUES (38, N'Spell')
 
 SET IDENTITY_INSERT [dbo].[ActionGroups] OFF
+
+PRINT 'Inserting [Actions]'
 
 SET IDENTITY_INSERT [dbo].[Actions] ON 
 
@@ -1034,6 +1043,7 @@ INSERT [dbo].[Actions] ([ID], [ActionGroup_ID], [BasePercent], [IsAttack], [IsSp
 
 SET IDENTITY_INSERT [dbo].[Actions] OFF
 
+PRINT 'Inserting [Actors]'
 SET IDENTITY_INSERT [dbo].[Actors] ON 
 
 INSERT [dbo].[Actors] ([ID], [BaseCharacter_ID], [BaseCreature_ID], [BaseInititive], [Color], [ConstitutionStat], [CritNegatives], [CurrentArmor_ID], [ExhaustionRemaining], [ExhaustionTotal], [Game_ID], [HitsRemaining], [HitsTotal], [IsConcentrating], [IsMoving], [Level], [Movement], [Name], [NextSpellTime], [PercentAction], [PercentRequiredAdrenalDB], [Player_ID], [PowerPointsRemaining], [PowerPointsTotal], [RolledInititive], [StrengthBonus], [Suprised], [Type], [UsingAdrenalDB]) VALUES (84, 55, NULL, 6, N'255,0,0    ', 90, 0, 79, 100, 100, 15, 42, 112, 0, 0, 8, 50, N'Durn Delgraven', 0, 100, 0.4, NULL, 15, 29, 5, 7, 0, N'NPC', 1)
@@ -1054,6 +1064,7 @@ INSERT [dbo].[Actors] ([ID], [BaseCharacter_ID], [BaseCreature_ID], [BaseInititi
 
 SET IDENTITY_INSERT [dbo].[Actors] OFF
 
+PRINT 'Inserting [ActorsActions]'
 SET IDENTITY_INSERT [dbo].[ActorsActions] ON 
 
 INSERT [dbo].[ActorsActions] ([ID], [ActionType], [BaseAction_ID], [BasePercent], [Bleeder], [Count], [CriticalGiven], [Critical_ID], [CurrentAttack_ID], [CurrentModifier], [EndTime], [Game_ID], [HastedPercent], [Interrupted], [IsHasted], [IsSlowed], [LeftPercent], [LevelDifference], [Name], [Note], [StartTime], [State], [TotalRounds], [Type], [WhoIsActing_ID], [CharacterAction], [Reoccuring]) VALUES (3062, N'Current', 507, 1, 0, 0, 1, NULL, 1364, 0, 22.945354676749975, 15, 0, 0, 0, 0, 0.31689663405890911, 0, N'Full melee attack', N'', 12.018295739348369, N'IsOK', 0, N'Attack', 87, 0, 0)
@@ -1098,6 +1109,7 @@ SET IDENTITY_INSERT [dbo].[ActorsActions] OFF
 
 SET IDENTITY_INSERT [dbo].[ActorsAttacks] ON 
 
+PRINT 'Inserting [ActorsAttacks]'
 INSERT [dbo].[ActorsAttacks] ([ID], [Actor_ID], [Attack_ID]) VALUES (191, 84, 1484)
 
 INSERT [dbo].[ActorsAttacks] ([ID], [Actor_ID], [Attack_ID]) VALUES (192, 85, 1485)
@@ -1134,6 +1146,7 @@ INSERT [dbo].[ActorsAttacks] ([ID], [Actor_ID], [Attack_ID]) VALUES (207, 91, 14
 
 SET IDENTITY_INSERT [dbo].[ActorsAttacks] OFF
 
+PRINT 'Inserting [Armors]'
 SET IDENTITY_INSERT [dbo].[Armors] ON 
 
 INSERT [dbo].[Armors] ([ID], [DB], [Description], [MovingManeuverMod], [TiedToID], [Type]) VALUES (79, 18, N'Clothing', 0, 55, 1)
@@ -1176,17 +1189,24 @@ INSERT [dbo].[Armors] ([ID], [DB], [Description], [MovingManeuverMod], [TiedToID
 
 SET IDENTITY_INSERT [dbo].[Armors] OFF
 
+PRINT 'Inserting [AspNetRoles]'
+
+
 INSERT [dbo].[AspNetRoles] ([Id], [Name], [NormalizedName], [ConcurrencyStamp]) VALUES (N'08b30104-6dd6-41f0-a822-731a3097d060', N'Compendium', N'COMPENDIUM', N'0ac346f6-522d-40f7-9ec1-40575161bdb9')
 
 INSERT [dbo].[AspNetRoles] ([Id], [Name], [NormalizedName], [ConcurrencyStamp]) VALUES (N'692f5f36-58a7-4310-8424-f6748ad58c03', N'Normal', N'NORMAL', N'a56a8015-bcb9-4696-b300-b924d1afbc93')
 
 INSERT [dbo].[AspNetRoles] ([Id], [Name], [NormalizedName], [ConcurrencyStamp]) VALUES (N'6a79e3c3-9fd3-4168-8d4a-812a7c7b26be', N'Admin', N'ADMIN', N'5b2b0461-4cf0-41c5-9a13-5ec6e65e7d8b')
 
+PRINT 'Inserting [AspNetUserRoles]'
+
 INSERT [dbo].[AspNetUserRoles] ([UserId], [RoleId]) VALUES (N'35adf616-657a-4d16-972f-5c46bd19f466', N'08b30104-6dd6-41f0-a822-731a3097d060')
 
 INSERT [dbo].[AspNetUserRoles] ([UserId], [RoleId]) VALUES (N'b33e27a4-5819-4d8e-9185-568086a8045a', N'692f5f36-58a7-4310-8424-f6748ad58c03')
 
 INSERT [dbo].[AspNetUserRoles] ([UserId], [RoleId]) VALUES (N'87127219-db46-4db6-b0df-32f7d0135681', N'6a79e3c3-9fd3-4168-8d4a-812a7c7b26be')
+
+PRINT 'Inserting [AspNetUsers]'
 
 INSERT [dbo].[AspNetUsers] ([Id], [UserName], [NormalizedUserName], [Email], [NormalizedEmail], [EmailConfirmed], [PasswordHash], [SecurityStamp], [ConcurrencyStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEnd], [LockoutEnabled], [AccessFailedCount]) VALUES (N'35adf616-657a-4d16-972f-5c46bd19f466', N'compendium', N'COMPENDIUM', N'compendium@solmead.com', N'COMPENDIUM@SOLMEAD.COM', 1, N'AQAAAAEAACcQAAAAEDjbEoIwi1bSoyLYCuUkmR6+U6eiWJQWVNtmCWGB8e+ErWdaRGpLBIz23X/ZxmVt5w==', N'JGD4YCFK3XL7BXV7AMQPD5CDDBYDYX6B', N'23b5c898-3b6f-46ca-8515-dde79bb73df1', NULL, 0, 0, NULL, 1, 0)
 
@@ -1195,6 +1215,8 @@ INSERT [dbo].[AspNetUsers] ([Id], [UserName], [NormalizedUserName], [Email], [No
 INSERT [dbo].[AspNetUsers] ([Id], [UserName], [NormalizedUserName], [Email], [NormalizedEmail], [EmailConfirmed], [PasswordHash], [SecurityStamp], [ConcurrencyStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEnd], [LockoutEnabled], [AccessFailedCount]) VALUES (N'b33e27a4-5819-4d8e-9185-568086a8045a', N'normal', N'NORMAL', N'normal@solmead.com', N'NORMAL@SOLMEAD.COM', 1, N'AQAAAAEAACcQAAAAEBZP89GZAMlSlsVrhbBjCStXYmOIEd+qS/mGE1KICjZI1YO1mxW2/6iMfCPnQavuig==', N'H3JVINHSLCKJMPAM3V7XULNH7NVBSFJI', N'8a902c48-a275-4900-82fd-90fabbfe22ff', NULL, 0, 0, NULL, 1, 0)
 
 SET IDENTITY_INSERT [dbo].[Attack_CriticalTypes] ON 
+
+PRINT 'Inserting [Attack_CriticalTypes]'
 
 INSERT [dbo].[Attack_CriticalTypes] ([ID], [Abbreviation], [Name]) VALUES (1, N'', N'None')
 
@@ -1234,6 +1256,7 @@ INSERT [dbo].[Attack_CriticalTypes] ([ID], [Abbreviation], [Name]) VALUES (18, N
 
 SET IDENTITY_INSERT [dbo].[Attack_CriticalTypes] OFF
 
+PRINT 'Inserting [Attack_Types]'
 SET IDENTITY_INSERT [dbo].[Attack_Types] ON 
 
 INSERT [dbo].[Attack_Types] ([ID], [Abbreviation], [HasDB], [HasSize], [Name]) VALUES (1, N'Ba', 1, 1, N'Bash')
@@ -3916,6 +3939,8 @@ IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[
 ALTER TABLE [dbo].[Weapons] CHECK CONSTRAINT [FK_Weapons_Characters_TiedToID]
 GO
 ALTER DATABASE [RMSSNew] SET  READ_WRITE 
+GO
+exec sp_MSforeachtable @command1="print '?'", @command2="ALTER TABLE ? WITH CHECK CHECK CONSTRAINT all"
 GO
 
 PRINT 'Finished RMSSNew create script'
